@@ -1,0 +1,40 @@
+{
+  "status": "PASS_SOURCE_BOUND_UNIT_ARCHIVE",
+  "archived_utc": "2026-10-05T14:32:51.746015+00:00",
+  "reports": {
+    "build/rknpu-fixed-array-build-control/1791210538916975755/report.json": "PASS_FIXED_ARRAY_BUILD_CONTROL_MOCKS_ONLY",
+    "build/rknpu-bitstream-emitter-control/1791210538182242952/report.json": "PASS_BITSTREAM_EMITTER_CONTROL_MOCKS_ONLY"
+  },
+  "archive": "verification/runs/2026-10-05-fixed-build-and-emitter-controls/evidence.tar.gz",
+  "archive_sha256": "822ef11df1a29105d19b490b4801b8592a28ab1014fbb8422fa6a067482b1f11",
+  "archive_bytes": 38203,
+  "verified_members": 25,
+  "member_sha256": {
+    "build/rknpu-fixed-array-build-control/1791210538916975755/report.json": "0b139c0469185ba2e76296a48f79193545f2b83fdca79366130a7c565198e43e",
+    "fpga/cmac/array_sources.json": "aface51453933d919e833d5d9d8dac5a606ee287f1d9f42c371f12cb12dbd659",
+    "fpga/cmac/build_array.tcl.in": "fc721b15d329e531e5937a97bd8346c635a2458c779b2a8db82e34b362fb1275",
+    "rtl/cmac/rk_cmac_cacc_fp16_array.sv": "b66904ee5a76325f72032adea874692179e981d459b57ad738414f39e9e209c6",
+    "tests/cmac/test_array_build.py": "c634ec714cd3f55d587487ab8e7d1d397aea6fe757e1a240a2a64e8cb716a73f",
+    "tests/cmac/test_fixed_array_board_control.py": "93c2622d64fc7ff02bb9742981fd69639d67ad2b659d847fe835c989dbb7f9e9",
+    "tests/cmac/test_fixed_array_build.py": "dd7944c90cc2b6ab61d61bf3d589c90e1a99f5353c9b8926d52c2ce5f3fbfb15",
+    "tests/test_fpga_build.py": "f9e927b0d085ae7efc58019f990ffaf075aefc9c3f547a1f112846d50bad9505",
+    "tools/cmac/check_fixed_array_build.py": "64325b93640d6ef0de005f1ab058d4c167e828f5a6fa27b3e1196cb6e92e007b",
+    "tools/cmac/test_fixed_array_board.py": "c1674b8a5c1eeedebbd96c5c7949371f1fa905ca8671491a39c8a70af0231928",
+    "tools/cmac/vivado_array.py": "6d704e37e25308cba146612b1ce70d9ccd285c9d1ac967d3cbc77d4bba1cc6fe",
+    "tools/cmac/vivado_fixed_array.py": "fb7c16940348bb80660109455d5b8f23e419a319e4363e6581fdcbd674495692",
+    "tools/evidence.py": "3f54c4a372805dba28b10329943f0304eeead809682a1dd1328f83c23a4d0102",
+    "build/rknpu-fixed-array-build-control/1791210538916975755/system.log": "cfabd9a29e71b66b0b6e52a229d1747d340a5b5c101e757a903894f857a05a60",
+    "build/rknpu-fixed-array-build-control/1791210538916975755/xilinx86.log": "8185350f87226b7cfa6a418a6259c1adc706fec56a4ead51b6381c1c34bab822",
+    "build/rknpu-bitstream-emitter-control/1791210538182242952/report.json": "4f3c4049d171360718c8608b4bc86edd5c5bf2e7e508ad03171e75e5d3947e1e",
+    "fpga/cmac/emit_array.tcl.in": "6cc8c1e7c7942b539a1cc8a9398a81d09dfe50f116625b06c51cfcd718efecbe",
+    "tests/cmac/test_emit_array_bitstream.py": "54c596b5625a0e9fea80dc42298afc2281b28978c2c5e26c86c56acef61ed011",
+    "tools/cmac/check_bitstream_emitter.py": "cb3718adb1f2b06dea78f71fc44de80f972a4b3e91f7a2564c5a225742b59662",
+    "tools/cmac/emit_array_bitstream.py": "18ad86588d3dd438b05aa39a5b8228db24ef463bc7a1b66594d2b19cc0a1eeaf",
+    "build/rknpu-bitstream-emitter-control/1791210538182242952/system.log": "2503dd499ce515daa565aa9afbc246f5404bedfbc6ab1ea31bbe0918a6acc047",
+    "build/rknpu-bitstream-emitter-control/1791210538182242952/xilinx86.log": "81fcd25cd64bb36a3167247d1c545c011d755fc6c3ef95683769a1423073663d",
+    "tools/cmac/archive_unit.py": "c29b689faed097a3800f925b6871c609937887250bce94a46da2aa2edd29eb99",
+    "LICENSE": "2803f4c2f19bdec88a36a45570adee13a41a8f9f6fbba96e4368404d915af42a",
+    "rtl/vendor/nvdla/LICENSE": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb"
+  },
+  "scope": "Only the listed completed reports and configurations. Not upstream UTB, unlisted configurations, physical FPGA, or RK silicon."
+}

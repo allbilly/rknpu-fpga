@@ -1,0 +1,8 @@
+{
+  "status": "OLDER_SOURCE_PREFLIGHT_ONLY",
+  "source": "build/fp32_to_fp16_candidate/preflight_source.sv",
+  "scope": "Older always_comb packing source simulated successfully but emitted three Icarus sensitivity limitations. Not the final source pass.",
+  "warning_log": "build/fp32_to_fp16_candidate/preflight_compile.log",
+  "simulation_log": "build/fp32_to_fp16_candidate/preflight_run.log",
+  "progress_diagnostic": "A separate duplicate simulation of the final binary was interrupted after 10 seconds (SIGINT then 2-second SIGKILL deadline, exit 137). It reached simulation time 104945000 ticks. Not a pass; original source-bound runs were not interrupted."
+}

@@ -1,0 +1,180 @@
+{
+  "status": "VERIFIED_DMA_BOARD_EW_PARTIAL_NPU",
+  "source_sha256": "a7c0c42d885e700e3606baf36ead92ba9a1e5a9b6ec5fb69a1faeee0ec51692a",
+  "source_manifest": "verification/runs/2026-09-21-a7c0c42d885e/source_SHA256SUMS",
+  "scope": "Strict FP16 EW raw-command DMA and captured SUB(9) autonomous board self-test. Both RTL and mapped board netlist verified; no physical FPGA/RK validation, full NPU, PCIe or DDR.",
+  "tool_versions": {
+    "verilator": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+    "icarus": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.65 (git sha1 aec814bdf3071f7e0fd0fbe43f7f711e99d01e24, g++-12 12.3.0-1ubuntu1~22.04.3 -fPIC -O3)",
+    "cxx": "c++ (GCC) 16.1.1 20260515 (Red Hat 16.1.1-2)",
+    "python": "3.14.4",
+    "tcl": "9.0.3",
+    "xilinx_tcl": "8.6.13"
+  },
+  "seeds": {
+    "vectors": "0x3588",
+    "alu_backpressure": "0x12345678",
+    "memory_backpressure": "0x35881234"
+  },
+  "checks": {
+    "generated": {
+      "status": "PASS",
+      "log": "build/board_dma_test.log"
+    },
+    "python_units": {
+      "status": "PASS",
+      "methods": 44,
+      "log": "build/board_dma_test.log"
+    },
+    "numeric_model": {
+      "status": "PASS",
+      "cases": 1087299,
+      "report": "verification/runs/2026-09-21-a7c0c42d885e/numeric_report.json",
+      "scope": "C++ versus independent Python, not RTL"
+    },
+    "strict_lint": {
+      "status": "PASS",
+      "tops": [
+        "rk_ew_core",
+        "rk_ew_dma",
+        "ypcb_top"
+      ],
+      "warnings_policy": "Verilator -Wall fatal",
+      "log": "build/board_dma_test.log"
+    },
+    "verilator": {
+      "status": "PASS",
+      "alu_vectors": 12963,
+      "engine_scenarios": 140,
+      "dma_scenarios": 62,
+      "benches": 9,
+      "result_entries": 209,
+      "report": "verification/runs/2026-09-21-a7c0c42d885e/rtl_report.json"
+    },
+    "icarus": {
+      "status": "PASS",
+      "alu_vectors": 12963,
+      "engine_scenarios": 140,
+      "dma_scenarios": 62,
+      "benches": 9,
+      "result_entries": 209,
+      "report": "verification/runs/2026-09-21-a7c0c42d885e/four_state_report.json"
+    },
+    "production_dma_replay": {
+      "status": "PASS",
+      "cases": 9,
+      "backend_commit": "078eee94d8f1912bb63ce786c250d2c24984844a",
+      "fixture": "tests/backend_ew_captures.json",
+      "commands": "Verbatim production compiler/final-writer BOs; no tail rewriting",
+      "numerical_scope": "Synthetic inputs and software oracle; no RK3588 silicon outputs",
+      "observed_memory": "build/{rtl,iverilog}/capture_*_observed.hex"
+    },
+    "cross_simulator_memory": {
+      "status": "PASS",
+      "identical_full_memory_cases": 62
+    },
+    "preservation": {
+      "status": "PASS",
+      "legacy_engine_scenarios": 140,
+      "dma_scenarios": 62,
+      "byte_identical_vector_files": 610,
+      "report": "verification/runs/2026-09-21-a7c0c42d885e/preservation_report.json"
+    },
+    "build_control_tcl86": {
+      "status": "PASS",
+      "methods": 10,
+      "scope": "Mocked Vivado control flow only",
+      "log": "verification/runs/2026-09-21-a7c0c42d885e/build_control_tcl86.log"
+    },
+    "software_demo": {
+      "status": "PASS",
+      "legacy": {
+        "tasks": 3,
+        "transactions": 72
+      },
+      "dma": {
+        "tasks": 2,
+        "command_reads": 228,
+        "data_transactions": 96,
+        "checked_halfwords": 336
+      },
+      "log": "build/board_dma_replay.log"
+    },
+    "synthesis": {
+      "status": "PASS",
+      "report": "verification/runs/2026-09-21-a7c0c42d885e/synthesis_report.json",
+      "board": {
+        "scope": "Captured-DMA board XC7 mapping, BRAM inference and functional mapped-board self-test/reset through board ports",
+        "ramb36e1": 2,
+        "dsp48e1": 1,
+        "flip_flops": 800,
+        "lut1_to_lut6": 3304,
+        "simulated_completion_ns": 85060,
+        "hdl_timeout_ns": 100000
+      },
+      "dma": {
+        "scope": "Standalone default-parameter XC7 mapping; no standalone mapped DMA simulation",
+        "dsp48e1": 1,
+        "flip_flops": 731,
+        "lut1_to_lut6": 3137
+      }
+    },
+    "vivado": {
+      "status": "UNAVAILABLE",
+      "exit_code": 2,
+      "reason": "Full Vivado absent; Vivado Lab is not a synthesis/implementation tool",
+      "log": "build/board_dma_fpga_attempt.log"
+    },
+    "hardware": {
+      "status": "NOT_RUN",
+      "scope": "No RK3588 differential capture, YPCB programming, placement/routing, timing closure or bitstream"
+    },
+    "dma_board_demo": {
+      "status": "PASS",
+      "trace": "capture_sub_9",
+      "fixture": "tests/dma_demo_fixture.json",
+      "tasks": 2,
+      "command_reads": 228,
+      "data_transactions": 96,
+      "data_writes": 32,
+      "initialized_halfwords": 336,
+      "checked_halfwords": 336,
+      "mapped_bytes": 672,
+      "backing_ram_bytes": 4096,
+      "scope": "Fixed trace-only aperture; original command words unchanged; no CPU arithmetic/layout execution fallback",
+      "tests": [
+        "normal completion and traffic counts",
+        "reset during fetch and data execution",
+        "host initialization bus error",
+        "command bus error",
+        "completion-count mismatch",
+        "known and four-state unknown readback corruption",
+        "watchdog and recovery"
+      ]
+    },
+    "sparse_memory": {
+      "status": "PASS",
+      "checked_transfers": 80,
+      "scope": "Both ports; boundaries, gaps, odd/unmapped addresses, nonaliasing, stalled/adjacent responses and reset cancellation"
+    }
+  },
+  "archive": {
+    "archive": "verification/runs/2026-09-21-a7c0c42d885e/evidence.tar.gz",
+    "sha256": "82563b12551af003e812c6c541ca1bf66d218f2d2e959ef5e99efc3b152a0f58",
+    "files": 1306,
+    "bytes": 10576473
+  },
+  "remaining": [
+    "FP16 GEMM/CNA/CBUF/CSC/CMAC/CACC",
+    "PCIe/DDR and tinygrad transport",
+    "Full backend coverage",
+    "RK3588 numerical differential evidence",
+    "Vivado implementation and explicitly authorized physical FPGA test"
+  ],
+  "donor_audit": {
+    "vortex_commit": "5ce5a1a915b06c42c60393a7ea24168e0e01078f",
+    "scope": "Source audit only; no imported or simulated Vortex RTL",
+    "notes": "docs/LOCAL_REFERENCES.md"
+  }
+}

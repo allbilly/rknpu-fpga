@@ -1,0 +1,25 @@
+{
+  "status": "PASS_DIRECTED_DONOR_CONVERSION_AUDIT_ONLY",
+  "archived_utc": "2026-09-21T06:35:34.658823+00:00",
+  "observations": 40,
+  "differences_from_project_reference": 16,
+  "files": {
+    "build/archive_nvdla_conversion_audit.py": "f860031732443b057c4313d0bfebe0f87dfb5dd91c593c550901a6263ac31a77",
+    "build/audit_nvdla_conversion.py": "098920a039a3c5dd0ad6d6606ea4933023b70a63426d9d8f6646bb0db10e7aa4",
+    "build/nvdla_conversion_audit/audit.vvp": "188a31c64a1f8feecd6c510f0795dc99db61ec68d737bd4502960e1f7d92d7d7",
+    "build/nvdla_conversion_audit/build.log": "7bcd68b73b6006278acd54d462d397bdead22e98ad3f4097c5d0155fd95e2ff1",
+    "build/nvdla_conversion_audit/report.json": "b146a5939fad8550b2fbc666d3f8755f3a7ddc36b0f7b5568df13db9feff162d",
+    "build/nvdla_conversion_audit/run.log": "de81007f37098c30825e4bda1468f7960164d46c08f1d3cf7c26c370de7f735f",
+    "build/nvdla_conversion_audit/vectors.hex": "4c0f051cc015c630a18089c1c0434b9cb40070a25f4969e97c75d5aa8dfb1219",
+    "build/nvdla_conversion_audit/version.log": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d",
+    "build/nvdla_conversion_audit/vvp_version.log": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+    "build/nvdla_conversion_audit_driver.log": "180c11442d090ec04413db4e76152b604776bad3c00775c48ddcec95ba6d6d56",
+    "build/tb_nvdla_fp32_to_fp16_audit.sv": "6545994eb02de7f2775e4c5f43b1b28a6c283be18a3fc520220e0d2f7fa0b22f",
+    "docs/NVDLA_CONVERSION_AUDIT.md": "3ef39a2193f48bbc1b9587b41e9ad65672687d26fc886af97dea6f8626ed4a4f",
+    "donor_snapshots/nvdla/LICENSE": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb",
+    "donor_snapshots/nvdla/cmod/hls/include/nvdla_float.h": "b020e2ccc140a2d4f8e7c59514b9ee24bf07697bc06a3730f3d3b61fbd9d4f6b",
+    "donor_snapshots/nvdla/cmod/hls/sdp/sdp_c.cpp": "5bb64d60d184d525f45331ba69f44cdd27550ec44f96458671d19684034186a4",
+    "donor_snapshots/nvdla/vmod/vlibs/HLS_fp32_to_fp16.v": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd"
+  },
+  "scope": "Directed unmodified NVIDIA conversion RTL observations only. Not RK validation, C-model execution, production integration, exhaustive arithmetic proof, or hardware evidence."
+}

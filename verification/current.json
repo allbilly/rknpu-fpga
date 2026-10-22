@@ -1,0 +1,55 @@
+{
+  "status": "PASS_RAW_PRODUCT_PATH_NATIVE_AND_XC7_MAPPING_ONLY",
+  "source_sha256": "db97404570f55ffc3ca603816b3fc797953333ff4fac6e352f82a18970188765",
+  "scope": "Promoted profile, operand reader/front and exact-product leaf; new raw-command-to-product wrapper. No accumulation, output writes, EW DMA/host integration or board integration.",
+  "previous_verified_rtl_index": "verification/runs/2026-09-21-060fe287ecda/current_index.json",
+  "previous_mapped_attempt_index": "verification/runs/2026-09-21-060fe287ecda-supplement/index.json",
+  "previous_mapped_attempt_summary": "16 passes and 4 failures with unknown adapter state/error-enable. External reset-transition diagnostic passes the full RRESP fault case; corrected full batch requires fresh verification.",
+  "standalone_address_evidence": "375895 transfers per simulator, 11 complete walks, 22/24 rejected configurations; now passing in the combined source regression.",
+  "current_completed_checks": "make -j4 test exited 0: 44 Python methods, 1087299 C++ reference comparisons, generated checks, strict lint, 247 original entries and three additional benches per simulator. Each simulator checks 230433 leaf products, 53297 operand pairs and 53247 integrated products/tags. All 82 cross-simulator EW images and eleven host/direct images each agree; 610 prior stimuli and existing RTL/board sources are unchanged. Full raw-product-path XC7 mapping PASS; not mapped simulation, timing or hardware.",
+  "separate_raw_cmac_candidate_index": "verification/runs/2026-09-21-cmac-profile-candidate/index.json",
+  "separate_raw_cmac_candidate_scope": "Historical staged decoder evidence: 1920 cases per simulator plus four Icarus unknown-value cases. The decoder is now promoted unchanged into the separate raw-product path, not the EW host endpoint.",
+  "separate_cmac_operand_candidate_index": "verification/runs/2026-09-21-cmac-operand-candidate/index.json",
+  "separate_cmac_operand_candidate_scope": "Historical staged operand evidence: 53297 checked pairs per simulator, thirteen good runs, five reset phases and seven/nine faults; default XC7 mapping PASS. Now promoted unchanged into the separate raw-product path. No accumulation or output writes.",
+  "separate_fp16_product_candidate_index": "verification/runs/2026-09-21-fp16-product-candidate/index.json",
+  "separate_fp16_product_candidate_scope": "Historical staged exact-product evidence: 230433 comparisons per simulator, four reset cases, zero lint/simulator warnings; XC7 mapping uses one DSP48E1. Now promoted unchanged into the separate raw-product path. No accumulation or RK special-value validation.",
+  "current_commands": [
+    "make -j4 test"
+  ],
+  "current_logs": [
+    "build/cmac_product_integration_test.log",
+    "build/rtl/report.json",
+    "build/iverilog/report.json",
+    "build/cmac_verilator/report.json",
+    "build/cmac_iverilog/report.json"
+  ],
+  "remaining": [
+    "Accumulation/reduction contract, CBUF, output conversion/writer and task DMA integration",
+    "Hardware-side runtime layout execution and full backend coverage",
+    "PCIe/MIG/DDR/ECC integration",
+    "RK3588 differential and physical FPGA validation"
+  ],
+  "previous_verified_source_sha256": "f927a501cec9b66beae84f160bef333a849beb0a148d043d5951ea4febb5c4fc",
+  "previous_verified_native_index": "verification/runs/2026-09-21-f927a501cec9/current_index.json",
+  "previous_verified_full_mapped_index": "verification/runs/2026-09-21-f927a501cec9-mapped/index.json",
+  "current_diagnostic_logs": [
+    "build/cmac_product_preflight_run.log",
+    "build/cmac_product_diagnostic_run.log",
+    "build/cmac_product_diagnostic2_run.log",
+    "build/cmac_product_test_interruption.json",
+    "build/cmac_product_corrected_preflight_build.log",
+    "build/cmac_product_corrected_preflight_run.log"
+  ],
+  "failed_integration_preflight_index": "verification/runs/2026-09-21-product-path-preflight-failure/index.json",
+  "donor_conversion_audit_index": "verification/runs/2026-09-21-nvdla-conversion-audit/index.json",
+  "standalone_product_path_report": "build/cmac_product_corrected_preflight_report.json",
+  "current_verified_native_index": "verification/runs/2026-09-21-db97404570f5/index.json",
+  "staged_writer_scope": "Independent result-write leaf archive; both native simulators and XC7 mapping PASS. Now also used unchanged by the staged output tail. No accumulation, raw-command integration, mapped simulation, timing or hardware. See docs/CMAC_WRITER_CANDIDATE.md.",
+  "staged_writer_index": "verification/runs/2026-09-21-cmac-writer-candidate/index.json",
+  "staged_output_converter_index": "verification/runs/2026-09-21-fp32-to-fp16-candidate/index.json",
+  "staged_output_converter_scope": "Independent post-accumulation FP32-to-FP16 leaf archive. Both native simulators pass 330793 conversions/tags and four resets; XC7 mapping PASS. Now joined unchanged to the writer in the staged output tail, not to an accumulator/raw-command frontend. RNE and special values remain candidate behavior, not RK evidence.",
+  "additional_baseline_rerun": "make -j4 test is running with unchanged production source, log build/fp32_conversion_baseline_test.log; do not replace completed archive with partial rerun reports.",
+  "staged_output_tail_status": "PASS_STAGED_OUTPUT_TAIL_NATIVE_AND_XC7_MAPPING_ONLY",
+  "staged_output_tail_scope": "Converter and writer joined under build with ownership across gaps, last-input barrier, sticky cancellation and final-ack completion. Both simulators and XC7 mapping PASS. Still no accumulator, raw-command integration, hardware gathers or physical FPGA/RK proof. See docs/CMAC_OUTPUT_CANDIDATE.md.",
+  "staged_output_tail_index": "verification/runs/2026-09-21-cmac-output-candidate/index.json"
+}

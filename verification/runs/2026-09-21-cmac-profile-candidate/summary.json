@@ -1,0 +1,23 @@
+{
+  "status": "PASS_STAGED_RAW_PROFILE_ONLY",
+  "recorded_utc": "2026-09-21T05:13:29.382018+00:00",
+  "production_source_sha256": "f927a501cec9b66beae84f160bef333a849beb0a148d043d5951ea4febb5c4fc",
+  "candidate_sources": {
+    "sha256": "a4577ff68195a76e85debd41489704fd5313de1e59d16a931c3f05bc3b98cb34",
+    "files": {
+      "build/cmac_profile_vectors.py": "c19fe60ebe3039340787c023b7d05a384da1ee606b7b7867a8bf186bcebd3765",
+      "build/rk_cmac_profile.sv": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+      "build/run_cmac_profile_candidate.py": "97ef8a1ed60427c38de5ea727098e9510e40062236c06a33b75df79ded6216f8",
+      "build/tb_cmac_profile.sv": "c2065106a24bcb6cc37fb0e13c94ff4e7f7f68504f82b38422d300e643186fd7"
+    }
+  },
+  "cases_per_simulator": 1920,
+  "accepted_per_simulator": 274,
+  "rejected_per_simulator": 1645,
+  "pending_per_simulator": 1,
+  "additional_icarus_unknown_value_cases": 4,
+  "retained_initial_failure": "Bench file-descriptor integer-to-boolean width warning; fixed explicitly, no waiver.",
+  "scope": "Staged, unconnected terminal FP16 CMAC raw profile decoder only. No GEMM arithmetic, memory, CBUF, DMA integration or hardware.",
+  "production_integration": false,
+  "hardware_validation": false
+}

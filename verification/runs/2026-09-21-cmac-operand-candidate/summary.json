@@ -1,0 +1,56 @@
+{
+  "status": "PASS_STAGED_OPERAND_RTL_AND_XC7_MAPPING_ONLY",
+  "recorded_utc": "2026-09-21T05:42:43.633345+00:00",
+  "production_source_sha256": "f927a501cec9b66beae84f160bef333a849beb0a148d043d5951ea4febb5c4fc",
+  "candidate_sources": {
+    "sha256": "0315851061289b72ce8fafccdf34598d85a161434f530f0fd05700de75b769d7",
+    "files": {
+      "build/make_cmac_operand_vectors.py": "e6f39cc3ba7a9618c63b246d1a8345c3fd7e9c9c4c973eb82cd891364a25896a",
+      "build/rk_cmac_operand_front.sv": "4fe1e91c7230ccb3983a0c66aa6e4c134bc36c8e8b9da30c1731080f98220e32",
+      "build/rk_cmac_profile.sv": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+      "build/rk_cmac_reader.sv": "2cd3a019b30bbd1c1a55cacb5a35a6d511cff4586fb8da7f21b2a61eb631f152",
+      "build/run_cmac_operand_candidate.py": "04a92c7de477a3e85424ccd404fb4bffe0852cfc321e54c61309a0aebc8818de",
+      "build/tb_cmac_operand_front.sv": "5baf29cc3f5cd537fbb7b839aa9a41e4a7dcca9ced87c6919fb844ecc50ea610",
+      "rtl/rk_cmac_address.sv": "97b9f28abbb153593396b0b2b2b2745b5ff684d7e471c6327796745dd05110cc"
+    }
+  },
+  "native_results": [
+    {
+      "simulator": "verilator",
+      "good_runs": 13,
+      "fault_runs": 7,
+      "reset_phases": 5,
+      "x_runs": 0,
+      "checked_operands": 53297
+    },
+    {
+      "simulator": "iverilog",
+      "good_runs": 13,
+      "fault_runs": 9,
+      "reset_phases": 5,
+      "x_runs": 2,
+      "checked_operands": 53297
+    }
+  ],
+  "mapping_cell_counts": {
+    "$scopeinfo": 3,
+    "BUFG": 1,
+    "CARRY4": 223,
+    "DSP48E1": 3,
+    "FDCE": 1464,
+    "IBUF": 88,
+    "INV": 1670,
+    "LUT2": 472,
+    "LUT3": 266,
+    "LUT4": 262,
+    "LUT5": 261,
+    "LUT6": 725,
+    "MUXF7": 246,
+    "MUXF8": 87,
+    "OBUF": 211
+  },
+  "mapping_warning_count": 2,
+  "scope": "Unchanged raw CMAC words to validated address walk and tagged read-only operand pairs. No CBUF, numerical MAC/CACC, output writes, task DMA/host/board integration, mapped simulation or physical timing/hardware.",
+  "initial_failure": "Icarus warning about a bench assertion in always_ff; changed only behavioral RAM process declaration to ordinary always, retained assertions and reran both simulators.",
+  "production_integration": false
+}

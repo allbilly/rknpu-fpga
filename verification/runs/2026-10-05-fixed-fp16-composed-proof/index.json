@@ -1,0 +1,40 @@
+{
+  "status": "PASS_SOURCE_BOUND_UNIT_ARCHIVE",
+  "archived_utc": "2026-10-05T14:30:51.198067+00:00",
+  "reports": {
+    "build/rknpu-fixed-fp16-rows/verilator-1791207221389481729/report.json": "PASS_FIXED_FP16_ROWS_EXPERIMENT_ONLY"
+  },
+  "archive": "verification/runs/2026-10-05-fixed-fp16-composed-proof/evidence.tar.gz",
+  "archive_sha256": "a8c81bd5d9e42543fd2037e523de7dfc76ab5c84cde4f4730c1017516588f574",
+  "archive_bytes": 159839,
+  "verified_members": 26,
+  "member_sha256": {
+    "build/rknpu-fixed-fp16-rows/verilator-1791207221389481729/report.json": "d0d1a9305547103f46e988dfd796135e64a52d3d4316da2bce8e3e8654739d36",
+    "rtl/cmac/experimental/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+    "rtl/vendor/nvdla/LICENSE": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb",
+    "rtl/vendor/nvdla/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+    "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+    "rtl/vendor/nvdla/assertion_header.h": "433144e681c5823d1e886c9872a8e6b2bd0b2d7e7f221f2dc8620ba04c2585e9",
+    "rtl/vendor/nvdla/assertion_task.h": "1bff44cbd43cead87f9357c8ba25e1b7a1a639fabfc081082470655b69e25cbd",
+    "rtl/vendor/nvdla/compat/nv_assert_never.v": "28a3ff37142647e9499cc0dd88095313c029acffe1bf7806160eb9fbbd288732",
+    "rtl/vendor/nvdla/compat/nv_assert_no_x.v": "6eb56dc9ea269a4b071d3c00de3a23f5b75782b72403bcc72a7acc9e625a6e97",
+    "rtl/vendor/nvdla/nv_assert_never.vlib": "d5b31a424e4518cdf58ef9fe303a749cd514bc1d134a9ac8198b454adc12c2ad",
+    "rtl/vendor/nvdla/nv_assert_no_x.vlib": "64ae1b6d9735257b681d3ad42ee0e05f425fc0ec11308c845cb7f668ce117a02",
+    "tests/cmac/cmac_fp16_rows_miter.sv": "450d0d880a2151d2decb5399a2a78817a98e2f91255b4fd0f24299c012f5dced",
+    "tests/cmac/tb_cmac_fp16_rows.sv": "50e2ab8ee6cbd68fa2bec5f341874630e50a41f1c91a848ceca7a816b6bf693f",
+    "tools/cmac/test_fixed_fp16_rows.py": "d5ad4b5fd20b4eb2e1ff834a3cd47120d8b0c915877076e87309a795c8704701",
+    "build/rknpu-fixed-fp16-rows/verilator-1791207221389481729/compile.log": "de024ec8492e4bd1060799cc7e740b39d5349fd10af66838f526c499e7d0bdda",
+    "build/rknpu-fixed-fp16-rows/verilator-1791207221389481729/configuration.ys": "2c25e51c5a4e97b906d761c352cbf9d29dd4f5f9a0102ae93e405a5edd56a27f",
+    "build/rknpu-fixed-fp16-rows/verilator-1791207221389481729/cxx_version.log": "1ec97cade9463bc6e46d21fb06cd72855b96218e690e869fa9e11cea2b442115",
+    "build/rknpu-fixed-fp16-rows/verilator-1791207221389481729/datapath.ys": "d6cbcfe6220b8433201bb47943acb22284318cf7e81255243eb84979cd4e30c1",
+    "build/rknpu-fixed-fp16-rows/verilator-1791207221389481729/formal_control.log": "be34f00d66c56fe57bf074a84ef294eb2937ed74fc0f6d3816895ea812566afc",
+    "build/rknpu-fixed-fp16-rows/verilator-1791207221389481729/formal_datapath.log": "f4fc0d569cd8f6ae41a75b7cf3b22197a24b1cff6a04b6a528a754152bcc1703",
+    "build/rknpu-fixed-fp16-rows/verilator-1791207221389481729/obj/sim": "7a8df43b673494b9b70cc2cfc139f9eb9697431c131f318aebcac78110685d3c",
+    "build/rknpu-fixed-fp16-rows/verilator-1791207221389481729/test.log": "e93a8fb61fabd95b49b67bb1220ff61c99edfa5b848ada6c58a8a036e829f09c",
+    "build/rknpu-fixed-fp16-rows/verilator-1791207221389481729/version.log": "9d8d19bf7d16f490e1b9d701dc1438bf9ec2d7f4a41ca4f0ec8ee3d1a3df8253",
+    "build/rknpu-fixed-fp16-rows/verilator-1791207221389481729/yosys_version.log": "6d8fa3f8d89b89b3675462c487e5d2a3b60ad8f2acb2653047feee3a37f29b50",
+    "tools/cmac/archive_unit.py": "c29b689faed097a3800f925b6871c609937887250bce94a46da2aa2edd29eb99",
+    "LICENSE": "2803f4c2f19bdec88a36a45570adee13a41a8f9f6fbba96e4368404d915af42a"
+  },
+  "scope": "Only the listed completed reports and configurations. Not upstream UTB, unlisted configurations, physical FPGA, or RK silicon."
+}

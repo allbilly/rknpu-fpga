@@ -1,0 +1,254 @@
+{
+  "status": "AVAILABLE_CHECKS_PASS_HARDWARE_PENDING",
+  "recorded_utc": "2026-09-20 17:20:41 UTC",
+  "local_date": "2026-09-21",
+  "timezone": "Asia/Hong_Kong",
+  "scope": "Strict raw-register-command FP16 ADD/SUB/MUL slice; not a full RK3588 or integrated tinygrad device",
+  "source_sha256": "6f9a9681713fc61a1338e72237eaa333e4ee14911079126524ba628b634ff7ae",
+  "source_git_commit": null,
+  "source_manifest": "verification/runs/2026-09-21-6f9a9681713f/source_SHA256SUMS",
+  "source_manifest_scope": "Makefile, RTL, board sources/constraints/build script, model, generators, verification tools, tests and vendored primitive models",
+  "evidence_archive": "verification/runs/2026-09-21-6f9a9681713f/evidence.tar.gz",
+  "archive_checksum_file": "verification/runs/2026-09-21-6f9a9681713f/archive_SHA256SUMS",
+  "checks": {
+    "generated_sources": {
+      "status": "PASS",
+      "command": "make generated-check",
+      "log": "build/current_generated_check.log"
+    },
+    "full_test": {
+      "status": "PASS",
+      "command": "make -j2 test",
+      "returncode": 0,
+      "log": "build/current_test.log"
+    },
+    "software_unit": {
+      "status": "PASS",
+      "methods": 30,
+      "model_fixture_methods": 20,
+      "build_control_methods": 10,
+      "log": "build/current_test.log"
+    },
+    "numeric_model": {
+      "status": "PASS",
+      "comparisons": 1087299,
+      "seed": "0x3588",
+      "scope": "C++ arithmetic model only; NOT RTL simulation or RK hardware validation",
+      "report": "verification/runs/2026-09-21-6f9a9681713f/numeric_report.json"
+    },
+    "strict_core_and_board_lint": {
+      "status": "PASS",
+      "warning_policy": "Verilator -Wall, warnings fatal",
+      "log": "build/current_test.log"
+    },
+    "verilator": {
+      "status": "PASS",
+      "tool": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+      "alu_vectors": 12963,
+      "command_memory_scenarios": 77,
+      "testbenches": 6,
+      "result_entries": 82,
+      "seeds": {
+        "vectors": "0x3588",
+        "alu_backpressure": "0x12345678",
+        "memory_backpressure": "0x35881234"
+      },
+      "report": "verification/runs/2026-09-21-6f9a9681713f/rtl_report.json"
+    },
+    "four_state_iverilog": {
+      "status": "PASS",
+      "tool": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "alu_vectors": 12963,
+      "command_memory_scenarios": 77,
+      "testbenches": 6,
+      "result_entries": 82,
+      "unknown_readback_injected": true,
+      "seeds": {
+        "vectors": "0x3588",
+        "alu_backpressure": "0x12345678",
+        "memory_backpressure": "0x35881234"
+      },
+      "report": "verification/runs/2026-09-21-6f9a9681713f/four_state_report.json"
+    },
+    "demo_software_replay": {
+      "status": "PASS",
+      "tasks": 3,
+      "halfword_transactions": 72,
+      "log": "build/current_demo_replay.log",
+      "scope": "Software only"
+    },
+    "xc7_mapping_and_functional_netlist": {
+      "status": "PASS",
+      "tool": "Yosys 0.65 (git sha1 aec814bdf3071f7e0fd0fbe43f7f711e99d01e24, g++-12 12.3.0-1ubuntu1~22.04.3 -fPIC -O3)",
+      "cells": {
+        "$scopeinfo": 7,
+        "BUFG": 1,
+        "CARRY4": 326,
+        "DSP48E1": 1,
+        "FDCE": 3,
+        "FDRE": 449,
+        "FDSE": 2,
+        "IBUF": 2,
+        "INV": 652,
+        "LUT1": 8,
+        "LUT2": 602,
+        "LUT3": 493,
+        "LUT4": 212,
+        "LUT5": 215,
+        "LUT6": 704,
+        "MUXF7": 153,
+        "MUXF8": 58,
+        "OBUF": 3,
+        "RAMB36E1": 1
+      },
+      "scope": "Yosys XC7 mapping and functional Xilinx primitive simulation; no placement, routed timing or timing closure",
+      "report": "verification/runs/2026-09-21-6f9a9681713f/synthesis_report.json"
+    },
+    "backend_encoder_to_rtl": {
+      "status": "PASS",
+      "cases": 9,
+      "backend_commit": "c6784623afc4f116ae7dc326ab9842e6bf9a3dcf",
+      "scope": "Actual final backend encoder plus synthetic buffers; no RK3588 execution, no test_ops coverage",
+      "report": "verification/runs/2026-09-21-6f9a9681713f/backend_encoder_report.json"
+    },
+    "vivado": {
+      "status": "UNAVAILABLE",
+      "command": "make fpga",
+      "returncode": 2,
+      "reason": "No full Vivado executable; only Vivado Lab installation found",
+      "log": "build/current_fpga_attempt.log"
+    },
+    "hardware_differential": {
+      "status": "NOT_RUN",
+      "reason": "No RK3588 command/input/output capture supplied"
+    },
+    "board_test": {
+      "status": "NOT_RUN",
+      "programmed_card": false,
+      "programmed_flash": false
+    },
+    "placement_routing_timing_drc": {
+      "status": "NOT_RUN"
+    },
+    "tinygrad_runtime_and_test_ops": {
+      "status": "NOT_IMPLEMENTED"
+    },
+    "build_control_flow": {
+      "status": "PASS",
+      "methods": 10,
+      "scope": "Actual build.tcl control flow with mocked Vivado commands; no HDL/DRC/timing/bitstream evaluation",
+      "source_sha256": "6f9a9681713fc61a1338e72237eaa333e4ee14911079126524ba628b634ff7ae",
+      "versions": [
+        {
+          "tcl": "9.0.3",
+          "command": "python3 -m unittest discover -s tests -v",
+          "log": "build/current_test.log"
+        },
+        {
+          "tcl": "8.6.13",
+          "command": "RK_TEST_TCLSH=/home/fedora/vivado/2026.1.1/Vivado_Lab/bin/xtclsh python3 -m unittest discover -s tests -p test_fpga_build.py -v",
+          "log": "verification/runs/2026-09-21-6f9a9681713f/build_control_tcl86.log"
+        }
+      ],
+      "baseline_regression": {
+        "status": "EXPECTED_FAILURE",
+        "baseline_source_sha256": "cfe7ccecd05641ded4be8f1125d047ac3a7a74f53662eacd1114ecc72ed6d17f",
+        "method": "test_all_legal_pairs_apply_before_checkpoint_and_drc",
+        "expected_failures": 4,
+        "unexpected_errors": 0,
+        "log": "verification/runs/2026-09-21-6f9a9681713f/expected_old_build_failure.log"
+      }
+    }
+  },
+  "tool_versions": {
+    "verilator": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.65 (git sha1 aec814bdf3071f7e0fd0fbe43f7f711e99d01e24, g++-12 12.3.0-1ubuntu1~22.04.3 -fPIC -O3)",
+    "cxx": "c++ (GCC) 16.1.1 20260515 (Red Hat 16.1.1-2)",
+    "python": "3.14.5",
+    "backend_python": "3.14.4 (main, Apr 16 2026, 00:00:00) [GCC 16.0.1 20260321 (Red Hat 16.0.1-0)]",
+    "tcl_default": "9.0.3",
+    "tcl_xilinx_runtime": "8.6.13"
+  },
+  "warnings": {
+    "rtl": [],
+    "synthesis_and_primitive_sim": [
+      {
+        "log": "build/yosys/synthesis.log",
+        "warnings": [
+          "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+          "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.WEBWE from 4 bits to 8 bits.",
+          "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DIPBDIP from 8 bits to 4 bits.",
+          "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DIBDI from 64 bits to 32 bits.",
+          "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DOPBDOP from 8 bits to 4 bits.",
+          "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DOBDO from 64 bits to 32 bits.",
+          "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DIPADIP from 8 bits to 4 bits.",
+          "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DIADI from 64 bits to 32 bits.",
+          "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DOPADOP from 8 bits to 4 bits.",
+          "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DOADO from 64 bits to 32 bits."
+        ]
+      },
+      {
+        "log": "build/yosys/netlist_build.log",
+        "warnings": [
+          "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1853: warning: Choosing typ expression.",
+          "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1853: warning: Choosing typ expression.",
+          "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1854: warning: Choosing typ expression.",
+          "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1854: warning: Choosing typ expression.",
+          "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1855: warning: Choosing typ expression.",
+          "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1855: warning: Choosing typ expression.",
+          "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1856: warning: Choosing typ expression.",
+          "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1856: warning: Choosing typ expression.",
+          "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1857: warning: Choosing typ expression.",
+          "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1857: warning: Choosing typ expression."
+        ]
+      }
+    ]
+  },
+  "preserved_contracts": [
+    "Raw final command QWORD execution boundary",
+    "Unsupported fields fail explicitly",
+    "Original 38 negative/positive scenario expectations retained",
+    "No runtime CPU arithmetic or layout fallback"
+  ],
+  "candidate_behavior": "FP16 special-value policy remains unvalidated against RK silicon",
+  "not_claimed": [
+    "Bitstream generation",
+    "Electrical settings verified on the actual board",
+    "Timing closure or measured Fmax",
+    "RK3588 numerical equivalence",
+    "Full RK3588 NPU or GEMM",
+    "PCIe/DDR integration"
+  ],
+  "next_inputs": [
+    "Confirm intended working backend revision and provide raw RK3588 command/input/output captures",
+    "Full Vivado with XC7K480T part support",
+    "Audited physical board and electrical configuration before any requested programming"
+  ],
+  "historical_delivery_evidence": "Top-level verification/status.json and original logs are preserved unchanged and do not validate this source revision",
+  "changes_since_previous_run": {
+    "source_sha256": "cfe7ccecd05641ded4be8f1125d047ac3a7a74f53662eacd1114ecc72ed6d17f",
+    "changed_manifest_files": [
+      "fpga/build.tcl"
+    ],
+    "added_manifest_files": [
+      "tests/test_fpga_build.py"
+    ],
+    "rtl_changed": false,
+    "xdc_changed": false,
+    "ci_change": "Install Tcl for control-flow tests"
+  },
+  "alternative_toolchain_audit": {
+    "status": "SOURCE_REVIEW_ONLY",
+    "repository": "https://github.com/openXC7/nextpnr-xilinx",
+    "commit": "d486d8ef6a1c756ca72b2ba495e7e18e4c24815d",
+    "reviewed_file": "xilinx/xdc.cc",
+    "file_sha256": "5765cebe20ce36307a32991634f220cee97d31f0f0bb12f67b20a9edf06fdda2",
+    "findings": [
+      "Design-level current_design properties are ignored",
+      "set_false_path has no handler",
+      "Port target lookup does not expand this project's grouped list/glob selector"
+    ],
+    "conclusion": "Not a drop-in equivalent for current constraints/signoff; no alternative bitstream flow enabled or executed"
+  }
+}

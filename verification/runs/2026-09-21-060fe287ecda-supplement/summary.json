@@ -1,0 +1,44 @@
+{
+  "status": "MAPPED_ATTEMPT_FAILED_ADDRESS_LEAF_PASSED_SEPARATELY",
+  "recorded_utc": "2026-09-21T04:49:35.610755+00:00",
+  "production_source_sha256": "060fe287ecda9567bd5fd65dc7f893a36761c5945236552680d3a38376ead764",
+  "mapped_passes": 16,
+  "mapped_failures": [
+    "fault_1",
+    "fault_4",
+    "fault_6",
+    "fault_10"
+  ],
+  "mapped_positive_memory_images": {
+    "sha256": "d86cbbb19b9e0fd656faa7d842148a2acddc0e3ae6af41c17884f4c1e9bb5e9c",
+    "files": {
+      "build/host_mapped_matched/capture_add_33_observed.hex": "563fa52f0d6ffd3d161d1203152a08df9af5fa92641bb47e2492c1adb7994cd1",
+      "build/host_mapped_matched/capture_add_8_observed.hex": "1eb585e61460799def7a8c515935ed2522e440115acb06b2c1e4fa36050d33f8",
+      "build/host_mapped_matched/capture_add_9_observed.hex": "01088fa1d42888d7ab79de52fac9e971b366f5cb024c8245e180bcc0a291f6fc",
+      "build/host_mapped_matched/capture_mul_33_observed.hex": "6c335adfcfe3d104e61f6f33976b2a4e70b4992063ae2d678a9a47c770468663",
+      "build/host_mapped_matched/capture_mul_8_observed.hex": "3c3a442f8c2f898e6a7b2972857d5349d45f7cf81a85766cd2130191f5b0dc29",
+      "build/host_mapped_matched/capture_mul_9_observed.hex": "b7b7e60f2eca062e3a46562da467a27cb0c683bb9bcdaaba7277afbc805670c6",
+      "build/host_mapped_matched/capture_sub_33_observed.hex": "8c8c907ffe717771b1599d0ed3285ac3828470e2c144af0c7c87cb000e2b3e8e",
+      "build/host_mapped_matched/capture_sub_8_observed.hex": "5dcc368a34dce1b7f7e3bd71bffec70ae9f8f849d09521e8a7313b00a33b18b1",
+      "build/host_mapped_matched/capture_sub_9_observed.hex": "9266a53fd935e53ddec03d247a3026cff62c141a54b5123ab421b804ad45508c",
+      "build/host_mapped_matched/repeat_sub_9_observed.hex": "9266a53fd935e53ddec03d247a3026cff62c141a54b5123ab421b804ad45508c",
+      "build/host_mapped_matched/reset_partial_write_observed.hex": "9266a53fd935e53ddec03d247a3026cff62c141a54b5123ab421b804ad45508c"
+    }
+  },
+  "mapped_compile_warning_count": 37,
+  "reset_transition_diagnostic": "Same netlist, external reset X at 1 ns then 0 at 2 ns, default GSR and 200 ns clock hold: full fault_1 passes. Twenty-case corrected replay not yet run.",
+  "simplified_lut_diagnostic": "Did not reproduce; retained as a failed diagnostic, not discarded or called passing.",
+  "address_leaf_scope": "Standalone address-only RTL. Not connected to the raw command decoder, memory, arithmetic, host or FPGA top. No new accepted RK profile; not GEMM execution.",
+  "address_leaf_source_sha256": "4e61bcdc9f872e6f7682750f50873bc6546999fcd486b44d40bae41e214ed632",
+  "address_leaf_transfers_per_simulator": 375895,
+  "address_leaf_rejections": {
+    "verilator": 22,
+    "iverilog": 24
+  },
+  "limitations": [
+    "No accepted GEMM command profile",
+    "No numeric CMAC/CACC behavior validated",
+    "No PCIe/MIG/DDR or physical FPGA/RK silicon validation",
+    "Address RTL remains staged under build until promoted with integration tests"
+  ]
+}

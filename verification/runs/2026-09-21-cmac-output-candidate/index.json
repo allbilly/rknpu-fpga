@@ -1,0 +1,36 @@
+{
+  "status": "PASS_STAGED_OUTPUT_TAIL_NATIVE_AND_XC7_MAPPING_ONLY",
+  "archived_utc": "2026-09-21T07:32:30.092452+00:00",
+  "candidate_sha256": "b265c34f1f2a23caecd2623d225355ed97ab23029a60619048025960640212c1",
+  "production_sha256": "db97404570f55ffc3ca603816b3fc797953333ff4fac6e352f82a18970188765",
+  "archive": "verification/runs/2026-09-21-cmac-output-candidate/evidence.tar.gz",
+  "archive_sha256": "6583d478e55bc0ceadbd502684c6823a7078bc94b0277b7fba9974d0561ff0cf",
+  "archive_bytes": 1713597,
+  "verified_members": 139,
+  "unchanged_leaf_reference_reports": {
+    "build/rk_fp32_to_fp16.sv": "verification/runs/2026-09-21-fp32-to-fp16-candidate/verilator_report.json",
+    "build/rk_cmac_writer.sv": "verification/runs/2026-09-21-cmac-writer-candidate/verilator_report.json"
+  },
+  "results": [
+    "PASS CMAC output tail good_jobs=16 faults=15 cancels=10 resets=5 x_cases=5 requests=1886 acknowledgments=1875 source_stalls=10155 seed=3588ca08; synthetic accumulated values, no GEMM",
+    "PASS CMAC output tail good_jobs=16 faults=11 cancels=9 resets=5 x_cases=0 requests=1821 acknowledgments=1812 source_stalls=9812 seed=3588ca08; synthetic accumulated values, no GEMM",
+    {
+      "$scopeinfo": 2,
+      "BUFG": 1,
+      "CARRY4": 27,
+      "FDCE": 274,
+      "FDPE": 5,
+      "IBUF": 80,
+      "INV": 294,
+      "LUT2": 107,
+      "LUT3": 23,
+      "LUT4": 67,
+      "LUT5": 29,
+      "LUT6": 78,
+      "MUXF7": 21,
+      "MUXF8": 2,
+      "OBUF": 64
+    }
+  ],
+  "scope": "Internal conversion/write tail: synthetic FP32 values, packed output holes, ownership, faults/cancellation/reset, native HDL and XC7 mapping. No accumulator, raw-command integration, mapped simulation, timing or RK/FPGA result."
+}

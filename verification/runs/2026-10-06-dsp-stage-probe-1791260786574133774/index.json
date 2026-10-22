@@ -1,0 +1,34 @@
+{
+  "status": "ARCHIVED_ACTUAL_DSP_STAGE_ENDPOINT_CONTROLS_AND_PREFLIGHT_FAILURES_ONLY",
+  "archived_utc": "2026-10-06T04:32:59.111762+00:00",
+  "report_statuses": {
+    "build/rknpu-dsp-stage-probe/1791260786574133774/report.json": "PASS_ACTUAL_EXCLUSIVE_DSP_STAGE_ENDPOINT_CONTROLS_ONLY"
+  },
+  "archive": "verification/runs/2026-10-06-dsp-stage-probe-1791260786574133774/evidence.tar.gz",
+  "archive_sha256": "736b258a3bbbb565ec6ae69d25fb86ac720d9a2e13579c1144e0a20dd2a6a972",
+  "archive_bytes": 2237224,
+  "verified_members": 17,
+  "member_sha256": {
+    "tests/cmac/cmac_dsp_stage_probe.sv": "0f2e7e59ae682f91ee40b2de0a8b36c3ddb95f77476cc46bd02bf5e42f84c6ff",
+    "tools/cmac/probe_dsp_stage_execution.py": "94b70ce980896415a70af04d11aeb8ab8a6696863bc15cf968a09c8aec16561d",
+    "tools/evidence.py": "3f54c4a372805dba28b10329943f0304eeead809682a1dd1328f83c23a4d0102",
+    "build/rknpu-dsp-stage-probe/1791260786574133774/report.json": "96888dca04042b05563dcdf21c804d9838238ce839bf1f9e98456cf667f3773a",
+    "build/rknpu-dsp-stage-probe/1791260786574133774/version.log": "6d8fa3f8d89b89b3675462c487e5d2a3b60ad8f2acb2653047feee3a37f29b50",
+    "build/rknpu-dsp-stage-probe/1791260786574133774/skipped_dsp_negative.ys": "fa51783577e15fcd88cf98b40205426baaa1c7dda3bf128fbbd0cd770b5285a7",
+    "build/rknpu-dsp-stage-probe/1791260786574133774/skipped_dsp_negative.log": "3385e2576b5293a3f4e7456c9e2afa871cf7f8ccfda5b5e45ea0fec500c44a05",
+    "build/rknpu-dsp-stage-probe/1791260786574133774/skipped_dsp_negative.json": "77cf8875b3f497cfc2caf6c8f3686c4f7b0695b6d5c79a07148054cd97fd4c00",
+    "build/rknpu-dsp-stage-probe/1791260786574133774/executed_dsp_positive.ys": "3b393bb7070d04d450d537b80d83cd3a1b8562723bb0f393a74b662f9bedf07b",
+    "build/rknpu-dsp-stage-probe/1791260786574133774/executed_dsp_positive.log": "fce13bfb8ebe5d9b5fd29872462ab7067b5db402148582f68d26c06a37914330",
+    "build/rknpu-dsp-stage-probe/1791260786574133774/executed_dsp_positive.json": "550eb5d0153d7de282d3b0dfe7d0be732728dcb50f05d9257275967f2bd409ae",
+    "build/rknpu-dsp-stage-probe/1791260786574133774/snapshot/tools/evidence.py": "3f54c4a372805dba28b10329943f0304eeead809682a1dd1328f83c23a4d0102",
+    "build/rknpu-dsp-stage-probe/1791260786574133774/snapshot/tests/cmac/cmac_dsp_stage_probe.sv": "0f2e7e59ae682f91ee40b2de0a8b36c3ddb95f77476cc46bd02bf5e42f84c6ff",
+    "build/rknpu-dsp-stage-probe/1791260786574133774/snapshot/tools/cmac/probe_dsp_stage_execution.py": "94b70ce980896415a70af04d11aeb8ab8a6696863bc15cf968a09c8aec16561d",
+    "build/dsp_actual_finalized_library_stage_endpoint_probe_20261006.log": "be87329e99001cdb8938af0116d926b0704663082529dfd1b704eed9005f0dc1",
+    "LICENSE": "2803f4c2f19bdec88a36a45570adee13a41a8f9f6fbba96e4368404d915af42a",
+    "build/archive_dsp_stage_flow_diagnostics_20261006.py": "5b60e682461700b7401d6f6a2834d44d8f99e73523213ee35f4fc68eb71b1149"
+  },
+  "numerical_acceptance": false,
+  "physical_fit_verified": false,
+  "bitstream_emitted": false,
+  "scope": "Interrupted wrong full-array flow has no resource/numerical/physical acceptance; the real exclusive-stage fixture only establishes stage endpoint behavior."
+}

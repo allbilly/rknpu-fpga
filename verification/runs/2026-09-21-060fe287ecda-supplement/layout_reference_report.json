@@ -1,0 +1,75 @@
+{
+  "status": "PASS_ADDRESS_LAYOUT_REFERENCE_ONLY",
+  "scope": "Raw-label weight packing and address associations only. Scalar RTL reduction scheduling is not donor cycle/reduction-order equivalence. No command replay or numeric/hardware validation.",
+  "donor_commit": "e13d99fa9dde64b409fed10faa38c1629ab37d54",
+  "donor_source": "/home/fedora/rk3588/sim/csc_sim.py",
+  "donor_sha256": "e928a86510ac4e43369d1578e9156ce424c7e5795ec3ece3e7d0d3efefb536d8",
+  "cmac_audit_sha256": "b3d418f0b8139ad6f13816c311acdc874f0a0d82a1f856edf8fe0e2c5c27a3ed",
+  "script_sha256": "4bb1f3ab134b92c06bd57ab2b1241ef902e45affdae52770fef73671bdf730dc",
+  "checks": [
+    {
+      "rows": 8,
+      "physical_input_channels": 32,
+      "physical_output_channels": 32,
+      "unique_weight_addresses": 1024,
+      "label_passes": 2
+    },
+    {
+      "rows": 2,
+      "physical_input_channels": 32,
+      "physical_output_channels": 32,
+      "unique_weight_addresses": 1024,
+      "label_passes": 2
+    },
+    {
+      "rows": 2,
+      "physical_input_channels": 64,
+      "physical_output_channels": 32,
+      "unique_weight_addresses": 2048,
+      "label_passes": 2
+    },
+    {
+      "rows": 2,
+      "physical_input_channels": 96,
+      "physical_output_channels": 32,
+      "unique_weight_addresses": 3072,
+      "label_passes": 2
+    },
+    {
+      "rows": 1,
+      "physical_input_channels": 128,
+      "physical_output_channels": 64,
+      "unique_weight_addresses": 8192,
+      "label_passes": 2
+    },
+    {
+      "rows": 3,
+      "physical_input_channels": 96,
+      "physical_output_channels": 96,
+      "unique_weight_addresses": 9216,
+      "label_passes": 2
+    },
+    {
+      "rows": 1,
+      "physical_input_channels": 4096,
+      "physical_output_channels": 32,
+      "unique_weight_addresses": 131072,
+      "label_passes": 2
+    },
+    {
+      "rows": 1,
+      "physical_input_channels": 32,
+      "physical_output_channels": 5632,
+      "unique_weight_addresses": 180224,
+      "label_passes": 2
+    }
+  ],
+  "compiled_stage_geometries_matched": 7,
+  "backend_files": {
+    "tinygrad/renderer/rockchip.py": "c84b70e73449a721319981334b746f79aadd095bd39cc2f576c84bd397fbcc1d",
+    "tinygrad/runtime/ops_rockchip.py": "73cddbdebaf52c33a9d3cef33bbc016b78357da35a588403c23e35069e223daa",
+    "tinygrad/runtime/autogen/rockchip.py": "6d6c11176fd78201fa013b5b4485d9a1a67158ba749eca0d892a12e22c8f1f56"
+  },
+  "static_gather_lane_mappings_checked": 11616,
+  "runtime_gathers_executed": 0
+}

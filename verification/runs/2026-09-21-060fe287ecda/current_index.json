@@ -1,0 +1,33 @@
+{
+  "status": "HOST_ENDPOINT_RTL_AND_MAPPED_CONTROL_PASS",
+  "source_sha256": "060fe287ecda9567bd5fd65dc7f893a36761c5945236552680d3a38376ead764",
+  "archived_utc": "2026-09-21T04:19:08.255017+00:00",
+  "archive": "verification/runs/2026-09-21-060fe287ecda/evidence.tar.gz",
+  "archive_sha256": "87eccbc2b0ff2bf9aae8c2e2e94343110b34f12d0cc6f56cd7503a1ea9fb8b43",
+  "archive_bytes": 13703016,
+  "verified_members": 1498,
+  "scope": "246 entries per simulator; internal host control/raw-command/AXI endpoint, default XC7 mapping and mapped-control mock-engine simulation. No physical FPGA/RK silicon, PCIe/MIG/DDR or GEMM execution.",
+  "reports": {
+    "rtl_report.json": "verification/runs/2026-09-21-060fe287ecda/rtl_report.json",
+    "four_state_report.json": "verification/runs/2026-09-21-060fe287ecda/four_state_report.json",
+    "host_synthesis_report.json": "verification/runs/2026-09-21-060fe287ecda/host_synthesis_report.json",
+    "numeric_report.json": "verification/runs/2026-09-21-060fe287ecda/numeric_report.json",
+    "preservation_report.json": "verification/runs/2026-09-21-060fe287ecda/preservation_report.json",
+    "historical_capture_audit.json": "verification/runs/2026-09-21-060fe287ecda/historical_capture_audit.json",
+    "cmac_encoder_audit.json": "verification/runs/2026-09-21-060fe287ecda/cmac_encoder_audit.json"
+  },
+  "supplementary_pending": "build/host_mapped_matched/report.json: whole endpoint, matched test parameters 128/4; excluded from completed evidence",
+  "non_execution_audits": [
+    "Historical raw captures with conflicting address provenance",
+    "Seven real-compiler CMAC final-command captures; gathers and tensor execution forbidden"
+  ],
+  "previous_verified_index": "verification/runs/2026-09-21-2434cc400305/current_index.json",
+  "previous_attempt_index": "verification/runs/2026-09-21-c4e3d828c3bd/current_index.json",
+  "remaining": [
+    "Whole-endpoint mapped replay completion",
+    "PCIe/MIG/DDR/ECC integration",
+    "FP16 GEMM and hardware-side runtime layout path",
+    "Full backend coverage",
+    "RK3588 differential and physical FPGA validation"
+  ]
+}

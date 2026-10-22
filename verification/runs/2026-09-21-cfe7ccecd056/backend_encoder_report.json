@@ -1,0 +1,164 @@
+{
+  "status": "PASS",
+  "backend_commit": "c6784623afc4f116ae7dc326ab9842e6bf9a3dcf",
+  "scope": "Actual final backend encoder plus synthetic buffers; no RK3588 execution, no test_ops coverage",
+  "script_sha256": "0eb0efccd6dc5bff5a76e08545d041a6b50df6419f3f6ddbc4904cb7446f2e61",
+  "rtl_source_revision": "cfe7ccecd05641ded4be8f1125d047ac3a7a74f53662eacd1114ecc72ed6d17f",
+  "rtl_executable_sha256": "35b211150c8a780703ab0f17353c3e3981ecfd9c63166421c31248170a8c2bd4",
+  "python": "3.14.4 (main, Apr 16 2026, 00:00:00) [GCC 16.0.1 20260321 (Red Hat 16.0.1-0)]",
+  "cases": [
+    {
+      "name": "add_8",
+      "status": "PASS",
+      "qwords": 22,
+      "raw_sha256": "1c30b1c82e8389f30b8385ed1432809efa39676d093cef0e82306b3ea53ab68a",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/backend_encoder/add_8",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ]
+    },
+    {
+      "name": "add_9",
+      "status": "PASS",
+      "qwords": 22,
+      "raw_sha256": "016fd9021bd56553b94f6e60e2f95ec0b5a7dd2123644fbf1b9d4406e9d083a8",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/backend_encoder/add_9",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=48"
+      ]
+    },
+    {
+      "name": "add_33",
+      "status": "PASS",
+      "qwords": 22,
+      "raw_sha256": "16fcbb676c274acad6822b4bb7c3279c447685d8305bfbf39c6277f2ceac5bc9",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/backend_encoder/add_33",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=120"
+      ]
+    },
+    {
+      "name": "sub_8",
+      "status": "PASS",
+      "qwords": 22,
+      "raw_sha256": "a68861336076e9dca0d40d174f4c63234edb4ba908b3e62ef60e403311300e52",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/backend_encoder/sub_8",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ]
+    },
+    {
+      "name": "sub_9",
+      "status": "PASS",
+      "qwords": 22,
+      "raw_sha256": "d2d12c236c16943aa015b02039636b37e59cae7038fda1ee996fa9cd64d8469b",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/backend_encoder/sub_9",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=48"
+      ]
+    },
+    {
+      "name": "sub_33",
+      "status": "PASS",
+      "qwords": 22,
+      "raw_sha256": "6cf85e7ea84b39b350aae70bdd952f93bf051a4a7755396f229bdcb679c317cb",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/backend_encoder/sub_33",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=120"
+      ]
+    },
+    {
+      "name": "mul_8",
+      "status": "PASS",
+      "qwords": 22,
+      "raw_sha256": "5fe6b9bf768e93105148b111dd056988490a92d91ceb19dc1457ba94683601d1",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/backend_encoder/mul_8",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ]
+    },
+    {
+      "name": "mul_9",
+      "status": "PASS",
+      "qwords": 22,
+      "raw_sha256": "35e5755fb078efcab5490455e59a8d08fc257357c3109c365fbf1dfa49a5374c",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/backend_encoder/mul_9",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=48"
+      ]
+    },
+    {
+      "name": "mul_33",
+      "status": "PASS",
+      "qwords": 22,
+      "raw_sha256": "6a0f1d6bae4b681871586e775dd73c874e388a2f95a73fa1db2e5e8dc85331fd",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/backend_encoder/mul_33",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=120"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "status": "PASS_STAGED_CONVERTER_NATIVE_AND_XC7_MAPPING_ONLY",
+  "archived_utc": "2026-09-21T07:14:28.850374+00:00",
+  "candidate_sha256": "8b5aee22cc1bf970ac3d8291f3d5faa11295dd1d3d230a926455c756d0411a59",
+  "production_sha256": "db97404570f55ffc3ca603816b3fc797953333ff4fac6e352f82a18970188765",
+  "archive": "verification/runs/2026-09-21-fp32-to-fp16-candidate/evidence.tar.gz",
+  "archive_sha256": "0657d3eb709ef12185d64a0c24e43f8c703da5add4a1cf728b1e8e06be35aba0",
+  "archive_bytes": 2860893,
+  "verified_members": 138,
+  "results": [
+    "PASS FP32-to-FP16 candidate vectors=330760 compared=330793 resets=4 stalls=43720 cycles=399564 seed=3588ca07; no RK equivalence",
+    "PASS FP32-to-FP16 candidate vectors=330760 compared=330793 resets=4 stalls=43720 cycles=399564 seed=3588ca07; no RK equivalence",
+    {
+      "BUFG": 1,
+      "CARRY4": 15,
+      "FDCE": 362,
+      "FDPE": 5,
+      "IBUF": 133,
+      "INV": 373,
+      "LUT2": 87,
+      "LUT3": 9,
+      "LUT4": 25,
+      "LUT5": 13,
+      "LUT6": 68,
+      "MUXF7": 20,
+      "MUXF8": 2,
+      "OBUF": 115
+    }
+  ],
+  "scope": "Unconnected post-accumulation FP32-to-FP16 candidate, independent format-conversion reference, two native simulators and XC7 mapping. No accumulated GEMM, mapped simulation, timing, FPGA or RK numerical evidence."
+}

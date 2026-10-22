@@ -1,0 +1,29 @@
+{
+  "status": "PASS_STAGED_WRITER_NATIVE_AND_XC7_MAPPING_ONLY",
+  "archived_utc": "2026-09-21T07:00:40.759165+00:00",
+  "candidate_sha256": "fd10a8521eda9ad5bbeda0666304a8842b6731c23e5e711f53a66feae4e85a25",
+  "production_sha256": "db97404570f55ffc3ca603816b3fc797953333ff4fac6e352f82a18970188765",
+  "archive": "verification/runs/2026-09-21-cmac-writer-candidate/evidence.tar.gz",
+  "archive_sha256": "cbd42c970f0f1788ee67bc131ea0adc97c12070b3d0a1148038143776d6e264a",
+  "archive_bytes": 1577174,
+  "verified_members": 134,
+  "results": [
+    "PASS result writer good_runs=11 fault_runs=15 reset_cases=2 x_runs=4 requests=1541 acknowledgments=1532 seed=3588ca06; synthetic values, no GEMM",
+    "PASS result writer good_runs=11 fault_runs=11 reset_cases=2 x_runs=0 requests=1476 acknowledgments=1469 seed=3588ca06; synthetic values, no GEMM",
+    {
+      "BUFG": 1,
+      "CARRY4": 12,
+      "FDCE": 91,
+      "IBUF": 55,
+      "INV": 101,
+      "LUT2": 14,
+      "LUT3": 2,
+      "LUT4": 34,
+      "LUT5": 4,
+      "LUT6": 16,
+      "MUXF7": 1,
+      "OBUF": 64
+    }
+  ],
+  "scope": "Unconnected result-write controller, synthetic values and physical output gaps, two native simulators and XC7 mapping. No accumulated GEMM, mapped simulation, timing, FPGA or RK validation."
+}

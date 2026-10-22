@@ -1,0 +1,35 @@
+{
+  "status": "PASS_SOURCE_BOUND_UNIT_ARCHIVE",
+  "archived_utc": "2026-09-21T13:18:09.783456+00:00",
+  "reports": {
+    "build/rknpu-rw-arbiter/iverilog-1789996476698377636/report.json": "PASS_CMAC_RW_ARBITER_NATIVE_ONLY",
+    "build/rknpu-rw-arbiter/verilator-1789996478142699789/report.json": "PASS_CMAC_RW_ARBITER_NATIVE_ONLY"
+  },
+  "archive": "verification/runs/2026-09-21-cmac-rw-arbiter-two-sim/evidence.tar.gz",
+  "archive_sha256": "b22c18bda91f5405cec3e31d46cf04ab0099357ef5dbaa06336eeb80b3bd9df3",
+  "archive_bytes": 131867,
+  "verified_members": 20,
+  "member_sha256": {
+    "build/rknpu-rw-arbiter/iverilog-1789996476698377636/report.json": "1b3c479b243220d7ce033136c1f5338633ef3c3fdd6ddd3db99e4918bd664dba",
+    "rtl/cmac/rk_cmac_rw_arbiter.sv": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+    "tests/cmac/tb_cmac_rw_arbiter.sv": "c110485f789a17386d61a34eabdcc2447a6c3a675f5355099e03f8db688a8eef",
+    "tools/cmac/test_rw_arbiter.py": "64c4d70ea6783ebab5ae9cb01de6a175273e5896244c5343d68b6a4466bc47eb",
+    "build/rknpu-rw-arbiter/iverilog-1789996476698377636/compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/rknpu-rw-arbiter/iverilog-1789996476698377636/runtime_version.log": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+    "build/rknpu-rw-arbiter/iverilog-1789996476698377636/sim.vvp": "cf98a334925fd12b87cf9460d441e58cb862bd40c2f8faa993e21c41a36e3259",
+    "build/rknpu-rw-arbiter/iverilog-1789996476698377636/test.log": "2dbe7d136c4e359d6d4c2235d3b778417e194f44d79fd2887c1baa6abdf3df95",
+    "build/rknpu-rw-arbiter/iverilog-1789996476698377636/version.log": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d",
+    "build/rknpu-rw-arbiter/verilator-1789996478142699789/report.json": "cda68e9193c92cc6e518733017edd2ad429fe84c5bd8c4961ce8102ab7e8d01c",
+    "build/rknpu-rw-arbiter/verilator-1789996478142699789/compile.log": "8b7096fa1030c98e5559a6c60861b4be366ed8c23d9faa4cc4af3032ebb775d0",
+    "build/rknpu-rw-arbiter/verilator-1789996478142699789/cxx_version.log": "7344eb87eb48d7f2388e76a49cf3f0e147514bad2564ca3afa69ce878eaadf87",
+    "build/rknpu-rw-arbiter/verilator-1789996478142699789/lint.log": "354a97096bd5193a08197b6f1ed1605220ef20c5dfec6356e8aa02c7588bee32",
+    "build/rknpu-rw-arbiter/verilator-1789996478142699789/obj/sim": "31a9bac6a23255baa83b5be0a73003ae7c4dc27693a44c7417925c97b681a9e9",
+    "build/rknpu-rw-arbiter/verilator-1789996478142699789/test.log": "799a1a4178046767f951b8b8f905b1d38b7024014c9ec6215da528de5f949cf6",
+    "build/rknpu-rw-arbiter/verilator-1789996478142699789/version.log": "9d8d19bf7d16f490e1b9d701dc1438bf9ec2d7f4a41ca4f0ec8ee3d1a3df8253",
+    "tools/cmac/archive_unit.py": "55ecfc7d6517f4a81f340cb7d1c5771cb75fa73d3ade9587cde9483f3a06a07a",
+    "LICENSE": "2803f4c2f19bdec88a36a45570adee13a41a8f9f6fbba96e4368404d915af42a",
+    "rtl/vendor/nvdla/LICENSE": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb",
+    "donor/hw/LICENSE": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb"
+  },
+  "scope": "Only the listed completed unit reports and configurations. Not upstream UTB, integrated raw execution, physical FPGA, or RK silicon."
+}

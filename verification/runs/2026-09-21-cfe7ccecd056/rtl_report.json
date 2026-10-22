@@ -1,0 +1,2515 @@
+{
+  "status": "PASS",
+  "started_utc": "2026-09-20T16:45:15.023934+00:00",
+  "simulator": "verilator",
+  "scope": "RTL simulation only; not timing closure, FPGA or RK3588 validation",
+  "source_revision": {
+    "sha256": "cfe7ccecd05641ded4be8f1125d047ac3a7a74f53662eacd1114ecc72ed6d17f",
+    "files": {
+      "Makefile": "f7dcd3be8a190bd5379b59f3d7a919fa6f6c9cf7898ccf79c672b035e8e08c0c",
+      "fpga/build.tcl": "06429762949f52efa8d47ede1c76c7bad2255f0bb108a76592271b0402d16394",
+      "fpga/ypcb.xdc": "daa9aaddb8c02f539a58bb00faf9dedc260b205542a6d7851850c3b233325817",
+      "fpga/ypcb_top.sv": "65d43d3f791cc93605b7fd3292e205a99e8d7dcf8b460811225b1d9b4c5cb1b0",
+      "model/__init__.py": "ee209ca74eeeddd062b447c39eaf9a13d49afbce88a2989b1466dec81e4a61a0",
+      "model/half.py": "61e0609848174bced70f730fa7de6f39bd0187161d21064a2dae5d9da65a59dd",
+      "model/half_datapath.cpp": "6c84889335b8ae6be80f15dc107fbebee8ac1452d123c04b61ae3c13d06f11cb",
+      "model/profile.py": "53d40e0540f308e4188165007bff5d00ee9d3a56add7c3f671db5780019f89c9",
+      "model/sim.py": "fc36adc8c316af7f602bdbafbf344dcab75ae372d11cbe1b57091af7ed597de4",
+      "rtl/rk_bram.sv": "ffb9db11b442a47d7f3f82a5ef78f5de00fc999732aa5cdf670b9c6da98e963c",
+      "rtl/rk_demo_rom.sv": "7e61c4738d197156085a2e851a5f5c156f5b35063b2c21e27c15ad03fd85faa8",
+      "rtl/rk_ew_core.sv": "ca3873125db2799e9dc8c9617a96d3d17abd6e0245fa21ff0850c3db2a16d4ca",
+      "rtl/rk_ew_demo.sv": "8f9723b2a745dc36519b6494d8db832f62950590762cb19cbd8f8510a88d1563",
+      "rtl/rk_ew_engine.sv": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e",
+      "rtl/rk_ew_regs.sv": "0e6d9a05482e98a70fb951d7333f42e196289c88367c2ba35be8a9064ed0e23c",
+      "rtl/rk_fp16_alu.sv": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+      "tests/demo_fixture.json": "04d073d98f62b03aa08f91e4e299890d421a2721f20f2c2f118f3a247b481d60",
+      "tests/tb_bram.sv": "680f0fdf6b55faacc9ce0e75a14eaff47497349ed76a101d52e8b72e02fe7a5b",
+      "tests/tb_demo.sv": "6c61059beb7ba0a660533db74d8b755f54efdda3b367c7c43662a956a9fc6c0d",
+      "tests/tb_demo_fault.sv": "e713cae826a14b9dce27dbe96f338c37fc506899c47d72c67ed1577c5362ea65",
+      "tests/tb_ew.sv": "ff0f323e3964ac72a5070bec1c6e1977e60d265c97c3281ced0834ba7d12f5be",
+      "tests/tb_fp16.sv": "6e2617bff3bbf4a17d1b21f91a970aedc38e8d541aff64bcb2c8e0293746c547",
+      "tests/tb_ypcb.sv": "00b520cfc5a067d5b47c93841ab09c62c7e1d8fd24df3d2237700984339847c3",
+      "tests/tb_ypcb_netlist.sv": "116584f164d0c8a315976fbfdf98fc34f3b814f2fcfec0463fe05e29920b8288",
+      "tests/test_demo_fixture.py": "c45e4294bd9256a242e4973ad722710d9345dda900bee1e39906c56f60a996e0",
+      "tests/test_model.py": "5dfd96ab2157b7db605a7a6e59489fccb7f09c006ae5108a9bb3158d23b2b5b8",
+      "tests/vendor/xilinx-unisim/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "tests/vendor/xilinx-unisim/README.md": "30e5f3512845d55bd162ff6e9de170d4115d881481b462d7c031e81e441afaf7",
+      "tests/vendor/xilinx-unisim/verilog/src/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/BUFG.v": "de25f10ec56230b8ffd5c8d772ae5d815f47f40604ce4209eed0efccd5a8dd1f",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/CARRY4.v": "f2f62f5b5736dfa889da76f24cf7fdc9b456282420ef6a203e06d34408d4d75d",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v": "a98661443ef3a3b41a64d1d26d20326ebc4f229a84e96192c02759e6b9f8b7b5",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/FDCE.v": "55f43d08c637cf7b734ed9e64484a70697748d2b6a5ad8e4c3fd8fa6405dbef0",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/FDRE.v": "c6fdb4feddc181a2e7ec5c3abef314fef6d5755f999fc9ccad3bf79d1b543a1c",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/FDSE.v": "173afee3263388433ef35431935175575fea2b4592d77cf87641ea83d416de82",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/IBUF.v": "594f51b2321e68cc0e2175c12996a37fe9d3bd7ea0063420795cb51accef9fe5",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/INV.v": "e7ff76ec57c6554d4c4da9bee3c9e3a7351d4f32e87434507059a38b6901e856",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/LUT1.v": "23be0311d281a612284fb355fb0778ac83e4d3a484c93e6a5a9d27dc471cbfc2",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/LUT2.v": "7d148945093cd956ad3e924290b8fc778f5ea4b323397ebf5a6f78a3f0bbde06",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/LUT3.v": "86711b745e4b5a71bf71eb6ab2747a2467da354949b45c7c5e4851dab5f6ed96",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/LUT4.v": "e1785d5dc015e002bef5b249a536144bbf2c2b6932192701cb6c828e817a8b75",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/LUT5.v": "5eb071b18bcc3d48cefccd19c42dc1f7db6087272480c3e6015921f4bfec9ead",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/LUT6.v": "0b6aff98f29cb3cd2745269519d84efc04b6b1a4f1244906558b5b37d67f7d87",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/MUXF7.v": "9ea29291c201b0eac484317a1151d7597f98e5426dee30d0d68b4acde00d6aba",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/MUXF8.v": "e17c29c2acb76b3b90b6b6cc2371b51fdbf226ca29e0cdec96e93a8d3cb5afcf",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/OBUF.v": "577fb9b1936020a37933c8aacea86dded84c9e4182d728d9368afbf3e7caab85",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+      "tools/evidence.py": "776b3f1c0847e687fe6b0d449e66cd62ecdc630e0de783b293d966b8ddecf8d0",
+      "tools/gen_demo.py": "5c2ef2896414e0050017a3b6d96ec2ee85741b7f2e6506f803cfc3ab5bdeeba6",
+      "tools/gen_regfile.py": "2a4d4cd69bde1584a6a84ddba09819b33b620795f4acb398a680e5cac60e86e5",
+      "tools/gen_vectors.py": "1510751e993a036b9b91518ff7e50a770dcc68508171caee38af8e964adb3d3e",
+      "tools/replay_demo.py": "5f4b4b0833d472a09e1784d153d4365e2cc835d72f3ad34fdb028eec5e0385f9",
+      "tools/run_rtl.py": "629cb23b6e355adcd424f614437093774fe545c8e8939671a00fb334ec4d663f",
+      "tools/run_synth.py": "1c9fb2d060cf1210d226e0455635a4798e748a26dc347acc4acc31881bd74aff",
+      "tools/test_numeric.py": "aa4a1c74836774e5bd3f947650f65ed364ecc0ee2fde2dc1c7b838d9681f9f31"
+    },
+    "git_commit": null,
+    "identity": "SHA256 of the listed source manifest; includes uncommitted edits"
+  },
+  "tests": [
+    {
+      "name": "alu",
+      "status": "PASS",
+      "results": [
+        "PASS ALU: 12963 vectors, 17262 cycles"
+      ]
+    },
+    {
+      "name": "add_1",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/add_1 cycles=221 transactions=24 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "add_7",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/add_7 cycles=221 transactions=24 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "add_8",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/add_8 cycles=221 transactions=24 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "add_9",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/add_9 cycles=408 transactions=48 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "add_33",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/add_33 cycles=922 transactions=120 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "add_257",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/add_257 cycles=5869 transactions=792 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "add_1024",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/add_1024 cycles=22540 transactions=3072 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "add_inplace",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/add_inplace cycles=922 transactions=120 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "sub_1",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/sub_1 cycles=221 transactions=24 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "sub_7",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/sub_7 cycles=221 transactions=24 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "sub_8",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/sub_8 cycles=221 transactions=24 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "sub_9",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/sub_9 cycles=408 transactions=48 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "sub_33",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/sub_33 cycles=922 transactions=120 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "sub_257",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/sub_257 cycles=5869 transactions=792 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "sub_1024",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/sub_1024 cycles=22540 transactions=3072 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "sub_inplace",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/sub_inplace cycles=922 transactions=120 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "mul_1",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/mul_1 cycles=221 transactions=24 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "mul_7",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/mul_7 cycles=221 transactions=24 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "mul_8",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/mul_8 cycles=221 transactions=24 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "mul_9",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/mul_9 cycles=408 transactions=48 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "mul_33",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/mul_33 cycles=922 transactions=120 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "mul_257",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/mul_257 cycles=5869 transactions=792 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "mul_1024",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/mul_1024 cycles=22540 transactions=3072 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "mul_inplace",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/mul_inplace cycles=922 transactions=120 completed=1 expected_error=0"
+      ]
+    },
+    {
+      "name": "two_tasks",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/two_tasks cycles=453 transactions=48 completed=2 expected_error=0"
+      ]
+    },
+    {
+      "name": "bad_width",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/bad_width cycles=11 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "mismatched_width",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/mismatched_width cycles=47 transactions=0 completed=0 expected_error=6"
+      ]
+    },
+    {
+      "name": "bad_fp32",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/bad_fp32 cycles=9 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "bad_max",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/bad_max cycles=19 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "bad_chain",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/bad_chain cycles=41 transactions=0 completed=0 expected_error=7"
+      ]
+    },
+    {
+      "name": "bad_alignment",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/bad_alignment cycles=47 transactions=0 completed=0 expected_error=4"
+      ]
+    },
+    {
+      "name": "bad_overlap",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/bad_overlap cycles=47 transactions=0 completed=0 expected_error=4"
+      ]
+    },
+    {
+      "name": "bad_end",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/bad_end cycles=47 transactions=0 completed=0 expected_error=4"
+      ]
+    },
+    {
+      "name": "unknown_register",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/unknown_register cycles=5 transactions=0 completed=0 expected_error=1"
+      ]
+    },
+    {
+      "name": "missing_register",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_register cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "read_bus_error",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/read_bus_error cycles=50 transactions=1 completed=0 expected_error=5"
+      ]
+    },
+    {
+      "name": "write_bus_error",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/write_bus_error cycles=61 transactions=3 completed=0 expected_error=5"
+      ]
+    },
+    {
+      "name": "timeout",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/timeout cycles=176 transactions=1 completed=0 expected_error=8"
+      ]
+    },
+    {
+      "name": "request_timeout",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/request_timeout cycles=175 transactions=0 completed=0 expected_error=8"
+      ]
+    },
+    {
+      "name": "late_read_bus_error",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/late_read_bus_error cycles=64 transactions=4 completed=0 expected_error=5"
+      ]
+    },
+    {
+      "name": "final_write_bus_error",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/final_write_bus_error cycles=220 transactions=24 completed=0 expected_error=5"
+      ]
+    },
+    {
+      "name": "missing_dpu_pointer",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_dpu_pointer cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_dpu_pointer",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_dpu_pointer cycles=5 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "missing_dpu_mode",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_dpu_mode cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_dpu_mode",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_dpu_mode cycles=7 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "missing_data_format",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_data_format cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_data_format",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_data_format cycles=9 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "missing_width",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_width cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "missing_height",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_height cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_height",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_height cycles=13 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "missing_notch",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_notch cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_notch",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_notch cycles=15 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "missing_channels",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_channels cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_channels",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_channels cycles=17 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "missing_ew_config",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_ew_config cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "missing_out_convert",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_out_convert cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_out_convert",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_out_convert cycles=21 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "missing_rdma_pointer",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_rdma_pointer cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_rdma_pointer",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_rdma_pointer cycles=23 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "missing_rdma_width",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_rdma_width cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "missing_rdma_height",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_rdma_height cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_rdma_height",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_rdma_height cycles=27 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "missing_rdma_channels",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_rdma_channels cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_rdma_channels",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_rdma_channels cycles=29 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "missing_erdma_config",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_erdma_config cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_erdma_config",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_erdma_config cycles=31 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "missing_dst",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_dst cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "missing_src_a",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_src_a cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "missing_src_b",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_src_b cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "missing_rdma_mode",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_rdma_mode cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_rdma_mode",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_rdma_mode cycles=39 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "missing_next_address",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_next_address cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_next_address",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_next_address cycles=41 transactions=0 completed=0 expected_error=7"
+      ]
+    },
+    {
+      "name": "missing_next_amount",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_next_amount cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_next_amount",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_next_amount cycles=43 transactions=0 completed=0 expected_error=7"
+      ]
+    },
+    {
+      "name": "missing_version_marker",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/missing_version_marker cycles=45 transactions=0 completed=0 expected_error=3"
+      ]
+    },
+    {
+      "name": "invalid_version_marker",
+      "status": "PASS",
+      "results": [
+        "PASS /home/fedora/rknpu-fpga/build/vectors/invalid_version_marker cycles=45 transactions=0 completed=0 expected_error=2"
+      ]
+    },
+    {
+      "name": "demo",
+      "status": "PASS",
+      "results": [
+        "PASS BRAM-only three-operation demo, cycles=360",
+        "PASS BRAM demo restart"
+      ]
+    },
+    {
+      "name": "bram",
+      "status": "PASS",
+      "results": [
+        "PASS BRAM: 14 checked transfers, adjacent requests, dual-port reset"
+      ]
+    },
+    {
+      "name": "demo_fault",
+      "status": "PASS",
+      "results": [
+        "PASS known readback corruption rejected",
+        "PASS demo readback corruption, sticky mismatch and recovery"
+      ]
+    },
+    {
+      "name": "ypcb",
+      "status": "PASS",
+      "results": [
+        "PASS YPCB top: startup, asynchronous reset, synchronized release, both LED polarities"
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--version"
+      ],
+      "log": "build/rtl/version.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.027,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "--top-module",
+        "tb_fp16",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_fp16",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/rtl/rk_fp16_alu.sv",
+        "/home/fedora/rknpu-fpga/tests/tb_fp16.sv"
+      ],
+      "log": "build/rtl/tb_fp16_build.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.133,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_fp16/sim",
+        "+VECTORS=/home/fedora/rknpu-fpga/build/vectors/alu.hex",
+        "+COUNT=12963"
+      ],
+      "log": "build/rtl/alu.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.471,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "--top-module",
+        "tb_ew",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/rtl/rk_fp16_alu.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_regs.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_engine.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_core.sv",
+        "/home/fedora/rknpu-fpga/tests/tb_ew.sv"
+      ],
+      "log": "build/rtl/tb_ew_build.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.126,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/add_1",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ],
+      "log": "build/rtl/add_1.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/add_7",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ],
+      "log": "build/rtl/add_7.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/add_8",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ],
+      "log": "build/rtl/add_8.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/add_9",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=48"
+      ],
+      "log": "build/rtl/add_9.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/add_33",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=120"
+      ],
+      "log": "build/rtl/add_33.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/add_257",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=792"
+      ],
+      "log": "build/rtl/add_257.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.221,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/add_1024",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=3072"
+      ],
+      "log": "build/rtl/add_1024.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.572,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/add_inplace",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=120"
+      ],
+      "log": "build/rtl/add_inplace.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/sub_1",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ],
+      "log": "build/rtl/sub_1.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/sub_7",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ],
+      "log": "build/rtl/sub_7.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.122,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/sub_8",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ],
+      "log": "build/rtl/sub_8.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/sub_9",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=48"
+      ],
+      "log": "build/rtl/sub_9.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.121,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/sub_33",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=120"
+      ],
+      "log": "build/rtl/sub_33.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/sub_257",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=792"
+      ],
+      "log": "build/rtl/sub_257.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.222,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/sub_1024",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=3072"
+      ],
+      "log": "build/rtl/sub_1024.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.575,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/sub_inplace",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=120"
+      ],
+      "log": "build/rtl/sub_inplace.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/mul_1",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ],
+      "log": "build/rtl/mul_1.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/mul_7",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ],
+      "log": "build/rtl/mul_7.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/mul_8",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ],
+      "log": "build/rtl/mul_8.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/mul_9",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=48"
+      ],
+      "log": "build/rtl/mul_9.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/mul_33",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=120"
+      ],
+      "log": "build/rtl/mul_33.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/mul_257",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=792"
+      ],
+      "log": "build/rtl/mul_257.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.22,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/mul_1024",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=3072"
+      ],
+      "log": "build/rtl/mul_1024.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.576,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/mul_inplace",
+        "+NCMD=22",
+        "+ECODE=0",
+        "+NDONE=1",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=120"
+      ],
+      "log": "build/rtl/mul_inplace.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/two_tasks",
+        "+NCMD=44",
+        "+ECODE=0",
+        "+NDONE=2",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=48"
+      ],
+      "log": "build/rtl/two_tasks.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/bad_width",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/bad_width.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/mismatched_width",
+        "+NCMD=22",
+        "+ECODE=6",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/mismatched_width.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/bad_fp32",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/bad_fp32.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.121,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/bad_max",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/bad_max.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/bad_chain",
+        "+NCMD=22",
+        "+ECODE=7",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/bad_chain.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/bad_alignment",
+        "+NCMD=22",
+        "+ECODE=4",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/bad_alignment.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/bad_overlap",
+        "+NCMD=22",
+        "+ECODE=4",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/bad_overlap.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/bad_end",
+        "+NCMD=22",
+        "+ECODE=4",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/bad_end.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/unknown_register",
+        "+NCMD=1",
+        "+ECODE=1",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/unknown_register.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_register",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_register.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/read_bus_error",
+        "+NCMD=22",
+        "+ECODE=5",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=1",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=1"
+      ],
+      "log": "build/rtl/read_bus_error.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/write_bus_error",
+        "+NCMD=22",
+        "+ECODE=5",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=3",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=3"
+      ],
+      "log": "build/rtl/write_bus_error.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.121,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/timeout",
+        "+NCMD=22",
+        "+ECODE=8",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=1",
+        "+STALL_REQUEST=0",
+        "+NTRANS=1"
+      ],
+      "log": "build/rtl/timeout.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/request_timeout",
+        "+NCMD=22",
+        "+ECODE=8",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=1",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/request_timeout.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/late_read_bus_error",
+        "+NCMD=22",
+        "+ECODE=5",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=4",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=4"
+      ],
+      "log": "build/rtl/late_read_bus_error.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/final_write_bus_error",
+        "+NCMD=22",
+        "+ECODE=5",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=24",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=24"
+      ],
+      "log": "build/rtl/final_write_bus_error.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_dpu_pointer",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_dpu_pointer.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_dpu_pointer",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_dpu_pointer.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_dpu_mode",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_dpu_mode.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_dpu_mode",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_dpu_mode.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_data_format",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_data_format.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_data_format",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_data_format.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_width",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_width.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_height",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_height.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_height",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_height.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_notch",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_notch.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_notch",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_notch.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_channels",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_channels.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_channels",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_channels.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_ew_config",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_ew_config.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_out_convert",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_out_convert.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.121,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_out_convert",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_out_convert.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_rdma_pointer",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_rdma_pointer.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_rdma_pointer",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_rdma_pointer.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_rdma_width",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_rdma_width.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_rdma_height",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_rdma_height.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_rdma_height",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_rdma_height.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_rdma_channels",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_rdma_channels.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_rdma_channels",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_rdma_channels.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_erdma_config",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_erdma_config.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_erdma_config",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_erdma_config.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_dst",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_dst.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_src_a",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_src_a.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_src_b",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_src_b.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_rdma_mode",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_rdma_mode.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_rdma_mode",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_rdma_mode.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_next_address",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_next_address.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_next_address",
+        "+NCMD=22",
+        "+ECODE=7",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_next_address.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_next_amount",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_next_amount.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.121,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_next_amount",
+        "+NCMD=22",
+        "+ECODE=7",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_next_amount.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.12,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/missing_version_marker",
+        "+NCMD=21",
+        "+ECODE=3",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/missing_version_marker.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.122,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+        "+CASE=/home/fedora/rknpu-fpga/build/vectors/invalid_version_marker",
+        "+NCMD=22",
+        "+ECODE=2",
+        "+NDONE=0",
+        "+BUS_ERROR_AT=0",
+        "+DROP=0",
+        "+STALL_REQUEST=0",
+        "+NTRANS=0"
+      ],
+      "log": "build/rtl/invalid_version_marker.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.119,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "--top-module",
+        "tb_demo",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_demo",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/rtl/rk_fp16_alu.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_regs.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_engine.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_core.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_bram.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_demo_rom.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_demo.sv",
+        "/home/fedora/rknpu-fpga/tests/tb_demo.sv"
+      ],
+      "log": "build/rtl/tb_demo_build.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.129,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_demo/sim"
+      ],
+      "log": "build/rtl/demo.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.069,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "--top-module",
+        "tb_bram",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_bram",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/rtl/rk_bram.sv",
+        "/home/fedora/rknpu-fpga/tests/tb_bram.sv"
+      ],
+      "log": "build/rtl/tb_bram_build.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.128,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_bram/sim"
+      ],
+      "log": "build/rtl/bram.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.037,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "--top-module",
+        "tb_demo_fault",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_demo_fault",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/rtl/rk_fp16_alu.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_regs.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_engine.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_core.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_bram.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_demo_rom.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_demo.sv",
+        "/home/fedora/rknpu-fpga/tests/tb_demo_fault.sv"
+      ],
+      "log": "build/rtl/tb_demo_fault_build.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.179,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_demo_fault/sim"
+      ],
+      "log": "build/rtl/demo_fault.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.037,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "--top-module",
+        "tb_ypcb",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ypcb",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/rtl/rk_fp16_alu.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_regs.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_engine.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_core.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_bram.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_demo_rom.sv",
+        "/home/fedora/rknpu-fpga/rtl/rk_ew_demo.sv",
+        "/home/fedora/rknpu-fpga/fpga/ypcb_top.sv",
+        "/home/fedora/rknpu-fpga/tests/tb_ypcb.sv"
+      ],
+      "log": "build/rtl/tb_ypcb_build.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.126,
+      "warnings": []
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ypcb/sim"
+      ],
+      "log": "build/rtl/ypcb.log",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.072,
+      "warnings": []
+    }
+  ],
+  "seeds": {
+    "vectors": "0x3588",
+    "alu_backpressure": "0x12345678",
+    "memory_backpressure": "0x35881234"
+  },
+  "python_version": "3.14.5",
+  "warnings_policy": "Verilator -Wall warnings are fatal. All tool output is logged.",
+  "tool_version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+  "cxx_version": "c++ (GCC) 16.1.1 20260515 (Red Hat 16.1.1-2)",
+  "stimuli": {
+    "sha256": "a23e3a2ade017830781647720846b09f43c01b140addccd53cc60686326740e3",
+    "files": {
+      "build/vectors/add_1/check.txt": "5669efb43f0cd8b7b066ade76b8d3bddc076eab7fc3fa33c8b3bc74e5a02d8d5",
+      "build/vectors/add_1/commands.hex": "e0e528ab9652335ede4f73f7d7bd9fde90afda802f301c400a7728b4b912d830",
+      "build/vectors/add_1/input.hex": "950ac9bd820c9087d3dbe669c30b1823a4990d6c0aea0eb7edae66afa260003b",
+      "build/vectors/add_1024/check.txt": "7206ea3b61463d033c0ae3a4ea563385bf48a4052318fba0c911abbe50c96734",
+      "build/vectors/add_1024/commands.hex": "8d880fd84291255fb795302c0df0cdeb2d14833c7d71be7265541c79b6e9e02b",
+      "build/vectors/add_1024/input.hex": "eb37e84df7185a72ef2385d09fe3fbfff8b28f90e2aece4ffaf1f05b1e36d984",
+      "build/vectors/add_257/check.txt": "971fada25df2a962e8b2581301b92395ed82905280537023037a03a0b233410c",
+      "build/vectors/add_257/commands.hex": "3172ef0ed6b08a2242d69b346f19143d9d5ba870d8ccf144d5076c9d10d06ff0",
+      "build/vectors/add_257/input.hex": "a90d4e038ed8ac4d00220ad5f45c60cf260da29dabe4d3f32173df19038dbba0",
+      "build/vectors/add_33/check.txt": "de29296031d975e320aa1d120d3c0559d9c3376b23c19e7fab58e58d646f398f",
+      "build/vectors/add_33/commands.hex": "0241dcd423e168e83f26f841bcb9f84977d9a9ec8b38090ee97b2d04eb19e9a7",
+      "build/vectors/add_33/input.hex": "91f46fb5e5ebed47f4be2622c2af04cf427bc70b1d842d615307889e6ec12bdd",
+      "build/vectors/add_7/check.txt": "35e08b415c413cb775292f7675674065ffb00b02ade9a7d5ee0693fd301ef8e5",
+      "build/vectors/add_7/commands.hex": "e0e528ab9652335ede4f73f7d7bd9fde90afda802f301c400a7728b4b912d830",
+      "build/vectors/add_7/input.hex": "4da5269756ba00fa0549c653d8306533528d91310aa1b2ecd57dfeb7aba5217d",
+      "build/vectors/add_8/check.txt": "7ab89d985cc27ca9f4cbd21a8d9c466b715441ce95455e6988f3718ae5994fd2",
+      "build/vectors/add_8/commands.hex": "e0e528ab9652335ede4f73f7d7bd9fde90afda802f301c400a7728b4b912d830",
+      "build/vectors/add_8/input.hex": "b9a16ce212bf57f453ee74bf9a0698b4cece4158962dc1cd206b5945c2d9e11c",
+      "build/vectors/add_9/check.txt": "a7e35e147cefd6d7c9e907b5d0075cf49187e939df326bc9137de493b7d97cc3",
+      "build/vectors/add_9/commands.hex": "9d54a863d1e9248bb9f83d02ee6a571cf6176689ed97b72fb78fb7b9eaaea336",
+      "build/vectors/add_9/input.hex": "3e0933ecc69216432aa845071cf2cfbb66e37441fca967c20d67e1914041f020",
+      "build/vectors/add_inplace/check.txt": "2cf84925a393096304a30773baa8bbd383569071f167d01206a219901b5c1b41",
+      "build/vectors/add_inplace/commands.hex": "7316494e6d7201938cd96cb38b61bcc077f4b3e6866583ee1785faebc1cbb85c",
+      "build/vectors/add_inplace/input.hex": "ada6112495bde02b81a14be17093484ac9d4fe1cf47cf0d930bf7074e86eff2b",
+      "build/vectors/alu.hex": "077bbc301fdc7abab327aba6f09f973f721cad6e75a77177dc196d8a26a69166",
+      "build/vectors/alu_count.txt": "64f150c7691a9de4d634cfefeafca9b59de226894c65ba2bd47a3d9ef6c8e2f6",
+      "build/vectors/bad_alignment/check.txt": "388c0273d3f572c0c8f1323327953a529a165f7ec3ad9578fe5241f57e2726d8",
+      "build/vectors/bad_alignment/commands.hex": "6079aa472fcab8ece15a9aed0890c04e9e24721c0255c07559b8f78c8ea19a79",
+      "build/vectors/bad_alignment/input.hex": "a5cbfee184ad1dfb09355d4dc5f5661a7c21d4550de073c5b7789eabce22241d",
+      "build/vectors/bad_chain/check.txt": "f283ce62c5594b5784d014071497aa89d305a120b4b6b637135ca60506175266",
+      "build/vectors/bad_chain/commands.hex": "796c327ac80e9d4b261e6b4980264ab4b9aa5dc25c682324cd08e92a12dbf287",
+      "build/vectors/bad_chain/input.hex": "e4fe0d1aa7900e4cb608b40b62ae0b434043e2d3c1e61f952a08ed8f71ad21e0",
+      "build/vectors/bad_end/check.txt": "7ae065c7498d44d3114bd4b29ed76f26de46efa8566d0d770160f0e5554eb911",
+      "build/vectors/bad_end/commands.hex": "07ee365c654a8c457e559ed124524028e34dc5d40ee3529d81aa3de766e123b0",
+      "build/vectors/bad_end/input.hex": "25b16a24bbc2fd23af49aedde6c5c5aca2f17166530a5f53d8b5ecec74e42ebb",
+      "build/vectors/bad_fp32/check.txt": "bb0fdd38a25a2fe4823df56e706491fba0506379cf15a0df96deb827c28ab24e",
+      "build/vectors/bad_fp32/commands.hex": "aaf49fa0bd74999ec9e3fb3f627eb50bf120b01e29626cc53896fe915db37b34",
+      "build/vectors/bad_fp32/input.hex": "f1fc6465392e8f8cc4135e02f62d4776f831d6dc5e08fc158fad2639cb533896",
+      "build/vectors/bad_max/check.txt": "f8999f57c41ac2e65e346322d78fa9e0987aabe89496179d4389e9aec9d37319",
+      "build/vectors/bad_max/commands.hex": "e88ddcad9827eaeeb9dfd1fe60eb9cd7016d21937768a347500df24f87f2f568",
+      "build/vectors/bad_max/input.hex": "ee74860f38ba402e5fcccd1fecf56a4899134989fec70c7c52e97b7e0c7e37ad",
+      "build/vectors/bad_overlap/check.txt": "19f8041c698462b7e71f8daf821d7205aebe3ccc753d00a075804eace870c891",
+      "build/vectors/bad_overlap/commands.hex": "36aace628d0f5516c1142a538b842e8842bba0e0ebe610f992162cc489a9df3f",
+      "build/vectors/bad_overlap/input.hex": "5f811c17dbbf5c4ef325f333af961bbfffcd4b53972766c4cd33ce851c50972a",
+      "build/vectors/bad_width/check.txt": "d5f35da105b7d0e91ece5a791e0369d1dd1a13abbf179bcf7aa2c9e57c06f057",
+      "build/vectors/bad_width/commands.hex": "49279a70090dc527796c42f2ccf8399405e053f0fa83560c83d42a747e071a78",
+      "build/vectors/bad_width/input.hex": "549bfbe8c9f0cd9b1d0e8561f9e64d9a4a83eacf01351bb56c892aafb0529535",
+      "build/vectors/cases.json": "9d9a307aff9934e70537f0a03615aae05a32c72f5de60fd90435b7e65eeee66f",
+      "build/vectors/final_write_bus_error/check.txt": "9db0eb1e1b65aeb5ab3e24b6675f5799919b345013df4b5d4fb7d38c62a0e194",
+      "build/vectors/final_write_bus_error/commands.hex": "e0e528ab9652335ede4f73f7d7bd9fde90afda802f301c400a7728b4b912d830",
+      "build/vectors/final_write_bus_error/input.hex": "64b7f2a6c1a058b3eb4a86f769a1a477771865bb6d67d28da7504212025c8b77",
+      "build/vectors/invalid_channels/check.txt": "82021592a2f20cc5490feaacccf45c0738f72e291b8e4393d5e602126cc635d9",
+      "build/vectors/invalid_channels/commands.hex": "f59abf81e28821539fb9dfcaef8572cdf58eaea3a639442804dbdecbc7bf7864",
+      "build/vectors/invalid_channels/input.hex": "6adc68ad38738e7a1dcce29b1d955591a152b8f0485cc2ae1cf91fb598a3fafe",
+      "build/vectors/invalid_data_format/check.txt": "5f36cd4b3bb54fa5782a8ec1948faf32f3a38bb3340bc40353ca2a0d86a53c6e",
+      "build/vectors/invalid_data_format/commands.hex": "0b16765ea42290386849a5567a1bf9262da23a1f70eb1434114ad0038646c99a",
+      "build/vectors/invalid_data_format/input.hex": "09b64612206aba629f4ba0112ccd08a69190025c56c52d4c114f72ee25183f57",
+      "build/vectors/invalid_dpu_mode/check.txt": "e2ae041aef86b0d56c05d0280dfc93e25566e1a0fef43146ad2bb6497c79d4ad",
+      "build/vectors/invalid_dpu_mode/commands.hex": "8937c8745f6b1303e3b2eb5ef80479bba1c046167af149639778020f8f810a03",
+      "build/vectors/invalid_dpu_mode/input.hex": "10e2a35a31e6088b8a75c1e6c07bda56723799f157156777ac58d7e39b3a570a",
+      "build/vectors/invalid_dpu_pointer/check.txt": "70c44c457e4a6b20f98ac0a4c088451e1f15c2e383e1b5bd7048980e37cc4900",
+      "build/vectors/invalid_dpu_pointer/commands.hex": "97f026bdb84a3406fe5f33274cd99d6c3903d06cd1e664bb1a335322bd3cce58",
+      "build/vectors/invalid_dpu_pointer/input.hex": "24b72488e93214f319c8eadb26f614595ad9840920e0fc2bb67608f93fcb07cc",
+      "build/vectors/invalid_erdma_config/check.txt": "93afa7ce235316c345d93d03eac51e2b728dfdfb95a9ec312914a0dee4a8b3a7",
+      "build/vectors/invalid_erdma_config/commands.hex": "629d38f331ad795e3536269a7a52da7148704c417a61f845da6591d410d8130e",
+      "build/vectors/invalid_erdma_config/input.hex": "f007bd7cd0c9bfc607d98390531c624829e6fd82a308423954bb702f655ccb91",
+      "build/vectors/invalid_height/check.txt": "eca2eb63382e16a5ec36aea0b7b10d3754fd505ee29343c319e66252f6f9040f",
+      "build/vectors/invalid_height/commands.hex": "d82d663c44269cbe3d031c5348907dcf28245650b29df76cb4e9cbaa83e2d783",
+      "build/vectors/invalid_height/input.hex": "f004e852ec9b840a09ed2a8c4d698422fa6842f31dfa54ebe95fd68e15b92cfe",
+      "build/vectors/invalid_next_address/check.txt": "91cb443c8d3b903313f6bbd4f8350ddabf51e2909abe9accd18146204b9c4776",
+      "build/vectors/invalid_next_address/commands.hex": "b1fa5a5a6cdb61209e6c6005bc1df282cadb07d13bbe02f39a543e762cc18027",
+      "build/vectors/invalid_next_address/input.hex": "edd7b247387213fc11744008024a6de76aa8c673c1122828e71e059501f25fc9",
+      "build/vectors/invalid_next_amount/check.txt": "438c6c1b0da6fcb1dfadb2bfcce97216bea8d507e6292630cbf01491a0db2524",
+      "build/vectors/invalid_next_amount/commands.hex": "af25ac2d7a60515cb6680fd6c56180eae82de68f2cdb07a08be7064b312af895",
+      "build/vectors/invalid_next_amount/input.hex": "1421886f163123eb285fb633a83d6e559231c6e3e3e6381f62531d79c621e632",
+      "build/vectors/invalid_notch/check.txt": "4540b3a4362b7a00c0605898ee29a5b91f07f448e5177fb0052aa988a09e45d1",
+      "build/vectors/invalid_notch/commands.hex": "502831680d8895dbcf9df0328985f1870855145aa19ae1762f20e3dcec71e20c",
+      "build/vectors/invalid_notch/input.hex": "38fc332bfdfdb5978039f7e07e57d6653a5f8dba3f8da75b86001aa16be31c6f",
+      "build/vectors/invalid_out_convert/check.txt": "d9b71f55704d66be8dfc460591caa89aa26afab91666b78b4d63f7fe68119391",
+      "build/vectors/invalid_out_convert/commands.hex": "79be90bd4c6cc7ddd4ebc7a75b20f742360a856116e76c1e17fb96c426daa3ac",
+      "build/vectors/invalid_out_convert/input.hex": "fc2d583032658561283415ae5cdd93b1e809bc35357aa4b690082152b81f4cd4",
+      "build/vectors/invalid_rdma_channels/check.txt": "34c411506ee7c5608a0475176f98d2267ef09f69f4681ddbdc82f3115260592a",
+      "build/vectors/invalid_rdma_channels/commands.hex": "2e7dce74ba200e60e196aa0092e342518b4ed0ff6942e26d64eca35f7ed32a09",
+      "build/vectors/invalid_rdma_channels/input.hex": "6083923cca3f87966cb183604fe4a9c2ae8d7d96a27936cb0d45d78efecd7c34",
+      "build/vectors/invalid_rdma_height/check.txt": "d6f972e1b422b78a8900039873d13ccc04dca0aa3742d5c4b67d617dcf0e9f11",
+      "build/vectors/invalid_rdma_height/commands.hex": "d072ce810f7eef1484bf4b7bcf7d0770a6af90b461272f8c934a93943cbadf53",
+      "build/vectors/invalid_rdma_height/input.hex": "3e9ad90364706af5c1fa8f2d64d2bec65931df404f4297e635da38c6837d24b9",
+      "build/vectors/invalid_rdma_mode/check.txt": "1f193c3cb7d7a3ba9c7774c61809ddb757557ba8ea90044459da90160d6e8477",
+      "build/vectors/invalid_rdma_mode/commands.hex": "9896179d10b2c71a884483e3b4a6e3d194c512a09e662735ede5c493520db603",
+      "build/vectors/invalid_rdma_mode/input.hex": "c3e61fbab0955f3921dad51463993c07fe7dfe7e2566a1bdd32ede403a020151",
+      "build/vectors/invalid_rdma_pointer/check.txt": "05d76112ce21d6e7f2d7985e3e76f435f38e784ca843400271a2baffcaa823ce",
+      "build/vectors/invalid_rdma_pointer/commands.hex": "9d0fcb63684a4bfb2aaf7505e66252969240e26d4f6262779048f452eb6eb199",
+      "build/vectors/invalid_rdma_pointer/input.hex": "d6e71ac8eb3890c19d5288acce1a05fda77b88369152e665c605d154f3ac334d",
+      "build/vectors/invalid_version_marker/check.txt": "8205e2f39b512cbc5dc400f987a5576a05c47bc0399625f2d6ca0c05721e7695",
+      "build/vectors/invalid_version_marker/commands.hex": "f16fe64f4a121959dacea9a927346581c4304aa85da6906ddba5d9220659a135",
+      "build/vectors/invalid_version_marker/input.hex": "de9e6eb45a78965a363de38e785f45b227414391d221618633f9cc81fa35bd2c",
+      "build/vectors/late_read_bus_error/check.txt": "5331afcce8172152066c40905f6ec1953d36af2617ebdb16fca142eb542a85ae",
+      "build/vectors/late_read_bus_error/commands.hex": "2c8d757f62640d40d05ea8a2ada5b67a815ad3dabeea318d9c853f63c3525073",
+      "build/vectors/late_read_bus_error/input.hex": "e8db4636547a7a4394f06ced91c688cfa1334af761816651bbe1f7539ab1b078",
+      "build/vectors/mismatched_width/check.txt": "df7a697f1e8dedaca4c5f35285bcc45350d82362747e126c6c9ed2156a5082a4",
+      "build/vectors/mismatched_width/commands.hex": "beba4139eb75973b2f945c8d2223401ef87973462712de67393c255776294adc",
+      "build/vectors/mismatched_width/input.hex": "251754cca23b09aaa9e46d505e3d17c1cec0d60640fd00fe0c89734899b6bfb9",
+      "build/vectors/missing_channels/check.txt": "47b4170c6d6ece9b6d545d8f5e3c926cb63cfb9738dc0b639b18fd00f6099ad2",
+      "build/vectors/missing_channels/commands.hex": "ab2376120a7d210daafdbf0502a6348b7c4f527bb055f768721c813a78a80b54",
+      "build/vectors/missing_channels/input.hex": "8ce79c16b9215ffc26f22ced1f6da2b55e7f9ee5f2de02873f57d77b20d4a3cf",
+      "build/vectors/missing_data_format/check.txt": "cdb0c9471d3a7bfb73f9ee09d1eda9d22b748989219d5f08529892f8fde5479e",
+      "build/vectors/missing_data_format/commands.hex": "3f1606c11ff9a59eb72004733ac5cd2004fdb0445dc48d5fa331c57c1cc5ef7b",
+      "build/vectors/missing_data_format/input.hex": "a22480953d54558842c966bf87915c895ac62abee2808c955958ecfe33b585b7",
+      "build/vectors/missing_dpu_mode/check.txt": "3df948b8c1d8b70b4d8b0ef3e99ee323ade03a2387d9752e2a496d10f0dc354f",
+      "build/vectors/missing_dpu_mode/commands.hex": "bd45138bb1777df2033b7d4ee1b7579efc52e495445b63d9966b9949406a4746",
+      "build/vectors/missing_dpu_mode/input.hex": "79826f2928d897c89d00d5cbeebd7a01f20d4bf874d203435e4d11a681ce3227",
+      "build/vectors/missing_dpu_pointer/check.txt": "4123198a0884a791957adb0586785dcea875be23299bde50b9c22f28a6f2555e",
+      "build/vectors/missing_dpu_pointer/commands.hex": "bb2a1cf738b33d2abfbf1f8fef4a6f452669a0a55e53bb2af1cfa5c471ac5e1e",
+      "build/vectors/missing_dpu_pointer/input.hex": "c3e33f10b7edc7f52bd6ad59d5eb41703bafac46e9d7a052ed865faf2dcf052c",
+      "build/vectors/missing_dst/check.txt": "b76f185ae7eab3b254340a9775aa47ad1f706c6ad4b19a3ce7a5bdd767822652",
+      "build/vectors/missing_dst/commands.hex": "90823476a5de117eba0da82a8e213abafcf72416eaf26618addb56eddc9dfea2",
+      "build/vectors/missing_dst/input.hex": "b75523a1cd23eaf231e29b12e50cdbb4ff19fae891456151f989d1642ac1a058",
+      "build/vectors/missing_erdma_config/check.txt": "0f5dc8d639c34f56827e9c454de94e11832feb519d37e5e8b0a66a4cc1deedf3",
+      "build/vectors/missing_erdma_config/commands.hex": "b0180f5f14808076526b4f29989fd0957a2e1d5f534949b9a5057949b89afbce",
+      "build/vectors/missing_erdma_config/input.hex": "5f5acd831b4f52ecd76ecd18d8c0b2341e4eacd5e8cc16f6052b835a24e4f28d",
+      "build/vectors/missing_ew_config/check.txt": "405ba489adb655f8c9bfeab7a2505a8aeb26fa29ab3679fe366819298f888b34",
+      "build/vectors/missing_ew_config/commands.hex": "190493b2a803916feba520b3847b02e6d54ebfdf912176ebd23cfe047bab5952",
+      "build/vectors/missing_ew_config/input.hex": "0434e4b9e414783988e45abdaec85f01bf22f2d1cce74b0d519ae7ee2c884a81",
+      "build/vectors/missing_height/check.txt": "918bac0d1cbf7ae88fca56c89c798b0dde38e93c6ddcbc6dfe15233dc7420f6f",
+      "build/vectors/missing_height/commands.hex": "a482ad8e95f92e24222d9205e8962298a023aa72449aabbd82ca475960c05dd6",
+      "build/vectors/missing_height/input.hex": "063561d2b91bc2c86d34b55beae2df1e15d97473321f2488fabc22b644f14f5d",
+      "build/vectors/missing_next_address/check.txt": "155e873f72dadb34bea864cf089e62d84a8d59259b8e0c344184324eb502b065",
+      "build/vectors/missing_next_address/commands.hex": "3a384ab8110406fdb572381492e7597b25b3dddf10f24567002d4536a92174b5",
+      "build/vectors/missing_next_address/input.hex": "d15b9c38c0c71666fd0474e5ccbf4be91d5225294fc434bdf48379c194b9e3c0",
+      "build/vectors/missing_next_amount/check.txt": "c8d378e113c11c204fbf66f3d55d4f4f98d1debdf9a3e5aff2940bbce807a79a",
+      "build/vectors/missing_next_amount/commands.hex": "87dc328480e6bd3ff4ea8ddeb13014bfd223c976e833e5e7e4b06adb26a07366",
+      "build/vectors/missing_next_amount/input.hex": "c2c022efd10d624f9f4ee71182e2ada243c9ed2a255c321a399c5b23ea4c0dc8",
+      "build/vectors/missing_notch/check.txt": "781549e09ee662dedfc539422dfc0469232b2c8b1743fb355dbbe8c1bc2eb272",
+      "build/vectors/missing_notch/commands.hex": "65e0abbfd35440c231558967099dd58bb60ea8e63779c200faf880bb7b941d52",
+      "build/vectors/missing_notch/input.hex": "cb0676056bed34fee22b64f0345cd47c6e01bb0d4d32f59d120e78aadbc3ffe8",
+      "build/vectors/missing_out_convert/check.txt": "474ebcc67b83e54182fe2922316cd166b8d1c783735d3c095e97cf6cedd0a3db",
+      "build/vectors/missing_out_convert/commands.hex": "f086b8cfb3254240e8d632395fc223ba61e84521eae6352578123c64a852e9b7",
+      "build/vectors/missing_out_convert/input.hex": "ad4baaaa399d57c55eb416dd39aab3c7fa3e3c7b8bcfc0b2532b73a40077a7ee",
+      "build/vectors/missing_rdma_channels/check.txt": "34750dcfbca0a3aba33b49df44b349a9a8fdf294c79c628c41f9992a5edbe9fd",
+      "build/vectors/missing_rdma_channels/commands.hex": "43200e5241f5f14ca48e45bdc9d2fb7f7f3d40bc25bd553f1c269863d2950ca2",
+      "build/vectors/missing_rdma_channels/input.hex": "07b5f01a5d1c9a6eb21b25a2bc44a345a1b61b553e49933047f88a48dbb47e6b",
+      "build/vectors/missing_rdma_height/check.txt": "845c47e46dac61c8fb3ae28f8f38a7bb81f97612ef64400af6df9d5687af7846",
+      "build/vectors/missing_rdma_height/commands.hex": "07b15b70b5a972bde2c9f8d64ed5ba1a1724652d85f1bfd41e80b7272a543545",
+      "build/vectors/missing_rdma_height/input.hex": "6853151089bd45b3e8bb6bc0dcb8cbfbf364eb122b4b4cfa6bd817e3c6ae5792",
+      "build/vectors/missing_rdma_mode/check.txt": "ab8bcd94d18df2cd7e24d786026d12a0d2cffb035e25d333a98740e34f3bba77",
+      "build/vectors/missing_rdma_mode/commands.hex": "2a4bb5c1844cf8a40e8468796379246e6568743225120735857e1d0d9a42a1a5",
+      "build/vectors/missing_rdma_mode/input.hex": "ae7978eec0c15dfa7066f03630be1b0859107acb767e1f351ce14ac0d5106e9e",
+      "build/vectors/missing_rdma_pointer/check.txt": "a1ec56f223b1ffca933f524b328ecca520e820e0b928b01fc691cabfe0de1b94",
+      "build/vectors/missing_rdma_pointer/commands.hex": "8cf3a3aa2adc1c6f4ab0b937b24c3bbd2ada607adfd192764d7f6ab453ba542f",
+      "build/vectors/missing_rdma_pointer/input.hex": "c72e7cf3bcb37a6470387407d359e4563a14034dc48f54ced4002fc5399cbf04",
+      "build/vectors/missing_rdma_width/check.txt": "13b545bfa23d082abbf577a2176707660a76a1a59746e40783e345393e9f08c9",
+      "build/vectors/missing_rdma_width/commands.hex": "caca8a62729ca194032d550f9d73412b1fdb2ab269b41ac1bc005f8dc1d69d46",
+      "build/vectors/missing_rdma_width/input.hex": "168103b300c127cf21fbff50b622f515891f95d7ee05e505165baad16f599422",
+      "build/vectors/missing_register/check.txt": "9eb65e6839b375d4bd8389cd5963bf9b92559644e6bbb732a21469269ec233c7",
+      "build/vectors/missing_register/commands.hex": "bb2a1cf738b33d2abfbf1f8fef4a6f452669a0a55e53bb2af1cfa5c471ac5e1e",
+      "build/vectors/missing_register/input.hex": "1f907cea34e432d52f0e564275d6799b3342a08289930cd100a18c5d380258ab",
+      "build/vectors/missing_src_a/check.txt": "51a22fdd924c7abab8ef6eaba745847186e3ae718da6f05786bdbc97ef5e8421",
+      "build/vectors/missing_src_a/commands.hex": "1db3d117ff07b24ab94c823d77fddda27ce0d89554c30da70f0dfa7066fe76a1",
+      "build/vectors/missing_src_a/input.hex": "4a5feb1d128d41a961402e01e5fdf9e725d7582fc68682316112bf92cdbdfd5e",
+      "build/vectors/missing_src_b/check.txt": "c15c712d67431ff0adf9886280122ce943df81f9ecb3c821b716b209cb338ad1",
+      "build/vectors/missing_src_b/commands.hex": "8ff0bc0775022be70751789715ec69f2781310b4afd6239ab3a8936a51f367f5",
+      "build/vectors/missing_src_b/input.hex": "45f8829cc30e9c17156ee0250628c001bfdd2fcc9917d3d2753691fcfdae76f4",
+      "build/vectors/missing_version_marker/check.txt": "df97db2eab321ea003440ed4280e829fcd709e51e74a16b3aacb631c2f3993f4",
+      "build/vectors/missing_version_marker/commands.hex": "c71756d40e67291c83681b414f3fa9f6cd37342ee56d29d301e4d7005e254d10",
+      "build/vectors/missing_version_marker/input.hex": "70ece5bacecb7bfe8246bd06a7979a477235c5d9dd8a53faec50f1d20f50f586",
+      "build/vectors/missing_width/check.txt": "222af107d8ccad9942307747ad3fc4cfd257af731410bb5ad3f01cd2c9c9e840",
+      "build/vectors/missing_width/commands.hex": "335822b49086af6f708dbaed200b3aff1fde82eaf69888eb4886a7a8211f83dc",
+      "build/vectors/missing_width/input.hex": "86370fbf32dfc793d64c2f1bb392d72d041fb56c85838d98d99bc1b7f80e0c90",
+      "build/vectors/mul_1/check.txt": "9553469f7ad89445a182b9d4f80c3ff32d4779a7bdc8e4cb4ebe34111c4118ae",
+      "build/vectors/mul_1/commands.hex": "a1133d35a7b49033c9f609194af501616ef5fa1697aadf3b8301415a63d5dcdc",
+      "build/vectors/mul_1/input.hex": "5e897db53698a42010d45dd38b3a895a9e5ff9ea4686618aba1ff83a005e37e1",
+      "build/vectors/mul_1024/check.txt": "9a3ccdb49f85e2a2927b8d7ce0f9e0f99d4d8724473a2c55455615201f34a7e5",
+      "build/vectors/mul_1024/commands.hex": "6379148240091162440f1dc8980d1d397ee6263438c3f7679df84de988f04147",
+      "build/vectors/mul_1024/input.hex": "7d619ea92ed4db5f097200c04baf0e80a380994b1c7b919cd237a5afcc3a43a3",
+      "build/vectors/mul_257/check.txt": "e0070e5f5105e623855e650107a8a31212d4ac2c478d18e7ddd3b9d524f89cbe",
+      "build/vectors/mul_257/commands.hex": "04f118c35ae57b1d4bc3a40b720b4d6e9c50e361038aec31edd2314f35a31cf1",
+      "build/vectors/mul_257/input.hex": "3bcbd7411700c05f3ce8ea2b7037f1064247990132d8aae7aa0b455f1e2e0007",
+      "build/vectors/mul_33/check.txt": "d20513f17c37b224a964809954ab6032a629703ed96a60ec7eadad847797dd4f",
+      "build/vectors/mul_33/commands.hex": "b33712480876cba751326fcde1e79a62fa96b7b020808481802b676065a4e536",
+      "build/vectors/mul_33/input.hex": "eb1e4f9a9495f558b1626189455b6da61c48acc1f0a7d739394f177c124e5e2c",
+      "build/vectors/mul_7/check.txt": "31b0b0a90ca0eacd29cba90db611f5849e974a6023f85cb4a082ebd950440cd2",
+      "build/vectors/mul_7/commands.hex": "a1133d35a7b49033c9f609194af501616ef5fa1697aadf3b8301415a63d5dcdc",
+      "build/vectors/mul_7/input.hex": "ed639b4104a6c30343f9555f8fca910c99fad584f903ac417deea5d56fb328d0",
+      "build/vectors/mul_8/check.txt": "796991f3fc144efa84127361cd0ad6e6019beb8047bd8e67b43309cb54b20697",
+      "build/vectors/mul_8/commands.hex": "a1133d35a7b49033c9f609194af501616ef5fa1697aadf3b8301415a63d5dcdc",
+      "build/vectors/mul_8/input.hex": "e4a15296cfddce86017e6799662e3d970f5ecb07300e1a6b12c08131eb793420",
+      "build/vectors/mul_9/check.txt": "eb3b92b3b2de21572ea7dce6ab3d5266a68a2b5863ff26840a92e73ef8fa8fca",
+      "build/vectors/mul_9/commands.hex": "7afb51852f54a89c93351b93b41110b241b55c7b4e0fb1a1bcb57a6540e687df",
+      "build/vectors/mul_9/input.hex": "9423e6a752716374b1c253d102a57c985ba9a45e40a63cfedb1f02d1f102e532",
+      "build/vectors/mul_inplace/check.txt": "8780b7604690246cc08dd3148f9914de160c2c98097217409e9b7fa626b0dc38",
+      "build/vectors/mul_inplace/commands.hex": "b9e917b5bfec674baf4e72e0a7528ecace15beecd4fad3b7b37e7cec783b23a4",
+      "build/vectors/mul_inplace/input.hex": "13213a5e356bbcbea4bc147d1b8a36c2729a1ddc443e28154423a7fee1357d31",
+      "build/vectors/read_bus_error/check.txt": "dbc718bdffa012d321fc5bdd0c287c8ba91744510e4b10a45148cf2d40b470bd",
+      "build/vectors/read_bus_error/commands.hex": "2c8d757f62640d40d05ea8a2ada5b67a815ad3dabeea318d9c853f63c3525073",
+      "build/vectors/read_bus_error/input.hex": "62dcf3408d2ffc0738587831efe572d73d6c78c014e6c965d2c872b9a15d50f5",
+      "build/vectors/request_timeout/check.txt": "84126233301c48ad136d13aa39a1f0fd34deb7bdefd82cd98376895ecddeaa80",
+      "build/vectors/request_timeout/commands.hex": "2c8d757f62640d40d05ea8a2ada5b67a815ad3dabeea318d9c853f63c3525073",
+      "build/vectors/request_timeout/input.hex": "b758874bd349984a2bc425fc6138f495f348f4cb8957d8d5bc4d652ee98eda01",
+      "build/vectors/sub_1/check.txt": "1865017999da9a9c1291378b5915a72a29b1bedd3d5255fb534efc09323ea194",
+      "build/vectors/sub_1/commands.hex": "bea958e3ac0cfad458b035cc8ae14b6ac715f7de909c5f6cb85f86161e5144dc",
+      "build/vectors/sub_1/input.hex": "5456331faee514854222c30f9950c3d66d579d48738762a684e9cce0d2771c8c",
+      "build/vectors/sub_1024/check.txt": "d788ef93ee07d954c2aa837274fc67e4ba3a513c8e3fc4d303405a8e2946d8d0",
+      "build/vectors/sub_1024/commands.hex": "ca8df6e41fd7cc51cd91de86df42a6b1aac0efa25e7e90fa15b4452f6ef8850a",
+      "build/vectors/sub_1024/input.hex": "63c162e78651f9c427a930d94488b75e68fa205a373b228adad4f62014f2df89",
+      "build/vectors/sub_257/check.txt": "b49d403142d94465f8df0968a53402c0e6579e577877a69ab8beb0c859cb5db2",
+      "build/vectors/sub_257/commands.hex": "6f0f13fdf26d34131af82565d3eefa144cf0f87507f856e678fe4d486ff71c84",
+      "build/vectors/sub_257/input.hex": "6bef265a2786c7738df772ae495d58c43707fde7e361f110c8ef33e5a7134a8d",
+      "build/vectors/sub_33/check.txt": "8d22cbd2ba25b1c76274fcf3793ae885096f66d50618e72d0da6e41d88aad3d5",
+      "build/vectors/sub_33/commands.hex": "36392674d470561986271af215181fb0e7977c38abec52e0b0afc48b3cfc3b73",
+      "build/vectors/sub_33/input.hex": "82603e5161d19ea843bae66294af216d0bf79e8fd1015e62c87a8297a30e59a5",
+      "build/vectors/sub_7/check.txt": "8a340b2a3aea3711db8ee74b6cbe4e2266cf4116350fbc43e76967f96f946144",
+      "build/vectors/sub_7/commands.hex": "bea958e3ac0cfad458b035cc8ae14b6ac715f7de909c5f6cb85f86161e5144dc",
+      "build/vectors/sub_7/input.hex": "6e4bc7132059c58906fd1d7c160c93f48e97add22cb4d7ec276b9ce5b111e5e5",
+      "build/vectors/sub_8/check.txt": "cb9a898650e935e8b5933bd65cf6c9d06c2e90eb32771fb27207686ec434cd4a",
+      "build/vectors/sub_8/commands.hex": "bea958e3ac0cfad458b035cc8ae14b6ac715f7de909c5f6cb85f86161e5144dc",
+      "build/vectors/sub_8/input.hex": "28472672e6963594eee3c193f4a928d053c8a013566e979b61d610f2ac99d649",
+      "build/vectors/sub_9/check.txt": "56e6bc7390009228c404ba21c09afbb541ac3799d56a011be927bcb09764fec4",
+      "build/vectors/sub_9/commands.hex": "2ce38f0d4cd2c4517f9aa15bb6269b804be6981e35db62553851c9bef293231c",
+      "build/vectors/sub_9/input.hex": "4d30f9010353b002bed302514373fb7eb8ba0ef136c4135a502d9e23190cb78f",
+      "build/vectors/sub_inplace/check.txt": "4eea80b41d98739a2f206945940fa1b9cefe9f31dc915b0a44e7af3414b6b79d",
+      "build/vectors/sub_inplace/commands.hex": "e065c8a94b1e5cccfa632e89ab14ce6b26d5d7c4d2a095e762097530417498fd",
+      "build/vectors/sub_inplace/input.hex": "625d5f099f1a66164aaede61f3d41a8deeb039eadabfffca1b45a5033f8eb6cd",
+      "build/vectors/timeout/check.txt": "d1266899be7e16a326873f25df94162d6928f1a31ec895eaa891e32447e47804",
+      "build/vectors/timeout/commands.hex": "2c8d757f62640d40d05ea8a2ada5b67a815ad3dabeea318d9c853f63c3525073",
+      "build/vectors/timeout/input.hex": "88fb9e4dfd7240da15eccab5ca701a151ca9c03eefd47448fe7a1e42634e9c08",
+      "build/vectors/two_tasks/check.txt": "f49c01c6e7c35b42ecebf90d02478051fc36a848ed63eb78746d37f379bc573a",
+      "build/vectors/two_tasks/commands.hex": "9e267cf3dbdab103f5dd8ef485858b0b431007e0cfd5e1d5e24f93069efffbf0",
+      "build/vectors/two_tasks/input.hex": "9d43324a413f2383151f52a4615e1c90ec88bc5718b9a9659fcc65eb3b61c523",
+      "build/vectors/unknown_register/check.txt": "f8c56b57f0a2ef6c180e89a8f792f809e3406cd81be5c964aa75cac9ae731f9b",
+      "build/vectors/unknown_register/commands.hex": "48e0bbabf61ecd1905573edd56a151f030568ae81ebb53d9a76ae70cbb32c52d",
+      "build/vectors/unknown_register/input.hex": "fe38603072fb675b8a744c0974335093fd6f0c5e97b88de6e14d60f40f38e026",
+      "build/vectors/write_bus_error/check.txt": "f9192d4b5b5bcab1ed59e2bd54e9c5a484f1a7ca80389c8e93e7560b1dfb341f",
+      "build/vectors/write_bus_error/commands.hex": "2c8d757f62640d40d05ea8a2ada5b67a815ad3dabeea318d9c853f63c3525073",
+      "build/vectors/write_bus_error/input.hex": "32a1368515c6b4ff1c54f423fc94aa7bcf8d30fdec714b136f3cceb7f8857a0e"
+    }
+  },
+  "alu_vectors": 12963,
+  "engine_scenarios": 77,
+  "finished_utc": "2026-09-20T16:45:39.787073+00:00"
+}

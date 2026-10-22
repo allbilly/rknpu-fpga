@@ -1,0 +1,31 @@
+{
+  "status": "ARCHIVED_ACTUAL_DSP_STAGE_ENDPOINT_CONTROLS_AND_PREFLIGHT_FAILURES_ONLY",
+  "archived_utc": "2026-10-06T04:32:39.196516+00:00",
+  "report_statuses": {
+    "build/rknpu-dsp-stage-probe/1791260599493134632/report.json": "FAIL"
+  },
+  "archive": "verification/runs/2026-10-06-dsp-stage-probe-1791260599493134632/evidence.tar.gz",
+  "archive_sha256": "82804c0ebcd1c755d72693cfe379d2851b1ca34ae937ad826512ce2cfc53d54e",
+  "archive_bytes": 106861,
+  "verified_members": 14,
+  "member_sha256": {
+    "tests/cmac/cmac_dsp_stage_probe.sv": "0f2e7e59ae682f91ee40b2de0a8b36c3ddb95f77476cc46bd02bf5e42f84c6ff",
+    "tools/cmac/probe_dsp_stage_execution.py": "54f4eaad802c411f965736d03353a392a08021f6371eaa752166b6486413b295",
+    "tools/evidence.py": "3f54c4a372805dba28b10329943f0304eeead809682a1dd1328f83c23a4d0102",
+    "build/rknpu-dsp-stage-probe/1791260599493134632/report.json": "38399564a6e9544433fb1753e3f68b0c109de389bb75e39f57392d78281885fc",
+    "build/rknpu-dsp-stage-probe/1791260599493134632/version.log": "6d8fa3f8d89b89b3675462c487e5d2a3b60ad8f2acb2653047feee3a37f29b50",
+    "build/rknpu-dsp-stage-probe/1791260599493134632/skipped_dsp_negative.ys": "5cfc16eee1d68422decd4ebc7e61bc41f43cdad2537179ca157d15e5c8cd46a5",
+    "build/rknpu-dsp-stage-probe/1791260599493134632/skipped_dsp_negative.log": "cd8f9ff320d652e0bd8dbb1242a1b9fa6a5317b0bc02eb3b4e2ef021096174bc",
+    "build/rknpu-dsp-stage-probe/1791260599493134632/skipped_dsp_negative.json": "4913b7e6879e4eb7a8e81b084dc781813b480d6e13f4f3e7e7742922193c1acc",
+    "build/rknpu-dsp-stage-probe/1791260599493134632/snapshot/tools/evidence.py": "3f54c4a372805dba28b10329943f0304eeead809682a1dd1328f83c23a4d0102",
+    "build/rknpu-dsp-stage-probe/1791260599493134632/snapshot/tests/cmac/cmac_dsp_stage_probe.sv": "0f2e7e59ae682f91ee40b2de0a8b36c3ddb95f77476cc46bd02bf5e42f84c6ff",
+    "build/rknpu-dsp-stage-probe/1791260599493134632/snapshot/tools/cmac/probe_dsp_stage_execution.py": "54f4eaad802c411f965736d03353a392a08021f6371eaa752166b6486413b295",
+    "build/dsp_actual_corrected_exclusive_stage_endpoint_probe_20261006.log": "a8f0829cc4070d6ef7d9a8bc33d34691078c0d30d52a921fbfa3128e8f4e559c",
+    "LICENSE": "2803f4c2f19bdec88a36a45570adee13a41a8f9f6fbba96e4368404d915af42a",
+    "build/archive_dsp_stage_flow_diagnostics_20261006.py": "5b60e682461700b7401d6f6a2834d44d8f99e73523213ee35f4fc68eb71b1149"
+  },
+  "numerical_acceptance": false,
+  "physical_fit_verified": false,
+  "bitstream_emitted": false,
+  "scope": "Interrupted wrong full-array flow has no resource/numerical/physical acceptance; the real exclusive-stage fixture only establishes stage endpoint behavior."
+}

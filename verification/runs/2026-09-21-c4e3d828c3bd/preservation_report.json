@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-09-21T03:40:45.464117+00:00",
+  "source_sha256": "c4e3d828c3bd04610ff560dbb33d11d953245b1ed0e8b5e4d015e5e65ac5e9fa",
+  "baseline_archive": "verification/runs/2026-09-21-2434cc400305/evidence.tar.gz",
+  "baseline_archive_sha256": "22a41a555b1fd5dc088be62385bf9e87271a52f169ca7b4734b248968da259b7",
+  "byte_identical_vector_files": 610,
+  "cross_simulator_memory_images": 82,
+  "host_vs_direct_memory_images_per_simulator": 11,
+  "modified_existing_sources": [
+    "Makefile",
+    "tools/evidence.py",
+    "tools/run_rtl.py"
+  ],
+  "new_sources": [
+    "rtl/rk_ew_axi.sv",
+    "rtl/rk_job_control.sv",
+    "tests/axil_host.svh",
+    "tests/tb_host_axi.sv",
+    "tests/tb_job_control.sv",
+    "tests/tb_job_control_netlist.sv",
+    "tools/run_host_synth.py"
+  ],
+  "unchanged_existing_sources": 73
+}

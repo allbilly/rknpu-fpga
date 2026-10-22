@@ -1,0 +1,37 @@
+{
+  "status": "PASS_SOURCE_BOUND_UNIT_ARCHIVE",
+  "archived_utc": "2026-09-21T18:08:06.049118+00:00",
+  "reports": {
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/report.json": "PASS_FIXED_FP16_ROW_AREA_ONLY"
+  },
+  "archive": "verification/runs/2026-09-22-fixed-fp16-row-area/evidence.tar.gz",
+  "archive_sha256": "af77e56aa53bed9aeedc2744df688cfffdda7e69ac6897b39bf9c58eb2f73554",
+  "archive_bytes": 2442967,
+  "verified_members": 23,
+  "member_sha256": {
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/report.json": "7e9f66bb954702ab52002cf2b3c34a4ba933c813f722ddfb830cab8918180eb8",
+    "rtl/cmac/experimental/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+    "rtl/vendor/nvdla/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+    "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+    "tests/cmac/fp16_rows_area_top.sv": "b853925464edd3b608d2ad75b11c4da079d26c6fa1e1d9e243bd01d479003d1a",
+    "tools/cmac/map_fp16_rows.py": "5e5195b65237ca6ff21117026fb74e7f14438a319776477bc1272f64448b1090",
+    "tools/cmac/xc7_primitive_counts.py": "708a3e6b88a8b1889262291cc7c0a909e2ef9ba88c569a6d69477b9e2f81b8d7",
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/fixed.log": "36128eea74f2ee87e9184a38e9429376a17438d9c8c4b8e4b4f849aa1a58ceeb",
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/fixed.ys": "b8bb6431515e50da2d21de2eca49649a25515e735ab6c619e897569810e7e5da",
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/fixed_hierarchy.json": "22671f52fe2f34ef539a593abc4a4d4b2fae258d6d2f8d3ca60a1138e4c52b29",
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/fixed_mapped.json": "1bc02f65503610924b4fea3bdbb8a3007c858c62ba462a852f9cbe5291bdbaa6",
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/fixed_mapped.v": "f05fa15e372e867bb1ee5f6bbb7080ae743ec92741217196a1e4df7d160102a6",
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/help.log": "9910d9e63eb5f6f81557633c21b64fe86d675aa439223a321a325896da72926d",
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/original.log": "427be283de974ceb22fc5c719441627d005a0f4083296b4cf7bd6fe93c5a69c4",
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/original.ys": "f6d833c2e6ef984f5d4b5b86a92d32963f29a8be7a88fea49b299d384e680421",
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/original_hierarchy.json": "272f5a4d2eb3a537a3834f36b665b9dda36e9514a5e325a91aa9b1c6374d61ee",
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/original_mapped.json": "a8ee19e9bcca37db0b7dc078b78bf632bca3034c6e56e69942da7eb4c1d95430",
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/original_mapped.v": "140a87d27c3bb46be88cb238200ae42ac93839ff7dd0e6720648764cfc03f961",
+    "build/rknpu-fixed-fp16-rows/area-1790013401846001242/version.log": "6d8fa3f8d89b89b3675462c487e5d2a3b60ad8f2acb2653047feee3a37f29b50",
+    "tools/cmac/archive_unit.py": "3982b68bf8f6499435ffb94b5144761f7c6369e9ad88c376ee8351f06d0fe60b",
+    "LICENSE": "2803f4c2f19bdec88a36a45570adee13a41a8f9f6fbba96e4368404d915af42a",
+    "rtl/vendor/nvdla/LICENSE": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb",
+    "donor/hw/LICENSE": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb"
+  },
+  "scope": "Only the listed completed unit reports and configurations. Not upstream UTB, integrated raw execution, physical FPGA, or RK silicon."
+}

@@ -1,0 +1,35 @@
+{
+  "status": "ARCHIVED_PRODUCT_CERTIFICATE_PREFLIGHT_FAILURE_ONLY",
+  "archived_utc": "2026-10-06T04:01:58.966655+00:00",
+  "actual_exit_code": 1,
+  "actual_log": "build/dsp_actual_source_bound_unshifted_product_certificate_20261006.log",
+  "executed_driver": "tools/cmac/audit_lane_dsp_product.py",
+  "executed_arguments": [
+    "--range-report",
+    "build/rknpu-dsp-donor-ranges/1791257753788291713/report.json",
+    "--component-report",
+    "build/rknpu-dsp-lane-component-proofs/1791255882165369405/report.json"
+  ],
+  "failure": "Strict in-memory tuple versus saved JSON list equality rejects the unchanged range statement before product-certificate creation.",
+  "source_and_evidence": {
+    "sha256": "95695dbd73e2283b9a266723f1ff195c5b9680bb7b60b821d76399c5832ad72b",
+    "files": {
+      "LICENSE": "2803f4c2f19bdec88a36a45570adee13a41a8f9f6fbba96e4368404d915af42a",
+      "build/archive_dsp_product_preflight_failure_20261006.py": "03fa8476ff53a1edc05d4e6c255a10187e3b60155a9c72e87f3e16b9765c9430",
+      "build/dsp_actual_source_bound_unshifted_product_certificate_20261006.log": "06c591ca90d903e3f8729934bdb28f6ab718f03484ccfd3277849cbfd66a2c83",
+      "build/rknpu-dsp-donor-ranges/1791257753788291713/report.json": "12ee3c99e7828cd939e68508ecdcc17e64ef3bd59ced961a1ddbe59e469228b7",
+      "build/rknpu-dsp-donor-ranges/1791257753788291713/rows.json": "d241691e3f1ca5b010c2a2cff8a11500d2f86b9d045873aa8633861fcbfcb76f",
+      "build/rknpu-dsp-lane-component-proofs/1791255882165369405/report.json": "6b3ad97be4b88b1716dd6a442e6d902858319dc56385a2e573a254914fc54bf7",
+      "tools/cmac/audit_lane_dsp_product.py": "c750955b5e5938e923e2bfdceff2fb753c00dad5c971fbeb2534201134cbffa9",
+      "tools/cmac/audit_lane_dsp_ranges.py": "35a7c42ff6a1fec392d137e570295056c601965744a70350ebff091fb62af3ea",
+      "tools/cmac/prove_lane_dsp_components.py": "c6ba910ec7aebf53cdb028b68a978071f03230ae2609fcb8edd6fed2949ab54b",
+      "tools/cmac/prove_lane_dsp_tree_ranges.py": "d4e7daa3ce35ed0af460cbbb0e9c3981b0aa22d1146adbf16a3d6dde9f1eeb10",
+      "tools/evidence.py": "3f54c4a372805dba28b10329943f0304eeead809682a1dd1328f83c23a4d0102"
+    }
+  },
+  "archive": "verification/runs/2026-10-06-dsp-product-preflight-failure/evidence.tar.gz",
+  "archive_sha256": "41c18669d3e599ee499466d352a395fa8f466e5f4e4739acf4ad588bb1d97bb3",
+  "archive_bytes": 31069,
+  "verified_members": 11,
+  "scope": "Captured exact unchanged executed preflight driver and actual failure log. Parent reports/graph are context, not a new HDL/proof result. No product certificate or output report was created; no mathematical, lane, array, physical or RK failure/equivalence conclusion."
+}

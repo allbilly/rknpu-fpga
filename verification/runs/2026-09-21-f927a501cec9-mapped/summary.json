@@ -1,0 +1,17 @@
+{
+  "status": "PASS_FULL_MAPPED_EW_ENDPOINT_FUNCTIONAL_ONLY",
+  "recorded_utc": "2026-09-21T05:53:42.991293+00:00",
+  "source_sha256": "f927a501cec9b66beae84f160bef333a849beb0a148d043d5951ea4febb5c4fc",
+  "tests": 20,
+  "matching_output_images": 11,
+  "test_parameters": {
+    "MAX_TASKS": 4,
+    "TIMEOUT_CYCLES": 128
+  },
+  "scope": "Entire rk_ew_axi XC7 netlist with matched test parameters TIMEOUT_CYCLES=128 and MAX_TASKS=4, public-port host bench and behavioral AXI RAM. The generated bench only removes the now-fixed parameter override; all assertions remain unchanged. No RTL DUT leaf substitutions. Default-parameter production mapping is separate. Functional models only; no routed timing, MIG/ECC/DDR, PCIe or physical/RK silicon validation.",
+  "native_index": "verification/runs/2026-09-21-f927a501cec9/current_index.json",
+  "initial_failure_index": "verification/runs/2026-09-21-060fe287ecda-supplement/index.json",
+  "mapped_compile_warnings": 37,
+  "reset": "Only external clock/reset/idle-address startup drive changed; default glbl and all assertions retained.",
+  "hardware_validation": false
+}

@@ -1,0 +1,191 @@
+{
+  "status": "VERIFIED_EW_AXI_ADAPTER_PARTIAL_NPU",
+  "updated_utc": "2026-09-21T02:47:02.522242+00:00",
+  "source_sha256": "2434cc400305a77900e5d0f6706619182a06bfcb3df653b4c75efcdd5048de8f",
+  "source_manifest": "verification/runs/2026-09-21-2434cc400305/source_SHA256SUMS",
+  "scope": "Strict FP16 EW raw-command DMA with a 512-bit AXI RAM adapter. Both RTL simulators and mapped-adapter tests pass. Board top remains BRAM-only; no MIG/DDR integration, full NPU or physical validation.",
+  "tool_versions": {
+    "verilator": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+    "icarus": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.65 (git sha1 aec814bdf3071f7e0fd0fbe43f7f711e99d01e24, g++-12 12.3.0-1ubuntu1~22.04.3 -fPIC -O3)",
+    "cxx": "c++ (GCC) 16.1.1 20260515 (Red Hat 16.1.1-2)",
+    "python": "3.14.4",
+    "tcl": "9.0.3"
+  },
+  "seeds": {
+    "vectors": "0x3588",
+    "alu_backpressure": "0x12345678",
+    "memory_backpressure": "0x35881234",
+    "axi_backpressure": "0x3588a512"
+  },
+  "checks": {
+    "make_test": {
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "build/axi_test.log",
+      "python_methods": 44,
+      "rtl_result_entries_per_simulator": 225
+    },
+    "generated": {
+      "status": "PASS",
+      "log": "build/axi_test.log"
+    },
+    "strict_lint": {
+      "status": "PASS",
+      "tops": [
+        "rk_ew_core",
+        "rk_ew_dma",
+        "rk_axi_mem",
+        "ypcb_top"
+      ],
+      "warnings_policy": "Verilator -Wall fatal",
+      "log": "build/axi_test.log"
+    },
+    "numeric_model": {
+      "status": "PASS",
+      "cases": 1087299,
+      "report": "verification/runs/2026-09-21-2434cc400305/numeric_report.json",
+      "scope": "C++ arithmetic model only; NOT RTL simulation or RK hardware validation"
+    },
+    "verilator": {
+      "status": "PASS",
+      "result_entries": 225,
+      "benches": 10,
+      "report": "verification/runs/2026-09-21-2434cc400305/rtl_report.json",
+      "warnings": 0
+    },
+    "icarus": {
+      "status": "PASS",
+      "result_entries": 225,
+      "benches": 10,
+      "report": "verification/runs/2026-09-21-2434cc400305/four_state_report.json",
+      "warnings": 0
+    },
+    "axi_protocol": {
+      "status": "PASS",
+      "data_bits": 512,
+      "address_bits": 31,
+      "id_bits": 4,
+      "narrow_bursts": false,
+      "bench": "tests/tb_axi_mem.sv",
+      "production_captures": 9,
+      "dma_fault_cases": 6,
+      "tests": [
+        "all 32 halfword lanes and physical write placement",
+        "neighbor preservation and beat/4 KiB/2 GiB boundaries",
+        "independent AW/W stalls and delayed B completion",
+        "response backpressure",
+        "non-OKAY responses, wrong IDs and missing RLAST",
+        "invalid address rejection and sticky faults",
+        "joint reset at six pending/response boundaries",
+        "DMA R error, R timeout, AR timeout, first B error, B timeout and final B error"
+      ],
+      "numerical_scope": "Unchanged production encoder BOs with synthetic inputs; not RK silicon outputs"
+    },
+    "preservation": {
+      "status": "PASS",
+      "byte_identical_vector_files": 610,
+      "unchanged_existing_source_files": 71,
+      "cross_simulator_memory_images": 71,
+      "axi_vs_direct_memory_cases_per_simulator": 9,
+      "report": "verification/runs/2026-09-21-2434cc400305/preservation_report.json"
+    },
+    "synthesis": {
+      "status": "PASS",
+      "exit_code": 0,
+      "report": "verification/runs/2026-09-21-2434cc400305/synthesis_report.json",
+      "board_cells": {
+        "$scopeinfo": 8,
+        "BUFG": 1,
+        "CARRY4": 570,
+        "DSP48E1": 1,
+        "FDCE": 3,
+        "FDRE": 797,
+        "IBUF": 2,
+        "INV": 1080,
+        "LUT1": 17,
+        "LUT2": 995,
+        "LUT3": 677,
+        "LUT4": 233,
+        "LUT5": 366,
+        "LUT6": 1016,
+        "MUXF7": 96,
+        "MUXF8": 15,
+        "OBUF": 3,
+        "RAMB36E1": 2
+      },
+      "dma_cells": {
+        "$scopeinfo": 3,
+        "BUFG": 1,
+        "CARRY4": 400,
+        "DSP48E1": 1,
+        "FDRE": 731,
+        "IBUF": 86,
+        "INV": 853,
+        "LUT1": 38,
+        "LUT2": 765,
+        "LUT3": 698,
+        "LUT4": 344,
+        "LUT5": 354,
+        "LUT6": 938,
+        "MUXF7": 433,
+        "MUXF8": 156,
+        "OBUF": 96
+      },
+      "axi_cells": {
+        "BUFG": 1,
+        "CARRY4": 18,
+        "FDRE": 72,
+        "IBUF": 583,
+        "INV": 71,
+        "LUT1": 28,
+        "LUT2": 80,
+        "LUT3": 98,
+        "LUT4": 34,
+        "LUT5": 126,
+        "LUT6": 715,
+        "MUXF7": 354,
+        "MUXF8": 69,
+        "OBUF": 721
+      },
+      "scope": "XC7 mapping of board, DMA and AXI adapter; functional mapped-board reset/self-test passed. No placement, routed timing or MIG."
+    },
+    "mapped_axi": {
+      "status": "PASS",
+      "tests": 16,
+      "production_memory_images": 9,
+      "report": "verification/runs/2026-09-21-2434cc400305/axi_mapped_report.json",
+      "scope": "Mapped rk_axi_mem with RTL DMA/core and behavioral AXI RAM; default Xilinx global startup, clock held for 200 ns. No MIG, routed timing, physical FPGA or RK validation.",
+      "startup_wrapper": "build/axi_mapped_wrapper.sv",
+      "warnings": 1,
+      "memory_comparison": "All nine mapped-adapter images byte-identical to the direct-memory RTL images",
+      "separate_from_make_synth_check": true
+    },
+    "vivado": {
+      "status": "UNAVAILABLE",
+      "exit_code": 2,
+      "log": "build/axi_fpga_attempt.log",
+      "reason": "Full Vivado unavailable; Vivado Lab is not the synthesis/implementation tool"
+    },
+    "hardware": {
+      "status": "NOT_RUN",
+      "scope": "No RK3588 differential capture, MIG/DDR or PCIe execution, FPGA programming, placement/routing, timing closure or bitstream"
+    }
+  },
+  "contracts": "docs/AXI_MEMORY.md",
+  "remaining": [
+    "FP16 GEMM/CNA/CBUF/CSC/CMAC/CACC",
+    "PCIe/MIG integration including clocks, reset, calibration, ECC, buffer visibility and host transport",
+    "Full tinygrad FPGA runtime and backend coverage",
+    "RK3588 numerical differential evidence",
+    "Vivado implementation and explicitly authorized physical FPGA test"
+  ],
+  "previous_verified_index": "verification/runs/2026-09-21-a7c0c42d885e/current_index.json",
+  "archive": {
+    "archive": "verification/runs/2026-09-21-2434cc400305/evidence.tar.gz",
+    "sha256": "22a41a555b1fd5dc088be62385bf9e87271a52f169ca7b4734b248968da259b7",
+    "files": 1391,
+    "bytes": 16422995,
+    "verified_members": 1391
+  }
+}

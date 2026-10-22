@@ -1,0 +1,691 @@
+{
+  "status": "CAPTURED",
+  "started_utc": "2026-09-21T00:21:24.047173+00:00",
+  "source_revision": {
+    "sha256": "16fee6eb0780f29f391346d44161b084a377908ea160a82135be85f11c23e787",
+    "files": {
+      "Makefile": "f7dcd3be8a190bd5379b59f3d7a919fa6f6c9cf7898ccf79c672b035e8e08c0c",
+      "fpga/build.tcl": "2c4b744c76c038de94782b681d76c93b50d7e1de03999dc48bcdf9bca82e4ac8",
+      "fpga/ypcb.xdc": "daa9aaddb8c02f539a58bb00faf9dedc260b205542a6d7851850c3b233325817",
+      "fpga/ypcb_top.sv": "65d43d3f791cc93605b7fd3292e205a99e8d7dcf8b460811225b1d9b4c5cb1b0",
+      "model/__init__.py": "ee209ca74eeeddd062b447c39eaf9a13d49afbce88a2989b1466dec81e4a61a0",
+      "model/half.py": "61e0609848174bced70f730fa7de6f39bd0187161d21064a2dae5d9da65a59dd",
+      "model/half_datapath.cpp": "6c84889335b8ae6be80f15dc107fbebee8ac1452d123c04b61ae3c13d06f11cb",
+      "model/profile.py": "1590feb64e31e17591b362c98ca0878872689438a205c0ab125bb89562910cb3",
+      "model/sim.py": "fc36adc8c316af7f602bdbafbf344dcab75ae372d11cbe1b57091af7ed597de4",
+      "rtl/rk_bram.sv": "ffb9db11b442a47d7f3f82a5ef78f5de00fc999732aa5cdf670b9c6da98e963c",
+      "rtl/rk_demo_rom.sv": "7e61c4738d197156085a2e851a5f5c156f5b35063b2c21e27c15ad03fd85faa8",
+      "rtl/rk_ew_core.sv": "ca3873125db2799e9dc8c9617a96d3d17abd6e0245fa21ff0850c3db2a16d4ca",
+      "rtl/rk_ew_demo.sv": "8f9723b2a745dc36519b6494d8db832f62950590762cb19cbd8f8510a88d1563",
+      "rtl/rk_ew_engine.sv": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e",
+      "rtl/rk_ew_regs.sv": "0d8ad5b3bd80cd7aa86a6803a1ca07c7158b3f4992e94a50d79ac9925a56484d",
+      "rtl/rk_fp16_alu.sv": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+      "tests/demo_fixture.json": "04d073d98f62b03aa08f91e4e299890d421a2721f20f2c2f118f3a247b481d60",
+      "tests/tb_bram.sv": "680f0fdf6b55faacc9ce0e75a14eaff47497349ed76a101d52e8b72e02fe7a5b",
+      "tests/tb_demo.sv": "6c61059beb7ba0a660533db74d8b755f54efdda3b367c7c43662a956a9fc6c0d",
+      "tests/tb_demo_fault.sv": "e713cae826a14b9dce27dbe96f338c37fc506899c47d72c67ed1577c5362ea65",
+      "tests/tb_ew.sv": "ff0f323e3964ac72a5070bec1c6e1977e60d265c97c3281ced0834ba7d12f5be",
+      "tests/tb_fp16.sv": "6e2617bff3bbf4a17d1b21f91a970aedc38e8d541aff64bcb2c8e0293746c547",
+      "tests/tb_ypcb.sv": "00b520cfc5a067d5b47c93841ab09c62c7e1d8fd24df3d2237700984339847c3",
+      "tests/tb_ypcb_netlist.sv": "116584f164d0c8a315976fbfdf98fc34f3b814f2fcfec0463fe05e29920b8288",
+      "tests/test_demo_fixture.py": "c45e4294bd9256a242e4973ad722710d9345dda900bee1e39906c56f60a996e0",
+      "tests/test_fpga_build.py": "f9e927b0d085ae7efc58019f990ffaf075aefc9c3f547a1f112846d50bad9505",
+      "tests/test_initialization.py": "25b43adec1f2e131c44e2fcb81867dde3a37d0018be8c308cffe0ae26153dc0b",
+      "tests/test_model.py": "5dfd96ab2157b7db605a7a6e59489fccb7f09c006ae5108a9bb3158d23b2b5b8",
+      "tests/vendor/xilinx-unisim/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "tests/vendor/xilinx-unisim/README.md": "30e5f3512845d55bd162ff6e9de170d4115d881481b462d7c031e81e441afaf7",
+      "tests/vendor/xilinx-unisim/verilog/src/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/BUFG.v": "de25f10ec56230b8ffd5c8d772ae5d815f47f40604ce4209eed0efccd5a8dd1f",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/CARRY4.v": "f2f62f5b5736dfa889da76f24cf7fdc9b456282420ef6a203e06d34408d4d75d",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v": "a98661443ef3a3b41a64d1d26d20326ebc4f229a84e96192c02759e6b9f8b7b5",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/FDCE.v": "55f43d08c637cf7b734ed9e64484a70697748d2b6a5ad8e4c3fd8fa6405dbef0",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/FDRE.v": "c6fdb4feddc181a2e7ec5c3abef314fef6d5755f999fc9ccad3bf79d1b543a1c",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/FDSE.v": "173afee3263388433ef35431935175575fea2b4592d77cf87641ea83d416de82",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/IBUF.v": "594f51b2321e68cc0e2175c12996a37fe9d3bd7ea0063420795cb51accef9fe5",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/INV.v": "e7ff76ec57c6554d4c4da9bee3c9e3a7351d4f32e87434507059a38b6901e856",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/LUT1.v": "23be0311d281a612284fb355fb0778ac83e4d3a484c93e6a5a9d27dc471cbfc2",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/LUT2.v": "7d148945093cd956ad3e924290b8fc778f5ea4b323397ebf5a6f78a3f0bbde06",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/LUT3.v": "86711b745e4b5a71bf71eb6ab2747a2467da354949b45c7c5e4851dab5f6ed96",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/LUT4.v": "e1785d5dc015e002bef5b249a536144bbf2c2b6932192701cb6c828e817a8b75",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/LUT5.v": "5eb071b18bcc3d48cefccd19c42dc1f7db6087272480c3e6015921f4bfec9ead",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/LUT6.v": "0b6aff98f29cb3cd2745269519d84efc04b6b1a4f1244906558b5b37d67f7d87",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/MUXF7.v": "9ea29291c201b0eac484317a1151d7597f98e5426dee30d0d68b4acde00d6aba",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/MUXF8.v": "e17c29c2acb76b3b90b6b6cc2371b51fdbf226ca29e0cdec96e93a8d3cb5afcf",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/OBUF.v": "577fb9b1936020a37933c8aacea86dded84c9e4182d728d9368afbf3e7caab85",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+      "tests/vendor/xilinx-unisim/verilog/src/unisims/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+      "tools/capture_current_backend.py": "40b79ddc33a20966a016da9e1d6ca0248ef24cc231a896484a4c20dcd0fb0a5a",
+      "tools/evidence.py": "776b3f1c0847e687fe6b0d449e66cd62ecdc630e0de783b293d966b8ddecf8d0",
+      "tools/ew_initialization.py": "a31caf2dc5da8ce8bcbe4d256378d6289992214c45f17dd3be5d3fa26f33db16",
+      "tools/gen_demo.py": "5c2ef2896414e0050017a3b6d96ec2ee85741b7f2e6506f803cfc3ab5bdeeba6",
+      "tools/gen_regfile.py": "ffb3d4328a6ba3d6f11d29eb7c460f0a6ef8ae0db4024bbfa170d895ad92c630",
+      "tools/gen_vectors.py": "4abae974269b6ff2c1d10cb7d5233c561c74e0a60313250565e974a2b7b2faf8",
+      "tools/replay_demo.py": "5f4b4b0833d472a09e1784d153d4365e2cc835d72f3ad34fdb028eec5e0385f9",
+      "tools/run_rtl.py": "629cb23b6e355adcd424f614437093774fe545c8e8939671a00fb334ec4d663f",
+      "tools/run_synth.py": "1c9fb2d060cf1210d226e0455635a4798e748a26dc347acc4acc31881bd74aff",
+      "tools/test_numeric.py": "aa4a1c74836774e5bd3f947650f65ed364ecc0ee2fde2dc1c7b838d9681f9f31"
+    },
+    "git_commit": null,
+    "identity": "SHA256 of the listed source manifest; includes uncommitted edits"
+  },
+  "backend_commit": "078eee94d8f1912bb63ce786c250d2c24984844a",
+  "python_version": "3.14.4",
+  "cases": [
+    {
+      "name": "add_8",
+      "logical_count": 8,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "0b0739af6f16be68d0435902449ae625f80b28ff9c3ef8fff820dc100dacb322",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        }
+      ],
+      "initialization_only_gathers": 0,
+      "replay_status": "UNSUPPORTED",
+      "rejection": {
+        "code": 7,
+        "qword_index": 31,
+        "word": "0101100e01200010",
+        "detail": "E7: PC chaining unsupported: next_address"
+      },
+      "bo_files": [
+        "bo_10040000.bin",
+        "bo_10001000.bin",
+        "bo_10020000.bin",
+        "bo_100e0000.bin",
+        "bo_100f0000.bin"
+      ],
+      "rtl_rejection_check": {
+        "status": "PASS",
+        "command": [
+          "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+          "+CASE=/home/fedora/rknpu-fpga/build/backend-current/add_8",
+          "+NCMD=35",
+          "+ECODE=7",
+          "+NDONE=0",
+          "+NTRANS=0"
+        ],
+        "log": "add_8/rtl.log"
+      }
+    },
+    {
+      "name": "add_9",
+      "logical_count": 9,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "3ed60d3390a031f69ccc21a501e2a876de99e7c13fa70fa77f40047fe877feb7",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        }
+      ],
+      "initialization_only_gathers": 0,
+      "replay_status": "UNSUPPORTED",
+      "rejection": {
+        "code": 7,
+        "qword_index": 31,
+        "word": "0101100e01200010",
+        "detail": "E7: PC chaining unsupported: next_address"
+      },
+      "bo_files": [
+        "bo_10040000.bin",
+        "bo_10001000.bin",
+        "bo_10020000.bin",
+        "bo_100e0000.bin",
+        "bo_100f0000.bin"
+      ],
+      "rtl_rejection_check": {
+        "status": "PASS",
+        "command": [
+          "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+          "+CASE=/home/fedora/rknpu-fpga/build/backend-current/add_9",
+          "+NCMD=35",
+          "+ECODE=7",
+          "+NDONE=0",
+          "+NTRANS=0"
+        ],
+        "log": "add_9/rtl.log"
+      }
+    },
+    {
+      "name": "add_33",
+      "logical_count": 33,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "03338717f9fa8d659003d0133ef44add7142b1636ccbf560eaea172e4f2ce018",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        }
+      ],
+      "initialization_only_gathers": 0,
+      "replay_status": "UNSUPPORTED",
+      "rejection": {
+        "code": 7,
+        "qword_index": 31,
+        "word": "0101100e01200010",
+        "detail": "E7: PC chaining unsupported: next_address"
+      },
+      "bo_files": [
+        "bo_10040000.bin",
+        "bo_10001000.bin",
+        "bo_10020000.bin",
+        "bo_100e0000.bin",
+        "bo_100f0000.bin"
+      ],
+      "rtl_rejection_check": {
+        "status": "PASS",
+        "command": [
+          "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+          "+CASE=/home/fedora/rknpu-fpga/build/backend-current/add_33",
+          "+NCMD=35",
+          "+ECODE=7",
+          "+NDONE=0",
+          "+NTRANS=0"
+        ],
+        "log": "add_33/rtl.log"
+      }
+    },
+    {
+      "name": "sub_8",
+      "logical_count": 8,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "fe092fcd997672fcd45241b84fa7ed9950ee1fa7f099dda630e695c02dc35dfb",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        },
+        {
+          "file": "task1.bin",
+          "sha256": "4277c28b469cdebafeda03d5c0bbc8588a273f9c613b9b625a4c1f6e50ea9967",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 22,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269353248
+          }
+        }
+      ],
+      "initialization_only_gathers": 1,
+      "replay_status": "UNSUPPORTED",
+      "rejection": {
+        "code": 7,
+        "qword_index": 31,
+        "word": "0101100e01200010",
+        "detail": "E7: PC chaining unsupported: next_address"
+      },
+      "bo_files": [
+        "bo_10040000.bin",
+        "bo_10001000.bin",
+        "bo_10020000.bin",
+        "bo_10060000.bin",
+        "bo_100e0000.bin",
+        "bo_100f0000.bin"
+      ],
+      "rtl_rejection_check": {
+        "status": "PASS",
+        "command": [
+          "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+          "+CASE=/home/fedora/rknpu-fpga/build/backend-current/sub_8",
+          "+NCMD=35",
+          "+ECODE=7",
+          "+NDONE=0",
+          "+NTRANS=0"
+        ],
+        "log": "sub_8/rtl.log"
+      }
+    },
+    {
+      "name": "sub_9",
+      "logical_count": 9,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "5befec46dab05a67b92e1bf13ae1e3e76f7762d76d776dac98f8f4c200e8d7e1",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        },
+        {
+          "file": "task1.bin",
+          "sha256": "e8262d7f6c7a6a8ba61b068b66e8605f94e5ea066f5009cf24baf6fcc706ff93",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 22,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269353248
+          }
+        }
+      ],
+      "initialization_only_gathers": 1,
+      "replay_status": "UNSUPPORTED",
+      "rejection": {
+        "code": 7,
+        "qword_index": 31,
+        "word": "0101100e01200010",
+        "detail": "E7: PC chaining unsupported: next_address"
+      },
+      "bo_files": [
+        "bo_10040000.bin",
+        "bo_10001000.bin",
+        "bo_10020000.bin",
+        "bo_10060000.bin",
+        "bo_100e0000.bin",
+        "bo_100f0000.bin"
+      ],
+      "rtl_rejection_check": {
+        "status": "PASS",
+        "command": [
+          "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+          "+CASE=/home/fedora/rknpu-fpga/build/backend-current/sub_9",
+          "+NCMD=35",
+          "+ECODE=7",
+          "+NDONE=0",
+          "+NTRANS=0"
+        ],
+        "log": "sub_9/rtl.log"
+      }
+    },
+    {
+      "name": "sub_33",
+      "logical_count": 33,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "637baf03e0db3b905c7e634566d94408e4a0c40ab9997a84ad7d5ac5431af476",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        },
+        {
+          "file": "task1.bin",
+          "sha256": "e5aa07deaf55b66653d2bb330d1d552b7f201f4178c60c25e133e30852e0e50c",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 22,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269353248
+          }
+        }
+      ],
+      "initialization_only_gathers": 1,
+      "replay_status": "UNSUPPORTED",
+      "rejection": {
+        "code": 7,
+        "qword_index": 31,
+        "word": "0101100e01200010",
+        "detail": "E7: PC chaining unsupported: next_address"
+      },
+      "bo_files": [
+        "bo_10040000.bin",
+        "bo_10001000.bin",
+        "bo_10020000.bin",
+        "bo_10060000.bin",
+        "bo_100e0000.bin",
+        "bo_100f0000.bin"
+      ],
+      "rtl_rejection_check": {
+        "status": "PASS",
+        "command": [
+          "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+          "+CASE=/home/fedora/rknpu-fpga/build/backend-current/sub_33",
+          "+NCMD=35",
+          "+ECODE=7",
+          "+NDONE=0",
+          "+NTRANS=0"
+        ],
+        "log": "sub_33/rtl.log"
+      }
+    },
+    {
+      "name": "mul_8",
+      "logical_count": 8,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "c25ebb3cb3f116d3d8ca753b9e7523a2d6119735f6fa2f3d29d823b976a168e6",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        }
+      ],
+      "initialization_only_gathers": 0,
+      "replay_status": "UNSUPPORTED",
+      "rejection": {
+        "code": 7,
+        "qword_index": 31,
+        "word": "0101100e01200010",
+        "detail": "E7: PC chaining unsupported: next_address"
+      },
+      "bo_files": [
+        "bo_10040000.bin",
+        "bo_10001000.bin",
+        "bo_10020000.bin",
+        "bo_100e0000.bin",
+        "bo_100f0000.bin"
+      ],
+      "rtl_rejection_check": {
+        "status": "PASS",
+        "command": [
+          "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+          "+CASE=/home/fedora/rknpu-fpga/build/backend-current/mul_8",
+          "+NCMD=35",
+          "+ECODE=7",
+          "+NDONE=0",
+          "+NTRANS=0"
+        ],
+        "log": "mul_8/rtl.log"
+      }
+    },
+    {
+      "name": "mul_9",
+      "logical_count": 9,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "a70b68029e6349c5148713958da98b73b31d29c0c351fca9f4f03d3b22192f39",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        }
+      ],
+      "initialization_only_gathers": 0,
+      "replay_status": "UNSUPPORTED",
+      "rejection": {
+        "code": 7,
+        "qword_index": 31,
+        "word": "0101100e01200010",
+        "detail": "E7: PC chaining unsupported: next_address"
+      },
+      "bo_files": [
+        "bo_10040000.bin",
+        "bo_10001000.bin",
+        "bo_10020000.bin",
+        "bo_100e0000.bin",
+        "bo_100f0000.bin"
+      ],
+      "rtl_rejection_check": {
+        "status": "PASS",
+        "command": [
+          "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+          "+CASE=/home/fedora/rknpu-fpga/build/backend-current/mul_9",
+          "+NCMD=35",
+          "+ECODE=7",
+          "+NDONE=0",
+          "+NTRANS=0"
+        ],
+        "log": "mul_9/rtl.log"
+      }
+    },
+    {
+      "name": "mul_33",
+      "logical_count": 33,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "0a951fc97d12b8c0e99b44ec74c862860d60b23a98d8ee18080b6dc35f887a91",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        }
+      ],
+      "initialization_only_gathers": 0,
+      "replay_status": "UNSUPPORTED",
+      "rejection": {
+        "code": 7,
+        "qword_index": 31,
+        "word": "0101100e01200010",
+        "detail": "E7: PC chaining unsupported: next_address"
+      },
+      "bo_files": [
+        "bo_10040000.bin",
+        "bo_10001000.bin",
+        "bo_10020000.bin",
+        "bo_100e0000.bin",
+        "bo_100f0000.bin"
+      ],
+      "rtl_rejection_check": {
+        "status": "PASS",
+        "command": [
+          "/home/fedora/rknpu-fpga/build/rtl/obj_tb_ew/sim",
+          "+CASE=/home/fedora/rknpu-fpga/build/backend-current/mul_33",
+          "+NCMD=35",
+          "+ECODE=7",
+          "+NDONE=0",
+          "+NTRANS=0"
+        ],
+        "log": "mul_33/rtl.log"
+      }
+    }
+  ],
+  "scope": "Production to_program and final ioctl bytes with synthetic BOs; no RK or FPGA execution",
+  "hardware_outputs": null,
+  "command_words_rewritten": false,
+  "runtime_data_gathers": false,
+  "backend_files": {
+    "tinygrad/renderer/rockchip.py": "c84b70e73449a721319981334b746f79aadd095bd39cc2f576c84bd397fbcc1d",
+    "tinygrad/runtime/ops_rockchip.py": "73cddbdebaf52c33a9d3cef33bbc016b78357da35a588403c23e35069e223daa",
+    "tinygrad/runtime/autogen/rockchip.py": "6d6c11176fd78201fa013b5b4485d9a1a67158ba749eca0d892a12e22c8f1f56"
+  },
+  "rtl_tool_version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+  "finished_utc": "2026-09-21T00:21:49.241911+00:00",
+  "files": {
+    "add_8/expected_logical.bin": "09c40942ccd934ab34c4d08f9b2920ccad10596f782a43ce3ca506c5e83ae91a",
+    "add_8/program.bin": "cc8991166a78bde69fde55dd480c22aae4154e8700f3f3a22eb1119d106c1bb1",
+    "add_8/task0.bin": "0b0739af6f16be68d0435902449ae625f80b28ff9c3ef8fff820dc100dacb322",
+    "add_8/bo_10040000.bin": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+    "add_8/bo_10001000.bin": "7ba408e69225c8aae74f8ca108c9a1e04365d49e74045935ddbb9bc2178f1ee5",
+    "add_8/bo_10020000.bin": "9005c7fe11aa6fec88d67a256d408909b372ce01f78a0a9ea78805c9145b34c3",
+    "add_8/bo_100e0000.bin": "4ab0bd48a79180273c82c4eed433751741707347c9b70da216099bf17ebcd012",
+    "add_8/bo_100f0000.bin": "363cd1ac27d66067f2ed0f4561396165b89a50eae5c2a334008da2ffa07fabd5",
+    "add_8/submit.bin": "b5fbf0cc042bb23fbc9f2a2d210c722e4a40a52db436d0f85472a9218bcfbce9",
+    "add_8/commands.hex": "955372912c5cfac5aa91b47c31ec2809fe5a566ca343b00845c42562975cedb3",
+    "add_8/input.hex": "1a8efb02fa99aa167d4d1bbd236fb5897f40dee4a3361c4f128e2080835e77f2",
+    "add_8/check.txt": "14394ab1dd81d4e05222ff1f942547551822856bc439ba33f4f895a030581437",
+    "add_8/rtl.log": "ceada572eb0e74353a0e1868f4ab2e9df8494e1ec816121245dfdfa52a5c0000",
+    "add_9/expected_logical.bin": "655e6a74ab77d2455ebc3e19f5aaf81882cf3ebf7532ca9bac23190f7e4f91ee",
+    "add_9/program.bin": "71026cb0489f88b38063c76cdff74f601ec74ca0bcba53ca53c621bd68daa396",
+    "add_9/task0.bin": "3ed60d3390a031f69ccc21a501e2a876de99e7c13fa70fa77f40047fe877feb7",
+    "add_9/bo_10040000.bin": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+    "add_9/bo_10001000.bin": "87ad8a23683e72fc2e7d60e281abe9674cf9c58411a0b2c605c9ce88fe47eb79",
+    "add_9/bo_10020000.bin": "83c8979965b6b095981bc8b3e999ef156419acc2e93566083dd1e7a3184ad2a6",
+    "add_9/bo_100e0000.bin": "f4610e94773d23decbb47eca1db2532738ddf49dbf5e1b92bb8c25a49364c8b9",
+    "add_9/bo_100f0000.bin": "363cd1ac27d66067f2ed0f4561396165b89a50eae5c2a334008da2ffa07fabd5",
+    "add_9/submit.bin": "6cd831988ba3a773833fd536e43b2cedcd5244dbce8a25a05ba41e2e6b971088",
+    "add_9/commands.hex": "a22be16f62b65d7211b7dd0d449b5ecadad0ed0755f215492f0187b079449820",
+    "add_9/input.hex": "a0cc985aadcc64ec8885a41cfffe8d735922cf131b854e5d36acca95f99f21ff",
+    "add_9/check.txt": "9f0130cb9e399a087891a7343a1ae67709ed51dc2b25f7e3a31de23ee45179e5",
+    "add_9/rtl.log": "52fa470c1afc3fe3f8c8b1400e4d1bb67dbc3f0fd65fc86bd07fea49e1e73c10",
+    "add_33/expected_logical.bin": "a493a016d6e7142607b2b15079aba576dad610a3b71dc32c913377753ad48c71",
+    "add_33/program.bin": "72a42b159aecd65b701dd6a8c99b527458e76e1dc92047fdd4d96312644a4c6e",
+    "add_33/task0.bin": "03338717f9fa8d659003d0133ef44add7142b1636ccbf560eaea172e4f2ce018",
+    "add_33/bo_10040000.bin": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+    "add_33/bo_10001000.bin": "47557ad7f1192ceff98db3adcf695759ff7b647190d165c89c4b1cd6a6c536e5",
+    "add_33/bo_10020000.bin": "d7994a6ffe140b7012aafbd8319b7ac1fe61d2c4e69cf11c97e3e05565a4719a",
+    "add_33/bo_100e0000.bin": "ee4455eaf812c926439e4e75d86cb17f5b3ed1b833e9775a405c2b8cf75d2f91",
+    "add_33/bo_100f0000.bin": "363cd1ac27d66067f2ed0f4561396165b89a50eae5c2a334008da2ffa07fabd5",
+    "add_33/submit.bin": "80f64b096c0dcf376cf825c4e9ff7740dd1e1ca8b69dc8c3b11578cecd027919",
+    "add_33/commands.hex": "07bd1633a94a00547899eeda3627102f52a4eb07cc38fa71cddbe91cc13cee25",
+    "add_33/input.hex": "2aecfac25c8ab5f4442f088edc51f3b60cc290b91383b0a842716b64ca32ba83",
+    "add_33/check.txt": "7782d9eaf8b216c79407702c0868875f88a5001bab6a6c002e7b4ba2490cc8f4",
+    "add_33/rtl.log": "d3287b00e73750fe938e236977cfad6b086bc5a61b3d42f8f6323b4c900bdcb7",
+    "sub_8/expected_logical.bin": "dcfccf5d2f1a85ec2451022f9a311e8e81579d483f81bcd06643db2eb65ab0c4",
+    "sub_8/program.bin": "8edb40fd30ae2a34e8f3cc1800cbc3f1f895a153b91539d882df8f1f194f17a8",
+    "sub_8/task0.bin": "fe092fcd997672fcd45241b84fa7ed9950ee1fa7f099dda630e695c02dc35dfb",
+    "sub_8/task1.bin": "4277c28b469cdebafeda03d5c0bbc8588a273f9c613b9b625a4c1f6e50ea9967",
+    "sub_8/bo_10040000.bin": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+    "sub_8/bo_10001000.bin": "7ba408e69225c8aae74f8ca108c9a1e04365d49e74045935ddbb9bc2178f1ee5",
+    "sub_8/bo_10020000.bin": "9005c7fe11aa6fec88d67a256d408909b372ce01f78a0a9ea78805c9145b34c3",
+    "sub_8/bo_10060000.bin": "26c381f6402ee3d9dfed6e3487296fece09a79235d66ecf1ece69dd75be4663e",
+    "sub_8/bo_100e0000.bin": "df6741d8af1e0c63c92c71cd8598657a985b56b7de397db1ef72a822c39098cd",
+    "sub_8/bo_100f0000.bin": "c03aa73c08d818c1b2378cc2f1531a7b3ff25b7df2dc9c6e2328c7b91b940d2f",
+    "sub_8/submit.bin": "f11ea99a7d0b6753de31822e6adb134a3c4b92537218cf5eccb64a971b9a571b",
+    "sub_8/commands.hex": "9fb1c27cdca35d6522b50553839f2937b998d00a325284939555bc89df2c97aa",
+    "sub_8/input.hex": "e291d4f1eaef05f6e1db1bdea5a6de0b9ae67881977e74239fe9a4a8a9fbe016",
+    "sub_8/check.txt": "38a3828ff76ba273bd2cc3cf6d671148d57c6898b9adade555b8d2774f038e99",
+    "sub_8/rtl.log": "8800778d448c7fcd9b4b546bfaf87dc395b571a06c3a6b5e36dc3fec5822637f",
+    "sub_9/expected_logical.bin": "69aa331d6e7fd1e8b9a58bdb1c1618cacdc9eae9a7ea78c20d7f51120dda131b",
+    "sub_9/program.bin": "f0a1990a26bd877071d55ef11e6e513f43afb6536becee81a0ac533d2f5a5fd2",
+    "sub_9/task0.bin": "5befec46dab05a67b92e1bf13ae1e3e76f7762d76d776dac98f8f4c200e8d7e1",
+    "sub_9/task1.bin": "e8262d7f6c7a6a8ba61b068b66e8605f94e5ea066f5009cf24baf6fcc706ff93",
+    "sub_9/bo_10040000.bin": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+    "sub_9/bo_10001000.bin": "87ad8a23683e72fc2e7d60e281abe9674cf9c58411a0b2c605c9ce88fe47eb79",
+    "sub_9/bo_10020000.bin": "83c8979965b6b095981bc8b3e999ef156419acc2e93566083dd1e7a3184ad2a6",
+    "sub_9/bo_10060000.bin": "ff562930e8a45bd2e4ddba9f59ead6b4f1d72c48407b074abaf8bb826a72210f",
+    "sub_9/bo_100e0000.bin": "d4606a77af0d7233022a20d99d7b7431f2dfc4d4a786334777fccab70e2971bc",
+    "sub_9/bo_100f0000.bin": "c03aa73c08d818c1b2378cc2f1531a7b3ff25b7df2dc9c6e2328c7b91b940d2f",
+    "sub_9/submit.bin": "53a828b4877e810e26520c1e8bd5515fbf07ce6abfa5dfbaa727e11997491d4f",
+    "sub_9/commands.hex": "9fafe45e0aaf7ff4c46bcf87528d22dbee3026065230b9ac992e376674a71071",
+    "sub_9/input.hex": "82faed870acf1e10b16a2096f7e0b8daf66372c14ab9d0986d3749c7ef67216e",
+    "sub_9/check.txt": "155755771f8b12a732fb09841839ba06a5c1778e320746073998967cb3f5e7b6",
+    "sub_9/rtl.log": "e4a6f8ec3b1c59d76f7fd5a6441d6a14b72d342633b7b5d33b272cf5ad043ad9",
+    "sub_33/expected_logical.bin": "d8bcfd0cf10aff602005bec7a80d5ad3358e06a59d3274dcc0fb46995fb3f17f",
+    "sub_33/program.bin": "399002050443502de00cb4cb99292f4352acc24d609292f7eff33fa72e609039",
+    "sub_33/task0.bin": "637baf03e0db3b905c7e634566d94408e4a0c40ab9997a84ad7d5ac5431af476",
+    "sub_33/task1.bin": "e5aa07deaf55b66653d2bb330d1d552b7f201f4178c60c25e133e30852e0e50c",
+    "sub_33/bo_10040000.bin": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+    "sub_33/bo_10001000.bin": "47557ad7f1192ceff98db3adcf695759ff7b647190d165c89c4b1cd6a6c536e5",
+    "sub_33/bo_10020000.bin": "d7994a6ffe140b7012aafbd8319b7ac1fe61d2c4e69cf11c97e3e05565a4719a",
+    "sub_33/bo_10060000.bin": "04229b3b2113aa1925b4199f85ea823692ebefc5b319bd89345ba89251feffae",
+    "sub_33/bo_100e0000.bin": "4466a43501f9bb2d867682fe0a829af7d4a2d1627ebec8d2715cc0ed4a6064dd",
+    "sub_33/bo_100f0000.bin": "c03aa73c08d818c1b2378cc2f1531a7b3ff25b7df2dc9c6e2328c7b91b940d2f",
+    "sub_33/submit.bin": "8cc181fe468f76e83b3fcd7ca128acc4f0daad361205afd504c8d755a385fb98",
+    "sub_33/commands.hex": "714a40aa1d94d641109bd720dd18c5e9503768649c361441aff9830b8f86a0a5",
+    "sub_33/input.hex": "aa248321743d0faf301800a5569892fca0f4a8827e4e8ac5ae9abfbda4696a69",
+    "sub_33/check.txt": "cd68cb58051430e69fe8cdbe038c0869eab4747143faf82d40fc77b83f8620e7",
+    "sub_33/rtl.log": "75b43be5144feeb2c6e56101e8b92eec2b31591ba9a5612ae710c62ec741e9b9",
+    "mul_8/expected_logical.bin": "fc8bb7df07183c2ac9a6685ff5796e8e9428122fb0860610b29214ac72c86b5f",
+    "mul_8/program.bin": "3958daec92e49e4f5247ce3870fe2f617c58c6805d42a01c01b984ef1cbaeadd",
+    "mul_8/task0.bin": "c25ebb3cb3f116d3d8ca753b9e7523a2d6119735f6fa2f3d29d823b976a168e6",
+    "mul_8/bo_10040000.bin": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+    "mul_8/bo_10001000.bin": "7ba408e69225c8aae74f8ca108c9a1e04365d49e74045935ddbb9bc2178f1ee5",
+    "mul_8/bo_10020000.bin": "9005c7fe11aa6fec88d67a256d408909b372ce01f78a0a9ea78805c9145b34c3",
+    "mul_8/bo_100e0000.bin": "426984457338b8e86eb558d80607cd41c423ca1e2c9ad42215db3cc4c9dc5618",
+    "mul_8/bo_100f0000.bin": "363cd1ac27d66067f2ed0f4561396165b89a50eae5c2a334008da2ffa07fabd5",
+    "mul_8/submit.bin": "6e5dd42b580e517e2780cebdd69ae6d711df8df04a10143e0a91ec0747ef1855",
+    "mul_8/commands.hex": "90248fa34c95a13fdb55934a31cabc19459549909b8881ae54ae1e8acc4a28fa",
+    "mul_8/input.hex": "f64c04e0c94af3aaafa47330d5a12290576d61044674050734262c8703af61ac",
+    "mul_8/check.txt": "a584df63428b0ee207def5b9e69d9fc5f89aff6ef3b827ddcd3652c2ff5310f3",
+    "mul_8/rtl.log": "fe6db33abdc37a6afea1fd8c4d420ff38aa155ef56d61dc018432db82931b76b",
+    "mul_9/expected_logical.bin": "5f9f8e878c1438a71f1a45f54810b5997793cd2bbab3a46f86d5067abd03be43",
+    "mul_9/program.bin": "b57ec9445b8b17f69cf5d249f38276e5cce3a9e2c343e5de20a69fdedca0085c",
+    "mul_9/task0.bin": "a70b68029e6349c5148713958da98b73b31d29c0c351fca9f4f03d3b22192f39",
+    "mul_9/bo_10040000.bin": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+    "mul_9/bo_10001000.bin": "87ad8a23683e72fc2e7d60e281abe9674cf9c58411a0b2c605c9ce88fe47eb79",
+    "mul_9/bo_10020000.bin": "83c8979965b6b095981bc8b3e999ef156419acc2e93566083dd1e7a3184ad2a6",
+    "mul_9/bo_100e0000.bin": "2cd0f0b0fa10c46d35a4e4b97d6cf1b4c348af3c70820bc4c254956bc0c99765",
+    "mul_9/bo_100f0000.bin": "363cd1ac27d66067f2ed0f4561396165b89a50eae5c2a334008da2ffa07fabd5",
+    "mul_9/submit.bin": "c930419b6346260fd60ff02f22c2d1f9fecb736df9ef9de562f8fdc50d904db8",
+    "mul_9/commands.hex": "567a1268de8a7c87ed268bdecfb6535dc7fc54bb51741b45e9d3dda73f603892",
+    "mul_9/input.hex": "b5a9f287db989f50f23d080eebdcd62754524c09090c372178d6044160c7380e",
+    "mul_9/check.txt": "4c0d8330fef3f2a569626d7c430ea6e4a0dbd2383ea7a85d8ed2e14febe24393",
+    "mul_9/rtl.log": "f67d94f19974556c83238bdf739a5a5482d896bedd8fe871fd7b37ee12587662",
+    "mul_33/expected_logical.bin": "a3cd8f748056e2c6d200a5c1a4aa2a599e8bf278b04b8be34d1faa4c7c7d86d9",
+    "mul_33/program.bin": "b41b042fa94048c363d1d679b8b84c3501966f53aa3ebc5d72bad9ecd74049d0",
+    "mul_33/task0.bin": "0a951fc97d12b8c0e99b44ec74c862860d60b23a98d8ee18080b6dc35f887a91",
+    "mul_33/bo_10040000.bin": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+    "mul_33/bo_10001000.bin": "47557ad7f1192ceff98db3adcf695759ff7b647190d165c89c4b1cd6a6c536e5",
+    "mul_33/bo_10020000.bin": "d7994a6ffe140b7012aafbd8319b7ac1fe61d2c4e69cf11c97e3e05565a4719a",
+    "mul_33/bo_100e0000.bin": "bb933477bf21907a66ebacb9c9d2efed1fe6d59e547bb8e1c99b2c745f0eeb7d",
+    "mul_33/bo_100f0000.bin": "363cd1ac27d66067f2ed0f4561396165b89a50eae5c2a334008da2ffa07fabd5",
+    "mul_33/submit.bin": "56ee3787879f1e4e82de918ca501935d83e646c24c21d58b292f818467772c72",
+    "mul_33/commands.hex": "6ae1bf4c9cf03dc1d9621cb4269c9c0035a6124b16a023fca49bd85f6b1a2739",
+    "mul_33/input.hex": "7d9cf88a200ed206d373da7ea7c51b5f7de6389d713db45def3e8e167c6f235f",
+    "mul_33/check.txt": "9c5edaa2d97f98e7fa7c7e17d9312557c89fa8a765b9181509a0a059aff59ec0",
+    "mul_33/rtl.log": "bc643ea2aec244e87f67797da53c589b840902a4c179902b0cbef7ce3b8b5fde"
+  }
+}

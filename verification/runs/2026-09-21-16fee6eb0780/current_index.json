@@ -1,0 +1,195 @@
+{
+  "status": "VERIFIED_EW_INITIALIZATION_PARTIAL_NPU",
+  "source_sha256": "16fee6eb0780f29f391346d44161b084a377908ea160a82135be85f11c23e787",
+  "source_manifest": "verification/runs/2026-09-21-16fee6eb0780/source_SHA256SUMS",
+  "scope": "Strict terminal FP16 EW with optional complete initialization group. Current production PC tails/chains remain unsupported; not a complete RK3588 NPU.",
+  "tool_versions": {
+    "verilator": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+    "icarus": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "yosys": "Yosys 0.65 (git sha1 aec814bdf3071f7e0fd0fbe43f7f711e99d01e24, g++-12 12.3.0-1ubuntu1~22.04.3 -fPIC -O3)",
+    "cxx": "c++ (GCC) 16.1.1 20260515 (Red Hat 16.1.1-2)",
+    "python": "3.14.4",
+    "tcl": "9.0.3",
+    "xilinx_tcl": "8.6.13"
+  },
+  "seeds": {
+    "vectors": "0x3588",
+    "alu_backpressure": "0x12345678",
+    "memory_backpressure": "0x35881234"
+  },
+  "checks": {
+    "generated": {
+      "status": "PASS",
+      "log": "build/initialization_test.log"
+    },
+    "python_units": {
+      "status": "PASS",
+      "methods": 38,
+      "log": "build/initialization_test.log"
+    },
+    "numeric_model": {
+      "status": "PASS",
+      "cases": 1087299,
+      "report": "verification/runs/2026-09-21-16fee6eb0780/numeric_report.json",
+      "scope": "C++ vs independent Python, not RTL"
+    },
+    "strict_lint": {
+      "status": "PASS",
+      "warnings_policy": "Verilator -Wall fatal",
+      "log": "build/initialization_test.log"
+    },
+    "verilator": {
+      "status": "PASS",
+      "alu_vectors": 12963,
+      "engine_scenarios": 140,
+      "result_entries": 145,
+      "report": "verification/runs/2026-09-21-16fee6eb0780/rtl_report.json"
+    },
+    "icarus": {
+      "status": "PASS",
+      "alu_vectors": 12963,
+      "engine_scenarios": 140,
+      "result_entries": 145,
+      "report": "verification/runs/2026-09-21-16fee6eb0780/four_state_report.json"
+    },
+    "preservation": {
+      "status": "PASS",
+      "original_scenarios": 77,
+      "original_scenario_records_unchanged": true,
+      "original_alu_bytes_unchanged": true,
+      "baseline": "verification/runs/2026-09-21-6f9a9681713f/evidence.tar.gz"
+    },
+    "build_control_tcl86": {
+      "status": "PASS",
+      "methods": 10,
+      "scope": "Mocked Vivado control flow only",
+      "log": "verification/runs/2026-09-21-16fee6eb0780/build_control_tcl86.log"
+    },
+    "software_demo": {
+      "status": "PASS",
+      "tasks": 3,
+      "transactions": 72,
+      "log": "build/initialization_demo.log"
+    },
+    "xc7_mapping": {
+      "status": "PASS",
+      "cells": {
+        "$scopeinfo": 7,
+        "BUFG": 1,
+        "CARRY4": 326,
+        "DSP48E1": 1,
+        "FDCE": 3,
+        "FDRE": 473,
+        "FDSE": 2,
+        "IBUF": 2,
+        "INV": 667,
+        "LUT1": 18,
+        "LUT2": 624,
+        "LUT3": 512,
+        "LUT4": 216,
+        "LUT5": 204,
+        "LUT6": 698,
+        "MUXF7": 106,
+        "MUXF8": 21,
+        "OBUF": 3,
+        "RAMB36E1": 1
+      },
+      "report": "verification/runs/2026-09-21-16fee6eb0780/synthesis_report.json",
+      "scope": "XC7 mapping and functional mapped board self-test/reset only; no routing/timing/physical validation"
+    },
+    "production_capture": {
+      "status": "CAPTURED",
+      "cases": 9,
+      "backend_commit": "078eee94d8f1912bb63ce786c250d2c24984844a",
+      "report": "verification/runs/2026-09-21-16fee6eb0780/backend_capture_report.json",
+      "command_words_rewritten": false,
+      "runtime_tensor_gathers": false,
+      "hardware_outputs": null,
+      "replay_status": "UNSUPPORTED",
+      "rejection_code": 7,
+      "first_rejected_qword_index": 31,
+      "rtl_rejection_checks": "PASS, no output writes or memory transactions",
+      "rtl_executable_sha256": "1f218a569983bd03c8669650a12a091f5cb7e118032f8a866a1525dcbba37a5b"
+    },
+    "vivado": {
+      "status": "UNAVAILABLE",
+      "returncode": 2,
+      "log": "build/initialization_fpga_attempt.log",
+      "reason": "Full Vivado not installed"
+    },
+    "hardware_differential": {
+      "status": "NOT_RUN"
+    },
+    "board_test": {
+      "status": "NOT_RUN",
+      "programmed_card": false,
+      "programmed_flash": false
+    },
+    "placement_routing_timing_drc": {
+      "status": "NOT_RUN"
+    },
+    "pc_dma_gemm_pcie_ddr_full_backend": {
+      "status": "NOT_IMPLEMENTED"
+    }
+  },
+  "warnings": [
+    {
+      "log": "build/yosys/synthesis.log",
+      "warnings": [
+        "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+        "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.WEBWE from 4 bits to 8 bits.",
+        "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DIPBDIP from 8 bits to 4 bits.",
+        "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DIBDI from 64 bits to 32 bits.",
+        "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DOPBDOP from 8 bits to 4 bits.",
+        "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DOBDO from 64 bits to 32 bits.",
+        "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DIPADIP from 8 bits to 4 bits.",
+        "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DIADI from 64 bits to 32 bits.",
+        "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DOPADOP from 8 bits to 4 bits.",
+        "Warning: Resizing cell port ypcb_top.demo.ram.storage.0.0.DOADO from 64 bits to 32 bits."
+      ]
+    },
+    {
+      "log": "build/yosys/netlist_build.log",
+      "warnings": [
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1853: warning: Choosing typ expression.",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1853: warning: Choosing typ expression.",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1854: warning: Choosing typ expression.",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1854: warning: Choosing typ expression.",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1855: warning: Choosing typ expression.",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1855: warning: Choosing typ expression.",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1856: warning: Choosing typ expression.",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1856: warning: Choosing typ expression.",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1857: warning: Choosing typ expression.",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v:1857: warning: Choosing typ expression."
+      ]
+    }
+  ],
+  "archive": {
+    "file": "verification/runs/2026-09-21-16fee6eb0780/evidence.tar.gz",
+    "sha256": "9ffadde24c3169b991081ec3e6436b9b13aba075b3b1d75f038a57b11492f11d"
+  },
+  "previous_index": "verification/runs/2026-09-21-6f9a9681713f/current_index.json",
+  "changes": {
+    "changed_manifest_files": [
+      "model/profile.py",
+      "rtl/rk_ew_regs.sv",
+      "tools/gen_regfile.py",
+      "tools/gen_vectors.py"
+    ],
+    "added_manifest_files": [
+      "tests/test_initialization.py",
+      "tools/ew_initialization.py",
+      "tools/capture_current_backend.py"
+    ],
+    "arithmetic_rtl_changed": false,
+    "board_constraints_changed": false
+  },
+  "candidate_behavior": "FP16 special values and numerical RK equivalence are not established by these tests",
+  "next_work": [
+    "Implement bounded PC command DMA and linked raw-task execution without rewriting tails",
+    "Audit FP16 CMAC/CACC packing and accumulation against RK captures",
+    "Integrate audited YPCB transport and memory interfaces",
+    "Full Vivado implementation and explicitly requested audited hardware test"
+  ],
+  "local_source_audit": "docs/LOCAL_REFERENCES.md"
+}

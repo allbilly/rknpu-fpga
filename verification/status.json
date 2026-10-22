@@ -1,0 +1,53 @@
+{
+  "delivery_scope": "Original strict RK FP16 EW RTL prototype; not a full NPU or completed soDLA fork",
+  "software_unittests": {
+    "status": "PASS",
+    "test_methods": 20
+  },
+  "integer_arithmetic_model": {
+    "test": "integer_datapath_vs_independent_python_binary16_oracle",
+    "cases": 1087299,
+    "status": "PASS",
+    "seed": "0x3588",
+    "seconds": 1.943,
+    "scope": "C++ arithmetic model only; NOT RTL simulation or RK hardware validation"
+  },
+  "demo_software_replay": {
+    "status": "PASS",
+    "tasks": 3,
+    "halfword_transactions": 72
+  },
+  "generated_rtl_stimuli": {
+    "command_memory_scenarios": 38,
+    "alu_vectors": 12963,
+    "status": "GENERATED_NOT_EXECUTED"
+  },
+  "rtl": {
+    "status": "UNAVAILABLE",
+    "scope": "Verilator RTL simulation, not FPGA or RK3588 hardware",
+    "tests": [],
+    "warnings_policy": "Compiler warnings remain visible; -Wno-fatal allows warnings, not errors.",
+    "reason": "Verilator is not installed; no RTL has been compiled or executed."
+  },
+  "fpga": {
+    "status": "UNAVAILABLE",
+    "reason": "Vivado is not installed; no synthesis, implementation, bitstream or board programming performed."
+  },
+  "hardware_comparison": {
+    "status": "NOT_RUN",
+    "reason": "No RK3588 or YPCB hardware access in this environment."
+  },
+  "tinygrad_test_ops_integration": {
+    "status": "NOT_IMPLEMENTED",
+    "reason": "No backend runtime hook, GEMM datapath or complete opcode coverage."
+  },
+  "remote_repository_changes": false,
+  "environment": {
+    "python": "3.13.5",
+    "system": "Linux",
+    "cxx": "c++ (Debian 14.2.0-19) 14.2.0",
+    "verilator": null,
+    "iverilog": null,
+    "vivado": null
+  }
+}

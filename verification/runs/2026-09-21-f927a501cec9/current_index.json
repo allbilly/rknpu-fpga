@@ -1,0 +1,26 @@
+{
+  "status": "NATIVE_REGRESSION_AND_FOCUSED_HOST_MAPPING_PASS",
+  "source_sha256": "f927a501cec9b66beae84f160bef333a849beb0a148d043d5951ea4febb5c4fc",
+  "archived_utc": "2026-09-21T05:26:16.469167+00:00",
+  "archive": "verification/runs/2026-09-21-f927a501cec9/evidence.tar.gz",
+  "archive_sha256": "c126d9bdecbfb5a44a24acad061793da6a2c9771ea1f4d820bc419452480285a",
+  "archive_bytes": 13796909,
+  "verified_members": 1456,
+  "scope": "247 entries per RTL simulator, 82 matching memory images, unconnected address leaf, default XC7 host mapping and mapped-control simulation. Not full mapped-endpoint acceptance, GEMM or hardware.",
+  "reports": {
+    "rtl_report.json": "verification/runs/2026-09-21-f927a501cec9/rtl_report.json",
+    "four_state_report.json": "verification/runs/2026-09-21-f927a501cec9/four_state_report.json",
+    "numeric_report.json": "verification/runs/2026-09-21-f927a501cec9/numeric_report.json",
+    "host_synthesis_report.json": "verification/runs/2026-09-21-f927a501cec9/host_synthesis_report.json",
+    "preservation_report.json": "verification/runs/2026-09-21-f927a501cec9/preservation_report.json"
+  },
+  "full_mapped_endpoint": "Still running separately: build/yosys_host_mapped/report.json",
+  "previous_verified_index": "verification/runs/2026-09-21-060fe287ecda/current_index.json",
+  "remaining": [
+    "Full mapped-endpoint replay completion",
+    "GEMM profile/operand/numerical integration",
+    "Hardware runtime layout execution",
+    "PCIe/MIG/DDR/ECC integration",
+    "RK3588 differential and physical FPGA validation"
+  ]
+}

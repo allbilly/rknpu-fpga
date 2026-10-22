@@ -1,0 +1,23 @@
+{
+  "status": "PASS_RAW_PRODUCT_PATH_NATIVE_AND_XC7_MAPPING_ONLY",
+  "source_sha256": "db97404570f55ffc3ca603816b3fc797953333ff4fac6e352f82a18970188765",
+  "archived_utc": "2026-09-21T06:58:58.540884+00:00",
+  "archive": "verification/runs/2026-09-21-db97404570f5/evidence.tar.gz",
+  "archive_sha256": "b6a20392dc3177dcf361625bdcf23d2e0d66eef5c0c0c6728b9c2e6fdf474dcc",
+  "archive_bytes": 14952367,
+  "verified_members": 1537,
+  "reports": {
+    "rtl_report.json": "verification/runs/2026-09-21-db97404570f5/rtl_report.json",
+    "four_state_report.json": "verification/runs/2026-09-21-db97404570f5/four_state_report.json",
+    "cmac_verilator_report.json": "verification/runs/2026-09-21-db97404570f5/cmac_verilator_report.json",
+    "cmac_iverilog_report.json": "verification/runs/2026-09-21-db97404570f5/cmac_iverilog_report.json",
+    "numeric_report.json": "verification/runs/2026-09-21-db97404570f5/numeric_report.json",
+    "product_mapping_report.json": "verification/runs/2026-09-21-db97404570f5/product_mapping_report.json",
+    "preservation_report.json": "verification/runs/2026-09-21-db97404570f5/preservation_report.json",
+    "standalone_product_report.json": "verification/runs/2026-09-21-db97404570f5/standalone_product_report.json"
+  },
+  "scope": "247 existing entries plus three CMAC/product benches per simulator; independent product oracle, unchanged captured commands, faults/reset and XC7 raw-product-path mapping. No accumulation, writes, mapped new-path simulation, physical timing or FPGA/RK result.",
+  "initial_failure_index": "verification/runs/2026-09-21-product-path-preflight-failure/index.json",
+  "previous_native_index": "verification/runs/2026-09-21-f927a501cec9/current_index.json",
+  "previous_full_mapped_ew_index": "verification/runs/2026-09-21-f927a501cec9-mapped/index.json"
+}

@@ -1,0 +1,39 @@
+{
+  "status": "PASS_SOURCE_BOUND_UNIT_ARCHIVE",
+  "archived_utc": "2026-10-05T23:02:04.233221+00:00",
+  "reports": {
+    "build/rknpu-unisim-board-model-control/1791240157609981117/report.json": "PASS_OBSERVED_BOARD_UNISIM_MODEL_CONTROL_ONLY"
+  },
+  "archive": "verification/runs/2026-10-06-observed-board-unisim-model-control/evidence.tar.gz",
+  "archive_sha256": "099612503c8c12bc498c2904c653b8fb23ff3713a66b9a3c4badddc6d53c3fc8",
+  "archive_bytes": 118274,
+  "verified_members": 25,
+  "member_sha256": {
+    "build/rknpu-unisim-board-model-control/1791240157609981117/report.json": "9bd81f24e043a482cbfaf955ab4c173e4d2dd87d5cbd8fb96f7fc2e4d01ac5ab",
+    "build/reference/xilinx-unisim/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "build/reference/xilinx-unisim/verilog/src/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+    "build/reference/xilinx-unisim/verilog/src/unisims/FDPE.v": "7182584d6e58aed739e76777cf1d1aee11fb5c67eaea14c660ff1b6d6fe30b40",
+    "build/reference/xilinx-unisim/verilog/src/unisims/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+    "tests/cmac/tb_observed_board_unisim_models.sv": "255d7b75bb7eb5cd200cecc1c766f228ae4198fbe74f1ea620050a237d34a7c2",
+    "tools/cmac/check_unisim_board_models.py": "936b18db79f6f4c7b22b0fd15e9a1fff4cfa27856f52bb5b9976f90e3e9bd78c",
+    "tools/cmac/unisim_board_models.py": "d291c0762d3643f88f22f37a82cad80b3f6457d9c2ac4fe234924562e4f27aa6",
+    "tools/evidence.py": "3f54c4a372805dba28b10329943f0304eeead809682a1dd1328f83c23a4d0102",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/models/FDPE.v": "7182584d6e58aed739e76777cf1d1aee11fb5c67eaea14c660ff1b6d6fe30b40",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/models/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/models/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/models/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/tb_observed_board_unisim_models.sv": "255d7b75bb7eb5cd200cecc1c766f228ae4198fbe74f1ea620050a237d34a7c2",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/control.vvp": "4320983fc29fd1368e4a4b450debd2ae2fcabe9484569d5d82c14f162b4cfa80",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/actual.log": "839af5815fbd2977084706e71f91c43d854432b2bad4a1b01896fbf91105e5af",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/iverilog_version.log": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/model_clean.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/model_commit.log": "8b97afcc4924b4f8baab0503366762e819a5ba85f51cc726ffdaa6f17fdeb337",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/negative.log": "e4c31014ca380376e2bc3a396706c89229b88b90a125d409621704e6eb4ec016",
+    "build/rknpu-unisim-board-model-control/1791240157609981117/vvp_version.log": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+    "build/archive_observed_board_model_control_20261006.py": "0f60b046c6540ac1c4444c98b7f1b2c1d44112289b35966bc24fa092ef56cf9a",
+    "LICENSE": "2803f4c2f19bdec88a36a45570adee13a41a8f9f6fbba96e4368404d915af42a",
+    "rtl/vendor/nvdla/LICENSE": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb"
+  },
+  "scope": "Only the listed completed reports and configurations. Not upstream UTB, unlisted configurations, physical FPGA, or RK silicon."
+}

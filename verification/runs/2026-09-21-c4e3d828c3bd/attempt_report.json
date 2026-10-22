@@ -1,0 +1,40 @@
+{
+  "status": "RTL_PASS_MAPPED_STARTUP_HARNESS_FAILURE",
+  "source_sha256": "c4e3d828c3bd04610ff560dbb33d11d953245b1ed0e8b5e4d015e5e65ac5e9fa",
+  "checked_utc": "2026-09-21T03:40:45.694170+00:00",
+  "make_test": {
+    "status": "PASS",
+    "exit_code": 0,
+    "log": "build/host_control_test.log",
+    "python_methods": 44
+  },
+  "rtl": {
+    "verilator_results": 246,
+    "icarus_results": 246,
+    "benches": 12,
+    "verilator_warnings": 0,
+    "icarus_warnings": 0
+  },
+  "host_synth_check": {
+    "status": "FAIL",
+    "make_exit_code": 2,
+    "report": "verification/runs/2026-09-21-c4e3d828c3bd/host_synthesis_report.json",
+    "reason": "Both maps passed; mapped control first status read returned X from static-input primitive startup"
+  },
+  "diagnostic": {
+    "status": "PASS",
+    "scope": "Unchanged mapped control passes after post-time-zero idle-address initialization. No DUT state, vendor models or expectations changed.",
+    "reproducer": "build/lut_startup_repro.sv",
+    "reproducer_log": "build/lut_startup_repro.log",
+    "wrapper": "build/control_trace.sv",
+    "build_log": "build/control_trace_x_build.log",
+    "log": "build/control_trace_x.log"
+  },
+  "vivado": {
+    "status": "UNAVAILABLE",
+    "exit_code": 2,
+    "log": "build/host_control_fpga_attempt.log"
+  },
+  "acceptance": "Not the final verified host-control revision. The checked-in mapped harness still requires the diagnostic initialization correction and fresh checks.",
+  "scope": "FP16 EW only. No full NPU/GEMM, PCIe/MIG/DDR/ECC integration, routed timing, RK silicon or FPGA validation."
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-09-21T02:34:15.111274+00:00",
+  "source_sha256": "2434cc400305a77900e5d0f6706619182a06bfcb3df653b4c75efcdd5048de8f",
+  "baseline_archive": "verification/runs/2026-09-21-a7c0c42d885e/evidence.tar.gz",
+  "baseline_archive_sha256": "82563b12551af003e812c6c541ca1bf66d218f2d2e959ef5e99efc3b152a0f58",
+  "byte_identical_vector_files": 610,
+  "cross_simulator_memory_images": 71,
+  "axi_vs_direct_memory_cases_per_simulator": 9,
+  "modified_existing_sources": [
+    "Makefile",
+    "tools/run_rtl.py",
+    "tools/run_synth.py"
+  ],
+  "new_sources": [
+    "rtl/rk_axi_mem.sv",
+    "tests/tb_axi_mem.sv"
+  ],
+  "unchanged_existing_sources": 71
+}

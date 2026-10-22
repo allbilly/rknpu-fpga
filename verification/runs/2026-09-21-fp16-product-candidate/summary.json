@@ -1,0 +1,74 @@
+{
+  "status": "PASS_STAGED_EXACT_PRODUCT_RTL_AND_XC7_MAPPING_ONLY",
+  "recorded_utc": "2026-09-21T06:06:49.916963+00:00",
+  "production_source_sha256": "f927a501cec9b66beae84f160bef333a849beb0a148d043d5951ea4febb5c4fc",
+  "candidate_sources": {
+    "sha256": "aa10ee75f5e7a6fd62c781cbd7dba88a8b564804fcf37d81c3f4a5c1607b75c9",
+    "files": {
+      "build/make_fp16_product_vectors.py": "364890c5582786c3f667759cd9bd5621a53bbda47c53b921ac9054e9bf99f980",
+      "build/rk_fp16_product.sv": "0b5b28ffc202dd7a22ed8be53bb1a98d4ffbabb6e9c1e45447dfcb50e4af12c3",
+      "build/run_fp16_product_candidate.py": "d7fea51cb3acdb08a33045518ae6da68df9b91a899fffd555f29c11a1093d2c3",
+      "build/tb_fp16_product.sv": "6a9658cb24ec080f114a4f7cdfe3c4f4fac37018d9f852c16520c1337285b191"
+    }
+  },
+  "results": [
+    {
+      "simulator": "verilator",
+      "vectors": 230400,
+      "compared": 230433,
+      "reset_cases": 4,
+      "stalls": 30466,
+      "cycles": 278375
+    },
+    {
+      "simulator": "iverilog",
+      "vectors": 230400,
+      "compared": 230433,
+      "reset_cases": 4,
+      "stalls": 30466,
+      "cycles": 278375
+    }
+  ],
+  "seed": "0x3588ca04",
+  "mapping_cell_counts": {
+    "BUFG": 1,
+    "CARRY4": 4,
+    "DSP48E1": 1,
+    "FDCE": 492,
+    "IBUF": 167,
+    "INV": 492,
+    "LUT1": 5,
+    "LUT2": 44,
+    "LUT3": 20,
+    "LUT4": 9,
+    "LUT5": 25,
+    "LUT6": 53,
+    "MUXF7": 27,
+    "MUXF8": 7,
+    "OBUF": 165
+  },
+  "mapping_warning_count": 1,
+  "environment": {
+    "python": {
+      "argv": [
+        "python3",
+        "--version"
+      ],
+      "output": "Python 3.14.5\n",
+      "recorded_utc": "2026-09-21T06:06:49.897957+00:00",
+      "scope": "Archive-time environment; simulator versions are recorded by the test runner."
+    },
+    "cxx": {
+      "argv": [
+        "c++",
+        "--version"
+      ],
+      "output": "c++ (GCC) 16.1.1 20260515 (Red Hat 16.1.1-2)\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "recorded_utc": "2026-09-21T06:06:49.916820+00:00",
+      "scope": "Archive-time environment; simulator versions are recorded by the test runner."
+    }
+  },
+  "scope": "Standalone three-stage elastic FP16 product encoded as FP32, with 131-bit tags. No accumulation, operand-path integration, production GEMM, mapped simulation, physical timing or hardware validation.",
+  "initial_failure": "Bench allowed an unobserved output handshake at throughput/random transition. Held output-ready low across that transition; DUT, expected values and assertions unchanged. Both simulators passed fresh reruns.",
+  "production_integration": false
+}
