@@ -1,0 +1,571 @@
+{
+  "provenance": "Verbatim production to_program and final writer capture; synthetic inputs; no RK or FPGA outputs",
+  "backend_commit": "078eee94d8f1912bb63ce786c250d2c24984844a",
+  "backend_files": {
+    "tinygrad/renderer/rockchip.py": "c84b70e73449a721319981334b746f79aadd095bd39cc2f576c84bd397fbcc1d",
+    "tinygrad/runtime/ops_rockchip.py": "73cddbdebaf52c33a9d3cef33bbc016b78357da35a588403c23e35069e223daa",
+    "tinygrad/runtime/autogen/rockchip.py": "6d6c11176fd78201fa013b5b4485d9a1a67158ba749eca0d892a12e22c8f1f56"
+  },
+  "capture_source_sha256": "16fee6eb0780f29f391346d44161b084a377908ea160a82135be85f11c23e787",
+  "capture_report_sha256": "a2a31fc8030bbd9a89d8654e68b38ccda698e34a501db636685b0050ee25d24b",
+  "cases": [
+    {
+      "name": "add_8",
+      "logical_count": 8,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "0b0739af6f16be68d0435902449ae625f80b28ff9c3ef8fff820dc100dacb322",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        }
+      ],
+      "regions": [
+        {
+          "address": 268697600,
+          "size": 4096,
+          "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+          "zlib_base64": "eNrtwQENAAAAwqD+Qd7THg4oAAAA4N0ADhZQlw=="
+        },
+        {
+          "address": 268439552,
+          "size": 4096,
+          "sha256": "7ba408e69225c8aae74f8ca108c9a1e04365d49e74045935ddbb9bc2178f1ee5",
+          "zlib_base64": "eNrtwUENwCAAALEThfQ9CGFowwdp2+lvt5p91QgAAAB4zgUHUASS"
+        },
+        {
+          "address": 268566528,
+          "size": 4096,
+          "sha256": "9005c7fe11aa6fec88d67a256d408909b372ce01f78a0a9ea78805c9145b34c3",
+          "zlib_base64": "eNrtwcENABAAALEby0PM7SFms4e07Xba1Wi2ugEAAADfeRoIA6M="
+        },
+        {
+          "address": 269352960,
+          "size": 65536,
+          "sha256": "4ab0bd48a79180273c82c4eed433751741707347c9b70da216099bf17ebcd012",
+          "zlib_base64": "eNrtzqFOAzEYwPGvy5JNLEvFxOQ9AmJiAlGSieGaYBAIJAKBnGQEwWPtZXgPek3fgt/vxD/9ru3dsmwjIuVN+U1zc1lEnFO+K9Hnh9Hj6H1Zxaq1lKe+fh09jffn0Trf0/rc9s99GfO30ffRj3JbfOWULyX19eeYf7d1e/LPWN9K6V3W/r/Tpvb5lEd3tX9nOtR1REnT1LYv2737Gjlymo5t36L1VB8vaT4XU9rmlHbRz6eeeIh17FuvAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8N/8AUGSGVw="
+        },
+        {
+          "address": 269418496,
+          "size": 16384,
+          "sha256": "363cd1ac27d66067f2ed0f4561396165b89a50eae5c2a334008da2ffa07fabd5",
+          "zlib_base64": "eNrtxjEKgDAAwMCIzuLo3v+/sdbBJ7jdQSBVx+petdec23uNPucVAAAAAAAAAAAAAAAAAAAA8KsH350CYA=="
+        }
+      ],
+      "expected_address": 268697600,
+      "expected_logical_hex": "00c280c000be00ba0000003a003e00bd"
+    },
+    {
+      "name": "add_9",
+      "logical_count": 9,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "3ed60d3390a031f69ccc21a501e2a876de99e7c13fa70fa77f40047fe877feb7",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        }
+      ],
+      "regions": [
+        {
+          "address": 268697600,
+          "size": 4096,
+          "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+          "zlib_base64": "eNrtwQENAAAAwqD+Qd7THg4oAAAA4N0ADhZQlw=="
+        },
+        {
+          "address": 268439552,
+          "size": 4096,
+          "sha256": "87ad8a23683e72fc2e7d60e281abe9674cf9c58411a0b2c605c9ce88fe47eb79",
+          "zlib_base64": "eNrtwUENwCAAALETxWPCeRCyTRs+SNv+vt52q1mNngAAAIDLHIPFBMo="
+        },
+        {
+          "address": 268566528,
+          "size": 4096,
+          "sha256": "83c8979965b6b095981bc8b3e999ef156419acc2e93566083dd1e7a3184ad2a6",
+          "zlib_base64": "eNrtx7EJACEAALEby+Jxbgv52cQ1JOnS325Vo6/ZHQAAAPCYA84xBF8="
+        },
+        {
+          "address": 269352960,
+          "size": 65536,
+          "sha256": "f4610e94773d23decbb47eca1db2532738ddf49dbf5e1b92bb8c25a49364c8b9",
+          "zlib_base64": "eNrtzqFOgzEUBtDbZckmyFIxMdlHQExMIEoyMVwTDAKBRCCQk0AQPNZehvega/oWnPOLL7f39vZf1k1EpHxTf9M1c11EnFK+rWmc72uMPMy8q6tY9az1cdQvM4+zf5rZrnt6PvX5az7Pfa+z/zbzvV4WXznl8+x/zPPvXvcv/8z6UuvIZRv/W27amC+5jX7ZtvFO2bd1RE2l9PFl37trkSOncuhzi57H9nBO13tR0iantI1xP42I+1jHrudnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/Dd/QIEZXw=="
+        },
+        {
+          "address": 269418496,
+          "size": 16384,
+          "sha256": "363cd1ac27d66067f2ed0f4561396165b89a50eae5c2a334008da2ffa07fabd5",
+          "zlib_base64": "eNrtxjEKgDAAwMCIzuLo3v+/sdbBJ7jdQSBVx+petdec23uNPucVAAAAAAAAAAAAAAAAAAAA8KsH350CYA=="
+        }
+      ],
+      "expected_address": 268697600,
+      "expected_logical_hex": "00c280c000be00ba0000003a003e00bd00b8"
+    },
+    {
+      "name": "add_33",
+      "logical_count": 33,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "03338717f9fa8d659003d0133ef44add7142b1636ccbf560eaea172e4f2ce018",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        }
+      ],
+      "regions": [
+        {
+          "address": 268697600,
+          "size": 4096,
+          "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+          "zlib_base64": "eNrtwQENAAAAwqD+Qd7THg4oAAAA4N0ADhZQlw=="
+        },
+        {
+          "address": 268439552,
+          "size": 4096,
+          "sha256": "47557ad7f1192ceff98db3adcf695759ff7b647190d165c89c4b1cd6a6c536e5",
+          "zlib_base64": "eNrtybENABAUQME3lEIEU/9CBLNZQal41x6HzWIyCCCRKVQandeRJEmSJEmfuzIeD9I="
+        },
+        {
+          "address": 268566528,
+          "size": 4096,
+          "sha256": "d7994a6ffe140b7012aafbd8319b7ac1fe61d2c4e69cf11c97e3e05565a4719a",
+          "zlib_base64": "eNrtx6ERwCAAALEfC9FjbgTX2dgBhUhc+tutavQ1uxkAAADwuAMBkA37"
+        },
+        {
+          "address": 269352960,
+          "size": 65536,
+          "sha256": "ee4455eaf812c926439e4e75d86cb17f5b3ed1b833e9775a405c2b8cf75d2f91",
+          "zlib_base64": "eNrtziFOQ0EQBuDZ5iWtIM2Kiso9AqKiArEkFcW9BINAIBEIZCUQBMfqZbgH+zZ7C77viT+zMzv7prqNiJRv6m9aMtdVxDnl2zr180ONnseRd3Ud65a1Pvb6ZeRp9M8j52VPy6c2v+Tz2Pc6+m8j3+t19ZVTvtTU649x/t3q9uWfUV9r7TnN/X/Lzdz3lTz3ftnN/Z1ymDcRNZXSxqe2dz9HjpzKsc2tWp7mh0ta7kVJ25zSLvr91CPuYxP7lp8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADw3/wBPU4ZaA=="
+        },
+        {
+          "address": 269418496,
+          "size": 16384,
+          "sha256": "363cd1ac27d66067f2ed0f4561396165b89a50eae5c2a334008da2ffa07fabd5",
+          "zlib_base64": "eNrtxjEKgDAAwMCIzuLo3v+/sdbBJ7jdQSBVx+petdec23uNPucVAAAAAAAAAAAAAAAAAAAA8KsH350CYA=="
+        }
+      ],
+      "expected_address": 268697600,
+      "expected_logical_hex": "00c280c000be00ba0000003a003e00bd00b80034003c003f0041000080c100c000bd00b80034003c003f00bc00b40038003d004000b8003400c100bf00bc00b40038"
+    },
+    {
+      "name": "sub_8",
+      "logical_count": 8,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "fe092fcd997672fcd45241b84fa7ed9950ee1fa7f099dda630e695c02dc35dfb",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        },
+        {
+          "file": "task1.bin",
+          "sha256": "4277c28b469cdebafeda03d5c0bbc8588a273f9c613b9b625a4c1f6e50ea9967",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 22,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269353248
+          }
+        }
+      ],
+      "regions": [
+        {
+          "address": 268697600,
+          "size": 4096,
+          "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+          "zlib_base64": "eNrtwQENAAAAwqD+Qd7THg4oAAAA4N0ADhZQlw=="
+        },
+        {
+          "address": 268439552,
+          "size": 4096,
+          "sha256": "7ba408e69225c8aae74f8ca108c9a1e04365d49e74045935ddbb9bc2178f1ee5",
+          "zlib_base64": "eNrtwUENwCAAALEThfQ9CGFowwdp2+lvt5p91QgAAAB4zgUHUASS"
+        },
+        {
+          "address": 268566528,
+          "size": 4096,
+          "sha256": "9005c7fe11aa6fec88d67a256d408909b372ce01f78a0a9ea78805c9145b34c3",
+          "zlib_base64": "eNrtwcENABAAALEby0PM7SFms4e07Xba1Wi2ugEAAADfeRoIA6M="
+        },
+        {
+          "address": 268828672,
+          "size": 8192,
+          "sha256": "26c381f6402ee3d9dfed6e3487296fece09a79235d66ecf1ece69dd75be4663e",
+          "zlib_base64": "eNrtwTENAAAMA6D611RxvSdhCZDmBgAAAAAAAADeGfv1BeE="
+        },
+        {
+          "address": 269352960,
+          "size": 65536,
+          "sha256": "df6741d8af1e0c63c92c71cd8598657a985b56b7de397db1ef72a822c39098cd",
+          "zlib_base64": "eNrt0CFOA0EUBuA3paEVTTMhiMo9AqKiAjEkFeA2wSAQSAQCiSwEwbEqOACX4B7MLkMIhgT09634897szLzdaVlGRMqL8p6GzGUScZ7ySYmxv265aXlaZjGrWcrlWN+03Lb185b9cE7Nq/r+kNetf9vyruV9eT3Y5ZQfShrrXes/17o++aXV+1LGnPbjvN2iH/tdbnncj/d0634eUVLXlciH9dxVXZ/k1G1q1rrb9hcPadgXXVrmlI7jaNg3XF6dxTxWNR/jy/Sf/+e+7CdP+fs7/jB3TD/nzvE5d/4591ubO36dGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4K8+ACV2KUc="
+        },
+        {
+          "address": 269418496,
+          "size": 16384,
+          "sha256": "c03aa73c08d818c1b2378cc2f1531a7b3ff25b7df2dc9c6e2328c7b91b940d2f",
+          "zlib_base64": "eNrtyjEKgDAAA8AUnYuTOAr+/41tBYuLi/sdBAJJkqwjx0iWpLVyt1yZ6jbb129/trO8PwAAAAAAAAAAAAAAAAAAAOCfDhqzBNM="
+        }
+      ],
+      "expected_address": 268697600,
+      "expected_logical_hex": "000000b400b800ba00bc00bd00be003f"
+    },
+    {
+      "name": "sub_9",
+      "logical_count": 9,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "5befec46dab05a67b92e1bf13ae1e3e76f7762d76d776dac98f8f4c200e8d7e1",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        },
+        {
+          "file": "task1.bin",
+          "sha256": "e8262d7f6c7a6a8ba61b068b66e8605f94e5ea066f5009cf24baf6fcc706ff93",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 22,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269353248
+          }
+        }
+      ],
+      "regions": [
+        {
+          "address": 268697600,
+          "size": 4096,
+          "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+          "zlib_base64": "eNrtwQENAAAAwqD+Qd7THg4oAAAA4N0ADhZQlw=="
+        },
+        {
+          "address": 268439552,
+          "size": 4096,
+          "sha256": "87ad8a23683e72fc2e7d60e281abe9674cf9c58411a0b2c605c9ce88fe47eb79",
+          "zlib_base64": "eNrtwUENwCAAALETxWPCeRCyTRs+SNv+vt52q1mNngAAAIDLHIPFBMo="
+        },
+        {
+          "address": 268566528,
+          "size": 4096,
+          "sha256": "83c8979965b6b095981bc8b3e999ef156419acc2e93566083dd1e7a3184ad2a6",
+          "zlib_base64": "eNrtx7EJACEAALEby+Jxbgv52cQ1JOnS325Vo6/ZHQAAAPCYA84xBF8="
+        },
+        {
+          "address": 268828672,
+          "size": 8192,
+          "sha256": "ff562930e8a45bd2e4ddba9f59ead6b4f1d72c48407b074abaf8bb826a72210f",
+          "zlib_base64": "eNrtwTENAAAMA6D611Rx/edgCZDmBgAAAAAAAACeGXDhBp0="
+        },
+        {
+          "address": 269352960,
+          "size": 65536,
+          "sha256": "d4606a77af0d7233022a20d99d7b7431f2dfc4d4a786334777fccab70e2971bc",
+          "zlib_base64": "eNrt0CFOBDEUBuDXZQOIDWnICmSPgEAgECVBLG4SDAKBRCCQSCAIjrWCA3AJ7kFntoRgSBb9fSP+vL6282bm9SAiUl7UzzRmrrOIVcrHNU3rJzWmPO15Vvdir2WtV1N92/Oi91c9h/Geltdt/5g3/b673r/v+VDfd55yyo+9/9TXX1vdnvzW63WtU86Had6yGKb9JQ9TvyyH6T3lZNiPqKmUGnm33XvU+rOcymnLVpeL4fIxjeeipIOc0jIOx3PjZc157MdRy+f4Nv/n/3mo69lL/vmOLeaO+WbuHJu58++5P/rc8efcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2/oCIdcpTA=="
+        },
+        {
+          "address": 269418496,
+          "size": 16384,
+          "sha256": "c03aa73c08d818c1b2378cc2f1531a7b3ff25b7df2dc9c6e2328c7b91b940d2f",
+          "zlib_base64": "eNrtyjEKgDAAA8AUnYuTOAr+/41tBYuLi/sdBAJJkqwjx0iWpLVyt1yZ6jbb129/trO8PwAAAAAAAAAAAAAAAAAAAOCfDhqzBNM="
+        }
+      ],
+      "expected_address": 268697600,
+      "expected_logical_hex": "000000b400b800ba00bc00bd00be003f003e"
+    },
+    {
+      "name": "sub_33",
+      "logical_count": 33,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "637baf03e0db3b905c7e634566d94408e4a0c40ab9997a84ad7d5ac5431af476",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        },
+        {
+          "file": "task1.bin",
+          "sha256": "e5aa07deaf55b66653d2bb330d1d552b7f201f4178c60c25e133e30852e0e50c",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 22,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269353248
+          }
+        }
+      ],
+      "regions": [
+        {
+          "address": 268697600,
+          "size": 4096,
+          "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+          "zlib_base64": "eNrtwQENAAAAwqD+Qd7THg4oAAAA4N0ADhZQlw=="
+        },
+        {
+          "address": 268439552,
+          "size": 4096,
+          "sha256": "47557ad7f1192ceff98db3adcf695759ff7b647190d165c89c4b1cd6a6c536e5",
+          "zlib_base64": "eNrtybENABAUQME3lEIEU/9CBLNZQal41x6HzWIyCCCRKVQandeRJEmSJEmfuzIeD9I="
+        },
+        {
+          "address": 268566528,
+          "size": 4096,
+          "sha256": "d7994a6ffe140b7012aafbd8319b7ac1fe61d2c4e69cf11c97e3e05565a4719a",
+          "zlib_base64": "eNrtx6ERwCAAALEfC9FjbgTX2dgBhUhc+tutavQ1uxkAAADwuAMBkA37"
+        },
+        {
+          "address": 268828672,
+          "size": 8192,
+          "sha256": "04229b3b2113aa1925b4199f85ea823692ebefc5b319bd89345ba89251feffae",
+          "zlib_base64": "eNrtwTEBAAAMAiD7ZzKcIXbsAdJcAwAAAAAAAADPBq2AGD0="
+        },
+        {
+          "address": 269352960,
+          "size": 65536,
+          "sha256": "4466a43501f9bb2d867682fe0a829af7d4a2d1627ebec8d2715cc0ed4a6064dd",
+          "zlib_base64": "eNrt0DEuB0EUB+A3fxsUIhNRKOcICoVCMRIF3SYahUKpUCiViMKxFA7gEu5hdoyIRkL9fVv88mZ23rzdqW5HRMpb9T0tmesq4jTl/Tr19YMaPQ9HHtWN2GhZ63mvr0aejP3TkfPSp+VFe3/Jy9HveuzfjLytr2v3OeW7mnp9P9afWt2e/Dzql1p7TnOft2zNvV/Jc98vu3O/pxzMmxE1lVIjr7e+e21/lVM5bNnqcjKf3aXlXJS0nVPajZ3l3HJ5cxybsdfyIb5M//w/t/Vl9Zi/v+MPc8f0OXeOz7nzz7nfxtzx69wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/9QEW+ilb"
+        },
+        {
+          "address": 269418496,
+          "size": 16384,
+          "sha256": "c03aa73c08d818c1b2378cc2f1531a7b3ff25b7df2dc9c6e2328c7b91b940d2f",
+          "zlib_base64": "eNrtyjEKgDAAA8AUnYuTOAr+/41tBYuLi/sdBAJJkqwjx0iWpLVyt1yZ6jbb129/trO8PwAAAAAAAAAAAAAAAAAAAOCfDhqzBNM="
+        }
+      ],
+      "expected_address": 268697600,
+      "expected_logical_hex": "000000b400b800ba00bc00bd00be003f003e003d003c003a003800c20034000000b400b800ba00bc00bd0040003f003e003d003c00c180c100380034000000b400b8"
+    },
+    {
+      "name": "mul_8",
+      "logical_count": 8,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "c25ebb3cb3f116d3d8ca753b9e7523a2d6119735f6fa2f3d29d823b976a168e6",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        }
+      ],
+      "regions": [
+        {
+          "address": 268697600,
+          "size": 4096,
+          "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+          "zlib_base64": "eNrtwQENAAAAwqD+Qd7THg4oAAAA4N0ADhZQlw=="
+        },
+        {
+          "address": 268439552,
+          "size": 4096,
+          "sha256": "7ba408e69225c8aae74f8ca108c9a1e04365d49e74045935ddbb9bc2178f1ee5",
+          "zlib_base64": "eNrtwUENwCAAALEThfQ9CGFowwdp2+lvt5p91QgAAAB4zgUHUASS"
+        },
+        {
+          "address": 268566528,
+          "size": 4096,
+          "sha256": "9005c7fe11aa6fec88d67a256d408909b372ce01f78a0a9ea78805c9145b34c3",
+          "zlib_base64": "eNrtwcENABAAALEby0PM7SFms4e07Xba1Wi2ugEAAADfeRoIA6M="
+        },
+        {
+          "address": 269352960,
+          "size": 65536,
+          "sha256": "426984457338b8e86eb558d80607cd41c423ca1e2c9ad42215db3cc4c9dc5618",
+          "zlib_base64": "eNrtzqFOAzEYwPGvY8kmlqViYrKPgJiYQJRkYrhLMAgEEoFATo4EwWMheBXeg17Tt+D3O/FPv2t7t6zbiEh5U3/T3FwXEeeUb2v0+WH0OHpXV7FqrfWxr19GT+P9eXSa72l9avvnPo/56+jb6Hv9ubnmlC819fV1zD/buj35a6y/a+1dTv1/y2bq85JHd1P/TjlM64iaSmnbl+3e/RQ5cirHtm/RepoeLmk+FyVtc0q76OdTT9zHOvatHwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPDf/AFAPBlf"
+        },
+        {
+          "address": 269418496,
+          "size": 16384,
+          "sha256": "363cd1ac27d66067f2ed0f4561396165b89a50eae5c2a334008da2ffa07fabd5",
+          "zlib_base64": "eNrtxjEKgDAAwMCIzuLo3v+/sdbBJ7jdQSBVx+petdec23uNPucVAAAAAAAAAAAAAAAAAAAA8KsH350CYA=="
+        }
+      ],
+      "expected_address": 268697600,
+      "expected_logical_hex": "8040003d0038008000b400b4000000b6"
+    },
+    {
+      "name": "mul_9",
+      "logical_count": 9,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "a70b68029e6349c5148713958da98b73b31d29c0c351fca9f4f03d3b22192f39",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        }
+      ],
+      "regions": [
+        {
+          "address": 268697600,
+          "size": 4096,
+          "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+          "zlib_base64": "eNrtwQENAAAAwqD+Qd7THg4oAAAA4N0ADhZQlw=="
+        },
+        {
+          "address": 268439552,
+          "size": 4096,
+          "sha256": "87ad8a23683e72fc2e7d60e281abe9674cf9c58411a0b2c605c9ce88fe47eb79",
+          "zlib_base64": "eNrtwUENwCAAALETxWPCeRCyTRs+SNv+vt52q1mNngAAAIDLHIPFBMo="
+        },
+        {
+          "address": 268566528,
+          "size": 4096,
+          "sha256": "83c8979965b6b095981bc8b3e999ef156419acc2e93566083dd1e7a3184ad2a6",
+          "zlib_base64": "eNrtx7EJACEAALEby+Jxbgv52cQ1JOnS325Vo6/ZHQAAAPCYA84xBF8="
+        },
+        {
+          "address": 269352960,
+          "size": 65536,
+          "sha256": "2cd0f0b0fa10c46d35a4e4b97d6cf1b4c348af3c70820bc4c254956bc0c99765",
+          "zlib_base64": "eNrtziFOQ0EQBuDZ0qQVTbOionKPgKioQCxJRXEvwSAQSAQCWVkSBMdCcBXuwb7N3oLve+LP7MzOvmXdRkTKm/qb5sx1EXFO+bamfn6o0fM48q6uYtWy1sdev4w8jf555DTvafnU5ud8HvteR/9t5Hv9ubnmlC+jfx3nn61uX/4a9XetPZdT/9+ymfp8yVPvl93U3ymHaR1RUyltfNn27qfIkVM5trlFy9P0cEnzvShpm1PaRb+fesR9rGPf8iMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+mz8/Kxli"
+        },
+        {
+          "address": 269418496,
+          "size": 16384,
+          "sha256": "363cd1ac27d66067f2ed0f4561396165b89a50eae5c2a334008da2ffa07fabd5",
+          "zlib_base64": "eNrtxjEKgDAAwMCIzuLo3v+/sdbBJ7jdQSBVx+petdec23uNPucVAAAAAAAAAAAAAAAAAAAA8KsH350CYA=="
+        }
+      ],
+      "expected_address": 268697600,
+      "expected_logical_hex": "8040003d0038008000b400b4000000b600b8"
+    },
+    {
+      "name": "mul_33",
+      "logical_count": 33,
+      "tasks": [
+        {
+          "file": "task0.bin",
+          "sha256": "0a951fc97d12b8c0e99b44ec74c862860d60b23a98d8ee18080b6dc35f887a91",
+          "descriptor": {
+            "flags": 0,
+            "op_idx": 4,
+            "enable_mask": 24,
+            "int_mask": 768,
+            "int_clear": 131071,
+            "int_status": 0,
+            "regcfg_amount": 35,
+            "regcfg_offset": 0,
+            "regcmd_addr": 269352960
+          }
+        }
+      ],
+      "regions": [
+        {
+          "address": 268697600,
+          "size": 4096,
+          "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+          "zlib_base64": "eNrtwQENAAAAwqD+Qd7THg4oAAAA4N0ADhZQlw=="
+        },
+        {
+          "address": 268439552,
+          "size": 4096,
+          "sha256": "47557ad7f1192ceff98db3adcf695759ff7b647190d165c89c4b1cd6a6c536e5",
+          "zlib_base64": "eNrtybENABAUQME3lEIEU/9CBLNZQal41x6HzWIyCCCRKVQandeRJEmSJEmfuzIeD9I="
+        },
+        {
+          "address": 268566528,
+          "size": 4096,
+          "sha256": "d7994a6ffe140b7012aafbd8319b7ac1fe61d2c4e69cf11c97e3e05565a4719a",
+          "zlib_base64": "eNrtx6ERwCAAALEfC9FjbgTX2dgBhUhc+tutavQ1uxkAAADwuAMBkA37"
+        },
+        {
+          "address": 269352960,
+          "size": 65536,
+          "sha256": "bb933477bf21907a66ebacb9c9d2efed1fe6d59e547bb8e1c99b2c745f0eeb7d",
+          "zlib_base64": "eNrtziFOQ0EQBuDZ8pJWNM2Kiso9AqKiArEkFcW9BINAIBEIZGVJEBwLwVW4B9vN3oLve+LP7MzOvqluIiLldf1N18x1EXFK+bZO/Xxfo+dh5F1dxrJlrY+9fhl5HP3TyPm6p+VTm7/m89j3OvpvI9/rz80lp3yuqdeXcf7Z6vblr1F/19pzmvv/lvXc95U8937Zzv2dsp9XETWV0santnc3R46cyqHNLVoe54dzut6LkjY5pW30+6lH3Mcqdi0/AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4L/5Azv4GWs="
+        },
+        {
+          "address": 269418496,
+          "size": 16384,
+          "sha256": "363cd1ac27d66067f2ed0f4561396165b89a50eae5c2a334008da2ffa07fabd5",
+          "zlib_base64": "eNrtxjEKgDAAwMCIzuLo3v+/sdbBJ7jdQSBVx+petdec23uNPucVAAAAAAAAAAAAAAAAAAAA8KsH350CYA=="
+        }
+      ],
+      "expected_address": 268697600,
+      "expected_logical_hex": "8040003d0038008000b400b4000000b600b800b600000039003e80c0803f003c0036008000b00000003600ba00ba00b80000003a00be80bf003e003a003400800000"
+    }
+  ]
+}
