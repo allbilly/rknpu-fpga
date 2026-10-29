@@ -19,6 +19,11 @@ establish a square systolic topology for RK3588 silicon or measured end-to-end
 MACs per clock. INT8/INT4 arithmetic and doubled INT8 throughput are unsupported.
 See the [precision and layout boundary](docs/CMAC_ENCODER_CONTRACT.md#precision-and-compute-group-terminology).
 
+The separate [whole-transaction reset controller](docs/WHOLE_RESET_CONTROL.md)
+passes native protocol controls and the full default regression. It remains an
+unselected component; board-accessible retained reset and physical ECC recovery
+are still pending in the [active plan](docs/REVIEW_AND_PLAN.md).
+
 **Application priority, 2026-10-27:** check
 [TinyStories-260K before general tinygrad integration](docs/TINYSTORIES.md).
 The CPU reference and complete 32-position donor-policy oracle pass, matching
