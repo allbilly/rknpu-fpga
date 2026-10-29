@@ -1,0 +1,71 @@
+{
+  "status": "PASS_REGISTERED_BRAM_FULL512_ROUTED_50MHZ_TIMING_ONLY",
+  "reviewer": "Root exact-source/artifact independent review",
+  "reviewed_utc": "2026-10-26T11:58:07.999943+00:00",
+  "part": "xc7k480tffg1156-2",
+  "clock_period_ns": 20,
+  "clock_mhz": 50,
+  "channels": 32,
+  "kernels": 16,
+  "parallel_products": 512,
+  "pipeline_stages": 2,
+  "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+  "routed_dcp_sha256": "9e3166635b11da4f44877991ee8c15fb9bc11d98727ce20038dba810819bba9f",
+  "setup": {
+    "worst_slack_ns": 0.987,
+    "total_negative_slack_ns": 0,
+    "failing_endpoints": 0,
+    "total_endpoints": 77592
+  },
+  "hold": {
+    "worst_slack_ns": 0.057,
+    "total_negative_slack_ns": 0,
+    "failing_endpoints": 0,
+    "total_endpoints": 77592
+  },
+  "pulse": {
+    "worst_slack_ns": 9.6,
+    "total_negative_slack_ns": 0,
+    "failing_endpoints": 0,
+    "total_endpoints": 35831
+  },
+  "resources": {
+    "luts": 267240,
+    "lut_percent": 89.5,
+    "registers": 35822,
+    "bram_tiles": 6,
+    "dsp_total": 515,
+    "cmac_products": 512
+  },
+  "unclocked_pins": 0,
+  "unconstrained_internal_endpoints": 0,
+  "snapshot_intact": true,
+  "timing_constraints_relaxed": false,
+  "electrical_constraints_relaxed": false,
+  "drc_rules_demoted_or_waived": false,
+  "setup_margin_note": "987ps at selected50MHz model; no Fmax sweep or physical frequency measurement",
+  "drc": {
+    "blocking_errors_reported": 0,
+    "factory_warning_findings": 2060,
+    "warning_rules": [
+      "DPIP-1",
+      "DPOP-1",
+      "DPOP-2"
+    ],
+    "ram_async_control_findings": 0,
+    "rule_limit_findings": 0,
+    "image_warning_review_complete": false
+  },
+  "mapped_functional_qualification_complete": false,
+  "bitstream_emitted": false,
+  "hardware_programmed": false,
+  "image_or_programming_admission": false,
+  "scope": "New registered-RAM-control candidate routed timing and report review only; mapped/INIT/DSP-warning/image and actual FPGA qualification remain distinct gates",
+  "run_report_sha256": "549a7c637bdaa1a49e7ec13f5f70ad89cdef784c658e4ee181ae6d8789ba5c59",
+  "route": {
+    "failed_nets": 0,
+    "unrouted_nets": 0,
+    "partially_routed_nets": 0,
+    "node_overlaps": 0
+  }
+}

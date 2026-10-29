@@ -1,0 +1,200 @@
+{
+  "status": "PASS_FINITE_FP16_MUL_UNITY_RTL_IDENTITY_BOTH_SIMULATORS",
+  "source_hashes": {
+    "/home/fedora/rknpu-fpga/rtl/rk_fp16_alu.sv": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+    "/home/fedora/rknpu-fpga/tests/tb_fp16.sv": "6e2617bff3bbf4a17d1b21f91a970aedc38e8d541aff64bcb2c8e0293746c547",
+    "/home/fedora/rknpu-fpga/tools/tinystories/check_unity.py": "f882cfe0e3f63c15c76f612f111ff8a18ba9426f1a85708333b9e2b96870d0c6"
+  },
+  "seed": "0x12345678",
+  "scope": "Finite ALU identity under RTL backpressure only; not full compaction/DMA/FPGA/RK acceptance",
+  "hardware_accessed": false,
+  "commands": [
+    {
+      "name": "iverilog_version",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.08117422903887928,
+      "log": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/iverilog_version.log",
+      "log_sha256": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d",
+      "expected_failure": false
+    },
+    {
+      "name": "vvp_version",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.0358198550529778,
+      "log": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/vvp_version.log",
+      "log_sha256": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+      "expected_failure": false
+    },
+    {
+      "name": "verilator_version",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--version"
+      ],
+      "returncode": 0,
+      "seconds": 0.6506471270695329,
+      "log": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/verilator_version.log",
+      "log_sha256": "9d8d19bf7d16f490e1b9d701dc1438bf9ec2d7f4a41ca4f0ec8ee3d1a3df8253",
+      "expected_failure": false
+    },
+    {
+      "name": "iverilog_compile",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_fp16",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/alu.vvp",
+        "/home/fedora/rknpu-fpga/rtl/rk_fp16_alu.sv",
+        "/home/fedora/rknpu-fpga/tests/tb_fp16.sv"
+      ],
+      "returncode": 0,
+      "seconds": 0.0839908248744905,
+      "log": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/iverilog_compile.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_failure": false
+    },
+    {
+      "name": "iverilog_unity_right",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/alu.vvp",
+        "+VECTORS=/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/unity_right.hex",
+        "+COUNT=63488"
+      ],
+      "returncode": 0,
+      "seconds": 19.79965877905488,
+      "log": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/iverilog_unity_right.log",
+      "log_sha256": "562309f9962497c6d317c02367de915002356e2fa02052fc3984bf02317c957f",
+      "expected_failure": false
+    },
+    {
+      "name": "iverilog_unity_left",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/alu.vvp",
+        "+VECTORS=/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/unity_left.hex",
+        "+COUNT=63488"
+      ],
+      "returncode": 0,
+      "seconds": 11.181784252868965,
+      "log": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/iverilog_unity_left.log",
+      "log_sha256": "562309f9962497c6d317c02367de915002356e2fa02052fc3984bf02317c957f",
+      "expected_failure": false
+    },
+    {
+      "name": "iverilog_wrong_zero_sign",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/alu.vvp",
+        "+VECTORS=/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/wrong_zero_sign.hex",
+        "+COUNT=1"
+      ],
+      "returncode": 1,
+      "seconds": 0.011115480912849307,
+      "log": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/iverilog_wrong_zero_sign.log",
+      "log_sha256": "b62df1555c240788d75b6405d3dbac6b2167a535748ff2fbd14e7f5b02a48342",
+      "expected_failure": true
+    },
+    {
+      "name": "verilator_compile",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "--top-module",
+        "tb_fp16",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/obj",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/rtl/rk_fp16_alu.sv",
+        "/home/fedora/rknpu-fpga/tests/tb_fp16.sv"
+      ],
+      "returncode": 0,
+      "seconds": 19.78097107890062,
+      "log": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/verilator_compile.log",
+      "log_sha256": "bc19a858dee189c0234b05c18e4710f0d3a34db2a2cb8172be0848ebd83a3a74",
+      "expected_failure": false
+    },
+    {
+      "name": "verilator_unity_right",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/obj/sim",
+        "+VECTORS=/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/unity_right.hex",
+        "+COUNT=63488"
+      ],
+      "returncode": 0,
+      "seconds": 0.3788669758941978,
+      "log": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/verilator_unity_right.log",
+      "log_sha256": "eb9c8d596d8e33ee091a9779071f36d1114466e4239c0194f4b34372939b7ff1",
+      "expected_failure": false
+    },
+    {
+      "name": "verilator_unity_left",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/obj/sim",
+        "+VECTORS=/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/unity_left.hex",
+        "+COUNT=63488"
+      ],
+      "returncode": 0,
+      "seconds": 0.37834993307478726,
+      "log": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/verilator_unity_left.log",
+      "log_sha256": "7c1aad53abc39afae35f298aef26ea68fd6e9a9c6c18c8f1343ce6217920dae6",
+      "expected_failure": false
+    },
+    {
+      "name": "verilator_wrong_zero_sign",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/obj/sim",
+        "+VECTORS=/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/wrong_zero_sign.hex",
+        "+COUNT=1"
+      ],
+      "returncode": 1,
+      "seconds": 0.01656467793509364,
+      "log": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/verilator_wrong_zero_sign.log",
+      "log_sha256": "d9f67aa92afaeb372e181a43e073d4587e4565250f2f6ae260d1327a737eab7c",
+      "expected_failure": true
+    }
+  ],
+  "versions": {
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n",
+    "vvp": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n",
+    "verilator": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426\n"
+  },
+  "finite_words": 63488,
+  "operand_orders": 2,
+  "comparisons_per_simulator": 126976,
+  "negative_controls": 2,
+  "images": {
+    "iverilog": {
+      "path": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/alu.vvp",
+      "sha256": "7ad2baff759d25c18227736195fe8e704770ed16afdc1c4f5619da092f59b468"
+    },
+    "verilator": {
+      "path": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/obj/sim",
+      "sha256": "3614634338fe73ac2b6306f49a609dc75ceaff1cbbf57e06933e1952fad816a6"
+    }
+  },
+  "sources_unchanged": true,
+  "vector_hashes": {
+    "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/unity_right.hex": "de4d1423ec9d45e1e59cc93bf3fd30140d6457fee88befce9c4c2de938c0f7f0",
+    "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/unity_left.hex": "dfc9a4daf216b88f9878003d3b579bce56cf1e2e2657ef547ac39c2cb8fb1b15",
+    "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/wrong_zero_sign.hex": "d45366aacea38770fb83cd75f6d611a00e7f8002453328b46ed4d964cf274142"
+  },
+  "finished_utc": "2026-10-26T18:11:03.889693+00:00"
+}

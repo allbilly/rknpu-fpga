@@ -1,0 +1,33 @@
+{
+  "created_utc": "2026-10-28T07:46:53.461823+00:00",
+  "inputs": {
+    "run_validation.py": "8072f99f1adfb8b713998443a35589f790f33cb141ea1eaebd65e0c5dfdb2f67",
+    "source/derivation.json": "03b79852d491f6bd7e62331ef0e717cd33f1dde37e23fb9aa6af618f8dbc50eb",
+    "source/rk_ddr_diagnostic_mux.sv": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+    "source/tb_ddr_diagnostic_mux.sv": "6705833596b40e1710973a8d202bdf91c18f73e2b638fb6e032ecf41389401fe",
+    "source/tb_ddr_diagnostic_mux_badparams.sv": "608e87ddf6835a3eb889e21a915401997699a6efb581d8d8d2ee0efeffa18469"
+  },
+  "schema": "ddr-diagnostic-mux-frozen-inputs-v2",
+  "scope": "Private two-master AXI mux with root-derived positive port-width fallbacks for invalid parameter values. Both simulators run valid 31/512/4 and 32/32/1 profiles plus invalid ADDR=0, DATA=7,10,9 and ID=0 initial-fatal cases. No owner integration, arbitration, parent DDR, MIG/PHY or physical qualification.",
+  "source_inputs": {
+    "bad_parameter_bench": {
+      "path": "source/tb_ddr_diagnostic_mux_badparams.sv",
+      "sha256": "608e87ddf6835a3eb889e21a915401997699a6efb581d8d8d2ee0efeffa18469"
+    },
+    "rtl/ddr/rk_ddr_diagnostic_mux.sv": {
+      "derivation_sha256": "03b79852d491f6bd7e62331ef0e717cd33f1dde37e23fb9aa6af618f8dbc50eb",
+      "parent_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_diagnostic_mux.sv",
+      "parent_sha256": "c771344eb0b09506763336905d739a29f3a26f226848267d5f6b201f4d1a8e57",
+      "path": "/home/fedora/rknpu-fpga/build/ddr-diagnostic-mux-validation-v9/source/rk_ddr_diagnostic_mux.sv",
+      "sha256": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd"
+    },
+    "runner": {
+      "path": "run_validation.py",
+      "sha256": "8072f99f1adfb8b713998443a35589f790f33cb141ea1eaebd65e0c5dfdb2f67"
+    },
+    "testbench": {
+      "path": "source/tb_ddr_diagnostic_mux.sv",
+      "sha256": "6705833596b40e1710973a8d202bdf91c18f73e2b638fb6e032ecf41389401fe"
+    }
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "review_kind": "electrical_pad_observation",
+  "status": "REVIEWED_FOR_AUTHORIZED_EW_STARTUP_BUILD",
+  "reviewer": "Codex independent board/reference reviewer review_cmac",
+  "reviewed_utc": "2026-10-26T04:37:39.208865+00:00",
+  "authorization": "User: u can start fpga test if needed; temporary SRAM/JTAG test only, no permanent flash",
+  "scope": "Source-bound electrical and target review for the startup EW BRAM image observed through JTAG SAMPLE pad values. This is build admission, not implementation, image, programming or hardware-result approval.",
+  "profile": "startup",
+  "board": "YPCB_00338_1P1",
+  "part": "xc7k480tffg1156-2",
+  "source_sha256": "d1d0e3d0bffd0ffadee9e9eb4b14020c985d772ce716ad2936894f2b4003f59a",
+  "prepared_report": {
+    "path": "build/fpga-bringup/ew-startup-1792988881763089417/prepared/report.json",
+    "sha256": "6773dbecca5e849c9992fe1e444186ad9b456dd50024b5cae73c66031d379634"
+  },
+  "hardware_inputs": {
+    "files": {
+      "fpga/ypcb_ew_startup.xdc": "289802614193de8ddd4a799ab0440e8f408003749292e9a0baf36aba7f18364e",
+      "fpga/ypcb_ew_startup_top.sv": "b55c794212a1b3b3b13696df4541751e29094b679e4390fe01ffe5827c9c1a55",
+      "rtl/rk_bram.sv": "ffb9db11b442a47d7f3f82a5ef78f5de00fc999732aa5cdf670b9c6da98e963c",
+      "rtl/rk_demo_memory.sv": "5ed0b1200be238f93ccc7c39d3e079f790a445a7be4d1e76e294b51541bef515",
+      "rtl/rk_dma_demo_rom.sv": "5818805ff1ab6d76ff75ab4043e370f00cd47f14eda090e0aa8c1c4bf806a591",
+      "rtl/rk_ew_dma.sv": "55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046",
+      "rtl/rk_ew_dma_demo.sv": "ed96a22d9801b2b862da8e31b5833ac38d0dc27a05f3f3e220c092cfeb57e64c",
+      "rtl/rk_ew_engine.sv": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e",
+      "rtl/rk_ew_regs.sv": "592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73",
+      "rtl/rk_fp16_alu.sv": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+      "rtl/rk_startup_reset.sv": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09"
+    },
+    "sha256": "fb74bff4056fff1b61aa0d75ce2d4b175e454d9a63a0c5a4d06b1e90299c493d"
+  },
+  "target": {
+    "audit": "build/fpga-bringup/ew-startup-1792988881763089417/target-audit/report.json",
+    "audit_sha256": "0c9ec622c3ee649ed3f1dd56a4863d396f3f73fbe36ec3b70cb27a3f760fbbc7",
+    "cable_serial": "80802026a77a01",
+    "idcode": "23751093",
+    "observed_device_part": "xc7k480t",
+    "configured_package_speed_grade_basis": "Preserved routed/loaded YPCB FFG1156-2 reference; JTAG IDCODE identifies silicon family, not package/speed grade",
+    "dna_available": true,
+    "per_die_dna_identity_verified": false,
+    "tck_hz": 3000000,
+    "init_complete_before_new_load": 1,
+    "done_before_new_load": 1,
+    "current_dna_port": "004E544714C705C",
+    "current_dna_evidence": {
+      "path": "build/fpga-bringup/ew-startup-1792988881763089417/target-audit/device-properties.rpt",
+      "line": 123,
+      "sha256": "e14f0b80e5dbb87c87822b4b623d5f4265a8964ef46bfa622b2ab087653afc08"
+    },
+    "dna_scope": "Current target DNA_PORT binding only; historical per-die DNA unavailable, so no cross-date per-die identity is claimed"
+  },
+  "electrical": {
+    "config_voltage": "1.8",
+    "cfgbvs": "GND",
+    "clock": {
+      "port": "SYS_CLK",
+      "pin": "AA28",
+      "iostandard": "LVCMOS18",
+      "frequency_hz": 50000000,
+      "period_ns": 20.0
+    },
+    "pads": [
+      {
+        "role": "pass",
+        "port": "led_3bits_tri_o[0]",
+        "pin": "P30",
+        "iostandard": "LVCMOS18"
+      },
+      {
+        "role": "fail",
+        "port": "led_3bits_tri_o[1]",
+        "pin": "M30",
+        "iostandard": "LVCMOS18"
+      },
+      {
+        "role": "heartbeat",
+        "port": "led_3bits_tri_o[2]",
+        "pin": "N30",
+        "iostandard": "LVCMOS18"
+      }
+    ],
+    "basis": "Known-used same-cable fixed OpenTPU images with matching current bitstream, package, routed facts and successful SRAM receipts; no new rail or strap measurement is claimed",
+    "reference_checkpoint": {
+      "path": "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182800/evidence/artifact/checkpoint.tsv",
+      "sha256": "62485fa65ab6a5876d77e39727cadeb6ac1ba1123cd6d1e2d4584f4a8ea0737b",
+      "lines": {
+        "part": [
+          1
+        ],
+        "configuration": [
+          3,
+          4
+        ],
+        "clock_pin": [
+          6
+        ],
+        "pad_pins": [
+          241,
+          242,
+          243
+        ],
+        "clock_period": [
+          315
+        ]
+      }
+    },
+    "rail_voltage_measured_in_this_review": false,
+    "physical_strap_measurement_claimed": false
+  },
+  "observation": {
+    "method": "JTAG_SAMPLE_PAD_LEVELS",
+    "led_active_low": 0,
+    "parameter_role": "Deliberately selected noninverted RTL XOR encoding, not a claim about LED diode emission",
+    "optical_polarity_verified": false,
+    "optical_polarity_is_acceptance_condition": false,
+    "optical_polarity_known": false,
+    "expected_pad_pass": 1,
+    "expected_pad_fail": 0,
+    "heartbeat_required_to_toggle": true,
+    "bsdl": {
+      "path": "/home/fedora/vivado/2026.1/Vivado/data/parts/xilinx/kintex7/public/bsdl/xc7k480t_ffg1156.bsd",
+      "sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+      "entity": "XC7K480T_FFG1156",
+      "instruction_length": 6,
+      "boundary_length": 1395,
+      "sample_instruction": "01",
+      "idcode_instruction": "09",
+      "bypass_instruction": "3f",
+      "cells": {
+        "P30": {
+          "role": "pass",
+          "output": 852,
+          "disable": 851,
+          "input": 853
+        },
+        "M30": {
+          "role": "fail",
+          "output": 846,
+          "disable": 845,
+          "input": 847
+        },
+        "N30": {
+          "role": "heartbeat",
+          "output": 849,
+          "disable": 848,
+          "input": 850
+        }
+      }
+    }
+  },
+  "reset": {
+    "profile": "configuration_startup",
+    "external_R28_consumed": false,
+    "hold_sys_edges": 64,
+    "release_sys_edge": 65,
+    "restart": "New volatile configuration",
+    "clock_stability_detector": false,
+    "physical_startup_verified": false
+  },
+  "reviewed_checks": {
+    "current_single_target_family_and_cable": true,
+    "clock_and_pin_reference_binding": true,
+    "pad_encoding_and_observer_binding": true,
+    "known_used_configuration_pair": true,
+    "source_reset_contract": true
+  },
+  "mandatory_later_gates": [
+    "Actual full Vivado device/license support and successful implementation",
+    "Exact routed part, clock, IO pins/standards, selected generic and startup INIT mapping",
+    "Complete routing, nonnegative setup/hold/pulse timing and no-clock/unconstrained checks",
+    "Blocking DRC and electrical checks remain enabled with no waivers",
+    "Fresh exact-image review and exclusive hardware lease before temporary SRAM programming",
+    "Fresh target IDCODE and INIT/DONE plus source/image/BSDL-bound pad samples; no flash operation"
+  ],
+  "implementation_verified": false,
+  "image_reviewed": false,
+  "programming_admitted_by_this_record": false,
+  "hardware_test_passed": false,
+  "flash_authorized": false,
+  "legacy_incomplete_board_reviews_modified": false,
+  "fixed_image_lineage": [
+    {
+      "build_id": "c0182800",
+      "bitstream_sha256": "df2521d80de1d69ea4ca758821dc67a814b95d67ac851b78727c9154a3104bf2",
+      "package_manifest_sha256": "1c936f343bda648b4120e65bf1507999129c8b9bed67e8bab1e457828e161c3d",
+      "sram_receipt": "/home/fedora/openTPU/build/hardware/sram-c0182800-20261018/manifest.json",
+      "sram_receipt_sha256": "6396027f24cb4d689414bd78a9f06bbc15379b743d7250bde16c12a5256062d9",
+      "historical_target_serial": "80802026a77a01",
+      "target_serial_evidence": {
+        "path": "/home/fedora/openTPU/build/hardware/sram-c0182800-20261018/program.log",
+        "line": 31
+      },
+      "receipt_utc": "2026-10-17T20:01:30.504928+00:00"
+    },
+    {
+      "build_id": "c0182863",
+      "bitstream_sha256": "03b513a44544009afff9dfb82515bf84c5df84ac6a63673a0882308ce8a323ae",
+      "package_manifest_sha256": "143554ed99423f024344a916e5b6c7ee1e53d210a78bfa5d9b534762bd1dbdfb",
+      "sram_receipt": "/home/fedora/openTPU/build/hardware/sram-c0182863-20261018-v1/manifest.json",
+      "sram_receipt_sha256": "5717cb25d17441ab3b616107e745cfadf7684b19774490a3a68943ec01be6bc7",
+      "historical_target_serial": "80802026a77a01",
+      "target_serial_evidence": {
+        "path": "/home/fedora/openTPU/build/hardware/sram-c0182863-20261018-v1/vivado.log",
+        "line": 31
+      },
+      "receipt_utc": "2026-10-18T04:29:36.975914+00:00"
+    }
+  ],
+  "evidence_file_sha256": {
+    "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182800/otpu.bit": "df2521d80de1d69ea4ca758821dc67a814b95d67ac851b78727c9154a3104bf2",
+    "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182800/evidence/artifact/checkpoint.tsv": "62485fa65ab6a5876d77e39727cadeb6ac1ba1123cd6d1e2d4584f4a8ea0737b",
+    "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182800/evidence/offline-image-review.json": "30b4797f493c6411a9e21d255530cd9efeb8140fa9409278411c8a2b608d47ca",
+    "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182800/manifest.json": "1c936f343bda648b4120e65bf1507999129c8b9bed67e8bab1e457828e161c3d",
+    "/home/fedora/openTPU/build/hardware/sram-c0182800-20261018/manifest.json": "6396027f24cb4d689414bd78a9f06bbc15379b743d7250bde16c12a5256062d9",
+    "/home/fedora/openTPU/build/hardware/sram-c0182800-20261018/program-status.txt": "cfd370f04a25f7ac4e1b3b5035d12d7bb1009d2ddb7fdd79b5265fa533c5b04e",
+    "/home/fedora/openTPU/build/hardware/sram-c0182800-20261018/program.log": "6e31b099e5fc3b9999e389ac230475415485a40d7e6b00b0fddd36dca0fc28ac",
+    "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/otpu.bit": "03b513a44544009afff9dfb82515bf84c5df84ac6a63673a0882308ce8a323ae",
+    "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/evidence/artifact/checkpoint.tsv": "7f6bb157148829ef897ee1ca8cf7f36056878b2a5d77fe42fc53d7d08e9fed88",
+    "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/evidence/offline-image-review.json": "71be001071754bdb713de274008334dcf3e66cb40a2fb4cf9193e36713e941ab",
+    "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/manifest.json": "143554ed99423f024344a916e5b6c7ee1e53d210a78bfa5d9b534762bd1dbdfb",
+    "/home/fedora/openTPU/build/hardware/sram-c0182863-20261018-v1/manifest.json": "5717cb25d17441ab3b616107e745cfadf7684b19774490a3a68943ec01be6bc7",
+    "/home/fedora/openTPU/build/hardware/sram-c0182863-20261018-v1/program-status.txt": "cfd370f04a25f7ac4e1b3b5035d12d7bb1009d2ddb7fdd79b5265fa533c5b04e",
+    "/home/fedora/openTPU/build/hardware/sram-c0182863-20261018-v1/vivado.log": "eb51ed5f595efcb0b3cc42c8e45681ca791c81097f0139e7371c50bfa3b32999",
+    "/home/fedora/vivado/2026.1/Vivado/data/parts/xilinx/kintex7/public/bsdl/xc7k480t_ffg1156.bsd": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+    "build/fpga-bringup/ew-startup-1792988881763089417/target-audit/report.json": "0c9ec622c3ee649ed3f1dd56a4863d396f3f73fbe36ec3b70cb27a3f760fbbc7",
+    "build/fpga-bringup/ew-startup-1792988881763089417/target-audit/device-properties.rpt": "e14f0b80e5dbb87c87822b4b623d5f4265a8964ef46bfa622b2ab087653afc08"
+  },
+  "build_approval": {
+    "checkpoint_build_approved": true,
+    "selected_led_active_low": 0,
+    "config_voltage": "1.8",
+    "cfgbvs": "GND",
+    "new_voltage_measurement": false,
+    "optical_verified": false,
+    "optical_required": false,
+    "bitstream_emission_approved": false,
+    "programming_approved": false
+  }
+}

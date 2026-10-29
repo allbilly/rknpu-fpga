@@ -1,0 +1,256 @@
+# Offline emission gate for the reviewed full512 CH1 DDR routed checkpoint.
+# This script does not implement, constrain, program or access hardware.
+set expected_inputs @INPUTS@
+set expected_ports @PORTS@
+set dcp @DCP@
+set out @OUTPUT@
+proc require {condition message} {if {!$condition} {error $message}}
+proc one {objects message} {
+    require [expr {[llength $objects] == 1}] "Expected exactly one $message"
+    return [lindex $objects 0]
+}
+proc finite {value} {
+    return [expr {[string is double -strict $value] &&
+        ![catch {expr {abs(double($value)) < Inf}} result] && $result}]
+}
+proc verify_image_inputs {} {
+    global expected_inputs
+    dict for {path expected} $expected_inputs {
+        require [file isfile $path] "Missing qualified full512 image input: $path"
+        set raw [exec sha256sum -z -- $path]
+        require [regexp {^([0-9a-f]{64})[ \t]} $raw -> actual] "Unrecognized SHA256 result"
+        require [expr {$actual eq $expected}] "Changed qualified full512 image input"
+    }
+}
+verify_image_inputs
+require [expr {![file exists $out]}] "Fresh full512 image directory required"
+file mkdir $out
+cd $out
+open_checkpoint $dcp
+set design [current_design]
+require [expr {[get_property PART $design] eq "xc7k480tffg1156-2" &&
+    [get_property TOP $design] eq "ypcb_ddr_dual_top"}] "Wrong full512 routed design or part"
+require [expr {[get_property CONFIG_VOLTAGE $design] == 1.8 &&
+    [get_property CFGBVS $design] eq "GND"}] "Changed configuration-bank settings"
+require [expr {[llength [get_waivers]] == 0 &&
+    [llength [get_cells -quiet -hierarchical -filter {IS_BLACKBOX == 1}]] == 0}] \
+    "Waivers or unresolved black boxes are forbidden"
+require [expr {[report_route_status -boolean_check ROUTED_FULLY] == 1 &&
+    [report_route_status -boolean_check ERRORS_IN_ROUTES] == 0}] \
+    "Full512 routing incomplete or erroneous"
+report_route_status -file route_status.rpt
+report_utilization -hierarchical -file utilization.rpt
+report_io -file io.rpt
+report_clocks -file clocks.rpt
+report_timing_summary -delay_type min_max -report_unconstrained -file timing.rpt
+report_pulse_width -file pulse_width.rpt
+check_timing -verbose -file check_timing.rpt
+require [expr {[lsort [get_ports -quiet]] eq [lsort [dict keys $expected_ports]]}] \
+    "Changed 242-port physical interface"
+dict for {name properties} $expected_ports {
+    set found [get_ports -quiet [list $name]]
+    require [expr {[llength $found] == 1}] "Missing exact physical port: $name"
+    set port [lindex $found 0]
+    dict for {key expected} $properties {
+        require [expr {[get_property $key $port] eq $expected}] \
+            "Changed IO property: $name $key"
+    }
+}
+
+@HELPERS@
+
+# Resolve the actual mapped endpoint and controller hierarchy from this DCP.
+set endpoint_cell [one [get_cells -quiet -hierarchical -filter \
+    {REF_NAME == rk_jtag_dual_ddr_async}] {dual DDR asynchronous endpoint}]
+set endpoint [get_property NAME $endpoint_cell]
+require [expr {[get_property REF_NAME $endpoint_cell] eq "rk_jtag_dual_ddr_async"}] \
+    "Wrong full512 endpoint module"
+set owner [one [get_cells -quiet [list $endpoint/reset_owner]] {MIG reset owner}]
+require [expr {[get_property REF_NAME $owner] eq "rk_mig_reset_coordinator"}] \
+    "Wrong MIG reset owner module"
+set mig [one [get_cells -quiet -hierarchical -filter \
+    {REF_NAME == top_mig_7series_0_0}] {MIG dual-controller wrapper}]
+set mig_name [get_property NAME $mig]
+set mig_child_name "$mig_name/u_top_mig_7series_0_0_mig"
+set mig_child [one [get_cells -quiet [list $mig_child_name]] {generated MIG core}]
+require [expr {[get_property ORIG_REF_NAME $mig] eq "top_mig_7series_0_0" &&
+    [get_property ORIG_REF_NAME $mig_child] eq "top_mig_7series_0_0_mig" &&
+    ![get_property IS_BLACKBOX $mig] && ![get_property IS_BLACKBOX $mig_child] &&
+    ![get_property IS_PRIMITIVE $mig] && ![get_property IS_PRIMITIVE $mig_child]}] \
+    "Changed original MIG wrapper/core identity"
+foreach {channel infra_orig controller_orig} {
+    c0 mig_7series_v4_2_infrastructure mig_7series_v4_2_memc_ui_top_axi
+    c1 mig_7series_v4_2_infrastructure mig_7series_v4_2_memc_ui_top_axi
+} {
+    set infra [one [get_cells -quiet [list "$mig_child_name/${channel}_u_ddr3_infrastructure"]] \
+        "$channel MIG infrastructure"]
+    set controller [one [get_cells -quiet [list "$mig_child_name/${channel}_u_memc_ui_top_axi"]] \
+        "$channel MIG controller"]
+    foreach cell [list $infra $controller] {
+        require [expr {![get_property IS_BLACKBOX $cell] && ![get_property IS_PRIMITIVE $cell]}] \
+            "$channel MIG hierarchy became primitive or black box"
+    }
+    require [expr {[get_property ORIG_REF_NAME $infra] eq $infra_orig &&
+        [get_property ORIG_REF_NAME $controller] eq $controller_orig}] \
+        "$channel original MIG controller identity changed"
+}
+
+# The endpoint register clocks establish the logical-to-physical UI mapping.
+set sys [rk_status_clock sys_clock 20.000]
+set local0 [rk_status_cell [format {%s/reset_owner/ui_domain[%d].local_rst_n_reg} $endpoint 0]]
+set local1 [rk_status_cell [format {%s/reset_owner/ui_domain[%d].local_rst_n_reg} $endpoint 1]]
+set ui0reg [one [get_clocks -quiet -of_objects [rk_status_pin $local0/C]] {logical UI0 register clock}]
+set ui1reg [one [get_clocks -quiet -of_objects [rk_status_pin $local1/C]] {logical UI1 register clock}]
+set c0_pin [one [get_pins -quiet [list ${mig_name}/c0_ui_clk]] {MIG C0 UI output pin}]
+set c1_pin [one [get_pins -quiet [list ${mig_name}/c1_ui_clk]] {MIG C1 UI output pin}]
+set physical0 [one [get_clocks -quiet -of_objects $c0_pin] {physical C0 UI clock}]
+set physical1 [one [get_clocks -quiet -of_objects $c1_pin] {physical C1 UI clock}]
+require [expr {$ui0reg eq $physical1 && $ui1reg eq $physical0 && $ui0reg ne $ui1reg}] \
+    "Changed logical/physical UI clock mapping"
+set ui0 [rk_status_clock [get_property NAME $ui0reg] 7.500]
+set ui1 [rk_status_clock [get_property NAME $ui1reg] 7.500]
+
+# Derive startup and cfg_reset proof points from the routed design itself.
+set startup [one [get_cells -quiet -hierarchical -filter {REF_NAME == rk_startup_reset}] \
+    {mapped startup reset producer}]
+set startup_name [get_property NAME $startup]
+set cfg_pin [rk_status_pin $endpoint/cfg_reset]
+set cfg_segments [get_nets -quiet -segments -of_objects $cfg_pin]
+require [expr {[llength $cfg_segments] > 0}] "Missing endpoint cfg_reset net segments"
+set cfg_driver [one [get_pins -quiet -leaf -of_objects $cfg_segments -filter {DIRECTION == OUT}] \
+    {cfg_reset leaf driver}]
+set inverter [one [get_cells -quiet -of_objects $cfg_driver] {mapped cfg_reset inverter}]
+set inverter_name [get_property NAME $inverter]
+require [expr {[get_property REF_NAME $inverter] eq "LUT1"}] \
+    "Unexpected mapped cfg_reset leaf driver"
+
+# BEGIN FULL512 AUDIT-ONLY HELPER INVOCATIONS
+# The six source-bound helpers are audit-only. They do not add or reapply cuts.
+file mkdir reset_status board_reset permit ew_job cmac_job ew_memory cmac_memory mailbox
+set status_inventory [rk_status_inventory $endpoint $sys $ui0 $ui1]
+require [expr {[llength $status_inventory] == 9}] "Expected exactly nine status chains"
+rk_status_cdc_audit $endpoint $sys $ui0 $ui1 reset_status
+set reset_inventory [rk_board_reset_inventory $endpoint $startup_name $inverter_name $sys $ui0 $ui1]
+require [expr {[llength $reset_inventory] == 4}] "Expected exactly four board reset banks"
+rk_board_reset_audit $endpoint $startup_name $inverter_name $sys $ui0 $ui1 board_reset
+set permit_inventory [rk_cmac_permit_inventory $endpoint $ui0 $sys]
+require [expr {[llength $permit_inventory] == 5}] "Malformed CMAC permit inventory record"
+lassign $permit_inventory permit_label permit_source permit_from permit_to permit_cells
+require [expr {$permit_label eq "permit_sync" && $permit_from eq $ui0 &&
+    $permit_to eq $sys && [llength $permit_cells] == 3}] \
+    "Expected one three-stage CMAC permit synchronizer on UI-to-SYS clocks"
+rk_cmac_permit_audit $endpoint $ui0 $sys permit
+set ew_job [format {%s/engine/ew/job_crossing} $endpoint]
+set cmac_job [format {%s/engine/cmac/job_crossing} $endpoint]
+set ew_job_prefix "${ew_job}/"
+set cmac_job_prefix "${cmac_job}/"
+set ew_profile ew_engine_e1_e8
+set cmac_profile cmac_terminal_full8
+set ew_payload [rk_job_payloads $ew_job_prefix $ew_profile]
+set cmac_payload [rk_job_payloads $cmac_job_prefix $cmac_profile]
+require [expr {[llength [lindex $ew_payload 0 1]] == 64 &&
+    [llength [lindex $ew_payload 1 1]] == 37}] "Changed EW 64/37 job payload profile"
+require [expr {[llength [lindex $cmac_payload 0 1]] == 64 &&
+    [llength [lindex $cmac_payload 1 1]] == 10}] "Changed CMAC 64/10 terminal profile"
+rk_job_cdc_audit $ew_job $ui0 $sys ew_job $ew_profile
+rk_job_cdc_audit $cmac_job $ui0 $sys cmac_job $cmac_profile
+set ew_mem [format {%s/engine/ew/memory_crossing} $endpoint]
+set cmac_mem [format {%s/engine/cmac/memory_crossing} $endpoint]
+set ew_mem_payload [rk_mem_payloads [rk_mem_prefix $ew_mem]]
+set cmac_mem_payload [rk_mem_payloads [rk_mem_prefix $cmac_mem]]
+require [expr {[llength $ew_mem_payload] == 2 && [llength $cmac_mem_payload] == 2}] \
+    "Expected exactly two memory crossing payloads per engine"
+rk_mem_cdc_audit $ew_mem $sys $ui0 ew_memory
+rk_mem_cdc_audit $cmac_mem $sys $ui0 cmac_memory
+rk_ddr_host_cdc_audit mailbox $ui0
+# END FULL512 AUDIT-ONLY HELPER INVOCATIONS
+
+# Routed setup, hold, pulse, and timing coverage remain hard emission gates.
+foreach kind {max min} {
+    set paths [get_timing_paths -quiet -delay_type $kind -max_paths 1]
+    set path [one $paths "routed global $kind timing path"]
+    set slack [get_property SLACK $path]
+    require [expr {[finite $slack] && $slack >= 0}] "Routed global $kind timing fails"
+}
+foreach check {no_clock unconstrained_internal_endpoints} {
+    set detail [check_timing -override_defaults $check -no_header -return_string]
+    set heading [format {(?im)^\s*(?:[0-9]+\.\s*)?checking\s+%s(?:\s*\([0-9]+\))?\.?\s*$} $check]
+    require [regexp $heading $detail] "Unrecognized $check report"
+    set found 0
+    foreach line [split $detail \n] {
+        if {[regexp {^\s*There are ([0-9]+) .+} $line -> count]} {
+            incr found
+            require [expr {$count == 0}] "Unresolved routed $check findings"
+        } elseif {[regexp -nocase {there are} $line]} {
+            error "Unrecognized routed timing count"
+        }
+    }
+    require [expr {$found > 0}] "Missing routed $check coverage"
+}
+set pulse [report_pulse_width -return_string]
+foreach kind {"Min Period" "Low Pulse Width" "High Pulse Width"} {
+    require [regexp -line "^${kind}\\s+\\S+\\s+\\S+\\s+\\S+\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+\\S+\\s+\\S+\\s*$" \
+        $pulse -> required actual slack] "Missing routed $kind pulse check"
+    require [expr {[finite $required] && [finite $actual] && [finite $slack] &&
+        $required > 0 && $actual > 0 && $slack >= 0}] "Invalid or failing routed $kind pulse check"
+}
+
+# Census the retained 16 x C32 product array and both real MIG controllers.
+set kernels [get_cells -quiet -hierarchical -filter \
+    {ORIG_REF_NAME == rk_cmac_fp16_cell_dsp_prefix_pipe || REF_NAME == rk_cmac_fp16_cell_dsp_prefix_pipe}]
+require [expr {[llength $kernels] == 16}] "Expected exactly 16 C32 product kernels"
+set dsps [get_cells -quiet -hierarchical -filter {REF_NAME == DSP48E1}]
+set owned [dict create]
+set products 0
+foreach kernel $kernels {
+    set prefix "[get_property NAME $kernel]/"
+    set count 0
+    foreach dsp $dsps {
+        set name [get_property NAME $dsp]
+        if {[string first $prefix $name] == 0} {
+            require [expr {![dict exists $owned $name]}] "Duplicate product DSP ownership"
+            dict set owned $name 1
+            incr count
+        }
+    }
+    require [expr {$count == 32}] "A C32 kernel does not retain exactly 32 product DSPs"
+    incr products $count
+}
+require [expr {$products == 512 && [dict size $owned] == 512 && [llength $dsps] == 516}] \
+    "Full512 product/auxiliary DSP census changed"
+require [expr {[llength [get_cells -quiet -hierarchical -filter \
+    {REF_NAME == RAMB18E1 || REF_NAME == RAMB36E1}]] == 0}] "Unexpected BRAM in full512 image"
+set bscan [one [get_cells -quiet -hierarchical -filter {REF_NAME == BSCANE2}] USER2]
+require [expr {[get_property JTAG_CHAIN $bscan] == 2}] "Wrong USER2 BSCAN chain"
+
+# Default DRC is closed to the reviewed factory-warning inventory only.
+set expected_drc [dict create DPIP-1 1032 DPOP-1 516 DPOP-2 516 REQP-1709 2]
+set counts [dict create DPIP-1 0 DPOP-1 0 DPOP-2 0 REQP-1709 0]
+report_drc -ruledecks default -file default_drc.rpt
+foreach violation [get_drc_violations] {
+    set name [get_property NAME $violation]
+    require [expr {[string toupper [get_property SEVERITY $violation]] eq "WARNING" &&
+        [regexp {^(DPIP-1|DPOP-1|DPOP-2|REQP-1709)#[0-9]+$} $name -> rule]}] \
+        "Blocking or unreviewed default DRC finding"
+    dict incr counts $rule
+}
+require [expr {$counts eq $expected_drc}] "Changed default DRC warning inventory"
+
+# Only source-tag metadata is written; no constraints or implementation run.
+set_property BITSTREAM.CONFIG.USR_ACCESS 0x@SOURCE_TAG@ [current_design]
+report_drc -ruledecks bitstream_checks -file bitstream_drc.rpt
+set bitstream_counts [dict create DPIP-1 0 DPOP-1 0 DPOP-2 0 REQP-1709 0]
+foreach violation [get_drc_violations] {
+    set name [get_property NAME $violation]
+    require [expr {[string toupper [get_property SEVERITY $violation]] eq "WARNING" &&
+        [regexp {^(DPIP-1|DPOP-1|DPOP-2|REQP-1709)#[0-9]+$} $name -> rule]}] \
+        "Blocking or unreviewed bitstream-check DRC finding"
+    dict incr bitstream_counts $rule
+}
+verify_image_inputs
+write_checkpoint image.dcp
+verify_image_inputs
+write_bitstream full512-ddr-ch1-user2.bit
+verify_image_inputs
+puts PASS_REVIEWED_FULL512_CH1_DDR_BITSTREAM_EMISSION_ONLY
+exit

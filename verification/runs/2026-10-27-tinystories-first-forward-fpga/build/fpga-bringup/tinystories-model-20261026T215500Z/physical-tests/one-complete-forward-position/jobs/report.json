@@ -1,0 +1,53 @@
+{
+  "status": "PASS_PHYSICAL_HYBRID_MODEL_EXECUTION_REQUIRES_INDEPENDENT_AUDIT",
+  "backend": "jtag",
+  "started_utc": "2026-10-26T22:06:57.036649+00:00",
+  "model_sha256": "b0a507e7ad0f626624f17112325e66691f9076d622e1d3274d103d00299f2696",
+  "tokenizer_sha256": "037cb335abb25d1fa9e8ecae30ed2a3a8ace9302862ebcdc05d51a6bbb10c312",
+  "package_report_sha256": "5229ead1933dc9fd4f7c364f1bfa42f2f43a5e2621900e37e072c78993c161d0",
+  "hardware_accessed": true,
+  "hardware_access_attempted": true,
+  "flash_written": false,
+  "cpu_dense_fallback": false,
+  "scope": "Standalone hybrid five-layer model; learned dense backend is explicit. CPU modes are reference targets only.",
+  "prompt": "",
+  "steps": 1,
+  "completed_projections": 36,
+  "catalog_sha256": "eaf4555a59a4e98770f93f773a39487df3d180c28d59d3b51f9bc589ae3948c1",
+  "model_upload_verified": true,
+  "active_projection": "output",
+  "last_readback_tag": 232,
+  "raw_jobs": 232,
+  "raw_completed_tasks": 348,
+  "result": {
+    "prompt_tokens": [
+      1
+    ],
+    "generated_tokens": [
+      403
+    ],
+    "text": "Once",
+    "forward_positions": 1,
+    "dense_calls": 36,
+    "input_tokens": [
+      1
+    ]
+  },
+  "logit_values": 512,
+  "finished_utc": "2026-10-26T22:14:40.877407+00:00",
+  "bridge_quit_ack": true,
+  "artifacts": {
+    "native-scans.jsonl": "e4f268c81cb7a7f763a774a8fbeb9db08fde88bcf87f6796fcd82c45102b733c",
+    "raw-readback.jsonl": "5b54c09b473d7179419e78c4bbc4b265615f4c78ff3025cac27525a4e77ce951",
+    "logits.bin": "da84021345aa0521e0ed1c37344b91e93ef077d964a56bd876fdd4326ae8a893",
+    "text.txt": "bc15aea0cf5608b9d6626d96415af8426b5f7b197ace3ed9789bd2368c359c91",
+    "dense-calls.json": "6a6b85f83c886fa5503b567aea604906660544e42ff0b66cf5e55fb0101b42c9",
+    "raw-jobs.json": "2592dff053c98aefce45728e09a11bbf301d20846f0bad2e52d1b490e5ceb8d0",
+    "raw-jobs-final.json": "2592dff053c98aefce45728e09a11bbf301d20846f0bad2e52d1b490e5ceb8d0",
+    "host/engine.c": "b1a312bd020a9c016ac7aecfc4721dc20ca72c1835e81beaccbb969286a16efb",
+    "host/LICENSE": "e87b912002f04cdfa837eaf7f70548ab79b9cb62a285495edf575f3da875aec4",
+    "host/engine.so": "f95e35a3d276e9feb64f944b0b3edf813a686c21823e2a82cc55aa1ec2b39803",
+    "host/compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "host/compile.json": "3032fce87eb791d00777b47ee2c224538a7386cb679e846dc98810667e1a747c"
+  }
+}

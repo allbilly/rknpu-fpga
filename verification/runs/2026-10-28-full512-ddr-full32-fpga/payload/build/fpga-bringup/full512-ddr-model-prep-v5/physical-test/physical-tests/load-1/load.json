@@ -1,0 +1,49 @@
+{
+  "bitstream_sha256": "d627b7155c4a4ad6b948424fbd28240a666ea6071bfe8c5d5b19f7da051b0031",
+  "command": {
+    "argv": [
+      "/home/fedora/vivado/2026.1.1/Vivado_Lab/bin/vivado_lab",
+      "-mode",
+      "batch",
+      "-source",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v5/physical-test/physical-tests/load-1/program.tcl",
+      "-log",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v5/physical-test/physical-tests/load-1/vivado.log",
+      "-journal",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v5/physical-test/physical-tests/load-1/vivado.jou"
+    ],
+    "bitstream_sha256_before": "d627b7155c4a4ad6b948424fbd28240a666ea6071bfe8c5d5b19f7da051b0031",
+    "finished_utc": "2026-10-28T05:48:11.109429+00:00",
+    "flash_written": false,
+    "pgid": 1145292,
+    "pid": 1145292,
+    "program_tcl_sha256": "6755021ebd022d4af0bbeb88f3b7b6293c6c81129636e96c04bba110e98aa96b",
+    "returncode": 0,
+    "started_utc": "2026-10-28T05:46:23.392765+00:00",
+    "timeout": false
+  },
+  "finished_utc": "2026-10-28T05:48:11.109429+00:00",
+  "flash_written": false,
+  "hardware_programmed": true,
+  "image_review_sha256": "223b0dc3cc1a78a804a6f75b1d20baf3649bbe8265b192577580bbf4e258264a",
+  "native": {
+    "BITSTREAM_SHA256": "d627b7155c4a4ad6b948424fbd28240a666ea6071bfe8c5d5b19f7da051b0031",
+    "CLEANUP": "1",
+    "DNA_PORT": "004E544714C705C",
+    "DONE": "1",
+    "IDCODE_AFTER": "23751093",
+    "IDCODE_BEFORE": "23751093",
+    "INIT_COMPLETE": "1",
+    "PASS": "1",
+    "PROGRAMMED": "1",
+    "PROGRAM_FILE": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v12/emission/full512-ddr-ch1-user2.bit",
+    "PROGRAM_RETURNED": "1",
+    "TARGET": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+    "TCK_HZ": "3000000",
+    "USR_ACCESS": "5e99f881"
+  },
+  "source_sha256": "5e99f881eea21ff01bdf02f02435c7722a5ef78b820308727ac84f39edf0981f",
+  "started_utc": "2026-10-28T05:46:23.392765+00:00",
+  "status": "PASS",
+  "trained_tile_prerequisite_sha256": "4d3ac12fc3e6cc4d92d492d4b231463e46e30cc7562b9ca0c0af75ca75836e44"
+}

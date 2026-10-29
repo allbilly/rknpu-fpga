@@ -1,0 +1,49 @@
+{
+  "synthesis": [
+    "rtl/vendor/nvdla/NV_DW02_tree.v",
+    "rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+    "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+    "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+    "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+    "rtl/rk_cmac_profile.sv",
+    "rtl/rk_cmac_address.sv",
+    "rtl/rk_cmac_reader.sv",
+    "rtl/rk_cmac_operand_front.sv",
+    "rtl/cmac/rk_nvdla_cmac_group.sv",
+    "rtl/cmac/rk_nvdla_cacc.sv",
+    "rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+    "rtl/cmac/rk_cmac_writer.sv",
+    "rtl/cmac/rk_cmac_output_nvdla.sv",
+    "rtl/cmac/rk_nvdla_cmac_pipe.sv",
+    "rtl/cmac/rk_cmac_nvdla_core.sv",
+    "rtl/cmac/rk_cmac_nvdla_dma.sv",
+    "rtl/cmac/rk_cmac_job_control.sv",
+    "rtl/cmac/rk_cmac_axi_mem.sv",
+    "rtl/cmac/rk_cmac_nvdla_axi.sv",
+    "rtl/cmac/rk_cmac_demo_memory.sv",
+    "rtl/cmac/rk_cmac_demo_rom.sv",
+    "rtl/cmac/rk_cmac_bram_demo.sv",
+    "fpga/cmac/ypcb_cmac_top.sv"
+  ],
+  "simulation_helpers": [
+    "rtl/vendor/nvdla/compat/nv_assert_never.v",
+    "rtl/vendor/nvdla/compat/nv_assert_no_x.v"
+  ],
+  "include_dirs": [
+    "rtl/vendor/nvdla"
+  ],
+  "tops": {
+    "board": "ypcb_cmac_top",
+    "core": "rk_cmac_nvdla_core",
+    "dma": "rk_cmac_nvdla_dma",
+    "axi": "rk_cmac_nvdla_axi",
+    "memory": "rk_cmac_demo_memory"
+  },
+  "benches": {
+    "board": "tests/cmac/tb_cmac_bram_demo.sv",
+    "core": "tests/cmac/tb_cmac_nvdla_core.sv",
+    "dma": "tests/cmac/tb_cmac_nvdla_dma.sv",
+    "axi": "tests/cmac/tb_cmac_nvdla_axi.sv",
+    "memory": "tests/cmac/tb_cmac_demo_memory.sv"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "status": "NATIVE_FULL512_REPAIR_TIMING_PASS_WITH_PRESERVED_PROVENANCE_FAILURE",
+  "utc": "2026-10-28T03:25:32.549379+00:00",
+  "scope": "Actual completed native repair/report facts only; source-provenance and image admission remain pending fresh qualification",
+  "parent_report_sha256": "9416024535c7086168fe6cdc9d60ec26c7770adc3173294b36357ad9702a41a2",
+  "native_returncode": 0,
+  "parent_wrapper_status": "FAIL",
+  "parent_error": "ValueError('Repair input changed during native implementation')",
+  "native_pass_marker_count": 1,
+  "owned_process_group_stopped": true,
+  "routed_dcp_sha256": "6f80fd89beda0dd26244b860927f4e214c141a02a965558a07b63f3f0bc68478",
+  "timing": {
+    "setup_ns": 0.004,
+    "hold_ns": 0.048,
+    "pulse_ns": 0.264,
+    "setup_endpoints": 169809,
+    "hold_endpoints": 168357,
+    "pulse_endpoints": 70329
+  },
+  "pulse": {
+    "counts": {
+      "Min Period": 102,
+      "Max Period": 16,
+      "Low Pulse Width": 56,
+      "High Pulse Width": 58
+    },
+    "worst_reported_slack_ns": 0.264
+  },
+  "sole_changed_origin": [
+    "/home/fedora/rknpu-fpga/fpga/ddr/emit_full512_ch1.tcl.in"
+  ],
+  "hardware_accessed": false,
+  "image_admitted": false
+}

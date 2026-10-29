@@ -1,0 +1,492 @@
+{
+  "status": "READ_ONLY_CH1_ROUTED_VENDOR_CDC_INVENTORY_NO_SIGNOFF",
+  "scope": "Fresh mapped facts from the exact C1-selected routed DCP; root owns source CDC/image interpretation. No constraints/attributes changed, no implementation, bitstream, or hardware.",
+  "source_binding": {
+    "dcp_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/post_route.dcp",
+    "dcp_sha256": "394d58fb8ef02187fb25a3c6f99df4d9874bbd558c6f0fd7861b83ae0ae2262e",
+    "route_report_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/report.json",
+    "route_report_sha256": "babcaf75c7e5a592b0f9be3e65692fbc80d94c87050838c232a517d69b72e5a1",
+    "source_selected_physical_channel": 1,
+    "source_preparation_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-physical-synth-v2/preparation.json",
+    "source_preparation_sha256": "2d093f1ade8846b31acc71b92ae32ec454f4a671fad6232038d61450a42ab498",
+    "old_C0_inventory_reused": false
+  },
+  "run": {
+    "status": "READ_ONLY_C1_INVENTORY_PASS",
+    "vivado_version": "vivado v2026.1 (64-bit)",
+    "returncode": 0,
+    "elapsed_seconds": 89.524194,
+    "cgroup_limits": {
+      "MemoryMax": "4G",
+      "MemorySwapMax": "0",
+      "CPUQuota": "100%",
+      "TasksMax": 128
+    },
+    "all_bound_route_inputs_unchanged": true,
+    "bound_input_count": 425
+  },
+  "mapped_counts": {
+    "all_FD_cells": 24781,
+    "broad_reset_candidates": 76,
+    "matched_reset_cells": 76,
+    "reset_groups": {
+      "c0/rst_sync_r/FDPE/1'b1//mmcm_ps_clk_bufg_in": 13,
+      "c0/rstdiv0_sync_r/FDPE/1'b1//clk_pll_i": 13,
+      "c1/rst_sync_r/FDPE/1'b1//mmcm_ps_clk_bufg_in_1": 13,
+      "c1/rstdiv0_sync_r/FDPE/1'b1//clk_pll_i_1": 22,
+      "iodelay/rst_ref_sync_r/FDPE/1'b1//c0_sys_clk_p": 15
+    },
+    "candidate_family_counts": {
+      "rst_sync": 26,
+      "rstdiv0": 35,
+      "rst_ref": 15
+    },
+    "rstdiv2_candidates": 0,
+    "reset_source_C_to_D_STA_edges": 71,
+    "tempmon_FFs": 181,
+    "tempmon_groups": {
+      "c0/device_temp_r/FDRE/1'b0/1/clk_pll_i": 12,
+      "c0/device_temp_sync_r1/FDRE/1'b0/1/clk_pll_i": 12,
+      "c0/device_temp_sync_r2/FDRE/1'b0/1/clk_pll_i": 12,
+      "c0/device_temp_sync_r3/FDRE/1'b0/1/clk_pll_i": 12,
+      "c0/device_temp_sync_r4_neq_r3/FDRE/1'b0//clk_pll_i": 1,
+      "c0/device_temp_sync_r4/FDRE/1'b0/1/clk_pll_i": 12,
+      "c0/device_temp_sync_r5/FDRE/1'b0/1/clk_pll_i": 12,
+      "c0/sync_cntr/FDRE/1'b0//clk_pll_i": 4,
+      "c0/rst_r1/FDRE/1'b0/1/c0_sys_clk_p": 1,
+      "c0/rst_r2/FDRE/1'b0/1/c0_sys_clk_p": 1,
+      "c0/temperature/FDRE/1'b0//c0_sys_clk_p": 12,
+      "c0/xadc_do_r/FDRE/1'b0//c0_sys_clk_p": 12,
+      "c0/xadc_drdy_r/FDRE/1'b0//c0_sys_clk_p": 1,
+      "c1/device_temp_r/FDRE/1'b0/1/clk_pll_i_1": 12,
+      "c1/device_temp_sync_r1/FDRE/1'b0/1/clk_pll_i_1": 12,
+      "c1/device_temp_sync_r2/FDRE/1'b0/1/clk_pll_i_1": 12,
+      "c1/device_temp_sync_r3/FDRE/1'b0/1/clk_pll_i_1": 12,
+      "c1/device_temp_sync_r4_neq_r3/FDRE/1'b0//clk_pll_i_1": 1,
+      "c1/device_temp_sync_r4/FDRE/1'b0/1/clk_pll_i_1": 12,
+      "c1/device_temp_sync_r5/FDRE/1'b0/1/clk_pll_i_1": 12,
+      "c1/sync_cntr/FDRE/1'b0//clk_pll_i_1": 4
+    },
+    "tempmon_source_Q_to_D_STA_edges": 157,
+    "XADC_count": 1
+  },
+  "vendor_reset_STA": {
+    "rst_ref_sync_r": {
+      "actual_source_C_to_destination_D_edges": 14,
+      "all_max_min_paths_found": true,
+      "max_requirements_ns": [
+        "5.0"
+      ],
+      "max_slack_minmax_ns": [
+        4.206,
+        4.533
+      ],
+      "max_exceptions": [
+        ""
+      ],
+      "min_requirements_ns": [
+        "0.0"
+      ],
+      "min_slack_minmax_ns": [
+        0.154,
+        0.349
+      ],
+      "min_exceptions": [
+        ""
+      ]
+    },
+    "rst_sync_r": {
+      "actual_source_C_to_destination_D_edges": 24,
+      "all_max_min_paths_found": true,
+      "max_requirements_ns": [
+        "15.0"
+      ],
+      "max_slack_minmax_ns": [
+        13.998,
+        14.373
+      ],
+      "max_exceptions": [
+        ""
+      ],
+      "min_requirements_ns": [
+        "0.0"
+      ],
+      "min_slack_minmax_ns": [
+        0.102,
+        0.444
+      ],
+      "min_exceptions": [
+        ""
+      ]
+    },
+    "rstdiv0_sync_r": {
+      "actual_source_C_to_destination_D_edges": 33,
+      "all_max_min_paths_found": true,
+      "max_requirements_ns": [
+        "7.5"
+      ],
+      "max_slack_minmax_ns": [
+        4.716,
+        7.009
+      ],
+      "max_exceptions": [
+        ""
+      ],
+      "min_requirements_ns": [
+        "0.0"
+      ],
+      "min_slack_minmax_ns": [
+        0.156,
+        1.145
+      ],
+      "min_exceptions": [
+        ""
+      ]
+    }
+  },
+  "temperature_STA": {
+    "device_temp_r": {
+      "edges": 24,
+      "all_max_min_paths_found": true,
+      "max_requirements_ns": [
+        "7.5"
+      ],
+      "max_slack_minmax_ns": [
+        6.794,
+        6.94
+      ],
+      "max_exceptions": [
+        ""
+      ],
+      "min_requirements_ns": [
+        "0.0"
+      ],
+      "min_slack_minmax_ns": [
+        0.163,
+        0.257
+      ],
+      "min_exceptions": [
+        ""
+      ]
+    },
+    "device_temp_sync_r1": {
+      "edges": 24,
+      "all_max_min_paths_found": true,
+      "max_requirements_ns": [
+        "20.0"
+      ],
+      "max_slack_minmax_ns": [
+        17.665,
+        18.262
+      ],
+      "max_exceptions": [
+        "MaxDelay Path 20.000ns"
+      ],
+      "min_requirements_ns": [
+        "0.0"
+      ],
+      "min_slack_minmax_ns": [
+        0.101,
+        0.557
+      ],
+      "min_exceptions": [
+        ""
+      ]
+    },
+    "device_temp_sync_r2": {
+      "edges": 24,
+      "all_max_min_paths_found": true,
+      "max_requirements_ns": [
+        "7.5"
+      ],
+      "max_slack_minmax_ns": [
+        6.694,
+        7.05
+      ],
+      "max_exceptions": [
+        ""
+      ],
+      "min_requirements_ns": [
+        "0.0"
+      ],
+      "min_slack_minmax_ns": [
+        0.138,
+        0.322
+      ],
+      "min_exceptions": [
+        ""
+      ]
+    },
+    "device_temp_sync_r3": {
+      "edges": 24,
+      "all_max_min_paths_found": true,
+      "max_requirements_ns": [
+        "7.5"
+      ],
+      "max_slack_minmax_ns": [
+        6.751,
+        6.904
+      ],
+      "max_exceptions": [
+        ""
+      ],
+      "min_requirements_ns": [
+        "0.0"
+      ],
+      "min_slack_minmax_ns": [
+        0.204,
+        0.32
+      ],
+      "min_exceptions": [
+        ""
+      ]
+    },
+    "device_temp_sync_r4": {
+      "edges": 24,
+      "all_max_min_paths_found": true,
+      "max_requirements_ns": [
+        "7.5"
+      ],
+      "max_slack_minmax_ns": [
+        6.685,
+        6.817
+      ],
+      "max_exceptions": [
+        ""
+      ],
+      "min_requirements_ns": [
+        "0.0"
+      ],
+      "min_slack_minmax_ns": [
+        0.252,
+        0.343
+      ],
+      "min_exceptions": [
+        ""
+      ]
+    },
+    "device_temp_sync_r5": {
+      "edges": 24,
+      "all_max_min_paths_found": true,
+      "max_requirements_ns": [
+        "7.5"
+      ],
+      "max_slack_minmax_ns": [
+        6.732,
+        6.908
+      ],
+      "max_exceptions": [
+        ""
+      ],
+      "min_requirements_ns": [
+        "0.0"
+      ],
+      "min_slack_minmax_ns": [
+        0.208,
+        0.315
+      ],
+      "min_exceptions": [
+        ""
+      ]
+    },
+    "rst_r2": {
+      "edges": 1,
+      "all_max_min_paths_found": true,
+      "max_requirements_ns": [
+        "5.0"
+      ],
+      "max_slack_minmax_ns": [
+        4.606,
+        4.606
+      ],
+      "max_exceptions": [
+        ""
+      ],
+      "min_requirements_ns": [
+        "0.0"
+      ],
+      "min_slack_minmax_ns": [
+        0.131,
+        0.131
+      ],
+      "min_exceptions": [
+        ""
+      ]
+    },
+    "temperature": {
+      "edges": 12,
+      "all_max_min_paths_found": true,
+      "max_requirements_ns": [
+        "5.0"
+      ],
+      "max_slack_minmax_ns": [
+        4.201,
+        4.607
+      ],
+      "max_exceptions": [
+        ""
+      ],
+      "min_requirements_ns": [
+        "0.0"
+      ],
+      "min_slack_minmax_ns": [
+        0.112,
+        0.324
+      ],
+      "min_exceptions": [
+        ""
+      ]
+    }
+  },
+  "tempmon_R_CE_tied_constants": {
+    "c0/device_temp_r/R->GND": 12,
+    "c0/device_temp_sync_r1/R->GND": 12,
+    "c0/device_temp_sync_r1/CE->VCC": 12,
+    "c0/device_temp_sync_r2/R->GND": 12,
+    "c0/device_temp_sync_r2/CE->VCC": 12,
+    "c0/device_temp_sync_r3/R->GND": 12,
+    "c0/device_temp_sync_r3/CE->VCC": 12,
+    "c0/device_temp_sync_r4_neq_r3/R->GND": 1,
+    "c0/device_temp_sync_r4_neq_r3/CE->VCC": 1,
+    "c0/device_temp_sync_r4/R->GND": 12,
+    "c0/device_temp_sync_r4/CE->VCC": 12,
+    "c0/device_temp_sync_r5/R->GND": 12,
+    "c0/device_temp_sync_r5/CE->VCC": 12,
+    "c0/sync_cntr/CE->VCC": 1,
+    "c0/rst_r1/R->GND": 1,
+    "c0/rst_r1/CE->VCC": 1,
+    "c0/rst_r2/R->GND": 1,
+    "c0/rst_r2/CE->VCC": 1,
+    "c0/xadc_do_r/CE->VCC": 12,
+    "c0/xadc_drdy_r/CE->VCC": 1,
+    "c1/device_temp_r/R->GND": 12,
+    "c1/device_temp_sync_r1/R->GND": 12,
+    "c1/device_temp_sync_r1/CE->VCC": 12,
+    "c1/device_temp_sync_r2/R->GND": 12,
+    "c1/device_temp_sync_r2/CE->VCC": 12,
+    "c1/device_temp_sync_r3/R->GND": 12,
+    "c1/device_temp_sync_r3/CE->VCC": 12,
+    "c1/device_temp_sync_r4_neq_r3/R->GND": 1,
+    "c1/device_temp_sync_r4_neq_r3/CE->VCC": 1,
+    "c1/device_temp_sync_r4/R->GND": 12,
+    "c1/device_temp_sync_r4/CE->VCC": 12,
+    "c1/device_temp_sync_r5/R->GND": 12,
+    "c1/device_temp_sync_r5/CE->VCC": 12,
+    "c1/sync_cntr/CE->VCC": 1
+  },
+  "tempmon_D_source_examples": [
+    {
+      "cell": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/device_temp_r_reg[0]",
+      "signal": "device_temp_r",
+      "D_driver_pins": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[0]/Q",
+      "D_driver_refs": "FDRE",
+      "D_startpoints": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[0]/C"
+    },
+    {
+      "cell": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/device_temp_sync_r1_reg[0]",
+      "signal": "device_temp_sync_r1",
+      "D_driver_pins": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.temperature_reg[0]/Q",
+      "D_driver_refs": "FDRE",
+      "D_startpoints": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.temperature_reg[0]/C"
+    },
+    {
+      "cell": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.temperature_reg[0]",
+      "signal": "temperature",
+      "D_driver_pins": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.xadc_do_r_reg[4]/Q",
+      "D_driver_refs": "FDRE",
+      "D_startpoints": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.xadc_do_r_reg[4]/C"
+    },
+    {
+      "cell": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.xadc_do_r_reg[4]",
+      "signal": "xadc_do_r",
+      "D_driver_pins": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.XADC_inst/DO[4]",
+      "D_driver_refs": "XADC",
+      "D_startpoints": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.XADC_inst/DCLK"
+    },
+    {
+      "cell": "platform/mig/u_top_mig_7series_0_0_mig/c1_temp_mon_enabled.u_tempmon/device_temp_r_reg[0]",
+      "signal": "device_temp_r",
+      "D_driver_pins": "platform/mig/u_top_mig_7series_0_0_mig/c1_temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[0]/Q",
+      "D_driver_refs": "FDRE",
+      "D_startpoints": "platform/mig/u_top_mig_7series_0_0_mig/c1_temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[0]/C"
+    },
+    {
+      "cell": "platform/mig/u_top_mig_7series_0_0_mig/c1_temp_mon_enabled.u_tempmon/device_temp_sync_r1_reg[0]",
+      "signal": "device_temp_sync_r1",
+      "D_driver_pins": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/device_temp_r_reg[0]/Q,platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/device_temp[0],platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/device_temp[0]",
+      "D_driver_refs": "FDRE,mig_7series_v4_2_tempmon,mig_7series_v4_2_tempmon",
+      "D_startpoints": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/device_temp_r_reg[0]/C"
+    }
+  ],
+  "XADC_cells": [
+    {
+      "name": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.XADC_inst",
+      "ref": "XADC",
+      "loc": "XADC_X0Y0",
+      "INIT_40": "16'h1000",
+      "INIT_41": "16'h2FFF",
+      "INIT_42": "16'h0800",
+      "INIT_48": "16'h0101",
+      "INIT_49": "16'h0000",
+      "INIT_4A": "16'h0100",
+      "INIT_4B": "16'h0000",
+      "INIT_4C": "16'h0000",
+      "INIT_4D": "16'h0000",
+      "INIT_4E": "16'h0000",
+      "INIT_4F": "16'h0000"
+    }
+  ],
+  "XADC_DO4_DRDY_pin_examples": [
+    {
+      "cell": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.XADC_inst",
+      "pin": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.XADC_inst/DO[4]",
+      "ref_pin": "DO[4]",
+      "direction": "OUT",
+      "clocks": "",
+      "net_segment_count": "1",
+      "output_driver_pins": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.XADC_inst/DO[4]",
+      "output_driver_refs": null
+    },
+    {
+      "cell": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.XADC_inst",
+      "pin": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.XADC_inst/DRDY",
+      "ref_pin": "DRDY",
+      "direction": "OUT",
+      "clocks": "",
+      "net_segment_count": "1",
+      "output_driver_pins": "platform/mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.XADC_inst/DRDY",
+      "output_driver_refs": null
+    }
+  ],
+  "query_output_accessor_issues": [],
+  "raw_output_sha256": {
+    "query.tcl": "d684bcef96a831448f57f849ba9e67f04ebe2278c1fe7bb5440b40db3fcccf6c",
+    "preparation.json": "d68b0210fcc07d087af314147b5c2cdb7d647da4fd59e6d40fa9039c87f554a1",
+    "admission.json": "2f2240837153124e472f7b7f2b9b8c7a3399db59af21d51acf804649cd3afe30",
+    "launch.py": "cdc6bbe51e536ad8c750f913738cf146137405fba6bdbb7b0ee71cdc07f83aee",
+    "launch.json": "5cec21ecc4b5caf86d588ea004c75e95ec7fe3e9bebe863a0996309d2e91d0d9",
+    "vivado.jou": "ad5053fc679e3ccb2facdb80eb1fcfcb37c52913ad58b894ef33b85cf7b28f26",
+    "vivado.log": "7c6618acdb03fc28d617fb08d0fa6796f3278b5fc569ecca8cfd92cb7a1f0827",
+    "inventory-meta.tsv": "162a96cea4a22bb30c1259b4d26323f0b91a3fbb1c56d1680ac395928fb737ca",
+    "vendor-reset-candidates.tsv": "bec044b80a8be2d0d3e2848eac6028ae5737dca4a2ec3cca1e7eb195517ad20a",
+    "vendor-reset-cells.tsv": "088b550523a6c1f49faab9813f661a4b93641ebe5e6830301407566082340fdf",
+    "vendor-reset-pins.tsv": "f718b6a4a38d0e51273d9e76c4710c3e3f5089537c502d3581008bfc4cdffb32",
+    "vendor-reset-d-edges.tsv": "ed72e022bb311ab9b4e5899f0b7c97dcab65a0995cf1b71d8c701210375842d3",
+    "vendor-later-stage-timing.tsv": "f77c860ae891cb82fc11d2b2add423b589f0b29d707966a3da46f377c84b0119",
+    "tempmon-cells.tsv": "d6e09ed4fdbdf036d75075d9110ac5236d9a656deeea86060202241e4cb33877",
+    "tempmon-pins.tsv": "5d08f313aa7d73c05f8abf408055aff91ebe3c5039879eaaca29802e1f3facf5",
+    "tempmon-q-to-d-timing.tsv": "2dda59a71c2a7775598873d849bc8b5b7f603ba79f657daa89eb6345a97e238e",
+    "xadc-cells.tsv": "74e487517a157eb9719e74dfe976ba535d9bf9b4a3d791f230d38ea2703cc89d",
+    "xadc-pins.tsv": "68f1f4187135fe80935d4e3dd4ee153f78f99b5e8ded5f11f8acc52aebda3cdf",
+    "stdout.log": "0c3abbbab2653803929c39285c44a6f9c8e6d149da4f71092683b42f7be8d67b",
+    "stderr.log": "7d87ee51ce270b7ed37cb57f9ea80e405014a3c8a744dec8f8bbf8c0564ebace",
+    "report.json": "2518eea08a4bda58e4d2a4c5e77b95e52ee1618abc235e570c5a2e527d04227a"
+  },
+  "read_only_flags": {
+    "hardware_accessed": false,
+    "constraints_modified": false,
+    "attributes_modified": false,
+    "implementation_run": false,
+    "bitstream_emitted": false
+  }
+}

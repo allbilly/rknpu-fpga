@@ -1,0 +1,50 @@
+{
+  "name": "capture_sub_9",
+  "status": "PASS",
+  "spec": {
+    "name": "capture_sub_9",
+    "case": "capture_sub_9",
+    "address": 269352960,
+    "amount": 35,
+    "tasks": 2,
+    "lines": 1600,
+    "jobs": 1,
+    "negative": 0,
+    "reset_recovery": 0
+  },
+  "metrics": {
+    "lines": 1600,
+    "physical_bytes": 102400,
+    "uploaded_nonzero": 77,
+    "successful_jobs": 1,
+    "phy_user_returns": 56582
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/rknpu-fpga/build/ddr-endpoint-current/native-o3-v1/obj/sim",
+      "+CASE=/home/fedora/rknpu-fpga/build/ddr-endpoint-current/native-o3-v1/vectors/capture_sub_9",
+      "+OUTPUT=/home/fedora/rknpu-fpga/build/ddr-endpoint-current/positives-o3-v1/capture_sub_9/observed.txt",
+      "+START=100e0000",
+      "+AMOUNT=35",
+      "+NTASKS=2",
+      "+NLINES=1600",
+      "+JOBS=1",
+      "+NEGATIVE=0",
+      "+RESET_RECOVERY=0"
+    ],
+    "timeout_seconds": 1800,
+    "started_utc": "2026-10-27T01:22:00.097597+00:00",
+    "status": "EXITED",
+    "pid": 732939,
+    "returncode": 0,
+    "seconds": 939.9681611061096,
+    "finished_utc": "2026-10-27T01:37:40.065949+00:00",
+    "log_sha256": "2bf6a4b89ff7dc5598ade82cf1202e23b836d3583e4408b5a0df232626e5b5e8"
+  },
+  "marker": "PASS jtag_ew_ddr jobs=1 negative=0 recovered=0 lines=1600 uploaded_nonzero=77 rawtasks=2 phy_user_returns=56582 scope=actual_AXI_UI_MC_modeled_PHY",
+  "phy_user_returns": 56582,
+  "readback_physical_bytes": 102400,
+  "observed_text_bytes": 220800,
+  "observed_sha256": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec",
+  "successful_jobs": 1
+}

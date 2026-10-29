@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "action": "program-sram",
+  "started_utc": "2026-10-26T22:04:53.044747+00:00",
+  "hardware_programmed": true,
+  "flash_written": false,
+  "bitstream_sha256": "8039831e578923793bcb6c6b3a5423d90f333dd033667ac3631473649eac941d",
+  "image_review_sha256": "35b4faab316af6bd26273d26178878110fadb91300838b8aedbc931b112d25bd",
+  "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+  "expected_dna_port": "004E544714C705C",
+  "source_sha256": "1e01179cf730fdec0faa6644eae1f51dbeee4a5474f3734b327a0f8c7677b425",
+  "program_tcl_sha256": "f24c0ab5f71985c58f3d04d8bd4b0463188d2a2a83c8e6256f12745e44cc5e9b",
+  "finished_utc": "2026-10-26T22:06:46.394293+00:00",
+  "native": {
+    "TARGET": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+    "DNA_PORT": "004E544714C705C",
+    "TCK_HZ": "3000000",
+    "IDCODE_BEFORE": "23751093",
+    "PROGRAM_FILE": "/home/fedora/rknpu-fpga/build/tinystories-image/20261026T220800Z/emission/tinystories-full512-dual.bit",
+    "PROGRAM_RETURNED": "1",
+    "INIT_COMPLETE": "1",
+    "DONE": "1",
+    "USR_ACCESS": "1e01179c",
+    "IDCODE_AFTER": "23751093",
+    "PROGRAMMED": "1",
+    "CLEANUP": "1",
+    "PASS": "1"
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+      "-mode",
+      "batch",
+      "-source",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/program.tcl",
+      "-log",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/vivado.log",
+      "-journal",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/vivado.jou"
+    ],
+    "started_utc": "2026-10-26T22:04:53.058036+00:00",
+    "script_sha256": "f24c0ab5f71985c58f3d04d8bd4b0463188d2a2a83c8e6256f12745e44cc5e9b",
+    "pid": 654869,
+    "returncode": 0,
+    "finished_utc": "2026-10-26T22:06:46.393868+00:00",
+    "status": "PASS"
+  }
+}

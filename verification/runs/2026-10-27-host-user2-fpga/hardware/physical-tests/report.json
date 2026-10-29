@@ -1,0 +1,187 @@
+{
+  "status": "PASS_USER2_PHYSICAL_RAW_JOBS_FAULT_AND_RECONFIGURATION",
+  "started_utc": "2026-10-26T17:31:09.551739+00:00",
+  "authorization": "User: u can start fpga test if needed",
+  "image_review_sha256": "62a64153120d6f6255d904f3d8def693cdde347b5333a18e5140ef83e5ad0ee2",
+  "bitstream_sha256": "6e319afa2d5ca50c083a5b458a57144db90044f357df5fd24de765abc74385ba",
+  "part": "xc7k480tffg1156-2",
+  "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+  "lease": "/home/fedora/ypcb/build/hardware-locks/ypcb-jtag.lock",
+  "hardware_programmed": true,
+  "flash_written": false,
+  "loads": [
+    {
+      "name": "load-1",
+      "status": "PASS",
+      "receipt_sha256": "a988227f53a3f8ed164b2f7c81332beb8bfab3fd50be3b20ef5cdf17f7d5d44d"
+    },
+    {
+      "name": "load-2",
+      "status": "PASS",
+      "receipt_sha256": "55bfb3a11dbb1629358dd301e733d9966c61d66790e86c14653d79589c0a0f83"
+    }
+  ],
+  "tests": [
+    {
+      "name": "captured-jobs-and-negative",
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "capture_add_8",
+          "status": "PASS",
+          "bytes_checked": 94208,
+          "report_sha256": "8d5de42a6464d7e746ec34476ecdf76dfb11ff821c5d4bec82f59f905cdc9fd6"
+        },
+        {
+          "name": "capture_add_9",
+          "status": "PASS",
+          "bytes_checked": 94208,
+          "report_sha256": "9038218c2c6b8235b596ba6d2a6b6b3f8027c9a6fde6efd323764c618536ce33"
+        },
+        {
+          "name": "capture_add_33",
+          "status": "PASS",
+          "bytes_checked": 94208,
+          "report_sha256": "a350c0b7875afae0b0abf3c226e475f90bee661a41c103aed1c19c4dd20e7236"
+        },
+        {
+          "name": "capture_sub_8",
+          "status": "PASS",
+          "bytes_checked": 102400,
+          "report_sha256": "13d9df083e8c654860a4e08bdfa73409e5ff4439c0aa1d3c2c39cb3efd388409"
+        },
+        {
+          "name": "capture_sub_9",
+          "status": "PASS",
+          "bytes_checked": 102400,
+          "report_sha256": "b9cecd71f05987d2311e497d8c4c026c22a352886b7e8a5fffe13e51715bfd6a"
+        },
+        {
+          "name": "capture_sub_33",
+          "status": "PASS",
+          "bytes_checked": 102400,
+          "report_sha256": "63b71f4abb51347bab22b834de60dafe441ec77e2cef658cd0a818c5657e82fe"
+        },
+        {
+          "name": "capture_mul_8",
+          "status": "PASS",
+          "bytes_checked": 94208,
+          "report_sha256": "dc608ff71964b9578da86bcc18ce8998673fa5ab1077d91295a82d1fc01f77b8"
+        },
+        {
+          "name": "capture_mul_9",
+          "status": "PASS",
+          "bytes_checked": 94208,
+          "report_sha256": "b5d6eeede8fb7a6f398fec6428211d79afe62cbfae36bd267aa1af4f78e2773c"
+        },
+        {
+          "name": "capture_mul_33",
+          "status": "PASS",
+          "bytes_checked": 94208,
+          "report_sha256": "07813a7a215117faa1c9d93c4d47e505922c11d0eb5b5220075b7805b6b394a8"
+        },
+        {
+          "name": "sub9_repeat_without_rebuild",
+          "status": "PASS",
+          "bytes_checked": 102400,
+          "report_sha256": "1b33689ae7e484f8884f9d003b49676487f9fe008a8289831d3a859c62b51d42"
+        },
+        {
+          "name": "synthetic_unknown_register",
+          "status": "PASS_EXPECTED_E1_AND_POISONED_OWNER",
+          "report_sha256": "ed5eef13e8a508cce2361f42ed12faca54fc2f12a47a921c27319fed26612c50"
+        }
+      ],
+      "report_sha256": "f745abb90dabe835a2e81e5669698ac47876efe2e464463efa6d6365750ed4d0"
+    },
+    {
+      "name": "sticky-fault-reconnect",
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "sticky_fault_across_new_bridge_and_TAP_reset",
+          "status": "PASS",
+          "rke_status": 1852,
+          "error_code": 1,
+          "memory_read_opcode_sent": false
+        }
+      ],
+      "report_sha256": "e20d8bdf42efe8da2c4c3fc40cec3047f5342d4990da7ed255e915022969aa2d"
+    },
+    {
+      "name": "reconfiguration-recovery",
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "sub9_after_reconfiguration",
+          "status": "PASS",
+          "bytes_checked": 102400,
+          "report_sha256": "2ea890264e969a7b3469f47545927fb9ef37e364f560746eb3ea946e69c8b3b4"
+        }
+      ],
+      "report_sha256": "907adec6fb3829966ea2831848b927197cd1a3abc0eb3bc637804991d73486d0"
+    }
+  ],
+  "lease_acquired": true,
+  "lsusb": "Bus 001 Device 091: ID 03fd:0008 Xilinx, Inc. Platform Cable USB II",
+  "usb_node": "/dev/bus/usb/001/091",
+  "hw_server_pid": 521811,
+  "hardware_programming_may_have_occurred": true,
+  "owned_worker_exit": 0,
+  "owned_bridge_exit": 0,
+  "owned_hw_server_exit": -15,
+  "finished_utc": "2026-10-26T17:40:11.522457+00:00",
+  "artifacts": {
+    "captured-jobs-and-negative/bridge-stdout.log": "0de8b2cc3e2fba29e0081e905783ca1fe2db09745f032ced9526e4be953e5b90",
+    "captured-jobs-and-negative/bridge.tcl": "860ecc34606534f499adc42852188afbadf9c9074aa5621f48aa18b3c3297820",
+    "captured-jobs-and-negative/command.json": "ef3603242dc6928d6236aaab5e6cd55f45ce967cccd08255580a7402de22c77e",
+    "captured-jobs-and-negative/jobs/capture_add_33.json": "a350c0b7875afae0b0abf3c226e475f90bee661a41c103aed1c19c4dd20e7236",
+    "captured-jobs-and-negative/jobs/capture_add_8.json": "8d5de42a6464d7e746ec34476ecdf76dfb11ff821c5d4bec82f59f905cdc9fd6",
+    "captured-jobs-and-negative/jobs/capture_add_9.json": "9038218c2c6b8235b596ba6d2a6b6b3f8027c9a6fde6efd323764c618536ce33",
+    "captured-jobs-and-negative/jobs/capture_mul_33.json": "07813a7a215117faa1c9d93c4d47e505922c11d0eb5b5220075b7805b6b394a8",
+    "captured-jobs-and-negative/jobs/capture_mul_8.json": "dc608ff71964b9578da86bcc18ce8998673fa5ab1077d91295a82d1fc01f77b8",
+    "captured-jobs-and-negative/jobs/capture_mul_9.json": "b5d6eeede8fb7a6f398fec6428211d79afe62cbfae36bd267aa1af4f78e2773c",
+    "captured-jobs-and-negative/jobs/capture_sub_33.json": "63b71f4abb51347bab22b834de60dafe441ec77e2cef658cd0a818c5657e82fe",
+    "captured-jobs-and-negative/jobs/capture_sub_8.json": "13d9df083e8c654860a4e08bdfa73409e5ff4439c0aa1d3c2c39cb3efd388409",
+    "captured-jobs-and-negative/jobs/capture_sub_9.json": "b9cecd71f05987d2311e497d8c4c026c22a352886b7e8a5fffe13e51715bfd6a",
+    "captured-jobs-and-negative/jobs/scans.jsonl": "4ca0e4f45fec9bcb062967c8458257d250b276423c3f7da46f0a292c363eb8f8",
+    "captured-jobs-and-negative/jobs/sub9_repeat_without_rebuild.json": "1b33689ae7e484f8884f9d003b49676487f9fe008a8289831d3a859c62b51d42",
+    "captured-jobs-and-negative/jobs/synthetic_unknown_register.json": "ed5eef13e8a508cce2361f42ed12faca54fc2f12a47a921c27319fed26612c50",
+    "captured-jobs-and-negative/ready.txt": "54b0df6f5e96563c0609c8e10cfa66bc39ddc732b30d18295961a64ab47e34b7",
+    "captured-jobs-and-negative/vivado.jou": "547ac6877f51df53fbab16292e702035a87f89aeb4de0975145b5d327e601fe0",
+    "captured-jobs-and-negative/vivado.log": "e71604d18921fdf9a54f237c2b53ef08f1510dcca15cde539b4a8850bf91faf9",
+    "captured-jobs-and-negative/worker-stdout.log": "8e829c3b5cce2dd3e8d7fb0cff4e0a999a53656a1476d1d3312a990ff17817ac",
+    "hw-server.log": "6a9c0ef23b7ed2afcef59ac9143005758bd3a8872ac17b4ca61fae48d499dae4",
+    "load-1/command.json": "03cad66768f6339fae4781bd5faeda315c21b15f01954541e91e81d49d6cf934",
+    "load-1/load.json": "a988227f53a3f8ed164b2f7c81332beb8bfab3fd50be3b20ef5cdf17f7d5d44d",
+    "load-1/program.tcl": "6cd175560d32c8bb50df670e8476326172e0e48b34aa8bf0113527c55ea2a17d",
+    "load-1/program.tsv": "5bd6c5d835d5cbd224688499a599d3b21f46fd27ceaa12292440faca9b62a05e",
+    "load-1/stdout.log": "b16f7f852c16cb960361f63716c8f5419a1ae4a7b4c8193782cee02483d9ee49",
+    "load-1/vivado.jou": "89a41e72883ad54c48b082c9e7eb1fe46b3a55b59e480ee8ced1585f5029d28f",
+    "load-1/vivado.log": "d67cd53918c5fd3152d803e67e5da9a6ade9e06b30841a1f45cecc3b72cb838a",
+    "load-2/command.json": "47126ac5eb9f35c8dae5154a858ad36f309496a28315dd0b834a243d940b7bf9",
+    "load-2/load.json": "55bfb3a11dbb1629358dd301e733d9966c61d66790e86c14653d79589c0a0f83",
+    "load-2/program.tcl": "9e2ef6d882907afa0ff0a072074797e4d58647df691b47e909b802851f5ffb84",
+    "load-2/program.tsv": "5bd6c5d835d5cbd224688499a599d3b21f46fd27ceaa12292440faca9b62a05e",
+    "load-2/stdout.log": "7acc8986fc855c373e670043546141dbc5ad2d302340c1faa11a8da73d2d5858",
+    "load-2/vivado.jou": "b2a41be02a191f566c7b88dba4000d0750acde5060a80d3396fc9e6b91b67b10",
+    "load-2/vivado.log": "05c85656f0997da6fe6f8b1a4a258c4c8b4a97bdb77f9705a6059d63e65886d4",
+    "reconfiguration-recovery/bridge-stdout.log": "4375baff714c4c0670358b0669de589bbd8bbea5d547cbc27d4c9d10e39bb70f",
+    "reconfiguration-recovery/bridge.tcl": "a30f009ec5abc05a5e49f529b6eaa67fb4c3ef77b593849307bbb64128798c4a",
+    "reconfiguration-recovery/command.json": "27dd9dc82b06168433656ffc178bd58ecb5b6fbbb667a0005d9b58e4b09355ff",
+    "reconfiguration-recovery/jobs/scans.jsonl": "db5209c8343b5525ffee1ead49a3e666c66f9ec760d2ff2a8660f4a3129ace0d",
+    "reconfiguration-recovery/jobs/sub9_after_reconfiguration.json": "2ea890264e969a7b3469f47545927fb9ef37e364f560746eb3ea946e69c8b3b4",
+    "reconfiguration-recovery/ready.txt": "54b0df6f5e96563c0609c8e10cfa66bc39ddc732b30d18295961a64ab47e34b7",
+    "reconfiguration-recovery/vivado.jou": "e2c1bbabcb258a0e182bbd6395c2463f5efadf8706d8ea85ffd7d3ea1a3c3cfc",
+    "reconfiguration-recovery/vivado.log": "9527845d45e48e93e9a1a8bd54ba1e647c73408542a8ba74bef5f88da741e4db",
+    "reconfiguration-recovery/worker-stdout.log": "c1bb6d33eb2bb4b6b8701e96856b9925c2a8f755766adfcf39f52281c2083f18",
+    "sticky-fault-reconnect/bridge-stdout.log": "27da53d0f54b67cefb6fa627c2f681e0b24943b0e7b50b814cba59ef3776104d",
+    "sticky-fault-reconnect/bridge.tcl": "2de9e3ba5d05d5e32fcf5eb3064576bfce3736e4ba4fa4d2cc3765c01b3a0eb4",
+    "sticky-fault-reconnect/command.json": "d2c2e36b9839f2c08aeef04bac4f538bd61343581a670b8757d574723bbe1653",
+    "sticky-fault-reconnect/jobs/scans.jsonl": "9213804a831d767426c694d9fb8ffd9a820d6bd42571aaf8b7f85c929e2b8d7c",
+    "sticky-fault-reconnect/ready.txt": "54b0df6f5e96563c0609c8e10cfa66bc39ddc732b30d18295961a64ab47e34b7",
+    "sticky-fault-reconnect/vivado.jou": "1e6bc1f8caed7a83a44170cce095c12e359d04e277496cd92fd069fba27303ca",
+    "sticky-fault-reconnect/vivado.log": "86534ef5d96f1a994766218467a10ed92d0e81d7d5c1c0f28c1e9163d519d79e",
+    "sticky-fault-reconnect/worker-stdout.log": "0050adf865ec1c26aa7f879cd5506e31d2d3ae168fe586bee62f3911b1c3d427"
+  }
+}

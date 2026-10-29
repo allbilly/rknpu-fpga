@@ -1,0 +1,50 @@
+{
+  "name": "host_memory_timeout",
+  "status": "PASS",
+  "spec": {
+    "name": "host_memory_timeout",
+    "case": "capture_sub_9",
+    "address": 269352960,
+    "amount": 35,
+    "tasks": 2,
+    "lines": 1600,
+    "jobs": 1,
+    "negative": 9,
+    "reset_recovery": 0
+  },
+  "metrics": {
+    "lines": 1600,
+    "physical_bytes": 102400,
+    "uploaded_nonzero": 0,
+    "successful_jobs": 0,
+    "phy_user_returns": null
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/rknpu-fpga/build/ddr-endpoint-current/native-o3-v1/obj/sim",
+      "+CASE=/home/fedora/rknpu-fpga/build/ddr-endpoint-current/native-o3-v1/vectors/capture_sub_9",
+      "+OUTPUT=/home/fedora/rknpu-fpga/build/ddr-endpoint-current/faults-o3-v1/host_memory_timeout/observed.txt",
+      "+START=100e0000",
+      "+AMOUNT=35",
+      "+NTASKS=2",
+      "+NLINES=1600",
+      "+JOBS=1",
+      "+NEGATIVE=9",
+      "+RESET_RECOVERY=0"
+    ],
+    "timeout_seconds": 300,
+    "started_utc": "2026-10-27T00:38:06.672815+00:00",
+    "status": "EXITED",
+    "pid": 722745,
+    "returncode": 0,
+    "seconds": 36.7972537339665,
+    "finished_utc": "2026-10-27T00:38:43.470315+00:00",
+    "log_sha256": "14fa6f5019eb787af32b67c0a2331530a63dbd99042ed187158acfd855c1d90b"
+  },
+  "marker": "PASS jtag_ew_ddr jobs=0 negative=9 recovered=0 lines=1600 uploaded_nonzero=0 rawtasks=2 phy_user_returns=130 scope=actual_AXI_UI_MC_modeled_PHY",
+  "phy_user_returns": 130,
+  "readback_physical_bytes": 0,
+  "observed_text_bytes": 0,
+  "observed_sha256": null,
+  "successful_jobs": 0
+}

@@ -1,0 +1,69 @@
+{
+  "status": "PASS_PRIVATE_V3_STATUS_AND_CMAC_TERMINAL_FULL8_MOCK_CONTROLS_ONLY",
+  "scope": "portable Tcl command-object mocks only; no Vivado timing queries, constraints, design changes, simulation or hardware",
+  "started_utc": "2026-10-27T23:19:58Z",
+  "command": [
+    "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/controls-v1",
+    "-v"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 1.976,
+  "stdout": "",
+  "stderr": "test_cmac_terminal_full8_proves31_zero_task_rows_and10_dynamic_result_bits (test_job_cdc.CmacTerminalFull8Tests.test_cmac_terminal_full8_proves31_zero_task_rows_and10_dynamic_result_bits) ... ok\ntest_every_task_and_result_held_high_ff_must_be_absent (test_job_cdc.CmacTerminalFull8Tests.test_every_task_and_result_held_high_ff_must_be_absent) ... ok\ntest_full8_and_ew_folded_error_profiles_remain_unchanged (test_job_cdc.CmacTerminalFull8Tests.test_full8_and_ew_folded_error_profiles_remain_unchanged) ... ok\ntest_missing_wrong_direction_nonground_and_multidriver_reject_on_each_task_boundary (test_job_cdc.CmacTerminalFull8Tests.test_missing_wrong_direction_nonground_and_multidriver_reject_on_each_task_boundary) ... ok\ntest_taskbit0_errorflag_and_every_errorcode_bit_remain_required (test_job_cdc.CmacTerminalFull8Tests.test_taskbit0_errorflag_and_every_errorcode_bit_remain_required) ... ok\ntest_full8_constraint_exception_set_matches_public_helper (test_private_helpers.PrivateJobHelperTests.test_full8_constraint_exception_set_matches_public_helper) ... ok\ntest_old_engine_profiles_and_full8_contract_are_unchanged (test_private_helpers.PrivateJobHelperTests.test_old_engine_profiles_and_full8_contract_are_unchanged) ... ok\ntest_rejected_legacy_cmac_engine_e1_e8_profile_is_not_used_as_a_success_case (test_private_helpers.PrivateJobHelperTests.test_rejected_legacy_cmac_engine_e1_e8_profile_is_not_used_as_a_success_case) ... ok\ntest_later_permit_paths_remain_active_with_exact_max_and_min_budgets (test_private_helpers.PrivatePermitHelperTests.test_later_permit_paths_remain_active_with_exact_max_and_min_budgets) ... ok\ntest_permit_audit_rejects_cut_failing_or_wrong_endpoint_later_paths (test_private_helpers.PrivatePermitHelperTests.test_permit_audit_rejects_cut_failing_or_wrong_endpoint_later_paths) ... ok\ntest_permit_rejects_bad_inventory_before_mutation (test_private_helpers.PrivatePermitHelperTests.test_permit_rejects_bad_inventory_before_mutation) ... ok\ntest_registered_ui_to_sys_permit_has_only_first_d_cut (test_private_helpers.PrivatePermitHelperTests.test_registered_ui_to_sys_permit_has_only_first_d_cut) ... ok\ntest_dual_endpoint_accepts_same_nine_chains_and_only_first_d_cuts (test_private_helpers.PrivateStatusHelperTests.test_dual_endpoint_accepts_same_nine_chains_and_only_first_d_cuts) ... ok\ntest_old_ew_status_inventory_and_constraints_match_public_helper (test_private_helpers.PrivateStatusHelperTests.test_old_ew_status_inventory_and_constraints_match_public_helper) ... ok\ntest_status_inventory_failures_are_prevalidated_without_mutations (test_private_helpers.PrivateStatusHelperTests.test_status_inventory_failures_are_prevalidated_without_mutations) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 1.830s\n\nOK\n",
+  "tool_versions": {
+    "python": {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "Python 3.14.5\n",
+      "stderr": ""
+    },
+    "tclsh": {
+      "argv": [
+        "tclsh"
+      ],
+      "returncode": 0,
+      "stdout": "9.0.3\n",
+      "stderr": ""
+    }
+  },
+  "helper_hashes_expected": {
+    "job_cdc.tcl": "b5a155ec9229ecc012e5ed077838873c762d4e620e90f3dfa36a70c1f5cdfdb3",
+    "status_cdc.tcl": "1d368380ad134e4ebcd2277d2843455e5b0657ef76783a1ea7e720ea19e34ab9",
+    "permit_cdc.tcl": "d8ae90ce8f2589783d3fba9f790c91761052058004f12ca8de47558f523adc25"
+  },
+  "source_hashes_before": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/job_cdc.tcl": "b5a155ec9229ecc012e5ed077838873c762d4e620e90f3dfa36a70c1f5cdfdb3",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/status_cdc.tcl": "1d368380ad134e4ebcd2277d2843455e5b0657ef76783a1ea7e720ea19e34ab9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/permit_cdc.tcl": "d8ae90ce8f2589783d3fba9f790c91761052058004f12ca8de47558f523adc25",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/controls-v1/test_private_helpers.py": "e5c263dfb64d3f28c3e7a3de9206a9ac032f72c2c8ca5f0173a02ce4fca2c883",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/controls-v1/test_job_cdc.py": "d242703cc1bdbe11e6533f202f46c3a1171454dff2c9353c451771c392e86917",
+    "/home/fedora/rknpu-fpga/tests/ddr/async_job/test_cdc_constraints.py": "152503da057fd8a1d813ef3ba1434e8c2edb68d0b4c6e4173546a0415ed05a81",
+    "/home/fedora/rknpu-fpga/tests/ddr/async_job/test_engine_observer.py": "64acd03ddeb05f3fba263151138e02994fc2a0d7c00b8b45b1736a77d2762015",
+    "/home/fedora/rknpu-fpga/tests/ddr/board_shell/test_reset_bridge_board.py": "ac654ae4e84b8b648b3c15fb1873e1726b5b7ef1e69bfe5104819e3a9b3b0abf",
+    "/home/fedora/rknpu-fpga/tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/controls-v1/run_controls.py": "faa414e650be4b2e7700552f79e8dd6ca42a943bc6063e9cae086f9404c9f8c2"
+  },
+  "source_hashes_after": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/job_cdc.tcl": "b5a155ec9229ecc012e5ed077838873c762d4e620e90f3dfa36a70c1f5cdfdb3",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/status_cdc.tcl": "1d368380ad134e4ebcd2277d2843455e5b0657ef76783a1ea7e720ea19e34ab9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/permit_cdc.tcl": "d8ae90ce8f2589783d3fba9f790c91761052058004f12ca8de47558f523adc25",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/controls-v1/test_private_helpers.py": "e5c263dfb64d3f28c3e7a3de9206a9ac032f72c2c8ca5f0173a02ce4fca2c883",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/controls-v1/test_job_cdc.py": "d242703cc1bdbe11e6533f202f46c3a1171454dff2c9353c451771c392e86917",
+    "/home/fedora/rknpu-fpga/tests/ddr/async_job/test_cdc_constraints.py": "152503da057fd8a1d813ef3ba1434e8c2edb68d0b4c6e4173546a0415ed05a81",
+    "/home/fedora/rknpu-fpga/tests/ddr/async_job/test_engine_observer.py": "64acd03ddeb05f3fba263151138e02994fc2a0d7c00b8b45b1736a77d2762015",
+    "/home/fedora/rknpu-fpga/tests/ddr/board_shell/test_reset_bridge_board.py": "ac654ae4e84b8b648b3c15fb1873e1726b5b7ef1e69bfe5104819e3a9b3b0abf",
+    "/home/fedora/rknpu-fpga/tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/controls-v1/run_controls.py": "faa414e650be4b2e7700552f79e8dd6ca42a943bc6063e9cae086f9404c9f8c2"
+  },
+  "source_hashes_unchanged": true,
+  "hardware_accessed": false,
+  "finished_utc": "2026-10-27T23:20:00Z"
+}

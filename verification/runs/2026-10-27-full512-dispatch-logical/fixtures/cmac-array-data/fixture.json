@@ -1,0 +1,32 @@
+{
+  "status": "PACKAGED_C32_K65_SYNTHETIC_FIXTURE_ONLY",
+  "imported_utc": "2026-09-21T14:47:26.842817+00:00",
+  "case": {
+    "name": "m2_n17_k65_finite",
+    "raw_fixture": "m2_n17_k65",
+    "commands_sha256": "457f2d8af9afdba667ad5de6bc24420d94870ab88cda1715df225ac766b0818b",
+    "rows": 2,
+    "ai": 96,
+    "ao": 32,
+    "frames": 12,
+    "reads": 6528,
+    "writes": 64,
+    "finite_variant": true,
+    "nan_outputs": 0,
+    "unique_outputs": 64
+  },
+  "files": {
+    "sha256": "b4c76e85a571c939668fb57d5c846af982b56ff52436aed533592c160b34f7d6",
+    "files": {
+      "tests/cmac/array_data/commands.hex": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+      "tests/cmac/array_data/fp32.hex": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+      "tests/cmac/array_data/groups.hex": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+      "tests/cmac/array_data/input.hex": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+      "tests/cmac/array_data/reads.hex": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+      "tests/cmac/array_data/source_report.json": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+      "tests/cmac/array_data/weight.hex": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+      "tests/cmac/array_data/writes.hex": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf"
+    }
+  },
+  "provenance": "Original reference report sources and artifacts verified at import. Packaged bytes retain their hashes. No RK hardware capture, RTL pass, runtime conversion or C64 golden reuse."
+}

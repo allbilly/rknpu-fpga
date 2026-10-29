@@ -1,0 +1,81 @@
+{
+  "bitstream_emitted": false,
+  "clock_evidence_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v1/clock-evidence.json",
+  "clock_evidence_sha256": "749cf552c268376164558b32069f61785bf1f773cc70295d2c7d443e17bd7992",
+  "full_design_fit_claim": false,
+  "hardware_accessed": false,
+  "implementation_executed": false,
+  "mode": "out_of_context",
+  "native_launch_approved": false,
+  "native_tool_manifest_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v1/native-tool-manifest.json",
+  "native_tool_manifest_sha256": "cd7ea5d2da2b8e69c1f05d820397327e01f177881bc973a5c63e28a67d32548c",
+  "native_tool_path": "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+  "native_tool_sha256": "121b8c468f96f7ee750fc8f7d2386c54d047b204a5b8b7a5dada85f04997302d",
+  "native_tool_version": "NOT_QUERIED_PENDING_ROOT_REVIEW",
+  "part": "xc7k480tffg1156-2",
+  "physical_capacity_qualified": false,
+  "planned_command": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-ddr-capacity-service-ooc-v1",
+    "-p",
+    "MemoryMax=8G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "python3",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v1/run_ooc.py"
+  ],
+  "preparation_generator_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v1/prepare_ooc.py",
+  "preparation_generator_sha256": "7f25632db0116e0f345c1f18eb7864a1e182dbb32b6bf6a529563c9d77d8fecd",
+  "resource_admission_samples": [
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_kib": 26378396,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T08:02:44.936153+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_kib": 26378200,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T08:02:45.936682+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_kib": 26378044,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T08:02:46.936977+00:00"
+    }
+  ],
+  "resource_limits": {
+    "cpu.max": "200000 100000",
+    "memory.max": "8589934592",
+    "memory.swap.max": "0",
+    "pids.max": "256",
+    "timeout_seconds": 600
+  },
+  "root_review_sha256": null,
+  "runner_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v1/run_ooc.py",
+  "runner_sha256": "153487dd8a5496f7193f597a958d708edfccd0addac4c33e063cb13cce459272",
+  "schema": "ddr-capacity-service-vivado-ooc-preparation-v1",
+  "scope": "Nominal Yosys-independent Vivado OOC synthesis/resource reports for exact ten-source capacity-service subsystem; no constraints, placement, routing, bitstream, hardware, or full-design fit/physical qualification.",
+  "source_count": 10,
+  "source_lint_report_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-lint-v1/report.json",
+  "source_lint_report_sha256": "5bac21459c6d059f17ac947bcc34fcef80c5750679a3c078bd430be3998ba84e",
+  "source_lint_version": 3,
+  "source_manifest_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v1/source-manifest.json",
+  "source_manifest_sha256": "a33eb0f31fb3a3ebedf9f9157a9a07d886509344fe3edce3f9a9fe6dfc75ee79",
+  "source_ui_period_ns": 7.5,
+  "status": "READY_FOR_ROOT_REVIEW_NO_NATIVE_LAUNCH",
+  "synth_tcl_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v1/synth.tcl",
+  "synth_tcl_sha256": "27d9b3c3e95dd7f1675f29adf2acd7f47e0acd606b320159aa08e1e8d2dc67ef",
+  "top": "rk_ddr_capacity_service"
+}

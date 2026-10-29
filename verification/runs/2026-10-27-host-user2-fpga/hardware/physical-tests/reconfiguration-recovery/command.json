@@ -1,0 +1,32 @@
+{
+  "started_utc": "2026-10-26T17:39:37.726570+00:00",
+  "bridge_script_sha256": "a30f009ec5abc05a5e49f529b6eaa67fb4c3ef77b593849307bbb64128798c4a",
+  "mode": "recovery",
+  "load_receipt_sha256": "55bfb3a11dbb1629358dd301e733d9966c61d66790e86c14653d79589c0a0f83",
+  "bridge_argv": [
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/reconfiguration-recovery/bridge.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/reconfiguration-recovery/vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/reconfiguration-recovery/vivado.jou"
+  ],
+  "bridge_pid": 523580,
+  "worker_argv": [
+    "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/run_jobs.py",
+    "--out",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/reconfiguration-recovery/jobs",
+    "--mode",
+    "recovery"
+  ],
+  "worker_pid": 523740,
+  "worker_returncode": 0,
+  "bridge_returncode": 0,
+  "status": "PASS",
+  "finished_utc": "2026-10-26T17:40:11.475051+00:00",
+  "worker_report_sha256": "907adec6fb3829966ea2831848b927197cd1a3abc0eb3bc637804991d73486d0"
+}

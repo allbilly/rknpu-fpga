@@ -1,0 +1,31 @@
+{
+  "status": "PASS_NATIVE_POST_ROUTE_AUDIT",
+  "observed_completion_utc": "2026-10-26T04:59:34.458580+00:00",
+  "returncode": 0,
+  "scope": "Readonly exact routed checkpoint audit; no bitstream or programming",
+  "routed_dcp_sha256": "6ff196db78e0dcf4eba8c903a3646d46da9d61c4ee9d2199cc3800341e79b725",
+  "tcl_sha256": "3f5b465e280475e7c16f5825d2bc5e03f0674cf2368b4d74beca880ae0bb98e2",
+  "native_log_sha256": "8cabb90b6461f98dc35c8d400fc9d54817d3a1151e5afe2893582bb562286133",
+  "tool_version": "Vivado2026.1 build6511674",
+  "outputs": {
+    "post-route-audit-2/check_timing.rpt": "548a56cb85ce0ce33378b60613fe65aef7058209633ee0851552ade96222302e",
+    "post-route-audit-2/drc.rpt": "1c7380e5c9de5979494e02708c378afb50f20ccb39da1b0f1d2bc7376ddcf7b8",
+    "post-route-audit-2/exceptions.rpt": "d006598ebb6cae56f7577b8f2585a126bd0f898cf2c6c1c7c26d4bbc080e6201",
+    "post-route-audit-2/facts.tsv": "c535259773dfd14a9ccded25e067e46cdcb2dd893f28513582e96c6201aa0561",
+    "post-route-audit-2/function-cones.tsv": "5b42388a0f52d479b829cb7fb07af09c4f9e502679a64c48dde872bffc95d7bc",
+    "post-route-audit-2/implemented.xdc": "3c17e6915fef5a340201f19e86efe2f1438ebe951285f73c81ef245bda772d57",
+    "post-route-audit-2/pulse_width.rpt": "3b6fbc81dcacf527ea6ddb70a22a256f59e43a6eca9326a68d9b2e53cb028c5a",
+    "post-route-audit-2/result.txt": "cd4a5f336cead51d946771f61ebaefe483a9cfc86f3d7b7a7f6d68ed0d18e806",
+    "post-route-audit-2/route_status.rpt": "dd59afe774fbaacad830947545ac4e724a0b48f3fab935336c4b449f078c395a",
+    "post-route-audit-2/routed_funcsim.v": "6c95725a2ec66ed199e56e1864378bfa4d2389aea6fb4c504321e2143d7a6dac",
+    "post-route-audit-2/startup-and-control-facts.tsv": "f01cb3824352dd87aaba72b7b9ab34712e0800570d95285cca9c90d6b1694887",
+    "post-route-audit-2/timing.rpt": "4f501d76cfb1508d889f3a46e963855f696e06a995275a6407ccf410510d4312",
+    "post-route-audit-2/utilization_hierarchical.rpt": "5e9377932b50ffed31b3671ea4c7a02cbbe502c7015fef57efdbfc4c63dc5567"
+  },
+  "original_failed_audit": {
+    "returncode": 1,
+    "reason": "NAME is checkpoint container; TOP is actual HDL module identity, independently queried and bound",
+    "script_sha256": "30ea3ac6fa7f5a9ad288149490483420525d0d7979c2cb841bcb61f533ef4940",
+    "log_sha256": "eb104a4cc15819183a90a440677ea7e5e7bcc518fa4ad45a8761d844779d92d1"
+  }
+}

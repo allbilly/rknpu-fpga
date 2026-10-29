@@ -1,0 +1,20 @@
+%Error: /home/fedora/rknpu-fpga/build/ddr-capacity-service-source-v2/rk_ddr_capacity_service.sv:281:11: Duplicate declaration of signal: 'unused_ctrl_bid'
+  281 |     logic unused_ctrl_bid;
+      |           ^~~~~~~~~~~~~~~
+        /home/fedora/rknpu-fpga/build/ddr-capacity-service-source-v2/rk_ddr_capacity_service.sv:280:16: ... Location of original declaration
+  280 |     logic [1:0]unused_ctrl_bid;
+      |                ^~~~~~~~~~~~~~~
+        ... See the manual at https://verilator.org/verilator_doc.html?v=5.048 for more assistance.
+%Error: /home/fedora/rknpu-fpga/build/ddr-capacity-service-source-v2/rk_ddr_capacity_service.sv:286:11: Duplicate declaration of signal: 'unused_ctrl_rid'
+  286 |     logic unused_ctrl_rid;
+      |           ^~~~~~~~~~~~~~~
+        /home/fedora/rknpu-fpga/build/ddr-capacity-service-source-v2/rk_ddr_capacity_service.sv:285:16: ... Location of original declaration
+  285 |     logic [1:0]unused_ctrl_rid;
+      |                ^~~~~~~~~~~~~~~
+%Error: /home/fedora/rknpu-fpga/build/ddr-capacity-service-source-v2/rk_ddr_capacity_service.sv:290:11: Duplicate declaration of signal: 'unused_ctrl_rlast'
+  290 |     logic unused_ctrl_rlast;
+      |           ^~~~~~~~~~~~~~~~~
+        /home/fedora/rknpu-fpga/build/ddr-capacity-service-source-v2/rk_ddr_capacity_service.sv:289:16: ... Location of original declaration
+  289 |     logic [1:0]unused_ctrl_rlast;
+      |                ^~~~~~~~~~~~~~~~~
+%Error: Exiting due to 3 error(s)

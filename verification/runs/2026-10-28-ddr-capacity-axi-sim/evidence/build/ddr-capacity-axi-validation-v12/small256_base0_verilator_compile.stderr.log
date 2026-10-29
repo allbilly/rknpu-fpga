@@ -1,0 +1,13 @@
+%Warning-WIDTHEXPAND: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v12/tb_capacity_axi.sv:156:17: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's SEL generates 25 bits.
+                                                                                                             : ... note: In instance 'tb_capacity_axi'
+  156 |       line_index=address[30:6];
+      |                 ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.048
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v12/tb_capacity_axi.sv:154:66: Bits of function variable are not used: 'address'[5:0]
+                                                                                                              : ... note: In instance 'tb_capacity_axi'
+  154 |   function automatic logic [511:0] sw_pattern(input logic [30:0] address,input logic [31:0] seed_value,input logic trial_value);
+      |                                                                  ^~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.048
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Error: Exiting due to 2 warning(s)

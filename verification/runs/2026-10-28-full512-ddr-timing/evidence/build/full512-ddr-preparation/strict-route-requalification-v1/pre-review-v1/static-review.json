@@ -1,0 +1,39 @@
+{
+  "checks": {
+    "all_row_pulse": true,
+    "cdc_audits": true,
+    "census": true,
+    "clock_coverage": true,
+    "helpers_copied_exact": true,
+    "marker_unique": true,
+    "no_implementation_or_constraints": true,
+    "package_unlaunchable": true,
+    "parent_status_observed": true,
+    "pulse_proc_identical_normalized": true,
+    "python_compile": true,
+    "single_checkpoint_serialization": true,
+    "source_parent_opens_existing_dcp": true,
+    "strict_route_status": true,
+    "tclsh_info_complete": true,
+    "timing_max_min": true
+  },
+  "finalizer_sha256": "bdedbf081b6a6eaed4d733d228b139b257800a267906d13f7013c63522cb77e2",
+  "input_drift_at_prepare": {
+    "current_sha256": "cbc47c9f229ecce471d584b28bc215c2f9c8e7a57a63d9e17fbb942fe7c8c79f",
+    "path": "/home/fedora/rknpu-fpga/fpga/ddr/emit_full512_ch1.tcl.in",
+    "prior_expected_sha256": "9f1f54f49040e3db055b3b596c76631f6ec705ab07488b8d3b6a2c7d30025d8f",
+    "reason": "Image emitter template is not consumed by post-route repair Tcl; preserve the repair producer failure and independently requalify its routed DCP."
+  },
+  "launch_performed": false,
+  "observed_utc": "2026-10-28T03:17:49.626161+00:00",
+  "parent_pid_at_review": 1114925,
+  "parent_repair_v3_status_at_review": "RUNNING",
+  "preparation_sha256": "65c67a9f5a3b44bc1961113a0e758389ebc76de29ad1ce1e395696f8c2d703c0",
+  "qualification_tcl_sha256": "a0997b1c7e870f8ce5e836f104d30cba4a72643ad9b99291071e7571977ba6a4",
+  "runner_sha256": "745c4c601c279202da8d38f2b2c1cfbc94b010ae3e09423e618c24191579c395",
+  "schema": "strict-route-requalification-static-review-v1",
+  "status": "STATIC_PREPARATION_CHECKED_UNLAUNCHABLE",
+  "tclinfo_returncode": 0,
+  "tclinfo_stderr": "",
+  "tclinfo_stdout": "1"
+}

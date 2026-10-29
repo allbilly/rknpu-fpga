@@ -1,0 +1,23 @@
+{
+  "status": "PASS_REVIEW_OF_IDENTICAL_56_EXISTING_DIAGNOSTICS_FOR_SHARED_DATA_SOURCE",
+  "warning_count": 56,
+  "known_unchanged_numeric_source_warnings": 54,
+  "reset_warnings": {
+    "rk_nvdla_cacc.sv": "Same selected numerical-child reset enters donor sync/async reset consumers; qualified parent behavior retained",
+    "tb_cmac_async_engine.ui_rst_n": "New test-only synchronous observer guards the existing asynchronous reset bench; not a new RTL reset consumer"
+  },
+  "native_strict_rc": 1,
+  "native_strict_pass": false,
+  "fresh_compile_permitted_with_Wno_fatal": true,
+  "warning_kind_suppressions_permitted": false,
+  "scope": "Specific unchanged source inventory only; requires exact complete diagnostics in next compile; does not qualify native execution, CDC, FPGA or DDR",
+  "stderr_sha256": "bc317aafd066c6b2a90859cca0e1319df1ab6037482ce0781f7ce142413ff157",
+  "frontend_review_sha256": "86a6c5033fcfefbe239b4e3be91de65a2bf592861cbfbffbc6aead989ada1cf9",
+  "hardware_accessed": false,
+  "parent_review_sha256": "5b6741e3430dcccdd58c986a45f2cce5396b889e8843c1d5f3c28ca7519b5320",
+  "parent_strict_log_sha256": "bc317aafd066c6b2a90859cca0e1319df1ab6037482ce0781f7ce142413ff157",
+  "canonical_diagnostics_identical": true,
+  "canonicalization": "Absolute HDL filename directory prefixes only; basename, line, column, message and context preserved",
+  "fresh_compile_admission": "Wno-fatal only; no warning-kind suppression; require all56 warning headers and no actual error header",
+  "utc": "2026-10-27T23:04:08.933365+00:00"
+}

@@ -1,0 +1,121 @@
+{
+  "status": "PASS_INDEPENDENT_ALL_NINE_FULL512_CMAC_DISPATCH_MODES_BOTH_SIMULATORS_ONLY",
+  "evidence": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-dispatch-numerical-v1/iverilog-modes-v1/report.json": "3b4648385bf2c68f544ee25ff45feda8bd652d2ad98db6f7ba44ccaf9c6b62b2",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-dispatch-numerical-v1/verilator-modes-v1/report.json": "58b9ddc9e250f15d4c8d2f3c6c9c98aaa485b0e0fcf068158dd2cbb1cd06def6"
+  },
+  "binary_sha256": {
+    "iverilog": "35082178903bf5154dd31e0d44fed9bfc7d27478f7ad73b9403334b1389814ef",
+    "verilator": "c30cb55fdeaefa83f5aabaac15d537308b5d0d1c59a697f8bdaaebd0099b4819"
+  },
+  "modes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "seed": "0x3588ad16",
+  "numerical_counts": {
+    "0": [
+      2,
+      2,
+      98,
+      13056,
+      128,
+      13576,
+      2
+    ],
+    "1": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "2": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "3": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      4,
+      0
+    ],
+    "4": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "5": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "6": [
+      1,
+      1,
+      49,
+      6528,
+      64,
+      6788,
+      0
+    ],
+    "7": [
+      1,
+      1,
+      49,
+      6528,
+      64,
+      6788,
+      1
+    ],
+    "8": [
+      1,
+      1,
+      49,
+      6528,
+      64,
+      6788,
+      1
+    ]
+  },
+  "scope_review_sha256": "f06dcb2df533c1f7405a40cf6d1d2e8234c7d74508140c026409e85a0cb37448",
+  "verilator_compile_sha256": "33c1106aff9213dd1d9bf8e1e7ab0ea67738bd7fc27a9214bd0386f047843b18",
+  "reviewed_warning_policy": "56 exact known warnings retained; strict-fatal receipt preserved; no warning-kind suppressions",
+  "full512_product_lanes": 512,
+  "repeat_raw_jobs": 2,
+  "repeat_operand_reads": 13056,
+  "repeat_writes": 128,
+  "repeat_memory_responses": 13576,
+  "repeat_safe_rearms": 2,
+  "ew_numerical_composition_qualified": false,
+  "ddr_composition_qualified": false,
+  "mapped_or_timing_qualified": false,
+  "hardware_accessed": false,
+  "arithmetic_profile": "PRIVATE_SHARED_DATA_CANDIDATE",
+  "shared_preparation_blocks": 1
+}

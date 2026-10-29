@@ -1,0 +1,102 @@
+# Rendered by tools/host/prepare.py. Checkpoint only; never programs or emits a bitstream.
+set root {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source}
+set out {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/implementation}
+if {![info exists ::env(RK_HOST_PREPARED_SHA)] || $::env(RK_HOST_PREPARED_SHA) ne "3a0ef75f961f58fdb3469a48eb3e5320a458c42e29b6445d246ebbcb08e4d8ce"} {
+    error "Verify the prepared package and its board review before implementation."
+}
+if {![info exists ::env(RK_CONFIRM_BOARD)] || $::env(RK_CONFIRM_BOARD) ne "YPCB_00338_1P1"} {
+    error "An audited YPCB_00338_1P1 target is required."
+}
+if {[info exists ::env(RK_EMIT_BITSTREAM)] && $::env(RK_EMIT_BITSTREAM) ne "0"} {
+    error "Bitstream emission is disabled in this checkpoint flow."
+}
+foreach setting {RK_CONFIG_VOLTAGE RK_CFGBVS RK_LED_ACTIVE_LOW} {
+    if {![info exists ::env($setting)]} { error "Missing reviewed setting $setting" }
+}
+if {$::env(RK_LED_ACTIVE_LOW) ni {0 1}} { error "Invalid LED polarity setting." }
+set voltage $::env(RK_CONFIG_VOLTAGE)
+set cfgbvs $::env(RK_CFGBVS)
+if {$voltage ni {1.5 1.8 2.5 3.3} || $cfgbvs ni {GND VCCO} ||
+    ($voltage in {1.5 1.8} && $cfgbvs ne "GND") ||
+    ($voltage in {2.5 3.3} && $cfgbvs ne "VCCO")} {
+    error "Invalid configuration-bank voltage/CFGBVS pair."
+}
+if {[llength [get_parts -quiet xc7k480tffg1156-2]] != 1} {
+    error "Exact XC7K480T FFG1156-2 device support is required."
+}
+file mkdir $out
+cd $root
+create_project -in_memory -part xc7k480tffg1156-2
+read_verilog -sv {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_fp16_alu.sv}
+read_verilog -sv {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_ew_regs.sv}
+read_verilog -sv {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_ew_engine.sv}
+read_verilog -sv {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_ew_dma.sv}
+read_verilog -sv {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_bram.sv}
+read_verilog -sv {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_job_control.sv}
+read_verilog -sv {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_startup_reset.sv}
+read_verilog -sv {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/host/rk_jtag_backend.sv}
+read_verilog -sv {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/host/rk_jtag_ew_bram.sv}
+read_verilog -sv {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/vendor/opentpu/otpu_jtag_mailbox.sv}
+read_verilog -sv {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/ypcb_jtag_ew_top.sv}
+read_xdc {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/ypcb_jtag_ew.xdc}
+synth_design -top ypcb_jtag_ew_top -part xc7k480tffg1156-2 -generic LED_ACTIVE_LOW=$::env(RK_LED_ACTIVE_LOW)
+source {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/mailbox_cdc.tcl}
+rk_host_cdc_constrain
+set_property CONFIG_VOLTAGE $voltage [current_design]
+set_property CFGBVS $cfgbvs [current_design]
+set clocks [get_clocks -quiet sys_clk]
+if {[llength $clocks] != 1} { error "Expected exactly one sys_clk." }
+set period [get_property PERIOD [lindex $clocks 0]]
+if {![string is double -strict $period] ||
+    [catch {expr {double($period) == 20.0}} clock_ok] || !$clock_ok} {
+    error "The 50 MHz target must remain unchanged."
+}
+if {[llength [get_cells -hierarchical -filter {REF_NAME == RAMB18E1 || REF_NAME == RAMB36E1}]] == 0} {
+    error "No block RAM inferred."
+}
+write_checkpoint -force [file join $out post_synth.dcp]
+report_utilization -file [file join $out utilization_synth.rpt]
+opt_design
+place_design
+phys_opt_design
+route_design
+write_checkpoint -force [file join $out routed.dcp]
+report_utilization -file [file join $out utilization.rpt]
+report_route_status -file [file join $out route_status.rpt]
+report_timing_summary -delay_type min_max -report_unconstrained -file [file join $out timing.rpt]
+report_pulse_width -file [file join $out pulse_width.rpt]
+check_timing -verbose -file [file join $out check_timing.rpt]
+report_drc -file [file join $out drc.rpt]
+rk_host_cdc_audit $out
+foreach check {no_clock unconstrained_internal_endpoints} {
+    set detail [check_timing -override_defaults $check -no_header -return_string]
+    set channel [open [file join $out check_timing_${check}.rpt] w]
+    puts $channel $detail
+    close $channel
+    set heading [format {(?im)^\s*(?:[0-9]+\.\s*)?checking\s+%s(?:\s*\([0-9]+\))?\.?\s*$} $check]
+    if {![regexp $heading $detail]} { error "Unrecognized $check timing report." }
+    set summaries 0
+    foreach line [split $detail \n] {
+        if {[regexp {^\s*There are ([0-9]+) .+} $line -> count]} {
+            incr summaries
+            if {$count != 0} { error "Unresolved $check timing findings ($count)." }
+        } elseif {[regexp -nocase {there are} $line]} {
+            error "Unrecognized $check timing count."
+        }
+    }
+    if {$summaries == 0} { error "Missing $check timing count." }
+}
+foreach delay_type {max min} {
+    set paths [get_timing_paths -delay_type $delay_type -max_paths 1]
+    if {[llength $paths] == 0} { error "No $delay_type timing paths." }
+    set slack [get_property SLACK [lindex $paths 0]]
+    if {![string is double -strict $slack] ||
+        [catch {expr {abs(double($slack)) < Inf}} finite] || !$finite || $slack < 0} {
+        error "Invalid or negative $delay_type slack."
+    }
+}
+foreach violation [get_drc_violations] {
+    set severity [string toupper [get_property SEVERITY $violation]]
+    if {$severity ni {WARNING ADVISORY INFO}} { error "Blocking DRC: $violation ($severity)" }
+}
+puts "Checkpoint only. Routing, pulse width, exceptions, electrical facts and all reports require review. No bitstream or programming."

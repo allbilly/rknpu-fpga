@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "Software/preparation preflight only; no FPGA, Vivado, USB, network or hardware claim.",
+  "started_utc": "2026-10-26T21:52:29.223495+00:00",
+  "finished_utc": "2026-10-26T21:52:30.567756+00:00",
+  "python_version": "3.14.5 (main, May 10 2026, 10:21:34) [GCC 12.3.0]",
+  "commands": [
+    {
+      "name": "tinystories_tests",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/tinystories",
+        "-v"
+      ],
+      "started_utc": "2026-10-26T21:52:29.223495+00:00",
+      "finished_utc": "2026-10-26T21:52:30.133683+00:00",
+      "elapsed_seconds": 0.910161,
+      "returncode": 0,
+      "status": "PASS",
+      "stdout_path": "build/tinystories-software-before-fpga-logs/tinystories_tests.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "build/tinystories-software-before-fpga-logs/tinystories_tests.stderr.log",
+      "stderr_sha256": "ed82dd4704925fd25391bff9de8e9c68eb962df5cfee78033c16ae7b37334d6f",
+      "stdout_bytes": 0,
+      "stderr_bytes": 4101
+    },
+    {
+      "name": "generated_check",
+      "argv": [
+        "make",
+        "generated-check"
+      ],
+      "started_utc": "2026-10-26T21:52:30.134057+00:00",
+      "finished_utc": "2026-10-26T21:52:30.286990+00:00",
+      "elapsed_seconds": 0.152918,
+      "returncode": 0,
+      "status": "PASS",
+      "stdout_path": "build/tinystories-software-before-fpga-logs/generated_check.stdout.log",
+      "stdout_sha256": "b3381e2f4577fb00b88ccdb768c91d043d54433d20a7fd60cadfa29a8b28cfec",
+      "stderr_path": "build/tinystories-software-before-fpga-logs/generated_check.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 99,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "diff_check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "started_utc": "2026-10-26T21:52:30.287490+00:00",
+      "finished_utc": "2026-10-26T21:52:30.295278+00:00",
+      "elapsed_seconds": 0.007771,
+      "returncode": 0,
+      "status": "PASS",
+      "stdout_path": "build/tinystories-software-before-fpga-logs/diff_check.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "build/tinystories-software-before-fpga-logs/diff_check.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    }
+  ],
+  "independent_report_sha256_before": {
+    "build/tinystories-programs/all-v1/report.json": "eaf4555a59a4e98770f93f773a39487df3d180c28d59d3b51f9bc589ae3948c1",
+    "build/tinystories-joined-vectors/v2/report.json": "ad69a7caf1e1be5757c477df80fb09301f00efbf03143560472eca11efb7fa49"
+  },
+  "independent_report_sha256_after": {
+    "build/tinystories-programs/all-v1/report.json": "eaf4555a59a4e98770f93f773a39487df3d180c28d59d3b51f9bc589ae3948c1",
+    "build/tinystories-joined-vectors/v2/report.json": "ad69a7caf1e1be5757c477df80fb09301f00efbf03143560472eca11efb7fa49"
+  },
+  "independent_report_hashes_unchanged": true,
+  "prepare_verify": {
+    "function": "tools.tinystories.prepare.verify",
+    "package": "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v2",
+    "started_utc": "2026-10-26T21:52:30.299024+00:00",
+    "finished_utc": "2026-10-26T21:52:30.567293+00:00",
+    "status": "PREPARED_TINYSTORIES260K_STATIC_DENSE_LAYOUT_ONLY",
+    "model_sha256": "b0a507e7ad0f626624f17112325e66691f9076d622e1d3274d103d00299f2696",
+    "tokenizer_sha256": "037cb335abb25d1fa9e8ecae30ed2a3a8ace9302862ebcdc05d51a6bbb10c312",
+    "projection_count": 36,
+    "tile_count": 116,
+    "learned_parameters": 260032,
+    "packed_weights_bytes": 557056,
+    "hardware_accessed": false,
+    "cpu_dense_fallback": false
+  },
+  "logs_directory": "build/tinystories-software-before-fpga-logs"
+}

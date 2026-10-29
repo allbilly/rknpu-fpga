@@ -1,0 +1,93 @@
+{
+  "status": "VERIFIED_PASS",
+  "scope": "Memory-headroom gate for one unchanged O3 repeat_sub_9 simulator case; no new source/compiler/ELF or hardware actions.",
+  "required_consecutive_samples": 3,
+  "required_interval_seconds": 30,
+  "min_mem_available_bytes": 8589934592,
+  "max_memory_full_avg10": 1.0,
+  "samples": [
+    {
+      "utc": "2026-10-27T03:33:52.725218+00:00",
+      "mem_available_bytes": 10827952128,
+      "memory_full_avg10": 0.0
+    },
+    {
+      "utc": "2026-10-27T03:34:41.061283+00:00",
+      "mem_available_bytes": 10749497344,
+      "memory_full_avg10": 0.0
+    },
+    {
+      "utc": "2026-10-27T03:35:28.395628+00:00",
+      "mem_available_bytes": 14446510080,
+      "memory_full_avg10": 0.0
+    }
+  ],
+  "gate_passed": true,
+  "argv": [
+    "python3",
+    "tools/ddr/run_endpoint.py",
+    "run",
+    "--package",
+    "build/ddr-endpoint-current/native-o3-v1",
+    "--case",
+    "repeat_sub_9",
+    "--out",
+    "build/ddr-endpoint-current/repeat-o3-v2"
+  ],
+  "timeout_seconds": 1800,
+  "launch_utc": "2026-10-27T03:35:49.213006+00:00",
+  "session_id": 23890,
+  "pid": null,
+  "runner_pid": 780772,
+  "child_pid": 780773,
+  "original_timeout_failure_preserved": "build/ddr-endpoint-current/positives-o3-v1/repeat_sub_9/run.json",
+  "package_binary_sha256": "0ad597d18a1a89106e22f55b239eb1d3c7d5b70e2e5ea980025e1a24f3bf6d73",
+  "finished_utc": "2026-10-27T04:04:56.976372+00:00",
+  "repeat_result": {
+    "status": "PASS_JOINED_DDR_SELECTED_LOGICAL_CASES_ONLY",
+    "case": "repeat_sub_9",
+    "case_status": "PASS",
+    "native_returncode": 0,
+    "elapsed_seconds": 1697.8734909901395,
+    "timeout_seconds": 1800,
+    "native_child_pid": 780773,
+    "runner_pid": 780772,
+    "marker": "PASS jtag_ew_ddr jobs=2 negative=0 recovered=0 lines=1600 uploaded_nonzero=77 rawtasks=2 phy_user_returns=108107 scope=actual_AXI_UI_MC_modeled_PHY",
+    "metrics": {
+      "lines": 1600,
+      "physical_bytes": 102400,
+      "uploaded_nonzero": 77,
+      "successful_jobs": 2,
+      "phy_user_returns": 108107
+    },
+    "observed_text_sha256": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec",
+    "report_sha256": "7d0154a68a1ec89634dea8db13491808b0e04aeb579414738c74e466fba1495e",
+    "run_record_sha256": "07e0d532975d94f2481619e10864edfe953f245b1f45f5c611c267ca21bac5d7"
+  },
+  "verification": {
+    "argv": [
+      "python3",
+      "tools/ddr/run_endpoint.py",
+      "verify-run",
+      "--report",
+      "build/ddr-endpoint-current/repeat-o3-v2/report.json"
+    ],
+    "returncode": 0,
+    "stdout": "VERIFIED_JOINED_DDR_EXECUTED_CASES_ONLY"
+  },
+  "identity_checks": {
+    "frozen_elf_sha256": "0ad597d18a1a89106e22f55b239eb1d3c7d5b70e2e5ea980025e1a24f3bf6d73",
+    "native_report_binary_sha256": "0ad597d18a1a89106e22f55b239eb1d3c7d5b70e2e5ea980025e1a24f3bf6d73",
+    "frozen_elf_matches_native_report": true,
+    "previous_failure_run_sha256": "e64cc6b5652c3796a9051161d74c085c8e37782f791b8b875cbffe14612ee3fa",
+    "previous_failure_partial_sha256": "aae599536522682b386fde7ad354684686b9a4db42a73c20ea1dbd27b7d23714",
+    "previous_failure_partial_bytes": 61440,
+    "previous_failure_preserved": true
+  },
+  "processes": {
+    "runner_pid": 780772,
+    "runner_absent": true,
+    "native_pid": 780773,
+    "native_absent": true
+  }
+}

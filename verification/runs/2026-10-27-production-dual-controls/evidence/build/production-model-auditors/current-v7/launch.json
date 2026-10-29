@@ -1,0 +1,71 @@
+{
+  "status": "PASS_PRIVATE_COMPLETE_PRODUCTION_MAKE_TEST_V7_ONLY",
+  "recorded_utc": "2026-10-27T19:42:52.904423+00:00",
+  "started_utc_from_run_report": "2026-10-27T19:42:09.181565+00:00",
+  "cwd": "/home/fedora/rknpu-fpga",
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-production-model-auditors-current-v7",
+    "-p",
+    "MemoryMax=6G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=30",
+    "3600s",
+    "python3",
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v7/run.py"
+  ],
+  "unit": "rknpu-production-model-auditors-current-v7.scope",
+  "systemd_invocation_id": "a111dbd1956a4eadb81c496d111fbe5f",
+  "run_py_pid": 1020573,
+  "make_test_pid": 1020592,
+  "outer_timeout_pid": 1020571,
+  "unified_exec_session_id": 73866,
+  "cgroup_limits": {
+    "memory.max": "6442450944",
+    "memory.swap.max": "0",
+    "cpu.max": "200000 100000",
+    "pids.max": "256"
+  },
+  "run_py_sha256": "4d006cf389aff2afebc5e7bf323794d74575072b33f2338415bee45b63993002",
+  "source_manifest_sha256_computed_live": "54dd7a391ef02512a302f1230441ec58813ef43cbda02816465eece8d140a143",
+  "full_recursive_source_manifest_sha256": "68ef0737c03910c9e21b9f5ff59ea2fb904a93d3aa648c27037cd0f3d5f3a4b2",
+  "launch_receipt_issue": "Prelaunch metadata helper hit AttributeError after writing correct admission samples; shell continued to systemd-run. This launch receipt was recorded after the process started; original command and process identities are reconstructed from terminal tool output and run report, not invented.",
+  "finished_utc": "2026-10-27T19:57:54.203970+00:00",
+  "systemd_scope_result": "success",
+  "systemd_scope_active_state": "inactive",
+  "worker_report_path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v7/report.json",
+  "worker_report_sha256": "d737de8eae1cb37efa353b667ce061185627c49b2e86d5c1e433a2fd08bfdb74",
+  "source_revision_manifest_sha256": "54dd7a391ef02512a302f1230441ec58813ef43cbda02816465eece8d140a143",
+  "source_revision_manifest_file_count": 112,
+  "full_recursive_source_file_count": 1083,
+  "copied_input_count": 1083,
+  "all_source_inputs_unchanged": true,
+  "all_copied_inputs_unchanged": true,
+  "final_command_statuses": [
+    [
+      "generated_check",
+      "PASS",
+      0,
+      2.0072502528782934
+    ],
+    [
+      "production_test",
+      "PASS",
+      0,
+      942.1245955491904
+    ]
+  ],
+  "host_jtag_outputs": [
+    "workspace/build/host-jtag/verilator-1793130431083135436",
+    "workspace/build/host-jtag/iverilog-1793130501280398938"
+  ]
+}

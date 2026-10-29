@@ -1,0 +1,28 @@
+{
+  "status": "PASS_INDEPENDENT_PHYSICAL_TINYSTORIES_FIRST_FORWARD_AUDIT",
+  "hardware_accessed": false,
+  "scope": "Independent first complete BOS forward only, all36 learned projections; the longer32-position run remains separate, no new hardware access",
+  "phases": [
+    {
+      "name": "one-complete-forward-position",
+      "positions": 1,
+      "projections": 36,
+      "raw_jobs": 232,
+      "tasks": 348,
+      "wire": {
+        "scans": 145105,
+        "commands": 48367,
+        "idcodes": 1,
+        "tap_resets": 1
+      },
+      "logits_sha256": "da84021345aa0521e0ed1c37344b91e93ef077d964a56bd876fdd4326ae8a893"
+    }
+  ],
+  "source_sha256": "1e01179cf730fdec0faa6644eae1f51dbeee4a5474f3734b327a0f8c7677b425",
+  "bitstream_sha256": "8039831e578923793bcb6c6b3a5423d90f333dd033667ac3631473649eac941d",
+  "flash_written": false,
+  "learned_dense_cpu_fallback": false,
+  "fp32_reference_boundary": "FPGA matches separate donor-policy reference bit-exact; FP32 drift remains separate",
+  "utc": "2026-10-26T22:14:54.684079+00:00",
+  "auditor_sha256": "83243736c49b127e8c58e72033c07165de876b5f7108f4145ec4aed86f6be4ff"
+}

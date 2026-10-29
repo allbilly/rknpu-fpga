@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "Host unit tests (ordinary Tcl and vendor Tcl shim), synthetic harness controls, Python syntax compilation, generated source check, and whitespace check only. No actual runner, Vivado, USB, hardware, or programming.",
+  "workdir": "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z",
+  "python_version": "Python 3.14.5",
+  "python_executable": "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+  "vendor_tcl_version_probe": {
+    "argv": [
+      "tclsh",
+      "-c",
+      "puts [info patchlevel]"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "system_tcl_probe": {
+    "argv": [
+      "tclsh",
+      "-c",
+      "puts [info patchlevel]"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "shim_path": "/home/fedora/rknpu-fpga/build/vendor-tcl86-test-shim",
+  "source_hashes_before": {
+    "fpga/host/native_rpc.tcl.in": "389138ea03ee56ca432bc9a1372f3b76b355074d21ac42ba3ed4a38f62887931",
+    "tools/host/native_link.py": "cf8ee174bc2fad844ccbd7478ea8e370618284a8e24f867035c412f47a0f0173",
+    "tests/host/test_native_link.py": "470c566b0997d69c28c8e2842281c3d8831ded122619aab5d3269e59948132c3",
+    "tests/host/test_native_rpc_tcl.py": "860239795f585245dc6793e26ad6aa8f1e07fa4dca04be8b547ac9e08949e638",
+    "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/harness_controls.py": "0c67dec33822ebfaf4ef3ccdc750c17ae2f365f990867dbf6b42d45273c01490",
+    "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/run_jobs.py": "a3e7baf8255c4250553acba71cee75d982c1af4e41d2aa7a31a92d6f325a24f6",
+    "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/run_sram_tests.py": "fb6a0c8fb66dcb060216f0e8768e583609f3f2a29cef54816434a2658a41dbe1",
+    "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/program-template.tcl.in": "d7ebf86450c55de4378692f0aae20f6af20fffe7366b329a29b3972e6429a96d"
+  },
+  "source_hashes_after": {
+    "fpga/host/native_rpc.tcl.in": "389138ea03ee56ca432bc9a1372f3b76b355074d21ac42ba3ed4a38f62887931",
+    "tools/host/native_link.py": "cf8ee174bc2fad844ccbd7478ea8e370618284a8e24f867035c412f47a0f0173",
+    "tests/host/test_native_link.py": "470c566b0997d69c28c8e2842281c3d8831ded122619aab5d3269e59948132c3",
+    "tests/host/test_native_rpc_tcl.py": "860239795f585245dc6793e26ad6aa8f1e07fa4dca04be8b547ac9e08949e638",
+    "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/harness_controls.py": "0c67dec33822ebfaf4ef3ccdc750c17ae2f365f990867dbf6b42d45273c01490",
+    "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/run_jobs.py": "a3e7baf8255c4250553acba71cee75d982c1af4e41d2aa7a31a92d6f325a24f6",
+    "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/run_sram_tests.py": "fb6a0c8fb66dcb060216f0e8768e583609f3f2a29cef54816434a2658a41dbe1",
+    "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/program-template.tcl.in": "d7ebf86450c55de4378692f0aae20f6af20fffe7366b329a29b3972e6429a96d"
+  },
+  "source_hashes_unchanged": true,
+  "commands": [
+    {
+      "name": "host_tests_ordinary",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/host",
+        "-v"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "environment_override": {},
+      "started_utc": "2026-10-26T17:30:14.811726+00:00",
+      "finished_utc": "2026-10-26T17:30:16.071968+00:00",
+      "elapsed_seconds": 1.260276,
+      "returncode": 0,
+      "status": "PASS",
+      "stdout_path": "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/host_tests_ordinary.stdout.log",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/host_tests_ordinary.stderr.log",
+      "stderr_bytes": 8005,
+      "stderr_sha256": "c9ef0ee7ab3bb84b6b08ff9a8f28a65ec1739b6f9a0ee08e89d7407d0e736bad",
+      "stdout": "",
+      "stderr": "test_empty_or_malformed_hashes_reject (test_image_template.HostImageTemplateTests.test_empty_or_malformed_hashes_reject) ... ok\ntest_every_failed_native_gate_blocks_emission (test_image_template.HostImageTemplateTests.test_every_failed_native_gate_blocks_emission) ... ok\ntest_exact_profile_emits_only_synthetic_files (test_image_template.HostImageTemplateTests.test_exact_profile_emits_only_synthetic_files) ... ok\ntest_no_hardware_route_or_severity_mutation_commands (test_image_template.HostImageTemplateTests.test_no_hardware_route_or_severity_mutation_commands) ... ok\ntest_close_does_not_reset_fabric_or_send_commands (test_native_link.NativeLinkTests.test_close_does_not_reset_fabric_or_send_commands) ... ok\ntest_error_poison_has_no_retry_or_reset (test_native_link.NativeLinkTests.test_error_poison_has_no_retry_or_reset) ... ok\ntest_explicit_orderly_bridge_shutdown (test_native_link.NativeLinkTests.test_explicit_orderly_bridge_shutdown) ... ok\ntest_fragmented_response_consumes_one_absolute_deadline (test_native_link.NativeLinkTests.test_fragmented_response_consumes_one_absolute_deadline) ... ok\ntest_full_640bit_response_and_original_transport_byte_path (test_native_link.NativeLinkTests.test_full_640bit_response_and_original_transport_byte_path) ... ok\ntest_native_clock_is_exact_and_slower_owner_cap_is_enforced (test_native_link.NativeLinkTests.test_native_clock_is_exact_and_slower_owner_cap_is_enforced) ... ok\ntest_readiness_clock_busy_or_eof_rejects_and_closes (test_native_link.NativeLinkTests.test_readiness_clock_busy_or_eof_rejects_and_closes) ... ok\ntest_unsafe_ir_and_widths_fail_before_any_rpc (test_native_link.NativeLinkTests.test_unsafe_ir_and_widths_fail_before_any_rpc) ... ok\ntest_raw_native_widths_identity_and_orderly_exit (test_native_rpc_tcl.NativeRpcTclTests.test_raw_native_widths_identity_and_orderly_exit) ... ok\ntest_renderer_rejects_unbound_target_and_malformed_source (test_native_rpc_tcl.NativeRpcTclTests.test_renderer_rejects_unbound_target_and_malformed_source) ... ok\ntest_single_owner_and_server_instruction_whitelist (test_native_rpc_tcl.NativeRpcTclTests.test_single_owner_and_server_instruction_whitelist) ... ok\ntest_wrong_loaded_image_refuses_before_rpc_ready (test_native_rpc_tcl.NativeRpcTclTests.test_wrong_loaded_image_refuses_before_rpc_ready) ... ok\ntest_bound_copy_survives_original_artifact_removal_but_not_tampering (test_prepare.HostPreparationTests.test_bound_copy_survives_original_artifact_removal_but_not_tampering) ... ok\ntest_existing_package_and_stale_qualification_are_rejected (test_prepare.HostPreparationTests.test_existing_package_and_stale_qualification_are_rejected) ... ok\ntest_foreign_workspace_reports_copy_and_verify_without_origin (test_prepare.HostPreparationTests.test_foreign_workspace_reports_copy_and_verify_without_origin) ... ok\ntest_invalid_report_origin_fails_before_package_creation (test_prepare.HostPreparationTests.test_invalid_report_origin_fails_before_package_creation) ... ok\ntest_mocked_checkpoint_preserves_bounded_cdc_and_physical_gates (test_prepare.HostPreparationTests.test_mocked_checkpoint_preserves_bounded_cdc_and_physical_gates) ... ok\ntest_native_picosecond_quantization_strengthens_nominal_budgets (test_prepare.HostPreparationTests.test_native_picosecond_quantization_strengthens_nominal_budgets) ... ok\ntest_physical_wrapper_startup_with_explicit_primitive_stubs (test_prepare.HostPreparationTests.test_physical_wrapper_startup_with_explicit_primitive_stubs) ... ok\ntest_preparation_is_file_only_and_unreviewed_command_is_rejected (test_prepare.HostPreparationTests.test_preparation_is_file_only_and_unreviewed_command_is_rejected) ... ok\ntest_snapshot_tcl_and_physical_claim_tampering_are_rejected (test_prepare.HostPreparationTests.test_snapshot_tcl_and_physical_claim_tampering_are_rejected) ... ok\ntest_changed_content_after_generation_is_rejected (test_qualification.StimulusIdentityTests.test_changed_content_after_generation_is_rejected) ... ok\ntest_exact_inventory_is_nine_pairs_and_one_partial_image (test_qualification.StimulusIdentityTests.test_exact_inventory_is_nine_pairs_and_one_partial_image) ... ok\ntest_missing_and_added_input_files_are_rejected (test_qualification.StimulusIdentityTests.test_missing_and_added_input_files_are_rejected) ... ok\ntest_same_corpus_copies_verify_without_original_workspace (test_qualification.StimulusIdentityTests.test_same_corpus_copies_verify_without_original_workspace) ... ok\ntest_summary_only_and_wrong_artifact_binding_are_rejected (test_qualification.StimulusIdentityTests.test_summary_only_and_wrong_artifact_binding_are_rejected) ... ok\ntest_bulk_roundtrip_and_edge_only_read_modify_write (test_transport.TransportTests.test_bulk_roundtrip_and_edge_only_read_modify_write) ... ok\ntest_concurrent_calls_remain_single_outstanding (test_transport.TransportTests.test_concurrent_calls_remain_single_outstanding) ... ok\ntest_corrupt_response_timeout_and_disconnect_poison (test_transport.TransportTests.test_corrupt_response_timeout_and_disconnect_poison) ... ok\ntest_descriptor_completion_output_read_and_explicit_ack (test_transport.TransportTests.test_descriptor_completion_output_read_and_explicit_ack) ... ok\ntest_donor_lock_path_flock_and_release (test_transport.TransportTests.test_donor_lock_path_flock_and_release) ... ok\ntest_exact_idcode_user2_frames_and_identity_before_writes (test_transport.TransportTests.test_exact_idcode_user2_frames_and_identity_before_writes) ... ok\ntest_exact_xvc_clock_negotiation_and_frequency_cap (test_transport.TransportTests.test_exact_xvc_clock_negotiation_and_frequency_cap) ... ok\ntest_flock_excludes_a_second_process (test_transport.TransportTests.test_flock_excludes_a_second_process) ... ok\ntest_fragmented_reply_uses_one_deadline_and_poisons_owner (test_transport.TransportTests.test_fragmented_reply_uses_one_deadline_and_poisons_owner) ... ok\ntest_getinfo_and_scan_lengths_fail_closed (test_transport.TransportTests.test_getinfo_and_scan_lengths_fail_closed) ... ok\ntest_injected_link_must_honor_requested_slower_clock (test_transport.TransportTests.test_injected_link_must_honor_requested_slower_clock) ... ok\ntest_invalid_ranges_values_and_buffers_do_not_send_commands (test_transport.TransportTests.test_invalid_ranges_values_and_buffers_do_not_send_commands) ... ok\ntest_job_errors_stale_results_timeouts_and_busy_memory (test_transport.TransportTests.test_job_errors_stale_results_timeouts_and_busy_memory) ... ok\ntest_late_matching_completion_is_not_accepted (test_transport.TransportTests.test_late_matching_completion_is_not_accepted) ... ok\ntest_mailbox_errors_poison_and_never_retry (test_transport.TransportTests.test_mailbox_errors_poison_and_never_retry) ... ok\ntest_negotiation_and_entire_identity_probe_have_global_deadlines (test_transport.TransportTests.test_negotiation_and_entire_identity_probe_have_global_deadlines) ... ok\ntest_partial_upload_error_does_not_rollback_retry_or_continue (test_transport.TransportTests.test_partial_upload_error_does_not_rollback_retry_or_continue) ... ok\ntest_poll_result_deadline_caps_blocking_scans (test_transport.TransportTests.test_poll_result_deadline_caps_blocking_scans) ... ok\ntest_production_raw_command_bo_is_uploaded_without_rewriting (test_transport.TransportTests.test_production_raw_command_bo_is_uploaded_without_rewriting) ... ok\ntest_sendall_and_each_receive_share_remaining_budget (test_transport.TransportTests.test_sendall_and_each_receive_share_remaining_budget) ... ok\ntest_slow_tck_scan_can_exceed_five_seconds_within_user_budget (test_transport.TransportTests.test_slow_tck_scan_can_exceed_five_seconds_within_user_budget) ... ok\ntest_wrong_tap_or_endpoint_identity_never_writes (test_transport.TransportTests.test_wrong_tap_or_endpoint_identity_never_writes) ... ok\ntest_xvc_eof_is_fatal_and_padding_is_outside_scan (test_transport.TransportTests.test_xvc_eof_is_fatal_and_padding_is_outside_scan) ... ok\n\n----------------------------------------------------------------------\nRan 53 tests in 1.133s\n\nOK\n"
+    },
+    {
+      "name": "host_tests_vendor_tcl86",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/host",
+        "-v"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "environment_override": {
+        "PATH": "/home/fedora/rknpu-fpga/build/vendor-tcl86-test-shim:/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.codex/tmp/arg0-linux/codex-arg07kbBXc:/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg0AQeMYz:/home/fedora/.codex/packages/app-server-daemon/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg03jYN2x:/home/fedora/.codex/packages/standalone/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/lib64/ccache:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.local/bin:/home/fedora/bin:/usr/local/bin:/usr/bin"
+      },
+      "started_utc": "2026-10-26T17:30:16.072520+00:00",
+      "finished_utc": "2026-10-26T17:30:17.341562+00:00",
+      "elapsed_seconds": 1.269065,
+      "returncode": 0,
+      "status": "PASS",
+      "stdout_path": "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/host_tests_vendor_tcl86.stdout.log",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/host_tests_vendor_tcl86.stderr.log",
+      "stderr_bytes": 8005,
+      "stderr_sha256": "eab99b57982a0e42de55aff1397d694301c0cb38b5027b2fa8a832bf6684b00f",
+      "stdout": "",
+      "stderr": "test_empty_or_malformed_hashes_reject (test_image_template.HostImageTemplateTests.test_empty_or_malformed_hashes_reject) ... ok\ntest_every_failed_native_gate_blocks_emission (test_image_template.HostImageTemplateTests.test_every_failed_native_gate_blocks_emission) ... ok\ntest_exact_profile_emits_only_synthetic_files (test_image_template.HostImageTemplateTests.test_exact_profile_emits_only_synthetic_files) ... ok\ntest_no_hardware_route_or_severity_mutation_commands (test_image_template.HostImageTemplateTests.test_no_hardware_route_or_severity_mutation_commands) ... ok\ntest_close_does_not_reset_fabric_or_send_commands (test_native_link.NativeLinkTests.test_close_does_not_reset_fabric_or_send_commands) ... ok\ntest_error_poison_has_no_retry_or_reset (test_native_link.NativeLinkTests.test_error_poison_has_no_retry_or_reset) ... ok\ntest_explicit_orderly_bridge_shutdown (test_native_link.NativeLinkTests.test_explicit_orderly_bridge_shutdown) ... ok\ntest_fragmented_response_consumes_one_absolute_deadline (test_native_link.NativeLinkTests.test_fragmented_response_consumes_one_absolute_deadline) ... ok\ntest_full_640bit_response_and_original_transport_byte_path (test_native_link.NativeLinkTests.test_full_640bit_response_and_original_transport_byte_path) ... ok\ntest_native_clock_is_exact_and_slower_owner_cap_is_enforced (test_native_link.NativeLinkTests.test_native_clock_is_exact_and_slower_owner_cap_is_enforced) ... ok\ntest_readiness_clock_busy_or_eof_rejects_and_closes (test_native_link.NativeLinkTests.test_readiness_clock_busy_or_eof_rejects_and_closes) ... ok\ntest_unsafe_ir_and_widths_fail_before_any_rpc (test_native_link.NativeLinkTests.test_unsafe_ir_and_widths_fail_before_any_rpc) ... ok\ntest_raw_native_widths_identity_and_orderly_exit (test_native_rpc_tcl.NativeRpcTclTests.test_raw_native_widths_identity_and_orderly_exit) ... ok\ntest_renderer_rejects_unbound_target_and_malformed_source (test_native_rpc_tcl.NativeRpcTclTests.test_renderer_rejects_unbound_target_and_malformed_source) ... ok\ntest_single_owner_and_server_instruction_whitelist (test_native_rpc_tcl.NativeRpcTclTests.test_single_owner_and_server_instruction_whitelist) ... ok\ntest_wrong_loaded_image_refuses_before_rpc_ready (test_native_rpc_tcl.NativeRpcTclTests.test_wrong_loaded_image_refuses_before_rpc_ready) ... ok\ntest_bound_copy_survives_original_artifact_removal_but_not_tampering (test_prepare.HostPreparationTests.test_bound_copy_survives_original_artifact_removal_but_not_tampering) ... ok\ntest_existing_package_and_stale_qualification_are_rejected (test_prepare.HostPreparationTests.test_existing_package_and_stale_qualification_are_rejected) ... ok\ntest_foreign_workspace_reports_copy_and_verify_without_origin (test_prepare.HostPreparationTests.test_foreign_workspace_reports_copy_and_verify_without_origin) ... ok\ntest_invalid_report_origin_fails_before_package_creation (test_prepare.HostPreparationTests.test_invalid_report_origin_fails_before_package_creation) ... ok\ntest_mocked_checkpoint_preserves_bounded_cdc_and_physical_gates (test_prepare.HostPreparationTests.test_mocked_checkpoint_preserves_bounded_cdc_and_physical_gates) ... ok\ntest_native_picosecond_quantization_strengthens_nominal_budgets (test_prepare.HostPreparationTests.test_native_picosecond_quantization_strengthens_nominal_budgets) ... ok\ntest_physical_wrapper_startup_with_explicit_primitive_stubs (test_prepare.HostPreparationTests.test_physical_wrapper_startup_with_explicit_primitive_stubs) ... ok\ntest_preparation_is_file_only_and_unreviewed_command_is_rejected (test_prepare.HostPreparationTests.test_preparation_is_file_only_and_unreviewed_command_is_rejected) ... ok\ntest_snapshot_tcl_and_physical_claim_tampering_are_rejected (test_prepare.HostPreparationTests.test_snapshot_tcl_and_physical_claim_tampering_are_rejected) ... ok\ntest_changed_content_after_generation_is_rejected (test_qualification.StimulusIdentityTests.test_changed_content_after_generation_is_rejected) ... ok\ntest_exact_inventory_is_nine_pairs_and_one_partial_image (test_qualification.StimulusIdentityTests.test_exact_inventory_is_nine_pairs_and_one_partial_image) ... ok\ntest_missing_and_added_input_files_are_rejected (test_qualification.StimulusIdentityTests.test_missing_and_added_input_files_are_rejected) ... ok\ntest_same_corpus_copies_verify_without_original_workspace (test_qualification.StimulusIdentityTests.test_same_corpus_copies_verify_without_original_workspace) ... ok\ntest_summary_only_and_wrong_artifact_binding_are_rejected (test_qualification.StimulusIdentityTests.test_summary_only_and_wrong_artifact_binding_are_rejected) ... ok\ntest_bulk_roundtrip_and_edge_only_read_modify_write (test_transport.TransportTests.test_bulk_roundtrip_and_edge_only_read_modify_write) ... ok\ntest_concurrent_calls_remain_single_outstanding (test_transport.TransportTests.test_concurrent_calls_remain_single_outstanding) ... ok\ntest_corrupt_response_timeout_and_disconnect_poison (test_transport.TransportTests.test_corrupt_response_timeout_and_disconnect_poison) ... ok\ntest_descriptor_completion_output_read_and_explicit_ack (test_transport.TransportTests.test_descriptor_completion_output_read_and_explicit_ack) ... ok\ntest_donor_lock_path_flock_and_release (test_transport.TransportTests.test_donor_lock_path_flock_and_release) ... ok\ntest_exact_idcode_user2_frames_and_identity_before_writes (test_transport.TransportTests.test_exact_idcode_user2_frames_and_identity_before_writes) ... ok\ntest_exact_xvc_clock_negotiation_and_frequency_cap (test_transport.TransportTests.test_exact_xvc_clock_negotiation_and_frequency_cap) ... ok\ntest_flock_excludes_a_second_process (test_transport.TransportTests.test_flock_excludes_a_second_process) ... ok\ntest_fragmented_reply_uses_one_deadline_and_poisons_owner (test_transport.TransportTests.test_fragmented_reply_uses_one_deadline_and_poisons_owner) ... ok\ntest_getinfo_and_scan_lengths_fail_closed (test_transport.TransportTests.test_getinfo_and_scan_lengths_fail_closed) ... ok\ntest_injected_link_must_honor_requested_slower_clock (test_transport.TransportTests.test_injected_link_must_honor_requested_slower_clock) ... ok\ntest_invalid_ranges_values_and_buffers_do_not_send_commands (test_transport.TransportTests.test_invalid_ranges_values_and_buffers_do_not_send_commands) ... ok\ntest_job_errors_stale_results_timeouts_and_busy_memory (test_transport.TransportTests.test_job_errors_stale_results_timeouts_and_busy_memory) ... ok\ntest_late_matching_completion_is_not_accepted (test_transport.TransportTests.test_late_matching_completion_is_not_accepted) ... ok\ntest_mailbox_errors_poison_and_never_retry (test_transport.TransportTests.test_mailbox_errors_poison_and_never_retry) ... ok\ntest_negotiation_and_entire_identity_probe_have_global_deadlines (test_transport.TransportTests.test_negotiation_and_entire_identity_probe_have_global_deadlines) ... ok\ntest_partial_upload_error_does_not_rollback_retry_or_continue (test_transport.TransportTests.test_partial_upload_error_does_not_rollback_retry_or_continue) ... ok\ntest_poll_result_deadline_caps_blocking_scans (test_transport.TransportTests.test_poll_result_deadline_caps_blocking_scans) ... ok\ntest_production_raw_command_bo_is_uploaded_without_rewriting (test_transport.TransportTests.test_production_raw_command_bo_is_uploaded_without_rewriting) ... ok\ntest_sendall_and_each_receive_share_remaining_budget (test_transport.TransportTests.test_sendall_and_each_receive_share_remaining_budget) ... ok\ntest_slow_tck_scan_can_exceed_five_seconds_within_user_budget (test_transport.TransportTests.test_slow_tck_scan_can_exceed_five_seconds_within_user_budget) ... ok\ntest_wrong_tap_or_endpoint_identity_never_writes (test_transport.TransportTests.test_wrong_tap_or_endpoint_identity_never_writes) ... ok\ntest_xvc_eof_is_fatal_and_padding_is_outside_scan (test_transport.TransportTests.test_xvc_eof_is_fatal_and_padding_is_outside_scan) ... ok\n\n----------------------------------------------------------------------\nRan 53 tests in 1.142s\n\nOK\n"
+    },
+    {
+      "name": "harness_controls",
+      "argv": [
+        "python3",
+        "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/harness_controls.py",
+        "-v"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "environment_override": {},
+      "started_utc": "2026-10-26T17:30:17.342043+00:00",
+      "finished_utc": "2026-10-26T17:30:17.454296+00:00",
+      "elapsed_seconds": 0.11227,
+      "returncode": 0,
+      "status": "PASS",
+      "stdout_path": "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/harness_controls.stdout.log",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/harness_controls.stderr.log",
+      "stderr_bytes": 431,
+      "stderr_sha256": "508004ee17cd03266943814a95386c84303b1d1709ca8d14bd0999d83a76a27e",
+      "stdout": "",
+      "stderr": "test_good_full_captured_bos_ack_after_all_bytes (__main__.Controls.test_good_full_captured_bos_ack_after_all_bytes) ... ok\ntest_mismatch_preserves_failure_without_ack (__main__.Controls.test_mismatch_preserves_failure_without_ack) ... ok\ntest_wrong_fault_code_cannot_pass (__main__.Controls.test_wrong_fault_code_cannot_pass) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.012s\n\nOK\n"
+    },
+    {
+      "name": "py_compile",
+      "argv": [
+        "python3",
+        "-m",
+        "py_compile",
+        "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/run_jobs.py",
+        "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/run_sram_tests.py"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "environment_override": {
+        "PYTHONPYCACHEPREFIX": "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/pycompile-cache"
+      },
+      "started_utc": "2026-10-26T17:30:17.454632+00:00",
+      "finished_utc": "2026-10-26T17:30:17.832182+00:00",
+      "elapsed_seconds": 0.377568,
+      "returncode": 0,
+      "status": "PASS",
+      "stdout_path": "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/py_compile.stdout.log",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/py_compile.stderr.log",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "generated_check",
+      "argv": [
+        "make",
+        "generated-check"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "environment_override": {},
+      "started_utc": "2026-10-26T17:30:17.832463+00:00",
+      "finished_utc": "2026-10-26T17:30:17.966599+00:00",
+      "elapsed_seconds": 0.134163,
+      "returncode": 0,
+      "status": "PASS",
+      "stdout_path": "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/generated_check.stdout.log",
+      "stdout_bytes": 99,
+      "stdout_sha256": "b3381e2f4577fb00b88ccdb768c91d043d54433d20a7fd60cadfa29a8b28cfec",
+      "stderr_path": "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/generated_check.stderr.log",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "python3 tools/gen_regfile.py --check\npython3 tools/gen_demo.py --check\nDemo generated files match.\n",
+      "stderr": ""
+    },
+    {
+      "name": "diff_check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "environment_override": {},
+      "started_utc": "2026-10-26T17:30:17.967124+00:00",
+      "finished_utc": "2026-10-26T17:30:17.975251+00:00",
+      "elapsed_seconds": 0.008144,
+      "returncode": 0,
+      "status": "PASS",
+      "stdout_path": "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/diff_check.stdout.log",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "build/fpga-bringup/host-user2-3mhz-20261026T172921Z/diff_check.stderr.log",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "vivado_executed": false,
+  "hardware_accessed": false,
+  "usb_accessed": false,
+  "programming_performed": false,
+  "finished_utc": "2026-10-26T17:30:17.980155+00:00",
+  "system_tcl_version": "9.0.3",
+  "vendor_tcl_version": "8.6.13",
+  "tcl_version_probe_commands": [
+    {
+      "mode": "ordinary",
+      "argv": [
+        "tclsh"
+      ],
+      "stdin": "puts [info patchlevel]\\n",
+      "stdout": "9.0.3\\n",
+      "returncode": 0
+    },
+    {
+      "mode": "vendor-shim",
+      "argv": [
+        "tclsh"
+      ],
+      "environment_override": {
+        "PATH_PREFIX": "build/vendor-tcl86-test-shim"
+      },
+      "stdin": "puts [info patchlevel]\\n",
+      "stdout": "8.6.13\\n",
+      "returncode": 0
+    }
+  ]
+}

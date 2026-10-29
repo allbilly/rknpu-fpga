@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "status": "REFERENCE_AUDITED_GENERATED_BINDING_INCOMPLETE",
+  "scope": "Read-only source audit of the original channel-0 ECC MIG reference; no IP generation, implementation, simulation of MIG, or hardware execution.",
+  "physical_integration_ready": false,
+  "source_roots": {
+    "original_project": {
+      "root_hint": "~/ypcb/ref/ypcb_00338_1p1_hack",
+      "commit": "8b13ecf71b7061dd43a2b1580f0caa469f64303f"
+    },
+    "installed_template": {
+      "root_hint": "$VIVADO_ROOT/data/ip/xilinx/mig_7series_v4_2/data/dlib/7series/ddr3_sdram/verilog/rtl/axi",
+      "observed_installation": "Vivado 2026.1",
+      "identity": "Per-file content hashes; not the missing original generated controller."
+    },
+    "opentpu_native_reference": {
+      "root_hint": "$OPENTPU_ROOT/bitstreams/ramtest-mig-ddr800-runtime/evidence/source",
+      "identity": "Observed preserved-package content hash; no Git provenance or AXI-profile equivalence inferred."
+    }
+  },
+  "sources": {
+    "project": {
+      "root": "original_project",
+      "path": "examples/YPCB_00338_1P1_systest/YPCB_00338_1P1_systest.gen/sources_1/bd/top/ip/top_mig_7series_0_0_1/top_mig_7series_0_0/mig.prj",
+      "sha256": "adc1bcdb20b7aabb51f9359bf46eaea3c6e592819a9d88411ebf90e61e974d00",
+      "head_matches": true
+    },
+    "template": {
+      "root": "original_project",
+      "path": "examples/YPCB_00338_1P1_systest/YPCB_00338_1P1_systest.gen/sources_1/bd/top/ip/top_mig_7series_0_0_1/top_mig_7series_0_0.veo",
+      "sha256": "65c7aa774e4fd8a9f5588b45b27a28ed40becd1e02965f306d56f6c44b101b66",
+      "head_matches": true
+    },
+    "component": {
+      "root": "original_project",
+      "path": "examples/YPCB_00338_1P1_systest/YPCB_00338_1P1_systest.gen/sources_1/bd/top/ip/top_mig_7series_0_0_1/top_mig_7series_0_0.xml",
+      "sha256": "e14b00b19c613eabd11a1c57e16b18ba0db5b08f17189c394dba750b1d9228b3",
+      "head_matches": true
+    },
+    "example": {
+      "root": "original_project",
+      "path": "examples/YPCB_00338_1P1_systest/YPCB_00338_1P1_systest.gen/sources_1/bd/top/ip/top_mig_7series_0_0_1/top_mig_7series_0_0/example_design/rtl/example_top.v",
+      "sha256": "2aa063a72be42f36fa9cd046c45d21bd84716f930e228285f9482316c9ac7d09",
+      "head_matches": true
+    },
+    "file_list": {
+      "root": "original_project",
+      "path": "examples/YPCB_00338_1P1_systest/YPCB_00338_1P1_systest.gen/sources_1/bd/top/ip/top_mig_7series_0_0_1/top_mig_7series_0_0_xmdf.tcl",
+      "sha256": "f763905a7682d2421e6530f96b2b6a8cd97c88d5da17a45cd55a17efd42cca8b",
+      "head_matches": true
+    },
+    "block_design": {
+      "root": "original_project",
+      "path": "examples/YPCB_00338_1P1_systest/YPCB_00338_1P1_systest.srcs/sources_1/bd/top/top.bd",
+      "sha256": "2a17a5028475bfdb27c6576e8ffbac0331949e45327d1a1a34652215e6cbc02a",
+      "head_matches": true
+    },
+    "installed_axi_mc": {
+      "root": "installed_template",
+      "path": "mig_7series_v4_2_axi_mc.v",
+      "sha256": "44004f208cae032756b2b8fed6609881e9af5698beb42aa2cf53278e7680c696"
+    },
+    "installed_axi_read": {
+      "root": "installed_template",
+      "path": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "sha256": "743766a9a4448b1e9e6d914c28c48d2951d70c428d39e67f3191172e2d148dd9"
+    },
+    "installed_axi_write_response": {
+      "root": "installed_template",
+      "path": "mig_7series_v4_2_axi_mc_b_channel.v",
+      "sha256": "16875567185b0e812c1aec30794af6e1c912a5cdff4872aa0d01afe18e728fb0"
+    },
+    "opentpu_native_project": {
+      "root": "opentpu_native_reference",
+      "path": "mig-ddr3-1066.prj",
+      "sha256": "77ef790fe7f3d5994c3028a5ab1c6660d6a3e95100e855851aa60d47a72ab873"
+    }
+  },
+  "profile": {
+    "module": "top_mig_7series_0_0",
+    "channel": 0,
+    "interface": "AXI",
+    "address_width": 31,
+    "data_width": 512,
+    "id_width": 4,
+    "write_strobe_width": 64,
+    "size_bytes": 2147483648,
+    "local_byte_address_first": 0,
+    "local_byte_address_last": 2147483647,
+    "physical_dq_width": 72,
+    "ecc": "ON",
+    "supports_narrow_bursts": false,
+    "channel_1_translation": "NONE: this profile does not truncate or reinterpret a channel-select address bit.",
+    "evidence": ["project:38-64", "project:215-221", "template:100-140"]
+  },
+  "ports": {
+    "c0_ui_clk": {
+      "direction": "out", "width": 1,
+      "nominal_hz_from_component_metadata": 133333333,
+      "associated_interfaces": ["S0_AXI", "S0_AXI_CTRL"],
+      "evidence": ["template:92", "component:3572-3587"]
+    },
+    "c0_ui_clk_sync_rst": {
+      "direction": "out", "width": 1, "active_level": 1,
+      "evidence": ["template:93", "component:3294-3306"]
+    },
+    "c0_init_calib_complete": {
+      "direction": "out", "width": 1,
+      "asserted_level_in_example": 1,
+      "evidence": ["template:87", "example:937-939"]
+    },
+    "c0_aresetn": {
+      "direction": "in", "width": 1, "active_level": 0,
+      "evidence": ["template:95", "component:5269-5279"]
+    },
+    "sys_rst": {
+      "direction": "in", "width": 1, "active_level": 0,
+      "evidence": ["template:262", "project:28", "component:18-27"]
+    },
+    "c0_app_ecc_single_err": {
+      "binding": "UNRESOLVED",
+      "example_wire_width": 8,
+      "example_width_expression": "2*C0_nCK_PER_CLK; C0_nCK_PER_CLK=4",
+      "example_instance_connection": true,
+      "present_in_instantiation_template": false,
+      "present_in_component_port_inventory": false,
+      "evidence": ["example:185", "example:494", "example:778"]
+    },
+    "c0_app_ecc_multiple_err": {
+      "binding": "UNRESOLVED",
+      "example_wire_width": 8,
+      "example_instance_connection": true,
+      "template_direction": "out",
+      "template_width": 8,
+      "component_cached_width": 4,
+      "component_enabled": false,
+      "component_enablement_requires": "C0_USE_AXI=0; selected C0_USE_AXI=1",
+      "evidence": ["example:493", "example:777", "template:164", "component:34959-34976", "component:104694-104703", "component:105006-105009"]
+    }
+  },
+  "reset_observations": {
+    "example": "On c0_ui_clk rising edges, example_top registers c0_aresetn <= ~c0_ui_clk_sync_rst; this is not a drain acknowledgment.",
+    "block_design": "c0_ui_clk clocks proc_sys_reset; c0_ui_clk_sync_rst drives its ext_reset_in and c0_mmcm_locked drives dcm_locked; peripheral_aresetn drives c0_aresetn and the associated interconnect reset. SYS_RSTN drives the MIG sys_rst input.",
+    "joint_reset_ack_generated_port": null,
+    "joint_reset_ack_status": "EXTERNAL_REQUIRED",
+    "evidence": ["example:703-707", "example:910-912", "block_design:2895-2913", "block_design:2947-2952", "block_design:3001-3005"],
+    "requirements": [
+      "The platform must establish reset/drain coverage for the engine, adapter, interconnect and affected MIG transaction state.",
+      "ui_clk_sync_rst, aresetn, init_calib_complete, app_ref_ack and app_zq_ack are not evidence that all prior system transactions drained.",
+      "Never withdraw an outstanding AXI request merely because calibration readiness drops; partial writes are not rolled back."
+    ]
+  },
+  "ecc_observations": {
+    "original_example": "Both ECC vectors are reduction-ORed into the traffic-generator comparison error independently of AXI RRESP/BRESP.",
+    "original_example_evidence": ["example:664"],
+    "original_axi_read_event_correlation": "UNKNOWN: generated controller and AXI implementation are absent.",
+    "original_axi_write_rmw_event_correlation": "UNKNOWN",
+    "original_ecc_event_address_correlation": "UNKNOWN",
+    "installed_template_read_path": "axi_mc OR-reduces mc_app_ecc_multiple_err; axi_mc_r_channel stores that bit with mc_app_rd_data when mc_app_rd_valid is asserted, then emits SLVERR if the stored bit is 1. This is internal read-data association, not an external event/address contract for the missing original instance.",
+    "installed_template_read_evidence": ["installed_axi_mc:1031", "installed_axi_read:189", "installed_axi_read:230-245"],
+    "installed_template_write_path": "axi_mc_b_channel assigns BRESP=P_OKAY; do not infer complete masked-write/RMW ECC fault coverage from B responses.",
+    "installed_template_write_evidence": ["installed_axi_write_response:137"],
+    "installed_templates_resolve_original_binding": false,
+    "opentpu_reference": "The inspected retained MIG ramtest project selects NATIVE for both channels. Its sidebands do not resolve the original AXI-profile metadata conflict.",
+    "opentpu_reference_evidence": ["opentpu_native_project:196", "opentpu_native_project:370"]
+  },
+  "initialization": {
+    "allocated_data_and_ecc_initialized": "UNKNOWN",
+    "init_calib_complete_proves_allocated_memory_initialized": false,
+    "example_default_test_byte_range": [0, 16777215],
+    "evidence": ["example:81-82", "example:937-939"],
+    "requirements": [
+      "Establish initialized data and ECC for every complete allocated 64-byte beat before reads or masked writes.",
+      "Provide separate audited initialization completion/ownership evidence; the calibration signal alone does not establish it.",
+      "Determine error-event validity, latching, acknowledgment, reset behavior and full masked-write/RMW coverage before claiming physical ECC integration."
+    ]
+  },
+  "missing_generated_sources": {
+    "relative_to_ip_directory": "top_mig_7series_0_0/user_design",
+    "observed_directory_exists": false,
+    "referenced_by_file_list": [
+      {"path": "top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_r_channel.v", "line": 367},
+      {"path": "top_mig_7series_0_0/user_design/rtl/top_mig_7series_0_0.v", "line": 411},
+      {"path": "top_mig_7series_0_0/user_design/rtl/ip_top/mig_7series_v4_2_memc_ui_top_axi.v", "line": 435}
+    ],
+    "search_scope": "Original systest project including hidden/ignored files and ip_user_files/ipstatic paths; selected OpenTPU ramtest-mig packages; installed Vivado 2026.1 MIG 4.2 source templates. No vendor generator was run."
+  },
+  "blockers": [
+    "MISSING_GENERATED_CONTROLLER",
+    "ECC_PORT_METADATA_CONFLICT",
+    "ECC_AXI_EVENT_BINDING_UNKNOWN",
+    "MEMORY_INITIALIZATION_NOT_PROVEN",
+    "JOINT_RESET_ACK_EXTERNAL"
+  ]
+}

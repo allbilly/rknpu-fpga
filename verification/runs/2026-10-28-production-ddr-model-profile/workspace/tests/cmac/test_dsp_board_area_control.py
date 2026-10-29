@@ -1,0 +1,164 @@
+"""Mock structural/admission controls only, not synthesis or board acceptance."""
+from collections import Counter
+from copy import deepcopy
+import json
+from pathlib import Path
+import sys
+import unittest
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / 'tools/cmac'))
+import map_dsp_board as runner
+from test_dsp_board_replay_control import marker, commands
+
+
+def area_report():
+    return dict(status='PASS_FULL_C32K16_DSP_ARRAY_XC7_AREA_ONLY', stage='complete',
+        finished_utc='CONTROL_ONLY_NOT_EXECUTED', channels=32, kernels=16, parallel_products=512,
+        instantiated_lanes=512, mapped_kernel_instances=16, dsp_count=512,
+        intended_part='xc7k480tffg1156-2', target_family='xc7', cells={'DSP48E1': 512, 'LUT1': 640, 'FDCE': 742},
+        lut_count=640, ff_count=742, original_coarse_stage=runner.array.COARSE,
+        executed_coarse_stage=[s.replace('LUT_WIDTH=[46]', 'LUT_WIDTH=6') for s in runner.array.COARSE if s != 'share'],
+        commands=commands(('version', 'help', 'mapping')),
+        **{n: False for n in ('numerical_acceptance', 'raw_board_numerical_acceptance',
+            'physical_fit_verified', 'bitstream_emitted', 'hardware_programmed')})
+
+
+def board_report():
+    return dict(status='PASS_FULL_C32K16_DSP_RAW_BOARD_FOUR_STATE_FIXTURES_ONLY', stage='complete',
+        finished_utc='CONTROL_ONLY_NOT_EXECUTED', channels=32, kernels=16, parallel_products=512,
+        modes=list(range(9)), four_state_mode_not_run=None, inherited_compile_only=True,
+        native_array_fixture_acceptance=True, source_bound_composed_lane_acceptance=True,
+        raw_board_numerical_acceptance=True,
+        compiled_hierarchy={'rk_cmac_fp16_cell_dsp': 16, 'rk_cmac_fp16_lane_dsp': 512},
+        commands=commands(('rom_check', 'iverilog_version', 'vvp_version', *(f'mode_{m}' for m in range(9)))),
+        tests=[dict(mode=m, status='PASS', result=marker(m)) for m in range(9)],
+        **{n: False for n in runner.replay.UNPROVEN})
+
+
+def fixture():
+    kernel = 'CONTROL_' + runner.KERNEL
+    ports = {}; bit = 100
+    for direction, widths in (('input', runner.array.INPUTS), ('output', runner.array.OUTPUTS)):
+        for name, width in widths.items():
+            ports[name] = dict(direction=direction, bits=list(range(bit, bit + width))); bit += width
+    cell = dict(attributes={'hdlname': runner.KERNEL, 'keep_hierarchy': '1'},
+        ports={'data': dict(direction='input', bits=[1]), 'result': dict(direction='output', bits=[2])},
+        cells={f'dsp{i}': dict(type='DSP48E1', parameters={'AREG': '0'},
+            connections={'A': [1], 'P': [2]}, port_directions={'A': 'input', 'P': 'output'}) for i in range(32)})
+    array = dict(ports=ports, parameter_default_values={n: f'{v:032b}' for n, v in
+        (('ATOMIC_C', 32), ('ATOMIC_K', 16), ('TAG_WIDTH', 35))},
+        cells={f'kernel{i}': dict(type=kernel, parameters={}, connections={}) for i in range(16)})
+    design = dict(modules={runner.CMAC: array, kernel: cell,
+        'DSP48E1': dict(attributes={'blackbox': '1'}, cells={})})
+    top = 'ypcb_cmac_array_top'
+    board = deepcopy(design)
+    board['modules'][top] = dict(ports={'SYS_CLK': dict(direction='input', bits=[10]),
+        'SYS_RSTN': dict(direction='input', bits=[11]), 'led_3bits_tri_o': dict(direction='output', bits=[12, 13, 14])},
+        cells={**deepcopy(array['cells']), 'ram': dict(type='RAMB36E1', parameters={}, connections={})})
+    board['modules']['RAMB36E1'] = dict(attributes={'blackbox': '1'}, cells={})
+    return design, board, top, kernel, cell
+
+
+class DspBoardAreaControls(unittest.TestCase):
+    def test_completed_full_array_mapping_and_corrected_stage_contract_required(self):
+        original = area_report(); runner.validate_area_metadata(original)
+        for field, value in [('status', 'RUNNING'), ('stage', 'mapping'), ('dsp_count', 0),
+            ('parallel_products', 32), ('instantiated_lanes', 511), ('mapped_kernel_instances', 1),
+            ('intended_part', 'xc7k325tffg900-2'), ('numerical_acceptance', True),
+            ('lut_count', 1), ('ff_count', 1), ('executed_coarse_stage', ['share'])]:
+            bad = deepcopy(original); bad[field] = value
+            with self.subTest(field=field), self.assertRaises(AssertionError): runner.validate_area_metadata(bad)
+        bad = deepcopy(original); bad['commands'][-1]['returncode'] = 1
+        with self.assertRaises(AssertionError): runner.validate_area_metadata(bad)
+
+    def test_all_actual_four_state_board_modes_and_native_composed_gates_required(self):
+        original = board_report(); runner.validate_board_metadata(original)
+        for field, value in [('status', 'RUNNING'), ('parallel_products', 1), ('modes', list(range(8))),
+            ('four_state_mode_not_run', 7), ('native_array_fixture_acceptance', False),
+            ('source_bound_composed_lane_acceptance', False), ('raw_board_numerical_acceptance', False),
+            ('physical_fit_verified', True), ('bitstream_emitted', True)]:
+            bad = deepcopy(original); bad[field] = value
+            with self.subTest(field=field), self.assertRaises(AssertionError): runner.validate_board_metadata(bad)
+        bad = deepcopy(original); bad['tests'] = [t for t in bad['tests'] if t['mode'] != 7]
+        with self.assertRaises(AssertionError): runner.validate_board_metadata(bad)
+
+    def test_actual_partition_copied_without_libraries_or_arithmetic_replacement(self):
+        design, _, _, kernel, _ = fixture()
+        value, got, counts = runner.partition(design)
+        self.assertEqual(got, kernel); self.assertEqual(counts['DSP48E1'], 32)
+        self.assertEqual(set(value['modules']), {runner.CMAC, kernel})
+        self.assertIs(value['modules'][kernel], design['modules'][kernel])
+        self.assertIs(value['modules'][runner.CMAC], design['modules'][runner.CMAC])
+        for kind in ('geometry', 'count', 'dsp'):
+            bad = deepcopy(design)
+            if kind == 'geometry': bad['modules'][runner.CMAC]['parameter_default_values']['TAG_WIDTH'] = f'{34:032b}'
+            elif kind == 'count': bad['modules'][runner.CMAC]['cells'].pop('kernel15')
+            else: bad['modules'][kernel]['cells'].pop('dsp31')
+            with self.subTest(kind=kind), self.assertRaises(AssertionError): runner.partition(bad)
+
+    def test_parameter_wrapper_is_literal_header_guard_and_wire_delegate_only(self):
+        design, _, _, _, _ = fixture(); part, _, _ = runner.partition(design)
+        source = runner.array.DSP_ARRAY.read_text(); bound, shim = runner.parameter_binding(part, source)
+        self.assertEqual(bound['modules'][runner.MAPPED_CMAC], part['modules'][runner.CMAC])
+        self.assertIn('ATOMIC_C!=32 || ATOMIC_K!=16 || TAG_WIDTH!=35', shim)
+        self.assertEqual(shim.count('actual_partition(.*)'), 1)
+        self.assertNotIn('always', shim); self.assertNotIn('output logic', shim)
+        for bad in (source + source, source.replace('wire [ATOMIC_K*44-1:0] groups;', 'wire [ATOMIC_K*32-1:0] groups;')):
+            with self.assertRaises(AssertionError): runner.parameter_binding(part, bad)
+
+    def test_identity_accepts_wire_renumbering_but_not_pin_or_primitive_changes(self):
+        _, _, _, kernel, cell = fixture()
+        original = runner.kernel_identity(cell, kernel)
+        renumbered = deepcopy(cell)
+        renumbered['ports']['data']['bits'] = [999]
+        for c in renumbered['cells'].values(): c['connections']['A'] = [999]
+        self.assertEqual(runner.kernel_identity(renumbered, kernel), original)
+        for change in ('pin', 'parameter', 'primitive', 'cell'):
+            bad = deepcopy(cell)
+            if change == 'pin': bad['cells']['dsp0']['connections']['A'] = ['0']
+            elif change == 'parameter': bad['cells']['dsp0']['parameters']['AREG'] = '1'
+            elif change == 'primitive': bad['cells']['dsp0']['type'] = 'LUT1'
+            else: bad['cells'].pop('dsp0')
+            self.assertNotEqual(runner.kernel_identity(bad, kernel), original)
+
+    def test_full_board_requires_16_unchanged_kernels_bram_and_nonconstant_io(self):
+        _, board, top, kernel, cell = fixture(); counts = Counter(DSP48E1=32)
+        total, shell, _ = runner.validate_mapped(board, top, kernel, cell, counts)
+        self.assertEqual(total['DSP48E1'], 512); self.assertEqual(shell['RAMB36E1'], 1)
+        extra = deepcopy(board)
+        extra['modules'][top]['cells']['shell_dsp'] = dict(type='DSP48E1', parameters={}, connections={})
+        self.assertEqual(runner.validate_mapped(extra, top, kernel, cell, counts)[0]['DSP48E1'], 513)
+        for change in ('kernel', 'bram', 'io', 'hardware', 'identity'):
+            bad = deepcopy(board)
+            if change == 'kernel': bad['modules'][top]['cells'].pop('kernel15')
+            elif change == 'bram': bad['modules'][top]['cells'].pop('ram')
+            elif change == 'io': bad['modules'][top]['ports']['led_3bits_tri_o']['bits'][0] = '0'
+            elif change == 'hardware': bad['modules'][top]['cells']['ram']['type'] = '$mul'
+            else: bad['modules'][kernel]['cells']['dsp0']['connections']['A'] = ['0']
+            with self.subTest(change=change), self.assertRaises(AssertionError): runner.validate_mapped(bad, top, kernel, cell, counts)
+
+    def test_mapping_executes_dsp_stage_before_coarse_and_retains_early_kernel_gate(self):
+        spec = json.loads(runner.replay.preparation.SPEC.read_text())
+        coarse = area_report()['executed_coarse_stage']
+        text = runner.mapping_script(spec, [ROOT / 'CONTROL_ONLY.sv'], ROOT / 'CONTROL_ONLY.json', ROOT / 'build/CONTROL_ONLY', coarse)
+        self.assertIn('-run begin:coarse', text); self.assertNotIn('begin:map_dsp', text)
+        self.assertLess(text.index('-run begin:coarse'), text.index('select -assert-count 32'))
+        self.assertLess(text.index('select -assert-count 32'), text.index('techmap -map +/cmp2lut'))
+        self.assertIn('select -assert-count 16', text); self.assertNotIn(';\nshare;', text)
+        with self.assertRaises(AssertionError): runner.mapping_script(spec, [], ROOT / 'CONTROL_ONLY', ROOT / 'build/CONTROL_ONLY', ['share'])
+
+    def test_surrounding_synthesis_sources_are_original_with_only_join_and_partition_wrapper(self):
+        spec = json.loads(runner.replay.preparation.SPEC.read_text())
+        join, shim = ROOT / 'build/CONTROL_ONLY_JOIN.sv', ROOT / 'build/CONTROL_ONLY_SHIM.sv'
+        actual = runner.synthesis_sources(spec, join, shim)
+        expected = [ROOT / n for n in spec['synthesis'] if n not in {
+            runner.replay.preparation.ORIGINAL_CELL, runner.replay.preparation.ORIGINAL_ARRAY, runner.replay.preparation.JOIN}]
+        self.assertEqual(actual[:-1], [join if n == runner.replay.preparation.JOIN else ROOT / n
+            for n in spec['synthesis'] if n not in {runner.replay.preparation.ORIGINAL_CELL, runner.replay.preparation.ORIGINAL_ARRAY}])
+        self.assertEqual(set(actual) - set(expected), {join, shim})
+        for path in (runner.array.DSP_CELL, runner.array.DSP_ARRAY, runner.array.FIXED_CELL, runner.array.FIXED_ARRAY):
+            self.assertNotIn(path, actual)
+
+
+if __name__ == '__main__': unittest.main()

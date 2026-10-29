@@ -1,0 +1,120 @@
+{
+  "admission_json_sha256": "66e9840155b91a5c4b1596286c0c01831e59d2b0140fa00f62178156877ffc5c",
+  "admission_samples": [
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 28422193152,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T01:40:59.924500+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 28263190528,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T01:41:35.499580+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 26647109632,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T01:42:10.991525+00:00"
+    }
+  ],
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-production-model-auditors-current-v12",
+    "-p",
+    "MemoryMax=6G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=30",
+    "3600s",
+    "python3",
+    "build/production-model-auditors/current-v12/run.py"
+  ],
+  "bitstream_emitted": false,
+  "copy_unchanged": true,
+  "cwd": "/home/fedora/rknpu-fpga",
+  "expected_cgroup": {
+    "cpu.max": "200000 100000",
+    "memory.max": "6442450944",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "finished_utc": "2026-10-28T01:57:25.934422+00:00",
+  "full_recursive_source_file_count": 1095,
+  "full_recursive_source_manifest_sha256": "0c3f7ecb1aeabd05a3dfee27cbc7fc1b124cfdc32c0b121e6483cda569e6bed9",
+  "generated_check_pid": 1105638,
+  "generated_check_status": "PASS",
+  "hardware_accessed": false,
+  "logs": {
+    "generated_check.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "generated_check.stdout.log": {
+      "bytes": 99,
+      "sha256": "b3381e2f4577fb00b88ccdb768c91d043d54433d20a7fd60cadfa29a8b28cfec"
+    },
+    "production_test.stderr.log": {
+      "bytes": 49080,
+      "sha256": "b13998ed680cc8b69040be854676964bc3fe254ac5c825938595689e57084cc5"
+    },
+    "production_test.stdout.log": {
+      "bytes": 98681,
+      "sha256": "0f624928ef78f85a044c18cfa5a4aa1001d7c56bf6eeddc4cee2bc8f479a5110"
+    }
+  },
+  "make_test_pid": 1105647,
+  "no_owned_processes_remaining": true,
+  "observed_owned_process_rows": [
+    "1105625 1035527 1105625 /usr/bin/timeout --signal=TERM --kill-after=30 3600s python3 build/production-model-auditors/current-v12/run.py",
+    "1105627 1105625 1105625 python3 build/production-model-auditors/current-v12/run.py"
+  ],
+  "observed_utc": "2026-10-28T01:57:36.360171+00:00",
+  "parent_v11_report_sha256": "f26ff7236fefa0e29f6179f279acb89dfa68a6674182d700e5ed8f3cf03a7e5a",
+  "parent_v11_review_sha256": "2a684ac5632067c8be2764ac14d7811bcba7189419d21c2a5aa23ed7b6a70f24",
+  "private_copy_file_count": 1095,
+  "private_copy_manifest_sha256": "0c3f7ecb1aeabd05a3dfee27cbc7fc1b124cfdc32c0b121e6483cda569e6bed9",
+  "production_test_seconds": 902.0881617779378,
+  "production_test_status": "PASS",
+  "run_py_pid": 1105627,
+  "run_py_sha256": "90b9ac5b5bde935bb0ac51963705595ccde768196eb13222a55b49d30392682f",
+  "run_report_path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v12/report.json",
+  "run_report_sha256": "650eea78b7ce6491506d6687a6956c47bf2f573196f4c8affb036f1187af5fd1",
+  "source_delta_from_v11": {
+    "added": [
+      "tools/ddr/model_lifecycle.py",
+      "tests/ddr/model_audit/test_replay.py"
+    ],
+    "changed": [
+      "tools/tinystories/audit_model.py",
+      "Makefile"
+    ],
+    "removed": []
+  },
+  "source_revision_manifest_sha256": "1a706042d9078be9df8c0082f799a533fa18ff2b0990d1468846d363855e1d5e",
+  "source_unchanged": true,
+  "started_utc": "2026-10-28T01:42:20.794714+00:00",
+  "status": "PASS_PRIVATE_COMPLETE_PRODUCTION_MAKE_TEST_V12_ONLY",
+  "systemd_active_state": "inactive",
+  "systemd_control_group": "/user.slice/user-1000.slice/user@1000.service/app.slice/rknpu-production-model-auditors-current-v12.scope",
+  "systemd_invocation_id": "39239194d4d449b596bd4b59a50951ed",
+  "systemd_result": "success",
+  "timeout_pid": 1105625,
+  "unified_exec_session_id": 31539,
+  "unit": "rknpu-production-model-auditors-current-v12.scope",
+  "vivado_executed": false,
+  "workspace_prelaunch_exists": false
+}

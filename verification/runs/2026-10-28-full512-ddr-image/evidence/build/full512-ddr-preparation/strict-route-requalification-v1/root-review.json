@@ -1,0 +1,28 @@
+{
+  "status": "ROOT_APPROVED_STRICT_ROUTE_REQUALIFICATION",
+  "launch_approved": true,
+  "utc": "2026-10-28T03:23:01.452527+00:00",
+  "scope": "Read-only rerun of every strict routed gate and fresh checkpoint export; no implementation, constraints, image or hardware actions",
+  "preparation_sha256": "763b4e40941b797b4cc4e86a4c13ce00b3cfd1b66d4c752e160361535c315e30",
+  "runner_sha256": "1551343d268081d098de19f88453c8fc990babee7b9df08e96e05d3eed2d1543",
+  "qualification_tcl_sha256": "82eae229c1f1bed8a04097a5e4d61bf08fae71ef66e7bb19daf05efbd7c0f9f2",
+  "parent_failed_report_sha256": "9416024535c7086168fe6cdc9d60ec26c7770adc3173294b36357ad9702a41a2",
+  "parent_routed_dcp_sha256": "6f80fd89beda0dd26244b860927f4e214c141a02a965558a07b63f3f0bc68478",
+  "original_source_post_opt_dcp_sha256": "e1a6441e396e11a1c78223ae78a3d8a9d482223449436d601cfe879a88b26e0b",
+  "parent_native_pass_marker_count": 1,
+  "parent_native_returncode": 0,
+  "parent_wrapper_failure_preserved": true,
+  "sole_origin_drift": [
+    "/home/fedora/rknpu-fpga/fpga/ddr/emit_full512_ch1.tcl.in"
+  ],
+  "actual_consumed_rtl_xdc_helpers_repair_tcl_unchanged": true,
+  "bound_inputs": 341,
+  "all_original_strict_gates_retained": true,
+  "synthesis_permitted": false,
+  "placement_permitted": false,
+  "physical_optimization_permitted": false,
+  "routing_permitted": false,
+  "checkpoint_export_permitted": true,
+  "bitstream_emission_permitted": false,
+  "hardware_access_permitted": false
+}

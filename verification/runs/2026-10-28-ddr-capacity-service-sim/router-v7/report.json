@@ -1,0 +1,163 @@
+{
+  "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1174614-i5360214.scope",
+  "cgroup_limits_requested": {
+    "CPUQuota": "200%",
+    "MemoryMax": "4GiB",
+    "MemorySwapMax": 0,
+    "TasksMax": 256
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_axil_diagnostic_router",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/router_iverilog.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_axil_diagnostic_router.sv",
+        "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/tb_axil_diagnostic_router.sv"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7",
+      "finished_utc": "2026-10-28T08:20:37.258347+00:00",
+      "name": "iverilog_compile",
+      "returncode": 0,
+      "started_utc": "2026-10-28T08:20:37.242428+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/iverilog_compile.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/iverilog_compile.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.015928
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/router_iverilog.vvp"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7",
+      "finished_utc": "2026-10-28T08:20:37.274668+00:00",
+      "name": "iverilog_sim",
+      "returncode": 0,
+      "started_utc": "2026-10-28T08:20:37.258659+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/iverilog_sim.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/iverilog_sim.stdout.log",
+      "stdout_sha256": "580f56f33084c501485ffa7fb57578f82cd378a70f1ec2c58bdae20fa7851019",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.016021
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "--Wall",
+        "--top-module",
+        "tb_axil_diagnostic_router",
+        "-j",
+        "2",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/verilator_obj",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_axil_diagnostic_router.sv",
+        "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/tb_axil_diagnostic_router.sv"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7",
+      "finished_utc": "2026-10-28T08:20:48.943828+00:00",
+      "name": "verilator_compile",
+      "returncode": 0,
+      "started_utc": "2026-10-28T08:20:37.275084+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/verilator_compile.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/verilator_compile.stdout.log",
+      "stdout_sha256": "c1066175eb834f41d91bd0c1556d3bcf0d05c49ed193368a8b7e9bfc766e1b35",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 11.668769
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/verilator_obj/Vtb_axil_diagnostic_router"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7",
+      "finished_utc": "2026-10-28T08:20:48.948068+00:00",
+      "name": "verilator_sim",
+      "returncode": 0,
+      "started_utc": "2026-10-28T08:20:48.944210+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/verilator_sim.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/verilator_sim.stdout.log",
+      "stdout_sha256": "2912e67faf0c8089e82cbb658fe0b71f4871d3309b76efa0fbe0a10ab9945a03",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.003862
+    }
+  ],
+  "failure": null,
+  "finished_utc": "2026-10-28T08:20:48.948370+00:00",
+  "hardware_executed": false,
+  "host_admission": {
+    "MemAvailable_kib": 26964096,
+    "SwapFree_kib": 22642756,
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1174614-i5360214.scope",
+    "cpu_psi_some_avg10": 0.0,
+    "memory_psi_full_avg10": 0.0,
+    "utc": "2026-10-28T08:20:37.180494+00:00"
+  },
+  "host_final": {
+    "MemAvailable_kib": 26298244,
+    "SwapFree_kib": 22642796,
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1174614-i5360214.scope",
+    "cpu_psi_some_avg10": 0.24,
+    "memory_psi_full_avg10": 0.0,
+    "utc": "2026-10-28T08:20:48.948498+00:00"
+  },
+  "max_native_timeout_seconds": 300,
+  "parent_integration_qualified": false,
+  "physical_capacity_qualified": false,
+  "schema": "axil-diagnostic-router-validation-v1",
+  "scope": "Standalone router with tagged independent child stubs; not full parent/register/board integration.",
+  "seed": "0x3588b157",
+  "sources_after": {
+    "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/run_validation.py": "ccb85a577a3bf7b566f7db21ecdaa0f1d1a8ff5408563710a7f51ebe28b1efdb",
+    "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/tb_axil_diagnostic_router.sv": "b83fbce487aa80e45f3d1f67b09d5ecc40d9a46420c16acfd5a4cf8c23c25ab7",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_axil_diagnostic_router.sv": "df8fb194691661a50861d813a141fb7746c42e81fa423a38b4d8050b1ca20288"
+  },
+  "sources_before": {
+    "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/run_validation.py": "ccb85a577a3bf7b566f7db21ecdaa0f1d1a8ff5408563710a7f51ebe28b1efdb",
+    "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v7/tb_axil_diagnostic_router.sv": "b83fbce487aa80e45f3d1f67b09d5ecc40d9a46420c16acfd5a4cf8c23c25ab7",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_axil_diagnostic_router.sv": "df8fb194691661a50861d813a141fb7746c42e81fa423a38b4d8050b1ca20288"
+  },
+  "sources_unchanged": true,
+  "started_utc": "2026-10-28T08:20:37.242428+00:00",
+  "status": "PASS_AXIL_DIAGNOSTIC_ROUTER_STANDALONE_ONLY",
+  "tool_versions": {
+    "iverilog": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/iverilog",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "verilator": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/verilator",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+    },
+    "vvp": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/vvp",
+      "returncode": 0,
+      "stderr": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.",
+      "stdout": ""
+    }
+  },
+  "vivado_executed": false
+}

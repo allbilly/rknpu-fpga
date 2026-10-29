@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-26T17:57:56.599086+00:00",
+  "scope": "Read-only inventory of named local project checkouts for TinyStories/small Llama manifests, runners, docs, CPU/hardware operator split, and tensor/model packing/transport. No builds, foreign runners, hardware or network access.",
+  "candidate_files": [
+    {
+      "path": "/home/fedora/KohakuTPU/software/application/kohakutpu/application/llm/run_reference.py",
+      "sha256": "069d8650829db99ab92382dab66aaffdead52ecc9805efbb716e453aa3840f23",
+      "bytes": 4051,
+      "snippets": [
+        {
+          "line_start": 1,
+          "line_end": 10,
+          "text": "\"\"\"Run greedy LLaMA inference against a local safetensors model.\n\n    uv run --project software/application --extra llm python -m \\\n      kohakutpu.application.llm.run_reference --model-dir ./TIPO-200M \\\n      --prompt \"a watercolor painting of\" --max-new-tokens 32\n\nThe default NumPy backend is the CPU correctness reference. The optional tinygrad\nbackend can use CPU or the experimental KTPU path. KTPU reports a cycle-based\ndense-matmul MFU estimate when its board profile describes the matrix units.\n\"\"\""
+        },
+        {
+          "line_start": 24,
+          "line_end": 43,
+          "text": "    parser.add_argument(\"--model-dir\", type=pathlib.Path, required=True)\n    parser.add_argument(\"--prompt\", required=True)\n    parser.add_argument(\"--max-new-tokens\", type=int, default=32)\n    parser.add_argument(\"--backend\", choices=(\"numpy\", \"tinygrad\"), default=\"numpy\")\n    parser.add_argument(\"--device\", choices=(\"CPU\", \"KTPU\"), default=\"KTPU\")\n    args = parser.parse_args()\n\n    config, model = load_model(args.model_dir)\n    label = \"host reference\"\n    if args.backend == \"tinygrad\":\n        try:\n            from kohakutpu.application.llm.tinygrad_backend import TinygradLlamaModel\n        except ImportError as error:\n            raise SystemExit(\n                \"install tinygrad with \"\n                \"`uv sync --project software/application --extra ktpugrad`\"\n            ) from error\n        model = TinygradLlamaModel(config, model.weights, device=args.device)\n        label = f\"tinygrad {args.device}\"\n    tokenizer_path = args.model_dir / \"tokenizer.model\""
+        },
+        {
+          "line_start": 76,
+          "line_end": 99,
+          "text": "    print(tokenizer.decode(generated, skip_token_ids=skip))\n    print(\n        f\"{label}: {len(generated)} tokens in {elapsed:.2f}s \"\n        f\"({len(generated) / elapsed if elapsed else 0:.2f} tokens/s)\"\n    )\n    profile = getattr(model, \"last_profile\", None)\n    if profile is not None:\n        print(\n            \"KTPU dense-matmul estimate: \"\n            f\"{profile['dense_matmul_flops']:,} FLOP-equivalent, \"\n            f\"{profile['device_cycles']:,} device cycles\"\n        )\n        if profile[\"dense_mfu\"] is None:\n            print(\"KTPU dense MFU unavailable: board matrix-unit count is unknown\")\n        else:\n            peak_ops_per_cycle = 2 * profile[\"peak_macs_per_cycle\"]\n            print(\n                f\"KTPU dense MFU: {100 * profile['dense_mfu']:.2f}% \"\n                f\"(nominal peak {peak_ops_per_cycle:,} FLOP-equivalent/cycle)\"\n            )\n        print(\n            \"MFU scope: padded dense GEMM work over all counted device-kernel \"\n            \"cycles; work excludes vector, norm, softmax, embedding and copy \"\n            \"operations. Host overhead is outside the cycle ratio.\""
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/KohakuTPU/software/application/kohakutpu/application/llm/tinygrad_backend.py",
+      "sha256": "b9aa9b596aad2e81f227c2226c317f4bd658bed376813ff078407a0047e8c12b",
+      "bytes": 15046,
+      "snippets": [
+        {
+          "line_start": 1,
+          "line_end": 7,
+          "text": "\"\"\"Tinygrad implementation of one-token LLaMA decode.\n\nIt uses ordinary matmul, row reductions, elementwise operations, and tensor\nmovement so the CPU path can be checked against :mod:`llama`. Selecting\n``device=\"KTPU\"`` routes those operations through ``ktpugrad``. That device\npath is experimental until it passes simulator and physical-board checks.\n\"\"\""
+        },
+        {
+          "line_start": 93,
+          "line_end": 155,
+          "text": "class TinygradLlamaModel:\n    \"\"\"Tinygrad decode path, optionally backed by the KohakuTPU device.\n\n    The first KTPU profile is multi-head attention (KV heads equal attention\n    heads), 32-column-aligned dimensions, and a greedy vocabulary readback.\n    \"\"\"\n\n    def __init__(\n        self, config: LlamaConfig, weights: LlamaWeights, device: str = \"KTPU\"\n    ) -> None:\n        if device not in (\"CPU\", \"KTPU\"):\n            raise ValueError(\"device must be CPU or KTPU\")\n        if config.kv_heads != config.num_attention_heads:\n            raise ValueError(\n                \"the KTPU first profile requires num_key_value_heads == \"\n                \"num_attention_heads\"\n            )\n        if config.hidden_size % 32 or config.head_dim % 32:\n            raise ValueError(\"KTPU LLaMA dimensions must use whole 32-column blocks\")\n        if config.intermediate_size % 32:\n            raise ValueError(\"KTPU intermediate_size must use whole 32-column blocks\")\n\n        if device == \"KTPU\":\n            # Register the backend before a Tensor is constructed for that device.\n            import kohakutpu.application.ktpugrad  # noqa: F401\n            from kohakutpu.application.runtime.device import device as runtime_device\n\n            self._runtime = runtime_device()\n        else:\n            self._runtime = None\n\n        try:\n            from tinygrad.tensor import Tensor\n        except ImportError as error:\n            raise RuntimeError(\n                \"install tinygrad with `uv sync --project software/application \"\n                \"--extra ktpugrad`\"\n            ) from error\n\n        self.config, self.device, self.Tensor = config, device, Tensor\n        self.last_profile = None\n        self._np_dtype = np.float16 if device == \"KTPU\" else np.float32\n        _trace_memory(\"weights: start\")\n        self._embed = np.asarray(weights.embed_tokens)\n        self._rope_inv_freq = config.rope_theta ** (\n            -np.arange(0, config.head_dim, 2, dtype=np.float32) / config.head_dim\n        )\n        self._vocab_pad = (-config.vocab_size) % 32\n        head = weights.embed_tokens if weights.lm_head is None else weights.lm_head\n        if self._vocab_pad:\n            padded = np.zeros(\n                (config.vocab_size + self._vocab_pad, config.hidden_size),\n                dtype=np.asarray(head).dtype,\n            )\n            padded[: config.vocab_size] = head\n            head = padded\n\n        def place(array):\n            return Tensor(\n                np.ascontiguousarray(np.asarray(array, dtype=self._np_dtype)),\n                device=device,\n            )\n"
+        },
+        {
+          "line_start": 270,
+          "line_end": 318,
+          "text": "            key_pad = padded_length - key_length\n            if key_pad:\n                all_k_padded = all_k.pad(((0, 0), (0, key_pad), (0, 0)))\n                all_v_padded = all_v.pad(((0, 0), (0, key_pad), (0, 0)))\n            else:\n                all_k_padded, all_v_padded = all_k, all_v\n            all_k_padded = all_k_padded.contiguous().realize()\n            all_v_padded = all_v_padded.contiguous().realize()\n\n            # Decode has one query per head. Keep that single row intact, and\n            # materialize the dot products before adding the mask: otherwise\n            # tinygrad fuses the mask into a reduction written through the\n            # padded score window, which the KTPU backend cannot lower.\n            queries = q.reshape(c.num_attention_heads, 1, c.head_dim)\n            scores = (queries @ all_k_padded.transpose(-2, -1)).realize()\n            scores = scores * (c.head_dim**-0.5)\n            if key_pad:\n                # This backend's statistic rows must be indexed by the same\n                # outer axes as their output. A singleton head axis would\n                # broadcast the padding row across all heads and is refused.\n                mask = np.zeros(\n                    (c.num_attention_heads, 1, padded_length),\n                    dtype=self._np_dtype,\n                )\n                mask[..., key_length:] = -10_000.0\n                scores = scores + self.Tensor(mask, device=self.device)\n            probs = scores.softmax(-1)\n            context = (probs @ all_v_padded).reshape(1, c.hidden_size)\n            x = x + self._linear(context, layer[\"o_proj\"])\n\n            n = self._rms_norm(x, layer[\"post_attention_norm\"])\n            gate = self._linear(n, layer[\"gate_proj\"]).silu()\n            up = self._linear(n, layer[\"up_proj\"])\n            x = x + self._linear(gate * up, layer[\"down_proj\"])\n            next_keys.append(all_k)\n            next_values.append(all_v)\n            _trace_memory(f\"step {position}: layer {index + 1}/{len(self._layers)}\")\n\n        cache.keys, cache.values = next_keys, next_values\n        cache.position += 1\n        logits = self._linear(self._rms_norm(x, self._norm), self._lm_head)\n        # The padded vocabulary rows exist only for the matmul store contract.\n        result = np.asarray(logits.numpy()[0, : c.vocab_size], dtype=np.float32)\n        _trace_memory(f\"step {position}: logits ready\")\n        return result\n\n    def generate(\n        self,\n        prompt: list[int] | tuple[int, ...],"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/KohakuTPU/software/application/kohakutpu/application/llm/huggingface.py",
+      "sha256": "baa8e95dd72646a37529c308cc8f3a5094bd462c8988d0c97371b0d673254a38",
+      "bytes": 1330,
+      "snippets": [
+        {
+          "line_start": 1,
+          "line_end": 39,
+          "text": "\"\"\"Load a local Hugging Face LLaMA checkpoint using optional safe-tensor support.\"\"\"\n\nfrom __future__ import annotations\n\nimport json\nimport pathlib\n\nfrom kohakutpu.application.llm.llama import (\n    LlamaConfig,\n    LlamaModel,\n    weights_from_huggingface,\n)\n\n\ndef load_model(directory: str | pathlib.Path) -> tuple[LlamaConfig, LlamaModel]:\n    \"\"\"Load ``config.json`` and a single-file ``model.safetensors`` directory.\"\"\"\n    root = pathlib.Path(directory)\n    config_path = root / \"config.json\"\n    weights_path = root / \"model.safetensors\"\n    if not config_path.is_file():\n        raise FileNotFoundError(config_path)\n    if not weights_path.is_file():\n        raise FileNotFoundError(\n            f\"{weights_path} is required; this loader expects a single-file \"\n            \"model.safetensors checkpoint\"\n        )\n    try:\n        from safetensors.numpy import load_file\n    except ImportError as error:\n        raise RuntimeError(\n            \"install the optional LLM dependencies with \"\n            \"`uv sync --project software/application --extra llm`\"\n        ) from error\n\n    values = json.loads(config_path.read_text())\n    config = LlamaConfig.from_huggingface(values)\n    state = load_file(str(weights_path))\n    weights = weights_from_huggingface(config, state)\n    return config, LlamaModel(config, weights)"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/etsoc/examples/llama.py",
+      "sha256": "cd1e789c38d3fd246d93e5be4e55f8da179958578a114fb215bab63ddb571282",
+      "bytes": 21660,
+      "snippets": [
+        {
+          "line_start": 20,
+          "line_end": 40,
+          "text": "\nROOT = Path(__file__).resolve().parents[1]\nsys.path.insert(0, str(ROOT / \"fpga/tools\"))\nfrom process_control import run_bounded, run_podman, _term_scope\nMODELS = {\n    \"gpt2\": {\n        \"repo\": \"QuantFactory/gpt2-GGUF\",\n        \"revision\": \"7eae6f079f0164bff66b86eea5159f7a368f9381\",\n        \"file\": \"gpt2.Q4_0.gguf\",\n        \"size\": 106554880,\n        \"sha256\": \"d52ac7ed12e1f87cbc93473912f5c213d7c7d6f2a0112ea9d78533d0d7bd3632\",\n    },\n    \"stories260k\": {\n        \"repo\": \"ggml-org/models\",\n        \"revision\": \"499bc8821c6b12b4e53c5bffcb21ec206f212d81\",\n        \"file\": \"tinyllamas/stories260K.gguf\",\n        \"size\": 1185376,\n        \"sha256\": \"270cba1bd5109f42d03350f60406024560464db173c0e387d91f0426d3bd256d\",\n    },\n}\n"
+        },
+        {
+          "line_start": 150,
+          "line_end": 184,
+          "text": "    if len(tokens) != requested and not re.search(rf\"LLAMA_TOKEN\\|step={len(tokens)-1}\\|id={tokens[-1]}\\|eog=1\", log):\n        raise RuntimeError(f\"{backend} stopped before requested tokens without EOS\")\n    model = re.search(r\"LLAMA_MODEL\\|architecture=(\\w+)\\|parameters=(\\d+)\\|layers=(\\d+)\\|vocab=(\\d+)\", log)\n    if not model:\n        raise RuntimeError(f\"missing {backend} model metadata\")\n    if any(token < 0 or token >= int(model[4]) for token in tokens):\n        raise RuntimeError(f\"{backend} token is outside the model vocabulary\")\n    kernels = re.findall(r\"ET_PERF\\|[^\\n]*\", log)\n    if backend == \"et\" and (\"LLAMA_DEVICE|name=ET0|\" not in log or not any(\"op=MUL_MAT|\" in x for x in kernels)):\n        raise RuntimeError(\"inference has no ET device/matrix kernel proof\")\n    if backend == \"cpu\" and (\"LLAMA_DEVICE|name=ET0|\" in log or kernels):\n        raise RuntimeError(\"CPU control initialized or dispatched ET\")\n    for step in range(len(tokens)):\n        if (folder / f\"logits-{step}.bin\").stat().st_size != int(model[4]) * 4:\n            raise RuntimeError(f\"invalid {backend} logit file size\")\n    summary = {\n        \"tokens\": tokens, \"text\": (folder / \"generated.txt\").read_text(errors=\"replace\"),\n        \"architecture\": model[1], \"parameters\": int(model[2]), \"layers\": int(model[3]), \"vocab\": int(model[4]),\n        \"kernel_dispatches\": len(kernels),\n        \"kernel_ops\": dict(collections.Counter(re.search(r\"\\|op=([^|]+)\", x)[1] for x in kernels)),\n    }\n    if backend == \"et\":\n        placed = re.search(r\"offloading (\\d+) repeating layers to GPU\", log)\n        summary[\"reported_repeating_layers\"] = int(placed[1]) if placed else 0\n        summary[\"et_placed_layers\"] = sorted({int(layer) for layer in\n                                              re.findall(r\"load_tensors: layer\\s+(\\d+) assigned to device ET0\\b\", log)\n                                              if int(layer) < summary[\"layers\"]})\n        summary[\"et_transformer_layers\"] = len(summary[\"et_placed_layers\"])\n        summary[\"et_matrix_layers\"] = sorted({int(match[1]) for kernel in kernels if \"op=MUL_MAT|\" in kernel\n                                              if (match := re.search(r\"\\|tensor=[^|]*-(\\d+)\\|\", kernel))})\n        summary[\"et_output_projection\"] = any(\"op=MUL_MAT|\" in kernel and \"|tensor=result_output|\" in kernel for kernel in kernels)\n        trace = json.loads((folder / \"profile/et_runtime_trace.json\").read_text())\n        events = list(trace.values())\n        def extras(event: dict) -> dict:\n            return {item[\"key\"]: item[\"value\"].get(\"data\") for item in event.get(\"extra\", [])}"
+        },
+        {
+          "line_start": 224,
+          "line_end": 232,
+          "text": "    parser.add_argument(\"--llama-dir\", type=Path, default=Path.home() / \"et-sysemu/llama.cpp\")\n    parser.add_argument(\"--et-build\", default=\"build-et\")\n    parser.add_argument(\"--cpu-build\", default=\"build-ci-release\")\n    parser.add_argument(\"--image\", default=\"et-platform:sysemu-release\")\n    parser.add_argument(\"--device-output\", action=\"store_true\", help=\"also allow embedding/output matrix placement on ET\")\n    parser.add_argument(\"--download-only\", action=\"store_true\")\n    parser.add_argument(\"--verify-run\", type=Path, help=\"revalidate a saved run without executing inference\")\n    parser.add_argument(\"--original-norm\", action=\"store_true\", help=\"diagnostic: use the original embedded NORM kernel\")\n    args = parser.parse_args()"
+        },
+        {
+          "line_start": 327,
+          "line_end": 349,
+          "text": "    cpu = run / \"cpu\"\n    et = run / \"et\"\n    cpu_command = [str(run / \"cpu-runner\"), str(model), str(args.tokens), \"0\", args.prompt, str(cpu), \"cpu\", str(int(not args.device_output))]\n    cpu_record = execute(cpu_command, cpu / \"console.log\", args.timeout)\n    cpu_summary = inspect_run(cpu, \"cpu\", args.tokens)\n    name = \"etsoc-llama-run-\" + uuid.uuid4().hex[:8]\n    extra_env = [\"-e\", \"GGML_ET_KERNELS_PATH=/workspace/\" + str(kernels.relative_to(ROOT))] if kernels else []\n    et_command = [\"podman\", \"run\", \"--rm\", \"--name\", name, \"--network=none\", \"--shm-size=4g\", *mounts,\n                  \"-w\", run_container + \"/et\", \"-e\", \"ET_TOOLCHAIN=/opt/et\", \"-e\", \"ET_PLATFORM=/opt/et\",\n                  \"-e\", \"GGML_ET_UBERKERNEL=0\", \"-e\", \"GGML_ET_PROFILE=\" + run_container + \"/et/profile\", *extra_env, image_id,\n                  run_container + \"/et-runner\", \"/workspace/\" + str(model.relative_to(ROOT)), str(args.tokens),\n                  str(args.layers), args.prompt, run_container + \"/et\", \"et\", str(int(not args.device_output))]\n    et_record = execute(et_command, et / \"console.log\", args.timeout, name)\n    et_summary = inspect_run(et, \"et\", args.tokens)\n    expected = min(args.layers, et_summary[\"layers\"])\n    expected_ids = list(range(et_summary[\"layers\"] - expected, et_summary[\"layers\"]))\n    if et_summary[\"et_placed_layers\"] != expected_ids or et_summary[\"et_matrix_layers\"] != expected_ids:\n        raise RuntimeError(\"ET layer placement does not match the requested transformer layers\")\n    same = cpu_summary[\"tokens\"] == et_summary[\"tokens\"]\n    comparison = compare(cpu, et, min(len(cpu_summary[\"tokens\"]), len(et_summary[\"tokens\"])))\n    result = {\n        \"status\": \"PASS\" if same else \"TOKEN_MISMATCH\", \"cpu\": cpu_summary, \"et\": et_summary,\n        \"tokens_equal\": same, \"comparison\": comparison, \"processes\": {\"cpu\": cpu_record, \"et\": et_record},"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/etsoc/docs/llama.md",
+      "sha256": "07e58404333dfda7f7e6b8cc2b27b85683e22e2495e89eb53bb04f537a3a8b7f",
+      "bytes": 23413,
+      "snippets": [
+        {
+          "line_start": 1,
+          "line_end": 32,
+          "text": "# Small-model llama.cpp inference in ET SysEmu\n\nRun from this repository:\n\n```sh\npython3 examples/llama.py --model gpt2 --tokens 4 --layers 1\n```\n\nThis downloads a pinned, SHA-256-checked GPT-2 small Q4_0 model, builds a\nsmall C++ runner against the existing llama.cpp libraries, runs a CPU\ncontrol, and executes the same prompt through the ET SysEmu backend.\nThe default puts the last transformer layer on ET and keeps the tied\nembedding/output weights on CPU. Increase `--layers` to place more\ntransformer layers on ET. `--device-output` also allows the output weights\non ET; the output layer counts as one additional layer.\n\nFor a much smaller model:\n\n```sh\npython3 examples/llama.py --model stories260k --tokens 2 --layers 5 --device-output\n```\n\nThe TinyStories file is only 1,185,376 bytes. Its name is `stories260K`,\nand llama.cpp reports 292,800 parameters and five transformer layers.\nIt is a Llama architecture model from the upstream test-model collection,\nwith limited language quality. GPT-2 is the actual GPT-2 architecture and\nhas 12 transformer layers; the Q4_0 file is 106,554,880 bytes.\nGPT-2 small is conventionally a 124M-parameter model with tied weights;\nthis llama.cpp loader counts the duplicated output tensor and reports\n163,037,184 parameters. Both counts refer to the same loaded model.\nNeither model is a chat assistant. The runner performs greedy generation\nwith the original distribution and stops at EOS when the model emits it."
+        },
+        {
+          "line_start": 162,
+          "line_end": 202,
+          "text": "## CH1 Minion FPGA backend\n\nThe normal upstream `llama-cli` can load the same external backend through\n`GGML_BACKEND_PATH`; a llama.cpp source patch is not required. Build against\nthe exact llama.cpp revision and libraries used by the CLI:\n\n```sh\npython3 fpga/tools/build_etminion_ggml_backend.py \\\n  --llama-dir \"$LLAMA_SRC\" --llama-build-dir \"$LLAMA_BUILD\" \\\n  --out-dir out/llama-cli-plugin-new\n\nmkdir -p out/llama-cli-control\ncat > out/llama-cli-control/raw.jinja <<'JINJA'\n{{ bos_token }}{% for message in messages %}{{ message.content }}{% endfor %}\nJINJA\n\nGGML_BACKEND_PATH=\"$PWD/out/llama-cli-plugin-new/libggml-et-minion.so\" \\\nGGML_ETFPGA_SOCKET=/tmp/etsoc-minion.sock \\\nETFPGA_BUILD_ID=0x89a08cefe8470928 \\\nLD_LIBRARY_PATH=\"$LLAMA_BUILD/bin${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" \\\n  \"$LLAMA_BUILD/bin/llama-cli\" \\\n  -m out/llama/models/stories260K.gguf --device ET-Minion-CH1 -ngl 99 \\\n  -p 'Hello my name is' -n 2 --temp 0 --seed 1 \\\n  -c 128 -b 16 -ub 16 -t 2 --simple-io --no-display-prompt \\\n  --chat-template-file out/llama-cli-control/raw.jinja \\\n  --single-turn --no-warmup --flash-attn off --no-op-offload --no-kv-offload\n```\n\nSet `LLAMA_SRC` to the pinned llama.cpp checkout and `LLAMA_BUILD` to its\nexisting build directory. The service below must already be running against\nthe matching image; these commands do not configure hardware. The saved\nnormal-CLI offline control at\n`out/stock-et/custom-standard-cli-fake-v2/result.json` matches CPU output\nwith 93 dispatches through a production runtime backed by a CPU oracle.\nThe [October 21 physical JTAG run](data/stock-et-normal-cli-jtag-reference-20261021.json)\nalso matches a fresh CPU control: two tokens, text ` J`, 93 actual FPGA matrix\ndispatches and 6,989,598 retired instructions. Model setup/upload takes\n298.845 seconds over JTAG; prompt evaluation plus generation takes 105.821\nseconds. Both the normal CLI and its upstream source remain unchanged. The\nstandard CLI uses the raw template above for this deterministic comparison.\nPhysical PCIe qualification remains unfinished."
+        },
+        {
+          "line_start": 210,
+          "line_end": 233,
+          "text": "its physical PCIe path still needs qualification. For this combined image use\nBuildId `0x2da634eb42bb5bee` and its matching service/image receipts.\n\nThe FPGA path uses the separately compiled `ET-Minion-CH1` ggml backend and\nthe checked JTAG kernel service. It requires an already configured CH1 image,\nready/calibrated 2 GiB DRAM and the matching Unix-socket kernel service. The\nservice can use the direct DLC10 USB helper to avoid a resident Vivado process,\nor a native ETJ1 RPC server on port 3741. These programs never load a bitstream.\nThe October 20 physical TinyStories test passes: both generated tokens\n`[410, 454]` match CPU and SysEmu, and all 512 logits at each step are finite.\nThe FPGA backend makes 62 real Minion matrix dispatches, using all five\ntransformer layers' supported matrix operations and the output projection.\nAttention, unsupported operations and unsupported matrix shapes use CPU.\n\nThe current candidate is `0x89a08cefe8470928`, with scalar and VPU edge\nregister storage, the complete eight-lane Minion and physical CH1 only. Its\nimplementation, offline review, temporary SRAM tests and all four C kernel\nformats pass. The validated two-token run took 104.997 s for generation versus\n476.169 s in the matching saved SysEmu run (4.54\u00d7). FPGA weight loading took\n261.209 s over JTAG; native CPU generation took 0.016 s. These are measurements\nof this small mixed CPU/FPGA test, with model loading reported separately.\nSee [the verification record](../fpga/reports/llama-ch1-bringup.md). The test\nservice has stopped and released JTAG. Use the shared lease for subsequent\nboard work."
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/etsoc/fpga/reports/llama-ch1-bringup.md",
+      "sha256": "6f4d6e623f187c39819600f60b8f9ef149489bffebb7177623f09371797a90f2",
+      "bytes": 57758,
+      "snippets": [
+        {
+          "line_start": 1,
+          "line_end": 33,
+          "text": "# llama.cpp FPGA bring-up with CH1 only\n\nTarget: YPCB XC7K480T-FFG1156-2, complete eight-lane Minion, physical DRAM\nCH1 only, 2 GiB usable memory. Work began October 18, 2026.\n\nThe current guest keeps instructions, parameters, environment and the C stack\nin the original BRAM windows. Tensor payloads reside in CH1 DDR. The qualifier\nalso initializes a 64 KiB DDR region for additional memory coverage.\n\n## Verified result \u2014 October 20\n\nPhysical TinyStories llama.cpp inference passes using the checked live JTAG\nMinion service. Both tokens `[410, 454]` match CPU and retained SysEmu. All\n512 logits at each of two steps are finite; maximum absolute FPGA/CPU\ndifference is `0.00011140108108520508`. All five transformer layers' supported\nmatrix operations and the output projection use the FPGA backend, with\n62 actual dispatches and 5,811,064 retired Minion instructions. Attention and\nunsupported operations/shapes use CPU.\n\nGeneration takes 104.997 s versus 476.169 s in the matching saved SysEmu test:\n4.54\u00d7 observed generation speedup. JTAG model-weight loading takes 261.209 s;\nnative CPU generation takes 0.016 s. The execution-cycle counter includes\ncompletion-marker polling, so it is not a pure matrix-compute measurement.\n\nAll four current C kernel formats pass complete physical qualification. The\nnew [standalone basic-op examples](../../examples/fpga/README.md) also pass\n22 physical cases across seven programs and all elementwise modes. The\nhardware service and example tests have exited and released JTAG. Permanent\nflash was not written.\n\nEvidence: [inference result](../../out/llama-fpga/stories260k-20261020T180338-783e9b/result.json),\n[independent completion audit](../../out/fpga/llama-ch1-20261018/hardware-tinystories-completion-audit-v1.json),\n[four-format qualification](../../out/fpga/llama-ch1-20261018/physical-vpu-ff-gathers-runtime-v1/result.json),"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/etsoc/fpga/tools/run_packaged_llama.py",
+      "sha256": "1737b769fe378421e7ff8934a204a3b68d4dd513e6a27d5ecefc8fbe4809add1",
+      "bytes": 13152,
+      "snippets": [
+        {
+          "line_start": 1,
+          "line_end": 6,
+          "text": "#!/usr/bin/env python3\n\"\"\"Compare normal llama-cli with CPU and a packaged Minion service.\"\"\"\nfrom __future__ import annotations\n\nimport argparse\nfrom datetime import datetime, timezone"
+        },
+        {
+          "line_start": 76,
+          "line_end": 91,
+          "text": "\ndef require_physical_qualification(path, checked):\n    if path is None:\n        raise ValueError('--execute requires --physical-qualification')\n    qualification = json.loads(path.read_text())\n    if (qualification.get('status') != 'PASS_PACKAGED_PCIE_MEMORY_AND_FOUR_NATIVE_KERNELS' or\n            qualification.get('package_manifest_sha256') != sha(checked.root/'runtime.json') or\n            qualification.get('build_id') != checked.profile['build_id'] or\n            qualification.get('transport') != 'chestnut_pcie' or\n            not qualification.get('physical_pcie_qualified') or\n            not qualification.get('hardware_accessed') or\n            not qualification.get('transport_closed_cleanly')):\n        raise ValueError('successful physical qualification of this exact package required')\n\n\ndef main():"
+        },
+        {
+          "line_start": 188,
+          "line_end": 208,
+          "text": "                    int(r['completion'], 0) != 0x4b4f5445 or r['retired_instructions'] <= 0 for r in rows)):\n            raise ValueError('dispatch completion/retirement evidence is missing or failed')\n        if result['cpu_generated'] != result['plugin_generated'] or not result['cpu_generated']:\n            raise ValueError('generated text differs from CPU or is empty')\n        subprocess.run(['git', '-C', receipt['llama_source'], 'diff', '--quiet', 'HEAD', '--'], check=True)\n        result.update(generated_text_matches_cpu=True, dispatches=len(rows),\n                      reported_retired_instructions=sum(r['retired_instructions'] for r in rows))\n        if args.fake_service:\n            summary = json.loads((out/'service/summary.json').read_text())\n            if summary['service_poisoned'] or summary['rejected_ecc_accesses']:\n                raise ValueError('CPU oracle runtime reported an error')\n            result.update(status='PASS_PACKAGED_CLI_CPU_ORACLE_NOT_FPGA',\n                          scope='CPU protocol oracle with production runtime; no ELF, FPGA or PCIe execution')\n        else:\n            stopped = json.loads((out/'service/result.json').read_text())\n            if (stopped['status'] != 'PACKAGED_MINION_PCIE_SERVICE_STOPPED' or\n                    not stopped.get('transport_closed_cleanly') or not stopped['hardware_accessed']):\n                raise ValueError('physical service did not close successfully')\n            result.update(status='PASS_PACKAGED_CLI_PHYSICAL_PCIE_CPU_MATCH', hardware_accessed=True,\n                          physical_inference_verified=True,\n                          scope='Mixed CPU/FPGA; supported matrix products on the real Minion')"
+        }
+      ]
+    }
+  ],
+  "other_named_checkouts": [
+    {
+      "checkout": "/home/fedora/tiny-tpu",
+      "result": "No TinyStories or small-Llama model manifest/runner found in bounded `rg --files` and text search; relevant scans returned MNIST/JTAG files and a general project inventory only."
+    },
+    {
+      "checkout": "/home/fedora/tiny-gpu",
+      "result": "No TinyStories/small-Llama manifest or runner found; `fpga/PROJECTS.md` calls llama.cpp-tt an LLM software integration with no direct tiny-gpu donor."
+    },
+    {
+      "checkout": "/home/fedora/verigpu",
+      "result": "No TinyStories/small-Llama manifest or runner found; `fpga/ypcb/PROJECTS.md` says llama.cpp-tt has no directly reusable board/RTL transport in scanned source."
+    }
+  ],
+  "literal_findings": {
+    "ET_TinyStories_manifest": "etsoc/examples/llama.py pins ggml-org/models revision 499bc8821c6b12b4e53c5bffcb21ec206f212d81, path tinyllamas/stories260K.gguf, size 1185376, SHA-256 270cba1bd5109f42d03350f60406024560464db173c0e387d91f0426d3bd256d.",
+    "ET_operator_split": "docs/llama.md says the default puts the last transformer layer on ET and keeps tied embedding/output weights on CPU; --layers controls more transformer layers; --device-output also permits output weights on ET. Physical CH1 report says supported matrix operations/output projection use FPGA while attention and unsupported operations/shapes use CPU.",
+    "ET_packing_transport": "Model is upstream GGUF test-model file; docs use llama.cpp external ET backend with GGML_BACKEND_PATH, Unix socket ET service, and a build ID. Physical report records model-weight load over JTAG. No claim that the complete model is resident in on-chip packed format; the report says instructions/parameters/env/stack use BRAM and tensor payloads use CH1 DDR.",
+    "Kohaku_operator_split": "Kohaku run_reference.py offers separate NumPy host reference or tinygrad CPU/KTPU device choice; tinygrad_backend.py routes ordinary matmul, reductions, elementwise and movement through selected tinygrad device, with explicit equal Q/KV heads and 32-column alignment constraints. No TinyStories-specific model manifest found in that checkout scan.",
+    "Kohaku_packing_transport": "Hugging Face loader requires one model.safetensors plus config.json; tinygrad backend casts/contiguates arrays to float16 for KTPU, float32 for CPU, pads vocab rows to a multiple of 32, and realizes tensors on selected device. These snippets establish loader/backend representation, not a raw board-wire encoding."
+  }
+}

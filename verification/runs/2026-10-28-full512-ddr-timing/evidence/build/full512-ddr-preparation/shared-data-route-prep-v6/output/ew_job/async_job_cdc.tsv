@@ -1,0 +1,16 @@
+PROFILE	ew_engine_e1_e8
+ZERO_CODE	4	platform/endpoint/engine/ew/job_crossing/d_result_code[4]	platform/endpoint/engine/ew/<const0>	platform/endpoint/engine/ew/ui_result_code[4]	platform/endpoint/engine/ew/<const0>
+ZERO_CODE	5	platform/endpoint/engine/ew/job_crossing/d_result_code[5]	platform/endpoint/engine/ew/<const0>	platform/endpoint/engine/ew/ui_result_code[5]	platform/endpoint/engine/ew/<const0>
+ZERO_CODE	6	platform/endpoint/engine/ew/job_crossing/d_result_code[6]	platform/endpoint/engine/ew/<const0>	platform/endpoint/engine/ew/ui_result_code[6]	platform/endpoint/engine/ew/<const0>
+ZERO_CODE	7	platform/endpoint/engine/ew/job_crossing/d_result_code[7]	platform/endpoint/engine/ew/<const0>	platform/endpoint/engine/ew/ui_result_code[7]	platform/endpoint/engine/ew/<const0>
+SYNC	platform/endpoint/engine/ew/job_crossing/request_sync_reg[0]	sys_clock	platform/endpoint/engine/ew/job_crossing/request_toggle_reg/C
+SYNC	platform/endpoint/engine/ew/job_crossing/request_sync_reg[1]	sys_clock	{platform/endpoint/engine/ew/job_crossing/request_sync_reg[0]/C}
+SYNC	platform/endpoint/engine/ew/job_crossing/request_sync_reg[2]	sys_clock	{platform/endpoint/engine/ew/job_crossing/request_sync_reg[1]/C}
+SYNC	platform/endpoint/engine/ew/job_crossing/result_sync_reg[0]	clk_pll_i_1	platform/endpoint/engine/ew/job_crossing/result_toggle_reg/C
+SYNC	platform/endpoint/engine/ew/job_crossing/result_sync_reg[1]	clk_pll_i_1	{platform/endpoint/engine/ew/job_crossing/result_sync_reg[0]/C}
+SYNC	platform/endpoint/engine/ew/job_crossing/result_sync_reg[2]	clk_pll_i_1	{platform/endpoint/engine/ew/job_crossing/result_sync_reg[1]/C}
+SYNC	platform/endpoint/engine/ew/job_crossing/fault_sync_reg[0]	clk_pll_i_1	platform/endpoint/engine/ew/job_crossing/d_protocol_fault_reg/C
+SYNC	platform/endpoint/engine/ew/job_crossing/fault_sync_reg[1]	clk_pll_i_1	{platform/endpoint/engine/ew/job_crossing/fault_sync_reg[0]/C}
+SYNC	platform/endpoint/engine/ew/job_crossing/fault_sync_reg[2]	clk_pll_i_1	{platform/endpoint/engine/ew/job_crossing/fault_sync_reg[1]/C}
+PAYLOAD	descriptor	64	40.000
+PAYLOAD	result	37	15.000

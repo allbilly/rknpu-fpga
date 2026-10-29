@@ -1,0 +1,32 @@
+{
+  "status": "PASS_FIXED_DUAL_DDR_SCRATCH_WIRE_REPLAY_ONLY",
+  "decoded_commands": 85,
+  "memory_commands": 24,
+  "write_commands": 12,
+  "read_commands": 12,
+  "checked_bytes": 768,
+  "addresses": [
+    64,
+    4096,
+    6144,
+    2097216,
+    16777280,
+    2147483584
+  ],
+  "both_namespaces_initialized_before_memory": true,
+  "both_namespaces_healthy_after_memory": true,
+  "full_capacity_qualified": false,
+  "ecc_injection_qualified": false,
+  "recovery_qualified": false,
+  "numerical_execution_qualified": false,
+  "image_target_route_qualified": false,
+  "utc": "2026-10-28T04:59:42.759112+00:00",
+  "native_scan_sha256": "8cb93ee1bb41b09ba9adb26b352f8c2985c681c01a21e1ce4d5d3916d267c534",
+  "wire": {
+    "scans": 259,
+    "commands": 85,
+    "idcodes": 1,
+    "tap_resets": 1,
+    "initial_retained_sequence": 0
+  }
+}

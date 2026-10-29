@@ -1,0 +1,525 @@
+{
+  "donor_commit": "8e06b1b9d85aab65b40d43d08eec5ea4681ff715",
+  "donor_branch": "nvdlav1",
+  "source_note": "Imports from passed staged native core/DMA/AXI/board paths; relocation requires fresh consolidated tests. No physical FPGA claim.",
+  "imports": [
+    {
+      "path": "rtl/cmac/rk_nvdla_cmac_group.sv",
+      "source": "build/rk_nvdla_cmac_group.sv",
+      "source_sha256": "d0c971e04bfb3677ea9dc3589a9a18338f75c20e4c467125d3f8fb382c916add",
+      "sha256": "d0c971e04bfb3677ea9dc3589a9a18338f75c20e4c467125d3f8fb382c916add",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/cmac/rk_nvdla_cacc.sv",
+      "source": "build/rk_nvdla_cacc.sv",
+      "source_sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+      "sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+      "source": "build/rk_nvdla_fp32_to_fp16.sv",
+      "source_sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+      "sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_writer.sv",
+      "source": "build/rk_cmac_writer.sv",
+      "source_sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+      "sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_output_nvdla.sv",
+      "source": "build/rk_cmac_output_nvdla.sv",
+      "source_sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+      "sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/cmac/rk_nvdla_cmac_pipe.sv",
+      "source": "build/rk_nvdla_cmac_pipe.sv",
+      "source_sha256": "68a447ccaa622150d684095533fe6468abad9a1f05a97e06a72045426c8e57d5",
+      "sha256": "68a447ccaa622150d684095533fe6468abad9a1f05a97e06a72045426c8e57d5",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_nvdla_core.sv",
+      "source": "build/rk_cmac_nvdla_core.sv",
+      "source_sha256": "a1a10145d2d0dbcafb4d3162f6211170b6c608e7827851d6eb850e4bcc1bd2e3",
+      "sha256": "a1a10145d2d0dbcafb4d3162f6211170b6c608e7827851d6eb850e4bcc1bd2e3",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_nvdla_dma.sv",
+      "source": "build/rk_cmac_nvdla_dma.sv",
+      "source_sha256": "f27a2d367a45654fa74ad0f96543a18055c64f4c67cd426adc3b96291376031f",
+      "sha256": "f27a2d367a45654fa74ad0f96543a18055c64f4c67cd426adc3b96291376031f",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_job_control.sv",
+      "source": "build/rk_cmac_job_control.sv",
+      "source_sha256": "c51d510d268d3a600784b5243d1ba801d3c1d62a4807ade9f2f3115330b4135a",
+      "sha256": "c51d510d268d3a600784b5243d1ba801d3c1d62a4807ade9f2f3115330b4135a",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_axi_mem.sv",
+      "source": "build/rk_cmac_axi_mem.sv",
+      "source_sha256": "436612f3e6df2ee8d29cd1ca4c480d74a4f0b30b74b38d038469cd778f66324f",
+      "sha256": "436612f3e6df2ee8d29cd1ca4c480d74a4f0b30b74b38d038469cd778f66324f",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_nvdla_axi.sv",
+      "source": "build/rk_cmac_nvdla_axi.sv",
+      "source_sha256": "b302264fec7f9ae17e301e52a82cff40a2f7e8666ae06600e5bf8d7c75c7dd9a",
+      "sha256": "b302264fec7f9ae17e301e52a82cff40a2f7e8666ae06600e5bf8d7c75c7dd9a",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_demo_memory.sv",
+      "source": "build/rk_cmac_demo_memory.sv",
+      "source_sha256": "d79444d1776d5664736da3d9d17405b0f890fda30759fa578f35a94cc69ae58d",
+      "sha256": "d79444d1776d5664736da3d9d17405b0f890fda30759fa578f35a94cc69ae58d",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_demo_rom.sv",
+      "source": "build/rk_cmac_demo_rom.sv",
+      "source_sha256": "2a7c125523976beeb4ad53a29234111e5904573c2cc896007f28bc81c7744343",
+      "sha256": "3a6dc680f670573ef2684b69244a32badbd420cb93c50c6058798d0281b11fa9",
+      "change": "File lookup path and EOF whitespace only; arithmetic, control and expected values unchanged"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_bram_demo.sv",
+      "source": "build/rk_cmac_bram_demo.sv",
+      "source_sha256": "8a4de5735a598bd1b1f439e74419cd048ea1d1505abf70017c26306f71d379e8",
+      "sha256": "8a4de5735a598bd1b1f439e74419cd048ea1d1505abf70017c26306f71d379e8",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "fpga/cmac/ypcb_cmac_top.sv",
+      "source": "build/ypcb_cmac_top.sv",
+      "source_sha256": "cf6d5f7f5d5db362930ee43170aaaf2ac88386c736320aa8fd69009eb723b8b0",
+      "sha256": "cf6d5f7f5d5db362930ee43170aaaf2ac88386c736320aa8fd69009eb723b8b0",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/vendor/nvdla/NV_DW02_tree.v",
+      "source": "/home/fedora/hw/vmod/vlibs/NV_DW02_tree.v",
+      "source_sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+      "sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "source": "/home/fedora/hw/vmod/vlibs/HLS_fp32_to_fp16.v",
+      "source_sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+      "sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/vendor/nvdla/nv_assert_never.vlib",
+      "source": "/home/fedora/hw/vmod/vlibs/nv_assert_never.vlib",
+      "source_sha256": "d5b31a424e4518cdf58ef9fe303a749cd514bc1d134a9ac8198b454adc12c2ad",
+      "sha256": "d5b31a424e4518cdf58ef9fe303a749cd514bc1d134a9ac8198b454adc12c2ad",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/vendor/nvdla/nv_assert_no_x.vlib",
+      "source": "/home/fedora/hw/vmod/vlibs/nv_assert_no_x.vlib",
+      "source_sha256": "64ae1b6d9735257b681d3ad42ee0e05f425fc0ec11308c845cb7f668ce117a02",
+      "sha256": "64ae1b6d9735257b681d3ad42ee0e05f425fc0ec11308c845cb7f668ce117a02",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/vendor/nvdla/assertion_header.h",
+      "source": "/home/fedora/hw/vmod/vlibs/assertion_header.h",
+      "source_sha256": "433144e681c5823d1e886c9872a8e6b2bd0b2d7e7f221f2dc8620ba04c2585e9",
+      "sha256": "433144e681c5823d1e886c9872a8e6b2bd0b2d7e7f221f2dc8620ba04c2585e9",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/vendor/nvdla/assertion_task.h",
+      "source": "/home/fedora/hw/vmod/vlibs/assertion_task.h",
+      "source_sha256": "1bff44cbd43cead87f9357c8ba25e1b7a1a639fabfc081082470655b69e25cbd",
+      "sha256": "1bff44cbd43cead87f9357c8ba25e1b7a1a639fabfc081082470655b69e25cbd",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/vendor/nvdla/NV_DW_lsd.v",
+      "source": "/home/fedora/hw/vmod/vlibs/NV_DW_lsd.v",
+      "source_sha256": "d307f37ef4b3113ad761087afaf28bd4cc14ba223351af3eb3b7c2a70d20bafc",
+      "sha256": "d307f37ef4b3113ad761087afaf28bd4cc14ba223351af3eb3b7c2a70d20bafc",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+      "source": "/home/fedora/hw/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+      "source_sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+      "sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "source": "/home/fedora/hw/vmod/nvdla/cacc/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "source_sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+      "sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/vendor/nvdla/LICENSE",
+      "source": "/home/fedora/hw/LICENSE",
+      "source_sha256": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb",
+      "sha256": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "rtl/vendor/nvdla/compat/nv_assert_never.v",
+      "source": "build/nvdla_compat/nv_assert_never.v",
+      "source_sha256": "618c8f32430c7ce5939fbcddeabe39f4bc16bf5b9b73d3f88755dbe6e1713a06",
+      "sha256": "28a3ff37142647e9499cc0dd88095313c029acffe1bf7806160eb9fbbd288732",
+      "change": "File lookup path and EOF whitespace only; arithmetic, control and expected values unchanged"
+    },
+    {
+      "path": "rtl/vendor/nvdla/compat/nv_assert_no_x.v",
+      "source": "build/nvdla_compat/nv_assert_no_x.v",
+      "source_sha256": "4bd81f4a8012113a745b4be8eba4f539e30b61a8750df40231e06a18663d9209",
+      "sha256": "6eb56dc9ea269a4b071d3c00de3a23f5b75782b72403bcc72a7acc9e625a6e97",
+      "change": "File lookup path and EOF whitespace only; arithmetic, control and expected values unchanged"
+    },
+    {
+      "path": "rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+      "source": "build/nvdla_compat/NV_DW_lsd.v",
+      "source_sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+      "sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/tb_cmac_bram_demo.sv",
+      "source": "build/tb_cmac_bram_demo.sv",
+      "source_sha256": "80c2e8f7f3928b16c961bdf14b8f1d087b4e1e0e5c29357f28e5f62e2f6418b6",
+      "sha256": "61336ad476a9aca7190c8c37de2a236d15edd4b767175e1b6657fd2e318c0a5f",
+      "change": "File lookup path and EOF whitespace only; arithmetic, control and expected values unchanged"
+    },
+    {
+      "path": "tests/cmac/tb_cmac_demo_memory.sv",
+      "source": "build/tb_cmac_demo_memory.sv",
+      "source_sha256": "cdcc1c028e0b95b6b2239594f6ad4c15305320b0ca87b1641c9179682da35d9f",
+      "sha256": "cdcc1c028e0b95b6b2239594f6ad4c15305320b0ca87b1641c9179682da35d9f",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/tb_cmac_nvdla_core.sv",
+      "source": "build/tb_cmac_nvdla_core.sv",
+      "source_sha256": "c5009b3eb9f9cba471814b45587194a932874d48d57f92e097ce611220bbe3a6",
+      "sha256": "c5009b3eb9f9cba471814b45587194a932874d48d57f92e097ce611220bbe3a6",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/tb_cmac_nvdla_dma.sv",
+      "source": "build/cmac_nvdla_dma_candidate/verilator/tb_cmac_nvdla_dma.sv",
+      "source_sha256": "175f913d7da64d8848d0d30a42d874f4394b8041d28e73e962596c1a3fea5ceb",
+      "sha256": "175f913d7da64d8848d0d30a42d874f4394b8041d28e73e962596c1a3fea5ceb",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/tb_cmac_nvdla_axi.sv",
+      "source": "build/cmac_nvdla_axi_candidate/verilator_reset_fix/tb_cmac_nvdla_axi.sv",
+      "source_sha256": "4b5907931203630cfa9275273c42c5f88d784ef9eb4a11c99190da8601c75374",
+      "sha256": "22eb59af5b3bd8a67a168cbd0f13887f9ddf5e0797d984dd0111d93c8ff0996d",
+      "change": "Byte-identical copy; review fix: exact-count fail-closed memory oracle via tests/memory_check.svh and mandatory NCHECKS; original import hash retained in source_sha256"
+    },
+    {
+      "path": "tests/cmac/data/board_rom.hex",
+      "source": "build/cmac_bram_demo_candidate/rom.hex",
+      "source_sha256": "f954827e00c211eb828b77fd04b18d6f03ffe4d3962d0f8bcd979435d955d5f9",
+      "sha256": "f954827e00c211eb828b77fd04b18d6f03ffe4d3962d0f8bcd979435d955d5f9",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k7_finite/commands.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k7_finite/commands.hex",
+      "source_sha256": "b38291bce7f595cf7902e6c90bdcec0870bf099b8de32ce923e24f3169261ca1",
+      "sha256": "b38291bce7f595cf7902e6c90bdcec0870bf099b8de32ce923e24f3169261ca1",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k7_finite/input.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k7_finite/input.hex",
+      "source_sha256": "3d56236812a4ddc2ac7f8a5dbd4076740131b6b44e1ed826b1d7b27724a20f13",
+      "sha256": "3d56236812a4ddc2ac7f8a5dbd4076740131b6b44e1ed826b1d7b27724a20f13",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k7_finite/weight.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k7_finite/weight.hex",
+      "source_sha256": "68afb7e2494161d68b76a35cc2ca1ba7620fe54c58d3f26658d17fedaacadb38",
+      "sha256": "68afb7e2494161d68b76a35cc2ca1ba7620fe54c58d3f26658d17fedaacadb38",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k7_finite/groups.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k7_finite/groups.hex",
+      "source_sha256": "d0e6e6a5840ec95890ee93e76973f0d8436584a510b4604e3ab56b7bafaed4e9",
+      "sha256": "d0e6e6a5840ec95890ee93e76973f0d8436584a510b4604e3ab56b7bafaed4e9",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k7_finite/outputs.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k7_finite/outputs.hex",
+      "source_sha256": "b3c9448a5f05c5849ecc72ba701f94f7d9b0a4e816a787bdfd578a4dd662aa97",
+      "sha256": "b3c9448a5f05c5849ecc72ba701f94f7d9b0a4e816a787bdfd578a4dd662aa97",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k8_finite/commands.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k8_finite/commands.hex",
+      "source_sha256": "b38291bce7f595cf7902e6c90bdcec0870bf099b8de32ce923e24f3169261ca1",
+      "sha256": "b38291bce7f595cf7902e6c90bdcec0870bf099b8de32ce923e24f3169261ca1",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k8_finite/input.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k8_finite/input.hex",
+      "source_sha256": "41bfb10eba59dceb5a4bc28296dbbe07e779321fb766c18830fcb813862cc37a",
+      "sha256": "41bfb10eba59dceb5a4bc28296dbbe07e779321fb766c18830fcb813862cc37a",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k8_finite/weight.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k8_finite/weight.hex",
+      "source_sha256": "2409a050df4357a4d0851b620a83793ad9cb3eb62df698ea44bac58430d16889",
+      "sha256": "2409a050df4357a4d0851b620a83793ad9cb3eb62df698ea44bac58430d16889",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k8_finite/groups.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k8_finite/groups.hex",
+      "source_sha256": "cfe17425625752b110d7df534ac83517e3c60a30e0b99f0032bfd292965f8062",
+      "sha256": "cfe17425625752b110d7df534ac83517e3c60a30e0b99f0032bfd292965f8062",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k8_finite/outputs.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k8_finite/outputs.hex",
+      "source_sha256": "ecd5fb792743ac20370212151b03c44882379a4df4bfcbc396aa6468adfb5de1",
+      "sha256": "ecd5fb792743ac20370212151b03c44882379a4df4bfcbc396aa6468adfb5de1",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k9_finite/commands.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k9_finite/commands.hex",
+      "source_sha256": "b38291bce7f595cf7902e6c90bdcec0870bf099b8de32ce923e24f3169261ca1",
+      "sha256": "b38291bce7f595cf7902e6c90bdcec0870bf099b8de32ce923e24f3169261ca1",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k9_finite/input.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k9_finite/input.hex",
+      "source_sha256": "42ed186d4002eecba9c7ced88274554df7c8fae60115ff659ca638237cdfc7e8",
+      "sha256": "42ed186d4002eecba9c7ced88274554df7c8fae60115ff659ca638237cdfc7e8",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k9_finite/weight.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k9_finite/weight.hex",
+      "source_sha256": "6bb09c0ecd4af0dfbf6e91c71aaee64a6bf6fe60da3e4d3d325dac441b68fea5",
+      "sha256": "6bb09c0ecd4af0dfbf6e91c71aaee64a6bf6fe60da3e4d3d325dac441b68fea5",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k9_finite/groups.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k9_finite/groups.hex",
+      "source_sha256": "6a73c205222f95d19f774753c8ab338f83cbce5771a3160f257f8f93fb932dae",
+      "sha256": "6a73c205222f95d19f774753c8ab338f83cbce5771a3160f257f8f93fb932dae",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m1_n8_k9_finite/outputs.hex",
+      "source": "build/cmac_nvdla_core_candidate/m1_n8_k9_finite/outputs.hex",
+      "source_sha256": "bdca0054b734617aa4e45b71b9d27dc27e1deb6d12a02d59c657b53511f88fd4",
+      "sha256": "bdca0054b734617aa4e45b71b9d27dc27e1deb6d12a02d59c657b53511f88fd4",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k31_finite/commands.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k31_finite/commands.hex",
+      "source_sha256": "ae6b60a7b270c7be074c829b41858ed8ea91896a8b99f1f340c781500b3969b8",
+      "sha256": "ae6b60a7b270c7be074c829b41858ed8ea91896a8b99f1f340c781500b3969b8",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k31_finite/input.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k31_finite/input.hex",
+      "source_sha256": "689504bb05be6abbb85775012605aa0a341221d321fb727b0923212eacb20057",
+      "sha256": "689504bb05be6abbb85775012605aa0a341221d321fb727b0923212eacb20057",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k31_finite/weight.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k31_finite/weight.hex",
+      "source_sha256": "c0177fd7a596ce289b8d520d7a9f3adab70355005b319242af2b03ea411256d8",
+      "sha256": "c0177fd7a596ce289b8d520d7a9f3adab70355005b319242af2b03ea411256d8",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k31_finite/groups.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k31_finite/groups.hex",
+      "source_sha256": "897f995c047d9d5d70bed1385580c5199a0b2f4b0a829884a9db3e419a75e769",
+      "sha256": "897f995c047d9d5d70bed1385580c5199a0b2f4b0a829884a9db3e419a75e769",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k31_finite/outputs.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k31_finite/outputs.hex",
+      "source_sha256": "f235400529b1a46f59465518cceec53ff756c3a2036c2df6af6c89a5e35c8ff9",
+      "sha256": "f235400529b1a46f59465518cceec53ff756c3a2036c2df6af6c89a5e35c8ff9",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k32_finite/commands.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k32_finite/commands.hex",
+      "source_sha256": "ae6b60a7b270c7be074c829b41858ed8ea91896a8b99f1f340c781500b3969b8",
+      "sha256": "ae6b60a7b270c7be074c829b41858ed8ea91896a8b99f1f340c781500b3969b8",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k32_finite/input.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k32_finite/input.hex",
+      "source_sha256": "770f2e048ef8b827bdd7c9fd67ff1070704075372cc70b80096c518853783f04",
+      "sha256": "770f2e048ef8b827bdd7c9fd67ff1070704075372cc70b80096c518853783f04",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k32_finite/weight.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k32_finite/weight.hex",
+      "source_sha256": "06ba8bb31a0157fc517ea984971a688be5388b5118bd8c52ec777cefd648c552",
+      "sha256": "06ba8bb31a0157fc517ea984971a688be5388b5118bd8c52ec777cefd648c552",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k32_finite/groups.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k32_finite/groups.hex",
+      "source_sha256": "52455f35d5b5fc57af30167a344882fefc943edc47aab2b5fcf8ded9fd7281f7",
+      "sha256": "52455f35d5b5fc57af30167a344882fefc943edc47aab2b5fcf8ded9fd7281f7",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k32_finite/outputs.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k32_finite/outputs.hex",
+      "source_sha256": "80612fc3e65a1970c1ba1a3024e3731a323c5d9cf51ccf132b7289e401040fa4",
+      "sha256": "80612fc3e65a1970c1ba1a3024e3731a323c5d9cf51ccf132b7289e401040fa4",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k33_finite/commands.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k33_finite/commands.hex",
+      "source_sha256": "5f39c145494136c207c0d9dad3196b247fc5b6b87e3f5d8977c8ac125076585c",
+      "sha256": "5f39c145494136c207c0d9dad3196b247fc5b6b87e3f5d8977c8ac125076585c",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k33_finite/input.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k33_finite/input.hex",
+      "source_sha256": "850165b3a8109cd5ea4a95e6fd0df19c956289c2b65a0223e0285c7c37de764d",
+      "sha256": "850165b3a8109cd5ea4a95e6fd0df19c956289c2b65a0223e0285c7c37de764d",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k33_finite/weight.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k33_finite/weight.hex",
+      "source_sha256": "d1ca4e52c639f6ca232ef285c7c9b3b7a87f16b85c589b00bc9e613d1af595ed",
+      "sha256": "d1ca4e52c639f6ca232ef285c7c9b3b7a87f16b85c589b00bc9e613d1af595ed",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k33_finite/groups.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k33_finite/groups.hex",
+      "source_sha256": "c49afb588073f35064080c68207f4e2f7b35c80c528e6c7c6283d2658e83f8a2",
+      "sha256": "c49afb588073f35064080c68207f4e2f7b35c80c528e6c7c6283d2658e83f8a2",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k33_finite/outputs.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k33_finite/outputs.hex",
+      "source_sha256": "fe3e8c70c6b6c3a7498f07137dc756a2b5cfa59ade12914b62cdd4062fe38f2d",
+      "sha256": "fe3e8c70c6b6c3a7498f07137dc756a2b5cfa59ade12914b62cdd4062fe38f2d",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k65_finite/commands.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k65_finite/commands.hex",
+      "source_sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+      "sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k65_finite/input.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k65_finite/input.hex",
+      "source_sha256": "8b8a6c9176f09782089f212db2f122964b5c88d329ec1689f78f9074f85a4d7f",
+      "sha256": "8b8a6c9176f09782089f212db2f122964b5c88d329ec1689f78f9074f85a4d7f",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k65_finite/weight.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k65_finite/weight.hex",
+      "source_sha256": "5a0fe3a65f71d7f75b9e103f261ddf50da7b9d4bcb71a6d2ebe1f461301a9f4c",
+      "sha256": "5a0fe3a65f71d7f75b9e103f261ddf50da7b9d4bcb71a6d2ebe1f461301a9f4c",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k65_finite/groups.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k65_finite/groups.hex",
+      "source_sha256": "d9316df3c874db9b8377c1067109a25b4ecac205f1f25047325c0884eb0fada6",
+      "sha256": "d9316df3c874db9b8377c1067109a25b4ecac205f1f25047325c0884eb0fada6",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k65_finite/outputs.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k65_finite/outputs.hex",
+      "source_sha256": "7ab88a17eb139f542efacf72b3438596415bd7756aafeb340f86ed8e3593bc27",
+      "sha256": "7ab88a17eb139f542efacf72b3438596415bd7756aafeb340f86ed8e3593bc27",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k65_mixed/commands.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k65_mixed/commands.hex",
+      "source_sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+      "sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k65_mixed/input.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k65_mixed/input.hex",
+      "source_sha256": "2adce5e6ed5ad5b2a27cea02d96e5fdde0814b644ad6e6bdf15f6ca75d76f40f",
+      "sha256": "2adce5e6ed5ad5b2a27cea02d96e5fdde0814b644ad6e6bdf15f6ca75d76f40f",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k65_mixed/weight.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k65_mixed/weight.hex",
+      "source_sha256": "3f250d1d74e96f4410cd584f65e9e79954224b5113bad81fa57ab11fb5b51fd8",
+      "sha256": "3f250d1d74e96f4410cd584f65e9e79954224b5113bad81fa57ab11fb5b51fd8",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k65_mixed/groups.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k65_mixed/groups.hex",
+      "source_sha256": "be0431b036315a8670bb3ad829b327310640035b520eb9ec2558530a082ed718",
+      "sha256": "be0431b036315a8670bb3ad829b327310640035b520eb9ec2558530a082ed718",
+      "change": "Byte-identical copy"
+    },
+    {
+      "path": "tests/cmac/data/m2_n17_k65_mixed/outputs.hex",
+      "source": "build/cmac_nvdla_core_candidate/m2_n17_k65_mixed/outputs.hex",
+      "source_sha256": "50e0033f9a15319a4e010897f527ce202ec3391bdb4792820754b7ff14c752bd",
+      "sha256": "50e0033f9a15319a4e010897f527ce202ec3391bdb4792820754b7ff14c752bd",
+      "change": "Byte-identical copy"
+    }
+  ]
+}

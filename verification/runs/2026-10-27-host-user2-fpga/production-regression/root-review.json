@@ -1,0 +1,59 @@
+{
+  "status": "PASS_ROOT_PRIVATE_PRODUCTION_RECEIPT_AND_ARTIFACT_RECHECK",
+  "utc": "2026-10-26T17:38:11.680651+00:00",
+  "finalization_sha256": "ef12721c9cf847b7348c3149fd6fbac9f7c97f5b2d3e3b18ac474ee91394a4c6",
+  "core_source_revision": "0df67a3f63826116dc575cb52a5fd3dab0da715c9e31fe33d8d5e9ffa53df917",
+  "artifact_hashes_rechecked": 2323,
+  "reports": [
+    {
+      "path": "build/cmac_iverilog/report.json",
+      "status": "PASS_RAW_PRODUCT_PATH_ONLY",
+      "sha256": "d7d822ae932b9c06b73ef5144c1491874ebef151d255029ca9bfca282b0c5c72"
+    },
+    {
+      "path": "build/cmac_vectors/vectors_report.json",
+      "status": "GENERATED_RAW_COMMAND_AND_SYNTHETIC_OPERANDS",
+      "sha256": "44e87f82c09ac88c668a6a95d8e2e99342810eaf358562882f761c892c68c4da"
+    },
+    {
+      "path": "build/cmac_verilator/report.json",
+      "status": "PASS_RAW_PRODUCT_PATH_ONLY",
+      "sha256": "c3c343d6bf5263c4773578926daf498e3b334b7a07998c0ced57d2e24b17dbda"
+    },
+    {
+      "path": "build/fp16_product_vectors/vectors_report.json",
+      "status": "GENERATED_INDEPENDENT_PRODUCT_REFERENCE",
+      "sha256": "d1f2d7dd525da598f7ef73ddde68854b55a5d7d1c21584456b958da36956ff7b"
+    },
+    {
+      "path": "build/host-jtag/iverilog-1793035523357174042/report.json",
+      "status": "PASS",
+      "sha256": "571dd130e3a4259367e143eb1333320244fc7677853c8b7f278769da970fedb9"
+    },
+    {
+      "path": "build/host-jtag/verilator-1793035523271346733/report.json",
+      "status": "PASS",
+      "sha256": "54166b7accdf5e7cc7731c3b86e4600798e5112c39ed1e82d5a87e9853226e88"
+    },
+    {
+      "path": "build/iverilog/report.json",
+      "status": "PASS",
+      "sha256": "5e7964ee63dc01d778d6d8e1453c3f735316409689e146986478d3490a9ecb5a"
+    },
+    {
+      "path": "build/numeric_report.json",
+      "status": "PASS",
+      "sha256": "bff5d6fe00b194ff371c9c88345efcbae530842316fbf239e125f743d33ea7c9"
+    },
+    {
+      "path": "build/rtl/report.json",
+      "status": "PASS",
+      "sha256": "0afb2a1c04aece006133bd6245a8fae31bfe2e48919e00a6ae97e1d313625ad0"
+    }
+  ],
+  "make_test_rc": 0,
+  "make_test_seconds": 452.074,
+  "host_control_scope": "Private52-method2MHz-adapter control snapshot; live53-method3MHz controls separately pass; current production RTL/main source manifest unchanged",
+  "wrapper_failure_preserved": true,
+  "physical_hardware_evidence": false
+}

@@ -1,0 +1,36 @@
+{
+  "status": "PASS_LAB_SOFTWARE_CAPABILITIES_ONLY",
+  "scope": "VivadoLab software-version/command initialization only; no server connect, target, programming or hardware access",
+  "hardware_accessed": false,
+  "server_connected": false,
+  "target_opened": false,
+  "executable": "/home/fedora/vivado/2026.1.1/Vivado_Lab/bin/vivado_lab",
+  "executable_sha256": "2bfd474655a1e968e76f241664d295eed79fef99176954b95ff22ba8b1cbaba8",
+  "script_sha256": "e777ee5d28af9d3d596d90ae94295d256017448fcefe14265b5016ad3f4a1cbf",
+  "initial_available_kib": 8228228,
+  "argv": [
+    "/home/fedora/vivado/2026.1.1/Vivado_Lab/bin/vivado_lab",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/vivado-lab-capabilities/v1/probe.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/vivado-lab-capabilities/v1/vivado-lab.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/vivado-lab-capabilities/v1/vivado-lab.jou"
+  ],
+  "pid": 727253,
+  "returncode": 0,
+  "version": "Vivado Lab Edition v2026.1.1 (64-bit)\nSW Build 6605303 on Fri Sep 04 05:39:33 MDT 2026\nTool Version Limit: 2026.06\nCopyright 1986-2022 Xilinx, Inc. All Rights Reserved.\nCopyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.\n\n",
+  "maxrss_kib": 501408,
+  "seconds": 5.295406923163682,
+  "artifacts": {
+    "probe.tcl": "e777ee5d28af9d3d596d90ae94295d256017448fcefe14265b5016ad3f4a1cbf",
+    "run.py": "a2e313e762e3a39f85d7a16059bafab79ba097c730f4acb5e34d1a250066dfa7",
+    "stdout.log": "2f8bde9dff93356fc9c8db3e22752e9a4b307587e5ccd2ebec1fcf14021a4d96",
+    "vivado-lab.jou": "3e641b7226b1b457734f7bc549c7631b7d11193772ca991107a4905cfe4c5239",
+    "vivado-lab.log": "6c2beac11c7bfeb21d4bbc49fe7c1d5fca91ffc5f894dcb5a59f67f1c251a185",
+    "capabilities.tsv": "b795110420b05248d575c85c43c8ea49a247c30e8b6ba5981ad8303d52339a52",
+    "version.txt": "5fed2f0b8fd46c0ac76446cbfbe3b974cd0f7866188a7b30ad7d55892dc1211b"
+  }
+}

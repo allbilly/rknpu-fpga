@@ -1,0 +1,273 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 09-oct-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Mon Oct 26 12:57:17 2026
+# Process ID         : 259827
+# Current directory  : /home/fedora/rknpu-fpga
+# Command line       : vivado -mode batch -source build/fpga-bringup/ew-startup-1792988881763089417/post-route-review-v2.tcl -log build/fpga-bringup/ew-startup-1792988881763089417/post-route-review-v2-vivado.log -journal build/fpga-bringup/ew-startup-1792988881763089417/post-route-review-v2-vivado.jou -tclargs /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/post-route-audit-2
+# Log file           : /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/post-route-review-v2-vivado.log
+# Journal file       : /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/post-route-review-v2-vivado.jou
+# Running On         : fedora
+# Platform           : unknown
+# Operating System   : unknown
+# Processor Detail   : AMD Ryzen 7 4700U with Radeon Graphics
+# CPU Frequency      : 1845.816 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 8
+# Host memory        : 39639 MB
+# Swap memory        : 25769 MB
+# Total Virtual      : 65409 MB
+# Available Virtual  : 45124 MB
+#-----------------------------------------------------------
+source build/fpga-bringup/ew-startup-1792988881763089417/post-route-review-v2.tcl
+# set expected_hashes [dict create \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/fpga/ypcb_ew_startup.xdc} {289802614193de8ddd4a799ab0440e8f408003749292e9a0baf36aba7f18364e} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/fpga/ypcb_ew_startup_top.sv} {b55c794212a1b3b3b13696df4541751e29094b679e4390fe01ffe5827c9c1a55} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_bram.sv} {ffb9db11b442a47d7f3f82a5ef78f5de00fc999732aa5cdf670b9c6da98e963c} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_demo_memory.sv} {5ed0b1200be238f93ccc7c39d3e079f790a445a7be4d1e76e294b51541bef515} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_dma_demo_rom.sv} {5818805ff1ab6d76ff75ab4043e370f00cd47f14eda090e0aa8c1c4bf806a591} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_ew_dma.sv} {55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_ew_dma_demo.sv} {ed96a22d9801b2b862da8e31b5833ac38d0dc27a05f3f3e220c092cfeb57e64c} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_ew_engine.sv} {aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_ew_regs.sv} {592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_fp16_alu.sv} {f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_startup_reset.sv} {884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/build.tcl} {5c43a56808fabb53eea43a613f78bb7a116583336e53364f69e0db03531b0d7b} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/report.json} {6773dbecca5e849c9992fe1e444186ad9b456dd50024b5cae73c66031d379634} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/checkpoint-build.json} {3ffda03909f54727e440a6658d66d699033617f7ba5291cb38aa197d86334544} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/pad-observation-board-review.json} {56849ea5683f482c8afc492bd5fbf4f318de408ad418e4ce98ace28e4587e73e} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/implementation/routed.dcp} {6ff196db78e0dcf4eba8c903a3646d46da9d61c4ee9d2199cc3800341e79b725} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/checkpoint-vivado.log} {83ff26b9b1edf793624f282b4a546f58dbab35bf1544bd43917b4fae14b54754}]
+# proc require {condition message} {if {!$condition} {error $message}}
+# proc finite {value} {
+#     return [expr {[string is double -strict $value] &&
+#         ![catch {expr {abs(double($value)) < Inf}} result] && $result}]
+# }
+# proc pin_hashes {} {
+#     global expected_hashes
+#     dict for {path expected} $expected_hashes {
+#         require [file isfile $path] "Missing bound input: $path"
+#         set actual [lindex [exec sha256sum -- $path] 0]
+#         require [expr {$actual eq $expected}] "Changed bound input: $path"
+#     }
+# }
+# proc one {items label} {
+#     require [expr {[llength $items] == 1}] "Expected one $label; got $items"
+#     return [lindex $items 0]
+# }
+# proc save_text {path text} {
+#     set fd [open $path w]; puts $fd $text; close $fd
+# }
+# proc prop {object key} {
+#     if {[lsearch -exact [list_property $object] $key] < 0} {return "-"}
+#     return [get_property $key $object]
+# }
+# require [expr {$argc == 1}] "Usage: post-route-review.tcl <fresh-output-directory>"
+# set work {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417}
+# set out [file normalize [lindex $argv 0]]
+# require [expr {[string first "$work/" "$out/"] == 0 && ![file exists $out]}] "Use a fresh output under the hardware work directory"
+# pin_hashes
+# file mkdir $out
+# open_checkpoint [file join $work prepared implementation routed.dcp]
+Command: open_checkpoint /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/implementation/routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 1673.902 ; gain = 8.906 ; free physical = 1962 ; free virtual = 42776
+INFO: [Device 21-403] Loading part xc7k480tffg1156-2
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2159.484 ; gain = 0.000 ; free physical = 1596 ; free virtual = 42410
+INFO: [Netlist 29-17] Analyzing 466 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2245.203 ; gain = 0.000 ; free physical = 1494 ; free virtual = 42308
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2826.141 ; gain = 0.000 ; free physical = 1014 ; free virtual = 41830
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2826.141 ; gain = 0.000 ; free physical = 1014 ; free virtual = 41830
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2826.141 ; gain = 0.000 ; free physical = 1014 ; free virtual = 41830
+Read placeStorage: Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.11 . Memory (MB): peak = 2845.219 ; gain = 19.078 ; free physical = 1014 ; free virtual = 41830
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2845.219 ; gain = 0.000 ; free physical = 1014 ; free virtual = 41830
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2845.219 ; gain = 0.000 ; free physical = 1014 ; free virtual = 41830
+Read Physdb Files: Time (s): cpu = 00:00:00.24 ; elapsed = 00:00:00.18 . Memory (MB): peak = 2845.219 ; gain = 19.078 ; free physical = 1014 ; free virtual = 41830
+Restored from archive | CPU: 0.280000 secs | Memory: 5.757408 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.27 ; elapsed = 00:00:00.22 . Memory (MB): peak = 2845.219 ; gain = 23.047 ; free physical = 1014 ; free virtual = 41830
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2845.219 ; gain = 0.000 ; free physical = 1014 ; free virtual = 41830
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2026.1 (64-bit) build 6511674
+open_checkpoint: Time (s): cpu = 00:00:24 ; elapsed = 00:00:15 . Memory (MB): peak = 2845.254 ; gain = 1182.258 ; free physical = 1014 ; free virtual = 41830
+# require [expr {[get_property PART [current_design]] eq "xc7k480tffg1156-2"}] "Wrong routed part"
+# require [expr {[get_property TOP [current_design]] eq "ypcb_ew_startup_top"}] "Wrong routed top"
+# require [expr {[get_property CFGBVS [current_design]] eq "GND" &&
+#                [get_property CONFIG_VOLTAGE [current_design]] == 1.8}] "Changed reviewed electrical pair"
+# require [expr {[llength [get_waivers]] == 0}] "Waivers are forbidden"
+# set fully [report_route_status -boolean_check ROUTED_FULLY]
+# set errors [report_route_status -boolean_check ERRORS_IN_ROUTES]
+# require [expr {$fully == 1 && $errors == 0}] "Incomplete or erroneous routing"
+# report_route_status -file [file join $out route_status.rpt]
+# set ports [lsort [get_ports]]
+# set expected_ports [lsort {SYS_CLK led_3bits_tri_o[0] led_3bits_tri_o[1] led_3bits_tri_o[2]}]
+# require [expr {$ports eq $expected_ports}] "Unexpected top-level ports (including any reset input)"
+# set f [open [file join $out facts.tsv] w]
+# puts $f "PART\t[get_property PART [current_design]]"
+# puts $f "TOP\t[get_property TOP [current_design]]"
+# puts $f "CONFIG_VOLTAGE\t[get_property CONFIG_VOLTAGE [current_design]]"
+# puts $f "CFGBVS\t[get_property CFGBVS [current_design]]"
+# puts $f "ROUTED_FULLY\t$fully"
+# puts $f "ERRORS_IN_ROUTES\t$errors"
+# puts $f "WAIVERS\t[llength [get_waivers]]"
+# foreach {name pin direction} {SYS_CLK AA28 IN {led_3bits_tri_o[0]} P30 OUT {led_3bits_tri_o[1]} M30 OUT {led_3bits_tri_o[2]} N30 OUT} {
+#     set p [one [get_ports -quiet [list $name]] $name]
+#     require [expr {[get_property PACKAGE_PIN $p] eq $pin &&
+#                    [get_property IOSTANDARD $p] eq "LVCMOS18" &&
+#                    [get_property DIRECTION $p] eq $direction}] "Changed pin/standard/direction: $name"
+#     puts $f "PORT\t$name\t$pin\t[get_property IOSTANDARD $p]\t$direction"
+# }
+# set clock [one [get_clocks] clock]
+# require [expr {[get_property NAME $clock] eq "sys_clk"}] "Wrong clock name"
+# set period [get_property PERIOD $clock]
+# require [expr {[finite $period] && $period == 20.0}] "Wrong clock period"
+# set waveform [get_property WAVEFORM $clock]
+# require [expr {[llength $waveform] == 2 && [finite [lindex $waveform 0]] &&
+#                [finite [lindex $waveform 1]] && [lindex $waveform 0] == 0.0 &&
+#                [lindex $waveform 1] == 10.0}] "Wrong 50 percent waveform"
+# puts $f "CLOCK\t$clock\t$period\t[get_property WAVEFORM $clock]"
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+# set timing [report_timing_summary -delay_type min_max -report_unconstrained -return_string]
+# save_text [file join $out timing.rpt] $timing
+# set summary 0
+# foreach line [split $timing \n] {
+#     if {[regexp {^\s*WNS\(ns\)\s+TNS\(ns\)} $line]} {set summary 1; continue}
+#     if {$summary == 1} {
+#         if {[string trim $line] eq "" || [regexp {^\s*-} $line]} {continue}
+#         set fields [regexp -all -inline {\S+} $line]
+#         require [expr {[llength $fields] == 12}] "Unknown timing summary layout"
+#         foreach number $fields {require [finite $number] "Invalid timing summary number"}
+#         foreach index {0 4 8} {require [expr {[lindex $fields $index] >= 0}] "Negative setup/hold/pulse slack"}
+#         foreach index {1 2 5 6 9 10} {require [expr {[lindex $fields $index] == 0}] "Failing timing endpoint/total slack"}
+#         foreach index {3 7 11} {require [expr {[lindex $fields $index] > 0}] "Missing timing endpoint coverage"}
+#         puts $f "TIMING_SUMMARY\t[join $fields \t]"
+#         set summary 2; break
+#     }
+# }
+# require [expr {$summary == 2}] "Missing timing summary"
+# foreach delay {max min} {
+#     set path [one [get_timing_paths -delay_type $delay -max_paths 1] "$delay timing path"]
+#     set slack [get_property SLACK $path]
+#     require [expr {[finite $slack] && $slack >= 0}] "Invalid/negative $delay slack"
+#     puts $f "WORST_PATH\t$delay\t$slack"
+# }
+# set pulse [report_pulse_width -return_string]
+# save_text [file join $out pulse_width.rpt] $pulse
+# set in_table 0
+# set seen {}
+# foreach line [split $pulse \n] {
+#     if {[regexp {^Check Type\s+Corner\s+Lib Pin} $line]} {set in_table 1; continue}
+#     if {!$in_table || [string trim $line] eq "" || [regexp {^\s*-+$} $line]} {continue}
+#     require [regexp {^(Min Period|Low Pulse Width|High Pulse Width)\s+\S+\s+\S+\s+\S+\s+(\S+)\s+(\S+)\s+(\S+)\s+\S+\s+\S+\s*$} $line -> kind required actual slack] "Unrecognized pulse check: $line"
+#     foreach number [list $required $actual $slack] {require [finite $number] "Invalid pulse number"}
+#     require [expr {$slack >= 0 && $required > 0 && $actual > 0}] "Pulse width failed"
+#     require [expr {[lsearch -exact $seen $kind] < 0}] "Duplicate pulse check type"
+#     lappend seen $kind
+#     puts $f "PULSE\t$kind\t$required\t$actual\t$slack"
+# }
+# require [expr {[lsort $seen] eq [lsort {"Min Period" "Low Pulse Width" "High Pulse Width"}]}] "Incomplete pulse checks"
+# set checked [check_timing -verbose -return_string]
+# save_text [file join $out check_timing.rpt] $checked
+# set counts [dict create]
+# foreach line [split $checked \n] {
+#     if {[regexp {^\s*[0-9]+\. checking ([a-z_]+) \(([0-9]+)\)\s*$} $line -> key count]} {
+#         dict set counts $key $count
+#     }
+# }
+# foreach key {no_clock constant_clock pulse_width_clock unconstrained_internal_endpoints no_input_delay multiple_clock generated_clocks loops partial_input_delay partial_output_delay latch_loops} {
+#     require [expr {[dict exists $counts $key] && [dict get $counts $key] == 0}] "Missing or failed check_timing: $key"
+# }
+# require [expr {[dict exists $counts no_output_delay] && [dict get $counts no_output_delay] == 3}] "Changed LED-only output exception inventory"
+# require [expr {[string first "There are 0 ports with no output delay specified." $checked] >= 0 &&
+#                [string first "There are 3 ports with no output delay but user has a false path constraint" $checked] >= 0}] "Unexpected unconstrained output"
+# foreach name {led_3bits_tri_o[0] led_3bits_tri_o[1] led_3bits_tri_o[2]} {
+#     require [expr {[string first $name $checked] >= 0}] "Missing reviewed LED false path: $name"
+# }
+# puts $f "CHECK_TIMING\t$counts"
+# report_drc -file [file join $out drc.rpt]
+Command: report_drc -file /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/post-route-audit-2/drc.rpt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/fedora/vivado/2026.1/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/post-route-audit-2/drc.rpt.
+report_drc completed successfully
+# set drc_counts [dict create DPIP-1 0 DPOP-1 0 DPOP-2 0]
+# foreach violation [get_drc_violations] {
+#     set name [get_property NAME $violation]
+#     set severity [string toupper [get_property SEVERITY $violation]]
+#     require [expr {$severity eq "WARNING"}] "Blocking/unreviewed DRC severity: $name $severity"
+#     require [regexp {^(DPIP-1|DPOP-1|DPOP-2)#[0-9]+$} $name -> rule] "Unreviewed DRC rule: $name"
+#     dict incr drc_counts $rule
+#     puts $f "DRC\t$name\t$severity"
+# }
+# require [expr {[dict get $drc_counts DPIP-1] == 2 && [dict get $drc_counts DPOP-1] == 1 &&
+#                [dict get $drc_counts DPOP-2] == 1}] "Changed DSP pipeline warning inventory"
+# set bram [get_cells -hier -filter {REF_NAME == RAMB18E1 || REF_NAME == RAMB36E1}]
+# set dsp [get_cells -hier -filter {REF_NAME == DSP48E1}]
+# require [expr {[llength $bram] > 0 && [llength $dsp] > 0}] "Missing implemented BRAM/math primitives"
+# puts $f "BRAM_COUNT\t[llength $bram]"
+# puts $f "DSP_COUNT\t[llength $dsp]"
+# set init_file [open [file join $out startup-and-control-facts.tsv] w]
+# set startup_count 0
+# foreach cell [lsort [get_cells -hier -filter {IS_PRIMITIVE}]] {
+#     set name [get_property NAME $cell]; set ref [get_property REF_NAME $cell]
+#     if {[string match "startup/*" $name] || [string match "*release_pipe_reg*" $name] ||
+#         [string match "*reset_n_reg*" $name] || [string match "*state_reg*" $name] ||
+#         [string match "RAMB*" $ref] || $ref eq "DSP48E1" || [string match "heartbeat_reg*" $name]} {
+#         puts $init_file "CELL\t$name\t$ref\tINIT=[prop $cell INIT]\tLOC=[prop $cell LOC]"
+#         if {[string match "startup/*" $name] || [string match "*release_pipe_reg*" $name]} {incr startup_count}
+#         foreach pin [lsort [get_pins -of_objects $cell -filter {DIRECTION == IN}]] {
+#             set nets [get_nets -quiet -segments -of_objects $pin]
+#             set drivers {}
+#             foreach source [get_pins -quiet -of_objects $nets -filter {DIRECTION == OUT}] {
+#                 set parent [get_cells -quiet -of_objects $source]
+#                 if {[llength $parent] == 1 && [get_property IS_PRIMITIVE $parent]} {lappend drivers $source}
+#             }
+#             puts $init_file "PIN\t$pin\tNETS=$nets\tDRIVERS=[lsort -unique $drivers]"
+#         }
+#     }
+# }
+WARNING: [Vivado 12-508] No pins matched 'get_pins -of_objects startup/GND -filter {DIRECTION == IN}'.
+WARNING: [Vivado 12-508] No pins matched 'get_pins -of_objects startup/VCC -filter {DIRECTION == IN}'.
+# close $init_file
+# puts $f "STARTUP_NAMED_CELL_COUNT\t$startup_count"
+# set cones [open [file join $out function-cones.tsv] w]
+# foreach port [get_ports {led_3bits_tri_o[*]}] {
+#     puts $cones "PAD\t$port\tSTARTPOINTS=[all_fanin -flat -startpoints_only -to $port]"
+# }
+# foreach cell [get_cells -hier -filter {NAME =~ *state_reg* && IS_PRIMITIVE}] {
+#     foreach pin [get_pins -quiet -of_objects $cell -filter {REF_PIN_NAME == D}] {
+#         puts $cones "STATE_D\t$pin\tSTARTPOINTS=[all_fanin -flat -startpoints_only -to $pin]"
+#     }
+# }
+# close $cones
+# write_verilog -force -mode funcsim [file join $out routed_funcsim.v]
+# write_xdc -force [file join $out implemented.xdc]
+# report_utilization -hierarchical -file [file join $out utilization_hierarchical.rpt]
+# report_exceptions -file [file join $out exceptions.rpt]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+# close $f
+# pin_hashes
+# save_text [file join $out result.txt] "PASS_ROUTE_TIMING_IO_DRC_REVIEW; startup INIT/function cone facts require independent inspection before image approval; no bitstream or hardware action"
+# close_design
+# exit 0
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 26 12:57:41 2026...

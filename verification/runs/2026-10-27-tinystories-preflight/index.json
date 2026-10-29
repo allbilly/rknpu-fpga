@@ -1,0 +1,400 @@
+{
+  "status": "PRESERVED_TINYSTORIES_PREFLIGHT_TEXT_EVIDENCE_ONLY",
+  "created_utc": "2026-10-26T18:48:02.092279+00:00",
+  "plan_sha256": "26890dc50e7454df3f1b140b3236c71c529f52f423414b04396c2909cafccb9c",
+  "scope": "Static model/code/CPU reference/finite-copy RTL/first-trained-tile Icarus only; no RKNPU model FPGA inference; full Make timeout preserved; model and executable binaries excluded",
+  "file_count": 78,
+  "bytes": 3273042,
+  "files": {
+    "source/tools/tinystories/__init__.py": {
+      "source": "/home/fedora/rknpu-fpga/tools/tinystories/__init__.py",
+      "sha256": "9bb7c4aa0b697053cf6681e9f345cdc86bf498e86c14f0133753b42dee3338f6",
+      "bytes": 80
+    },
+    "source/tools/tinystories/prepare.py": {
+      "source": "/home/fedora/rknpu-fpga/tools/tinystories/prepare.py",
+      "sha256": "75f357f82e3b80b3f84dc61f46c28deb774f8ce19e3ff430be592fe19b44e45d",
+      "bytes": 14742
+    },
+    "source/tools/tinystories/check_unity.py": {
+      "source": "/home/fedora/rknpu-fpga/tools/tinystories/check_unity.py",
+      "sha256": "f882cfe0e3f63c15c76f612f111ff8a18ba9426f1a85708333b9e2b96870d0c6",
+      "bytes": 5813
+    },
+    "source/tools/tinystories/first_projection.py": {
+      "source": "/home/fedora/rknpu-fpga/tools/tinystories/first_projection.py",
+      "sha256": "c5ed704285865873f96a473beb7d70d167746c49f38dcfa9300d2131b252a42a",
+      "bytes": 15501
+    },
+    "source/tools/tinystories/replay_projection.py": {
+      "source": "/home/fedora/rknpu-fpga/tools/tinystories/replay_projection.py",
+      "sha256": "4f0c0e3784ed4c644066ff3939c30f57a1bd9abdfcc895ad9079371baaa732cd",
+      "bytes": 6179
+    },
+    "source/tools/tinystories/check_package.py": {
+      "source": "/home/fedora/rknpu-fpga/tools/tinystories/check_package.py",
+      "sha256": "ad4d3a839aa87e2443c9a01a67e8ed0799f0f3592b678f8ca7907a1998d91d9d",
+      "bytes": 3398
+    },
+    "source/tests/tinystories/test_preparation.py": {
+      "source": "/home/fedora/rknpu-fpga/tests/tinystories/test_preparation.py",
+      "sha256": "889359615e1d2eab05be6a26b49f80a4354611b9668721f58f911768e1c20da4",
+      "bytes": 3453
+    },
+    "source/Makefile": {
+      "source": "/home/fedora/rknpu-fpga/Makefile",
+      "sha256": "47f388f9a9b7d662048197db98622b57e00ed302c774bfed08ce7a2cc23dac5e",
+      "bytes": 5543
+    },
+    "source/docs/TINYSTORIES.md": {
+      "source": "/home/fedora/rknpu-fpga/docs/TINYSTORIES.md",
+      "sha256": "294785096abdfe1fabee2dd0280e3b2e34981c8c6f8998958f7b93a04664891c",
+      "bytes": 12135
+    },
+    "source/rtl/rk_fp16_alu.sv": {
+      "source": "/home/fedora/rknpu-fpga/rtl/rk_fp16_alu.sv",
+      "sha256": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+      "bytes": 4913
+    },
+    "source/tests/tb_fp16.sv": {
+      "source": "/home/fedora/rknpu-fpga/tests/tb_fp16.sv",
+      "sha256": "6e2617bff3bbf4a17d1b21f91a970aedc38e8d541aff64bcb2c8e0293746c547",
+      "bytes": 2159
+    },
+    "source/tests/cmac/tb_cmac_array_core.sv": {
+      "source": "/home/fedora/rknpu-fpga/tests/cmac/tb_cmac_array_core.sv",
+      "sha256": "b94f668a9e5e61ea7a8bf87d1736c0848a48e7b87b479c77240f97761a9e1683",
+      "bytes": 9494
+    },
+    "source/tools/cmac/cacc_reference.py": {
+      "source": "/home/fedora/rknpu-fpga/tools/cmac/cacc_reference.py",
+      "sha256": "1a0511a30d75e7d02c34ca5b3064a51b6b93d6791540159beb4a6f7be1618369",
+      "bytes": 1916
+    },
+    "source/rtl/vendor/nvdla/LICENSE": {
+      "source": "/home/fedora/rknpu-fpga/rtl/vendor/nvdla/LICENSE",
+      "sha256": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb",
+      "bytes": 10504
+    },
+    "static-package-v1/report.json": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v1/report.json",
+      "sha256": "ed6dc3b8164056b571246454448e8649e8ccea65051565f98271c952f7307331",
+      "bytes": 95114
+    },
+    "static-package-v1/reference/run.c": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v1/reference/run.c",
+      "sha256": "9c4f2d5c6ae01b71726d1cc37530d71e60bff0ec7cc012565f16a43c1ca658bd",
+      "bytes": 38545
+    },
+    "static-package-v1/reference/LICENSE": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v1/reference/LICENSE",
+      "sha256": "e87b912002f04cdfa837eaf7f70548ab79b9cb62a285495edf575f3da875aec4",
+      "bytes": 1063
+    },
+    "static-package-v1/source/prepare.py": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v1/source/prepare.py",
+      "sha256": "181912f3497c9595aacd220897f1e1ce2f432ec7a6386e5c42aa2b99d2832de8",
+      "bytes": 12278
+    },
+    "static-package-v2/report.json": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v2/report.json",
+      "sha256": "5229ead1933dc9fd4f7c364f1bfa42f2f43a5e2621900e37e072c78993c161d0",
+      "bytes": 95114
+    },
+    "static-package-v2/reference/run.c": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v2/reference/run.c",
+      "sha256": "9c4f2d5c6ae01b71726d1cc37530d71e60bff0ec7cc012565f16a43c1ca658bd",
+      "bytes": 38545
+    },
+    "static-package-v2/reference/LICENSE": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v2/reference/LICENSE",
+      "sha256": "e87b912002f04cdfa837eaf7f70548ab79b9cb62a285495edf575f3da875aec4",
+      "bytes": 1063
+    },
+    "static-package-v2/source/prepare.py": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v2/source/prepare.py",
+      "sha256": "75f357f82e3b80b3f84dc61f46c28deb774f8ce19e3ff430be592fe19b44e45d",
+      "bytes": 14742
+    },
+    "cpu-reference/report.json": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/report.json",
+      "sha256": "76d9cb76b7561e5e702b3f694fd6909a57b649a4c28e0374be1780621ef06d6f",
+      "bytes": 3524
+    },
+    "cpu-reference/version.stdout": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/version.stdout",
+      "sha256": "dcddcefbfc2827a1d7b83a86a683bfa8e1ae76b6080fc490c9110d51e0e3da40",
+      "bytes": 247
+    },
+    "cpu-reference/version.stderr": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cpu-reference/compile.stdout": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/compile.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cpu-reference/compile.stderr": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/compile.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cpu-reference/greedy.stdout": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/greedy.stdout",
+      "sha256": "f969e22e5853d54d7fff97fff16855451c22a400672036d7dc66f21eabcebf89",
+      "bytes": 97
+    },
+    "cpu-reference/greedy.stderr": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/greedy.stderr",
+      "sha256": "faeb4972ae67d9f2600fd71e906e1b55a9b8a99a7c593279c390c10d6e30d6cd",
+      "bytes": 27
+    },
+    "unity-proof/report.json": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/report.json",
+      "sha256": "b85b1edcc96d2b937aec9f287e8b1f5831409af9671058b5e6bccf9705ee74fc",
+      "bytes": 12394
+    },
+    "unity-proof/iverilog_version.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/iverilog_version.log",
+      "sha256": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d",
+      "bytes": 3314
+    },
+    "unity-proof/vvp_version.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/vvp_version.log",
+      "sha256": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+      "bytes": 819
+    },
+    "unity-proof/verilator_version.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/verilator_version.log",
+      "sha256": "9d8d19bf7d16f490e1b9d701dc1438bf9ec2d7f4a41ca4f0ec8ee3d1a3df8253",
+      "bytes": 54
+    },
+    "unity-proof/unity_right.hex": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/unity_right.hex",
+      "sha256": "de4d1423ec9d45e1e59cc93bf3fd30140d6457fee88befce9c4c2de938c0f7f0",
+      "bytes": 1079296
+    },
+    "unity-proof/unity_left.hex": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/unity_left.hex",
+      "sha256": "dfc9a4daf216b88f9878003d3b579bce56cf1e2e2657ef547ac39c2cb8fb1b15",
+      "bytes": 1079296
+    },
+    "unity-proof/wrong_zero_sign.hex": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/wrong_zero_sign.hex",
+      "sha256": "d45366aacea38770fb83cd75f6d611a00e7f8002453328b46ed4d964cf274142",
+      "bytes": 17
+    },
+    "unity-proof/iverilog_compile.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/iverilog_compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "unity-proof/iverilog_unity_right.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/iverilog_unity_right.log",
+      "sha256": "562309f9962497c6d317c02367de915002356e2fa02052fc3984bf02317c957f",
+      "bytes": 117
+    },
+    "unity-proof/iverilog_unity_left.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/iverilog_unity_left.log",
+      "sha256": "562309f9962497c6d317c02367de915002356e2fa02052fc3984bf02317c957f",
+      "bytes": 117
+    },
+    "unity-proof/iverilog_wrong_zero_sign.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/iverilog_wrong_zero_sign.log",
+      "sha256": "b62df1555c240788d75b6405d3dbac6b2167a535748ff2fbd14e7f5b02a48342",
+      "bytes": 124
+    },
+    "unity-proof/verilator_compile.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/verilator_compile.log",
+      "sha256": "bc19a858dee189c0234b05c18e4710f0d3a34db2a2cb8172be0848ebd83a3a74",
+      "bytes": 3777
+    },
+    "unity-proof/verilator_unity_right.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/verilator_unity_right.log",
+      "sha256": "eb9c8d596d8e33ee091a9779071f36d1114466e4239c0194f4b34372939b7ff1",
+      "bytes": 285
+    },
+    "unity-proof/verilator_unity_left.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/verilator_unity_left.log",
+      "sha256": "7c1aad53abc39afae35f298aef26ea68fd6e9a9c6c18c8f1343ce6217920dae6",
+      "bytes": 285
+    },
+    "unity-proof/verilator_wrong_zero_sign.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-unity/20261026T181010Z/verilator_wrong_zero_sign.log",
+      "sha256": "d9f67aa92afaeb372e181a43e073d4587e4565250f2f6ae260d1327a737eab7c",
+      "bytes": 176
+    },
+    "first-tile/report.json": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/report.json",
+      "sha256": "743b719a5768eca9d02654740169dc7a1065b40d347f6156b1455227bdbf9631",
+      "bytes": 8289
+    },
+    "first-tile/reference_probe.c": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/reference_probe.c",
+      "sha256": "115f34aacea9d9d35b6b993f06f17a4e87c5d68fb546d99f79e538c016652dec",
+      "bytes": 375
+    },
+    "first-tile/reference_probe_compile.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/reference_probe_compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "first-tile/donor_compile.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/donor_compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "first-tile/donor_requests.txt": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/donor_requests.txt",
+      "sha256": "4a8bf584f4621b5643909e90adbd92e94b42ce1836602cbdd9b44fe4f7d8c9d4",
+      "bytes": 29563
+    },
+    "first-tile/donor_results.txt": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/donor_results.txt",
+      "sha256": "3a2ab7a45374c707dbadc432de5511c41b0fd1742270d5764efb803021a14569",
+      "bytes": 15825
+    },
+    "first-tile/donor_stderr.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/donor_stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "first-tile/donor_helper.cpp": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/donor_helper.cpp",
+      "sha256": "f7c53e8e4d0d12db0c9d62e2c0b2fac3fe95458b3af85328b6f0b3bf9036d2f0",
+      "bytes": 6259
+    },
+    "first-tile/fixture/commands.hex": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/fixture/commands.hex",
+      "sha256": "e269def021d5cb4fea881c144d2b53ec9d3f561e4c506486f8259984667e8692",
+      "bytes": 833
+    },
+    "first-tile/fixture/input.hex": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/fixture/input.hex",
+      "sha256": "dcfca4fbb8ba7e6fb46e3b1b46756287dec90cc94378312671de72d20b922faf",
+      "bytes": 320
+    },
+    "first-tile/fixture/weight.hex": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/fixture/weight.hex",
+      "sha256": "6a3fab57391cf5a63c207446e30c1690e11d12bd30a6da1cb4261c48ec23bb94",
+      "bytes": 10240
+    },
+    "first-tile/fixture/reads.hex": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/fixture/reads.hex",
+      "sha256": "c354c813cb2c0ab21fefce76a0ac97034225590ae170be936f2b82630fa083ed",
+      "bytes": 28288
+    },
+    "first-tile/fixture/writes.hex": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/fixture/writes.hex",
+      "sha256": "e8721a56ac9517609015f7a6f32048a51de837235db1fd5515cd0606b92e8f96",
+      "bytes": 416
+    },
+    "first-tile/fixture/groups.hex": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/fixture/groups.hex",
+      "sha256": "77e109e97d8df7bb5243a15e66cf24fe8c4a3360830365416ce4a2123c468614",
+      "bytes": 768
+    },
+    "first-tile/fixture/fp32.hex": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/fixture/fp32.hex",
+      "sha256": "a31ba2931afb6d7faf0496a42c91191f6a610251359bdec839022aba5eaaa658",
+      "bytes": 288
+    },
+    "first-tile/source/first_projection.py": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/source/first_projection.py",
+      "sha256": "c5ed704285865873f96a473beb7d70d167746c49f38dcfa9300d2131b252a42a",
+      "bytes": 15501
+    },
+    "first-tile-icarus/report.json": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-native-iverilog-v1/report.json",
+      "sha256": "f59a96b9a6b3c10a4bf539f4a44abb794ec8ff8ed71a85868ec55eb990943cd3",
+      "bytes": 36474
+    },
+    "first-tile-icarus/version.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-native-iverilog-v1/version.log",
+      "sha256": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d",
+      "bytes": 3314
+    },
+    "first-tile-icarus/runtime_version.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-native-iverilog-v1/runtime_version.log",
+      "sha256": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+      "bytes": 819
+    },
+    "first-tile-icarus/compile.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-native-iverilog-v1/compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "first-tile-icarus/mode0.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-native-iverilog-v1/mode0.log",
+      "sha256": "b84a92ce865367b24186a54accedda34a35893e429620ec15b1a7640be9de248",
+      "bytes": 186
+    },
+    "first-tile-icarus/mode6.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-native-iverilog-v1/mode6.log",
+      "sha256": "d6746cf1927576533c9b9636d99def0ccdd6809ad7b22a9588f4a44cb84a3667",
+      "bytes": 186
+    },
+    "first-tile-icarus/mode7.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-native-iverilog-v1/mode7.log",
+      "sha256": "c066a8b7e54c6cc91f415a45ee7ca5c052a780cdcd14d1044d24b8b63dfe7e13",
+      "bytes": 178
+    },
+    "first-tile-fp32-drift/probe.c": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-fp32-drift/probe.c",
+      "sha256": "07ae269699de7d723d7e1e772d8904534d38286ca0238d6251b0ebe9e4f31739",
+      "bytes": 332
+    },
+    "first-tile-fp32-drift/compile.log": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-fp32-drift/compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "first-tile-fp32-drift/report.json": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-fp32-drift/report.json",
+      "sha256": "f18b73177c5911d9e56dc5ed689517763c5feb61d686a0644b66b0837b726e1d",
+      "bytes": 2773
+    },
+    "review/tinystories-package-controls-v2.json": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-package-controls-v2.json",
+      "sha256": "e151ff799c9c188f087dd56435cd6abf25a6a0ec84384d62c3d279ffee8fe18e",
+      "bytes": 1205
+    },
+    "review/tinystories-other-projects-a.json": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-other-projects-a.json",
+      "sha256": "c7d030a0df615cca24bbb9acfffe454c4aee3580abf0f7311e54dc587b4da40e",
+      "bytes": 135004
+    },
+    "review/tinystories-other-projects-b.json": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-other-projects-b.json",
+      "sha256": "ec572e7cef5b83dcb6da7d1f2f5b36fc3570f9a0ec8e662b2083b828206842f4",
+      "bytes": 32153
+    },
+    "review/tinystories-root-review.json": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-root-review.json",
+      "sha256": "7bc861d9d7d84785f3f6348f80b02c187df15d58576e134f5ffc18146577a2cc",
+      "bytes": 1078
+    },
+    "failed-full-regression/report.json": {
+      "source": "/home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/report.json",
+      "sha256": "69d2db14f421d2bea7e18eb07f9259b8322454145c595cebc7dbe9762c66ae9f",
+      "bytes": 238750
+    },
+    "failed-full-regression/generated_check.log": {
+      "source": "/home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/generated_check.log",
+      "sha256": "b3381e2f4577fb00b88ccdb768c91d043d54433d20a7fd60cadfa29a8b28cfec",
+      "bytes": 99
+    },
+    "failed-full-regression/production_test.log": {
+      "source": "/home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/production_test.log",
+      "sha256": "14b4aa7e3419cac5526a012cd56154460ed0abf49c4245fded97a597ced11d60",
+      "bytes": 126870
+    },
+    "first-tile-earlier-unavailable.json": {
+      "source": "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v1/failure-before-report.json",
+      "sha256": "5de2c5aeb78bb7434b6e150f3f49d0ad81be9c29004fd6a283a82e11f054b686",
+      "bytes": 396
+    }
+  }
+}

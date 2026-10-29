@@ -1,0 +1,7 @@
+%Warning-UNSIGNED: /home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_capacity_owner.sv:148:46: Comparison is constant due to unsigned arithmetic
+                                                                                                             : ... note: In instance 'tb_capacity_owner_invalid.dut'
+  148 |                         else if (quiet_count >= QUIET_CYCLES-1) begin
+      |                                              ^~
+                   ... For warning description see https://verilator.org/warn/UNSIGNED?v=5.048
+                   ... Use "/* verilator lint_off UNSIGNED */" and lint_on around source to disable this message.
+%Error: Exiting due to 1 warning(s)

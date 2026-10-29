@@ -1,0 +1,26 @@
+PART	xc7k480tffg1156-2
+TOP	ypcb_ew_startup_top
+CONFIG_VOLTAGE	1.8
+CFGBVS	GND
+ROUTED_FULLY	1
+ERRORS_IN_ROUTES	0
+WAIVERS	0
+PORT	SYS_CLK	AA28	LVCMOS18	IN
+PORT	led_3bits_tri_o[0]	P30	LVCMOS18	OUT
+PORT	led_3bits_tri_o[1]	M30	LVCMOS18	OUT
+PORT	led_3bits_tri_o[2]	N30	LVCMOS18	OUT
+CLOCK	sys_clk	20.000	0.000 10.000
+TIMING_SUMMARY	1.188	0.000	0	2417	0.067	0.000	0	2417	9.600	0.000	0	898
+WORST_PATH	max	1.188
+WORST_PATH	min	0.067
+PULSE	Min Period	2.095	20.000	17.905
+PULSE	Low Pulse Width	0.400	10.000	9.600
+PULSE	High Pulse Width	0.350	10.000	9.650
+CHECK_TIMING	no_clock 0 constant_clock 0 pulse_width_clock 0 unconstrained_internal_endpoints 0 no_input_delay 0 no_output_delay 3 multiple_clock 0 generated_clocks 0 loops 0 partial_input_delay 0 partial_output_delay 0 latch_loops 0
+DRC	DPIP-1#1	WARNING
+DRC	DPIP-1#2	WARNING
+DRC	DPOP-1#1	WARNING
+DRC	DPOP-2#1	WARNING
+BRAM_COUNT	1
+DSP_COUNT	1
+STARTUP_NAMED_CELL_COUNT	68

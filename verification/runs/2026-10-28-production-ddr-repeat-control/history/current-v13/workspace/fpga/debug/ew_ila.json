@@ -1,0 +1,405 @@
+{
+  "schema": 1,
+  "profile": "ew-startup-ila",
+  "top": "ypcb_ew_startup_top",
+  "part": "xc7k480tffg1156-2",
+  "clock": {
+    "name": "sys_clk",
+    "port": "SYS_CLK",
+    "period_ns": 20.0,
+    "frequency_hz": 50000000,
+    "anchor_pin": "demo/core/state_reg[0]/C"
+  },
+  "core": {
+    "name": "u_rk_ew_ila",
+    "depth": 1024,
+    "input_pipe_stages": 0,
+    "jtag_user_chain": 1
+  },
+  "synthesis_options": [
+    "-flatten_hierarchy",
+    "none",
+    "-fsm_extraction",
+    "off"
+  ],
+  "probes": [
+    {
+      "name": "demo_state",
+      "width": 3,
+      "nets": [
+        "demo/state[0]",
+        "demo/state[1]",
+        "demo/state[2]"
+      ],
+      "description": "Normal demo state codes only; declared bit3 is not captured and all named source states fit bits0 through2"
+    },
+    {
+      "name": "dma_state",
+      "width": 3,
+      "nets": [
+        "demo/core/state[0]",
+        "demo/core/state[1]",
+        "demo/core/state[2]"
+      ],
+      "description": "Raw command fetch and execution state"
+    },
+    {
+      "name": "engine_state",
+      "width": 4,
+      "nets": [
+        "demo/core/engine/state[0]",
+        "demo/core/engine/state[1]",
+        "demo/core/engine/state[2]",
+        "demo/core/engine/state[3]"
+      ],
+      "description": "EW operand read arithmetic and acknowledged write state"
+    },
+    {
+      "name": "job_control",
+      "width": 8,
+      "nets": [
+        "reset_n",
+        "demo/start_valid",
+        "demo/start_ready",
+        "demo/busy",
+        "demo/done",
+        "demo/error",
+        "pass",
+        "fail"
+      ],
+      "description": "LSB order reset release start valid start ready busy done error pass fail"
+    },
+    {
+      "name": "memory_request",
+      "width": 3,
+      "nets": [
+        "demo/mem_req_valid",
+        "demo/mem_req_ready",
+        "demo/mem_req_write"
+      ],
+      "description": "LSB order request valid ready write"
+    },
+    {
+      "name": "memory_address",
+      "width": 32,
+      "nets": [
+        "demo/mem_req_addr[0]",
+        "demo/mem_req_addr[1]",
+        "demo/mem_req_addr[2]",
+        "demo/mem_req_addr[3]",
+        "demo/mem_req_addr[4]",
+        "demo/mem_req_addr[5]",
+        "demo/mem_req_addr[6]",
+        "demo/mem_req_addr[7]",
+        "demo/mem_req_addr[8]",
+        "demo/mem_req_addr[9]",
+        "demo/mem_req_addr[10]",
+        "demo/mem_req_addr[11]",
+        "demo/mem_req_addr[12]",
+        "demo/mem_req_addr[13]",
+        "demo/mem_req_addr[14]",
+        "demo/mem_req_addr[15]",
+        "demo/mem_req_addr[16]",
+        "demo/mem_req_addr[17]",
+        "demo/mem_req_addr[18]",
+        "demo/mem_req_addr[19]",
+        "demo/mem_req_addr[20]",
+        "demo/mem_req_addr[21]",
+        "demo/mem_req_addr[22]",
+        "demo/mem_req_addr[23]",
+        "demo/mem_req_addr[24]",
+        "demo/mem_req_addr[25]",
+        "demo/mem_req_addr[26]",
+        "demo/mem_req_addr[27]",
+        "demo/mem_req_addr[28]",
+        "demo/mem_req_addr[29]",
+        "demo/mem_req_addr[30]",
+        "demo/mem_req_addr[31]"
+      ],
+      "description": "Byte address of the unchanged halfword memory request"
+    },
+    {
+      "name": "memory_write_data",
+      "width": 16,
+      "nets": [
+        "demo/mem_req_wdata[0]",
+        "demo/mem_req_wdata[1]",
+        "demo/mem_req_wdata[2]",
+        "demo/mem_req_wdata[3]",
+        "demo/mem_req_wdata[4]",
+        "demo/mem_req_wdata[5]",
+        "demo/mem_req_wdata[6]",
+        "demo/mem_req_wdata[7]",
+        "demo/mem_req_wdata[8]",
+        "demo/mem_req_wdata[9]",
+        "demo/mem_req_wdata[10]",
+        "demo/mem_req_wdata[11]",
+        "demo/mem_req_wdata[12]",
+        "demo/mem_req_wdata[13]",
+        "demo/mem_req_wdata[14]",
+        "demo/mem_req_wdata[15]"
+      ],
+      "description": "Raw halfword write payload"
+    },
+    {
+      "name": "memory_response",
+      "width": 3,
+      "nets": [
+        "demo/mem_rsp_valid",
+        "demo/mem_rsp_ready",
+        "demo/mem_rsp_error"
+      ],
+      "description": "LSB order response valid ready error"
+    },
+    {
+      "name": "memory_read_data",
+      "width": 16,
+      "nets": [
+        "demo/mem_rsp_rdata[0]",
+        "demo/mem_rsp_rdata[1]",
+        "demo/mem_rsp_rdata[2]",
+        "demo/mem_rsp_rdata[3]",
+        "demo/mem_rsp_rdata[4]",
+        "demo/mem_rsp_rdata[5]",
+        "demo/mem_rsp_rdata[6]",
+        "demo/mem_rsp_rdata[7]",
+        "demo/mem_rsp_rdata[8]",
+        "demo/mem_rsp_rdata[9]",
+        "demo/mem_rsp_rdata[10]",
+        "demo/mem_rsp_rdata[11]",
+        "demo/mem_rsp_rdata[12]",
+        "demo/mem_rsp_rdata[13]",
+        "demo/mem_rsp_rdata[14]",
+        "demo/mem_rsp_rdata[15]"
+      ],
+      "description": "Raw halfword response payload"
+    },
+    {
+      "name": "dma_error",
+      "width": 8,
+      "nets": [
+        "demo/dma_error_code[0]",
+        "demo/dma_error_code[1]",
+        "demo/dma_error_code[2]",
+        "demo/dma_error_code[3]",
+        "demo/dma_error_code[4]",
+        "demo/dma_error_code[5]",
+        "demo/dma_error_code[6]",
+        "demo/dma_error_code[7]"
+      ],
+      "description": "Sticky raw DMA or arithmetic error code"
+    },
+    {
+      "name": "demo_error",
+      "width": 8,
+      "nets": [
+        "unused_error_code[0]",
+        "unused_error_code[1]",
+        "unused_error_code[2]",
+        "unused_error_code[3]",
+        "unused_error_code[4]",
+        "unused_error_code[5]",
+        "unused_error_code[6]",
+        "unused_error_code[7]"
+      ],
+      "description": "Demo error code including initialization readback and watchdog failures"
+    },
+    {
+      "name": "completed_tasks",
+      "width": 32,
+      "nets": [
+        "demo/completed_tasks[0]",
+        "demo/completed_tasks[1]",
+        "demo/completed_tasks[2]",
+        "demo/completed_tasks[3]",
+        "demo/completed_tasks[4]",
+        "demo/completed_tasks[5]",
+        "demo/completed_tasks[6]",
+        "demo/completed_tasks[7]",
+        "demo/completed_tasks[8]",
+        "demo/completed_tasks[9]",
+        "demo/completed_tasks[10]",
+        "demo/completed_tasks[11]",
+        "demo/completed_tasks[12]",
+        "demo/completed_tasks[13]",
+        "demo/completed_tasks[14]",
+        "demo/completed_tasks[15]",
+        "demo/completed_tasks[16]",
+        "demo/completed_tasks[17]",
+        "demo/completed_tasks[18]",
+        "demo/completed_tasks[19]",
+        "demo/completed_tasks[20]",
+        "demo/completed_tasks[21]",
+        "demo/completed_tasks[22]",
+        "demo/completed_tasks[23]",
+        "demo/completed_tasks[24]",
+        "demo/completed_tasks[25]",
+        "demo/completed_tasks[26]",
+        "demo/completed_tasks[27]",
+        "demo/completed_tasks[28]",
+        "demo/completed_tasks[29]",
+        "demo/completed_tasks[30]",
+        "demo/completed_tasks[31]"
+      ],
+      "description": "Successful raw task completion count"
+    },
+    {
+      "name": "command_configuration",
+      "width": 4,
+      "nets": [
+        "demo/core/cmd_valid",
+        "demo/core/cmd_ready",
+        "demo/core/cfg_valid",
+        "demo/core/cfg_ready"
+      ],
+      "description": "LSB order command valid ready then configuration valid ready"
+    },
+    {
+      "name": "command_word",
+      "width": 64,
+      "nets": [
+        "demo/core/word_data[0]",
+        "demo/core/word_data[1]",
+        "demo/core/word_data[2]",
+        "demo/core/word_data[3]",
+        "demo/core/word_data[4]",
+        "demo/core/word_data[5]",
+        "demo/core/word_data[6]",
+        "demo/core/word_data[7]",
+        "demo/core/word_data[8]",
+        "demo/core/word_data[9]",
+        "demo/core/word_data[10]",
+        "demo/core/word_data[11]",
+        "demo/core/word_data[12]",
+        "demo/core/word_data[13]",
+        "demo/core/word_data[14]",
+        "demo/core/word_data[15]",
+        "demo/core/word_data[16]",
+        "demo/core/word_data[17]",
+        "demo/core/word_data[18]",
+        "demo/core/word_data[19]",
+        "demo/core/word_data[20]",
+        "demo/core/word_data[21]",
+        "demo/core/word_data[22]",
+        "demo/core/word_data[23]",
+        "demo/core/word_data[24]",
+        "demo/core/word_data[25]",
+        "demo/core/word_data[26]",
+        "demo/core/word_data[27]",
+        "demo/core/word_data[28]",
+        "demo/core/word_data[29]",
+        "demo/core/word_data[30]",
+        "demo/core/word_data[31]",
+        "demo/core/word_data[32]",
+        "demo/core/word_data[33]",
+        "demo/core/word_data[34]",
+        "demo/core/word_data[35]",
+        "demo/core/word_data[36]",
+        "demo/core/word_data[37]",
+        "demo/core/word_data[38]",
+        "demo/core/word_data[39]",
+        "demo/core/word_data[40]",
+        "demo/core/word_data[41]",
+        "demo/core/word_data[42]",
+        "demo/core/word_data[43]",
+        "demo/core/word_data[44]",
+        "demo/core/word_data[45]",
+        "demo/core/word_data[46]",
+        "demo/core/word_data[47]",
+        "demo/core/word_data[48]",
+        "demo/core/word_data[49]",
+        "demo/core/word_data[50]",
+        "demo/core/word_data[51]",
+        "demo/core/word_data[52]",
+        "demo/core/word_data[53]",
+        "demo/core/word_data[54]",
+        "demo/core/word_data[55]",
+        "demo/core/word_data[56]",
+        "demo/core/word_data[57]",
+        "demo/core/word_data[58]",
+        "demo/core/word_data[59]",
+        "demo/core/word_data[60]",
+        "demo/core/word_data[61]",
+        "demo/core/word_data[62]",
+        "demo/core/word_data[63]"
+      ],
+      "description": "Unchanged fetched command QWORD before profile decode"
+    }
+  ],
+  "state_codebooks": [
+    {
+      "name": "demo_state",
+      "source": "rtl/rk_ew_dma_demo.sv",
+      "type": "state_t",
+      "signal": "demo/state",
+      "declared_width": 4,
+      "selected_bits": [
+        0,
+        1,
+        2
+      ],
+      "values": {
+        "INIT_REQ": 0,
+        "INIT_WAIT": 1,
+        "START": 2,
+        "RUN": 3,
+        "CHECK_REQ": 4,
+        "CHECK_WAIT": 5,
+        "PASS": 6,
+        "FAIL": 7
+      }
+    },
+    {
+      "name": "dma_state",
+      "source": "rtl/rk_ew_dma.sv",
+      "type": "state_t",
+      "signal": "demo/core/state",
+      "declared_width": 3,
+      "selected_bits": [
+        0,
+        1,
+        2
+      ],
+      "values": {
+        "IDLE": 0,
+        "CHECK": 1,
+        "FETCH_REQ": 2,
+        "FETCH_WAIT": 3,
+        "SEND": 4,
+        "RUN": 5
+      }
+    },
+    {
+      "name": "engine_state",
+      "source": "rtl/rk_ew_engine.sv",
+      "type": "state_t",
+      "signal": "demo/core/engine/state",
+      "declared_width": 4,
+      "selected_bits": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "values": {
+        "IDLE": 0,
+        "A_REQ": 1,
+        "A_WAIT": 2,
+        "B_REQ": 3,
+        "B_WAIT": 4,
+        "CALC_REQ": 5,
+        "CALC_WAIT": 6,
+        "W_REQ": 7,
+        "W_WAIT": 8
+      }
+    }
+  ],
+  "description": "Optional source preparation only. Net names and physical probe bindings are unvalidated until actual Vivado implementation. Postprogram arming observes latched state; capturing the autonomous initial transaction requires a separately validated acquisition workflow. No restart or automatic arming is added.",
+  "references": [
+    "https://docs.amd.com/r/en-US/ug908-vivado-programming-debugging/Using-XDC-Commands-to-Insert-Debug-Cores",
+    "https://docs.amd.com/r/en-US/ug835-vivado-tcl-commands/create_debug_core",
+    "https://docs.amd.com/r/en-US/ug835-vivado-tcl-commands/implement_debug_core",
+    "https://docs.amd.com/r/en-US/ug908-vivado-programming-debugging/Changing-the-BSCAN-User-Scan-Chain-of-the-Debug-Core-Hub",
+    "https://docs.amd.com/r/en-US/ug908-vivado-programming-debugging/Debug-Cores-Clocking-Guidelines"
+  ]
+}

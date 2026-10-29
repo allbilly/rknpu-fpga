@@ -1,0 +1,55 @@
+{
+  "expected_anchor_path": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-route-run-v1/expected-anchors.txt",
+  "expected_anchor_sha256": "40ac01c171c442bae79b4b29cda266047f6e9ecb1391da104d412e213ca0c29a",
+  "fresh_synthesis_report_path": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-vivado-run-v1/report.json",
+  "fresh_synthesis_report_sha256": "258636689e4d1463ae053eda9449bcb921fc3be7aa85d81dc7063cf4c8cfeb16",
+  "fresh_synthesis_review_path": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-vivado-run-v1/root-synth-review.json",
+  "fresh_synthesis_review_sha256": "df62a0bc94db5205fd3fdef813e7be56e6fb1fa53abfcec1c953fd0c09ea7fbe",
+  "part": "xc7k480tffg1156-2",
+  "post_opt_dcp_path": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-vivado-run-v1/output/post_opt.dcp",
+  "post_opt_dcp_sha256": "11ad0d557c1ad83806e1690dd3f3dd02dc9bcc232a9c7545bc2fe764214f6dee",
+  "prospective_limits": {
+    "cpu": 4,
+    "deadline_seconds": 14400,
+    "host_available_min_gib": 20,
+    "memory_gib": 12,
+    "pids": 512,
+    "swap": 0
+  },
+  "retirement_source_gates": {
+    "capacity_controller": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-controller-v1/root-result-review.json",
+      "sha256": "3bd87864852e7291437e183cc8770ea69f48d3686d5388f7cf7c7c88ae4b8fe0",
+      "status": "PASS_ROOT_FULL512_RETIRE_CAPACITY_CONTROLLER_MODEL_ONLY"
+    },
+    "fast_parent": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-fast-model-v1/root-result-review.json",
+      "sha256": "131a1fe912298199caf119ad9532bd15da86a3aee0e67f02ae403e9768b121af",
+      "status": "PASS_ROOT_RETIRE_SNAPSHOT_FAST_PARENT_MODEL_ONLY"
+    },
+    "paired_adapter_monitor": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-snapshot-controls-v1/root-paired-v3-review.json",
+      "sha256": "4971ce8455c11450e8b068753b5a06795abc854a200fa6f6924c78ca87a2591c",
+      "status": "PASS_ROOT_PAIRED_RETIRE_ADAPTER_AND_MONITOR_CONTRACT_ONLY"
+    }
+  },
+  "root_route_approval_path": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-route-run-v1/root-review.json",
+  "root_route_approval_status": "ROOT_APPROVED_FULL512_RETIRE_FRESH_PLACE_ROUTE_ONLY",
+  "route_environment": {
+    "RK_CAPACITY_ROUTE_EXPECTED_ANCHOR_FILE": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-route-run-v1/expected-anchors.txt",
+    "RK_CAPACITY_ROUTE_POST_OPT_DCP": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-vivado-run-v1/output/post_opt.dcp",
+    "RK_CAPACITY_ROUTE_POST_OPT_DCP_SHA256": "11ad0d557c1ad83806e1690dd3f3dd02dc9bcc232a9c7545bc2fe764214f6dee",
+    "RK_CAPACITY_ROUTE_SOURCE_MANIFEST_SHA256": "bb1040107896ee9da31d09f161a4a114943e3abba532275921d36718adbca676"
+  },
+  "route_runner_success_status": "PASS_FRESH_FULL512_RETIRE_ROUTE_REQUIRES_ROOT_REVIEW",
+  "route_timing_review_status": "PASS_ROOT_FULL512_RETIRE_ROUTE_TIMING",
+  "scope": "Fresh placement/route only; no bitstream, hardware, memory-retirement or PHY claim.",
+  "source_count": 171,
+  "source_manifest_path": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-vivado-prep-v1/source-copy-manifest.json",
+  "source_manifest_sha256": "bb1040107896ee9da31d09f161a4a114943e3abba532275921d36718adbca676",
+  "source_profile": "full512 CH1 retirement-compressed capacity adapter",
+  "status": "PREPARED_FULL512_RETIRE_ROUTE_FROM_FRESH_SYNTH",
+  "synth_tcl": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-route-prep-v1/route.tcl",
+  "top": "ypcb_ddr_dual_top",
+  "vivado_launcher": "/home/fedora/vivado/2026.1/Vivado/bin/vivado"
+}

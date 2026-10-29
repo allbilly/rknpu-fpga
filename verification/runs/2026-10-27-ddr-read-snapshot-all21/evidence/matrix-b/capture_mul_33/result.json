@@ -1,0 +1,57 @@
+{
+  "name": "capture_mul_33",
+  "status": "PASS",
+  "spec": {
+    "name": "capture_mul_33",
+    "case": "capture_mul_33",
+    "address": 269352960,
+    "amount": 35,
+    "tasks": 1,
+    "lines": 1472,
+    "jobs": 1,
+    "negative": 0,
+    "reset_recovery": 0
+  },
+  "metrics": {
+    "lines": 1472,
+    "physical_bytes": 94208,
+    "uploaded_nonzero": 73,
+    "successful_jobs": 1,
+    "phy_user_returns": 6472,
+    "host_read64_packets": 1474,
+    "host_read64_axi_reads": 1474,
+    "uncached_phy_user_returns": 52166,
+    "phy_user_returns_minimum": 6211
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/obj/sim",
+      "+CASE=/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_mul_33",
+      "+OUTPUT=/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/snapshot-matrix-B-v3/capture_mul_33/observed.txt",
+      "+START=100e0000",
+      "+AMOUNT=35",
+      "+NTASKS=1",
+      "+NLINES=1472",
+      "+JOBS=1",
+      "+NEGATIVE=0",
+      "+RESET_RECOVERY=0"
+    ],
+    "timeout_seconds": 1800,
+    "started_utc": "2026-10-27T13:55:58.361180+00:00",
+    "status": "EXITED",
+    "pid": 952764,
+    "returncode": 0,
+    "seconds": 510.2388930618763,
+    "finished_utc": "2026-10-27T14:04:28.600347+00:00",
+    "log_sha256": "456071f7bbef5ec1ab31463834e2edb7917e5576485ca0b8477d70ddc9944080"
+  },
+  "marker": "PASS jtag_ew_ddr_read_snapshot jobs=1 negative=0 recovered=0 lines=1472 uploaded_nonzero=73 rawtasks=1 phy_user_returns=6472 read64_packets=1474 read64_axi_reads=1474 scope=actual_AXI_UI_MC_modeled_PHY",
+  "phy_user_returns": 6472,
+  "read64_packets": 1474,
+  "read64_axi_reads": 1474,
+  "readback_physical_bytes": 94208,
+  "persisted_final_image_physical_bytes": 94208,
+  "observed_text_bytes": 203136,
+  "observed_sha256": "85181ba1efeae48e2de903fa41beffc1d62b877ab7c71d1cc87ec817b06f6e1d",
+  "successful_jobs": 1
+}

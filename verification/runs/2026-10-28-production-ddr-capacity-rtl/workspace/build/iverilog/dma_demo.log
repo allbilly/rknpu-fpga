@@ -1,0 +1,10 @@
+PASS DMA board workload: verbatim SUB(9), two tasks, 324 requests, 336 memory checks
+PASS DMA demo reset during command fetch and restart
+PASS DMA demo reset during data execution and restart
+PASS DMA demo initialization bus error
+PASS DMA demo command bus error
+PASS DMA demo completion-count mismatch
+PASS DMA demo known readback corruption
+PASS DMA demo unknown readback corruption
+PASS DMA demo watchdog and fault recovery
+/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/tests/tb_dma_demo.sv:92: $finish called at 305120000 (1ps)

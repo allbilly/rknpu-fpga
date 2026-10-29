@@ -1,0 +1,358 @@
+{
+  "status": "PASS_FROZEN_ACTUAL_SOURCE_SYNTHESIS_INTEGRITY_ONLY_TIMING_OPEN",
+  "utc": "2026-10-27T08:49:45.903657+00:00",
+  "reviewer_sha256": "831ed62af2f4a7af4116cd58dca2bbc37ad54dfcd97c1e6d0e367aa894abc769",
+  "native_report_sha256": "05c2ccc38420cef53e85971926a7505e16c0d9dfa59cf4f60683465da22d3da9",
+  "input_count": 243,
+  "artifact_count": 134,
+  "rtl_files": 118,
+  "checkpoint_sha256": "e28ae1dc57360f50f58bb96e0188b1c27b71c3f466ac773a9f8b4b66ff8b4fc1",
+  "native_warning_lines": 522,
+  "warning_codes": {
+    "Synth 8-689": 2,
+    "Synth 8-567": 7,
+    "Synth 8-7071": 29,
+    "Synth 8-7023": 29,
+    "Synth 8-7186": 2,
+    "Synth 8-589": 100,
+    "Synth 8-3848": 91,
+    "Synth 8-6014": 100,
+    "Synth 8-3936": 18,
+    "Synth 8-7137": 24,
+    "Synth 8-7129": 100,
+    "Synth 8-3917": 10,
+    "Synth 8-3332": 7,
+    "Vivado 12-180": 1,
+    "Timing 38-242": 1,
+    "DRC 23-814": 1
+  },
+  "critical_warning_count": 0,
+  "error_count": 0,
+  "timing": {
+    "unplaced": true,
+    "setup_wns_ns": -1.17,
+    "hold_whs_ns": -2.369,
+    "pulse_wpws_ns": 0.264,
+    "signoff": false
+  },
+  "reported_violating_group_representatives": [
+    {
+      "slack_ns": -2.369,
+      "Source": "endpoint/engine/job_crossing/result_toggle_reg/C",
+      "Destination": "endpoint/engine/job_crossing/result_sync_reg[0]/D",
+      "Path Group": "clk_pll_i",
+      "Path Type": "Hold (Min at Slow Process Corner)"
+    },
+    {
+      "slack_ns": -2.36,
+      "Source": "endpoint/reset_owner/assertion_seen_reg[1]/C",
+      "Destination": "endpoint/reset_owner/ui_domain[1].assertion_sync_reg[0]/D",
+      "Path Group": "clk_pll_i_1",
+      "Path Type": "Hold (Min at Slow Process Corner)"
+    },
+    {
+      "slack_ns": -1.69,
+      "Source": "endpoint/reset_owner/release_permit_reg/C",
+      "Destination": "endpoint/reset_owner/ui_domain[1].permit_sync_reg[0]/CLR",
+      "Path Group": "**async_default**",
+      "Path Type": "Removal (Min at Slow Process Corner)"
+    },
+    {
+      "slack_ns": -1.682,
+      "Source": "endpoint/reset_owner/release_permit_reg/C",
+      "Destination": "endpoint/reset_owner/ui_domain[0].permit_sync_reg[0]/CLR",
+      "Path Group": "**async_default**",
+      "Path Type": "Removal (Min at Slow Process Corner)"
+    },
+    {
+      "slack_ns": -1.17,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/gen_axi_ctrl_top.axi_ctrl_top_0/addr_reg[2]/C",
+      "Destination": "endpoint/control/result_code_reg[0]/CE",
+      "Path Group": "clk_pll_i",
+      "Path Type": "Setup (Max at Slow Process Corner)"
+    },
+    {
+      "slack_ns": -0.91,
+      "Source": "endpoint/engine/memory_crossing/response_held_reg[16]/C",
+      "Destination": "endpoint/engine/memory_crossing/s_mem_rsp_error_reg/D",
+      "Path Group": "sys_clock",
+      "Path Type": "Setup (Max at Slow Process Corner)"
+    },
+    {
+      "slack_ns": -0.823,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/rstdiv0_sync_r1_reg/C",
+      "Destination": "endpoint/reset_owner/reset1_sync_reg[0]/D",
+      "Path Group": "sys_clock",
+      "Path Type": "Setup (Max at Slow Process Corner)"
+    },
+    {
+      "slack_ns": -0.638,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.temperature_reg[0]/C",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/device_temp_sync_r1_reg[0]/D",
+      "Path Group": "clk_pll_i",
+      "Path Type": "Hold (Min at Slow Process Corner)"
+    },
+    {
+      "slack_ns": -0.443,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/device_temp_r_reg[0]/C",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_temp_mon_enabled.u_tempmon/device_temp_sync_r1_reg[0]/D",
+      "Path Group": "clk_pll_i_1",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.392,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/ddr_byte_group_io/output_[11].oserdes_dq_.sdr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_17",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.389,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/ddr_byte_group_io/output_[11].oserdes_dq_.sdr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_5",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.385,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/ddr_byte_group_io/output_[1].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_10",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.385,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/ddr_byte_group_io/output_[1].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_2",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.385,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/ddr_byte_group_io/output_[3].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_14",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.385,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/ddr_byte_group_io/output_[3].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_22",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.382,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/ddr_byte_group_io/output_[7].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_1",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.382,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/ddr_byte_group_io/output_[1].oserdes_dq_.sdr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_6",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.382,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/ddr_byte_group_io/output_[7].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_9",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.382,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/ddr_byte_group_io/output_[7].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_13",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.382,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/ddr_byte_group_io/output_[1].oserdes_dq_.sdr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_18",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.382,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/ddr_byte_group_io/output_[7].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_21",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.354,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/ddr_byte_group_io/output_[6].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.354,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/ddr_byte_group_io/output_[6].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_4",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.354,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/ddr_byte_group_io/output_[6].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_8",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.354,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/ddr_byte_group_io/output_[6].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_12",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.354,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/ddr_byte_group_io/output_[6].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_16",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.354,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/ddr_byte_group_io/output_[6].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_20",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.321,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/ddr_byte_group_io/output_[1].oserdes_dq_.sdr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_7",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.319,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/ddr_byte_group_io/output_[1].oserdes_dq_.sdr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_19",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.312,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/ddr_byte_group_io/output_[2].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_11",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.312,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/ddr_byte_group_io/output_[2].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_3",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.312,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/ddr_byte_group_io/output_[2].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_15",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.312,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/ddr_byte_group_io/output_[2].oserdes_dq_.ddr.oserdes_dq_i/RST",
+      "Path Group": "oserdes_clkdiv_23",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.187,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/rst_sync_r1_reg/C",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/gen_dqs_iobuf_HR.gen_dqs_iobuf[0].gen_dqs_diff.u_iddr_edge_det/u_phase_detector/R",
+      "Path Group": "mmcm_ps_clk_bufg_in",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.187,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/rst_sync_r1_reg/C",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/gen_dqs_iobuf_HR.gen_dqs_iobuf[0].gen_dqs_diff.u_iddr_edge_det/u_phase_detector/R",
+      "Path Group": "mmcm_ps_clk_bufg_in_1",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.122,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/first_rising_ps_clk_r_reg/C",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/mmcm_hi0_r_reg/D",
+      "Path Group": "clk_pll_i",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.122,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/first_rising_ps_clk_r_reg/C",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/mmcm_hi0_r_reg/D",
+      "Path Group": "clk_pll_i_1",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.09,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/rstdiv0_sync_r1_reg/C",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/first_rising_ps_clk_r_reg/D",
+      "Path Group": "mmcm_ps_clk_bufg_in",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.09,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/rstdiv0_sync_r1_reg/C",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/first_rising_ps_clk_r_reg/D",
+      "Path Group": "mmcm_ps_clk_bufg_in_1",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.072,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/phy_control_i/MEMREFCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/phy_control_i/PHYCTLMSTREMPTY",
+      "Path Group": "c0_mem_refclk",
+      "Path Type": "Hold (Min at Slow Process Corner)"
+    },
+    {
+      "slack_ns": -0.072,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/phy_control_i/MEMREFCLK",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/phy_control_i/PHYCTLMSTREMPTY",
+      "Path Group": "c1_mem_refclk",
+      "Path Type": "Hold (Min at Slow Process Corner)"
+    },
+    {
+      "slack_ns": -0.059,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/u_ui_top/ui_rd_data0/not_strict_mode.status_ram.status_ram_wr_addr_r_reg[1]/C",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/u_ui_top/ui_rd_data0/not_strict_mode.status_ram.RAM32M0/RAMA/WADR1",
+      "Path Group": "clk_pll_i",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.059,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/u_ui_top/ui_rd_data0/not_strict_mode.status_ram.status_ram_wr_addr_r_reg[1]/C",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/u_ui_top/ui_rd_data0/not_strict_mode.status_ram.RAM32M0/RAMA/WADR1",
+      "Path Group": "clk_pll_i_1",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    },
+    {
+      "slack_ns": -0.006,
+      "Source": "mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.rst_r1_reg/C",
+      "Destination": "mig/u_top_mig_7series_0_0_mig/c0_temp_mon_enabled.u_tempmon/xadc_supplied_temperature.rst_r2_reg/D",
+      "Path Group": "c0_sys_clk_p",
+      "Path Type": "Hold (Min at Fast Process Corner)"
+    }
+  ],
+  "unresolved": [
+    "Source-bound first-stage/held-bus/reset CDC constraints",
+    "Same-UI control setup path and vendor clock/reset paths",
+    "Complete async 21-case logical qualification",
+    "Physical shell, board implementation, DDR training and application readback",
+    "Full512 DDR integration and PCIe"
+  ],
+  "hardware_accessed": false,
+  "implementation_executed": false,
+  "physical_integration_ready": false
+}

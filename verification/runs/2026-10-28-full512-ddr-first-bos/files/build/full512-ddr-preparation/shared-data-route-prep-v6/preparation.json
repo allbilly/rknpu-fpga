@@ -1,0 +1,1615 @@
+{
+  "status": "BOUND_AND_ROOT_REVIEWED",
+  "scope": "preparation-only full512 dual-engine DDR route package; no Vivado route, image, or hardware action",
+  "source_preparation_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/preparation.json",
+  "source_preparation_sha256": "71fe220dfe1ac59327ead8576f799edccd2af36dae493013f8e09ca3d102d96b",
+  "source_preparation_status": "READY_FOR_ROOT_REVIEWED_SYNTH_ONLY",
+  "source_copy_rows": [
+    {
+      "bytes": 426,
+      "copy_bytes": 426,
+      "copy_sha256": "18f8b2bdd853c991df4395a40ca184b7ee4618f035b19f9e073423f071d11a15",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/board.xdc",
+      "relative_path": "board.xdc",
+      "sha256": "18f8b2bdd853c991df4395a40ca184b7ee4618f035b19f9e073423f071d11a15"
+    },
+    {
+      "bytes": 10475,
+      "copy_bytes": 10475,
+      "copy_sha256": "52fd4505d707565aea742ffa876b21dc639e434ba31cb721e74e1d5b52f5a46d",
+      "origin_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-physical-synth-v1/source/constraint-helpers/board_reset.tcl",
+      "relative_path": "constraint-helpers/board_reset.tcl",
+      "sha256": "52fd4505d707565aea742ffa876b21dc639e434ba31cb721e74e1d5b52f5a46d"
+    },
+    {
+      "bytes": 16658,
+      "copy_bytes": 16658,
+      "copy_sha256": "b5a155ec9229ecc012e5ed077838873c762d4e620e90f3dfa36a70c1f5cdfdb3",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v2/job_cdc.tcl",
+      "relative_path": "constraint-helpers/job_cdc.tcl",
+      "sha256": "b5a155ec9229ecc012e5ed077838873c762d4e620e90f3dfa36a70c1f5cdfdb3"
+    },
+    {
+      "bytes": 8539,
+      "copy_bytes": 8539,
+      "copy_sha256": "37317bab81796bf22bae04e83586450160a3297b8cbca6cecee4c52ed513ecf0",
+      "origin_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-physical-synth-v1/source/constraint-helpers/mailbox_ui.tcl",
+      "relative_path": "constraint-helpers/mailbox_ui.tcl",
+      "sha256": "37317bab81796bf22bae04e83586450160a3297b8cbca6cecee4c52ed513ecf0"
+    },
+    {
+      "bytes": 9181,
+      "copy_bytes": 9181,
+      "copy_sha256": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+      "origin_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-physical-synth-v1/source/constraint-helpers/memory_crossing.tcl",
+      "relative_path": "constraint-helpers/memory_crossing.tcl",
+      "sha256": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca"
+    },
+    {
+      "bytes": 2918,
+      "copy_bytes": 2918,
+      "copy_sha256": "d8ae90ce8f2589783d3fba9f790c91761052058004f12ca8de47558f523adc25",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v2/permit_cdc.tcl",
+      "relative_path": "constraint-helpers/permit_cdc.tcl",
+      "sha256": "d8ae90ce8f2589783d3fba9f790c91761052058004f12ca8de47558f523adc25"
+    },
+    {
+      "bytes": 8390,
+      "copy_bytes": 8390,
+      "copy_sha256": "1d368380ad134e4ebcd2277d2843455e5b0657ef76783a1ea7e720ea19e34ab9",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-cdc-source-v3/status_cdc.tcl",
+      "relative_path": "constraint-helpers/status_cdc.tcl",
+      "sha256": "1d368380ad134e4ebcd2277d2843455e5b0657ef76783a1ea7e720ea19e34ab9"
+    },
+    {
+      "bytes": 6854,
+      "copy_bytes": 6854,
+      "copy_sha256": "45ded45ecd1aaee6be25e8de45b46f8b1c4142e80259f95c8be038e1b71b5bb0",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/000/mig_7series_v4_2_axi_ctrl_addr_decode.v",
+      "relative_path": "hdl/000/mig_7series_v4_2_axi_ctrl_addr_decode.v",
+      "sha256": "45ded45ecd1aaee6be25e8de45b46f8b1c4142e80259f95c8be038e1b71b5bb0"
+    },
+    {
+      "bytes": 6160,
+      "copy_bytes": 6160,
+      "copy_sha256": "e7fba8820fabc830ace6e2bf431e1ab1134312a4682240f9d1ab8e63091c0a94",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/001/mig_7series_v4_2_axi_ctrl_read.v",
+      "relative_path": "hdl/001/mig_7series_v4_2_axi_ctrl_read.v",
+      "sha256": "e7fba8820fabc830ace6e2bf431e1ab1134312a4682240f9d1ab8e63091c0a94"
+    },
+    {
+      "bytes": 29651,
+      "copy_bytes": 29651,
+      "copy_sha256": "5146f0f3e8dfc1e0e95673ba2ff357f52f4c4a5baca88a9489b37f926d801917",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/002/mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "relative_path": "hdl/002/mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "sha256": "5146f0f3e8dfc1e0e95673ba2ff357f52f4c4a5baca88a9489b37f926d801917"
+    },
+    {
+      "bytes": 6114,
+      "copy_bytes": 6114,
+      "copy_sha256": "4e591bbe440121fa35520b340067140ad5a5f8257abe9c74f60b5ba1555aacdf",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/003/mig_7series_v4_2_axi_ctrl_reg.v",
+      "relative_path": "hdl/003/mig_7series_v4_2_axi_ctrl_reg.v",
+      "sha256": "4e591bbe440121fa35520b340067140ad5a5f8257abe9c74f60b5ba1555aacdf"
+    },
+    {
+      "bytes": 28757,
+      "copy_bytes": 28757,
+      "copy_sha256": "1a0b8cbbcd037f1ad61dbaeac866b3b4f3020624f1b727c66b23390a47d08ce5",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/004/mig_7series_v4_2_axi_ctrl_top.v",
+      "relative_path": "hdl/004/mig_7series_v4_2_axi_ctrl_top.v",
+      "sha256": "1a0b8cbbcd037f1ad61dbaeac866b3b4f3020624f1b727c66b23390a47d08ce5"
+    },
+    {
+      "bytes": 7620,
+      "copy_bytes": 7620,
+      "copy_sha256": "a6b8863fc39ba11b721be2dfc6826f679fa2606c633cb475b385ca4e39faaa79",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/005/mig_7series_v4_2_axi_ctrl_write.v",
+      "relative_path": "hdl/005/mig_7series_v4_2_axi_ctrl_write.v",
+      "sha256": "a6b8863fc39ba11b721be2dfc6826f679fa2606c633cb475b385ca4e39faaa79"
+    },
+    {
+      "bytes": 49184,
+      "copy_bytes": 49184,
+      "copy_sha256": "394b78b22adbfc6bd639dad1075b3745de31b99d7cb0f4d7cb0b1f2218751c37",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/006/mig_7series_v4_2_axi_mc.v",
+      "relative_path": "hdl/006/mig_7series_v4_2_axi_mc.v",
+      "sha256": "394b78b22adbfc6bd639dad1075b3745de31b99d7cb0f4d7cb0b1f2218751c37"
+    },
+    {
+      "bytes": 10260,
+      "copy_bytes": 10260,
+      "copy_sha256": "087940abd9208340abc61ecb7015cfc97d85857aaa648409c994d97cecd78964",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/007/mig_7series_v4_2_axi_mc_ar_channel.v",
+      "relative_path": "hdl/007/mig_7series_v4_2_axi_mc_ar_channel.v",
+      "sha256": "087940abd9208340abc61ecb7015cfc97d85857aaa648409c994d97cecd78964"
+    },
+    {
+      "bytes": 10655,
+      "copy_bytes": 10655,
+      "copy_sha256": "e736dacd4c9f6b751722b1fb55d6e12a7b1f1bab1b8c1afaf22d40fffdbecaf1",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/008/mig_7series_v4_2_axi_mc_aw_channel.v",
+      "relative_path": "hdl/008/mig_7series_v4_2_axi_mc_aw_channel.v",
+      "sha256": "e736dacd4c9f6b751722b1fb55d6e12a7b1f1bab1b8c1afaf22d40fffdbecaf1"
+    },
+    {
+      "bytes": 8173,
+      "copy_bytes": 8173,
+      "copy_sha256": "bddc862c27c006f2e3a1a468a02ddff09270a94afae229e52de665a80d50d5d7",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/009/mig_7series_v4_2_axi_mc_b_channel.v",
+      "relative_path": "hdl/009/mig_7series_v4_2_axi_mc_b_channel.v",
+      "sha256": "bddc862c27c006f2e3a1a468a02ddff09270a94afae229e52de665a80d50d5d7"
+    },
+    {
+      "bytes": 12139,
+      "copy_bytes": 12139,
+      "copy_sha256": "992f1d1a33deb893784553f84843ce19e2bb02787ec42046182bac0f0b32ef29",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/010/mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "relative_path": "hdl/010/mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "sha256": "992f1d1a33deb893784553f84843ce19e2bb02787ec42046182bac0f0b32ef29"
+    },
+    {
+      "bytes": 6275,
+      "copy_bytes": 6275,
+      "copy_sha256": "1b26f14b768d75024e27e1d35d8602365b32084f95a46370b9286ebbbd4928ba",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/011/mig_7series_v4_2_axi_mc_cmd_fsm.v",
+      "relative_path": "hdl/011/mig_7series_v4_2_axi_mc_cmd_fsm.v",
+      "sha256": "1b26f14b768d75024e27e1d35d8602365b32084f95a46370b9286ebbbd4928ba"
+    },
+    {
+      "bytes": 6682,
+      "copy_bytes": 6682,
+      "copy_sha256": "9357a4c13f8b890e5baf67b8321fec2494f2a351cd3ce5ad8ab8140aabdf0fd3",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/012/mig_7series_v4_2_axi_mc_wr_cmd_fsm.v",
+      "relative_path": "hdl/012/mig_7series_v4_2_axi_mc_wr_cmd_fsm.v",
+      "sha256": "9357a4c13f8b890e5baf67b8321fec2494f2a351cd3ce5ad8ab8140aabdf0fd3"
+    },
+    {
+      "bytes": 9738,
+      "copy_bytes": 9738,
+      "copy_sha256": "483ad56bcf65bfa05a83e414504776b0ba33cecf639878df9f8fc2ae9e7b2e4f",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/013/mig_7series_v4_2_axi_mc_cmd_translator.v",
+      "relative_path": "hdl/013/mig_7series_v4_2_axi_mc_cmd_translator.v",
+      "sha256": "483ad56bcf65bfa05a83e414504776b0ba33cecf639878df9f8fc2ae9e7b2e4f"
+    },
+    {
+      "bytes": 10182,
+      "copy_bytes": 10182,
+      "copy_sha256": "ada5247b231ce56dc52c5efeecf74be533433e44576e7981c85a60a0333bd709",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/014/mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "relative_path": "hdl/014/mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "sha256": "ada5247b231ce56dc52c5efeecf74be533433e44576e7981c85a60a0333bd709"
+    },
+    {
+      "bytes": 12758,
+      "copy_bytes": 12758,
+      "copy_sha256": "13a23ff1dd32164e98c1d90702819eac060b0717ec52da435d73485fa442daf1",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/015/mig_7series_v4_2_axi_mc_r_channel.v",
+      "relative_path": "hdl/015/mig_7series_v4_2_axi_mc_r_channel.v",
+      "sha256": "13a23ff1dd32164e98c1d90702819eac060b0717ec52da435d73485fa442daf1"
+    },
+    {
+      "bytes": 5531,
+      "copy_bytes": 5531,
+      "copy_sha256": "b1a57e5f75a0b55009c4413dcd77eb7cc591c566a0c15abd92193c04f34c2bbd",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/016/mig_7series_v4_2_axi_mc_simple_fifo.v",
+      "relative_path": "hdl/016/mig_7series_v4_2_axi_mc_simple_fifo.v",
+      "sha256": "b1a57e5f75a0b55009c4413dcd77eb7cc591c566a0c15abd92193c04f34c2bbd"
+    },
+    {
+      "bytes": 5742,
+      "copy_bytes": 5742,
+      "copy_sha256": "e9602843ef3c03c6652aef0c2f6b6dc0cb60f789c37ea228485b1c2b21bb6a92",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/017/mig_7series_v4_2_axi_mc_fifo.v",
+      "relative_path": "hdl/017/mig_7series_v4_2_axi_mc_fifo.v",
+      "sha256": "e9602843ef3c03c6652aef0c2f6b6dc0cb60f789c37ea228485b1c2b21bb6a92"
+    },
+    {
+      "bytes": 11337,
+      "copy_bytes": 11337,
+      "copy_sha256": "0444eab3dae92342270e371d9cb3909d68cd8be7b9714f82786a4f6644b25395",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/018/mig_7series_v4_2_axi_mc_w_channel.v",
+      "relative_path": "hdl/018/mig_7series_v4_2_axi_mc_w_channel.v",
+      "sha256": "0444eab3dae92342270e371d9cb3909d68cd8be7b9714f82786a4f6644b25395"
+    },
+    {
+      "bytes": 11272,
+      "copy_bytes": 11272,
+      "copy_sha256": "45a21e37a32f6eec11868127cd5be25954a5a95bfaf7052ce0649946731b6dbf",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/019/mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "relative_path": "hdl/019/mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "sha256": "45a21e37a32f6eec11868127cd5be25954a5a95bfaf7052ce0649946731b6dbf"
+    },
+    {
+      "bytes": 49825,
+      "copy_bytes": 49825,
+      "copy_sha256": "6df7218fcd22d6f19a5e234dbc58da047c8712fa910d7c003fb786accd500505",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/020/mig_7series_v4_2_ddr_a_upsizer.v",
+      "relative_path": "hdl/020/mig_7series_v4_2_ddr_a_upsizer.v",
+      "sha256": "6df7218fcd22d6f19a5e234dbc58da047c8712fa910d7c003fb786accd500505"
+    },
+    {
+      "bytes": 22580,
+      "copy_bytes": 22580,
+      "copy_sha256": "f33f4abbcdb1a25724b4fbba48b4ab4ec77627b73c647a657d296ff57d323e94",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/021/mig_7series_v4_2_ddr_axi_register_slice.v",
+      "relative_path": "hdl/021/mig_7series_v4_2_ddr_axi_register_slice.v",
+      "sha256": "f33f4abbcdb1a25724b4fbba48b4ab4ec77627b73c647a657d296ff57d323e94"
+    },
+    {
+      "bytes": 44062,
+      "copy_bytes": 44062,
+      "copy_sha256": "ed069bdf77b16d1cc400e223c2087f25e2e3c91c6c2d5f3ecfa329c501c0bda4",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/022/mig_7series_v4_2_ddr_axi_upsizer.v",
+      "relative_path": "hdl/022/mig_7series_v4_2_ddr_axi_upsizer.v",
+      "sha256": "ed069bdf77b16d1cc400e223c2087f25e2e3c91c6c2d5f3ecfa329c501c0bda4"
+    },
+    {
+      "bytes": 19169,
+      "copy_bytes": 19169,
+      "copy_sha256": "c21552fb3bd001886a800ebd4ca6240952da81923f3bb5e97f73b091e591e84f",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/023/mig_7series_v4_2_ddr_axic_register_slice.v",
+      "relative_path": "hdl/023/mig_7series_v4_2_ddr_axic_register_slice.v",
+      "sha256": "c21552fb3bd001886a800ebd4ca6240952da81923f3bb5e97f73b091e591e84f"
+    },
+    {
+      "bytes": 4267,
+      "copy_bytes": 4267,
+      "copy_sha256": "7aac21a3ac4b09171cfdc4b245deb520859132544cdd6f9d506824386ecc65f8",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/024/mig_7series_v4_2_ddr_carry_and.v",
+      "relative_path": "hdl/024/mig_7series_v4_2_ddr_carry_and.v",
+      "sha256": "7aac21a3ac4b09171cfdc4b245deb520859132544cdd6f9d506824386ecc65f8"
+    },
+    {
+      "bytes": 4311,
+      "copy_bytes": 4311,
+      "copy_sha256": "423346d831a88a54cb4ebbc30579339af527fd51259490f95da0310dacac9234",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/025/mig_7series_v4_2_ddr_carry_latch_and.v",
+      "relative_path": "hdl/025/mig_7series_v4_2_ddr_carry_latch_and.v",
+      "sha256": "423346d831a88a54cb4ebbc30579339af527fd51259490f95da0310dacac9234"
+    },
+    {
+      "bytes": 4251,
+      "copy_bytes": 4251,
+      "copy_sha256": "741a607ef458700e5b2129c2ec487f8e80d2b5406251921199e49662372574d5",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/026/mig_7series_v4_2_ddr_carry_latch_or.v",
+      "relative_path": "hdl/026/mig_7series_v4_2_ddr_carry_latch_or.v",
+      "sha256": "741a607ef458700e5b2129c2ec487f8e80d2b5406251921199e49662372574d5"
+    },
+    {
+      "bytes": 4320,
+      "copy_bytes": 4320,
+      "copy_sha256": "3e423d97b128583849c13ac086a9cee98f2a6de595d096ed927bc458fd92619b",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/027/mig_7series_v4_2_ddr_carry_or.v",
+      "relative_path": "hdl/027/mig_7series_v4_2_ddr_carry_or.v",
+      "sha256": "3e423d97b128583849c13ac086a9cee98f2a6de595d096ed927bc458fd92619b"
+    },
+    {
+      "bytes": 16175,
+      "copy_bytes": 16175,
+      "copy_sha256": "b88b881970ceceb8e2c62dd724092b5703adb19be6c1167ed6f1d83e73e72022",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/028/mig_7series_v4_2_ddr_command_fifo.v",
+      "relative_path": "hdl/028/mig_7series_v4_2_ddr_command_fifo.v",
+      "sha256": "b88b881970ceceb8e2c62dd724092b5703adb19be6c1167ed6f1d83e73e72022"
+    },
+    {
+      "bytes": 6018,
+      "copy_bytes": 6018,
+      "copy_sha256": "6a072f8ebfe614e9ac45a7f1666281d46240d8436e9a5e88f1124deceefadd7e",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/029/mig_7series_v4_2_ddr_comparator.v",
+      "relative_path": "hdl/029/mig_7series_v4_2_ddr_comparator.v",
+      "sha256": "6a072f8ebfe614e9ac45a7f1666281d46240d8436e9a5e88f1124deceefadd7e"
+    },
+    {
+      "bytes": 6466,
+      "copy_bytes": 6466,
+      "copy_sha256": "3094f4708342d46cd9a6b91c6d998b7b081c847313d2ee9343b4a1b28ea0e563",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/030/mig_7series_v4_2_ddr_comparator_sel.v",
+      "relative_path": "hdl/030/mig_7series_v4_2_ddr_comparator_sel.v",
+      "sha256": "3094f4708342d46cd9a6b91c6d998b7b081c847313d2ee9343b4a1b28ea0e563"
+    },
+    {
+      "bytes": 6602,
+      "copy_bytes": 6602,
+      "copy_sha256": "474048741076de56f5bfdc732b823a60ca6cf5219886569715b4e409b45913ad",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/031/mig_7series_v4_2_ddr_comparator_sel_static.v",
+      "relative_path": "hdl/031/mig_7series_v4_2_ddr_comparator_sel_static.v",
+      "sha256": "474048741076de56f5bfdc732b823a60ca6cf5219886569715b4e409b45913ad"
+    },
+    {
+      "bytes": 36366,
+      "copy_bytes": 36366,
+      "copy_sha256": "6b31714f9919f7921bbc8409441b4e0e2db1353258fcc9433c5cec004e104903",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/032/mig_7series_v4_2_ddr_r_upsizer.v",
+      "relative_path": "hdl/032/mig_7series_v4_2_ddr_r_upsizer.v",
+      "sha256": "6b31714f9919f7921bbc8409441b4e0e2db1353258fcc9433c5cec004e104903"
+    },
+    {
+      "bytes": 68101,
+      "copy_bytes": 68101,
+      "copy_sha256": "5b5ae736bfef69e33e808a6fa4527955a8f3d95d25b4fb64e419f924dbe2ba9e",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/033/mig_7series_v4_2_ddr_w_upsizer.v",
+      "relative_path": "hdl/033/mig_7series_v4_2_ddr_w_upsizer.v",
+      "sha256": "5b5ae736bfef69e33e808a6fa4527955a8f3d95d25b4fb64e419f924dbe2ba9e"
+    },
+    {
+      "bytes": 4797,
+      "copy_bytes": 4797,
+      "copy_sha256": "4cade14875e2101e1e9e997beacec38da0b9d712908b0b503e5a35c9c592f992",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/034/mig_7series_v4_2_clk_ibuf.v",
+      "relative_path": "hdl/034/mig_7series_v4_2_clk_ibuf.v",
+      "sha256": "4cade14875e2101e1e9e997beacec38da0b9d712908b0b503e5a35c9c592f992"
+    },
+    {
+      "bytes": 30834,
+      "copy_bytes": 30834,
+      "copy_sha256": "2dbb9bb2a1a4b95407c16b87d9ab421ba1d25c516a6faddff50fa46392035c52",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/035/mig_7series_v4_2_infrastructure.v",
+      "relative_path": "hdl/035/mig_7series_v4_2_infrastructure.v",
+      "sha256": "2dbb9bb2a1a4b95407c16b87d9ab421ba1d25c516a6faddff50fa46392035c52"
+    },
+    {
+      "bytes": 13704,
+      "copy_bytes": 13704,
+      "copy_sha256": "094265eb7c3509e132d03d43b834461d5252d0e5643da86181bc21b6aa79338f",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/036/mig_7series_v4_2_iodelay_ctrl.v",
+      "relative_path": "hdl/036/mig_7series_v4_2_iodelay_ctrl.v",
+      "sha256": "094265eb7c3509e132d03d43b834461d5252d0e5643da86181bc21b6aa79338f"
+    },
+    {
+      "bytes": 15168,
+      "copy_bytes": 15168,
+      "copy_sha256": "d7d00b5a6e980f855f2a11a8749f6ec70bdadb7a44fc4ca15c3e341b33a2ed13",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/037/mig_7series_v4_2_tempmon.v",
+      "relative_path": "hdl/037/mig_7series_v4_2_tempmon.v",
+      "sha256": "d7d00b5a6e980f855f2a11a8749f6ec70bdadb7a44fc4ca15c3e341b33a2ed13"
+    },
+    {
+      "bytes": 19766,
+      "copy_bytes": 19766,
+      "copy_sha256": "a509b910fc977799ddce78a587b2dfa96338948d21052c8285ed1acdf9335c75",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/038/mig_7series_v4_2_arb_mux.v",
+      "relative_path": "hdl/038/mig_7series_v4_2_arb_mux.v",
+      "sha256": "a509b910fc977799ddce78a587b2dfa96338948d21052c8285ed1acdf9335c75"
+    },
+    {
+      "bytes": 18941,
+      "copy_bytes": 18941,
+      "copy_sha256": "033f73c2378b01b429fa33e326e1be7d4350f0df49e1e56b1a669859a9b91422",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/039/mig_7series_v4_2_arb_row_col.v",
+      "relative_path": "hdl/039/mig_7series_v4_2_arb_row_col.v",
+      "sha256": "033f73c2378b01b429fa33e326e1be7d4350f0df49e1e56b1a669859a9b91422"
+    },
+    {
+      "bytes": 26780,
+      "copy_bytes": 26780,
+      "copy_sha256": "6d1d51c8b419efe976b87b46939ba5a5b5bff2b5dc652163c2176a8eb0d4493f",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/040/mig_7series_v4_2_arb_select.v",
+      "relative_path": "hdl/040/mig_7series_v4_2_arb_select.v",
+      "sha256": "6d1d51c8b419efe976b87b46939ba5a5b5bff2b5dc652163c2176a8eb0d4493f"
+    },
+    {
+      "bytes": 25942,
+      "copy_bytes": 25942,
+      "copy_sha256": "ed48004bb5e2466d376cb15870416a00973c6b3d928f12d7a4b6cf2de275bd69",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/041/mig_7series_v4_2_bank_cntrl.v",
+      "relative_path": "hdl/041/mig_7series_v4_2_bank_cntrl.v",
+      "sha256": "ed48004bb5e2466d376cb15870416a00973c6b3d928f12d7a4b6cf2de275bd69"
+    },
+    {
+      "bytes": 18422,
+      "copy_bytes": 18422,
+      "copy_sha256": "20458b07b3bc751e788e8bb613cfc88792cc52ae97fa8f1e596c33f2fccd6dd1",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/042/mig_7series_v4_2_bank_common.v",
+      "relative_path": "hdl/042/mig_7series_v4_2_bank_common.v",
+      "sha256": "20458b07b3bc751e788e8bb613cfc88792cc52ae97fa8f1e596c33f2fccd6dd1"
+    },
+    {
+      "bytes": 10848,
+      "copy_bytes": 10848,
+      "copy_sha256": "ed85f3f2b2430a8e5028c8adc21db598ada44d5f83b0515777c648c4adb060f3",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/043/mig_7series_v4_2_bank_compare.v",
+      "relative_path": "hdl/043/mig_7series_v4_2_bank_compare.v",
+      "sha256": "ed85f3f2b2430a8e5028c8adc21db598ada44d5f83b0515777c648c4adb060f3"
+    },
+    {
+      "bytes": 31505,
+      "copy_bytes": 31505,
+      "copy_sha256": "09b68e3243186872cb20e4d530c5dea1351117e3d7edb697b209ffb3a875f165",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/044/mig_7series_v4_2_bank_mach.v",
+      "relative_path": "hdl/044/mig_7series_v4_2_bank_mach.v",
+      "sha256": "09b68e3243186872cb20e4d530c5dea1351117e3d7edb697b209ffb3a875f165"
+    },
+    {
+      "bytes": 23289,
+      "copy_bytes": 23289,
+      "copy_sha256": "8c379fc4f9fab724f0ac94d008d9de844159b295fc12e1458c603d1d9209eeb9",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/045/mig_7series_v4_2_bank_queue.v",
+      "relative_path": "hdl/045/mig_7series_v4_2_bank_queue.v",
+      "sha256": "8c379fc4f9fab724f0ac94d008d9de844159b295fc12e1458c603d1d9209eeb9"
+    },
+    {
+      "bytes": 36755,
+      "copy_bytes": 36755,
+      "copy_sha256": "465babb32d1346f6c7c7e7f2f5dd67d71438aea9ae31056258e15af3bd36b35f",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/046/mig_7series_v4_2_bank_state.v",
+      "relative_path": "hdl/046/mig_7series_v4_2_bank_state.v",
+      "sha256": "465babb32d1346f6c7c7e7f2f5dd67d71438aea9ae31056258e15af3bd36b35f"
+    },
+    {
+      "bytes": 16640,
+      "copy_bytes": 16640,
+      "copy_sha256": "a91e4cd5e8afcf0f956e94144d896a78849dafea0e31b5d88b62147de9f7bf0a",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/047/mig_7series_v4_2_col_mach.v",
+      "relative_path": "hdl/047/mig_7series_v4_2_col_mach.v",
+      "sha256": "a91e4cd5e8afcf0f956e94144d896a78849dafea0e31b5d88b62147de9f7bf0a"
+    },
+    {
+      "bytes": 42870,
+      "copy_bytes": 42870,
+      "copy_sha256": "98e99f2d2dc416ea8fb917f68fd5d609da3f574c3c417c15a31719d612f98c8b",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/048/mig_7series_v4_2_mc.v",
+      "relative_path": "hdl/048/mig_7series_v4_2_mc.v",
+      "sha256": "98e99f2d2dc416ea8fb917f68fd5d609da3f574c3c417c15a31719d612f98c8b"
+    },
+    {
+      "bytes": 22800,
+      "copy_bytes": 22800,
+      "copy_sha256": "25f0ba1a096ede1f408fe8fa1f1e045624d7f2b349e966fac487369ce7ec4ef7",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/049/mig_7series_v4_2_rank_cntrl.v",
+      "relative_path": "hdl/049/mig_7series_v4_2_rank_cntrl.v",
+      "sha256": "25f0ba1a096ede1f408fe8fa1f1e045624d7f2b349e966fac487369ce7ec4ef7"
+    },
+    {
+      "bytes": 20640,
+      "copy_bytes": 20640,
+      "copy_sha256": "eb8fae78ffef6674890baf439790a57b8d21d11b1666ac7c4f17a77ddeae9683",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/050/mig_7series_v4_2_rank_common.v",
+      "relative_path": "hdl/050/mig_7series_v4_2_rank_common.v",
+      "sha256": "eb8fae78ffef6674890baf439790a57b8d21d11b1666ac7c4f17a77ddeae9683"
+    },
+    {
+      "bytes": 12348,
+      "copy_bytes": 12348,
+      "copy_sha256": "c7df91c07d2fa021ad2649d9003b85ced3da8c0d0a2c271a56421303b50a1468",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/051/mig_7series_v4_2_rank_mach.v",
+      "relative_path": "hdl/051/mig_7series_v4_2_rank_mach.v",
+      "sha256": "c7df91c07d2fa021ad2649d9003b85ced3da8c0d0a2c271a56421303b50a1468"
+    },
+    {
+      "bytes": 6294,
+      "copy_bytes": 6294,
+      "copy_sha256": "2b70153618c0dc18b13cb7e8e52d9dfe9aee78f7750c5e8fc8d3d9d98b910e72",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/052/mig_7series_v4_2_ecc_buf.v",
+      "relative_path": "hdl/052/mig_7series_v4_2_ecc_buf.v",
+      "sha256": "2b70153618c0dc18b13cb7e8e52d9dfe9aee78f7750c5e8fc8d3d9d98b910e72"
+    },
+    {
+      "bytes": 6657,
+      "copy_bytes": 6657,
+      "copy_sha256": "84745585695a18896e41aec6f3f2a51faca2774f4fe1e931ad9a67256eb7f140",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/053/mig_7series_v4_2_ecc_dec_fix.v",
+      "relative_path": "hdl/053/mig_7series_v4_2_ecc_dec_fix.v",
+      "sha256": "84745585695a18896e41aec6f3f2a51faca2774f4fe1e931ad9a67256eb7f140"
+    },
+    {
+      "bytes": 7900,
+      "copy_bytes": 7900,
+      "copy_sha256": "fb1b09096febcceb3f05b4f68c9c3fe2d0ff40661c210fb44797413860fd6e89",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/054/mig_7series_v4_2_ecc_gen.v",
+      "relative_path": "hdl/054/mig_7series_v4_2_ecc_gen.v",
+      "sha256": "fb1b09096febcceb3f05b4f68c9c3fe2d0ff40661c210fb44797413860fd6e89"
+    },
+    {
+      "bytes": 5948,
+      "copy_bytes": 5948,
+      "copy_sha256": "54e55ddbf12fa67d3e96db020415aa1303cd0c76a1c6e77f0b8a56ecc556d114",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/055/mig_7series_v4_2_ecc_merge_enc.v",
+      "relative_path": "hdl/055/mig_7series_v4_2_ecc_merge_enc.v",
+      "sha256": "54e55ddbf12fa67d3e96db020415aa1303cd0c76a1c6e77f0b8a56ecc556d114"
+    },
+    {
+      "bytes": 5556,
+      "copy_bytes": 5556,
+      "copy_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/056/mig_7series_v4_2_fi_xor.v",
+      "relative_path": "hdl/056/mig_7series_v4_2_fi_xor.v",
+      "sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "bytes": 43904,
+      "copy_bytes": 43904,
+      "copy_sha256": "07817d59ad694423d40f4da977d4892fedfcf9fc70ba88505a4e25eacfa2db5d",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/057/mig_7series_v4_2_mem_intfc.v",
+      "relative_path": "hdl/057/mig_7series_v4_2_mem_intfc.v",
+      "sha256": "07817d59ad694423d40f4da977d4892fedfcf9fc70ba88505a4e25eacfa2db5d"
+    },
+    {
+      "bytes": 57962,
+      "copy_bytes": 57962,
+      "copy_sha256": "f220f191951c2f34106f07960091330203a4bd248e85ef30e043f73fed081393",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/058/mig_7series_v4_2_memc_ui_top_axi.v",
+      "relative_path": "hdl/058/mig_7series_v4_2_memc_ui_top_axi.v",
+      "sha256": "f220f191951c2f34106f07960091330203a4bd248e85ef30e043f73fed081393"
+    },
+    {
+      "bytes": 21874,
+      "copy_bytes": 21874,
+      "copy_sha256": "e4379b843bd3a67370c614f9d354ccea9427ab156fcbd1652aa2623cb63b5db0",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/059/mig_7series_v4_2_ddr_byte_group_io.v",
+      "relative_path": "hdl/059/mig_7series_v4_2_ddr_byte_group_io.v",
+      "sha256": "e4379b843bd3a67370c614f9d354ccea9427ab156fcbd1652aa2623cb63b5db0"
+    },
+    {
+      "bytes": 33007,
+      "copy_bytes": 33007,
+      "copy_sha256": "76df6abb6ce7f27092281185e10deb3fd327475ab4a8248926af3ffa590a137a",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/060/mig_7series_v4_2_ddr_byte_lane.v",
+      "relative_path": "hdl/060/mig_7series_v4_2_ddr_byte_lane.v",
+      "sha256": "76df6abb6ce7f27092281185e10deb3fd327475ab4a8248926af3ffa590a137a"
+    },
+    {
+      "bytes": 26454,
+      "copy_bytes": 26454,
+      "copy_sha256": "9d65b6e2e0347644e98f0bffedb8f523723ed4f87625d34b7a68fc0f3adcee93",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/061/mig_7series_v4_2_ddr_phy_tempmon.v",
+      "relative_path": "hdl/061/mig_7series_v4_2_ddr_phy_tempmon.v",
+      "sha256": "9d65b6e2e0347644e98f0bffedb8f523723ed4f87625d34b7a68fc0f3adcee93"
+    },
+    {
+      "bytes": 103892,
+      "copy_bytes": 103892,
+      "copy_sha256": "55af136ed7e16794963c59d5cd265ce20b4e818914bf1ee31f1c9024c41a44d5",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/062/mig_7series_v4_2_ddr_calib_top.v",
+      "relative_path": "hdl/062/mig_7series_v4_2_ddr_calib_top.v",
+      "sha256": "55af136ed7e16794963c59d5cd265ce20b4e818914bf1ee31f1c9024c41a44d5"
+    },
+    {
+      "bytes": 30235,
+      "copy_bytes": 30235,
+      "copy_sha256": "e43e9cfa2732ead8e509318a90a53ed05e320e49aa07d45af7ce6c5ed5e83f80",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/063/mig_7series_v4_2_ddr_skip_calib_tap.v",
+      "relative_path": "hdl/063/mig_7series_v4_2_ddr_skip_calib_tap.v",
+      "sha256": "e43e9cfa2732ead8e509318a90a53ed05e320e49aa07d45af7ce6c5ed5e83f80"
+    },
+    {
+      "bytes": 8544,
+      "copy_bytes": 8544,
+      "copy_sha256": "880206463937c66ce15c8636d2e200e1809d879171b79de5a31aeb5c0c2befab",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/064/mig_7series_v4_2_ddr_if_post_fifo.v",
+      "relative_path": "hdl/064/mig_7series_v4_2_ddr_if_post_fifo.v",
+      "sha256": "880206463937c66ce15c8636d2e200e1809d879171b79de5a31aeb5c0c2befab"
+    },
+    {
+      "bytes": 89698,
+      "copy_bytes": 89698,
+      "copy_sha256": "00a05653eeb1191bc69f6b5682b43088bfee1b9f888e850999f7de2028b15eac",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/065/mig_7series_v4_2_ddr_mc_phy.v",
+      "relative_path": "hdl/065/mig_7series_v4_2_ddr_mc_phy.v",
+      "sha256": "00a05653eeb1191bc69f6b5682b43088bfee1b9f888e850999f7de2028b15eac"
+    },
+    {
+      "bytes": 71874,
+      "copy_bytes": 71874,
+      "copy_sha256": "0074ef82db3ea178a15f8a71278d8286a263aa680043fd7f7f3607f9b15bc82a",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/066/mig_7series_v4_2_ddr_mc_phy_wrapper.v",
+      "relative_path": "hdl/066/mig_7series_v4_2_ddr_mc_phy_wrapper.v",
+      "sha256": "0074ef82db3ea178a15f8a71278d8286a263aa680043fd7f7f3607f9b15bc82a"
+    },
+    {
+      "bytes": 8025,
+      "copy_bytes": 8025,
+      "copy_sha256": "04660aa87dd1121088ba8bb8708d8784f3d22b7193efad30c8ebf93f3004bbc6",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/067/mig_7series_v4_2_ddr_of_pre_fifo.v",
+      "relative_path": "hdl/067/mig_7series_v4_2_ddr_of_pre_fifo.v",
+      "sha256": "04660aa87dd1121088ba8bb8708d8784f3d22b7193efad30c8ebf93f3004bbc6"
+    },
+    {
+      "bytes": 80514,
+      "copy_bytes": 80514,
+      "copy_sha256": "d0abc5c25f7efdc9764c730acec134449485a6ebd4c1f0addf51e3fb1af4d07f",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/068/mig_7series_v4_2_ddr_phy_4lanes.v",
+      "relative_path": "hdl/068/mig_7series_v4_2_ddr_phy_4lanes.v",
+      "sha256": "d0abc5c25f7efdc9764c730acec134449485a6ebd4c1f0addf51e3fb1af4d07f"
+    },
+    {
+      "bytes": 8728,
+      "copy_bytes": 8728,
+      "copy_sha256": "aa45ef4586f2158e810499c0d8af6d6d916106dcee8261dc735c46d2420a5e1c",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/069/mig_7series_v4_2_ddr_phy_ck_addr_cmd_delay.v",
+      "relative_path": "hdl/069/mig_7series_v4_2_ddr_phy_ck_addr_cmd_delay.v",
+      "sha256": "aa45ef4586f2158e810499c0d8af6d6d916106dcee8261dc735c46d2420a5e1c"
+    },
+    {
+      "bytes": 242625,
+      "copy_bytes": 242625,
+      "copy_sha256": "8639c5ba24d0cdfdb64cfe7224181b939156d0c4a20354d9f4935e03ae1b0f1f",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/070/mig_7series_v4_2_ddr_phy_init.v",
+      "relative_path": "hdl/070/mig_7series_v4_2_ddr_phy_init.v",
+      "sha256": "8639c5ba24d0cdfdb64cfe7224181b939156d0c4a20354d9f4935e03ae1b0f1f"
+    },
+    {
+      "bytes": 51401,
+      "copy_bytes": 51401,
+      "copy_sha256": "6f61ffb756793dddd5ea7b4777af2863ed365e4935fd214d89e2bce0ce7ae8ac",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/071/mig_7series_v4_2_ddr_phy_dqs_found_cal.v",
+      "relative_path": "hdl/071/mig_7series_v4_2_ddr_phy_dqs_found_cal.v",
+      "sha256": "6f61ffb756793dddd5ea7b4777af2863ed365e4935fd214d89e2bce0ce7ae8ac"
+    },
+    {
+      "bytes": 51699,
+      "copy_bytes": 51699,
+      "copy_sha256": "05f62981edf9fd7c976d3f3f297b69017f97ba1ec08d217de4d50d2cea4c055e",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/072/mig_7series_v4_2_ddr_phy_dqs_found_cal_hr.v",
+      "relative_path": "hdl/072/mig_7series_v4_2_ddr_phy_dqs_found_cal_hr.v",
+      "sha256": "05f62981edf9fd7c976d3f3f297b69017f97ba1ec08d217de4d50d2cea4c055e"
+    },
+    {
+      "bytes": 25217,
+      "copy_bytes": 25217,
+      "copy_sha256": "a23d8cf2669fa62885d629b403082d994039bd010ec4bbd40cf0f1cc5f6245f1",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/073/mig_7series_v4_2_ddr_phy_oclkdelay_cal.v",
+      "relative_path": "hdl/073/mig_7series_v4_2_ddr_phy_oclkdelay_cal.v",
+      "sha256": "a23d8cf2669fa62885d629b403082d994039bd010ec4bbd40cf0f1cc5f6245f1"
+    },
+    {
+      "bytes": 250616,
+      "copy_bytes": 250616,
+      "copy_sha256": "956169530edf4f1ccebd75315d2c94553245581d4c6642ad1c536256cfdea50a",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/074/mig_7series_v4_2_ddr_phy_prbs_rdlvl.v",
+      "relative_path": "hdl/074/mig_7series_v4_2_ddr_phy_prbs_rdlvl.v",
+      "sha256": "956169530edf4f1ccebd75315d2c94553245581d4c6642ad1c536256cfdea50a"
+    },
+    {
+      "bytes": 147440,
+      "copy_bytes": 147440,
+      "copy_sha256": "7a77876d23b2e818b6fe82939bbab6dec5c78644c6ed6fd3544c96b3cd9849b3",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/075/mig_7series_v4_2_ddr_phy_rdlvl.v",
+      "relative_path": "hdl/075/mig_7series_v4_2_ddr_phy_rdlvl.v",
+      "sha256": "7a77876d23b2e818b6fe82939bbab6dec5c78644c6ed6fd3544c96b3cd9849b3"
+    },
+    {
+      "bytes": 74306,
+      "copy_bytes": 74306,
+      "copy_sha256": "31f6ee7c905205563e587b2fad8d21f25cd62e7a37b767b3f9fbe3bcbe767672",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/076/mig_7series_v4_2_ddr_phy_top.v",
+      "relative_path": "hdl/076/mig_7series_v4_2_ddr_phy_top.v",
+      "sha256": "31f6ee7c905205563e587b2fad8d21f25cd62e7a37b767b3f9fbe3bcbe767672"
+    },
+    {
+      "bytes": 54329,
+      "copy_bytes": 54329,
+      "copy_sha256": "bf3255be3ae668a46c6d0d7e8751cfec35e62eccd59abfe0ed4cb0b631edfee3",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/077/mig_7series_v4_2_ddr_phy_wrcal.v",
+      "relative_path": "hdl/077/mig_7series_v4_2_ddr_phy_wrcal.v",
+      "sha256": "bf3255be3ae668a46c6d0d7e8751cfec35e62eccd59abfe0ed4cb0b631edfee3"
+    },
+    {
+      "bytes": 50488,
+      "copy_bytes": 50488,
+      "copy_sha256": "72552e2ab6796f5bd7ae6be787a5eb508df5734523a1d396127fb4c7eaed201e",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/078/mig_7series_v4_2_ddr_phy_wrlvl.v",
+      "relative_path": "hdl/078/mig_7series_v4_2_ddr_phy_wrlvl.v",
+      "sha256": "72552e2ab6796f5bd7ae6be787a5eb508df5734523a1d396127fb4c7eaed201e"
+    },
+    {
+      "bytes": 8906,
+      "copy_bytes": 8906,
+      "copy_sha256": "3809f9f9451a53be183be17e95c2e2b4b90649f7f910510332c5672c216004bd",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/079/mig_7series_v4_2_ddr_phy_wrlvl_off_delay.v",
+      "relative_path": "hdl/079/mig_7series_v4_2_ddr_phy_wrlvl_off_delay.v",
+      "sha256": "3809f9f9451a53be183be17e95c2e2b4b90649f7f910510332c5672c216004bd"
+    },
+    {
+      "bytes": 29593,
+      "copy_bytes": 29593,
+      "copy_sha256": "237fdead2fe1171c2a43cabf6b07238a71cc5afdc9187f4fcba59fa12b048998",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/080/mig_7series_v4_2_ddr_prbs_gen.v",
+      "relative_path": "hdl/080/mig_7series_v4_2_ddr_prbs_gen.v",
+      "sha256": "237fdead2fe1171c2a43cabf6b07238a71cc5afdc9187f4fcba59fa12b048998"
+    },
+    {
+      "bytes": 21167,
+      "copy_bytes": 21167,
+      "copy_sha256": "ebb5cb0d5f1158f9f89152ebf4b4a23951f0b872b6a46aa7aaf285fa576db870",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/081/mig_7series_v4_2_ddr_phy_ocd_lim.v",
+      "relative_path": "hdl/081/mig_7series_v4_2_ddr_phy_ocd_lim.v",
+      "sha256": "ebb5cb0d5f1158f9f89152ebf4b4a23951f0b872b6a46aa7aaf285fa576db870"
+    },
+    {
+      "bytes": 16230,
+      "copy_bytes": 16230,
+      "copy_sha256": "68753e48a21e2bb70a46287697dbab2ab25b027566f62a40ab0d73d695e01c91",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/082/mig_7series_v4_2_poc_top.v",
+      "relative_path": "hdl/082/mig_7series_v4_2_poc_top.v",
+      "sha256": "68753e48a21e2bb70a46287697dbab2ab25b027566f62a40ab0d73d695e01c91"
+    },
+    {
+      "bytes": 7536,
+      "copy_bytes": 7536,
+      "copy_sha256": "cfe0b65ab6d5411c5b9b1208838b7d29f9eca1cb165314c5cc26d7d91791407a",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/083/mig_7series_v4_2_ddr_phy_ocd_mux.v",
+      "relative_path": "hdl/083/mig_7series_v4_2_ddr_phy_ocd_mux.v",
+      "sha256": "cfe0b65ab6d5411c5b9b1208838b7d29f9eca1cb165314c5cc26d7d91791407a"
+    },
+    {
+      "bytes": 9144,
+      "copy_bytes": 9144,
+      "copy_sha256": "e407db424813952afec4930f78182d9902d75841bce601ecf39ffe64d3a956d9",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/084/mig_7series_v4_2_ddr_phy_ocd_data.v",
+      "relative_path": "hdl/084/mig_7series_v4_2_ddr_phy_ocd_data.v",
+      "sha256": "e407db424813952afec4930f78182d9902d75841bce601ecf39ffe64d3a956d9"
+    },
+    {
+      "bytes": 12544,
+      "copy_bytes": 12544,
+      "copy_sha256": "29a22219ca4b77023957c2347cffab6b9b1e6748f0edb7940051eae2657b9221",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/085/mig_7series_v4_2_ddr_phy_ocd_samp.v",
+      "relative_path": "hdl/085/mig_7series_v4_2_ddr_phy_ocd_samp.v",
+      "sha256": "29a22219ca4b77023957c2347cffab6b9b1e6748f0edb7940051eae2657b9221"
+    },
+    {
+      "bytes": 7872,
+      "copy_bytes": 7872,
+      "copy_sha256": "3c39007e5da49858c5eacfa654132bda597beabd83b85901c72aea8b42b5606b",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/086/mig_7series_v4_2_ddr_phy_ocd_edge.v",
+      "relative_path": "hdl/086/mig_7series_v4_2_ddr_phy_ocd_edge.v",
+      "sha256": "3c39007e5da49858c5eacfa654132bda597beabd83b85901c72aea8b42b5606b"
+    },
+    {
+      "bytes": 9784,
+      "copy_bytes": 9784,
+      "copy_sha256": "23c1bc544d854878bd676d017b4318b4540dcb701fd0cac4fff5f12735802f69",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/087/mig_7series_v4_2_ddr_phy_ocd_cntlr.v",
+      "relative_path": "hdl/087/mig_7series_v4_2_ddr_phy_ocd_cntlr.v",
+      "sha256": "23c1bc544d854878bd676d017b4318b4540dcb701fd0cac4fff5f12735802f69"
+    },
+    {
+      "bytes": 21551,
+      "copy_bytes": 21551,
+      "copy_sha256": "38a0220a6afa1f1e319f12c562e72b59f3f9c935a7c71f7ed9dc6fed92fc3720",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/088/mig_7series_v4_2_ddr_phy_ocd_po_cntlr.v",
+      "relative_path": "hdl/088/mig_7series_v4_2_ddr_phy_ocd_po_cntlr.v",
+      "sha256": "38a0220a6afa1f1e319f12c562e72b59f3f9c935a7c71f7ed9dc6fed92fc3720"
+    },
+    {
+      "bytes": 4565,
+      "copy_bytes": 4565,
+      "copy_sha256": "c9a3f44de175378ff426b065919edfd9c16275df13ab655a088a24e169b307a7",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/089/mig_7series_v4_2_poc_pd.v",
+      "relative_path": "hdl/089/mig_7series_v4_2_poc_pd.v",
+      "sha256": "c9a3f44de175378ff426b065919edfd9c16275df13ab655a088a24e169b307a7"
+    },
+    {
+      "bytes": 10940,
+      "copy_bytes": 10940,
+      "copy_sha256": "04b268f7d0170484eaa718cc5dd67630f22a15c5846ac67834db97e00c290fc7",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/090/mig_7series_v4_2_poc_tap_base.v",
+      "relative_path": "hdl/090/mig_7series_v4_2_poc_tap_base.v",
+      "sha256": "04b268f7d0170484eaa718cc5dd67630f22a15c5846ac67834db97e00c290fc7"
+    },
+    {
+      "bytes": 12644,
+      "copy_bytes": 12644,
+      "copy_sha256": "cef98e6f81e1245fb052febdca24d2b41c900d7019075bd466fb6e06db192e99",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/091/mig_7series_v4_2_poc_meta.v",
+      "relative_path": "hdl/091/mig_7series_v4_2_poc_meta.v",
+      "sha256": "cef98e6f81e1245fb052febdca24d2b41c900d7019075bd466fb6e06db192e99"
+    },
+    {
+      "bytes": 4833,
+      "copy_bytes": 4833,
+      "copy_sha256": "edf73be15a599251d3714495f4b97ee7ccc1f036941061e47674be00fe97cd6b",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/092/mig_7series_v4_2_poc_edge_store.v",
+      "relative_path": "hdl/092/mig_7series_v4_2_poc_edge_store.v",
+      "sha256": "edf73be15a599251d3714495f4b97ee7ccc1f036941061e47674be00fe97cd6b"
+    },
+    {
+      "bytes": 7911,
+      "copy_bytes": 7911,
+      "copy_sha256": "3246efc5cf2d9aa0d89e988ecae5716ab7799f8a00a03d4107a653572a992d82",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/093/mig_7series_v4_2_poc_cc.v",
+      "relative_path": "hdl/093/mig_7series_v4_2_poc_cc.v",
+      "sha256": "3246efc5cf2d9aa0d89e988ecae5716ab7799f8a00a03d4107a653572a992d82"
+    },
+    {
+      "bytes": 11317,
+      "copy_bytes": 11317,
+      "copy_sha256": "7efeb6619b9ed54d502dc4d05d9c5c594ecad25606589916550c13e7de1dad3e",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/094/mig_7series_v4_2_ui_cmd.v",
+      "relative_path": "hdl/094/mig_7series_v4_2_ui_cmd.v",
+      "sha256": "7efeb6619b9ed54d502dc4d05d9c5c594ecad25606589916550c13e7de1dad3e"
+    },
+    {
+      "bytes": 20157,
+      "copy_bytes": 20157,
+      "copy_sha256": "4c62aafa17931493b77fcd74f7f82d370bf137fc66ac3be27b35f06837cd9fc7",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/095/mig_7series_v4_2_ui_rd_data.v",
+      "relative_path": "hdl/095/mig_7series_v4_2_ui_rd_data.v",
+      "sha256": "4c62aafa17931493b77fcd74f7f82d370bf137fc66ac3be27b35f06837cd9fc7"
+    },
+    {
+      "bytes": 15295,
+      "copy_bytes": 15295,
+      "copy_sha256": "c439eb6c66f175c6a1e7d56deb9109b90b7bcf6507d3bff043d8c59afd43d326",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/096/mig_7series_v4_2_ui_top.v",
+      "relative_path": "hdl/096/mig_7series_v4_2_ui_top.v",
+      "sha256": "c439eb6c66f175c6a1e7d56deb9109b90b7bcf6507d3bff043d8c59afd43d326"
+    },
+    {
+      "bytes": 21320,
+      "copy_bytes": 21320,
+      "copy_sha256": "9e3179cb34048abb2902aa2610b9eaa8b3a0d42b549bc8b334391e1237847a9c",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/097/mig_7series_v4_2_ui_wr_data.v",
+      "relative_path": "hdl/097/mig_7series_v4_2_ui_wr_data.v",
+      "sha256": "9e3179cb34048abb2902aa2610b9eaa8b3a0d42b549bc8b334391e1237847a9c"
+    },
+    {
+      "bytes": 23086,
+      "copy_bytes": 23086,
+      "copy_sha256": "09c000b23396d629f924164b66e4bb8f289e369bf3ef274f1577d36a3892750d",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/098/top_mig_7series_0_0.v",
+      "relative_path": "hdl/098/top_mig_7series_0_0.v",
+      "sha256": "09c000b23396d629f924164b66e4bb8f289e369bf3ef274f1577d36a3892750d"
+    },
+    {
+      "bytes": 138965,
+      "copy_bytes": 138965,
+      "copy_sha256": "616d24bbcd3c5c57a1ac23d21488e80b8b3f16a29df65ed110f629f7d3c5e36e",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/099/top_mig_7series_0_0_mig.v",
+      "relative_path": "hdl/099/top_mig_7series_0_0_mig.v",
+      "sha256": "616d24bbcd3c5c57a1ac23d21488e80b8b3f16a29df65ed110f629f7d3c5e36e"
+    },
+    {
+      "bytes": 7807,
+      "copy_bytes": 7807,
+      "copy_sha256": "ae6be8a3f77170c867bf076a4291bd6b0755c1250ab32215a8b679274b88368f",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/100/mig_7series_v4_2_round_robin_arb.v",
+      "relative_path": "hdl/100/mig_7series_v4_2_round_robin_arb.v",
+      "sha256": "ae6be8a3f77170c867bf076a4291bd6b0755c1250ab32215a8b679274b88368f"
+    },
+    {
+      "bytes": 4913,
+      "copy_bytes": 4913,
+      "copy_sha256": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/101/rk_fp16_alu.sv",
+      "relative_path": "hdl/101/rk_fp16_alu.sv",
+      "sha256": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650"
+    },
+    {
+      "bytes": 10660,
+      "copy_bytes": 10660,
+      "copy_sha256": "592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/102/rk_ew_regs.sv",
+      "relative_path": "hdl/102/rk_ew_regs.sv",
+      "sha256": "592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73"
+    },
+    {
+      "bytes": 5138,
+      "copy_bytes": 5138,
+      "copy_sha256": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/103/rk_ew_engine.sv",
+      "relative_path": "hdl/103/rk_ew_engine.sv",
+      "sha256": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e"
+    },
+    {
+      "bytes": 2348,
+      "copy_bytes": 2348,
+      "copy_sha256": "493195964b189d3cf829c31104d6fcb8d72d5e7dc3a8c8310d2ceb62add2e873",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/104/rk_ew_core.sv",
+      "relative_path": "hdl/104/rk_ew_core.sv",
+      "sha256": "493195964b189d3cf829c31104d6fcb8d72d5e7dc3a8c8310d2ceb62add2e873"
+    },
+    {
+      "bytes": 7716,
+      "copy_bytes": 7716,
+      "copy_sha256": "55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/105/rk_ew_dma.sv",
+      "relative_path": "hdl/105/rk_ew_dma.sv",
+      "sha256": "55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046"
+    },
+    {
+      "bytes": 4919,
+      "copy_bytes": 4919,
+      "copy_sha256": "dc4cb342145781bd3632b25df95d2c5c15f39a0a03e6509265e1c8434efb149e",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/106/rk_axi_mem.sv",
+      "relative_path": "hdl/106/rk_axi_mem.sv",
+      "sha256": "dc4cb342145781bd3632b25df95d2c5c15f39a0a03e6509265e1c8434efb149e"
+    },
+    {
+      "bytes": 6534,
+      "copy_bytes": 6534,
+      "copy_sha256": "5507702165a738d1655a5af651ba233955cb6c94e09a5b16469509319305a9f7",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/107/rk_job_control.sv",
+      "relative_path": "hdl/107/rk_job_control.sv",
+      "sha256": "5507702165a738d1655a5af651ba233955cb6c94e09a5b16469509319305a9f7"
+    },
+    {
+      "bytes": 8546,
+      "copy_bytes": 8546,
+      "copy_sha256": "9f298914314b09e42c9bf4d62db1c3de05b241f1c6ca3fd169a95e5df9d2995e",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/108/rk_jtag_backend.sv",
+      "relative_path": "hdl/108/rk_jtag_backend.sv",
+      "sha256": "9f298914314b09e42c9bf4d62db1c3de05b241f1c6ca3fd169a95e5df9d2995e"
+    },
+    {
+      "bytes": 11170,
+      "copy_bytes": 11170,
+      "copy_sha256": "b8d2a7c2e2f1084d5be481d76f26bf1e4998470fb75d74468ceacf6873027490",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/109/rk_mig_reset_coordinator.sv",
+      "relative_path": "hdl/109/rk_mig_reset_coordinator.sv",
+      "sha256": "b8d2a7c2e2f1084d5be481d76f26bf1e4998470fb75d74468ceacf6873027490"
+    },
+    {
+      "bytes": 7651,
+      "copy_bytes": 7651,
+      "copy_sha256": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/110/rk_mig_ecc_monitor.sv",
+      "relative_path": "hdl/110/rk_mig_ecc_monitor.sv",
+      "sha256": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5"
+    },
+    {
+      "bytes": 8120,
+      "copy_bytes": 8120,
+      "copy_sha256": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/111/rk_mig_write_fence.sv",
+      "relative_path": "hdl/111/rk_mig_write_fence.sv",
+      "sha256": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+    },
+    {
+      "bytes": 25012,
+      "copy_bytes": 25012,
+      "copy_sha256": "1027f90b0516ecbc7bafed1e523a50565cf246e88b89b69352d968c01ef54936",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/112/rk_ddr_memory_fabric_snapshot.sv",
+      "relative_path": "hdl/112/rk_ddr_memory_fabric_snapshot.sv",
+      "sha256": "1027f90b0516ecbc7bafed1e523a50565cf246e88b89b69352d968c01ef54936"
+    },
+    {
+      "bytes": 5192,
+      "copy_bytes": 5192,
+      "copy_sha256": "a7fc90b9f43afa1d7df0fc55af285bfb2c7c77d0e1d2e3eb8c87acfcea20cae8",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/113/rk_async_job_port.sv",
+      "relative_path": "hdl/113/rk_async_job_port.sv",
+      "sha256": "a7fc90b9f43afa1d7df0fc55af285bfb2c7c77d0e1d2e3eb8c87acfcea20cae8"
+    },
+    {
+      "bytes": 5014,
+      "copy_bytes": 5014,
+      "copy_sha256": "78275799b1970d75c502e670310593089653a9c9a63db7357b85784422176e16",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/114/rk_async_mem_port.sv",
+      "relative_path": "hdl/114/rk_async_mem_port.sv",
+      "sha256": "78275799b1970d75c502e670310593089653a9c9a63db7357b85784422176e16"
+    },
+    {
+      "bytes": 6519,
+      "copy_bytes": 6519,
+      "copy_sha256": "d666d09982b0798b1b2dfa219efaef6a266fae084674d67fbfd4535c4d607781",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/115/rk_ew_async_engine.sv",
+      "relative_path": "hdl/115/rk_ew_async_engine.sv",
+      "sha256": "d666d09982b0798b1b2dfa219efaef6a266fae084674d67fbfd4535c4d607781"
+    },
+    {
+      "bytes": 5764,
+      "copy_bytes": 5764,
+      "copy_sha256": "1a8f0125a0da68c381a3be2901645626275baecd3a919774396a783816549a77",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/116/rk_axi_mem_read_snapshot.sv",
+      "relative_path": "hdl/116/rk_axi_mem_read_snapshot.sv",
+      "sha256": "1a8f0125a0da68c381a3be2901645626275baecd3a919774396a783816549a77"
+    },
+    {
+      "bytes": 16030,
+      "copy_bytes": 16030,
+      "copy_sha256": "0c99dad5612f775f0a5a65d0381f7ad95a46b5a12f6e6d7c9f193c09782e163a",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/117/platform.sv",
+      "relative_path": "hdl/117/platform.sv",
+      "sha256": "0c99dad5612f775f0a5a65d0381f7ad95a46b5a12f6e6d7c9f193c09782e163a"
+    },
+    {
+      "bytes": 1158,
+      "copy_bytes": 1158,
+      "copy_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/118/rk_startup_reset.sv",
+      "relative_path": "hdl/118/rk_startup_reset.sv",
+      "sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09"
+    },
+    {
+      "bytes": 2322,
+      "copy_bytes": 2322,
+      "copy_sha256": "46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/119/otpu_jtag_mailbox.sv",
+      "relative_path": "hdl/119/otpu_jtag_mailbox.sv",
+      "sha256": "46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9"
+    },
+    {
+      "bytes": 8980,
+      "copy_bytes": 8980,
+      "copy_sha256": "16855bb5ab661ee3f001a36ff873b448d0b39df764bab0d4d098fe3919ab33de",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/120/top.sv",
+      "relative_path": "hdl/120/top.sv",
+      "sha256": "16855bb5ab661ee3f001a36ff873b448d0b39df764bab0d4d098fe3919ab33de"
+    },
+    {
+      "bytes": 1781,
+      "copy_bytes": 1781,
+      "copy_sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/121/NV_DW02_tree.v",
+      "relative_path": "hdl/121/NV_DW02_tree.v",
+      "sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e"
+    },
+    {
+      "bytes": 1670,
+      "copy_bytes": 1670,
+      "copy_sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/122/NV_DW_lsd.v",
+      "relative_path": "hdl/122/NV_DW_lsd.v",
+      "sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2"
+    },
+    {
+      "bytes": 20574,
+      "copy_bytes": 20574,
+      "copy_sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/123/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+      "relative_path": "hdl/123/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+      "sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6"
+    },
+    {
+      "bytes": 32017,
+      "copy_bytes": 32017,
+      "copy_sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/124/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "relative_path": "hdl/124/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028"
+    },
+    {
+      "bytes": 66473,
+      "copy_bytes": 66473,
+      "copy_sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/125/HLS_fp32_to_fp16.v",
+      "relative_path": "hdl/125/HLS_fp32_to_fp16.v",
+      "sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd"
+    },
+    {
+      "bytes": 8801,
+      "copy_bytes": 8801,
+      "copy_sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/126/rk_cmac_profile.sv",
+      "relative_path": "hdl/126/rk_cmac_profile.sv",
+      "sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995"
+    },
+    {
+      "bytes": 2533,
+      "copy_bytes": 2533,
+      "copy_sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/127/rk_cmac_fp16_rows.sv",
+      "relative_path": "hdl/127/rk_cmac_fp16_rows.sv",
+      "sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574"
+    },
+    {
+      "bytes": 737,
+      "copy_bytes": 737,
+      "copy_sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/128/rk_cmac_fp16_discarded_carry.sv",
+      "relative_path": "hdl/128/rk_cmac_fp16_discarded_carry.sv",
+      "sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b"
+    },
+    {
+      "bytes": 2279,
+      "copy_bytes": 2279,
+      "copy_sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/129/rk_cmac_fp16_lane_dsp_prefix.sv",
+      "relative_path": "hdl/129/rk_cmac_fp16_lane_dsp_prefix.sv",
+      "sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c"
+    },
+    {
+      "bytes": 2747,
+      "copy_bytes": 2747,
+      "copy_sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/130/rk_cmac_fp16_cell_dsp_prefix.sv",
+      "relative_path": "hdl/130/rk_cmac_fp16_cell_dsp_prefix.sv",
+      "sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d"
+    },
+    {
+      "bytes": 2231,
+      "copy_bytes": 2231,
+      "copy_sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/131/rk_cmac_fp16_array_dsp_prefix.sv",
+      "relative_path": "hdl/131/rk_cmac_fp16_array_dsp_prefix.sv",
+      "sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43"
+    },
+    {
+      "bytes": 3722,
+      "copy_bytes": 3722,
+      "copy_sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/132/rk_nvdla_cacc.sv",
+      "relative_path": "hdl/132/rk_nvdla_cacc.sv",
+      "sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c"
+    },
+    {
+      "bytes": 3163,
+      "copy_bytes": 3163,
+      "copy_sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/133/rk_cacc_fp16_array.sv",
+      "relative_path": "hdl/133/rk_cacc_fp16_array.sv",
+      "sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500"
+    },
+    {
+      "bytes": 2907,
+      "copy_bytes": 2907,
+      "copy_sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/134/rk_cmac_cacc_fp16_array.sv",
+      "relative_path": "hdl/134/rk_cmac_cacc_fp16_array.sv",
+      "sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0"
+    },
+    {
+      "bytes": 1553,
+      "copy_bytes": 1553,
+      "copy_sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/135/rk_nvdla_fp32_to_fp16.sv",
+      "relative_path": "hdl/135/rk_nvdla_fp32_to_fp16.sv",
+      "sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3"
+    },
+    {
+      "bytes": 3673,
+      "copy_bytes": 3673,
+      "copy_sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/136/rk_cmac_writer.sv",
+      "relative_path": "hdl/136/rk_cmac_writer.sv",
+      "sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25"
+    },
+    {
+      "bytes": 4276,
+      "copy_bytes": 4276,
+      "copy_sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/137/rk_cmac_output_nvdla.sv",
+      "relative_path": "hdl/137/rk_cmac_output_nvdla.sv",
+      "sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5"
+    },
+    {
+      "bytes": 4186,
+      "copy_bytes": 4186,
+      "copy_sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/138/rk_cmac_frame_output.sv",
+      "relative_path": "hdl/138/rk_cmac_frame_output.sv",
+      "sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c"
+    },
+    {
+      "bytes": 3926,
+      "copy_bytes": 3926,
+      "copy_sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/139/rk_cmac_array_datapath.sv",
+      "relative_path": "hdl/139/rk_cmac_array_datapath.sv",
+      "sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93"
+    },
+    {
+      "bytes": 7939,
+      "copy_bytes": 7939,
+      "copy_sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/140/rk_cmac_array_front.sv",
+      "relative_path": "hdl/140/rk_cmac_array_front.sv",
+      "sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7"
+    },
+    {
+      "bytes": 3718,
+      "copy_bytes": 3718,
+      "copy_sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/141/rk_cmac_rw_arbiter.sv",
+      "relative_path": "hdl/141/rk_cmac_rw_arbiter.sv",
+      "sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac"
+    },
+    {
+      "bytes": 5388,
+      "copy_bytes": 5388,
+      "copy_sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/142/rk_cmac_array_core.sv",
+      "relative_path": "hdl/142/rk_cmac_array_core.sv",
+      "sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f"
+    },
+    {
+      "bytes": 6303,
+      "copy_bytes": 6303,
+      "copy_sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/143/rk_cmac_array_dma.sv",
+      "relative_path": "hdl/143/rk_cmac_array_dma.sv",
+      "sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0"
+    },
+    {
+      "bytes": 4193,
+      "copy_bytes": 4193,
+      "copy_sha256": "32862d4d14fefa4f5ffed5d8457a334d5ee691e58ab5986684ab267e7a1716e9",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/144/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+      "relative_path": "hdl/144/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+      "sha256": "32862d4d14fefa4f5ffed5d8457a334d5ee691e58ab5986684ab267e7a1716e9"
+    },
+    {
+      "bytes": 3264,
+      "copy_bytes": 3264,
+      "copy_sha256": "27908a593196c654e5be4df94b168751789d10bd3a442980217564f1c5edeb82",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/145/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+      "relative_path": "hdl/145/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+      "sha256": "27908a593196c654e5be4df94b168751789d10bd3a442980217564f1c5edeb82"
+    },
+    {
+      "bytes": 5395,
+      "copy_bytes": 5395,
+      "copy_sha256": "495d5374268bfb52aaeb896b6b25373a6e4d84ab6df4b33c53f0dbf4fd18ad6e",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/146/rk_cmac_success_rearm.sv",
+      "relative_path": "hdl/146/rk_cmac_success_rearm.sv",
+      "sha256": "495d5374268bfb52aaeb896b6b25373a6e4d84ab6df4b33c53f0dbf4fd18ad6e"
+    },
+    {
+      "bytes": 7926,
+      "copy_bytes": 7926,
+      "copy_sha256": "bb0445bb27e560097c873a9425e93ac0241c9096cd60c4ff75d288f69732cc46",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/147/rk_cmac_async_engine.sv",
+      "relative_path": "hdl/147/rk_cmac_async_engine.sv",
+      "sha256": "bb0445bb27e560097c873a9425e93ac0241c9096cd60c4ff75d288f69732cc46"
+    },
+    {
+      "bytes": 6479,
+      "copy_bytes": 6479,
+      "copy_sha256": "ff1aad529daf361fc5585fcb9d59e42c8840b55c8ca1bc9378b595fccb98205f",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/148/rk_dual_async_dispatch.sv",
+      "relative_path": "hdl/148/rk_dual_async_dispatch.sv",
+      "sha256": "ff1aad529daf361fc5585fcb9d59e42c8840b55c8ca1bc9378b595fccb98205f"
+    },
+    {
+      "bytes": 5519,
+      "copy_bytes": 5519,
+      "copy_sha256": "c37d67bacf7e3fbea99489f2dd0aaf5b93ae56790b3342f097bdb6d277046c6f",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/149/rk_dual_job_control.sv",
+      "relative_path": "hdl/149/rk_dual_job_control.sv",
+      "sha256": "c37d67bacf7e3fbea99489f2dd0aaf5b93ae56790b3342f097bdb6d277046c6f"
+    },
+    {
+      "bytes": 19807,
+      "copy_bytes": 19807,
+      "copy_sha256": "88266be185337c00979ba38e899c0801bb226aecf0ddb6970e90c966c953c99a",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/150/rk_jtag_dual_ddr_async.sv",
+      "relative_path": "hdl/150/rk_jtag_dual_ddr_async.sv",
+      "sha256": "88266be185337c00979ba38e899c0801bb226aecf0ddb6970e90c966c953c99a"
+    },
+    {
+      "bytes": 1236,
+      "copy_bytes": 1236,
+      "copy_sha256": "7434af380e4f8f07ff60a96269d6727186478099989eb855c16427f60283cecc",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/hdl/151/rk_cmac_fp16_shared_data.sv",
+      "relative_path": "hdl/151/rk_cmac_fp16_shared_data.sv",
+      "sha256": "7434af380e4f8f07ff60a96269d6727186478099989eb855c16427f60283cecc"
+    },
+    {
+      "bytes": 85957,
+      "copy_bytes": 85957,
+      "copy_sha256": "5ea42669bed59d09cfad5c25a08aec20e0824d48895071ecd2acfbff8261b6fc",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-shared-data-source-v1/source/mig-original.xdc",
+      "relative_path": "mig-original.xdc",
+      "sha256": "5ea42669bed59d09cfad5c25a08aec20e0824d48895071ecd2acfbff8261b6fc"
+    }
+  ],
+  "source_copy_count": 160,
+  "source_synth_tcl_sha256": "b0aead1293824227d1ec7be5ea5ebc1d489f4bc52a8501fea5f568c0f871a297",
+  "source_runner_sha256": "8b474decb1568dc73963161b9f24879dc89b96dd03d061d66bde25ec0e7709b9",
+  "expected_design": {
+    "top": "ypcb_ddr_dual_top",
+    "part": "xc7k480tffg1156-2",
+    "config_voltage": "1.8",
+    "cfgbvs": "GND",
+    "scalar_io": 242,
+    "cmac_products": 512,
+    "total_dsps": 516,
+    "kernel_count": 16,
+    "products_per_kernel": 32,
+    "mig_wrapper_count": 1,
+    "mig_core_count": 1,
+    "mig_controller_infrastructure_names": [
+      "c0_u_ddr3_infrastructure",
+      "c1_u_ddr3_infrastructure"
+    ]
+  },
+  "expected_post_opt_dcp_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/synthesis/post_opt.dcp",
+  "post_opt_dcp_sha256": null,
+  "source_review_json_path": null,
+  "source_review_json_sha256": null,
+  "synthesis_facts_path": null,
+  "synthesis_facts_sha256": null,
+  "source_review_status": "PASS_FULL512_POST_OPT_SOURCE_AUDIT",
+  "expected_cdc": {
+    "status_chains": 9,
+    "ew_job_payload": [
+      64,
+      37
+    ],
+    "cmac_job_payload": [
+      64,
+      10
+    ],
+    "ew_memory": "strict helper inventory",
+    "cmac_memory": "strict helper inventory",
+    "cmac_permit_stages": 3,
+    "board_reset_banks": 4,
+    "mailbox": "active UI path and skew audit"
+  },
+  "constant_proof": {
+    "EW_ZERO_CODE_rows": 4,
+    "CMAC_ZERO_TASK_rows": 31,
+    "ground_observations": 101,
+    "anchors_required_keep_dont_touch": true,
+    "anchor_set_count": null,
+    "anchor_set_sha256": null,
+    "pre_and_post_route_recheck": true
+  },
+  "route_order": [
+    "open exact post_opt.dcp",
+    "check dual-channel MIG and full512 census",
+    "prove retained 35-row/101-net constant anchors",
+    "place_design -directive Explore",
+    "phys_opt_design -directive Explore",
+    "route_design -directive Explore",
+    "recheck MIG/census/anchors and strict timing/CDC/DRC"
+  ],
+  "route_exceptions_reapplied": false,
+  "route_seed": "Vivado default; no seed override",
+  "vivado_path": "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+  "vivado_sha256": "121b8c468f96f7ee750fc8f7d2386c54d047b204a5b8b7a5dada85f04997302d",
+  "resource_limits": {
+    "memory_max_bytes": 12884901888,
+    "swap_max_bytes": 0,
+    "cpu_quota": "200000 100000",
+    "tasks_max": 256,
+    "host_mem_available_min_kib": 12582912,
+    "memory_psi_full_avg10_max": 1.0,
+    "cpu_psi_some_avg10_max": 5.0,
+    "deadline_seconds": 7200
+  },
+  "hardware_accessed": false,
+  "bitstream_emitted": false,
+  "launch_approved": false,
+  "root_route_approval": false,
+  "helpers": [
+    {
+      "name": "status_cdc.tcl",
+      "sha256": "1d368380ad134e4ebcd2277d2843455e5b0657ef76783a1ea7e720ea19e34ab9",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/constraint-helpers/status_cdc.tcl",
+      "origin_sha256": "1d368380ad134e4ebcd2277d2843455e5b0657ef76783a1ea7e720ea19e34ab9",
+      "equal": true
+    },
+    {
+      "name": "job_cdc.tcl",
+      "sha256": "b5a155ec9229ecc012e5ed077838873c762d4e620e90f3dfa36a70c1f5cdfdb3",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/constraint-helpers/job_cdc.tcl",
+      "origin_sha256": "b5a155ec9229ecc012e5ed077838873c762d4e620e90f3dfa36a70c1f5cdfdb3",
+      "equal": true
+    },
+    {
+      "name": "permit_cdc.tcl",
+      "sha256": "d8ae90ce8f2589783d3fba9f790c91761052058004f12ca8de47558f523adc25",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/constraint-helpers/permit_cdc.tcl",
+      "origin_sha256": "d8ae90ce8f2589783d3fba9f790c91761052058004f12ca8de47558f523adc25",
+      "equal": true
+    },
+    {
+      "name": "memory_crossing.tcl",
+      "sha256": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/constraint-helpers/memory_crossing.tcl",
+      "origin_sha256": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+      "equal": true
+    },
+    {
+      "name": "mailbox_ui.tcl",
+      "sha256": "37317bab81796bf22bae04e83586450160a3297b8cbca6cecee4c52ed513ecf0",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/constraint-helpers/mailbox_ui.tcl",
+      "origin_sha256": "37317bab81796bf22bae04e83586450160a3297b8cbca6cecee4c52ed513ecf0",
+      "equal": true
+    },
+    {
+      "name": "board_reset.tcl",
+      "sha256": "52fd4505d707565aea742ffa876b21dc639e434ba31cb721e74e1d5b52f5a46d",
+      "origin_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/constraint-helpers/board_reset.tcl",
+      "origin_sha256": "52fd4505d707565aea742ffa876b21dc639e434ba31cb721e74e1d5b52f5a46d",
+      "equal": true
+    }
+  ],
+  "source_copy_hashes": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/board.xdc": "18f8b2bdd853c991df4395a40ca184b7ee4618f035b19f9e073423f071d11a15",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/constraint-helpers/board_reset.tcl": "52fd4505d707565aea742ffa876b21dc639e434ba31cb721e74e1d5b52f5a46d",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/constraint-helpers/job_cdc.tcl": "b5a155ec9229ecc012e5ed077838873c762d4e620e90f3dfa36a70c1f5cdfdb3",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/constraint-helpers/mailbox_ui.tcl": "37317bab81796bf22bae04e83586450160a3297b8cbca6cecee4c52ed513ecf0",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/constraint-helpers/memory_crossing.tcl": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/constraint-helpers/permit_cdc.tcl": "d8ae90ce8f2589783d3fba9f790c91761052058004f12ca8de47558f523adc25",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/constraint-helpers/status_cdc.tcl": "1d368380ad134e4ebcd2277d2843455e5b0657ef76783a1ea7e720ea19e34ab9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/000/mig_7series_v4_2_axi_ctrl_addr_decode.v": "45ded45ecd1aaee6be25e8de45b46f8b1c4142e80259f95c8be038e1b71b5bb0",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/001/mig_7series_v4_2_axi_ctrl_read.v": "e7fba8820fabc830ace6e2bf431e1ab1134312a4682240f9d1ab8e63091c0a94",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/002/mig_7series_v4_2_axi_ctrl_reg_bank.v": "5146f0f3e8dfc1e0e95673ba2ff357f52f4c4a5baca88a9489b37f926d801917",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/003/mig_7series_v4_2_axi_ctrl_reg.v": "4e591bbe440121fa35520b340067140ad5a5f8257abe9c74f60b5ba1555aacdf",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/004/mig_7series_v4_2_axi_ctrl_top.v": "1a0b8cbbcd037f1ad61dbaeac866b3b4f3020624f1b727c66b23390a47d08ce5",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/005/mig_7series_v4_2_axi_ctrl_write.v": "a6b8863fc39ba11b721be2dfc6826f679fa2606c633cb475b385ca4e39faaa79",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/006/mig_7series_v4_2_axi_mc.v": "394b78b22adbfc6bd639dad1075b3745de31b99d7cb0f4d7cb0b1f2218751c37",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/007/mig_7series_v4_2_axi_mc_ar_channel.v": "087940abd9208340abc61ecb7015cfc97d85857aaa648409c994d97cecd78964",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/008/mig_7series_v4_2_axi_mc_aw_channel.v": "e736dacd4c9f6b751722b1fb55d6e12a7b1f1bab1b8c1afaf22d40fffdbecaf1",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/009/mig_7series_v4_2_axi_mc_b_channel.v": "bddc862c27c006f2e3a1a468a02ddff09270a94afae229e52de665a80d50d5d7",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/010/mig_7series_v4_2_axi_mc_cmd_arbiter.v": "992f1d1a33deb893784553f84843ce19e2bb02787ec42046182bac0f0b32ef29",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/011/mig_7series_v4_2_axi_mc_cmd_fsm.v": "1b26f14b768d75024e27e1d35d8602365b32084f95a46370b9286ebbbd4928ba",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/012/mig_7series_v4_2_axi_mc_wr_cmd_fsm.v": "9357a4c13f8b890e5baf67b8321fec2494f2a351cd3ce5ad8ab8140aabdf0fd3",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/013/mig_7series_v4_2_axi_mc_cmd_translator.v": "483ad56bcf65bfa05a83e414504776b0ba33cecf639878df9f8fc2ae9e7b2e4f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/014/mig_7series_v4_2_axi_mc_incr_cmd.v": "ada5247b231ce56dc52c5efeecf74be533433e44576e7981c85a60a0333bd709",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/015/mig_7series_v4_2_axi_mc_r_channel.v": "13a23ff1dd32164e98c1d90702819eac060b0717ec52da435d73485fa442daf1",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/016/mig_7series_v4_2_axi_mc_simple_fifo.v": "b1a57e5f75a0b55009c4413dcd77eb7cc591c566a0c15abd92193c04f34c2bbd",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/017/mig_7series_v4_2_axi_mc_fifo.v": "e9602843ef3c03c6652aef0c2f6b6dc0cb60f789c37ea228485b1c2b21bb6a92",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/018/mig_7series_v4_2_axi_mc_w_channel.v": "0444eab3dae92342270e371d9cb3909d68cd8be7b9714f82786a4f6644b25395",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/019/mig_7series_v4_2_axi_mc_wrap_cmd.v": "45a21e37a32f6eec11868127cd5be25954a5a95bfaf7052ce0649946731b6dbf",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/020/mig_7series_v4_2_ddr_a_upsizer.v": "6df7218fcd22d6f19a5e234dbc58da047c8712fa910d7c003fb786accd500505",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/021/mig_7series_v4_2_ddr_axi_register_slice.v": "f33f4abbcdb1a25724b4fbba48b4ab4ec77627b73c647a657d296ff57d323e94",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/022/mig_7series_v4_2_ddr_axi_upsizer.v": "ed069bdf77b16d1cc400e223c2087f25e2e3c91c6c2d5f3ecfa329c501c0bda4",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/023/mig_7series_v4_2_ddr_axic_register_slice.v": "c21552fb3bd001886a800ebd4ca6240952da81923f3bb5e97f73b091e591e84f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/024/mig_7series_v4_2_ddr_carry_and.v": "7aac21a3ac4b09171cfdc4b245deb520859132544cdd6f9d506824386ecc65f8",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/025/mig_7series_v4_2_ddr_carry_latch_and.v": "423346d831a88a54cb4ebbc30579339af527fd51259490f95da0310dacac9234",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/026/mig_7series_v4_2_ddr_carry_latch_or.v": "741a607ef458700e5b2129c2ec487f8e80d2b5406251921199e49662372574d5",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/027/mig_7series_v4_2_ddr_carry_or.v": "3e423d97b128583849c13ac086a9cee98f2a6de595d096ed927bc458fd92619b",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/028/mig_7series_v4_2_ddr_command_fifo.v": "b88b881970ceceb8e2c62dd724092b5703adb19be6c1167ed6f1d83e73e72022",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/029/mig_7series_v4_2_ddr_comparator.v": "6a072f8ebfe614e9ac45a7f1666281d46240d8436e9a5e88f1124deceefadd7e",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/030/mig_7series_v4_2_ddr_comparator_sel.v": "3094f4708342d46cd9a6b91c6d998b7b081c847313d2ee9343b4a1b28ea0e563",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/031/mig_7series_v4_2_ddr_comparator_sel_static.v": "474048741076de56f5bfdc732b823a60ca6cf5219886569715b4e409b45913ad",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/032/mig_7series_v4_2_ddr_r_upsizer.v": "6b31714f9919f7921bbc8409441b4e0e2db1353258fcc9433c5cec004e104903",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/033/mig_7series_v4_2_ddr_w_upsizer.v": "5b5ae736bfef69e33e808a6fa4527955a8f3d95d25b4fb64e419f924dbe2ba9e",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/034/mig_7series_v4_2_clk_ibuf.v": "4cade14875e2101e1e9e997beacec38da0b9d712908b0b503e5a35c9c592f992",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/035/mig_7series_v4_2_infrastructure.v": "2dbb9bb2a1a4b95407c16b87d9ab421ba1d25c516a6faddff50fa46392035c52",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/036/mig_7series_v4_2_iodelay_ctrl.v": "094265eb7c3509e132d03d43b834461d5252d0e5643da86181bc21b6aa79338f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/037/mig_7series_v4_2_tempmon.v": "d7d00b5a6e980f855f2a11a8749f6ec70bdadb7a44fc4ca15c3e341b33a2ed13",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/038/mig_7series_v4_2_arb_mux.v": "a509b910fc977799ddce78a587b2dfa96338948d21052c8285ed1acdf9335c75",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/039/mig_7series_v4_2_arb_row_col.v": "033f73c2378b01b429fa33e326e1be7d4350f0df49e1e56b1a669859a9b91422",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/040/mig_7series_v4_2_arb_select.v": "6d1d51c8b419efe976b87b46939ba5a5b5bff2b5dc652163c2176a8eb0d4493f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/041/mig_7series_v4_2_bank_cntrl.v": "ed48004bb5e2466d376cb15870416a00973c6b3d928f12d7a4b6cf2de275bd69",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/042/mig_7series_v4_2_bank_common.v": "20458b07b3bc751e788e8bb613cfc88792cc52ae97fa8f1e596c33f2fccd6dd1",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/043/mig_7series_v4_2_bank_compare.v": "ed85f3f2b2430a8e5028c8adc21db598ada44d5f83b0515777c648c4adb060f3",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/044/mig_7series_v4_2_bank_mach.v": "09b68e3243186872cb20e4d530c5dea1351117e3d7edb697b209ffb3a875f165",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/045/mig_7series_v4_2_bank_queue.v": "8c379fc4f9fab724f0ac94d008d9de844159b295fc12e1458c603d1d9209eeb9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/046/mig_7series_v4_2_bank_state.v": "465babb32d1346f6c7c7e7f2f5dd67d71438aea9ae31056258e15af3bd36b35f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/047/mig_7series_v4_2_col_mach.v": "a91e4cd5e8afcf0f956e94144d896a78849dafea0e31b5d88b62147de9f7bf0a",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/048/mig_7series_v4_2_mc.v": "98e99f2d2dc416ea8fb917f68fd5d609da3f574c3c417c15a31719d612f98c8b",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/049/mig_7series_v4_2_rank_cntrl.v": "25f0ba1a096ede1f408fe8fa1f1e045624d7f2b349e966fac487369ce7ec4ef7",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/050/mig_7series_v4_2_rank_common.v": "eb8fae78ffef6674890baf439790a57b8d21d11b1666ac7c4f17a77ddeae9683",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/051/mig_7series_v4_2_rank_mach.v": "c7df91c07d2fa021ad2649d9003b85ced3da8c0d0a2c271a56421303b50a1468",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/052/mig_7series_v4_2_ecc_buf.v": "2b70153618c0dc18b13cb7e8e52d9dfe9aee78f7750c5e8fc8d3d9d98b910e72",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/053/mig_7series_v4_2_ecc_dec_fix.v": "84745585695a18896e41aec6f3f2a51faca2774f4fe1e931ad9a67256eb7f140",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/054/mig_7series_v4_2_ecc_gen.v": "fb1b09096febcceb3f05b4f68c9c3fe2d0ff40661c210fb44797413860fd6e89",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/055/mig_7series_v4_2_ecc_merge_enc.v": "54e55ddbf12fa67d3e96db020415aa1303cd0c76a1c6e77f0b8a56ecc556d114",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/057/mig_7series_v4_2_mem_intfc.v": "07817d59ad694423d40f4da977d4892fedfcf9fc70ba88505a4e25eacfa2db5d",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/058/mig_7series_v4_2_memc_ui_top_axi.v": "f220f191951c2f34106f07960091330203a4bd248e85ef30e043f73fed081393",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/059/mig_7series_v4_2_ddr_byte_group_io.v": "e4379b843bd3a67370c614f9d354ccea9427ab156fcbd1652aa2623cb63b5db0",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/060/mig_7series_v4_2_ddr_byte_lane.v": "76df6abb6ce7f27092281185e10deb3fd327475ab4a8248926af3ffa590a137a",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/061/mig_7series_v4_2_ddr_phy_tempmon.v": "9d65b6e2e0347644e98f0bffedb8f523723ed4f87625d34b7a68fc0f3adcee93",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/062/mig_7series_v4_2_ddr_calib_top.v": "55af136ed7e16794963c59d5cd265ce20b4e818914bf1ee31f1c9024c41a44d5",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/063/mig_7series_v4_2_ddr_skip_calib_tap.v": "e43e9cfa2732ead8e509318a90a53ed05e320e49aa07d45af7ce6c5ed5e83f80",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/064/mig_7series_v4_2_ddr_if_post_fifo.v": "880206463937c66ce15c8636d2e200e1809d879171b79de5a31aeb5c0c2befab",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/065/mig_7series_v4_2_ddr_mc_phy.v": "00a05653eeb1191bc69f6b5682b43088bfee1b9f888e850999f7de2028b15eac",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/066/mig_7series_v4_2_ddr_mc_phy_wrapper.v": "0074ef82db3ea178a15f8a71278d8286a263aa680043fd7f7f3607f9b15bc82a",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/067/mig_7series_v4_2_ddr_of_pre_fifo.v": "04660aa87dd1121088ba8bb8708d8784f3d22b7193efad30c8ebf93f3004bbc6",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/068/mig_7series_v4_2_ddr_phy_4lanes.v": "d0abc5c25f7efdc9764c730acec134449485a6ebd4c1f0addf51e3fb1af4d07f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/069/mig_7series_v4_2_ddr_phy_ck_addr_cmd_delay.v": "aa45ef4586f2158e810499c0d8af6d6d916106dcee8261dc735c46d2420a5e1c",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/070/mig_7series_v4_2_ddr_phy_init.v": "8639c5ba24d0cdfdb64cfe7224181b939156d0c4a20354d9f4935e03ae1b0f1f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/071/mig_7series_v4_2_ddr_phy_dqs_found_cal.v": "6f61ffb756793dddd5ea7b4777af2863ed365e4935fd214d89e2bce0ce7ae8ac",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/072/mig_7series_v4_2_ddr_phy_dqs_found_cal_hr.v": "05f62981edf9fd7c976d3f3f297b69017f97ba1ec08d217de4d50d2cea4c055e",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/073/mig_7series_v4_2_ddr_phy_oclkdelay_cal.v": "a23d8cf2669fa62885d629b403082d994039bd010ec4bbd40cf0f1cc5f6245f1",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/074/mig_7series_v4_2_ddr_phy_prbs_rdlvl.v": "956169530edf4f1ccebd75315d2c94553245581d4c6642ad1c536256cfdea50a",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/075/mig_7series_v4_2_ddr_phy_rdlvl.v": "7a77876d23b2e818b6fe82939bbab6dec5c78644c6ed6fd3544c96b3cd9849b3",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/076/mig_7series_v4_2_ddr_phy_top.v": "31f6ee7c905205563e587b2fad8d21f25cd62e7a37b767b3f9fbe3bcbe767672",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/077/mig_7series_v4_2_ddr_phy_wrcal.v": "bf3255be3ae668a46c6d0d7e8751cfec35e62eccd59abfe0ed4cb0b631edfee3",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/078/mig_7series_v4_2_ddr_phy_wrlvl.v": "72552e2ab6796f5bd7ae6be787a5eb508df5734523a1d396127fb4c7eaed201e",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/079/mig_7series_v4_2_ddr_phy_wrlvl_off_delay.v": "3809f9f9451a53be183be17e95c2e2b4b90649f7f910510332c5672c216004bd",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/080/mig_7series_v4_2_ddr_prbs_gen.v": "237fdead2fe1171c2a43cabf6b07238a71cc5afdc9187f4fcba59fa12b048998",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/081/mig_7series_v4_2_ddr_phy_ocd_lim.v": "ebb5cb0d5f1158f9f89152ebf4b4a23951f0b872b6a46aa7aaf285fa576db870",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/082/mig_7series_v4_2_poc_top.v": "68753e48a21e2bb70a46287697dbab2ab25b027566f62a40ab0d73d695e01c91",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/083/mig_7series_v4_2_ddr_phy_ocd_mux.v": "cfe0b65ab6d5411c5b9b1208838b7d29f9eca1cb165314c5cc26d7d91791407a",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/084/mig_7series_v4_2_ddr_phy_ocd_data.v": "e407db424813952afec4930f78182d9902d75841bce601ecf39ffe64d3a956d9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/085/mig_7series_v4_2_ddr_phy_ocd_samp.v": "29a22219ca4b77023957c2347cffab6b9b1e6748f0edb7940051eae2657b9221",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/086/mig_7series_v4_2_ddr_phy_ocd_edge.v": "3c39007e5da49858c5eacfa654132bda597beabd83b85901c72aea8b42b5606b",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/087/mig_7series_v4_2_ddr_phy_ocd_cntlr.v": "23c1bc544d854878bd676d017b4318b4540dcb701fd0cac4fff5f12735802f69",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/088/mig_7series_v4_2_ddr_phy_ocd_po_cntlr.v": "38a0220a6afa1f1e319f12c562e72b59f3f9c935a7c71f7ed9dc6fed92fc3720",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/089/mig_7series_v4_2_poc_pd.v": "c9a3f44de175378ff426b065919edfd9c16275df13ab655a088a24e169b307a7",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/090/mig_7series_v4_2_poc_tap_base.v": "04b268f7d0170484eaa718cc5dd67630f22a15c5846ac67834db97e00c290fc7",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/091/mig_7series_v4_2_poc_meta.v": "cef98e6f81e1245fb052febdca24d2b41c900d7019075bd466fb6e06db192e99",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/092/mig_7series_v4_2_poc_edge_store.v": "edf73be15a599251d3714495f4b97ee7ccc1f036941061e47674be00fe97cd6b",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/093/mig_7series_v4_2_poc_cc.v": "3246efc5cf2d9aa0d89e988ecae5716ab7799f8a00a03d4107a653572a992d82",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/094/mig_7series_v4_2_ui_cmd.v": "7efeb6619b9ed54d502dc4d05d9c5c594ecad25606589916550c13e7de1dad3e",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/095/mig_7series_v4_2_ui_rd_data.v": "4c62aafa17931493b77fcd74f7f82d370bf137fc66ac3be27b35f06837cd9fc7",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/096/mig_7series_v4_2_ui_top.v": "c439eb6c66f175c6a1e7d56deb9109b90b7bcf6507d3bff043d8c59afd43d326",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/097/mig_7series_v4_2_ui_wr_data.v": "9e3179cb34048abb2902aa2610b9eaa8b3a0d42b549bc8b334391e1237847a9c",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/098/top_mig_7series_0_0.v": "09c000b23396d629f924164b66e4bb8f289e369bf3ef274f1577d36a3892750d",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/099/top_mig_7series_0_0_mig.v": "616d24bbcd3c5c57a1ac23d21488e80b8b3f16a29df65ed110f629f7d3c5e36e",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/100/mig_7series_v4_2_round_robin_arb.v": "ae6be8a3f77170c867bf076a4291bd6b0755c1250ab32215a8b679274b88368f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/101/rk_fp16_alu.sv": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/102/rk_ew_regs.sv": "592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/103/rk_ew_engine.sv": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/104/rk_ew_core.sv": "493195964b189d3cf829c31104d6fcb8d72d5e7dc3a8c8310d2ceb62add2e873",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/105/rk_ew_dma.sv": "55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/106/rk_axi_mem.sv": "dc4cb342145781bd3632b25df95d2c5c15f39a0a03e6509265e1c8434efb149e",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/107/rk_job_control.sv": "5507702165a738d1655a5af651ba233955cb6c94e09a5b16469509319305a9f7",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/108/rk_jtag_backend.sv": "9f298914314b09e42c9bf4d62db1c3de05b241f1c6ca3fd169a95e5df9d2995e",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/109/rk_mig_reset_coordinator.sv": "b8d2a7c2e2f1084d5be481d76f26bf1e4998470fb75d74468ceacf6873027490",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/110/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/111/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/112/rk_ddr_memory_fabric_snapshot.sv": "1027f90b0516ecbc7bafed1e523a50565cf246e88b89b69352d968c01ef54936",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/113/rk_async_job_port.sv": "a7fc90b9f43afa1d7df0fc55af285bfb2c7c77d0e1d2e3eb8c87acfcea20cae8",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/114/rk_async_mem_port.sv": "78275799b1970d75c502e670310593089653a9c9a63db7357b85784422176e16",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/115/rk_ew_async_engine.sv": "d666d09982b0798b1b2dfa219efaef6a266fae084674d67fbfd4535c4d607781",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/116/rk_axi_mem_read_snapshot.sv": "1a8f0125a0da68c381a3be2901645626275baecd3a919774396a783816549a77",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/117/platform.sv": "0c99dad5612f775f0a5a65d0381f7ad95a46b5a12f6e6d7c9f193c09782e163a",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/118/rk_startup_reset.sv": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/119/otpu_jtag_mailbox.sv": "46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/120/top.sv": "16855bb5ab661ee3f001a36ff873b448d0b39df764bab0d4d098fe3919ab33de",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/121/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/122/NV_DW_lsd.v": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/123/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/124/NV_NVDLA_CACC_CALC_fp_48b.v": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/125/HLS_fp32_to_fp16.v": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/126/rk_cmac_profile.sv": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/127/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/128/rk_cmac_fp16_discarded_carry.sv": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/129/rk_cmac_fp16_lane_dsp_prefix.sv": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/130/rk_cmac_fp16_cell_dsp_prefix.sv": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/131/rk_cmac_fp16_array_dsp_prefix.sv": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/132/rk_nvdla_cacc.sv": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/133/rk_cacc_fp16_array.sv": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/134/rk_cmac_cacc_fp16_array.sv": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/135/rk_nvdla_fp32_to_fp16.sv": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/136/rk_cmac_writer.sv": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/137/rk_cmac_output_nvdla.sv": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/138/rk_cmac_frame_output.sv": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/139/rk_cmac_array_datapath.sv": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/140/rk_cmac_array_front.sv": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/141/rk_cmac_rw_arbiter.sv": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/142/rk_cmac_array_core.sv": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/143/rk_cmac_array_dma.sv": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/144/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": "32862d4d14fefa4f5ffed5d8457a334d5ee691e58ab5986684ab267e7a1716e9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/145/rk_cmac_fp16_array_dsp_prefix_pipe.sv": "27908a593196c654e5be4df94b168751789d10bd3a442980217564f1c5edeb82",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/146/rk_cmac_success_rearm.sv": "495d5374268bfb52aaeb896b6b25373a6e4d84ab6df4b33c53f0dbf4fd18ad6e",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/147/rk_cmac_async_engine.sv": "bb0445bb27e560097c873a9425e93ac0241c9096cd60c4ff75d288f69732cc46",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/148/rk_dual_async_dispatch.sv": "ff1aad529daf361fc5585fcb9d59e42c8840b55c8ca1bc9378b595fccb98205f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/149/rk_dual_job_control.sv": "c37d67bacf7e3fbea99489f2dd0aaf5b93ae56790b3342f097bdb6d277046c6f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/150/rk_jtag_dual_ddr_async.sv": "88266be185337c00979ba38e899c0801bb226aecf0ddb6970e90c966c953c99a",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/151/rk_cmac_fp16_shared_data.sv": "7434af380e4f8f07ff60a96269d6727186478099989eb855c16427f60283cecc",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/mig-original.xdc": "5ea42669bed59d09cfad5c25a08aec20e0824d48895071ecd2acfbff8261b6fc"
+  },
+  "reference_route_files": [
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/route.tcl",
+      "sha256": "2cdf44471738cd2a2a86551e320c1ab1307e6c47019260acb37701fe7e9a2219"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/run.py",
+      "sha256": "fd7d323f9a972b06dcbfb6329ae12edaa4746d95c33296f45bb1060925393f32"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/reset_status_cdc.tcl",
+      "sha256": "dc34a33077b444f1934d46267b10b436453ec486b458548a819bb24338715a62"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/reset_bridge_board_cdc.tcl",
+      "sha256": "52fd4505d707565aea742ffa876b21dc639e434ba31cb721e74e1d5b52f5a46d"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/async_job_cdc.tcl",
+      "sha256": "3e775ddef64a52896ff8ffc1a9e1a2f9c24669b5bc89dd6398715478dafc4df5"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/async_mem_cdc.tcl",
+      "sha256": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/mailbox_ui_cdc.tcl",
+      "sha256": "37317bab81796bf22bae04e83586450160a3297b8cbca6cecee4c52ed513ecf0"
+    }
+  ],
+  "route_tcl_sha256": "c816e6b73fbb8e0ce7c458423858328f341241f460252b5f077ba5e27680bb0d",
+  "runner_sha256": "f6a0e4de3ddedeb229ce238c331e04a31454d8031cfa0efd8ffc1380cbd95ef9",
+  "static_audit_sha256": "d5126a34924d45582b8075bd456f993d00aabad2449fc9ee6b138292c5b94c92",
+  "mapped_inventory_facts_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-mapped-facts-v1/dual-cdc-inventory-v4/output/inventory-facts.txt",
+  "mapped_inventory_facts_sha256": "0982630f8b13dea33be6ab31b7d990af60a5b0d37e3a3e0736d3c6326c7951e1",
+  "mapped_inventory_report_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-mapped-facts-v1/dual-cdc-inventory-v4/output/report.json",
+  "mapped_inventory_report_sha256": "a465f975937506c50537434ebb2371872ff53a4e7d2ef9b7a9936b75bd6040f9",
+  "anchor_set_count": 3,
+  "anchor_set_sha256": "40ac01c171c442bae79b4b29cda266047f6e9ecb1391da104d412e213ca0c29a",
+  "parent_preflight_failure": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v5/report.json",
+  "parent_preflight_failure_sha256": "bf353decaf44ff4c61aef563b520052463797b92729d6d31bfe698337852f83a"
+}

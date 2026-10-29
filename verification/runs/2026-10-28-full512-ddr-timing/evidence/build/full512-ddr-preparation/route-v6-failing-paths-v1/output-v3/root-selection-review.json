@@ -1,0 +1,178 @@
+{
+  "status": "PASS_INDEPENDENT_FAILED_PATH_DRIVER_INVENTORY_ONLY",
+  "utc": "2026-10-28T02:21:15.352826+00:00",
+  "producer_sha256": "59bb0b6833d5f2dbae367126b2d283befa6451ce79403b464680580f64535800",
+  "parent_dcp_sha256": "bf2d55d590b4457519d5c415dde305f1c06e1d2437520dd092d90ed1ed22eb20",
+  "native_returncode": 0,
+  "actual_marker": "PASS_READONLY_V6_FAILED_PATH_INVENTORY failed_paths=1194 ce_endpoint_paths=1130 top50=50 endpoint_groups=10 ce_net_details=16 path_group_source=ENDPOINT_CLOCK_FALLBACK",
+  "producer_marker_bug_preserved": true,
+  "path_group_kind": "ENDPOINT_CLOCK_PROXY; actual top50 report text retained",
+  "failed_paths": 1194,
+  "ce_paths": 1130,
+  "data_paths": 64,
+  "driver_groups": 16,
+  "selected_driver_groups": 13,
+  "selected_affected_ce_paths": 1106,
+  "all_actual_drivers": {
+    "platform/endpoint/backend/rsp_valid_i_2_n_0": {
+      "name": "platform/endpoint/backend/rsp_valid_i_2_n_0",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/backend/rsp_valid_i_2",
+      "driver_ref": "LUT6",
+      "driver_pin": "O",
+      "fanout": 517
+    },
+    "platform/endpoint/control/bank[1].control/fields_valid[2]_i_1_n_0": {
+      "name": "platform/endpoint/control/bank[1].control/fields_valid[2]_i_1_n_0",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/control/bank[1].control/fields_valid[2]_i_1_comp",
+      "driver_ref": "LUT6",
+      "driver_pin": "O",
+      "fanout": 33
+    },
+    "platform/endpoint/control/bank[1].control/command_amount[31]_i_1_n_0": {
+      "name": "platform/endpoint/control/bank[1].control/command_amount[31]_i_1_n_0",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/control/bank[1].control/command_amount[31]_i_1_comp",
+      "driver_ref": "LUT6",
+      "driver_pin": "O",
+      "fanout": 33
+    },
+    "platform/endpoint/memory/adapter/legacy/state[0]": {
+      "name": "platform/endpoint/memory/adapter/legacy/state[0]",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/memory/adapter/legacy/FSM_sequential_state[2]_i_1",
+      "driver_ref": "LUT6",
+      "driver_pin": "O",
+      "fanout": 6
+    },
+    "platform/endpoint/control/bank[1].control/command_address[31]_i_1_n_0": {
+      "name": "platform/endpoint/control/bank[1].control/command_address[31]_i_1_n_0",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/control/bank[1].control/command_address[31]_i_1_comp_1",
+      "driver_ref": "LUT6",
+      "driver_pin": "O",
+      "fanout": 33
+    },
+    "platform/endpoint/control/bank[0].control/command_amount[31]_i_1_n_0": {
+      "name": "platform/endpoint/control/bank[0].control/command_amount[31]_i_1_n_0",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/control/bank[0].control/command_amount[31]_i_1_comp",
+      "driver_ref": "LUT6",
+      "driver_pin": "O",
+      "fanout": 33
+    },
+    "platform/endpoint/memory/adapter/snapshot_data[511]_i_1_n_0": {
+      "name": "platform/endpoint/memory/adapter/snapshot_data[511]_i_1_n_0",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/memory/adapter/snapshot_data[511]_i_1",
+      "driver_ref": "LUT2",
+      "driver_pin": "O",
+      "fanout": 512
+    },
+    "platform/endpoint/control/bank[0].control/command_address[31]_i_1_n_0": {
+      "name": "platform/endpoint/control/bank[0].control/command_address[31]_i_1_n_0",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/control/bank[0].control/command_address[31]_i_1",
+      "driver_ref": "LUT5",
+      "driver_pin": "O",
+      "fanout": 33
+    },
+    "platform/endpoint/control/bank[0].control/result_code[0]": {
+      "name": "platform/endpoint/control/bank[0].control/result_code[0]",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/control/bank[0].control/result_tag[31]_i_1",
+      "driver_ref": "LUT5",
+      "driver_pin": "O",
+      "fanout": 72
+    },
+    "platform/endpoint/control/bank[0].control/fields_valid[2]_i_1_n_0": {
+      "name": "platform/endpoint/control/bank[0].control/fields_valid[2]_i_1_n_0",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/control/bank[0].control/fields_valid[2]_i_1_comp",
+      "driver_ref": "LUT6",
+      "driver_pin": "O",
+      "fanout": 33
+    },
+    "platform/endpoint/memory/adapter/snapshot_word[0]": {
+      "name": "platform/endpoint/memory/adapter/snapshot_word[0]",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/memory/adapter/snapshot_word[15]_i_1",
+      "driver_ref": "LUT5",
+      "driver_pin": "O",
+      "fanout": 16
+    },
+    "platform/endpoint/memory/adapter/legacy/CEB2": {
+      "name": "platform/endpoint/memory/adapter/legacy/CEB2",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/memory/adapter/legacy/address[30]_i_1_comp",
+      "driver_ref": "LUT6",
+      "driver_pin": "O",
+      "fanout": 68
+    },
+    "platform/endpoint/control/bank[1].control/result_tag[31]_i_1_n_0": {
+      "name": "platform/endpoint/control/bank[1].control/result_tag[31]_i_1_n_0",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/control/bank[1].control/result_tag[31]_i_1_comp",
+      "driver_ref": "LUT6",
+      "driver_pin": "O",
+      "fanout": 73
+    },
+    "platform/endpoint/memory/adapter/legacy/mem_rsp_rdata[15]_i_2_n_0": {
+      "name": "platform/endpoint/memory/adapter/legacy/mem_rsp_rdata[15]_i_2_n_0",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/memory/adapter/legacy/mem_rsp_rdata[15]_i_2",
+      "driver_ref": "LUT5",
+      "driver_pin": "O",
+      "fanout": 16
+    },
+    "platform/endpoint/engine/ew/job_crossing/descriptor_held0": {
+      "name": "platform/endpoint/engine/ew/job_crossing/descriptor_held0",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/engine/ew/job_crossing/request_toggle_i_1",
+      "driver_ref": "LUT6",
+      "driver_pin": "O",
+      "fanout": 66
+    },
+    "platform/endpoint/engine/cmac/job_crossing/descriptor_held0": {
+      "name": "platform/endpoint/engine/cmac/job_crossing/descriptor_held0",
+      "net_type": "SIGNAL",
+      "driver_cell": "platform/endpoint/engine/cmac/job_crossing/request_toggle_i_1",
+      "driver_ref": "LUT6",
+      "driver_pin": "O",
+      "fanout": 66
+    }
+  },
+  "driver_failed_path_counts": {
+    "platform/endpoint/backend/rsp_valid_i_2_n_0": 516,
+    "platform/endpoint/control/bank[1].control/fields_valid[2]_i_1_n_0": 33,
+    "platform/endpoint/control/bank[1].control/command_amount[31]_i_1_n_0": 33,
+    "platform/endpoint/memory/adapter/legacy/state[0]": 6,
+    "platform/endpoint/control/bank[1].control/command_address[31]_i_1_n_0": 33,
+    "platform/endpoint/control/bank[0].control/command_amount[31]_i_1_n_0": 33,
+    "platform/endpoint/memory/adapter/snapshot_data[511]_i_1_n_0": 199,
+    "platform/endpoint/control/bank[0].control/command_address[31]_i_1_n_0": 33,
+    "platform/endpoint/control/bank[0].control/result_code[0]": 72,
+    "platform/endpoint/control/bank[0].control/fields_valid[2]_i_1_n_0": 33,
+    "platform/endpoint/memory/adapter/snapshot_word[0]": 10,
+    "platform/endpoint/memory/adapter/legacy/CEB2": 43,
+    "platform/endpoint/control/bank[1].control/result_tag[31]_i_1_n_0": 73,
+    "platform/endpoint/memory/adapter/legacy/mem_rsp_rdata[15]_i_2_n_0": 8,
+    "platform/endpoint/engine/ew/job_crossing/descriptor_held0": 1,
+    "platform/endpoint/engine/cmac/job_crossing/descriptor_held0": 4
+  },
+  "source_artifacts_sha256": {
+    "ce_driver_groups.tsv": "113a6b35a4e88afa9d82b48518e0dee5ded11da07c441e16ce947586e032a42a",
+    "endpoint_groups.tsv": "a42d230d20a1af547bd5c24ce29525e29cb06771ea5762b2f24427a5d49b8a30",
+    "failed_paths.tsv": "b70a56895f4f3a5a75299dceb66d3d6f9a52515a1656c46c14107a55d309e262",
+    "native-launch.json": "c9ea703d56f717e94045a5281eb9a15550c999135bf41ac9ac08683073057f9e",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.log": "c93f7181f9099a2458fef2ac1b89ab1da6c26fa3590ca7f9ea5454b211303273",
+    "summary.tsv": "7d27dcbe7a11ac8a07309e4323f999dc6435968440e273995818404c8f8c38eb",
+    "top50_full_clock_timing.rpt": "7e0fd1c899740f6b1821e4566172058cdabf0d68c74c9e28c348728e70b9cb3e",
+    "vivado.jou": "0e8c4317fb80002b6dad4a816e83423b3b808bf7faf3a2e73a455fc0df4a8880",
+    "vivado.log": "8a7de7250b5f2543f1fd8fe34c7923f8f0c5e1385a02d1d521120835938fdea5"
+  },
+  "timing_accepted": false,
+  "hardware_accessed": false
+}

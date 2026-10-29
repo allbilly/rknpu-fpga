@@ -1,0 +1,210 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-ddr-reset-epoch-controls-20261027v2",
+    "-p",
+    "MemoryMax=2G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=100%",
+    "-p",
+    "TasksMax=128",
+    "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+    "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/run.py"
+  ],
+  "bench_sha256": "00960b8602de151b70a71ce6c240bd8f6a9a5fd61b54babb57b5cd8291f93664",
+  "candidate_coordinator_sha256": "b8d2a7c2e2f1084d5be481d76f26bf1e4998470fb75d74468ceacf6873027490",
+  "candidate_wrapper_sha256": "8c708314825c6e403c9b60fb5e2530d30bf05ddd6795984db57e3044d92aad9d",
+  "hardware_accessed": false,
+  "limits": {
+    "CPUQuota": "100%",
+    "MemoryMax": "2G",
+    "MemorySwapMax": "0",
+    "TasksMax": 128
+  },
+  "mem_available_bytes": 24872144896,
+  "memory_psi_full": {
+    "avg10": 0.0,
+    "avg300": 0.0,
+    "avg60": 0.0,
+    "total": 1142384534
+  },
+  "minimum_headroom_bytes": 8589934592,
+  "reports": {
+    "epoch_controls": {
+      "finished_utc": "2026-10-27T08:11:01.785151+00:00",
+      "path": "build/ddr-reset-candidate/v1/epoch-controls-v2/report.json",
+      "sha256": "73839792479b09da14784c694cc574d18c75720d8bd2902aadb9f0493dde5eae",
+      "started_utc": null,
+      "status": "PASS_RESET_EPOCH_CONTROLS_ONLY",
+      "tests": [
+        {
+          "binary_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/candidate_iverilog.vvp",
+          "binary_sha256": "bff3fde97bb12b5c23d1b247dadf48f436d510a8bb496964df5e24ff5f82f736",
+          "expected_failure": null,
+          "marker": [
+            "PASS mig_reset_epoch_samples cases=5 hold=1 sync=5 timeout_sync8=2 scope=public_status_only"
+          ],
+          "name": "candidate_iverilog",
+          "outcome": "PASS",
+          "returncode": 0,
+          "stages": null
+        },
+        {
+          "binary_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/candidate_verilator/sim",
+          "binary_sha256": "ac5c1bd49f87d5c52b66589e7ded3aa6e5ed9b4c5f50a5347d1cc3ebf0fc63cc",
+          "expected_failure": null,
+          "marker": [
+            "PASS mig_reset_epoch_samples cases=5 hold=1 sync=5 timeout_sync8=2 scope=public_status_only"
+          ],
+          "name": "candidate_verilator",
+          "outcome": "PASS",
+          "returncode": 0,
+          "stages": null
+        },
+        {
+          "binary_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/rejected_draft.vvp",
+          "binary_sha256": "27fd7ab9dbcd24515526eec5e21165bd5fdaea74a6059ced90ae3a784138adff",
+          "expected_failure": "Unqualified samples postponed the independent reset timeout",
+          "marker": [],
+          "name": "rejected_draft",
+          "outcome": "EXPECTED_REJECTION",
+          "returncode": 1,
+          "stages": null
+        },
+        {
+          "binary_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/guard_removed_mutant.vvp",
+          "binary_sha256": "8b98d47bd6cc40f844f0370ae0ed2b61dbe65471276dc86949d2e73e8596c34e",
+          "expected_failure": "Stale status admitted a new epoch",
+          "marker": [],
+          "name": "guard_removed_mutant",
+          "outcome": "EXPECTED_REJECTION",
+          "returncode": 1,
+          "stages": null
+        },
+        {
+          "binary_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/main_checkout_baseline.vvp",
+          "binary_sha256": "d51eaa0d25cd75edfd2352f700b0d55aa11a225408cb6884c5b8c9462f71e057",
+          "expected_failure": null,
+          "marker": [
+            "PASS mig_reset_epoch_samples cases=5 hold=1 sync=5 timeout_sync8=2 scope=public_status_only"
+          ],
+          "name": "main_checkout_baseline",
+          "outcome": "PASS",
+          "returncode": 0,
+          "stages": null
+        }
+      ]
+    },
+    "lifecycle_icarus": {
+      "finished_utc": "2026-10-27T08:11:16.581376+00:00",
+      "path": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-icarus-v2/report.json",
+      "sha256": "2506348b802d57de5ba04352ee3c441af4c1f20ba9b7531c4f5e68fda42870ae",
+      "started_utc": "2026-10-27T08:11:16.073422+00:00",
+      "status": "PASS_DDR_LIFECYCLE_PROTOCOLS_ONLY",
+      "tests": [
+        {
+          "image": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-icarus-v2/reset.vvp",
+          "image_sha256": "9f7f7117e9ea2ce9fe4366ba6ac33c637903cb3383ae27a18ae7be945b051602",
+          "name": "reset",
+          "outcome": "PASS",
+          "result": "PASS mig_reset_coordinator cases=32 sys_hold=64 ui_fresh=4 sync=3 scope=owned_reset_sequence_model_only"
+        },
+        {
+          "image": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-icarus-v2/reset-DUT_SYS_HOLD_CYCLES-zero.vvp",
+          "image_sha256": "07c88a1bd6a3cd6348f9cfcb2f4d1dd4c089fae0700fc09f6a2e1615471cfaf7",
+          "name": "reset-DUT_SYS_HOLD_CYCLES-zero",
+          "outcome": "EXPECTED_REJECTION",
+          "result": "Reset coordinator requires positive counts and at least two synchronizer stages"
+        },
+        {
+          "image": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-icarus-v2/reset-DUT_UI_FRESH_CYCLES-zero.vvp",
+          "image_sha256": "3dfc4d8d219c4597ef20ce138bee537b6261951ace9d871cb16edcc1d9cc6b9f",
+          "name": "reset-DUT_UI_FRESH_CYCLES-zero",
+          "outcome": "EXPECTED_REJECTION",
+          "result": "Reset coordinator requires positive counts and at least two synchronizer stages"
+        },
+        {
+          "image": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-icarus-v2/reset-DUT_SYNC_STAGES-zero.vvp",
+          "image_sha256": "12772cd8633c105c3dcad02bc24a20c499c1657197be7ceea91fed5c6fe4a581",
+          "name": "reset-DUT_SYNC_STAGES-zero",
+          "outcome": "EXPECTED_REJECTION",
+          "result": "Reset coordinator requires positive counts and at least two synchronizer stages"
+        },
+        {
+          "image": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-icarus-v2/reset-DUT_WAIT_TIMEOUT_CYCLES-zero.vvp",
+          "image_sha256": "31a5609bf7b3fcae86945eed7c7201a46b1601fbe8eed2df30b1e781c9277e4f",
+          "name": "reset-DUT_WAIT_TIMEOUT_CYCLES-zero",
+          "outcome": "EXPECTED_REJECTION",
+          "result": "Reset coordinator requires positive counts and at least two synchronizer stages"
+        },
+        {
+          "image": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-icarus-v2/reset-DUT_SYNC_STAGES-one.vvp",
+          "image_sha256": "354a2b0f06d3d1289dff6f45cf6351726e7ee1e467006a230062a362ace8d728",
+          "name": "reset-DUT_SYNC_STAGES-one",
+          "outcome": "EXPECTED_REJECTION",
+          "result": "Reset coordinator requires positive counts and at least two synchronizer stages"
+        }
+      ]
+    },
+    "lifecycle_verilator": {
+      "finished_utc": "2026-10-27T08:11:31.941856+00:00",
+      "path": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-verilator-v2/report.json",
+      "sha256": "7e7bd92f742b5825ebeb714cba6011f164feedb865b968e38c652968f16be13b",
+      "started_utc": "2026-10-27T08:11:28.476844+00:00",
+      "status": "PASS_DDR_LIFECYCLE_PROTOCOLS_ONLY",
+      "tests": [
+        {
+          "image": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-verilator-v2/reset/sim",
+          "image_sha256": "574e04c35ac7d6d67d6cbfea33d7da666c9b9abb685110e252dc0b55ca6886f3",
+          "name": "reset",
+          "outcome": "PASS",
+          "result": "PASS mig_reset_coordinator cases=23 sys_hold=64 ui_fresh=4 sync=3 scope=owned_reset_sequence_model_only"
+        },
+        {
+          "image": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-verilator-v2/reset-DUT_SYS_HOLD_CYCLES-zero/sim",
+          "image_sha256": "40de4898b779a85fc064551915a0339e3563be54a1a9ce24a97600b922e4667e",
+          "name": "reset-DUT_SYS_HOLD_CYCLES-zero",
+          "outcome": "EXPECTED_REJECTION",
+          "result": "Reset coordinator requires positive counts and at least two synchronizer stages"
+        },
+        {
+          "image": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-verilator-v2/reset-DUT_UI_FRESH_CYCLES-zero/sim",
+          "image_sha256": "d131f5d09bcfe27df4bac184e55e0acc9903bd93f0daff7e60388437a65e9532",
+          "name": "reset-DUT_UI_FRESH_CYCLES-zero",
+          "outcome": "EXPECTED_REJECTION",
+          "result": "Reset coordinator requires positive counts and at least two synchronizer stages"
+        },
+        {
+          "image": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-verilator-v2/reset-DUT_SYNC_STAGES-zero/sim",
+          "image_sha256": "6a146aeec06fcd0f61d48b719e81d648bfae1df9d4de85e731cc254b2eebfe03",
+          "name": "reset-DUT_SYNC_STAGES-zero",
+          "outcome": "EXPECTED_REJECTION",
+          "result": "Reset coordinator requires positive counts and at least two synchronizer stages"
+        },
+        {
+          "image": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-verilator-v2/reset-DUT_WAIT_TIMEOUT_CYCLES-zero/sim",
+          "image_sha256": "6bb084be5feb168ca3762f1ae32312b7ed8dbaae9d3c6180b61f8dfd454341f8",
+          "name": "reset-DUT_WAIT_TIMEOUT_CYCLES-zero",
+          "outcome": "EXPECTED_REJECTION",
+          "result": "Reset coordinator requires positive counts and at least two synchronizer stages"
+        },
+        {
+          "image": "build/ddr-reset-candidate/v1/workspace/build/lifecycle-reset-verilator-v2/reset-DUT_SYNC_STAGES-one/sim",
+          "image_sha256": "116cc0a8ecc5da4201eb3b54662cb979c05d12ff1b06bfb6de99581e3f8e9c2b",
+          "name": "reset-DUT_SYNC_STAGES-one",
+          "outcome": "EXPECTED_REJECTION",
+          "result": "Reset coordinator requires positive counts and at least two synchronizer stages"
+        }
+      ]
+    }
+  },
+  "retry_invocation_id": "a4beb5678ce745c1b33f23bcd021bc1b",
+  "runner_sha256": "63df2b5a83bac337cc355fcaae1161884b7c60a4dabe3daa04e9bef51d288f7e",
+  "started_utc": "2026-10-27T08:10:53.301570+00:00",
+  "status": "PASS_RESET_EPOCH_CONTROLS_AND_BASELINE_LIFECYCLE",
+  "vivado_executed": false
+}

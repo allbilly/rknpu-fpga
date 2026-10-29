@@ -1,0 +1,10 @@
+{
+  "reference_package": "openTPU/bitstreams/spare-dual-host-4gb-c0182800",
+  "license": "Apache-2.0; see rtl/vendor/opentpu/LICENSE",
+  "reference_files": {
+    "evidence/dual-host/otpu_dual_host.tcl": "ad6d98db73104ded02c2bec864b2cd68d77ab787d05bd8276b98ddea9888e80c",
+    "evidence/artifact/audit.tcl": "f6519abab42564fbf8a211692598652bd6a4baeab504a2131dd881d2a7efbef5",
+    "evidence/dual-host/otpu_jtag_mailbox.sv": "46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9"
+  },
+  "adaptation": "Only USER2 mailbox constraints/audit retained. System clock fixed50MHz; requestbound2*20ns=40ns; TCKmodel166.666ns(1psfloor,fasterthan6MHz); responsebound333.332ns. DonorPCIe/DDR/MMCM/reset synchronizers are absent. No donor timing/board acceptance transfers."
+}

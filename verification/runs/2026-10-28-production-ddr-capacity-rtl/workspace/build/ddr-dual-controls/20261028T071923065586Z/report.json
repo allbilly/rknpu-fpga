@@ -1,0 +1,159 @@
+{
+  "status": "PASS_DUAL_CONTROL_BENCHES_ONLY",
+  "scope": "Raw control only; dispatcher children are nonnumeric models",
+  "inputs": {
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/tools/ddr/run_dual_controls.py": "5fbef66fae5848229994683850b866dc68f0e3144021298dd774f7bd9d633224",
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/rtl/rk_job_control.sv": "5507702165a738d1655a5af651ba233955cb6c94e09a5b16469509319305a9f7",
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/rtl/ddr/rk_dual_job_control.sv": "c37d67bacf7e3fbea99489f2dd0aaf5b93ae56790b3342f097bdb6d277046c6f",
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/tests/ddr/dual_csr/tb_dual_job_control.sv": "226f83aad4bcd67db658e401708f8e190398fdd17319eb59e425f5d59f4dd442",
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/rtl/ddr/rk_dual_async_dispatch.sv": "ff1aad529daf361fc5585fcb9d59e42c8840b55c8ca1bc9378b595fccb98205f",
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/tests/ddr/dispatch/control_models.sv": "d69ba0c620ea8d01bc5a4dfd7c4220075ab1bbed2932bbfcd8de2d652057e5e7",
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/tests/ddr/dispatch/tb_dual_dispatch.sv": "e3e41a8d251de427d2a564086447d2c0260245792e44b211dbac3496f1f244dd"
+  },
+  "seed": "deterministic-control-no-prng",
+  "commands": [
+    {
+      "name": "csr_compile",
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_dual_job_control",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/build/ddr-dual-controls/20261028T071923065586Z/csr.vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/rtl/rk_job_control.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/rtl/ddr/rk_dual_job_control.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/tests/ddr/dual_csr/tb_dual_job_control.sv"
+      ],
+      "timeout_seconds": 120,
+      "status": "PASS",
+      "pid": 1164583,
+      "returncode": 0,
+      "seconds": 0.01688217604532838,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "csr_run",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/build/ddr-dual-controls/20261028T071923065586Z/csr.vvp"
+      ],
+      "timeout_seconds": 30,
+      "status": "PASS",
+      "pid": 1164587,
+      "returncode": 0,
+      "seconds": 0.016174424905329943,
+      "stdout_sha256": "7bd2e5c77d913c3b1f541cfaa18d97ae78d5ad31bdca62bfaeea744d8a219ae2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "dispatch_compile",
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_dual_dispatch",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/build/ddr-dual-controls/20261028T071923065586Z/dispatch.vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/rtl/ddr/rk_dual_async_dispatch.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/tests/ddr/dispatch/control_models.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/tests/ddr/dispatch/tb_dual_dispatch.sv"
+      ],
+      "timeout_seconds": 120,
+      "status": "PASS",
+      "pid": 1164588,
+      "returncode": 0,
+      "seconds": 0.016614482970908284,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "dispatch_run",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/build/ddr-dual-controls/20261028T071923065586Z/dispatch.vvp"
+      ],
+      "timeout_seconds": 30,
+      "status": "PASS",
+      "pid": 1164592,
+      "returncode": 0,
+      "seconds": 0.016236461931839585,
+      "stdout_sha256": "c28f9195530ab7b07fbc7318599a6f6e6f4ce74fbd91f12f7870b13e36775804",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "csr_verilator_compile",
+      "argv": [
+        "verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "1",
+        "--top-module",
+        "tb_dual_job_control",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/build/ddr-dual-controls/20261028T071923065586Z/verilator_obj",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/rtl/rk_job_control.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/rtl/ddr/rk_dual_job_control.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/tests/ddr/dual_csr/tb_dual_job_control.sv"
+      ],
+      "timeout_seconds": 180,
+      "status": "PASS",
+      "pid": 1164593,
+      "returncode": 0,
+      "seconds": 7.728995695943013,
+      "stdout_sha256": "9ecf73e3cf1b54a1b3f91a137fa21bbb47f7c399a963937ac6f140d9550f74e3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "csr_verilator_run",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/build/ddr-dual-controls/20261028T071923065586Z/verilator_obj/Vtb_dual_job_control"
+      ],
+      "timeout_seconds": 30,
+      "status": "PASS",
+      "pid": 1164651,
+      "returncode": 0,
+      "seconds": 0.004068630980327725,
+      "stdout_sha256": "4c6b9ab26cfcffcec2ff2439a071317eac434ccb4dcffbe069216942d521703b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "tool_versions": {
+    "iverilog": {
+      "argv": [
+        "iverilog",
+        "-V"
+      ],
+      "stdout": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n",
+      "stderr": ""
+    },
+    "vvp": {
+      "argv": [
+        "vvp",
+        "-V"
+      ],
+      "stdout": "",
+      "stderr": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n"
+    },
+    "verilator": {
+      "argv": [
+        "verilator",
+        "--version"
+      ],
+      "stdout": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426\n",
+      "stderr": ""
+    }
+  },
+  "control_models_selected": true,
+  "numerical_qualified": false,
+  "ddr_qualified": false,
+  "hardware_accessed": false,
+  "all_inputs_unchanged": true,
+  "finished_utc": "2026-10-28T07:19:30.939244+00:00"
+}

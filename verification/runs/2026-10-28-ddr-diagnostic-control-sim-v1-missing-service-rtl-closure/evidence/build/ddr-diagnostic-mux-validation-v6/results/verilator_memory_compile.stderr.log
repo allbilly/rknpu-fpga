@@ -1,0 +1,7 @@
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-diagnostic-mux-validation-v6/source/tb_ddr_diagnostic_mux.sv:101:29: Bits of function variable are not used: 'rand_word'[31]
+                                                                                                                            : ... note: In instance 'tb_ddr_diagnostic_mux'
+  101 |     integer k; logic [31:0] rand_word;
+      |                             ^~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.048
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Error: Exiting due to 1 warning(s)

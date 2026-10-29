@@ -1,0 +1,70 @@
+python3 tools/gen_regfile.py --check
+python3 tools/gen_demo.py --check
+Demo generated files match.
+python3 -m unittest discover -s tests/ddr/transport -v
+test_ack_must_restore_general_memory_ready_before_owner_can_submit_again (test_transport.DdrTransportTests.test_ack_must_restore_general_memory_ready_before_owner_can_submit_again) ... ok
+test_code_zero_pending_fault_is_failure_poison_and_never_acked (test_transport.DdrTransportTests.test_code_zero_pending_fault_is_failure_poison_and_never_acked) ... ok
+test_foreign_pending_result_cannot_be_read_or_written (test_transport.DdrTransportTests.test_foreign_pending_result_cannot_be_read_or_written) ... ok
+test_fresh_health_fault_revokes_cached_success_read_permission (test_transport.DdrTransportTests.test_fresh_health_fault_revokes_cached_success_read_permission) ... ok
+test_memory_before_initialization_refuses_without_ram_and_wait_can_retry (test_transport.DdrTransportTests.test_memory_before_initialization_refuses_without_ram_and_wait_can_retry) ... ok
+test_pending_success_allows_owned_read_blocks_write_until_ack_two_roundtrips (test_transport.DdrTransportTests.test_pending_success_allows_owned_read_blocks_write_until_ack_two_roundtrips) ... ok
+test_raw_bo_bytes_rmw_neighbors_and_31bit_range_are_preserved (test_transport.DdrTransportTests.test_raw_bo_bytes_rmw_neighbors_and_31bit_range_are_preserved) ... ok
+test_rkad_abi_idcode_and_no_write_before_identity (test_transport.DdrTransportTests.test_rkad_abi_idcode_and_no_write_before_identity) ... ok
+test_unsupported_register_status_and_noncontiguous_upload_fail_closed (test_transport.DdrTransportTests.test_unsupported_register_status_and_noncontiguous_upload_fail_closed) ... ok
+test_wait_memory_ready_uses_status_bit4_not_can_submit_and_poisons_timeout (test_transport.DdrTransportTests.test_wait_memory_ready_uses_status_bit4_not_can_submit_and_poisons_timeout) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.025s
+
+OK
+python3 -m unittest discover -s tests/ddr/raw_test -v
+test_command_and_descriptor_contract_rejects_invalid_fields_before_device_actions (test_raw_test.RawTestTests.test_command_and_descriptor_contract_rejects_invalid_fields_before_device_actions) ... ok
+test_first_mismatch_preserves_actual_partial_file_and_never_acks_or_retries (test_raw_test.RawTestTests.test_first_mismatch_preserves_actual_partial_file_and_never_acks_or_retries) ... ok
+test_poll_fault_or_timeout_never_reads_or_acks_and_keeps_no_retry_path (test_raw_test.RawTestTests.test_poll_fault_or_timeout_never_reads_or_acks_and_keeps_no_retry_path) ... ok
+test_read_timeout_preserves_partial_capture_and_never_acks (test_raw_test.RawTestTests.test_read_timeout_preserves_partial_capture_and_never_acks) ... ok
+test_rejects_invalid_records_result_contract_and_bad_output_before_device_actions (test_raw_test.RawTestTests.test_rejects_invalid_records_result_contract_and_bad_output_before_device_actions) ... ok
+test_scratch_checks_six_addresses_in_forward_and_reverse_orders (test_raw_test.RawTestTests.test_scratch_checks_six_addresses_in_forward_and_reverse_orders) ... ok
+test_scratch_detects_aliasing_fake_without_capacity_claim (test_raw_test.RawTestTests.test_scratch_detects_aliasing_fake_without_capacity_claim) ... ok
+test_uploads_exact_raw_bytes_and_command_address_zero_is_legal_when_uploaded (test_raw_test.RawTestTests.test_uploads_exact_raw_bytes_and_command_address_zero_is_legal_when_uploaded) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.006s
+
+OK
+python3 -m unittest discover -s tests/ddr/image -v
+test_positive_render_binds_five_helpers_checkpoint_exact242_ports_and_safe_tcl_literals (test_template.ImageTemplateTests.test_positive_render_binds_five_helpers_checkpoint_exact242_ports_and_safe_tcl_literals) ... ok
+test_rejects_bad_missing_or_unbound_hash_inputs_and_helper_sets (test_template.ImageTemplateTests.test_rejects_bad_missing_or_unbound_hash_inputs_and_helper_sets) ... ok
+test_rejects_bad_source_tag_and_incomplete_or_changed_io_snapshot (test_template.ImageTemplateTests.test_rejects_bad_source_tag_and_incomplete_or_changed_io_snapshot) ... ok
+test_relative_hash_bound_inputs_resolve_when_sourced_from_another_working_directory (test_template.ImageTemplateTests.test_relative_hash_bound_inputs_resolve_when_sourced_from_another_working_directory) ... ok
+test_relative_input_tamper_still_fails_before_design_access_and_conflicting_alias_hashes_reject (test_template.ImageTemplateTests.test_relative_input_tamper_still_fails_before_design_access_and_conflicting_alias_hashes_reject) ... ok
+test_tcl_hash_guard_rejects_missing_bound_checkpoint_before_design_or_bitstream (test_template.ImageTemplateTests.test_tcl_hash_guard_rejects_missing_bound_checkpoint_before_design_or_bitstream) ... ok
+test_tcl_hash_guard_rejects_tampered_bound_helper_before_design_or_bitstream (test_template.ImageTemplateTests.test_tcl_hash_guard_rejects_tampered_bound_helper_before_design_or_bitstream) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.291s
+
+OK
+python3 -m unittest discover -s tests/ddr/channel_profile -v
+test_address_data_strobe_and_ecc_width_contract_is_unchanged (test_profile.PhysicalChannelProfileTests.test_address_data_strobe_and_ecc_width_contract_is_unchanged) ... ok
+test_channel_one_preserves_physical_buses_and_swaps_only_paired_logical_bindings (test_profile.PhysicalChannelProfileTests.test_channel_one_preserves_physical_buses_and_swaps_only_paired_logical_bindings) ... ok
+test_channel_one_routes_axi_and_control_to_physical_controller_one (test_profile.PhysicalChannelProfileTests.test_channel_one_routes_axi_and_control_to_physical_controller_one) ... ok
+test_channel_zero_is_an_independent_unchanged_deep_copy (test_profile.PhysicalChannelProfileTests.test_channel_zero_is_an_independent_unchanged_deep_copy) ... ok
+test_fixture_provenance_regenerates_exact_frozen_ch1_platform (test_profile.PhysicalChannelProfileTests.test_fixture_provenance_regenerates_exact_frozen_ch1_platform) ... ok
+test_rejects_unsupported_channel_and_malformed_pairs_without_mutating_input (test_profile.PhysicalChannelProfileTests.test_rejects_unsupported_channel_and_malformed_pairs_without_mutating_input) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.018s
+
+OK
+python3 -m unittest discover -s tests/ddr/physical_audit -v
+test_changed_input_upload_rejects (test_audit.PhysicalAuditTests.test_changed_input_upload_rejects) ... ok
+test_changed_result_byte_rejects (test_audit.PhysicalAuditTests.test_changed_result_byte_rejects) ... ok
+test_early_ack_and_omitted_tail_readback_reject (test_audit.PhysicalAuditTests.test_early_ack_and_omitted_tail_readback_reject) ... ok
+test_missing_identity_and_unmodeled_csr_or_reset_reject (test_audit.PhysicalAuditTests.test_missing_identity_and_unmodeled_csr_or_reset_reject) ... ok
+test_positive_complete_synthetic_trial_is_only_a_wire_replay_control (test_audit.PhysicalAuditTests.test_positive_complete_synthetic_trial_is_only_a_wire_replay_control) ... ok
+test_wrong_completion_tag_or_task_count_rejects (test_audit.PhysicalAuditTests.test_wrong_completion_tag_or_task_count_rejects) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.152s
+
+OK

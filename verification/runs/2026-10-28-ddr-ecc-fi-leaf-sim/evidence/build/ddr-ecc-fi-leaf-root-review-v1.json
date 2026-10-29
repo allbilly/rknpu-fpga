@@ -1,0 +1,87 @@
+{
+  "bench_source_review": [
+    "Nine byte lanes, mask hold, low72 XOR, upper504 passthrough",
+    "Explicit zero disarm, write-clear priority, clean following writes",
+    "Mock reset intentionally unconnected; no reset-clearing claim"
+  ],
+  "cases": [
+    {
+      "compile_warning": null,
+      "exact_marker": "PASS fi_xor_leaf seed=00003588 scenarios=38 byte_lanes=9 low72_only=1 write_clear=1",
+      "native_compile_rc": 0,
+      "native_logs_rehashed": 4,
+      "native_run_rc": 0,
+      "producer_status_preserved": "PASS_FI_XOR_LEAF_VERILATOR_ONLY",
+      "report_path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v7/report.json",
+      "report_sha256": "f3ee0db65c2ab2fc6208fe5d31cd400962952320175d3282ff5d4ab73e39b24b",
+      "simulator": "verilator"
+    },
+    {
+      "compile_warning": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v10/source/mig_7series_v4_2_fi_xor.v:106: warning: Anachronistic use of begin/end to surround generate schemes.\n",
+      "exact_marker": "PASS fi_xor_leaf seed=00003588 scenarios=38 byte_lanes=9 low72_only=1 write_clear=1",
+      "native_compile_rc": 0,
+      "native_logs_rehashed": 4,
+      "native_run_rc": 0,
+      "producer_status_preserved": "FAIL",
+      "report_path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v10/report.json",
+      "report_sha256": "b4e7ba4c1872d855992ebbb96116518309401e7a71bc06973cfcc355be864310",
+      "simulator": "icarus"
+    }
+  ],
+  "failed_v10_receipt_relabelled": false,
+  "hardware_accessed": false,
+  "history": [
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v1/report.json",
+      "sha256": "7ed459512507c9ea9802f5d0cae73a0d367133959d58164a3f6ca538c9b17d3a",
+      "status": "FAIL"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v10/report.json",
+      "sha256": "b4e7ba4c1872d855992ebbb96116518309401e7a71bc06973cfcc355be864310",
+      "status": "FAIL"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v2/report.json",
+      "sha256": "21171428eea7816147e944a07ea64ab4b6e0d88a07c20b4f4ee5c28df62b43be",
+      "status": "FAIL"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v3/report.json",
+      "sha256": "111ff051e7e6718f17a1f870ae52597ba31f109d4a0a88aaa03313d670aaebbb",
+      "status": "FAIL"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v5/report.json",
+      "sha256": "92b1e76d73d4b08fc4dc9e56d4ff5ae5d7498d91c51e45c4c4c6930bd57f6283",
+      "status": "FAIL"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/report.json",
+      "sha256": "a6e148801164620e1f0f506d9ea53652109f0fee17ecc4c14574c1d3344606f1",
+      "status": "FAIL"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v7/report.json",
+      "sha256": "f3ee0db65c2ab2fc6208fe5d31cd400962952320175d3282ff5d4ab73e39b24b",
+      "status": "PASS_FI_XOR_LEAF_VERILATOR_ONLY"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/report.json",
+      "sha256": "c0a014ec9d1b5058717cb1c782adbdb84cb48660650c4e6dee13bfa79ec49fdc",
+      "status": "FAIL"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v9/report.json",
+      "sha256": "9f4765863cbebc61cb154a8d2555612d2db706b56cfd7d7719a95ea735a706f2",
+      "status": "FAIL"
+    }
+  ],
+  "memory_controller_decoder_or_phy_simulated": false,
+  "native_execution_repeated": false,
+  "physical_ecc_injection_qualified": false,
+  "reviewer_sha256": "698e730a7bc19c4c8983b16205ddfe38f3a778a244885b6c5da63fa28be34670",
+  "same_vendor_and_bench_bytes_both_simulators": true,
+  "status": "PASS_ROOT_FI_LEAF_NATIVE_BEHAVIOR_ONLY_WITH_RECORDED_ICARUS_VENDOR_WARNING",
+  "utc": "2026-10-28T06:50:19.102158+00:00"
+}

@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-ddr-ecc-fi-verilator-v4-20261028t0645",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "python3",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v4/run_verilator.py"
+  ],
+  "bench_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+  "evidence_class": "agent_tool_output_observation_not_runner_report",
+  "exception": "AttributeError: 'NoneType' object has no attribute 'update'",
+  "failure_point": "run_verilator.py attempted record.update before initializing its private report dictionary",
+  "launch_json_exists": true,
+  "observed_utc": "2026-10-28T06:59:19.988203+00:00",
+  "producer_report_exists": false,
+  "returncode": 1,
+  "runner_sha256": "3d6ad518490d0f6fac7d7efdfe1a493793fe266716a0ba4e28fde9f0db2ad343",
+  "schema": "private-runner-observation-v1",
+  "scope": "Private runner setup failure only; no compiler/simulator process was launched; no public source changed.",
+  "selected_vendor_leaf_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+  "status": "FAIL_BEFORE_NATIVE_COMPILATION",
+  "systemd_invocation_id": "d10fba827f2045fa9121c4ddeb7f7b2c",
+  "v4_launch_json_sha256": "331223f92cc67a924a1ebbdfb106e6c34a158ef8e92331d2321302b7416abbaa"
+}

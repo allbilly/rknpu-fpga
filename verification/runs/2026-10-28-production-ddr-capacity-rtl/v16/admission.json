@@ -1,0 +1,61 @@
+{
+  "last_three_pass": [
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 27020554240,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T07:02:19.766000+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 27051405312,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T07:01:49.765694+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 27028803584,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T07:01:19.765287+00:00"
+    }
+  ],
+  "launch_performed": false,
+  "required": {
+    "CPU_PSI_some_avg10_max_exclusive": 5.0,
+    "MemAvailable_min_bytes": 8589934592,
+    "cgroup": {
+      "CPUQuota": "200%",
+      "MemoryMax": "6442450944",
+      "MemorySwapMax": "0",
+      "TasksMax": 256
+    },
+    "memory_PSI_full_avg10_max_exclusive": 1.0
+  },
+  "samples": [
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 27028803584,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T07:01:19.765287+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 27051405312,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T07:01:49.765694+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 27020554240,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T07:02:19.766000+00:00"
+    }
+  ],
+  "status": "RESOURCE_GATE_PASS_FOR_PRODUCTION_V16"
+}

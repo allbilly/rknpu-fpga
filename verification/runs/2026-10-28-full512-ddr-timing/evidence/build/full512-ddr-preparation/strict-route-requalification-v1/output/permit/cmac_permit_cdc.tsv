@@ -1,0 +1,5 @@
+CHAIN	platform/endpoint/engine/cmac/permit_registered_reg	clk_pll_i_1	sys_clock	platform/endpoint/engine/cmac/permit_sync_reg[0],platform/endpoint/engine/cmac/permit_sync_reg[1],platform/endpoint/engine/cmac/permit_sync_reg[2]
+TIMED	platform/endpoint/engine/cmac/permit_sync_reg[0]	platform/endpoint/engine/cmac/permit_sync_reg[1]	max	20.000	19.615
+TIMED	platform/endpoint/engine/cmac/permit_sync_reg[0]	platform/endpoint/engine/cmac/permit_sync_reg[1]	min	0.000	0.113
+TIMED	platform/endpoint/engine/cmac/permit_sync_reg[1]	platform/endpoint/engine/cmac/permit_sync_reg[2]	max	20.000	19.438
+TIMED	platform/endpoint/engine/cmac/permit_sync_reg[1]	platform/endpoint/engine/cmac/permit_sync_reg[2]	min	0.000	0.191

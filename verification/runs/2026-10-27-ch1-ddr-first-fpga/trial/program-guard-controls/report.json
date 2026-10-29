@@ -1,0 +1,25 @@
+{
+  "status": "PASS_OFFLINE_PROGRAM_HASH_GUARD_CONTROLS",
+  "cases": [
+    {
+      "case": "missing",
+      "returncode": 1,
+      "hardware_stub_called": false,
+      "expected_rejection": true
+    },
+    {
+      "case": "wrong_sha",
+      "returncode": 1,
+      "hardware_stub_called": false,
+      "expected_rejection": true
+    },
+    {
+      "case": "valid_sha_reaches_stub",
+      "returncode": 1,
+      "hardware_stub_called": true,
+      "expected_rejection": true
+    }
+  ],
+  "template_sha256": "50dc2a843b86c530fb3e5ea1a0a7e2341a34d2b84dbb5080ec2a368218498b89",
+  "hardware_accessed": false
+}

@@ -1,0 +1,109 @@
+{
+  "status": "COMMAND_EXITED_ZERO",
+  "scope": "Execute only the qualified exact bitstream-emission Tcl; no synth/place/route/hardware-manager/programming/flash action",
+  "started_utc": "2026-10-26T16:06:13.997008+00:00",
+  "cwd": "/home/fedora/rknpu-fpga/build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/emission-launch-20261026T160613Z",
+  "argv": [
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/emit.tcl"
+  ],
+  "environment_overrides": {},
+  "vivado_binary": "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+  "qualified_report": "build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/report.json",
+  "qualified_report_sha256": "cd0042813f5f3ad645af6bfc5343db60242477a7952778f4053cd7b9fcd3c9e0",
+  "emitter_tcl": "build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/emit.tcl",
+  "emitter_tcl_sha256": "f6366292b124d7bace6384597db43679e9069e37004bf72574a0d9ecdaeac282",
+  "source_tag": "0xac6fee7e",
+  "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+  "input_count": 168,
+  "qualified_input_manifest_sha256": "7110c5afbbb68448e4f070e28e6e0e8e193c1be0fe1a936c47f683c2cf6b188e",
+  "input_recheck": "PASS",
+  "routed_dcp": "build/full512-regmem-preparation/1793013000/implementation/routed.dcp",
+  "routed_dcp_sha256": "9e3166635b11da4f44877991ee8c15fb9bc11d98727ce20038dba810819bba9f",
+  "mapped_closed_report": "build/full512-regmem-implementation/20261026T111740Z/mapped-closed-report.json",
+  "mapped_report_sha256": "1d60af0fdb0af9b85411596e67cdb29b6b7cf9aaa260d66c69184046103f9fa9",
+  "package_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+  "bitstream_output_directory": "build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/bitstream",
+  "bitstream_output_prelaunch_exists": false,
+  "hardware_manager_invoked": false,
+  "programming_invoked": false,
+  "flash_write_invoked": false,
+  "start_utc": "2026-10-26T16:06:14.066155+00:00",
+  "exit_code": 0,
+  "finished_utc": "2026-10-26T16:11:34.116770+00:00",
+  "outputs": [
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/bitstream/bitstream_drc.rpt",
+      "bytes": 1137256,
+      "sha256": "c1aae270da648d00fff4eae2db116ae358ac28aa030b82b4b6b15eb2b88463bd"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/bitstream/cmac512-startup.bit",
+      "bytes": 18735223,
+      "sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/bitstream/default_drc.rpt",
+      "bytes": 1137214,
+      "sha256": "5723a6dd19cbe0a143589142637ca2b0947f4df80ccb17133dcaecf057b165df"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/bitstream/image.dcp",
+      "bytes": 110410678,
+      "sha256": "daf7f334bff94d6053104eb0c742600e4fd20a65ed40144570175b071a78de08"
+    }
+  ],
+  "pid": 506612,
+  "process_group": 506612,
+  "stdout_sha256": "69af3993af3c215e68d3e7510edad538ca555af854a7839de48f4c63e6bc107d",
+  "vivado_log_sha256": "91b24d7f47925f1c2ab5c58341b2b00052ca6a60b711a3fc2207eb8f78e9edde",
+  "journal_sha256": "2d5947518761139991a7ae78d323c52bf5ebe8f8f65f159180d12b9768cdb43e",
+  "vivado_version": "Vivado v2026.1 (64-bit)",
+  "output_count": 4,
+  "bitstream_emitted": true,
+  "input_recheck_after": true,
+  "bound_drc_counts": [],
+  "completion_marker_found": true,
+  "wrapper_finalized_utc": "2026-10-26T16:12:30.410866+00:00",
+  "command_outcome": "EXITED_ZERO",
+  "drc_report_counts_only": [
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/bitstream/default_drc.rpt",
+      "bytes": 1137214,
+      "violation_counts_by_severity": {
+        "Warning": 2060
+      },
+      "matched_total": 2060,
+      "counts": {
+        "Error": 0,
+        "Critical Warning": 0,
+        "Warning": 2060,
+        "Advisory": 0,
+        "Info": 0
+      }
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/bitstream/bitstream_drc.rpt",
+      "bytes": 1137256,
+      "violation_counts_by_severity": {
+        "Warning": 2060
+      },
+      "matched_total": 2060,
+      "counts": {
+        "Error": 0,
+        "Critical Warning": 0,
+        "Warning": 2060,
+        "Advisory": 0,
+        "Info": 0
+      }
+    }
+  ],
+  "inputs_still_match": true,
+  "report_status": "COMMAND_EXITED_ZERO",
+  "report_postprocessed_utc": "2026-10-26T16:12:42.795979+00:00",
+  "command_completion_marker": "PASS_SOURCE_REVIEWED_FULL512_BITSTREAM_EMISSION",
+  "vivado_bitgen_drc_error_count": 0
+}

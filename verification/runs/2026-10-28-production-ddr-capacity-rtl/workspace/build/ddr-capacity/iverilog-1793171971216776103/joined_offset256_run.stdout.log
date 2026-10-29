@@ -1,0 +1,3 @@
+PASS_PUBLIC_PATTERN_GOLDENS rows=18 base=00001000 software_oracle=tools/ddr/capacity_pattern.py
+PASS_JOINED_BIST span=256 base=00001000 writes=8 reads=8 fences=4 snapshots=4
+/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/tests/ddr/capacity/tb_capacity_bist_joined.sv:157: $finish called at 1346000 (1ps)

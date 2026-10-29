@@ -1,0 +1,169 @@
+{
+  "admission": {
+    "controllers": [],
+    "lease_inode": 9121364,
+    "usb": "Bus 001 Device 091: ID 03fd:0008 Xilinx, Inc. Platform Cable USB II",
+    "usb_node": "/dev/bus/usb/001/091"
+  },
+  "artifacts": {
+    "hw-server.log": "fb235e01fda2152054e753e98fea93fcf8e27dc6e19e0f359ea2120d17242e6b",
+    "load-1/command.json": "ce47e0899cc550d1c7d6d418cb3e8257b59aad0c46d7b7ff90231f2f352da09b",
+    "load-1/program.tcl": "50c75950b7454ba9391d86f064b30a0a84270ce067801d1f23973bc0d5343a43",
+    "load-1/program.tsv": "bd11e600a52047c67660d74913fc708727cc64179ff1e85ae1d8cdb8a10251c6",
+    "load-1/stdout.log": "98d5cf86df783fb613b087dbc9d2816bfb7f4e072b0a689f983c0d0514e4094d",
+    "load-1/vivado.jou": "bcf25de86e248d9d0c5196fc8f6bbcb1177b5ea0fb0bc5df7e98b1fa0720a181",
+    "load-1/vivado.log": "c54b2b04ed42844380e06e9e69c557b25d2d11c443fae69dd3aed218f82460d2",
+    "scratch/audit.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scratch/audit.stdout.log": "4f1ff0d261968ba706d3888134e898cbf1af78447c24d58e9802b9b9f1077f9d",
+    "scratch/bridge-stdout.log": "870453680071a05f35bb3b70d50353accd64945713e6f9ebfb0efc5e84038718",
+    "scratch/bridge.tcl": "1271a4d2b63d2563358542c73b939ba2408d910239bf29f5a9d0b836cb898aaf",
+    "scratch/independent-wire-audit.json": "a0a0e7fdc4507fc1c75da8049613cf07a809af51dc5eb94910aad3c06eca78a5",
+    "scratch/native-scans.jsonl": "8cb93ee1bb41b09ba9adb26b352f8c2985c681c01a21e1ce4d5d3916d267c534",
+    "scratch/ready.txt": "54b0df6f5e96563c0609c8e10cfa66bc39ddc732b30d18295961a64ab47e34b7",
+    "scratch/vivado.jou": "e505deea259ed5d4218dca97c1ff1d02fa3a8d1629d77cf153d650ee3e893b0e",
+    "scratch/vivado.log": "f395c11101906d95385bfcc0623652e0ead012f998854971bbd9feb73c0d8998",
+    "trained-audit.json": "a4ac850f02f8b543b8e99c9309792aba22ec253bbe88dc95d088d1886e3cb1b3",
+    "trained-audit.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "trained-audit.stdout.log": "ef1500c69839c40fd6c652664c90f3ab1aca148534d3c349581b667b255ae802",
+    "trained-bridge/bridge-stdout.log": "dcdb42428b117b8b6bfd0bff8ae0c001218236c5c53f5575d4a451547d4926bd",
+    "trained-bridge/bridge.tcl": "03bdeac3f988ad72940ec7bace88ea6e01320b9188698e394cdb3670c4b21cb3",
+    "trained-bridge/ready.txt": "54b0df6f5e96563c0609c8e10cfa66bc39ddc732b30d18295961a64ab47e34b7",
+    "trained-bridge/vivado.jou": "f56574727b78d92dd418a9073fda8e2a326181bcaa56779047c3163bee0e45a2",
+    "trained-bridge/vivado.log": "67999962bddb7903e66bc9c5ba7c6d987cdd18cec2b94a9eb4db20c1ba439336",
+    "trained-tile/job0-readback.bin": "7961bb66c5fe6ff38f05e724f87f8187e1bb523b1861d4795e3d98cde0285137",
+    "trained-tile/job1-readback.bin": "c8bda26fb21e69a76b93b6f14b071cacf1068f6d36a0b2fb76bd80ebf1f2b467",
+    "trained-tile/job2-readback.bin": "2f379907843ebb3a26076b3593806b59b92140c6b1ce6d96ddb9eccaf295eaa1",
+    "trained-tile/job3-readback.bin": "c8bda26fb21e69a76b93b6f14b071cacf1068f6d36a0b2fb76bd80ebf1f2b467",
+    "trained-tile/native-scans.jsonl": "bb000854f903dd95d9554f19905057bd838ef32b5bfe3431bf6a9c63cb32e7e3",
+    "trained-tile/report.json": "d4426973f4cde54f83fa4a1beba9f753f065de5071d7c52a4a50629f9912bc3e",
+    "trained-worker-command.json": "e3b6dfb60669bad12ed914dc98c43d1e064843ecc203a7db146d521ce84c34be",
+    "trained-worker.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "trained-worker.stdout.log": "1a41ee6ba15df817c501e3c8759beffe882e439cf7351149ca6a24befa298622"
+  },
+  "bitstream_sha256": "d627b7155c4a4ad6b948424fbd28240a666ea6071bfe8c5d5b19f7da051b0031",
+  "bram_blocks": 0,
+  "bridge_processes": [
+    {
+      "argv": [
+        "/home/fedora/vivado/2026.1.1/Vivado_Lab/bin/vivado_lab",
+        "-mode",
+        "batch",
+        "-source",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v6/physical-test/scratch/bridge.tcl",
+        "-log",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v6/physical-test/scratch/vivado.log",
+        "-journal",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v6/physical-test/scratch/vivado.jou"
+      ],
+      "pid": 1139629,
+      "script_sha256": "1271a4d2b63d2563358542c73b939ba2408d910239bf29f5a9d0b836cb898aaf",
+      "started_utc": "2026-10-28T04:59:37.343719+00:00"
+    },
+    {
+      "argv": [
+        "/home/fedora/vivado/2026.1.1/Vivado_Lab/bin/vivado_lab",
+        "-mode",
+        "batch",
+        "-source",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v6/physical-test/trained-bridge/bridge.tcl",
+        "-log",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v6/physical-test/trained-bridge/vivado.log",
+        "-journal",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v6/physical-test/trained-bridge/vivado.jou"
+      ],
+      "pid": 1139761,
+      "script_sha256": "03bdeac3f988ad72940ec7bace88ea6e01320b9188698e394cdb3670c4b21cb3",
+      "started_utc": "2026-10-28T04:59:43.027554+00:00"
+    }
+  ],
+  "ecc_injection_qualified": false,
+  "execution_approval_sha256": "5af095af43895cf18e7fd9ab6601948c173b6af97d35bf31e9c13884538074f9",
+  "expected_dna_port": "004E544714C705C",
+  "expected_raw_idcode": "23751093",
+  "finished_utc": "2026-10-28T05:01:01.615005+00:00",
+  "flash_written": false,
+  "full512_ddr_integrated": false,
+  "full_capacity_qualified": false,
+  "hardware_programmed": true,
+  "hardware_programming_may_have_occurred": true,
+  "hw_server_pid": 1139092,
+  "image_review_sha256": "04ee9140232ebc4c2a263c66eb934c10b9b1ec83fa240a83278b244daf1efb18",
+  "lease_path": "/home/fedora/ypcb/build/hardware-locks/ypcb-jtag.lock",
+  "memory_profile": "ddr",
+  "owned_process_groups": [
+    {
+      "members_after": [],
+      "pgid": 1139906,
+      "pid": 1139906,
+      "returncode": 0,
+      "zombies_after": []
+    },
+    {
+      "members_after": [],
+      "pgid": 1139761,
+      "pid": 1139761,
+      "returncode": 0,
+      "zombies_after": []
+    },
+    {
+      "members_after": [],
+      "pgid": 1139629,
+      "pid": 1139629,
+      "returncode": 0,
+      "zombies_after": []
+    },
+    {
+      "members_after": [],
+      "pgid": 1139191,
+      "pid": 1139191,
+      "returncode": 0,
+      "zombies_after": []
+    },
+    {
+      "members_after": [],
+      "pgid": 1139092,
+      "pid": 1139092,
+      "returncode": -15,
+      "zombies_after": []
+    }
+  ],
+  "owned_process_groups_absent_before_lease_release": true,
+  "pcie_tested": false,
+  "product_dsps": 512,
+  "program_receipt_sha256": "bd11e600a52047c67660d74913fc708727cc64179ff1e85ae1d8cdb8a10251c6",
+  "scratch_audit_sha256": "a0a0e7fdc4507fc1c75da8049613cf07a809af51dc5eb94910aad3c06eca78a5",
+  "scratch_auditor_source_sha256": "5ef6f1dd9c4b12f1c9b32b7849863492e04bd7a392e57d004dc464c07cec0e11",
+  "selected_physical_channel": 1,
+  "source_manifest_sha256": "5e99f881eea21ff01bdf02f02435c7722a5ef78b820308727ac84f39edf0981f",
+  "source_tag": "5e99f881",
+  "started_utc": "2026-10-28T04:57:47.838654+00:00",
+  "status": "PASS_FULL512_CH1_SCRATCH_AND_TRAINED_TILE_REQUIRES_ROOT_AUDIT",
+  "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+  "tests": [
+    {
+      "addresses": [
+        64,
+        4096,
+        6144,
+        2097216,
+        16777280,
+        2147483584
+      ],
+      "checked_bytes": 768,
+      "full_capacity_qualified": false,
+      "namespace_statuses": {
+        "cmac_after": 16,
+        "cmac_before": 16,
+        "ew_after": 16,
+        "ew_before": 16
+      },
+      "status": "PASS_SIX_LINE_SCRATCH_ONLY",
+      "trace": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v6/physical-test/scratch/native-scans.jsonl",
+      "trace_sha256": "8cb93ee1bb41b09ba9adb26b352f8c2985c681c01a21e1ce4d5d3916d267c534",
+      "trials": 2
+    }
+  ],
+  "total_dsps": 516,
+  "trained_audit_sha256": "a4ac850f02f8b543b8e99c9309792aba22ec253bbe88dc95d088d1886e3cb1b3",
+  "trained_worker_report_sha256": "d4426973f4cde54f83fa4a1beba9f753f065de5071d7c52a4a50629f9912bc3e"
+}

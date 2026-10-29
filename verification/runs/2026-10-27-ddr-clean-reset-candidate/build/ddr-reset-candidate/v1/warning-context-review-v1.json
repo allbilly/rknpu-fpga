@@ -1,0 +1,21 @@
+{
+  "status": "REVIEWED_TWO_RESET_SOURCE_BINDINGS_WITH_IDENTICAL_574_DIAGNOSTICS",
+  "utc": "2026-10-27T08:17:44.253183+00:00",
+  "previous_policy_sha256": "98cb45049e13f52b4e2d9d542b811d38b16042e02184a543961ca1c56618b35f",
+  "updated_policy_sha256": "21204f51db2cbd5241e7a0edb8873b9e93f0d32dae8d298cfc43ce7d6b1d35fd",
+  "changed_source_bindings": {
+    "rtl/ddr/rk_mig_reset_coordinator.sv": {
+      "before": "c457acd1d88c969b6cbe15c9de1faaaa2b826536277121aabae857124bb8b117",
+      "after": "b8d2a7c2e2f1084d5be481d76f26bf1e4998470fb75d74468ceacf6873027490"
+    },
+    "rtl/ddr/rk_jtag_ew_ddr_async.sv": {
+      "before": "530fd9570dc47ef204187d80949d9330436e39239b96d76bef4751872fe31c7f",
+      "after": "8c708314825c6e403c9b60fb5e2530d30bf05ddd6795984db57e3044d92aad9d"
+    }
+  },
+  "actual_translation_log_sha256": "36080dfef38305e21d4b50ed051a5da2d0ecdcd101e9c644483f02739f77bd68",
+  "exact_diagnostic_multiset_unchanged": true,
+  "reason": "Clean restart-independent SYS pipelines with stale-epoch qualification and a registered admission source; existing reset notices and all numerical/error expectations retained",
+  "source_changes_reviewed_in": "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/report.json",
+  "hardware_accessed": false
+}

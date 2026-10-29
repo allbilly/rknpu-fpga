@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "mode": "suite",
+  "started_utc": "2026-10-26T17:33:12.176900+00:00",
+  "scope": "Actual USER2 physical raw captured EW BO execution; separate from full512, DDR, PCIe and RK equivalence",
+  "tests": [
+    {
+      "name": "capture_add_8",
+      "status": "PASS",
+      "bytes_checked": 94208,
+      "report_sha256": "8d5de42a6464d7e746ec34476ecdf76dfb11ff821c5d4bec82f59f905cdc9fd6"
+    },
+    {
+      "name": "capture_add_9",
+      "status": "PASS",
+      "bytes_checked": 94208,
+      "report_sha256": "9038218c2c6b8235b596ba6d2a6b6b3f8027c9a6fde6efd323764c618536ce33"
+    },
+    {
+      "name": "capture_add_33",
+      "status": "PASS",
+      "bytes_checked": 94208,
+      "report_sha256": "a350c0b7875afae0b0abf3c226e475f90bee661a41c103aed1c19c4dd20e7236"
+    },
+    {
+      "name": "capture_sub_8",
+      "status": "PASS",
+      "bytes_checked": 102400,
+      "report_sha256": "13d9df083e8c654860a4e08bdfa73409e5ff4439c0aa1d3c2c39cb3efd388409"
+    },
+    {
+      "name": "capture_sub_9",
+      "status": "PASS",
+      "bytes_checked": 102400,
+      "report_sha256": "b9cecd71f05987d2311e497d8c4c026c22a352886b7e8a5fffe13e51715bfd6a"
+    },
+    {
+      "name": "capture_sub_33",
+      "status": "PASS",
+      "bytes_checked": 102400,
+      "report_sha256": "63b71f4abb51347bab22b834de60dafe441ec77e2cef658cd0a818c5657e82fe"
+    },
+    {
+      "name": "capture_mul_8",
+      "status": "PASS",
+      "bytes_checked": 94208,
+      "report_sha256": "dc608ff71964b9578da86bcc18ce8998673fa5ab1077d91295a82d1fc01f77b8"
+    },
+    {
+      "name": "capture_mul_9",
+      "status": "PASS",
+      "bytes_checked": 94208,
+      "report_sha256": "b5d6eeede8fb7a6f398fec6428211d79afe62cbfae36bd267aa1af4f78e2773c"
+    },
+    {
+      "name": "capture_mul_33",
+      "status": "PASS",
+      "bytes_checked": 94208,
+      "report_sha256": "07813a7a215117faa1c9d93c4d47e505922c11d0eb5b5220075b7805b6b394a8"
+    },
+    {
+      "name": "sub9_repeat_without_rebuild",
+      "status": "PASS",
+      "bytes_checked": 102400,
+      "report_sha256": "1b33689ae7e484f8884f9d003b49676487f9fe008a8289831d3a859c62b51d42"
+    },
+    {
+      "name": "synthetic_unknown_register",
+      "status": "PASS_EXPECTED_E1_AND_POISONED_OWNER",
+      "report_sha256": "ed5eef13e8a508cce2361f42ed12faca54fc2f12a47a921c27319fed26612c50"
+    }
+  ],
+  "identity": {
+    "id": 1380664663,
+    "abi": 65536,
+    "status": 16,
+    "actual_tck_frequency_hz": 3000000,
+    "actual_tck_period_ns": {
+      "numerator": 1000,
+      "denominator": 3
+    }
+  },
+  "finished_utc": "2026-10-26T17:37:36.199244+00:00",
+  "scans": 96943,
+  "bridge_clean_quit": true
+}

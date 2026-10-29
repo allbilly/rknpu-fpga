@@ -1,0 +1,145 @@
+diff --git a/common/archcheck.cc b/common/archcheck.cc
+index 3d9e4e7..2c138e4 100644
+--- a/common/archcheck.cc
++++ b/common/archcheck.cc
+@@ -38,6 +38,9 @@ void archcheck_names(const Context *ctx)
+     for (BelId bel : ctx->getBels()) {
+         IdString name = ctx->getBelName(bel);
+         BelId bel2 = ctx->getBelByName(name);
++        if (bel != bel2)
++            log_info("BEL_NAME_MISMATCH name=%s enumerated=(%d,%d) lookup=(%d,%d)\n",
++                     name.c_str(ctx), bel.tile, bel.index, bel2.tile, bel2.index);
+         log_assert(bel == bel2);
+     }
+ 
+@@ -45,6 +48,8 @@ void archcheck_names(const Context *ctx)
+     for (WireId wire : ctx->getWires()) {
+         IdString name = ctx->getWireName(wire);
+         WireId wire2 = ctx->getWireByName(name);
++        if (wire != wire2)
++            log_info("WIRE_NAME_MISMATCH name=%s\n", name.c_str(ctx));
+         log_assert(wire == wire2);
+     }
+ 
+@@ -52,6 +57,9 @@ void archcheck_names(const Context *ctx)
+     for (PipId pip : ctx->getPips()) {
+         IdString name = ctx->getPipName(pip);
+         PipId pip2 = ctx->getPipByName(name);
++        if (pip != pip2)
++            log_info("PIP_NAME_MISMATCH name=%s enumerated=(%d,%d) lookup=(%d,%d)\n",
++                     name.c_str(ctx), pip.tile, pip.index, pip2.tile, pip2.index);
+         log_assert(pip == pip2);
+     }
+ 
+diff --git a/xilinx/arch.cc b/xilinx/arch.cc
+index 3090d52..1f5a691 100644
+--- a/xilinx/arch.cc
++++ b/xilinx/arch.cc
+@@ -34,6 +34,7 @@
+ #include "timing.h"
+ #include "util.h"
+ #include "design_utils.h"
++#include "bel_variant_name.h"
+ 
+ NEXTPNR_NAMESPACE_BEGIN
+ 
+@@ -135,13 +136,17 @@ BelId Arch::getBelByName(IdString name) const
+     setup_byname();
+ 
+     auto split = split_identifier_name(name.str(this));
++    int requested_variant;
++    if (!split_bel_variant_name(split.second, requested_variant))
++        return ret;
+     if (site_by_name.count(split.first)) {
+         int tile, site;
+         std::tie(tile, site) = site_by_name.at(split.first);
+         auto &tile_info = chip_info->tile_types[chip_info->tile_insts[tile].type];
+         IdString belname = id(split.second);
+         for (int i = 0; i < tile_info.num_bels; i++) {
+-            if (tile_info.bel_data[i].site == site && tile_info.bel_data[i].name == belname.index) {
++            if (tile_info.bel_data[i].site == site && tile_info.bel_data[i].name == belname.index &&
++                (requested_variant == -1 || tile_info.bel_data[i].site_variant == requested_variant)) {
+                 ret.tile = tile;
+                 ret.index = i;
+                 break;
+@@ -159,7 +164,8 @@ BelId Arch::getBelByName(IdString name) const
+         auto &tile_info = chip_info->tile_types[chip_info->tile_insts[tile].type];
+         IdString belname = id(split.second);
+         for (int i = 0; i < tile_info.num_bels; i++) {
+-            if (tile_info.bel_data[i].name == belname.index) {
++            if (tile_info.bel_data[i].name == belname.index &&
++                (requested_variant == -1 || tile_info.bel_data[i].site_variant == requested_variant)) {
+                 ret.tile = tile;
+                 ret.index = i;
+                 break;
+diff --git a/xilinx/arch.h b/xilinx/arch.h
+index 2f87ffb..49e949c 100644
+--- a/xilinx/arch.h
++++ b/xilinx/arch.h
+@@ -778,13 +778,26 @@ struct Arch : BaseCtx
+     IdString getBelName(BelId bel) const
+     {
+         NPNR_ASSERT(bel != BelId());
+-        int site = locInfo(bel).bel_data[bel.index].site;
++        const auto &info = locInfo(bel);
++        const auto &data = info.bel_data[bel.index];
++        int site = data.site;
++        std::string bel_name = IdString(data.name).str(this);
++        // The exporter retains multiple variants of e.g. ILOGIC sites. Their
++        // CE1USED/IFF/etc. BEL names can repeat within the same physical site.
++        // Keep the first (legacy lookup) spelling, qualify later variants so
++        // every enumerated BEL round-trips without changing the database.
++        for (int i = 0; i < bel.index; ++i) {
++            if (info.bel_data[i].site == site && info.bel_data[i].name == data.name) {
++                bel_name += "@" + std::to_string(data.site_variant);
++                break;
++            }
++        }
+         if (site != -1) {
+             return id(std::string(chip_info->tile_insts[bel.tile].site_insts[site].name.get()) + "/" +
+-                      IdString(locInfo(bel).bel_data[bel.index].name).str(this));
++                      bel_name);
+         } else {
+             return id(std::string(chip_info->tile_insts[bel.tile].name.get()) + "/" +
+-                      IdString(locInfo(bel).bel_data[bel.index].name).str(this));
++                      bel_name);
+         }
+     }
+ 
+diff --git a/xilinx/bel_variant_name.h b/xilinx/bel_variant_name.h
+new file mode 100644
+--- /dev/null
++++ b/xilinx/bel_variant_name.h
+@@ -0,0 +1,32 @@
++// SPDX-License-Identifier: ISC
++// Optional canonical qualifier for BELs sharing a name across site variants.
++#ifndef XILINX_BEL_VARIANT_NAME_H
++#define XILINX_BEL_VARIANT_NAME_H
++#include <cstdint>
++#include <limits>
++#include <string>
++
++// Preserve the old unsuffixed lookup. Malformed/overflowing explicit variants
++// fail, rather than falling back to whichever variant appears first.
++inline bool split_bel_variant_name(std::string &name, int &variant)
++{
++    variant = -1;
++    auto at = name.find('@');
++    if (at == std::string::npos)
++        return true;
++    if (at == 0 || at + 1 == name.size())
++        return false;
++    int value = 0;
++    for (size_t i = at + 1; i < name.size(); ++i) {
++        char digit = name[i];
++        if (digit < '0' || digit > '9')
++            return false;
++        if (value > (std::numeric_limits<int16_t>::max() - (digit - '0')) / 10)
++            return false;
++        value = value * 10 + (digit - '0');
++    }
++    name.resize(at);
++    variant = value;
++    return true;
++}
++#endif

@@ -1,0 +1,57 @@
+{
+  "actual_tool_version": "vivado v2026.1 (64-bit)\nTool Version Limit: 2026.06\nSW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026\nIP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026\nSharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026\nCopyright 1986-2022 Xilinx, Inc. All Rights Reserved.\nCopyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.\n",
+  "all_pulse_rows": {
+    "counts": {
+      "High Pulse Width": 58,
+      "Low Pulse Width": 56,
+      "Max Period": 16,
+      "Min Period": 102
+    },
+    "total_rows": 232,
+    "worst_reported_slack_ns": 0.264
+  },
+  "bitstream_emitted": false,
+  "default_drc": {
+    "DPIP-1": 1032,
+    "DPOP-1": 516,
+    "DPOP-2": 516,
+    "REQP-1709": 2
+  },
+  "hardware_accessed": false,
+  "helper_reports": {
+    "cmac_job": "82c86af07385c5dd1e40d9135b35a5681b449b20c3f3969bcabfa6cbd776b25a",
+    "cmac_memory": "68a02e08a23ad2730f81b5ca538ae9e613e1933299cfede9d50c7598e780f2a2",
+    "ew_job": "f0fb70bd24305355a287d086d91fb256d7973ca16bfc34b40145987507bb7391",
+    "ew_memory": "f68e3b61cda1022e1279d974ddf7d25619122108df898cb3c62d99b4916b3648"
+  },
+  "input_hashes_rehashed": 381,
+  "output_files_rehashed": 58,
+  "physical_capacity_qualified": false,
+  "ports": 242,
+  "post_opt_dcp_sha256": "11ad0d557c1ad83806e1690dd3f3dd02dc9bcc232a9c7545bc2fe764214f6dee",
+  "post_route_dcp_sha256": "042df439b963bbb20f7d1695754c643ad693016a94f043f40f60079c34934286",
+  "producer_sha256": "fe55c87d91c1404c2b857c035c49221c5718deb2a022bd857ebfd9aa6a8214b9",
+  "product_dsps": 512,
+  "reset_banks": 4,
+  "reviewer_sha256": "e7a7feb82ba35c946a414ca0dabee23649e933226f4d52081980fa3af3d6f346",
+  "route_counts": {
+    "fully routed nets": 425959,
+    "logical nets": 509175,
+    "nets with routing errors": 0,
+    "routable nets": 425959
+  },
+  "routed_luts": 290266,
+  "scope": "Fresh retirement-compression route/timing/mapped bindings only; no bitstream, physical memory or RK equivalence acceptance. Native runner label synthesis actually invoked the sealed route.tcl.",
+  "status": "PASS_ROOT_FULL512_RETIRE_ROUTE_TIMING",
+  "status_chains": 9,
+  "timing": {
+    "hold_endpoints": 174484,
+    "hold_ns": 0.052,
+    "pulse_endpoints": 72407,
+    "pulse_ns": 0.264,
+    "setup_endpoints": 175936,
+    "setup_ns": 0.027
+  },
+  "total_dsps": 516,
+  "utc": "2026-10-28T20:42:25.044263+00:00"
+}

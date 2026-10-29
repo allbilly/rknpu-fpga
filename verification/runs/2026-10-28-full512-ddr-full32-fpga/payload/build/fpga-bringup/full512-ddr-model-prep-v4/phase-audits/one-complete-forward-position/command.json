@@ -1,0 +1,37 @@
+{
+  "argv": [
+    "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+    "/home/fedora/rknpu-fpga/tools/tinystories/audit_model.py",
+    "--run",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/physical-test",
+    "--package",
+    "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v2",
+    "--catalog",
+    "/home/fedora/rknpu-fpga/build/tinystories-programs/all-v1/report.json",
+    "--reference",
+    "/home/fedora/rknpu-fpga/build/tinystories-full-oracle/v1",
+    "--phase",
+    "one-complete-forward-position",
+    "--memory-profile",
+    "ddr",
+    "--out",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/phase-audits/one-complete-forward-position/audit.json"
+  ],
+  "audit_sha256": "319ac3159b9a7f6c476e29c7c1b7ccae03763ae938791c0ade9968f685a0e719",
+  "audited_parent_report_sha256": "3f37469dd5d46bfe1afb7b2b4f5c73e3fb673d73bb68322c5159d53f5e4fd92c",
+  "finished_utc": "2026-10-28T05:37:51.322768+00:00",
+  "parent_report_sha256_at_audit": "3f37469dd5d46bfe1afb7b2b4f5c73e3fb673d73bb68322c5159d53f5e4fd92c",
+  "parent_report_snapshot_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/phase-report-snapshots/one-complete-forward-position.report.json",
+  "pgid": 1144387,
+  "phase": "one-complete-forward-position",
+  "pid": 1144387,
+  "process_group": {
+    "live_after": [],
+    "pid": 1144387,
+    "returncode": 0,
+    "zombies_after": []
+  },
+  "returncode": 0,
+  "started_utc": "2026-10-28T05:37:49.371642+00:00",
+  "status": "PASS"
+}

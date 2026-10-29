@@ -1,0 +1,111 @@
+{
+  "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1153143-i5358103.scope",
+  "cgroup_limits_requested": {
+    "CPUQuota": "200%",
+    "MemoryMax": "4GiB",
+    "MemorySwapMax": 0,
+    "TasksMax": 256
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_capacity_sweep",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v1/sweep_behavior.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v1/tb_capacity_sweep.sv"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v1",
+      "finished_utc": "2026-10-28T06:24:20.386763+00:00",
+      "name": "icarus_behavior_compile",
+      "returncode": 3,
+      "started_utc": "2026-10-28T06:24:20.371074+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v1/icarus_behavior_compile.stderr.log",
+      "stderr_sha256": "461a4f0739a2aac0433bc40fc9ff34ee53cdb0cbb61b2bcb1f3d9e9c31e7ab13",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v1/icarus_behavior_compile.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.015697
+    }
+  ],
+  "failure": "RuntimeError('Icarus behavior compile failed')",
+  "finished_utc": "2026-10-28T06:24:20.387085+00:00",
+  "full_capacity_qualified": false,
+  "full_window_default_proof": "Separate default-parameter elaboration only; no 33,554,432-line iteration.",
+  "hardware_executed": false,
+  "host_admission": {
+    "MemAvailable_kib": 26512456,
+    "SwapFree_kib": 22649868,
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1153143-i5358103.scope",
+    "cpu_psi_some_avg10": 0.0,
+    "memory_psi_full_avg10": 0.0,
+    "utc": "2026-10-28T06:24:20.371004+00:00"
+  },
+  "host_final": {
+    "MemAvailable_kib": 26512456,
+    "SwapFree_kib": 22649868,
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1153143-i5358103.scope",
+    "cpu_psi_some_avg10": 0.0,
+    "memory_psi_full_avg10": 0.0,
+    "utc": "2026-10-28T06:24:20.387230+00:00"
+  },
+  "lines_per_pass": 4,
+  "model_run_executed": false,
+  "negative_parameter_cases": [],
+  "physical_ddr_qualified": false,
+  "schema": "ddr-capacity-sweep-controller-validation-v1",
+  "scope_note": "Test-only adapter/fence contract. No MIG integration or physical controller evidence.",
+  "seeds": [
+    "0x00000000",
+    "0x3588c350",
+    "0xffffffff"
+  ],
+  "source_hashes_after": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v1/tb_capacity_sweep.sv": "8d9d13df76ed88d6834012a0b8fedeb13bc0665d8dbad18cb70e5924c93e28e4",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v1/tb_capacity_sweep_full_elab.sv": "fefcd1f2c1d927dcd9b92b4bf9fb192dfe8e26b7290458a58450d9be2521f577",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v1/tb_capacity_sweep_invalid.sv": "9066a21d77d45690961eb089ae3ed85fa7bbf9d5c76d2b2bdab8d732715ee042"
+  },
+  "source_hashes_before": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v1/tb_capacity_sweep.sv": "8d9d13df76ed88d6834012a0b8fedeb13bc0665d8dbad18cb70e5924c93e28e4",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v1/tb_capacity_sweep_full_elab.sv": "fefcd1f2c1d927dcd9b92b4bf9fb192dfe8e26b7290458a58450d9be2521f577",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v1/tb_capacity_sweep_invalid.sv": "9066a21d77d45690961eb089ae3ed85fa7bbf9d5c76d2b2bdab8d732715ee042"
+  },
+  "sources_unchanged": true,
+  "span_bytes": 256,
+  "started_utc": "2026-10-28T06:24:20.371074+00:00",
+  "status": "FAIL",
+  "timeouts_seconds": {
+    "each_native_compile_or_sim_case": 300
+  },
+  "tool_versions": {
+    "iverilog": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/iverilog",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "verilator": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/verilator",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+    },
+    "vvp": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/vvp",
+      "returncode": 0,
+      "stderr": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.",
+      "stdout": ""
+    }
+  }
+}

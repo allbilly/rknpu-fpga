@@ -1,0 +1,15 @@
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_capacity_service.sv:280:16: Signal is not used: 'ctrl_bid'
+                                                                                                                   : ... note: In instance 'rk_ddr_capacity_service'
+  280 |     logic [1:0]ctrl_bid;
+      |                ^~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.048
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_capacity_service.sv:285:16: Signal is not used: 'ctrl_rid'
+                                                                                                                   : ... note: In instance 'rk_ddr_capacity_service'
+  285 |     logic [1:0]ctrl_rid;
+      |                ^~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_capacity_service.sv:289:16: Signal is not used: 'ctrl_rlast'
+                                                                                                                   : ... note: In instance 'rk_ddr_capacity_service'
+  289 |     logic [1:0]ctrl_rlast;
+      |                ^~~~~~~~~~
+%Error: Exiting due to 3 warning(s)

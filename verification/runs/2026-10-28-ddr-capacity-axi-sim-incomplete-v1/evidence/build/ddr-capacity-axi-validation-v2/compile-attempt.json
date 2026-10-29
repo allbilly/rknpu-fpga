@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--quiet",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/home/linuxbrew/.linuxbrew/bin/iverilog",
+    "-g2012",
+    "-Wall",
+    "-s",
+    "tb_capacity_axi",
+    "-Ptb_capacity_axi.BASE_ADDR=0",
+    "-Ptb_capacity_axi.SPAN_BYTES=256",
+    "-Ptb_capacity_axi.TIMEOUT_CYCLES=32"
+  ],
+  "diagnosis": "Bench declaration patch failed to add test_seed because it searched for logic instead of integer declaration; no simulator ran.",
+  "log_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v2/icarus-compile.log",
+  "log_sha256": "f0de454a2d44cae8079cb1b976ff82d58ff410b9d8cb924467077f96739871b9",
+  "returncode": 5,
+  "schema": "capacity-axi-v2-preserved-first-corrected-compile-attempt",
+  "status": "FAIL_TESTBENCH_GLOBAL_TEST_SEED_MISSING"
+}

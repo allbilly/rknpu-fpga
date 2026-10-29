@@ -1,0 +1,591 @@
+DESIGN	checkpoint_post_route	xc7k480tffg1156-2	CONFIG_VOLTAGE	1.8	CFGBVS	GND
+PORT_COUNT	242
+PORT	0	c0_ddr3_addr[0]	OUT	AK27	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[0]	AK27	12	IO_L12N_T1_MRCC_12	1
+PORT	1	c0_ddr3_addr[1]	OUT	AN23	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[1]	AN23	12	IO_L1N_T0_12	1
+PORT	2	c0_ddr3_addr[2]	OUT	AL24	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[2]	AL24	12	IO_L9N_T1_DQS_12	1
+PORT	3	c0_ddr3_addr[3]	OUT	AK26	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[3]	AK26	12	IO_L12P_T1_MRCC_12	1
+PORT	4	c0_ddr3_addr[4]	OUT	AH24	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[4]	AH24	12	IO_L16P_T2_12	1
+PORT	5	c0_ddr3_addr[5]	OUT	AH25	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[5]	AH25	12	IO_L15P_T2_DQS_12	1
+PORT	6	c0_ddr3_addr[6]	OUT	AL26	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[6]	AL26	12	IO_L11N_T1_SRCC_12	1
+PORT	7	c0_ddr3_addr[7]	OUT	AJ24	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[7]	AJ24	12	IO_L16N_T2_12	1
+PORT	8	c0_ddr3_addr[8]	OUT	AJ25	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[8]	AJ25	12	IO_L15N_T2_DQS_12	1
+PORT	9	c0_ddr3_addr[9]	OUT	AM23	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[9]	AM23	12	IO_L1P_T0_12	1
+PORT	10	c0_ddr3_addr[10]	OUT	AL28	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[10]	AL28	12	IO_L10N_T1_12	1
+PORT	11	c0_ddr3_addr[11]	OUT	AL25	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[11]	AL25	12	IO_L11P_T1_SRCC_12	1
+PORT	12	c0_ddr3_addr[12]	OUT	AM25	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[12]	AM25	12	IO_L7P_T1_12	1
+PORT	13	c0_ddr3_addr[13]	OUT	AK24	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[13]	AK24	12	IO_L9P_T1_DQS_12	1
+PORT	14	c0_ddr3_addr[14]	OUT	AM27	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_addr[14]	AM27	12	IO_L6P_T0_12	1
+PORT	15	c0_ddr3_ba[0]	OUT	AM26	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_ba[0]	AM26	12	IO_L7N_T1_12	1
+PORT	16	c0_ddr3_ba[1]	OUT	AP24	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_ba[1]	AP24	12	IO_L2N_T0_12	1
+PORT	17	c0_ddr3_ba[2]	OUT	AN28	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_ba[2]	AN28	12	IO_L5N_T0_12	1
+PORT	18	c0_ddr3_cas_n	OUT	AP26	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_cas_n	AP26	12	IO_L4P_T0_12	1
+PORT	19	c0_ddr3_ck_n[0]	OUT	AP25	12	DIFF_SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_ck_n[0]	AP25	12	IO_L3N_T0_DQS_12	1
+PORT	20	c0_ddr3_ck_p[0]	OUT	AN25	12	DIFF_SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_ck_p[0]	AN25	12	IO_L3P_T0_DQS_12	1
+PORT	21	c0_ddr3_cke[0]	OUT	AP27	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_cke[0]	AP27	12	IO_L4N_T0_12	1
+PORT	22	c0_ddr3_cs_n[0]	OUT	AK28	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_cs_n[0]	AK28	12	IO_L10P_T1_12	1
+PORT	23	c0_ddr3_dq[0]	INOUT	AG17	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[0]	AG17	11	IO_L18N_T2_11	1
+PORT	24	c0_ddr3_dq[1]	INOUT	AG16	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[1]	AG16	11	IO_L18P_T2_11	1
+PORT	25	c0_ddr3_dq[2]	INOUT	AH17	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[2]	AH17	11	IO_L17P_T2_11	1
+PORT	26	c0_ddr3_dq[3]	INOUT	AJ19	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[3]	AJ19	11	IO_L14N_T2_SRCC_11	1
+PORT	27	c0_ddr3_dq[4]	INOUT	AH18	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[4]	AH18	11	IO_L17N_T2_11	1
+PORT	28	c0_ddr3_dq[5]	INOUT	AH19	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[5]	AH19	11	IO_L14P_T2_SRCC_11	1
+PORT	29	c0_ddr3_dq[6]	INOUT	AJ16	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[6]	AJ16	11	IO_L16P_T2_11	1
+PORT	30	c0_ddr3_dq[7]	INOUT	AJ17	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[7]	AJ17	11	IO_L16N_T2_11	1
+PORT	31	c0_ddr3_dq[8]	INOUT	AL20	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[8]	AL20	11	IO_L11P_T1_SRCC_11	1
+PORT	32	c0_ddr3_dq[9]	INOUT	AN17	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[9]	AN17	11	IO_L7P_T1_11	1
+PORT	33	c0_ddr3_dq[10]	INOUT	AL19	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[10]	AL19	11	IO_L12N_T1_MRCC_11	1
+PORT	34	c0_ddr3_dq[11]	INOUT	AM16	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[11]	AM16	11	IO_L10N_T1_11	1
+PORT	35	c0_ddr3_dq[12]	INOUT	AL18	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[12]	AL18	11	IO_L12P_T1_MRCC_11	1
+PORT	36	c0_ddr3_dq[13]	INOUT	AL16	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[13]	AL16	11	IO_L10P_T1_11	1
+PORT	37	c0_ddr3_dq[14]	INOUT	AM20	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[14]	AM20	11	IO_L11N_T1_SRCC_11	1
+PORT	38	c0_ddr3_dq[15]	INOUT	AN18	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[15]	AN18	11	IO_L7N_T1_11	1
+PORT	39	c0_ddr3_dq[16]	INOUT	AL23	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[16]	AL23	11	IO_L1N_T0_11	1
+PORT	40	c0_ddr3_dq[17]	INOUT	AN20	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[17]	AN20	11	IO_L4P_T0_11	1
+PORT	41	c0_ddr3_dq[18]	INOUT	AK23	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[18]	AK23	11	IO_L1P_T0_11	1
+PORT	42	c0_ddr3_dq[19]	INOUT	AP19	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[19]	AP19	11	IO_L5N_T0_11	1
+PORT	43	c0_ddr3_dq[20]	INOUT	AN22	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[20]	AN22	11	IO_L2N_T0_11	1
+PORT	44	c0_ddr3_dq[21]	INOUT	AN19	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[21]	AN19	11	IO_L5P_T0_11	1
+PORT	45	c0_ddr3_dq[22]	INOUT	AM22	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[22]	AM22	11	IO_L2P_T0_11	1
+PORT	46	c0_ddr3_dq[23]	INOUT	AP20	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[23]	AP20	11	IO_L4N_T0_11	1
+PORT	47	c0_ddr3_dq[24]	INOUT	AJ21	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[24]	AJ21	11	IO_L20P_T3_11	1
+PORT	48	c0_ddr3_dq[25]	INOUT	AH22	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[25]	AH22	11	IO_L23N_T3_11	1
+PORT	49	c0_ddr3_dq[26]	INOUT	AK21	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[26]	AK21	11	IO_L20N_T3_11	1
+PORT	50	c0_ddr3_dq[27]	INOUT	AG21	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[27]	AG21	11	IO_L22N_T3_11	1
+PORT	51	c0_ddr3_dq[28]	INOUT	AG22	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[28]	AG22	11	IO_L23P_T3_11	1
+PORT	52	c0_ddr3_dq[29]	INOUT	AG20	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[29]	AG20	11	IO_L22P_T3_11	1
+PORT	53	c0_ddr3_dq[30]	INOUT	AH23	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[30]	AH23	11	IO_L24N_T3_11	1
+PORT	54	c0_ddr3_dq[31]	INOUT	AG23	11	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[31]	AG23	11	IO_L24P_T3_11	1
+PORT	55	c0_ddr3_dq[32]	INOUT	AJ32	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[32]	AJ32	13	IO_L14P_T2_SRCC_13	1
+PORT	56	c0_ddr3_dq[33]	INOUT	AK32	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[33]	AK32	13	IO_L14N_T2_SRCC_13	1
+PORT	57	c0_ddr3_dq[34]	INOUT	AK31	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[34]	AK31	13	IO_L13N_T2_MRCC_13	1
+PORT	58	c0_ddr3_dq[35]	INOUT	AL30	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[35]	AL30	13	IO_L17P_T2_13	1
+PORT	59	c0_ddr3_dq[36]	INOUT	AL34	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[36]	AL34	13	IO_L16N_T2_13	1
+PORT	60	c0_ddr3_dq[37]	INOUT	AL31	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[37]	AL31	13	IO_L17N_T2_13	1
+PORT	61	c0_ddr3_dq[38]	INOUT	AK34	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[38]	AK34	13	IO_L16P_T2_13	1
+PORT	62	c0_ddr3_dq[39]	INOUT	AL29	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[39]	AL29	13	IO_L18P_T2_13	1
+PORT	63	c0_ddr3_dq[40]	INOUT	AJ34	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[40]	AJ34	13	IO_L7N_T1_13	1
+PORT	64	c0_ddr3_dq[41]	INOUT	AH32	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[41]	AH32	13	IO_L11N_T1_SRCC_13	1
+PORT	65	c0_ddr3_dq[42]	INOUT	AJ30	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[42]	AJ30	13	IO_L10N_T1_13	1
+PORT	66	c0_ddr3_dq[43]	INOUT	AH34	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[43]	AH34	13	IO_L7P_T1_13	1
+PORT	67	c0_ddr3_dq[44]	INOUT	AF31	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[44]	AF31	13	IO_L12P_T1_MRCC_13	1
+PORT	68	c0_ddr3_dq[45]	INOUT	AG30	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[45]	AG30	13	IO_L8N_T1_13	1
+PORT	69	c0_ddr3_dq[46]	INOUT	AG31	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[46]	AG31	13	IO_L12N_T1_MRCC_13	1
+PORT	70	c0_ddr3_dq[47]	INOUT	AF30	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[47]	AF30	13	IO_L8P_T1_13	1
+PORT	71	c0_ddr3_dq[48]	INOUT	AE32	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[48]	AE32	13	IO_L5N_T0_13	1
+PORT	72	c0_ddr3_dq[49]	INOUT	AC33	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[49]	AC33	13	IO_L1N_T0_13	1
+PORT	73	c0_ddr3_dq[50]	INOUT	AF33	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[50]	AF33	13	IO_L4N_T0_13	1
+PORT	74	c0_ddr3_dq[51]	INOUT	AC32	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[51]	AC32	13	IO_L1P_T0_13	1
+PORT	75	c0_ddr3_dq[52]	INOUT	AD34	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[52]	AD34	13	IO_L2N_T0_13	1
+PORT	76	c0_ddr3_dq[53]	INOUT	AC34	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[53]	AC34	13	IO_L2P_T0_13	1
+PORT	77	c0_ddr3_dq[54]	INOUT	AE33	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[54]	AE33	13	IO_L4P_T0_13	1
+PORT	78	c0_ddr3_dq[55]	INOUT	AE31	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[55]	AE31	13	IO_L5P_T0_13	1
+PORT	79	c0_ddr3_dq[56]	INOUT	AE26	12	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[56]	AE26	12	IO_L22P_T3_12	1
+PORT	80	c0_ddr3_dq[57]	INOUT	AF29	12	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[57]	AF29	12	IO_L20N_T3_12	1
+PORT	81	c0_ddr3_dq[58]	INOUT	AE24	12	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[58]	AE24	12	IO_L23P_T3_12	1
+PORT	82	c0_ddr3_dq[59]	INOUT	AF28	12	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[59]	AF28	12	IO_L20P_T3_12	1
+PORT	83	c0_ddr3_dq[60]	INOUT	AF24	12	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[60]	AF24	12	IO_L23N_T3_12	1
+PORT	84	c0_ddr3_dq[61]	INOUT	AG25	12	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[61]	AG25	12	IO_L24N_T3_12	1
+PORT	85	c0_ddr3_dq[62]	INOUT	AF26	12	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[62]	AF26	12	IO_L22N_T3_12	1
+PORT	86	c0_ddr3_dq[63]	INOUT	AF25	12	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[63]	AF25	12	IO_L24P_T3_12	1
+PORT	87	c0_ddr3_dq[64]	INOUT	AN34	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[64]	AN34	13	IO_L20N_T3_13	1
+PORT	88	c0_ddr3_dq[65]	INOUT	AP30	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[65]	AP30	13	IO_L23N_T3_13	1
+PORT	89	c0_ddr3_dq[66]	INOUT	AM33	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[66]	AM33	13	IO_L20P_T3_13	1
+PORT	90	c0_ddr3_dq[67]	INOUT	AN29	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[67]	AN29	13	IO_L24P_T3_13	1
+PORT	91	c0_ddr3_dq[68]	INOUT	AP32	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[68]	AP32	13	IO_L22N_T3_13	1
+PORT	92	c0_ddr3_dq[69]	INOUT	AP29	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[69]	AP29	13	IO_L23P_T3_13	1
+PORT	93	c0_ddr3_dq[70]	INOUT	AM31	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[70]	AM31	13	IO_L19P_T3_13	1
+PORT	94	c0_ddr3_dq[71]	INOUT	AP31	13	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dq[71]	AP31	13	IO_L22P_T3_13	1
+PORT	95	c0_ddr3_dqs_n[0]	INOUT	AK17	11	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_n[0]	AK17	11	IO_L15N_T2_DQS_11	1
+PORT	96	c0_ddr3_dqs_n[1]	INOUT	AM18	11	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_n[1]	AM18	11	IO_L9N_T1_DQS_11	1
+PORT	97	c0_ddr3_dqs_n[2]	INOUT	AP22	11	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_n[2]	AP22	11	IO_L3N_T0_DQS_11	1
+PORT	98	c0_ddr3_dqs_n[3]	INOUT	AJ20	11	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_n[3]	AJ20	11	IO_L21N_T3_DQS_11	1
+PORT	99	c0_ddr3_dqs_n[4]	INOUT	AL33	13	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_n[4]	AL33	13	IO_L15N_T2_DQS_13	1
+PORT	100	c0_ddr3_dqs_n[5]	INOUT	AH33	13	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_n[5]	AH33	13	IO_L9N_T1_DQS_13	1
+PORT	101	c0_ddr3_dqs_n[6]	INOUT	AF34	13	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_n[6]	AF34	13	IO_L3N_T0_DQS_13	1
+PORT	102	c0_ddr3_dqs_n[7]	INOUT	AE28	12	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_n[7]	AE28	12	IO_L21N_T3_DQS_12	1
+PORT	103	c0_ddr3_dqs_n[8]	INOUT	AP33	13	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_n[8]	AP33	13	IO_L21N_T3_DQS_13	1
+PORT	104	c0_ddr3_dqs_p[0]	INOUT	AK16	11	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_p[0]	AK16	11	IO_L15P_T2_DQS_11	1
+PORT	105	c0_ddr3_dqs_p[1]	INOUT	AM17	11	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_p[1]	AM17	11	IO_L9P_T1_DQS_11	1
+PORT	106	c0_ddr3_dqs_p[2]	INOUT	AP21	11	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_p[2]	AP21	11	IO_L3P_T0_DQS_11	1
+PORT	107	c0_ddr3_dqs_p[3]	INOUT	AH20	11	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_p[3]	AH20	11	IO_L21P_T3_DQS_11	1
+PORT	108	c0_ddr3_dqs_p[4]	INOUT	AK33	13	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_p[4]	AK33	13	IO_L15P_T2_DQS_13	1
+PORT	109	c0_ddr3_dqs_p[5]	INOUT	AG33	13	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_p[5]	AG33	13	IO_L9P_T1_DQS_13	1
+PORT	110	c0_ddr3_dqs_p[6]	INOUT	AE34	13	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_p[6]	AE34	13	IO_L3P_T0_DQS_13	1
+PORT	111	c0_ddr3_dqs_p[7]	INOUT	AE27	12	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_p[7]	AE27	12	IO_L21P_T3_DQS_12	1
+PORT	112	c0_ddr3_dqs_p[8]	INOUT	AN32	13	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c0_ddr3_dqs_p[8]	AN32	13	IO_L21P_T3_DQS_13	1
+PORT	113	c0_ddr3_odt[0]	OUT	AK29	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_odt[0]	AK29	12	IO_L8N_T1_12	1
+PORT	114	c0_ddr3_ras_n	OUT	AJ29	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_ras_n	AJ29	12	IO_L8P_T1_12	1
+PORT	115	c0_ddr3_reset_n	OUT	AD31	13	LVCMOS15	FAST	12		0	NONE
+PACKAGE_PIN	c0_ddr3_reset_n	AD31	13	IO_L6P_T0_13	1
+PORT	116	c0_ddr3_we_n	OUT	AN27	12	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c0_ddr3_we_n	AN27	12	IO_L5P_T0_12	1
+PORT	117	c0_sys_clk_n	IN	AH28	12	DIFF_SSTL15				0	NONE
+PACKAGE_PIN	c0_sys_clk_n	AH28	12	IO_L14N_T2_SRCC_12	1
+PORT	118	c0_sys_clk_p	IN	AH27	12	DIFF_SSTL15				0	NONE
+PACKAGE_PIN	c0_sys_clk_p	AH27	12	IO_L14P_T2_SRCC_12	1
+PORT	119	c1_ddr3_addr[0]	OUT	E27	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[0]	E27	17	IO_L12N_T1_MRCC_17	1
+PORT	120	c1_ddr3_addr[1]	OUT	C27	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[1]	C27	17	IO_L6P_T0_17	1
+PORT	121	c1_ddr3_addr[2]	OUT	B28	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[2]	B28	17	IO_L5P_T0_17	1
+PORT	122	c1_ddr3_addr[3]	OUT	D27	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[3]	D27	17	IO_L8N_T1_17	1
+PORT	123	c1_ddr3_addr[4]	OUT	C24	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[4]	C24	17	IO_L1P_T0_17	1
+PORT	124	c1_ddr3_addr[5]	OUT	D24	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[5]	D24	17	IO_L9P_T1_DQS_17	1
+PORT	125	c1_ddr3_addr[6]	OUT	C25	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[6]	C25	17	IO_L1N_T0_17	1
+PORT	126	c1_ddr3_addr[7]	OUT	A24	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[7]	A24	17	IO_L2P_T0_17	1
+PORT	127	c1_ddr3_addr[8]	OUT	A25	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[8]	A25	17	IO_L2N_T0_17	1
+PORT	128	c1_ddr3_addr[9]	OUT	J24	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[9]	J24	17	IO_L15P_T2_DQS_17	1
+PORT	129	c1_ddr3_addr[10]	OUT	F26	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[10]	F26	17	IO_L11N_T1_SRCC_17	1
+PORT	130	c1_ddr3_addr[11]	OUT	D26	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[11]	D26	17	IO_L8P_T1_17	1
+PORT	131	c1_ddr3_addr[12]	OUT	H25	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[12]	H25	17	IO_L16N_T2_17	1
+PORT	132	c1_ddr3_addr[13]	OUT	D25	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[13]	D25	17	IO_L9N_T1_DQS_17	1
+PORT	133	c1_ddr3_addr[14]	OUT	B26	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_addr[14]	B26	17	IO_L4P_T0_17	1
+PORT	134	c1_ddr3_ba[0]	OUT	F24	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_ba[0]	F24	17	IO_L7P_T1_17	1
+PORT	135	c1_ddr3_ba[1]	OUT	J25	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_ba[1]	J25	17	IO_L15N_T2_DQS_17	1
+PORT	136	c1_ddr3_ba[2]	OUT	E24	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_ba[2]	E24	17	IO_L7N_T1_17	1
+PORT	137	c1_ddr3_cas_n	OUT	E26	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_cas_n	E26	17	IO_L12P_T1_MRCC_17	1
+PORT	138	c1_ddr3_ck_n[0]	OUT	A26	17	DIFF_SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_ck_n[0]	A26	17	IO_L3N_T0_DQS_17	1
+PORT	139	c1_ddr3_ck_p[0]	OUT	B25	17	DIFF_SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_ck_p[0]	B25	17	IO_L3P_T0_DQS_17	1
+PORT	140	c1_ddr3_cke[0]	OUT	A28	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_cke[0]	A28	17	IO_L5N_T0_17	1
+PORT	141	c1_ddr3_cs_n[0]	OUT	F28	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_cs_n[0]	F28	17	IO_L10P_T1_17	1
+PORT	142	c1_ddr3_dq[0]	INOUT	A29	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[0]	A29	16	IO_L1P_T0_16	1
+PORT	143	c1_ddr3_dq[1]	INOUT	B33	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[1]	B33	16	IO_L4P_T0_16	1
+PORT	144	c1_ddr3_dq[2]	INOUT	A31	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[2]	A31	16	IO_L2N_T0_16	1
+PORT	145	c1_ddr3_dq[3]	INOUT	C33	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[3]	C33	16	IO_L5N_T0_16	1
+PORT	146	c1_ddr3_dq[4]	INOUT	C32	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[4]	C32	16	IO_L5P_T0_16	1
+PORT	147	c1_ddr3_dq[5]	INOUT	A30	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[5]	A30	16	IO_L1N_T0_16	1
+PORT	148	c1_ddr3_dq[6]	INOUT	B30	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[6]	B30	16	IO_L2P_T0_16	1
+PORT	149	c1_ddr3_dq[7]	INOUT	A33	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[7]	A33	16	IO_L4N_T0_16	1
+PORT	150	c1_ddr3_dq[8]	INOUT	D31	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[8]	D31	16	IO_L11N_T1_SRCC_16	1
+PORT	151	c1_ddr3_dq[9]	INOUT	F33	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[9]	F33	16	IO_L10P_T1_16	1
+PORT	152	c1_ddr3_dq[10]	INOUT	D30	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[10]	D30	16	IO_L7N_T1_16	1
+PORT	153	c1_ddr3_dq[11]	INOUT	D29	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[11]	D29	16	IO_L7P_T1_16	1
+PORT	154	c1_ddr3_dq[12]	INOUT	E33	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[12]	E33	16	IO_L10N_T1_16	1
+PORT	155	c1_ddr3_dq[13]	INOUT	E34	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[13]	E34	16	IO_L8N_T1_16	1
+PORT	156	c1_ddr3_dq[14]	INOUT	E31	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[14]	E31	16	IO_L11P_T1_SRCC_16	1
+PORT	157	c1_ddr3_dq[15]	INOUT	F34	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[15]	F34	16	IO_L8P_T1_16	1
+PORT	158	c1_ddr3_dq[16]	INOUT	B23	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[16]	B23	18	IO_L24N_T3_18	1
+PORT	159	c1_ddr3_dq[17]	INOUT	A21	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[17]	A21	18	IO_L22N_T3_18	1
+PORT	160	c1_ddr3_dq[18]	INOUT	C23	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[18]	C23	18	IO_L24P_T3_18	1
+PORT	161	c1_ddr3_dq[19]	INOUT	B20	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[19]	B20	18	IO_L20N_T3_18	1
+PORT	162	c1_ddr3_dq[20]	INOUT	B22	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[20]	B22	18	IO_L23P_T3_18	1
+PORT	163	c1_ddr3_dq[21]	INOUT	A23	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[21]	A23	18	IO_L23N_T3_18	1
+PORT	164	c1_ddr3_dq[22]	INOUT	C20	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[22]	C20	18	IO_L20P_T3_18	1
+PORT	165	c1_ddr3_dq[23]	INOUT	B21	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[23]	B21	18	IO_L22P_T3_18	1
+PORT	166	c1_ddr3_dq[24]	INOUT	G31	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[24]	G31	16	IO_L14P_T2_SRCC_16	1
+PORT	167	c1_ddr3_dq[25]	INOUT	G32	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[25]	G32	16	IO_L17N_T2_16	1
+PORT	168	c1_ddr3_dq[26]	INOUT	F29	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[26]	F29	16	IO_L16P_T2_16	1
+PORT	169	c1_ddr3_dq[27]	INOUT	F31	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[27]	F31	16	IO_L14N_T2_SRCC_16	1
+PORT	170	c1_ddr3_dq[28]	INOUT	E29	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[28]	E29	16	IO_L16N_T2_16	1
+PORT	171	c1_ddr3_dq[29]	INOUT	G33	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[29]	G33	16	IO_L18N_T2_16	1
+PORT	172	c1_ddr3_dq[30]	INOUT	H33	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[30]	H33	16	IO_L18P_T2_16	1
+PORT	173	c1_ddr3_dq[31]	INOUT	H32	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[31]	H32	16	IO_L17P_T2_16	1
+PORT	174	c1_ddr3_dq[32]	INOUT	B18	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[32]	B18	18	IO_L18P_T2_18	1
+PORT	175	c1_ddr3_dq[33]	INOUT	C17	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[33]	C17	18	IO_L16P_T2_18	1
+PORT	176	c1_ddr3_dq[34]	INOUT	C19	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[34]	C19	18	IO_L14N_T2_SRCC_18	1
+PORT	177	c1_ddr3_dq[35]	INOUT	B16	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[35]	B16	18	IO_L17P_T2_18	1
+PORT	178	c1_ddr3_dq[36]	INOUT	A18	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[36]	A18	18	IO_L18N_T2_18	1
+PORT	179	c1_ddr3_dq[37]	INOUT	A16	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[37]	A16	18	IO_L17N_T2_18	1
+PORT	180	c1_ddr3_dq[38]	INOUT	C18	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[38]	C18	18	IO_L14P_T2_SRCC_18	1
+PORT	181	c1_ddr3_dq[39]	INOUT	B17	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[39]	B17	18	IO_L16N_T2_18	1
+PORT	182	c1_ddr3_dq[40]	INOUT	K27	17	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[40]	K27	17	IO_L22N_T3_17	1
+PORT	183	c1_ddr3_dq[41]	INOUT	L24	17	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[41]	L24	17	IO_L20P_T3_17	1
+PORT	184	c1_ddr3_dq[42]	INOUT	K24	17	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[42]	K24	17	IO_L20N_T3_17	1
+PORT	185	c1_ddr3_dq[43]	INOUT	L28	17	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[43]	L28	17	IO_L24P_T3_17	1
+PORT	186	c1_ddr3_dq[44]	INOUT	K26	17	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[44]	K26	17	IO_L22P_T3_17	1
+PORT	187	c1_ddr3_dq[45]	INOUT	M27	17	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[45]	M27	17	IO_L23N_T3_17	1
+PORT	188	c1_ddr3_dq[46]	INOUT	L25	17	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[46]	L25	17	IO_L19P_T3_17	1
+PORT	189	c1_ddr3_dq[47]	INOUT	M26	17	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[47]	M26	17	IO_L23P_T3_17	1
+PORT	190	c1_ddr3_dq[48]	INOUT	F16	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[48]	F16	18	IO_L4P_T0_18	1
+PORT	191	c1_ddr3_dq[49]	INOUT	E18	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[49]	E18	18	IO_L5N_T0_18	1
+PORT	192	c1_ddr3_dq[50]	INOUT	E16	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[50]	E16	18	IO_L4N_T0_18	1
+PORT	193	c1_ddr3_dq[51]	INOUT	H19	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[51]	H19	18	IO_L1P_T0_18	1
+PORT	194	c1_ddr3_dq[52]	INOUT	H17	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[52]	H17	18	IO_L2P_T0_18	1
+PORT	195	c1_ddr3_dq[53]	INOUT	H20	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[53]	H20	18	IO_L1N_T0_18	1
+PORT	196	c1_ddr3_dq[54]	INOUT	E17	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[54]	E17	18	IO_L5P_T0_18	1
+PORT	197	c1_ddr3_dq[55]	INOUT	H18	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[55]	H18	18	IO_L2N_T0_18	1
+PORT	198	c1_ddr3_dq[56]	INOUT	D20	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[56]	D20	18	IO_L11P_T1_SRCC_18	1
+PORT	199	c1_ddr3_dq[57]	INOUT	F21	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[57]	F21	18	IO_L8N_T1_18	1
+PORT	200	c1_ddr3_dq[58]	INOUT	E23	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[58]	E23	18	IO_L10N_T1_18	1
+PORT	201	c1_ddr3_dq[59]	INOUT	G21	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[59]	G21	18	IO_L7N_T1_18	1
+PORT	202	c1_ddr3_dq[60]	INOUT	G20	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[60]	G20	18	IO_L7P_T1_18	1
+PORT	203	c1_ddr3_dq[61]	INOUT	D21	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[61]	D21	18	IO_L11N_T1_SRCC_18	1
+PORT	204	c1_ddr3_dq[62]	INOUT	F20	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[62]	F20	18	IO_L8P_T1_18	1
+PORT	205	c1_ddr3_dq[63]	INOUT	F23	18	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[63]	F23	18	IO_L10P_T1_18	1
+PORT	206	c1_ddr3_dq[64]	INOUT	L34	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[64]	L34	16	IO_L23P_T3_16	1
+PORT	207	c1_ddr3_dq[65]	INOUT	K34	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[65]	K34	16	IO_L23N_T3_16	1
+PORT	208	c1_ddr3_dq[66]	INOUT	K31	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[66]	K31	16	IO_L20N_T3_16	1
+PORT	209	c1_ddr3_dq[67]	INOUT	K33	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[67]	K33	16	IO_L22N_T3_16	1
+PORT	210	c1_ddr3_dq[68]	INOUT	L31	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[68]	L31	16	IO_L20P_T3_16	1
+PORT	211	c1_ddr3_dq[69]	INOUT	J30	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[69]	J30	16	IO_L19P_T3_16	1
+PORT	212	c1_ddr3_dq[70]	INOUT	L33	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[70]	L33	16	IO_L22P_T3_16	1
+PORT	213	c1_ddr3_dq[71]	INOUT	J34	16	SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dq[71]	J34	16	IO_L24P_T3_16	1
+PORT	214	c1_ddr3_dqs_n[0]	INOUT	B32	16	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_n[0]	B32	16	IO_L3N_T0_DQS_16	1
+PORT	215	c1_ddr3_dqs_n[1]	INOUT	C34	16	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_n[1]	C34	16	IO_L9N_T1_DQS_16	1
+PORT	216	c1_ddr3_dqs_n[2]	INOUT	A20	18	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_n[2]	A20	18	IO_L21N_T3_DQS_18	1
+PORT	217	c1_ddr3_dqs_n[3]	INOUT	H30	16	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_n[3]	H30	16	IO_L15N_T2_DQS_16	1
+PORT	218	c1_ddr3_dqs_n[4]	INOUT	D17	18	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_n[4]	D17	18	IO_L15N_T2_DQS_18	1
+PORT	219	c1_ddr3_dqs_n[5]	INOUT	K29	17	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_n[5]	K29	17	IO_L21N_T3_DQS_17	1
+PORT	220	c1_ddr3_dqs_n[6]	INOUT	G18	18	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_n[6]	G18	18	IO_L3N_T0_DQS_18	1
+PORT	221	c1_ddr3_dqs_n[7]	INOUT	G23	18	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_n[7]	G23	18	IO_L9N_T1_DQS_18	1
+PORT	222	c1_ddr3_dqs_n[8]	INOUT	J32	16	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_n[8]	J32	16	IO_L21N_T3_DQS_16	1
+PORT	223	c1_ddr3_dqs_p[0]	INOUT	B31	16	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_p[0]	B31	16	IO_L3P_T0_DQS_16	1
+PORT	224	c1_ddr3_dqs_p[1]	INOUT	D34	16	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_p[1]	D34	16	IO_L9P_T1_DQS_16	1
+PORT	225	c1_ddr3_dqs_p[2]	INOUT	A19	18	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_p[2]	A19	18	IO_L21P_T3_DQS_18	1
+PORT	226	c1_ddr3_dqs_p[3]	INOUT	H29	16	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_p[3]	H29	16	IO_L15P_T2_DQS_16	1
+PORT	227	c1_ddr3_dqs_p[4]	INOUT	D16	18	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_p[4]	D16	18	IO_L15P_T2_DQS_18	1
+PORT	228	c1_ddr3_dqs_p[5]	INOUT	K28	17	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_p[5]	K28	17	IO_L21P_T3_DQS_17	1
+PORT	229	c1_ddr3_dqs_p[6]	INOUT	G17	18	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_p[6]	G17	18	IO_L3P_T0_DQS_18	1
+PORT	230	c1_ddr3_dqs_p[7]	INOUT	G22	18	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_p[7]	G22	18	IO_L9P_T1_DQS_18	1
+PORT	231	c1_ddr3_dqs_p[8]	INOUT	K32	16	DIFF_SSTL15	FAST			0	UNTUNED_SPLIT_50
+PACKAGE_PIN	c1_ddr3_dqs_p[8]	K32	16	IO_L21P_T3_DQS_16	1
+PORT	232	c1_ddr3_odt[0]	OUT	B27	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_odt[0]	B27	17	IO_L4N_T0_17	1
+PORT	233	c1_ddr3_ras_n	OUT	E28	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_ras_n	E28	17	IO_L10N_T1_17	1
+PORT	234	c1_ddr3_reset_n	OUT	F18	18	LVCMOS15	FAST	12		0	NONE
+PACKAGE_PIN	c1_ddr3_reset_n	F18	18	IO_L6P_T0_18	1
+PORT	235	c1_ddr3_we_n	OUT	F25	17	SSTL15	FAST			0	NONE
+PACKAGE_PIN	c1_ddr3_we_n	F25	17	IO_L11P_T1_SRCC_17	1
+PORT	236	c1_sys_clk_n	IN	G26	17	DIFF_SSTL15				0	NONE
+PACKAGE_PIN	c1_sys_clk_n	G26	17	IO_L14N_T2_SRCC_17	1
+PORT	237	c1_sys_clk_p	IN	G25	17	DIFF_SSTL15				0	NONE
+PACKAGE_PIN	c1_sys_clk_p	G25	17	IO_L14P_T2_SRCC_17	1
+PORT	238	led_3bits_tri_o[0]	OUT	P30	15	LVCMOS18	SLOW	12		0	NONE
+PACKAGE_PIN	led_3bits_tri_o[0]	P30	15	IO_L14P_T2_SRCC_15	1
+PORT	239	led_3bits_tri_o[1]	OUT	M30	15	LVCMOS18	SLOW	12		0	NONE
+PACKAGE_PIN	led_3bits_tri_o[1]	M30	15	IO_L15P_T2_DQS_15	1
+PORT	240	led_3bits_tri_o[2]	OUT	N30	15	LVCMOS18	SLOW	12		0	NONE
+PACKAGE_PIN	led_3bits_tri_o[2]	N30	15	IO_L14N_T2_SRCC_15	1
+PORT	241	SYS_CLK	IN	AA28	14	LVCMOS18				0	NONE
+PACKAGE_PIN	SYS_CLK	AA28	14	IO_L13P_T2_MRCC_14	1
+CLOCK_COUNT	102
+CLOCK	c0_freq_refclk	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKOUT0	c0_sys_clk_p
+CLOCK	c0_mem_refclk	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKOUT1	c0_sys_clk_p
+CLOCK	c0_sync_pulse	30.000	0.820 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKOUT2	c0_sys_clk_p
+CLOCK	c0_sys_clk_p	5.000	0.000 2.500	0	c0_sys_clk_p	<NOT_LISTED>
+CLOCK	c1_freq_refclk	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKOUT0	c1_sys_clk_p
+CLOCK	c1_mem_refclk	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKOUT1	c1_sys_clk_p
+CLOCK	c1_sync_pulse	30.000	0.820 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKOUT2	c1_sys_clk_p
+CLOCK	c1_sys_clk_p	5.000	0.000 2.500	0	c1_sys_clk_p	<NOT_LISTED>
+CLOCK	clk_pll_i	7.500	0.000 3.750	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT	pll_clk3_out
+CLOCK	clk_pll_i_1	7.500	0.000 3.750	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT	pll_clk3_out_1
+CLOCK	iserdes_clk	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK	c0_freq_refclk
+CLOCK	iserdes_clk_1	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK	c0_freq_refclk
+CLOCK	iserdes_clk_2	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK	c0_freq_refclk
+CLOCK	iserdes_clk_3	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK	c0_freq_refclk
+CLOCK	iserdes_clk_4	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK	c0_freq_refclk
+CLOCK	iserdes_clk_5	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK	c0_freq_refclk
+CLOCK	iserdes_clk_6	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK	c0_freq_refclk
+CLOCK	iserdes_clk_7	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK	c0_freq_refclk
+CLOCK	iserdes_clk_8	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK	c0_freq_refclk
+CLOCK	iserdes_clk_9	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK	c1_freq_refclk
+CLOCK	iserdes_clk_10	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK	c1_freq_refclk
+CLOCK	iserdes_clk_11	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK	c1_freq_refclk
+CLOCK	iserdes_clk_12	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK	c1_freq_refclk
+CLOCK	iserdes_clk_13	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK	c1_freq_refclk
+CLOCK	iserdes_clk_14	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK	c1_freq_refclk
+CLOCK	iserdes_clk_15	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK	c1_freq_refclk
+CLOCK	iserdes_clk_16	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK	c1_freq_refclk
+CLOCK	iserdes_clk_17	1.875	1.758 2.695	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK	c1_freq_refclk
+CLOCK	iserdes_clkdiv	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk
+CLOCK	iserdes_clkdiv_1	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_1
+CLOCK	iserdes_clkdiv_2	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_2
+CLOCK	iserdes_clkdiv_3	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_3
+CLOCK	iserdes_clkdiv_4	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_4
+CLOCK	iserdes_clkdiv_5	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_5
+CLOCK	iserdes_clkdiv_6	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_6
+CLOCK	iserdes_clkdiv_7	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_7
+CLOCK	iserdes_clkdiv_8	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_8
+CLOCK	iserdes_clkdiv_9	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_9
+CLOCK	iserdes_clkdiv_10	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_10
+CLOCK	iserdes_clkdiv_11	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_11
+CLOCK	iserdes_clkdiv_12	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_12
+CLOCK	iserdes_clkdiv_13	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_13
+CLOCK	iserdes_clkdiv_14	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_14
+CLOCK	iserdes_clkdiv_15	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_15
+CLOCK	iserdes_clkdiv_16	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_16
+CLOCK	iserdes_clkdiv_17	3.750	1.758 3.633	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLKDIV	iserdes_clk_17
+CLOCK	jtag_tck	166.666	0.000 83.333	0	u_bscan/TCK	<NOT_LISTED>
+CLOCK	mmcm_ps_clk_bufg_in	15.000	0.000 7.500	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKOUT0	pll_clk3_out
+CLOCK	mmcm_ps_clk_bufg_in_1	15.000	0.000 7.500	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKOUT0	pll_clk3_out_1
+CLOCK	oserdes_clk	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK	c0_mem_refclk
+CLOCK	oserdes_clk_1	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK	c0_mem_refclk
+CLOCK	oserdes_clk_2	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK	c0_mem_refclk
+CLOCK	oserdes_clk_3	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK	c0_mem_refclk
+CLOCK	oserdes_clk_4	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK	c0_mem_refclk
+CLOCK	oserdes_clk_5	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK	c0_mem_refclk
+CLOCK	oserdes_clk_6	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK	c0_mem_refclk
+CLOCK	oserdes_clk_7	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK	c0_mem_refclk
+CLOCK	oserdes_clk_8	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK	c0_mem_refclk
+CLOCK	oserdes_clk_9	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK	c0_mem_refclk
+CLOCK	oserdes_clk_10	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK	c0_mem_refclk
+CLOCK	oserdes_clk_11	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK	c0_mem_refclk
+CLOCK	oserdes_clk_12	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK	c1_mem_refclk
+CLOCK	oserdes_clk_13	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK	c1_mem_refclk
+CLOCK	oserdes_clk_14	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK	c1_mem_refclk
+CLOCK	oserdes_clk_15	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK	c1_mem_refclk
+CLOCK	oserdes_clk_16	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK	c1_mem_refclk
+CLOCK	oserdes_clk_17	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK	c1_mem_refclk
+CLOCK	oserdes_clk_18	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK	c1_mem_refclk
+CLOCK	oserdes_clk_19	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK	c1_mem_refclk
+CLOCK	oserdes_clk_20	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK	c1_mem_refclk
+CLOCK	oserdes_clk_21	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK	c1_mem_refclk
+CLOCK	oserdes_clk_22	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK	c1_mem_refclk
+CLOCK	oserdes_clk_23	1.875	0.000 0.937	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK	c1_mem_refclk
+CLOCK	oserdes_clkdiv	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV	oserdes_clk
+CLOCK	oserdes_clkdiv_1	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV	oserdes_clk_1
+CLOCK	oserdes_clkdiv_2	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV	oserdes_clk_2
+CLOCK	oserdes_clkdiv_3	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV	oserdes_clk_3
+CLOCK	oserdes_clkdiv_4	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV	oserdes_clk_4
+CLOCK	oserdes_clkdiv_5	7.500	0.000 3.750	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV	oserdes_clk_5
+CLOCK	oserdes_clkdiv_6	7.500	0.000 3.750	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV	oserdes_clk_6
+CLOCK	oserdes_clkdiv_7	7.500	0.000 3.750	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV	oserdes_clk_7
+CLOCK	oserdes_clkdiv_8	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV	oserdes_clk_8
+CLOCK	oserdes_clkdiv_9	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV	oserdes_clk_9
+CLOCK	oserdes_clkdiv_10	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV	oserdes_clk_10
+CLOCK	oserdes_clkdiv_11	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV	oserdes_clk_11
+CLOCK	oserdes_clkdiv_12	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV	oserdes_clk_12
+CLOCK	oserdes_clkdiv_13	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV	oserdes_clk_13
+CLOCK	oserdes_clkdiv_14	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV	oserdes_clk_14
+CLOCK	oserdes_clkdiv_15	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV	oserdes_clk_15
+CLOCK	oserdes_clkdiv_16	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV	oserdes_clk_16
+CLOCK	oserdes_clkdiv_17	7.500	0.000 3.750	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV	oserdes_clk_17
+CLOCK	oserdes_clkdiv_18	7.500	0.000 3.750	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV	oserdes_clk_18
+CLOCK	oserdes_clkdiv_19	7.500	0.000 3.750	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV	oserdes_clk_19
+CLOCK	oserdes_clkdiv_20	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV	oserdes_clk_20
+CLOCK	oserdes_clkdiv_21	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV	oserdes_clk_21
+CLOCK	oserdes_clkdiv_22	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV	oserdes_clk_22
+CLOCK	oserdes_clkdiv_23	3.750	0.000 1.875	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV	oserdes_clk_23
+CLOCK	pll_clk3_out	7.500	0.000 3.750	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKOUT3	c0_sys_clk_p
+CLOCK	pll_clk3_out_1	7.500	0.000 3.750	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKOUT3	c1_sys_clk_p
+CLOCK	pll_clkfbout	15.000	0.000 7.500	1	platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKFBOUT	c0_sys_clk_p
+CLOCK	pll_clkfbout_1	15.000	0.000 7.500	1	platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKFBOUT	c1_sys_clk_p
+CLOCK	sys_clock	20.000	0.000 10.000	0	SYS_CLK	<NOT_LISTED>
+UI_CLOCK_BINDING	UI0	platform/endpoint/reset_owner/ui_domain[0].local_rst_n_reg/C	clk_pll_i_1	7.500	platform/mig/c1_ui_clk	clk_pll_i_1	7.500	1
+UI_CLOCK_BINDING	UI1	platform/endpoint/reset_owner/ui_domain[1].local_rst_n_reg/C	clk_pll_i	7.500	platform/mig/c0_ui_clk	clk_pll_i	7.500	1

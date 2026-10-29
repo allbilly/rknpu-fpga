@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v5/run_sram_test.py",
+    "--execute-volatile-sram"
+  ],
+  "error": "No module named 'tools'",
+  "error_type": "ModuleNotFoundError",
+  "failure_location": "conditional runtime import tools.host.native_link before hardware imports/lease acquisition",
+  "flash_written": false,
+  "hardware_accessed": false,
+  "lease_acquired": false,
+  "physical_test_directory_created": false,
+  "prior_v5_metadata": {
+    "execution_approval_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v5/execution-approval.json",
+    "execution_approval_sha256": "157a70a13e6f346c0cdfca039049bd266a91c2d3be223defa870356251fe3190",
+    "image_review_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v5/image-review.json",
+    "image_review_sha256": "04ee9140232ebc4c2a263c66eb934c10b9b1ec83fa240a83278b244daf1efb18",
+    "preparation_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v5/preparation.json",
+    "preparation_sha256": "fd08314fda3c7b78ba2e8027cc25a45f6c3d8d83025559a2308c2268287e4a6d",
+    "root_execution_review_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v5/root-execution-review.json",
+    "root_execution_review_sha256": "e99feb8d5eed6a6f71c5e3e483c46ea523859cc5e75284f97973acb38120c887"
+  },
+  "schema": "full512-trained-trial-prelaunch-failure-v1",
+  "scope": "prelaunch import-failure history only; does not qualify or approve v6",
+  "scope_id_prefix": "3627d...",
+  "status": "FAIL_PRELAUNCH_RUNTIME_IMPORT_PATH"
+}

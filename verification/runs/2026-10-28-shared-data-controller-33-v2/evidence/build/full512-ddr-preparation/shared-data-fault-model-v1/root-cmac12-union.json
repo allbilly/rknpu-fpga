@@ -1,0 +1,136 @@
+{
+  "status": "PASS_INDEPENDENT_ALL12_CMAC_CANDIDATE_CONTROLLER_CASES_ONLY",
+  "utc": "2026-10-28T01:19:24.868033+00:00",
+  "binary_sha256": "120a413d661c4bc03631142c3b2b70559cbdf9b2ba121b3c2ab3f5505f3af8bf",
+  "case_count": 12,
+  "cases": {
+    "unknown_command": {
+      "name": "unknown_command",
+      "negative": 1,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 11208,
+      "read64_packets": 3,
+      "native_seconds": 550.2494020280428,
+      "complete_bo_bytes": 0
+    },
+    "rmw_ue": {
+      "name": "rmw_ue",
+      "negative": 2,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 12969,
+      "read64_packets": 2,
+      "native_seconds": 605.970639922889,
+      "complete_bo_bytes": 0
+    },
+    "host_memory_timeout": {
+      "name": "host_memory_timeout",
+      "negative": 9,
+      "jobs": 0,
+      "recovered": 0,
+      "phy_returns": 68,
+      "read64_packets": 2,
+      "native_seconds": 83.8086906389799,
+      "complete_bo_bytes": 0
+    },
+    "calibration_loss": {
+      "name": "calibration_loss",
+      "negative": 5,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 11139,
+      "read64_packets": 2,
+      "native_seconds": 463.56877257907763,
+      "complete_bo_bytes": 0
+    },
+    "ctrl_timeout": {
+      "name": "ctrl_timeout",
+      "negative": 7,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 17928,
+      "read64_packets": 2,
+      "native_seconds": 835.7251375550404,
+      "complete_bo_bytes": 0
+    },
+    "dropped_return": {
+      "name": "dropped_return",
+      "negative": 3,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 11140,
+      "read64_packets": 2,
+      "native_seconds": 413.81487019592896,
+      "complete_bo_bytes": 0
+    },
+    "phy_write_stall": {
+      "name": "phy_write_stall",
+      "negative": 4,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 12970,
+      "read64_packets": 2,
+      "native_seconds": 513.8442899328656,
+      "complete_bo_bytes": 0
+    },
+    "numerical_k65": {
+      "name": "numerical_k65",
+      "negative": 0,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 18248,
+      "read64_packets": 322,
+      "native_seconds": 870.9089833239559,
+      "complete_bo_bytes": 20480
+    },
+    "repeat_k65": {
+      "name": "repeat_k65",
+      "negative": 0,
+      "jobs": 2,
+      "recovered": 0,
+      "phy_returns": 25357,
+      "read64_packets": 642,
+      "native_seconds": 1301.096207428025,
+      "complete_bo_bytes": 20480
+    },
+    "queued_calibration_loss": {
+      "name": "queued_calibration_loss",
+      "negative": 6,
+      "jobs": 2,
+      "recovered": 0,
+      "phy_returns": 18248,
+      "read64_packets": 322,
+      "native_seconds": 986.248153320048,
+      "complete_bo_bytes": 20480
+    },
+    "late_pending_fault": {
+      "name": "late_pending_fault",
+      "negative": 8,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 17928,
+      "read64_packets": 2,
+      "native_seconds": 923.5526213268749,
+      "complete_bo_bytes": 0
+    },
+    "joint_reset_recovery": {
+      "name": "joint_reset_recovery",
+      "negative": 2,
+      "jobs": 2,
+      "recovered": 1,
+      "phy_returns": 18183,
+      "read64_packets": 321,
+      "native_seconds": 1558.9911490238737,
+      "complete_bo_bytes": 20480
+    }
+  },
+  "evidence": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-fault-model-v1/first-faults-v1/root-review.json": "261a4d06f5336605941ddfe93bb5e9e7da14b6cf795f4ed278a93879ca1f6bd4",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-fault-model-v1/early-faults-v1/root-review.json": "d2d4d47ec7dd41ecf2dcfa1e48fe53c755e940cd5f4251f1f8843dc0df18e5cd",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-fault-model-v1/reuse-recovery-v1/root-review.json": "fc89e6e241607e573265d5235e21a226f5b5cdffdf4d6112f93ec79e19519cfc"
+  },
+  "full33_union_qualified": false,
+  "physical_or_routed_qualified": false,
+  "hardware_accessed": false
+}

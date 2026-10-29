@@ -1,0 +1,54 @@
+%Warning-WIDTHEXPAND: /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v2/tb_capacity_sweep.sv:39:33: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's SEL generates 1 bits.
+                                                                                                               : ... note: In instance 'tb_capacity_sweep'
+   39 |     if (alias_mode) backing_slot=address[7:7];
+      |                                 ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.048
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v2/tb_capacity_sweep.sv:40:22: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's SEL generates 2 bits.
+                                                                                                               : ... note: In instance 'tb_capacity_sweep'
+   40 |     else backing_slot=address[7:6];
+      |                      ^
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v2/tb_capacity_sweep.sv:178:54: Operator ASSIGN expects 31 bits on the Assign RHS, but Assign RHS's ADD generates 32 bits.
+                                                                                                               : ... note: In instance 'tb_capacity_sweep'
+  178 |         line_index=trial_value ? (LINES-1-i) : i;addr=BASE+line_index*64;
+      |                                                      ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.048
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v2/tb_capacity_sweep.sv:191:13: Operator ASSIGN expects 31 bits on the Assign RHS, but Assign RHS's ADD generates 32 bits.
+                                                                                                               : ... note: In instance 'tb_capacity_sweep'
+  191 |         addr=BASE+i*64;
+      |             ^
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v2/tb_capacity_sweep.sv:222:29: Operator TASKREF 'transact_line' expects 31 bits on the Function Argument, but Function Argument's MULS generates 32 bits.
+                                                                                                               : ... note: In instance 'tb_capacity_sweep'
+  222 |       for(i=0;i<LINES;i=i+1)transact_line(1'b1,1'b0,i*64,(i%2)+1,1,1'b0,1'b0);
+      |                             ^~~~~~~~~~~~~
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v2/tb_capacity_sweep.sv:294:29: Operator TASKREF 'transact_line' expects 31 bits on the Function Argument, but Function Argument's MULS generates 32 bits.
+                                                                                                               : ... note: In instance 'tb_capacity_sweep'
+  294 |       for(i=0;i<LINES;i=i+1)transact_line(1'b1,1'b0,i*64,1,1,1'b0,1'b0);
+      |                             ^~~~~~~~~~~~~
+%Warning-PROCASSINIT: /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v2/tb_capacity_sweep.sv:3:13: Procedural assignment to declaration with initial value: 'clk'
+                                                                                                              : ... note: In instance 'tb_capacity_sweep'
+                                                                                                              : ... Location of variable initialization
+    3 |   logic clk=0; always #5 clk=~clk;
+      |             ^
+                      /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v2/tb_capacity_sweep.sv:3:26: ... Location of variable process write
+                                                                                                              : ... Perhaps should initialize instead using a reset in this process
+    3 |   logic clk=0; always #5 clk=~clk;
+      |                          ^~~
+                      ... For warning description see https://verilator.org/warn/PROCASSINIT?v=5.048
+                      ... Use "/* verilator lint_off PROCASSINIT */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v2/tb_capacity_sweep.sv:25:73: Bits of function variable are not used: 'address'[5:0]
+                                                                                                                : ... note: In instance 'tb_capacity_sweep'
+   25 |   function automatic logic [511:0] reference_pattern(input logic [30:0] address,
+      |                                                                         ^~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.048
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v2/tb_capacity_sweep.sv:38:62: Bits of function variable are not used: 'address'[30:8,5:0]
+                                                                                                                : ... note: In instance 'tb_capacity_sweep'
+   38 |   function automatic integer backing_slot(input logic [30:0] address);
+      |                                                              ^~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v2/tb_capacity_sweep.sv:90:15: Bits of function variable are not used: 'slot'[31:2]
+                                                                                                                : ... note: In instance 'tb_capacity_sweep'
+   90 |     integer n,slot;
+      |               ^~~~
+%Error: Exiting due to 10 warning(s)

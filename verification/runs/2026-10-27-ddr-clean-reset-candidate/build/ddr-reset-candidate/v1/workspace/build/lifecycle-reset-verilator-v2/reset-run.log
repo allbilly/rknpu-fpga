@@ -1,0 +1,5 @@
+PASS mig_reset_coordinator cases=23 sys_hold=64 ui_fresh=4 sync=3 scope=owned_reset_sequence_model_only
+- /home/fedora/rknpu-fpga/tests/ddr/tb_mig_reset_coordinator.sv:204: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.048 2026-04-26
+- Verilator: $finish at 44us; walltime 0.009 s; speed 4.846 ms/s
+- Verilator: cpu 0.009 s on 1 threads; allocated 7 MB

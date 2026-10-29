@@ -1,0 +1,5 @@
+PASS dual_raw_jobs mode=1 expected_fault rearm=0 writes=0
+- /home/fedora/rknpu-fpga/tests/tinystories/tb_jtag_dual_bram.sv:126: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.048 2026-04-26
+- Verilator: $finish at 3ms; walltime 55.208 s; speed 54.085 us/s
+- Verilator: cpu 51.669 s on 1 threads; allocated 14 MB

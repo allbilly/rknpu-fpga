@@ -1,0 +1,68 @@
+{
+  "status": "LAUNCHING_PRIVATE_V6",
+  "started_utc": "2026-10-27T19:11:06.516126+00:00",
+  "cwd": "/home/fedora/rknpu-fpga",
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-production-model-auditors-current-v6",
+    "-p",
+    "MemoryMax=6G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=30",
+    "3600s",
+    "python3",
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v6/run.py"
+  ],
+  "resource_admission": {
+    "status": "RESOURCE_GATE_PASS_FOR_PRODUCTION_V6",
+    "required": {
+      "MemAvailable_min_bytes": 8589934592,
+      "CPU_PSI_some_avg10_max_exclusive": 5.0,
+      "memory_PSI_full_avg10_max_exclusive": 1.0,
+      "cgroup": {
+        "MemoryMax": "6442450944",
+        "MemorySwapMax": "0",
+        "CPUQuota": "200%",
+        "TasksMax": 256
+      }
+    },
+    "samples": [
+      {
+        "utc": "2026-10-27T19:09:01.742996+00:00",
+        "memavailable_bytes": 26671321088,
+        "cpu_psi_some_avg10": 0.0,
+        "memory_psi_full_avg10": 0.0,
+        "pass": true
+      },
+      {
+        "utc": "2026-10-27T19:10:00.243361+00:00",
+        "memavailable_bytes": 26598047744,
+        "cpu_psi_some_avg10": 0.0,
+        "memory_psi_full_avg10": 0.0,
+        "pass": true
+      },
+      {
+        "utc": "2026-10-27T19:10:45.565534+00:00",
+        "memavailable_bytes": 25560317952,
+        "cpu_psi_some_avg10": 0.11,
+        "memory_psi_full_avg10": 0.0,
+        "pass": true
+      }
+    ],
+    "launch_performed": false,
+    "run_py_sha256": "16a4b24d69a982b45e50907e0a22ccf79398f779aff5aa18477533ea7757bc9e"
+  },
+  "run_py_sha256": "16a4b24d69a982b45e50907e0a22ccf79398f779aff5aa18477533ea7757bc9e",
+  "source_manifest_sha256_computed_live_by_run_py": true,
+  "main_workspace_outputs_overwritten": false,
+  "v5_touched": false
+}

@@ -1,0 +1,220 @@
+#!/usr/bin/env python3
+"""Extract actual state D/CE/CLR cones and a paired cold-host-data miter.
+
+Keep full C32/K16 physical input and source-bound completed parents. Trace
+every physical driver of all four state registers' D, CE and CLR. Only exact
+register Q and audited BRAM output pins are binary producer boundaries; reject
+DSP or unknown logic rather than hide its data dependence. Compare two copies
+with the same producer values except independently variable host-read data.
+The local next-state fold is for binary values, after GSR, at the declared
+positive clock edge. This stage only prepares and frontend-checks the miter:
+no actual independence, sequential/ownership/startup or physical proof yet.
+No old source/gate/model, RTL, input, live job or SHA256SUMS is changed.
+"""
+from collections import Counter
+import json
+import mmap
+import os
+from pathlib import Path
+import re
+import shutil
+import signal
+import subprocess
+import sys
+import time
+
+sys.path[:0]=[str(Path(__file__).resolve().parent),str(Path(__file__).resolve().parents[1]/'cmac')]
+import prove_prefix_bram_address as raw
+import prove_coherent_prefix_bram_address as coherent
+import qualify_isolated_working_bram_overwrite as overwritten
+from audit_prefix_memory_wiring import HIERARCHY,netname_region,named_net
+from audit_prefix_config_contract import bram_contract
+from pack_prefix_board import ROOT,digest,timestamp
+from place_prefix_board import bind_report,verify_bindings
+from evidence import source_revision
+
+ADDRESS=ROOT/'build/openxc7/prefix-bram-address-selected-binary-resume-1791439177232717008/report.json'
+OVERWRITE=ROOT/'build/openxc7/isolated-working-bram-overwrite-1791442579674052605/report.json'
+CONTROL=ROOT/'tests/cmac/test_prefix_initialization_state_cone_control.py'
+STATE_SOURCE=ROOT/'rtl/cmac/rk_cmac_array_bram_demo.sv'
+STATE_Q=[29117,29119,44287,44288]
+STATE_ENUM='''typedef enum logic [3:0] {INIT_ROM,INIT_SEND,INIT_WAIT,START,RUN,DRAIN,
+                             CHECK_ROM,CHECK_SEND,CHECK_WAIT,PASSED,FAILED} state_t;'''
+LIBRARY=ADDRESS.parent/'unchanged_selected_combinational_cells.v'
+
+
+def state_aliases(logical,physical):
+    original=netname_region(logical);actual=netname_region(physical);result={}
+    for name,width in (('demo.state',4),('demo.memory.host_rdata',16),('demo.memory.clk',1)):
+        record=named_net(logical,name,original)
+        assert len(record['bits'])==width and len(set(record['bits']))==width
+        mapped=[]
+        for bit in record['bits']:
+            alias=named_net(physical,'n_'+str(bit),actual)
+            assert len(alias['bits'])==1;mapped.append(alias['bits'][0])
+        assert len(set(mapped))==width;result[name]=mapped
+    assert result['demo.state']==STATE_Q,'Changed retained state bit order/coding'
+    assert result['demo.memory.clk']==[8]
+    assert set(result['demo.state']).isdisjoint(result['demo.memory.host_rdata'])
+    return result
+
+
+def trace_state(signals,get_driver,selected,maximum_cells=503128,maximum_cuts=17519+432):
+    assert set(signals)=={'demo.state','demo.memory.host_rdata','demo.memory.clk'}
+    assert len(signals['demo.state'])==4 and len(signals['demo.memory.host_rdata'])==16
+    nodes={};cuts={};registers=[];visited=set()
+    def producer(wire,name,cell,pin,bit):
+        if cell['type'] in coherent.RESET_PIN:
+            coherent.validate_register(cell,pin,bit)
+            role='REGISTER_Q_BINARY_VALUE_ONLY_NOT_INIT_OR_REACHABILITY'
+        elif cell['type']=='RAMB36E1':
+            assert name in selected and cell==selected[name],'Changed actual RAM producer'
+            bram_contract(cell)
+            assert pin in ('DOADO','DOBDO','DOPADOP','DOPBDOP') and cell['port_directions'][pin]=='output'
+            assert cell['connections'][pin][bit]==wire
+            role='AUDITED_ACTUAL_RAM_OUTPUT_BINARY_VALUE_ONLY_NOT_STARTUP_OR_TRANSITION'
+        else:raise AssertionError('Unsupported opaque state producer: '+cell['type'])
+        record=dict(cell=name,pin=pin,bit=bit,role=role,original_primitive=cell)
+        assert wire not in cuts or cuts[wire]==record;cuts[wire]=record
+    def visit(wire,stack):
+        if wire in ('0','1') or wire in visited:return
+        assert type(wire) is int and wire>=2 and wire not in stack,'Unknown/cyclic state cone'
+        name,cell,pin,bit=get_driver(wire)
+        assert cell['connections'][pin][bit]==wire
+        if cell['type'] in coherent.RESET_PIN or cell['type']=='RAMB36E1':producer(wire,name,cell,pin,bit)
+        else:
+            inputs,outputs=coherent.validate_cell(cell)
+            assert pin in outputs and (name not in nodes or nodes[name]==cell)
+            nodes[name]=cell
+            for port in inputs:
+                for upstream in cell['connections'][port]:visit(upstream,stack|{wire})
+        visited.add(wire)
+    for wire in signals['demo.state']:
+        name,cell,pin,bit=get_driver(wire);coherent.validate_register(cell,pin,bit)
+        assert cell['type']=='FDCE' and cell['connections']['C']==signals['demo.memory.clk']
+        assert all(value=='0' for key,value in cell['parameters'].items() if key!='INIT'),'Unqualified state inversion'
+        registers.append(dict(cell=name,original_primitive=cell))
+        for port in ('Q','D','CE','CLR'):
+            for upstream in cell['connections'][port]:visit(upstream,set())
+    for wire in signals['demo.memory.host_rdata']:
+        visit(wire,set());assert cuts[wire]['original_primitive']['type']=='RAMB36E1'
+        assert cuts[wire]['pin'] in ('DOADO','DOPADOP'),'Wrong host memory port cut'
+    assert len({r['cell'] for r in registers})==4
+    assert nodes and cuts and len(nodes)<=maximum_cells and len(cuts)<=maximum_cuts,'Out of full physical census'
+    return dict(signals=signals,cells=nodes,producer_cuts={str(w):r for w,r in cuts.items()},state_registers=registers)
+
+
+def miter(cone):
+    nodes=cone['cells'];cuts={int(w):r for w,r in cone['producer_cuts'].items()}
+    host=cone['signals']['demo.memory.host_rdata'];host_positions={w:i for i,w in enumerate(host)}
+    other={w:i for i,w in enumerate(sorted(set(cuts)-set(host)))}
+    assert len(host_positions)==16 and all(w in cuts for w in cone['signals']['demo.state']) and other
+    def bit(w,copy):
+        if w in ('0','1'):return "1'b"+w
+        if w in host_positions:return 'host_'+str(copy)+'['+str(host_positions[w])+']'
+        if w in other:return 'producer_cut['+str(other[w])+']'
+        return 'w'+str(copy)+'_'+str(w)
+    def bus(bits,copy):return '{'+','.join(bit(w,copy) for w in reversed(bits))+'}'
+    lines=['module prefix_init_state_miter #(parameter NEGATIVE=0)(',
+        'input ['+str(len(other)-1)+':0] producer_cut,input [15:0] host_0,host_1,output ok);']
+    for copy in (0,1):
+        wires={w for c in nodes.values() for bits in c['connections'].values() for w in bits if type(w) is int and w not in cuts}
+        lines.extend('wire '+bit(w,copy)+';' for w in sorted(wires))
+        for i,(name,cell) in enumerate(sorted(nodes.items())):
+            _,outputs=coherent.validate_cell(cell)
+            assert not any(w in cuts for port in outputs for w in cell['connections'][port]),'Retained driver also semantic cut'
+            parameter=''
+            if cell['type'].startswith('LUT'):
+                init=cell['parameters']['INIT'];parameter=' #(.INIT('+str(len(init))+"'b"+init+'))'
+            lines.append(cell['type']+parameter+' actual_'+str(copy)+'_'+str(i)+'('+','.join(
+                '.'+pin+'('+bus(bits,copy)+')' for pin,bits in sorted(cell['connections'].items()))+');')
+        next_bits=[]
+        for record in cone['state_registers']:
+            c=record['original_primitive']['connections']
+            next_bits.append('('+bit(c['CLR'][0],copy)+" ? 1'b0 : "+bit(c['CE'][0],copy)+' ? '+bit(c['D'][0],copy)+' : '+bit(c['Q'][0],copy)+')')
+        lines.append('wire [3:0] next_'+str(copy)+'={'+','.join(reversed(next_bits))+'};')
+    lines+=['wire [3:0] state='+bus(cone['signals']['demo.state'],0)+';',
+        "wire init_phase=(state <= 4'd2);",
+        "assign ok=!init_phase || (next_0 == (next_1 ^ (NEGATIVE ? 4'h1 : 4'h0)));",'endmodule']
+    text='\n'.join(lines)+'\n'
+    assert not re.search(r'\b(?:assume|anyseq|anyconst|force)\b',text)
+    return text
+
+
+def main():
+    out=ROOT/f'build/openxc7/prefix-initialization-state-cone-{time.time_ns()}';out.mkdir(parents=True,exist_ok=False)
+    report=dict(status='RUNNING',stage='admission',scope=__doc__,started_utc=timestamp(),supervisor_pid=os.getpid(),
+        source={},commands=[],python_version=sys.version,seed=None,production_source_before=source_revision(),
+        full_target_parallel_products=512,initialization_state_data_independence_proved=False,
+        next_state_binary_fold_qualified=False,actual_cone_binary_library_qualified=False,
+        temporal_port_ownership_proved=False,write_before_read_proved=False,full_board_startup_independence_proved=False,
+        full_board_numerical_acceptance=False,physical_fit_verified=False,timing_signoff=False,
+        electrical_verified=False,drc_signoff=False,bitstream_emitted=False,hardware_programmed=False,
+        hardware_input_modified=False,native_PNR_executed=False)
+    def save():(out/'report.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
+    def run(label,argv):
+        step=dict(label=label,argv=list(map(str,argv)),cwd=str(ROOT),log=str(out/(label+'.log')),status='RUNNING',timeout_seconds=180)
+        report['commands'].append(step);save();start=time.monotonic()
+        try:
+            with Path(step['log']).open('w') as stream,subprocess.Popen(step['argv'],cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT,start_new_session=True) as process:
+                step['pid']=process.pid;save()
+                try:code=process.wait(timeout=180)
+                except BaseException:
+                    try:os.killpg(process.pid,signal.SIGKILL)
+                    except ProcessLookupError:pass
+                    process.wait();step['returncode']=process.returncode;raise
+            step['returncode']=code;text=Path(step['log']).read_text()
+            assert code==0 and not re.search(r'(?im)warning:|error:|sorry:|^FAILED|^FATAL|timeout',text),text[-4000:]
+            step['status']='PASS_TOOL_EXECUTION_ONLY_NOT_PROOF';return text
+        except BaseException:step['status']='FAIL';raise
+        finally:step['seconds']=round(time.monotonic()-start,3);save()
+    save();print(out/'report.json',flush=True)
+    signal.signal(signal.SIGTERM,lambda s,f:(_ for _ in ()).throw(SystemExit(128+s)))
+    try:
+        shutil.copyfile(__file__,out/'executed_source.py');shutil.copyfile(CONTROL,out/'executed_control_source.py')
+        address=json.loads(ADDRESS.read_text());overwrite=json.loads(OVERWRITE.read_text())
+        assert address['stage']=='complete' and address['address_decoder_binary_cut_proved'] and address['full_target_parallel_products']==512
+        assert overwrite['status']==overwritten.PASS and overwrite['stage']=='complete' and overwrite['working_BRAM_model_overwrite_fixture_acceptance']
+        counts=address['actual_full_primitive_counts'];assert sum(counts.values())==503128 and counts['DSP48E1']==515 and counts['RAMB36E1']==6
+        before={}
+        for path,record in ((ADDRESS,address),(OVERWRITE,overwrite)):bind_report(path,record,before)
+        prepared=json.loads(raw.PREPARED.read_text());physical=ROOT/prepared['pack_input']
+        assert str(physical) in before and str(HIERARCHY) in before and str(LIBRARY) in before
+        files={Path(__file__).resolve(),CONTROL,STATE_SOURCE,Path(sys.executable).resolve(),Path(shutil.which('yosys')).resolve()}
+        files.update(Path(m.__file__).resolve() for m in list(sys.modules.values()) if getattr(m,'__file__',None) and Path(m.__file__).resolve().is_relative_to(ROOT/'tools'))
+        for path in files:
+            sha=digest(path);assert str(path) not in before or before[str(path)]==sha;before[str(path)]=sha
+        verify_bindings(before);report['source']=before
+        assert STATE_ENUM in STATE_SOURCE.read_text(),'Changed original initialization state coding'
+        run('software_controls',[sys.executable,'-W','error','-m','unittest','discover','-s','tests/cmac','-p',CONTROL.name,'-v'])
+        run('generated_check',['make','generated-check']);report['yosys_version']=run('yosys_version',['yosys','-V']).strip()
+        report['stage']='full_actual_driver_census_and_state_cone';save()
+        selected=json.loads(raw.ROOT.joinpath('build/openxc7/prefix-config-contract-1791401020849392343/actual-selected-primitives.json').read_text())
+        with HIERARCHY.open('rb') as a,mmap.mmap(a.fileno(),0,access=mmap.ACCESS_READ) as logical,physical.open('rb') as b,mmap.mmap(b.fileno(),0,access=mmap.ACCESS_READ) as actual:
+            signals=state_aliases(logical,actual);drivers,census=raw.driver_index(actual,counts)
+            def driver(wire):
+                assert wire in drivers,'Missing actual state primitive driver'
+                start,end,name,pin,bit,direction=drivers[wire];assert direction=='output'
+                cell=json.loads(b'{'+actual[start+1:end]+b'}')[name];return name,cell,pin,bit
+            cone=trace_state(signals,driver,selected)
+        del drivers
+        cone['full_primitive_counts']=census
+        (out/'actual-initialization-state-cone.json').write_text(json.dumps(cone,indent=2,sort_keys=True)+'\n')
+        source=out/'actual-initialization-state-miter.v';source.write_text(miter(cone))
+        report.update(actual_cone_cells=len(cone['cells']),actual_cone_primitive_counts=dict(Counter(c['type'] for c in cone['cells'].values())),
+            actual_producer_bits=len(cone['producer_cuts']),actual_full_primitive_counts=census,
+            state_registers=cone['state_registers'],host_RAM_data_inputs_independently_varied_per_copy=16,
+            all_other_producer_bits_coupled=len(cone['producer_cuts'])-16)
+        assert set(report['actual_cone_primitive_counts'])<=set(address['selected_unchanged_library_definitions']),'Unqualified new primitive class'
+        frozen=out/'unchanged_selected_combinational_cells.v';shutil.copyfile(LIBRARY,frozen)
+        script=out/'frontend_check.ys';script.write_text('read_verilog '+str(frozen)+'\nread_verilog '+str(source)+'\nhierarchy -check -top prefix_init_state_miter\nproc\nflatten\nopt -full\ncheck -assert\nstat\n')
+        report['stage']='actual_miter_frontend_check_only';save();run('frontend_check',['yosys','-Q','-T','-s',script])
+        verify_bindings(before);report['production_source_after']=source_revision();assert report['production_source_after']==report['production_source_before']
+        report.update(status='EXTRACTED_ACTUAL_INITIALIZATION_STATE_CONE_AND_FRONTEND_CHECKED_PAIRED_MITER_NOT_INDEPENDENCE_OR_STARTUP_PROOF',stage='complete')
+    except BaseException as error:report.update(status='FAIL',error=repr(error));raise
+    finally:
+        report['finished_utc']=timestamp();report['artifacts']={str(p.relative_to(ROOT)):digest(p) for p in out.rglob('*') if p.is_file() and p.name!='report.json'}
+        save();print(out/'report.json',flush=True)
+
+
+if __name__=='__main__':main()

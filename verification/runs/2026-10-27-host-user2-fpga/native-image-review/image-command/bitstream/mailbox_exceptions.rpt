@@ -1,0 +1,24 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (lin64) Build 6511674 Tue Jun 16 11:01:26 MDT 2026
+| Date         : Tue Oct 27 01:19:21 2026
+| Host         : fedora running 64-bit unknown
+| Command      : report_exceptions -file /home/fedora/rknpu-fpga/build/host-image-review/20261026T171408Z/image-command/bitstream/mailbox_exceptions.rpt
+| Design       : ypcb_jtag_ew_top
+| Device       : 7k480t-ffg1156
+| Speed File   : -2  PRODUCTION 1.12 2017-02-17
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Exceptions Report
+
+Position  From                                                                Through         To                                                                      Setup            Hold            Status           
+--------  ------------------------------------------------------------------  --------------  ----------------------------------------------------------------------  ---------------  --------------  -----------------
+2         *                                                                   *               [get_ports {led_3bits_tri_o[*]}]                                        false            false           
+4         [get_cells -quiet -hier -filter {NAME =~ u_mailbox/held_reg*}]      *               [get_cells -quiet -hier -filter {NAME =~ u_mailbox/req_reg*}]           max_dpo=40       -               
+5         [get_cells -quiet -hier -filter {NAME =~ u_mailbox/held_reg*}]      *               [get_cells -quiet -hier -filter {NAME =~ u_mailbox/req_reg*}]           -                false           
+7         [get_cells -quiet -hier -filter {NAME =~ u_mailbox/response_reg*}]  *               [get_cells -quiet -hier -filter {NAME =~ u_mailbox/response_tck_reg*}]  max_dpo=333.332  -               
+8         [get_cells -quiet -hier -filter {NAME =~ u_mailbox/response_reg*}]  *               [get_cells -quiet -hier -filter {NAME =~ u_mailbox/response_tck_reg*}]  -                false           
+10        *                                                                   *               [get_pins {u_mailbox/rq_sync_reg[0]/D}]                                 false            false           
+11        *                                                                   *               [get_pins {u_mailbox/rs_sync_reg[0]/D}]                                 false            false           
+

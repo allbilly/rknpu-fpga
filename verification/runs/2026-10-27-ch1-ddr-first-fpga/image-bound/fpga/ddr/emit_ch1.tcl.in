@@ -1,0 +1,108 @@
+# Source-bound experimental CH1 EW/DDR image emission; never programs hardware.
+set expected_inputs @INPUTS@
+set expected_ports @PORTS@
+set dcp @DCP@
+set out @OUTPUT@
+proc require {condition message} {if {!$condition} {error $message}}
+proc finite {value} {
+    return [expr {[string is double -strict $value] &&
+        ![catch {expr {abs(double($value)) < Inf}} result] && $result}]
+}
+proc verify_image_inputs {} {
+    global expected_inputs
+    dict for {path expected} $expected_inputs {
+        require [file isfile $path] "Missing qualified DDR image input: $path"
+        set raw [exec sha256sum -z -- $path]
+        require [regexp {^([0-9a-f]{64})[ \t]} $raw -> actual] "Unrecognized SHA256 result"
+        require [expr {$actual eq $expected}] "Changed qualified DDR image input"
+    }
+}
+verify_image_inputs
+require [expr {![file exists $out]}] "Fresh image directory required"
+file mkdir $out
+cd $out
+open_checkpoint $dcp
+require [expr {[get_property PART [current_design]] eq "xc7k480tffg1156-2" &&
+    [get_property TOP [current_design]] eq "ypcb_ddr_ew_top"}] "Wrong exact DDR routed design"
+require [expr {[get_property CONFIG_VOLTAGE [current_design]]==1.8 &&
+    [get_property CFGBVS [current_design]] eq "GND"}] "Changed configuration-bank settings"
+require [expr {[llength [get_waivers]]==0}] "Waivers forbidden"
+require [expr {[report_route_status -boolean_check ROUTED_FULLY]==1 &&
+    [report_route_status -boolean_check ERRORS_IN_ROUTES]==0}] "Routing incomplete or erroneous"
+require [expr {[lsort [get_ports]] eq [lsort [dict keys $expected_ports]]}] "Changed242-port interface"
+dict for {name properties} $expected_ports {
+    set found [get_ports -quiet [list $name]]
+    require [expr {[llength $found]==1}] "Missing exact physical port"
+    set port [lindex $found 0]
+    dict for {key expected} $properties {
+        require [expr {[get_property $key $port] eq $expected}] "Changed IO property: $name $key"
+    }
+}
+@HELPERS@
+set endpoint platform/endpoint
+set sys [rk_status_clock sys_clock 20.000]
+set ui0reg [rk_status_cell {platform/endpoint/reset_owner/ui_domain[0].local_rst_n_reg}]
+set ui1reg [rk_status_cell {platform/endpoint/reset_owner/ui_domain[1].local_rst_n_reg}]
+set ui0 [rk_status_one [get_clocks -quiet -of_objects [rk_status_pin $ui0reg/C]] {logical UI0 clock}]
+set ui1 [rk_status_one [get_clocks -quiet -of_objects [rk_status_pin $ui1reg/C]] {logical UI1 clock}]
+set physical1 [rk_status_one [get_clocks -quiet -of_objects [get_pins -quiet [list platform/mig/c1_ui_clk]]] {physical CH1 clock}]
+set physical0 [rk_status_one [get_clocks -quiet -of_objects [get_pins -quiet [list platform/mig/c0_ui_clk]]] {physical CH0 clock}]
+require [expr {$ui0 eq $physical1 && $ui1 eq $physical0 && $ui0 ne $ui1}] "Wrong active physical channel"
+rk_status_clock [get_property NAME $ui0] 7.500
+rk_status_clock [get_property NAME $ui1] 7.500
+rk_ddr_host_clock jtag_tck 166.666
+file mkdir bridge status job memory mailbox
+rk_board_reset_audit $endpoint startup platform_i_1 $sys $ui0 $ui1 bridge
+rk_status_cdc_audit $endpoint $sys $ui0 $ui1 status
+rk_job_cdc_audit $endpoint/engine/job_crossing $ui0 $sys job ew_engine_e1_e8
+rk_mem_cdc_audit $endpoint/engine/memory_crossing $sys $ui0 memory
+rk_ddr_host_cdc_audit mailbox $ui0
+foreach type {max min} {
+    set paths [get_timing_paths -delay_type $type -max_paths 1]
+    require [expr {[llength $paths]==1}] "Missing exact routed timing path"
+    set slack [get_property SLACK [lindex $paths 0]]
+    require [expr {[finite $slack] && $slack>=0}] "Invalid or negative routed slack"
+}
+foreach check {no_clock unconstrained_internal_endpoints} {
+    set detail [check_timing -override_defaults $check -no_header -return_string]
+    require [regexp "checking ${check} \\(0\\)" $detail] "Unresolved internal timing check"
+    set found 0
+    foreach count [regexp -all -inline {There are [0-9]+} $detail] {
+        require [expr {[lindex $count 2]==0}] "Unconstrained internal endpoint"
+        incr found
+    }
+    require [expr {$found>0}] "Missing internal timing coverage"
+}
+set pulse [report_pulse_width -return_string]
+foreach kind {"Min Period" "Low Pulse Width" "High Pulse Width"} {
+    require [regexp -line "^${kind}\\s+\\S+\\s+\\S+\\s+\\S+\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+\\S+\\s+\\S+\\s*$" $pulse -> required actual slack] "Missing pulse check"
+    require [expr {[finite $required] && [finite $actual] && [finite $slack] &&
+        $required>0 && $actual>0 && $slack>=0}] "Invalid or failing pulse check"
+}
+set bscan [rk_status_one [get_cells -quiet -hier -filter {REF_NAME == BSCANE2}] USER2]
+require [expr {[get_property JTAG_CHAIN $bscan]==2}] "Wrong USER chain"
+require [expr {[llength [get_cells -quiet -hier -filter {REF_NAME == DSP48E1}]]==1 &&
+    [llength [get_cells -quiet -hier -filter {REF_NAME == RAMB18E1 || REF_NAME == RAMB36E1}]]==0}] "Changed EW/DDR target"
+set counts [dict create DPIP-1 0 DPOP-1 0 DPOP-2 0 REQP-1709 0]
+report_drc -ruledecks default -file default_drc.rpt
+foreach violation [get_drc_violations] {
+    set name [get_property NAME $violation]
+    require [expr {[string toupper [get_property SEVERITY $violation]] eq "WARNING" &&
+        [regexp {^(DPIP-1|DPOP-1|DPOP-2|REQP-1709)#[0-9]+$} $name -> rule]}] "Blocking or unreviewed DRC finding"
+    dict incr counts $rule
+}
+require [expr {[dict get $counts DPIP-1]==2 && [dict get $counts DPOP-1]==1 &&
+    [dict get $counts DPOP-2]==1 && [dict get $counts REQP-1709]==2}] "Changed reviewed DRC inventory"
+# Metadata only. No clock, route, IO, data or reset modification.
+set_property BITSTREAM.CONFIG.USR_ACCESS 0x@SOURCE_TAG@ [current_design]
+report_drc -ruledecks bitstream_checks -file bitstream_drc.rpt
+foreach violation [get_drc_violations] {
+    require [expr {[string toupper [get_property SEVERITY $violation]] eq "WARNING" &&
+        [regexp {^(DPIP-1|DPOP-1|DPOP-2|REQP-1709)#[0-9]+$} [get_property NAME $violation]]}] "Blocking bitstream DRC finding"
+}
+verify_image_inputs
+write_checkpoint image.dcp
+write_bitstream ew-ddr-ch1-user2.bit
+verify_image_inputs
+puts PASS_REVIEWED_CH1_EW_DDR_BITSTREAM_EMISSION_ONLY
+exit

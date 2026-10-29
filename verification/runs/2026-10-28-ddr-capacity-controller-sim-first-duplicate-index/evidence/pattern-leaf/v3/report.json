@@ -1,0 +1,206 @@
+{
+  "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1150552-i5354698.scope",
+  "cgroup_limits_requested": {
+    "CPUQuota": "200%",
+    "MemoryMax": "4GiB",
+    "MemorySwapMax": 0,
+    "TasksMax": 256
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_capacity_pattern",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/capacity_iverilog.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/tb_capacity_pattern.sv"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3",
+      "finished_utc": "2026-10-28T06:10:10.884350+00:00",
+      "name": "iverilog_compile",
+      "returncode": 0,
+      "started_utc": "2026-10-28T06:10:10.868428+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/iverilog_compile.stderr.log",
+      "stderr_sha256": "494fd09f2255cebcf72166527f4d49aa357d4005a2b2a077345bd521ea78a92e",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/iverilog_compile.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.015935
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/capacity_iverilog.vvp",
+        "+VECTORS=/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/vectors.txt"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3",
+      "finished_utc": "2026-10-28T06:10:11.349316+00:00",
+      "name": "iverilog_sim",
+      "returncode": 0,
+      "started_utc": "2026-10-28T06:10:10.884637+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/iverilog_sim.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/iverilog_sim.stdout.log",
+      "stdout_sha256": "b9107843b09472467f0a6a0d4c40ddd7ea9b768d0d90a340937ce10d8037e983",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.464681
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "--Wall",
+        "--top-module",
+        "tb_capacity_pattern",
+        "-j",
+        "2",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/verilator_obj",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/tb_capacity_pattern.sv"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3",
+      "finished_utc": "2026-10-28T06:10:13.216484+00:00",
+      "name": "verilator_compile",
+      "returncode": 0,
+      "started_utc": "2026-10-28T06:10:11.349535+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/verilator_compile.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/verilator_compile.stdout.log",
+      "stdout_sha256": "8f6d584151caa3240084a5c65bb7d1ce58920cdf4cda99de6401551b42053d59",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 1.866956
+    }
+  ],
+  "failure": "TypeError(\"unsupported operand type(s) for +: 'PosixPath' and 'str'\")",
+  "finished_utc": "2026-10-28T06:10:13.217280+00:00",
+  "full2gib_physical_claim": false,
+  "hardware_executed": false,
+  "host_admission": {
+    "MemAvailable_kib": 26503928,
+    "SwapFree_kib": 22649408,
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1150552-i5354698.scope",
+    "cpu_psi_some_avg10": 0.0,
+    "memory_psi_full_avg10": 0.0,
+    "utc": "2026-10-28T06:10:10.868318+00:00"
+  },
+  "host_final": {
+    "MemAvailable_kib": 26334108,
+    "SwapFree_kib": 22649412,
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1150552-i5354698.scope",
+    "cpu_psi_some_avg10": 0.0,
+    "memory_psi_full_avg10": 0.0,
+    "utc": "2026-10-28T06:10:13.217432+00:00"
+  },
+  "mapped_proof": null,
+  "physical_capacity_qualified": false,
+  "prior_failures": [
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v1/report.json",
+      "sha256": "4f6a71814489e74ae69c659d73a91f14dd233e7cc9074c43a437f20de2b805be",
+      "status": "FAIL"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v2/report.json",
+      "sha256": "b5764ebfbba8069f1abc33952ea7e884ac4e608cd87a067f75753f4a3e9db0e0",
+      "status": "FAIL"
+    }
+  ],
+  "process_limits_note": "Parent validation runner was launched within systemd-run --user --scope; children inherit the same scope.",
+  "schema": "ddr-capacity-pattern-leaf-validation-v1",
+  "scope": "Private RTL pattern-leaf equivalence and XC7 mapping only; not memory controller, DDR capacity, physical target or application qualification.",
+  "source_hashes_after": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/make_vectors.py": "32e0e8c089ff66fcd5ac0c1f5e467839b11c8c1ffa48a7949127e803211f0e7e",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/tb_capacity_pattern.sv": "4c55004aea38a9fb147d27c68876e4688047c4ccfd40d2007c39a805af974f43",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/vectors-manifest.json": "25a0dd9019efbc72dc11a2a7b95d958754ad2856b06a0e195aaf3b9b8b8d260d",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/vectors.txt": "234ef1bf547c6fdb0ee5eb0d027199192e495ae639442bd62ab2604358b3114c",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8"
+  },
+  "source_hashes_before": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/make_vectors.py": "32e0e8c089ff66fcd5ac0c1f5e467839b11c8c1ffa48a7949127e803211f0e7e",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/tb_capacity_pattern.sv": "4c55004aea38a9fb147d27c68876e4688047c4ccfd40d2007c39a805af974f43",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/vectors-manifest.json": "25a0dd9019efbc72dc11a2a7b95d958754ad2856b06a0e195aaf3b9b8b8d260d",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/vectors.txt": "234ef1bf547c6fdb0ee5eb0d027199192e495ae639442bd62ab2604358b3114c",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8"
+  },
+  "source_unchanged": true,
+  "started_utc": "2026-10-28T06:10:10.868428+00:00",
+  "status": "FAIL",
+  "tool_versions": {
+    "iverilog": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/iverilog",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "verilator": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/verilator",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+    },
+    "vvp": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/vvp",
+      "returncode": 0,
+      "stderr": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.",
+      "stdout": ""
+    },
+    "yosys": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/yosys",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Yosys 0.65 (git sha1 aec814bdf3071f7e0fd0fbe43f7f711e99d01e24, g++-12 12.3.0-1ubuntu1~22.04.3 -fPIC -O3)"
+    }
+  },
+  "vector_manifest": {
+    "address_generation": "uniform deterministic aligned line indices in [0,2^31/64)",
+    "boundary_addresses": [
+      "0x00000000",
+      "0x00000040",
+      "0x00001000",
+      "0x00001fc0",
+      "0x00002000",
+      "0x0000ffc0",
+      "0x00010000",
+      "0x00100000",
+      "0x7fff0000",
+      "0x7fffff00",
+      "0x7fffffc0"
+    ],
+    "boundary_seeds": [
+      "0x00000000",
+      "0x3588c350",
+      "0xffffffff"
+    ],
+    "boundary_trials": [
+      0,
+      1
+    ],
+    "expected_data": "independent little-endian 16-word formula; no import of tools.ddr.capacity_pattern",
+    "golden_words": "test_pattern.py separately pins address-zero words and bytes",
+    "hardware_executed": false,
+    "physical_capacity_qualified": false,
+    "random_rows": 4096,
+    "random_seed": "0x3588b157",
+    "random_seed_and_trial": "getrandbits(32), getrandbits(1) from Python random.Random(0x3588b157)",
+    "rows": 4162,
+    "rtl_source_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv",
+    "rtl_source_sha256": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "schema": "ddr-capacity-pattern-leaf-vectors-v1",
+    "vectors_bytes": 628462,
+    "vectors_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v3/vectors.txt",
+    "vectors_sha256": "234ef1bf547c6fdb0ee5eb0d027199192e495ae639442bd62ab2604358b3114c"
+  }
+}

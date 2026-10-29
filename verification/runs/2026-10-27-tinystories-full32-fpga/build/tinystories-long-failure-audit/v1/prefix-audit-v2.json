@@ -1,0 +1,98 @@
+{
+  "status": "PASS_CAPTURED_FAILED_RUN_PREFIX_ONLY_FULL32_REMAINS_FAILED",
+  "hardware_accessed": false,
+  "source_run_remains_failed": true,
+  "full32_positions_accepted": false,
+  "scope": "Streaming actual-wire audit and recorded-result replay of a failed prefix.\n\nNo hardware access, arithmetic fallback or replacement device outputs. The\n32-position producer remains failed. The CPU host replay reads captured FPGA\nbytes and independently checks the original model's completed prefix.\n",
+  "complete_forward_positions": 20,
+  "additional_complete_projections": 18,
+  "actual_complete_projection_pairs": 738,
+  "complete_raw_jobs": 4737,
+  "completed_raw_tasks": 7105,
+  "actual_output_bo_bytes": 19402752,
+  "wire": {
+    "scans": 1772883,
+    "commands": 590959,
+    "idcodes": 1,
+    "tap_resets": 1,
+    "initial_retained_sequence": 48367,
+    "terminal_failed_scan": {
+      "index": 1772882,
+      "bits": 640,
+      "ir": false,
+      "tdi": "0",
+      "utc": "2026-10-27T00:22:28.243508+00:00",
+      "error": "TimeoutError('timed out')"
+    },
+    "uncertain_pending_read": {
+      "op": 3,
+      "seq": 49512,
+      "address": 268444160,
+      "data": 0
+    }
+  },
+  "unacknowledged_job": {
+    "tag": 4738,
+    "completed_tasks": 2,
+    "error_code": 0,
+    "complete_readback_lines": 8,
+    "remote_final_read_outcome_uncertain": true
+  },
+  "captured_prefix_logits_sha256": "96c08b823b118a631a8c2c4a5a6f76ecc33686161c2164a36b9bf1c9dca34440",
+  "captured_result": {
+    "prompt_tokens": [
+      1,
+      403,
+      407,
+      261,
+      378
+    ],
+    "generated_tokens": [
+      432,
+      383,
+      286,
+      261,
+      376,
+      298,
+      315,
+      421,
+      395,
+      317,
+      426,
+      338,
+      401,
+      396,
+      267,
+      337
+    ],
+    "text": "Once upon a time, there was a little girl named Lily. She loved to play",
+    "forward_positions": 20,
+    "dense_calls": 720,
+    "input_tokens": [
+      1,
+      403,
+      407,
+      261,
+      378,
+      432,
+      383,
+      286,
+      261,
+      376,
+      298,
+      315,
+      421,
+      395,
+      317,
+      426,
+      338,
+      401,
+      396,
+      267
+    ]
+  },
+  "source_preservation_sha256": "b6537ee238cea4ae7b9ee49bc4774e7b28150d86ac11e027841e8f822b7c224c",
+  "numerical_scope": "Actual738complete dense inputs/outputs match donor oracle;20full positions CPU-host-replayed from actual recorded FPGA outputs, not a new physical run or accepted32-position result",
+  "utc": "2026-10-27T00:39:13.410155+00:00",
+  "auditor_sha256": "5dc563ae5619e774d1f5ca615842291b7fb16b50042432511a32b425a5925e7e"
+}

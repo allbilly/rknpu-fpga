@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "scope": "Vivado .bit container, YPCB device/package header, IDCODE, packet bounds and configuration markers",
+  "bit": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-image-v2/emission/ew-ddr-ch1-user2.bit",
+  "bytes": 18735212,
+  "sha256": "45bd540cfaf7327ad8db5ba4e3a7548a209db1aeba4423f37159a72287296339",
+  "expected_sha256_checked": true,
+  "structure": {
+    "header": {
+      "a": "ypcb_ddr_ew_top;UserID=0XFFFFFFFF;Version=2026.1;SW_CRC=e8b95ba7;SW_HDR_SHA256=67d76f204f4e34d6751941aa4437d87b6496f2c967793f3f88d68c9aaa61a0c3",
+      "b": "7k480tffg1156",
+      "c": "2026/10/28",
+      "d": "02:42:38"
+    },
+    "target_part": "xc7k480tffg1156-2",
+    "package_device_match": true,
+    "speed_grade_evidence": "NOT_ENCODED_IN_BIT_HEADER",
+    "payload_offset": 208,
+    "payload_bytes": 18735004,
+    "sync_offset": 48,
+    "idcode": "0x3751093",
+    "fdri_words": 4683168,
+    "packet_count": 545,
+    "commands": [
+      0,
+      7,
+      9,
+      1,
+      10,
+      3,
+      5,
+      13
+    ]
+  },
+  "crc": "NOT_CHECKED",
+  "vivado_drc": "NOT_CHECKED",
+  "timing": "NOT_CHECKED",
+  "speed_grade_source": "PROJECT_OR_XSA_REQUIRED_IF_HEADER_OMITS_IT",
+  "programming": "NOT_RUN",
+  "physical_hardware": "NOT_RUN"
+}

@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-10-28T07:44:19.340138+00:00",
+  "inputs": {
+    "run_validation.py": "d71c53f95ef731db22bb23e3047e4582cbd774e86d5320b0d5d2cb3966e2eede",
+    "source/rk_ddr_diagnostic_mux.sv": "c771344eb0b09506763336905d739a29f3a26f226848267d5f6b201f4d1a8e57",
+    "source/tb_ddr_diagnostic_mux.sv": "6705833596b40e1710973a8d202bdf91c18f73e2b638fb6e032ecf41389401fe",
+    "source/tb_ddr_diagnostic_mux_badparams.sv": "542ed52df12c622b25f968cb80e3f5c8148d2b2765697ae677d38c15f47281c3"
+  },
+  "schema": "ddr-diagnostic-mux-frozen-inputs-v1",
+  "scope": "Private two-master AXI routing mux; memory/control configs tested both simulators; invalid positive-shape DATA_WIDTH 9/10 both simulators, zero addr/id and sub-byte data Verilator controls. No owner integration or physical claims.",
+  "source_inputs": {
+    "bad_parameter_bench": {
+      "path": "source/tb_ddr_diagnostic_mux_badparams.sv",
+      "sha256": "542ed52df12c622b25f968cb80e3f5c8148d2b2765697ae677d38c15f47281c3"
+    },
+    "rtl/ddr/rk_ddr_diagnostic_mux.sv": {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_diagnostic_mux.sv",
+      "sha256": "c771344eb0b09506763336905d739a29f3a26f226848267d5f6b201f4d1a8e57"
+    },
+    "runner": {
+      "path": "run_validation.py",
+      "sha256": "d71c53f95ef731db22bb23e3047e4582cbd774e86d5320b0d5d2cb3966e2eede"
+    },
+    "testbench": {
+      "path": "source/tb_ddr_diagnostic_mux.sv",
+      "sha256": "6705833596b40e1710973a8d202bdf91c18f73e2b638fb6e032ecf41389401fe"
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "status": "PASS_OFFLINE_DDR_PREFLIGHT_CONTROLS_ONLY",
+  "scope": "focused offline Python controls and generated-check only; no hardware, Vivado, or broad make test",
+  "created_utc": "2026-10-27T18:58:11Z",
+  "source_hashes_before": {
+    "Makefile": "f7bb3800d9771769fdd3b11f565ed675c2d62f0073db85cb37335a4cf3d424dc",
+    "tests/ddr/channel_profile/test_profile.py": "3019ab15c8caa2165aff33a40aeb27fa530db81608cd499b6361e82a948f5b19",
+    "tests/ddr/image/test_template.py": "df89d9f0f20b83c8ad646be2a05f32a4160bab32a322f1a781c17f06ab80dfd5",
+    "tests/ddr/raw_test/test_raw_test.py": "b8f906bacb1f41819595be8cb45ce33eb90bf980045621a34c71b6bc922e9733",
+    "tests/ddr/transport/test_transport.py": "fb07ac2d27099e2c7f886aa7842e16f86e5a5f6938b29af53599123a9cf5a140",
+    "tools/ddr/image_template.py": "f8b72158e62567168f4687390089f640c9030485f2180927e412700a8e09d73f",
+    "tools/ddr/raw_test.py": "d0b9d0f31cdafd00388f116a21be0c5d2db4bc381290f1278ee0d8e04ab7d6bb",
+    "tools/ddr/transport.py": "3c55495f1860295e522040ebbd617654b83ec4e85fe3fea995cd213a9321314f",
+    "tools/gen_demo.py": "c51a4e03c48e3df0d71bdb1887c04cba815fac71b0319844ad2bd39d6cd02631",
+    "tools/gen_regfile.py": "815bbc19f1d1ba3a121c21f74393708883f66afc63824861dd3da5b47527f19b"
+  },
+  "versions": {
+    "python": {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "--version"
+      ],
+      "rc": 0,
+      "stdout": "Python 3.14.5\n",
+      "stderr": ""
+    },
+    "make": {
+      "argv": [
+        "make",
+        "--version"
+      ],
+      "rc": 0,
+      "stdout": "GNU Make 4.4.1\nBuilt for x86_64-redhat-linux-gnu\nCopyright (C) 1988-2023 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n",
+      "stderr": ""
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ddr/transport",
+        "-v"
+      ],
+      "start_utc": "2026-10-27T18:58:11Z",
+      "elapsed_seconds": 0.147,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_ack_must_restore_general_memory_ready_before_owner_can_submit_again (test_transport.DdrTransportTests.test_ack_must_restore_general_memory_ready_before_owner_can_submit_again) ... ok\ntest_code_zero_pending_fault_is_failure_poison_and_never_acked (test_transport.DdrTransportTests.test_code_zero_pending_fault_is_failure_poison_and_never_acked) ... ok\ntest_foreign_pending_result_cannot_be_read_or_written (test_transport.DdrTransportTests.test_foreign_pending_result_cannot_be_read_or_written) ... ok\ntest_fresh_health_fault_revokes_cached_success_read_permission (test_transport.DdrTransportTests.test_fresh_health_fault_revokes_cached_success_read_permission) ... ok\ntest_memory_before_initialization_refuses_without_ram_and_wait_can_retry (test_transport.DdrTransportTests.test_memory_before_initialization_refuses_without_ram_and_wait_can_retry) ... ok\ntest_pending_success_allows_owned_read_blocks_write_until_ack_two_roundtrips (test_transport.DdrTransportTests.test_pending_success_allows_owned_read_blocks_write_until_ack_two_roundtrips) ... ok\ntest_raw_bo_bytes_rmw_neighbors_and_31bit_range_are_preserved (test_transport.DdrTransportTests.test_raw_bo_bytes_rmw_neighbors_and_31bit_range_are_preserved) ... ok\ntest_rkad_abi_idcode_and_no_write_before_identity (test_transport.DdrTransportTests.test_rkad_abi_idcode_and_no_write_before_identity) ... ok\ntest_unsupported_register_status_and_noncontiguous_upload_fail_closed (test_transport.DdrTransportTests.test_unsupported_register_status_and_noncontiguous_upload_fail_closed) ... ok\ntest_wait_memory_ready_uses_status_bit4_not_can_submit_and_poisons_timeout (test_transport.DdrTransportTests.test_wait_memory_ready_uses_status_bit4_not_can_submit_and_poisons_timeout) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.024s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ddr/raw_test",
+        "-v"
+      ],
+      "start_utc": "2026-10-27T18:58:11Z",
+      "elapsed_seconds": 0.081,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_command_and_descriptor_contract_rejects_invalid_fields_before_device_actions (test_raw_test.RawTestTests.test_command_and_descriptor_contract_rejects_invalid_fields_before_device_actions) ... ok\ntest_first_mismatch_preserves_actual_partial_file_and_never_acks_or_retries (test_raw_test.RawTestTests.test_first_mismatch_preserves_actual_partial_file_and_never_acks_or_retries) ... ok\ntest_poll_fault_or_timeout_never_reads_or_acks_and_keeps_no_retry_path (test_raw_test.RawTestTests.test_poll_fault_or_timeout_never_reads_or_acks_and_keeps_no_retry_path) ... ok\ntest_read_timeout_preserves_partial_capture_and_never_acks (test_raw_test.RawTestTests.test_read_timeout_preserves_partial_capture_and_never_acks) ... ok\ntest_rejects_invalid_records_result_contract_and_bad_output_before_device_actions (test_raw_test.RawTestTests.test_rejects_invalid_records_result_contract_and_bad_output_before_device_actions) ... ok\ntest_scratch_checks_six_addresses_in_forward_and_reverse_orders (test_raw_test.RawTestTests.test_scratch_checks_six_addresses_in_forward_and_reverse_orders) ... ok\ntest_scratch_detects_aliasing_fake_without_capacity_claim (test_raw_test.RawTestTests.test_scratch_detects_aliasing_fake_without_capacity_claim) ... ok\ntest_uploads_exact_raw_bytes_and_command_address_zero_is_legal_when_uploaded (test_raw_test.RawTestTests.test_uploads_exact_raw_bytes_and_command_address_zero_is_legal_when_uploaded) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.006s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ddr/image",
+        "-v"
+      ],
+      "start_utc": "2026-10-27T18:58:11Z",
+      "elapsed_seconds": 0.343,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_positive_render_binds_five_helpers_checkpoint_exact242_ports_and_safe_tcl_literals (test_template.ImageTemplateTests.test_positive_render_binds_five_helpers_checkpoint_exact242_ports_and_safe_tcl_literals) ... ok\ntest_rejects_bad_missing_or_unbound_hash_inputs_and_helper_sets (test_template.ImageTemplateTests.test_rejects_bad_missing_or_unbound_hash_inputs_and_helper_sets) ... ok\ntest_rejects_bad_source_tag_and_incomplete_or_changed_io_snapshot (test_template.ImageTemplateTests.test_rejects_bad_source_tag_and_incomplete_or_changed_io_snapshot) ... ok\ntest_relative_hash_bound_inputs_resolve_when_sourced_from_another_working_directory (test_template.ImageTemplateTests.test_relative_hash_bound_inputs_resolve_when_sourced_from_another_working_directory) ... ok\ntest_relative_input_tamper_still_fails_before_design_access_and_conflicting_alias_hashes_reject (test_template.ImageTemplateTests.test_relative_input_tamper_still_fails_before_design_access_and_conflicting_alias_hashes_reject) ... ok\ntest_tcl_hash_guard_rejects_missing_bound_checkpoint_before_design_or_bitstream (test_template.ImageTemplateTests.test_tcl_hash_guard_rejects_missing_bound_checkpoint_before_design_or_bitstream) ... ok\ntest_tcl_hash_guard_rejects_tampered_bound_helper_before_design_or_bitstream (test_template.ImageTemplateTests.test_tcl_hash_guard_rejects_tampered_bound_helper_before_design_or_bitstream) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.269s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ddr/channel_profile",
+        "-v"
+      ],
+      "start_utc": "2026-10-27T18:58:12Z",
+      "elapsed_seconds": 0.154,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_address_data_strobe_and_ecc_width_contract_is_unchanged (test_profile.PhysicalChannelProfileTests.test_address_data_strobe_and_ecc_width_contract_is_unchanged) ... ok\ntest_channel_one_preserves_physical_buses_and_swaps_only_paired_logical_bindings (test_profile.PhysicalChannelProfileTests.test_channel_one_preserves_physical_buses_and_swaps_only_paired_logical_bindings) ... ok\ntest_channel_one_routes_axi_and_control_to_physical_controller_one (test_profile.PhysicalChannelProfileTests.test_channel_one_routes_axi_and_control_to_physical_controller_one) ... ok\ntest_channel_zero_is_an_independent_unchanged_deep_copy (test_profile.PhysicalChannelProfileTests.test_channel_zero_is_an_independent_unchanged_deep_copy) ... ok\ntest_frozen_ch1_package_binds_all_122_real_sources_and_preserves_board_files (test_profile.PhysicalChannelProfileTests.test_frozen_ch1_package_binds_all_122_real_sources_and_preserves_board_files) ... ok\ntest_rejects_unsupported_channel_and_malformed_pairs_without_mutating_input (test_profile.PhysicalChannelProfileTests.test_rejects_unsupported_channel_and_malformed_pairs_without_mutating_input) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.061s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "make",
+        "generated-check"
+      ],
+      "start_utc": "2026-10-27T18:58:12Z",
+      "elapsed_seconds": 0.134,
+      "returncode": 0,
+      "stdout": "python3 tools/gen_regfile.py --check\npython3 tools/gen_demo.py --check\nDemo generated files match.\n",
+      "stderr": ""
+    }
+  ],
+  "source_hashes_after": {
+    "Makefile": "f7bb3800d9771769fdd3b11f565ed675c2d62f0073db85cb37335a4cf3d424dc",
+    "tests/ddr/channel_profile/test_profile.py": "3019ab15c8caa2165aff33a40aeb27fa530db81608cd499b6361e82a948f5b19",
+    "tests/ddr/image/test_template.py": "df89d9f0f20b83c8ad646be2a05f32a4160bab32a322f1a781c17f06ab80dfd5",
+    "tests/ddr/raw_test/test_raw_test.py": "b8f906bacb1f41819595be8cb45ce33eb90bf980045621a34c71b6bc922e9733",
+    "tests/ddr/transport/test_transport.py": "fb07ac2d27099e2c7f886aa7842e16f86e5a5f6938b29af53599123a9cf5a140",
+    "tools/ddr/image_template.py": "f8b72158e62567168f4687390089f640c9030485f2180927e412700a8e09d73f",
+    "tools/ddr/raw_test.py": "d0b9d0f31cdafd00388f116a21be0c5d2db4bc381290f1278ee0d8e04ab7d6bb",
+    "tools/ddr/transport.py": "3c55495f1860295e522040ebbd617654b83ec4e85fe3fea995cd213a9321314f",
+    "tools/gen_demo.py": "c51a4e03c48e3df0d71bdb1887c04cba815fac71b0319844ad2bd39d6cd02631",
+    "tools/gen_regfile.py": "815bbc19f1d1ba3a121c21f74393708883f66afc63824861dd3da5b47527f19b"
+  },
+  "source_hashes_unchanged": true,
+  "capture_sub_9_fixture": {
+    "build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_sub_9/expected.txt": {
+      "sha256": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec",
+      "bytes": 220800,
+      "lines": 1600,
+      "first_address": "10001000",
+      "last_address": "100f3fc0",
+      "unique_ordered_addresses": true,
+      "line_format": "8 hex address + space + 128 hex chars"
+    },
+    "build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_sub_9/upload.txt": {
+      "sha256": "68cf7b0689343f22c979db0312eb718906a34d51c54e893699039f7630c885fb",
+      "bytes": 220800,
+      "lines": 1600,
+      "first_address": "10001000",
+      "last_address": "100f3fc0",
+      "unique_ordered_addresses": true,
+      "line_format": "8 hex address + space + 128 hex chars"
+    },
+    "qualification_report_status": "PASS_READ_SNAPSHOT_DDR_NATIVE_BUILD_ONLY",
+    "capture_sub_9_specs": [
+      {
+        "name": "capture_sub_9",
+        "case": "capture_sub_9",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 2,
+        "lines": 1600,
+        "jobs": 1,
+        "negative": 0,
+        "reset_recovery": 0
+      }
+    ]
+  },
+  "finished_utc": "2026-10-27T18:58:12Z"
+}

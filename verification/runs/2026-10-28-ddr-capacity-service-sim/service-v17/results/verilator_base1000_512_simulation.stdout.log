@@ -1,0 +1,5 @@
+PASS capacity_service base=00001000 span=00000200 lines=8 diagnostic_writes=16 diagnostic_reads=16 fences=4
+- /home/fedora/rknpu-fpga/build/ddr-capacity-service-validation-v17/source/tb_ddr_capacity_service.sv:587: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.048 2026-04-26
+- Verilator: $finish at 14us; walltime 0.003 s; speed 5.329 ms/s
+- Verilator: cpu 0.003 s on 1 threads; allocated 7 MB

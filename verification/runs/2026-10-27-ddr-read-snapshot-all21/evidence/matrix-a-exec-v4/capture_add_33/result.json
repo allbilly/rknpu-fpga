@@ -1,0 +1,59 @@
+{
+  "name": "capture_add_33",
+  "status": "PASS",
+  "spec": {
+    "name": "capture_add_33",
+    "case": "capture_add_33",
+    "address": 269352960,
+    "amount": 35,
+    "tasks": 1,
+    "lines": 1472,
+    "jobs": 1,
+    "negative": 0,
+    "reset_recovery": 0
+  },
+  "metrics": {
+    "lines": 1472,
+    "physical_bytes": 94208,
+    "uploaded_nonzero": 73,
+    "successful_jobs": 1,
+    "phy_user_returns": 6472,
+    "host_read64_packets": 1474,
+    "host_read64_axi_reads": 1474,
+    "uncached_phy_user_returns": 52166,
+    "phy_user_returns_minimum": 6211,
+    "command_corruption_read_packets": 0,
+    "command_corruption_write_packets": 0
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/obj/sim",
+      "+CASE=/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_add_33",
+      "+OUTPUT=/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/snapshot-matrix-A-exec4-v3/capture_add_33/observed.txt",
+      "+START=100e0000",
+      "+AMOUNT=35",
+      "+NTASKS=1",
+      "+NLINES=1472",
+      "+JOBS=1",
+      "+NEGATIVE=0",
+      "+RESET_RECOVERY=0"
+    ],
+    "timeout_seconds": 1800,
+    "started_utc": "2026-10-27T14:09:10.218797+00:00",
+    "status": "EXITED",
+    "pid": 954856,
+    "returncode": 0,
+    "seconds": 380.24171822005883,
+    "finished_utc": "2026-10-27T14:15:30.460726+00:00",
+    "log_sha256": "b107858ee6f7374316741f13ca21b5d68a431eda6f2d3de0b7782020e8be92d5"
+  },
+  "marker": "PASS jtag_ew_ddr_read_snapshot jobs=1 negative=0 recovered=0 lines=1472 uploaded_nonzero=73 rawtasks=1 phy_user_returns=6472 read64_packets=1474 read64_axi_reads=1474 scope=actual_AXI_UI_MC_modeled_PHY",
+  "phy_user_returns": 6472,
+  "read64_packets": 1474,
+  "read64_axi_reads": 1474,
+  "readback_physical_bytes": 94208,
+  "persisted_final_image_physical_bytes": 94208,
+  "observed_text_bytes": 203136,
+  "observed_sha256": "86a4530bb6c5fb32b737a806af6c84391bd844cab86e236f64389d22aa654e42",
+  "successful_jobs": 1
+}

@@ -1,0 +1,109 @@
+# Exact reviewed full512 image emission. No hardware manager or programming.
+set expected_inputs @INPUTS@
+set dcp @DCP@
+set out @OUTPUT@
+proc require {condition message} {if {!$condition} {error $message}}
+proc finite {value} {
+    return [expr {[string is double -strict $value] &&
+        ![catch {expr {abs(double($value)) < Inf}} result] && $result}]
+}
+proc verify_image_inputs {} {
+    global expected_inputs
+    dict for {path expected} $expected_inputs {
+        require [file isfile $path] "Missing qualified image input"
+        # GNU -z prevents filename escaping; its output is not a Tcl list.
+        set raw [exec sha256sum -z -- $path]
+        require [regexp {^([0-9a-f]{64})[ 	]} $raw -> actual] "Unrecognized SHA256 result"
+        require [expr {$actual eq $expected}] "Changed qualified image input"
+    }
+}
+verify_image_inputs
+require [expr {![file exists $out]}] "Fresh bitstream directory required"
+file mkdir $out
+open_checkpoint $dcp
+require [expr {[get_property PART [current_design]] eq "xc7k480tffg1156-2" &&
+               [get_property TOP [current_design]] eq "ypcb_cmac_array_regmem_top"}] "Wrong exact routed design"
+require [expr {[get_property CONFIG_VOLTAGE [current_design]] == 1.8 &&
+               [get_property CFGBVS [current_design]] eq "GND"}] "Changed configuration-bank pair"
+require [expr {[llength [get_waivers]] == 0}] "Waivers are forbidden"
+require [expr {[report_route_status -boolean_check ROUTED_FULLY] == 1 &&
+               [report_route_status -boolean_check ERRORS_IN_ROUTES] == 0}] "Routing is not clean"
+require [expr {[lsort [get_ports]] eq [lsort {SYS_CLK led_3bits_tri_o[0] led_3bits_tri_o[1] led_3bits_tri_o[2]}]}] "Wrong physical ports"
+foreach {name pin direction} {SYS_CLK AA28 IN {led_3bits_tri_o[0]} P30 OUT {led_3bits_tri_o[1]} M30 OUT {led_3bits_tri_o[2]} N30 OUT} {
+    set ports [get_ports -quiet [list $name]]
+    require [expr {[llength $ports] == 1}] "Expected one exact physical port"
+    set port [lindex $ports 0]
+    require [expr {[get_property PACKAGE_PIN $port] eq $pin &&
+                   [get_property DIRECTION $port] eq $direction &&
+                   [get_property IOSTANDARD $port] eq "LVCMOS18"}] "Changed pin/standard/direction"
+}
+set clocks [get_clocks -quiet]
+require [expr {[llength $clocks] == 1}] "Expected one clock"
+set clock [lindex $clocks 0]
+require [expr {[get_property NAME $clock] eq "sys_clk" && [get_property PERIOD $clock] == 20.0 &&
+               [get_property WAVEFORM $clock] eq "0.000 10.000"}] "Changed clock constraint"
+foreach delay {max min} {
+    set paths [get_timing_paths -delay_type $delay -max_paths 1]
+    require [expr {[llength $paths] == 1}] "Missing routed timing path"
+    set slack [get_property SLACK [lindex $paths 0]]
+    require [expr {[finite $slack] && $slack >= 0}] "Negative/invalid routed slack"
+}
+foreach check {no_clock unconstrained_internal_endpoints} {
+    set detail [check_timing -override_defaults $check -no_header -return_string]
+    require [regexp "checking ${check} \\(0\\)" $detail] "Missing/nonzero internal timing check"
+    set found 0
+    foreach count [regexp -all -inline {There are [0-9]+} $detail] {
+        require [expr {[lindex $count 2] == 0}] "Unconstrained internal path"
+        incr found
+    }
+    require [expr {$found > 0}] "Missing internal timing coverage"
+}
+set pulse [report_pulse_width -return_string]
+foreach kind {"Min Period" "Low Pulse Width" "High Pulse Width"} {
+    require [regexp -line "^${kind}\\s+\\S+\\s+\\S+\\s+\\S+\\s+(\\S+)\\s+(\\S+)\\s+(\\S+)\\s+\\S+\\s+\\S+\\s*$" $pulse -> required actual slack] "Missing pulse check"
+    require [expr {[finite $required] && [finite $actual] && [finite $slack] &&
+                   $required > 0 && $actual > 0 && $slack >= 0}] "Invalid/failing pulse check"
+}
+set kernels [get_cells -hierarchical -filter {ORIG_REF_NAME == rk_cmac_fp16_cell_dsp_prefix_pipe || REF_NAME == rk_cmac_fp16_cell_dsp_prefix_pipe}]
+set dsps [get_cells -hierarchical -filter {REF_NAME == DSP48E1}]
+set brams [get_cells -hierarchical -filter {REF_NAME == RAMB18E1 || REF_NAME == RAMB36E1}]
+require [expr {[llength $kernels] == 16 && [llength $dsps] == 515 && [llength $brams] == 6}] "Reduced/changed physical target"
+set owned {}
+foreach kernel $kernels {
+    set prefix "[get_property NAME $kernel]/"
+    set count 0
+    foreach dsp $dsps {
+        set name [get_property NAME $dsp]
+        if {[string first $prefix $name] == 0} {
+            require [expr {![dict exists $owned $name]}] "Duplicate DSP ownership"
+            dict set owned $name 1
+            incr count
+        }
+    }
+    require [expr {$count == 32}] "Missing products in C32 kernel"
+}
+require [expr {[dict size $owned] == 512}] "Missing full512 CMAC products"
+set counts [dict create DPIP-1 0 DPOP-1 0 DPOP-2 0]
+report_drc -ruledecks default -file [file join $out default_drc.rpt]
+foreach violation [get_drc_violations] {
+    set name [get_property NAME $violation]
+    require [expr {[get_property SEVERITY $violation] eq "Warning" || [get_property SEVERITY $violation] eq "WARNING"}] "Blocking/unreviewed DRC severity"
+    require [regexp {^(DPIP-1|DPOP-1|DPOP-2)#[0-9]+$} $name -> rule] "Unreviewed default DRC rule"
+    dict incr counts $rule
+}
+require [expr {[dict get $counts DPIP-1] == 1030 && [dict get $counts DPOP-1] == 515 &&
+               [dict get $counts DPOP-2] == 515}] "Changed reviewed DRC inventory"
+# Source identity metadata only; no datapath, placement or timing modification.
+set_property BITSTREAM.CONFIG.USR_ACCESS 0xac6fee7e [current_design]
+report_drc -ruledecks bitstream_checks -file [file join $out bitstream_drc.rpt]
+foreach violation [get_drc_violations] {
+    set name [get_property NAME $violation]
+    require [expr {[string toupper [get_property SEVERITY $violation]] eq "WARNING" &&
+                   [regexp {^(DPIP-1|DPOP-1|DPOP-2)#[0-9]+$} $name]}] "Unreviewed bitstream DRC finding"
+}
+verify_image_inputs
+write_checkpoint [file join $out image.dcp]
+write_bitstream [file join $out cmac512-startup.bit]
+verify_image_inputs
+puts "PASS_SOURCE_REVIEWED_FULL512_BITSTREAM_EMISSION"
+exit

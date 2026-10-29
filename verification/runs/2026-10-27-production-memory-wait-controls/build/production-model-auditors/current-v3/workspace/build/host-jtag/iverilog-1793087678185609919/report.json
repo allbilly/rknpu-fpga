@@ -1,0 +1,1081 @@
+{
+  "status": "PASS",
+  "execution_schema": 1,
+  "started_utc": "2026-10-27T07:54:38.185798+00:00",
+  "scope": "USER2 mailbox and raw EW BRAM simulation only; no BSCANE2 hardware, FPGA, DDR, PCIe or RK silicon proof",
+  "execution_root": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace",
+  "output_directory": "build/host-jtag/iverilog-1793087678185609919",
+  "simulator": "iverilog",
+  "source_revision": {
+    "sha256": "35bab7f90f268167956ee6dfc147c5074c0086e923067fd4bd28e82f65736f26",
+    "files": {
+      "model/__init__.py": "ee209ca74eeeddd062b447c39eaf9a13d49afbce88a2989b1466dec81e4a61a0",
+      "model/dma.py": "693383b2c08bc5e9081e978c3b0b82a60d7b08a713e428343a60b69d021f5b88",
+      "model/half.py": "61e0609848174bced70f730fa7de6f39bd0187161d21064a2dae5d9da65a59dd",
+      "model/profile.py": "5551ef4adbb1fb2a965ea01ec13442738e3986846638e4cf42fdd74461d31510",
+      "model/sim.py": "fc36adc8c316af7f602bdbafbf344dcab75ae372d11cbe1b57091af7ed597de4",
+      "rtl/host/rk_jtag_backend.sv": "9f298914314b09e42c9bf4d62db1c3de05b241f1c6ca3fd169a95e5df9d2995e",
+      "rtl/host/rk_jtag_ew_bram.sv": "224aa317817aecd3fd24134ffefdb7360344ba70d304ba9dfd1d99630d8801d3",
+      "rtl/rk_bram.sv": "ffb9db11b442a47d7f3f82a5ef78f5de00fc999732aa5cdf670b9c6da98e963c",
+      "rtl/rk_ew_dma.sv": "55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046",
+      "rtl/rk_ew_engine.sv": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e",
+      "rtl/rk_ew_regs.sv": "592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73",
+      "rtl/rk_fp16_alu.sv": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+      "rtl/rk_job_control.sv": "5507702165a738d1655a5af651ba233955cb6c94e09a5b16469509319305a9f7",
+      "rtl/vendor/opentpu/LICENSE": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+      "rtl/vendor/opentpu/PROVENANCE.json": "638687f84ab47a71bd813520102ede951be82d78b31ce874062fd9c15f956375",
+      "rtl/vendor/opentpu/otpu_jtag_mailbox.sv": "46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9",
+      "tests/backend_ew_captures.json": "5c98369169d95dc14471dc7d7c7a61f50e75565167fad2156c8be40de0b80251",
+      "tests/host/mailbox_scan.svh": "c3cdff9268a78079210c43faf2fcfbaac34e688b6a935c2900b41f852ca63291",
+      "tests/host/tb_jtag_backend.sv": "d55f6bada7065f7a82a44ae43913149603c207f266ef1ce2d41872393b824fc6",
+      "tests/host/tb_jtag_ew_bram.sv": "d1045dae24ad9fa0844b278edc6938e710d308b6b8e81c1ad5f5d6e6c0102a73",
+      "tests/host/tb_jtag_mailbox.sv": "27859e6c480a5e454be26a8ec520b45b2837297ec128b3161eb4b027735dd006",
+      "tests/host/test_qualification.py": "105b6b79e4ec61f4f695b506c149451344103bc5dc14e07e7771b08cc6b08fd5",
+      "tests/host/test_transport.py": "a612f8d2c875a4ac1b6fc20c42afc1058f2f5e2737faed77d1f19f74f766caf7",
+      "tests/host/vendor.vlt": "80a259d488dee931d87cacbe9a5c10045ffbb18e2c3cdf70e4ecf0219e68997a",
+      "tools/dma_fixtures.py": "9bd9d1ee00e3e96d31006577f52890e095b56f1f1e60b9d84d59f277aa9e3b00",
+      "tools/evidence.py": "b660f509dd530516b77e45eedb6fd0d7430495dcc675a827971894cdc5cc2a54",
+      "tools/host/__init__.py": "98bcb034c2129e1cc979aef878358e800a2b092eeaaeda71356a44ca975af09b",
+      "tools/host/qualification.py": "9756eb990ea0c00061f1f9a6037bb2dc4a1f38f9ef8a52360d6b5f81262f3c83",
+      "tools/host/run_rtl.py": "5e4861ad5aaa958994ae0e220e67c46db214c9aee25ef9304f91f7dfa0fc841f",
+      "tools/host/transport.py": "ad65b88676f21b751348cb7e0de051f88c3a50bcb41444bb15e28ba3eb15103d"
+    }
+  },
+  "git_commit": "8b23d647d4a1c8cdaf7bdad2160f45b285ca6909",
+  "seeds": {
+    "mailbox": "0x3588c640"
+  },
+  "commands": [
+    {
+      "name": "version",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/iverilog",
+        "-V"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/version.log",
+      "returncode": 0,
+      "seconds": 0.016,
+      "log_sha256": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d",
+      "warnings": []
+    },
+    {
+      "name": "runtime_version",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "-V"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/runtime_version.log",
+      "returncode": 0,
+      "seconds": 0.005,
+      "log_sha256": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+      "warnings": []
+    },
+    {
+      "name": "python_transport",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/host",
+        "-p",
+        "test_transport.py",
+        "-v"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/python_transport.log",
+      "returncode": 0,
+      "seconds": 0.367,
+      "log_sha256": "63d951d010c2c28da8f70128e0ba8e7427e09c55c47b8b793f811420834260c5",
+      "warnings": []
+    },
+    {
+      "name": "python_qualification",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/host",
+        "-p",
+        "test_qualification.py",
+        "-v"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/python_qualification.log",
+      "returncode": 0,
+      "seconds": 0.215,
+      "log_sha256": "4eb428bd6cb9624abe8553aa5c9fea0d9bbb952ba9be9c158f9e90bd84c59a5d",
+      "warnings": []
+    },
+    {
+      "name": "build_backend",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_jtag_backend",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/backend.vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/host/rk_jtag_backend.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/tests/host/tb_jtag_backend.sv"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/build_backend.log",
+      "returncode": 0,
+      "seconds": 0.017,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "warnings": [],
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/backend.vvp",
+        "sha256": "4dd8bbc03398c10b39b93af0d7979ff40381252c0d8ce3534d129a217fd34a3e"
+      }
+    },
+    {
+      "name": "build_mailbox",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_jtag_mailbox",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/mailbox.vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/vendor/opentpu/otpu_jtag_mailbox.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/tests/host/tb_jtag_mailbox.sv"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/build_mailbox.log",
+      "returncode": 0,
+      "seconds": 0.017,
+      "log_sha256": "1c2aa309acf2474769102eed4b4bdd2e130999d7c527cfb4529384fa376af91a",
+      "warnings": [
+        "warning: Some design elements have no explicit time unit and/or"
+      ],
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/mailbox.vvp",
+        "sha256": "2a948060ac54070663c34c8f016e4d85a7d24abcbcdb739f72143017bf1ebed2"
+      }
+    },
+    {
+      "name": "build_bram",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_jtag_ew_bram",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/rk_fp16_alu.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/rk_ew_regs.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/rk_ew_engine.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/rk_ew_dma.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/rk_bram.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/rk_job_control.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/host/rk_jtag_backend.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/host/rk_jtag_ew_bram.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/vendor/opentpu/otpu_jtag_mailbox.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/tests/host/tb_jtag_ew_bram.sv"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/build_bram.log",
+      "returncode": 0,
+      "seconds": 0.034,
+      "log_sha256": "0b0c579f54a65d64ee208251bf5577cc51c374e7e0ad35851464c40fe41b9af6",
+      "warnings": [
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/vendor/opentpu/otpu_jtag_mailbox.sv:10: warning: timescale for otpu_jtag_mailbox inherited from another file."
+      ],
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "build_async_bram",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_jtag_ew_bram",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/async_bram.vvp",
+        "-Ptb_jtag_ew_bram.THROUGH_MAILBOX=1",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/rk_fp16_alu.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/rk_ew_regs.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/rk_ew_engine.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/rk_ew_dma.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/rk_bram.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/rk_job_control.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/host/rk_jtag_backend.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/host/rk_jtag_ew_bram.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/vendor/opentpu/otpu_jtag_mailbox.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/tests/host/tb_jtag_ew_bram.sv"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/build_async_bram.log",
+      "returncode": 0,
+      "seconds": 0.033,
+      "log_sha256": "0b0c579f54a65d64ee208251bf5577cc51c374e7e0ad35851464c40fe41b9af6",
+      "warnings": [
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/rtl/vendor/opentpu/otpu_jtag_mailbox.sv:10: warning: timescale for otpu_jtag_mailbox inherited from another file."
+      ],
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/async_bram.vvp",
+        "sha256": "aac8dd278b3153883f1a2a829ac06a8d92d0e5180ffb892284f9a83d0c45cc94"
+      }
+    },
+    {
+      "name": "backend",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/backend.vvp"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/backend.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/backend.vvp",
+        "sha256": "4dd8bbc03398c10b39b93af0d7979ff40381252c0d8ce3534d129a217fd34a3e"
+      },
+      "returncode": 0,
+      "seconds": 0.016,
+      "log_sha256": "6aa01624ceb729fc87435add4147be1c22d93ef693f1109825fd8fcd298034d0",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/backend.vvp",
+        "sha256": "4dd8bbc03398c10b39b93af0d7979ff40381252c0d8ce3534d129a217fd34a3e"
+      }
+    },
+    {
+      "name": "mailbox",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/mailbox.vvp"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/mailbox.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/mailbox.vvp",
+        "sha256": "2a948060ac54070663c34c8f016e4d85a7d24abcbcdb739f72143017bf1ebed2"
+      },
+      "returncode": 0,
+      "seconds": 0.417,
+      "log_sha256": "3d89720123e33d9143a1294a6b5d568168cc546353193dd86ad0a25e9e75a16e",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/mailbox.vvp",
+        "sha256": "2a948060ac54070663c34c8f016e4d85a7d24abcbcdb739f72143017bf1ebed2"
+      }
+    },
+    {
+      "name": "capture_add_8",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_8",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/capture_add_8_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=1",
+        "+NLINES=1472",
+        "+JOBS=1",
+        "+NEGATIVE=0",
+        "+RESET_PARTIAL=0"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/capture_add_8.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "returncode": 0,
+      "seconds": 2.623,
+      "log_sha256": "b83667330ee72aa0e01bdacd48ee4ab6b0667f7712a8de6f17520c4d53d286c2",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "capture_add_9",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_9",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/capture_add_9_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=1",
+        "+NLINES=1472",
+        "+JOBS=1",
+        "+NEGATIVE=0",
+        "+RESET_PARTIAL=0"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/capture_add_9.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "returncode": 0,
+      "seconds": 2.63,
+      "log_sha256": "e2e42844aa650beb04be05d68d609424dbe5c77ea31f3b4869a1fcf7c0ef676c",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "capture_add_33",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_33",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/capture_add_33_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=1",
+        "+NLINES=1472",
+        "+JOBS=1",
+        "+NEGATIVE=0",
+        "+RESET_PARTIAL=0"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/capture_add_33.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "returncode": 0,
+      "seconds": 2.674,
+      "log_sha256": "7657b837be6cca40abdc5b8d0ecbc4d3f0251495d1801c75699444fbf646f26a",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "capture_sub_8",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_8",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/capture_sub_8_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=2",
+        "+NLINES=1600",
+        "+JOBS=1",
+        "+NEGATIVE=0",
+        "+RESET_PARTIAL=0"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/capture_sub_8.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "returncode": 0,
+      "seconds": 2.872,
+      "log_sha256": "db1a842e5a0882b7eaccfbddc1cd687a3d59a0e16d347dbbfba130526e16a585",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "capture_sub_9",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/capture_sub_9_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=2",
+        "+NLINES=1600",
+        "+JOBS=1",
+        "+NEGATIVE=0",
+        "+RESET_PARTIAL=0"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/capture_sub_9.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "returncode": 0,
+      "seconds": 2.829,
+      "log_sha256": "8b054493678e435ab3f84b9436238ea9662adfb679ea7b43f70f367bac480eec",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "capture_sub_33",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_33",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/capture_sub_33_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=2",
+        "+NLINES=1600",
+        "+JOBS=1",
+        "+NEGATIVE=0",
+        "+RESET_PARTIAL=0"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/capture_sub_33.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "returncode": 0,
+      "seconds": 2.947,
+      "log_sha256": "847f30e751082bfadc697ca3df38f66559a6258c14cb59930e8e16464415ab93",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "capture_mul_8",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_8",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/capture_mul_8_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=1",
+        "+NLINES=1472",
+        "+JOBS=1",
+        "+NEGATIVE=0",
+        "+RESET_PARTIAL=0"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/capture_mul_8.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "returncode": 0,
+      "seconds": 2.677,
+      "log_sha256": "5756ae856816077aa012e3cab05a0c9ef2a0cf2b65021e1f6cba57dbd236d1e8",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "capture_mul_9",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_9",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/capture_mul_9_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=1",
+        "+NLINES=1472",
+        "+JOBS=1",
+        "+NEGATIVE=0",
+        "+RESET_PARTIAL=0"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/capture_mul_9.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "returncode": 0,
+      "seconds": 2.626,
+      "log_sha256": "b85cb14732fcda163ce5a715851ecfce1378157424d3e915feb53c0989cbf04a",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "capture_mul_33",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_33",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/capture_mul_33_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=1",
+        "+NLINES=1472",
+        "+JOBS=1",
+        "+NEGATIVE=0",
+        "+RESET_PARTIAL=0"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/capture_mul_33.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "returncode": 0,
+      "seconds": 2.633,
+      "log_sha256": "fbee9c63db362a840e41577f681cdeac325df1209f04f5cd9c509a61949a797f",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "repeat_sub_9",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/repeat_sub_9_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=2",
+        "+NLINES=1600",
+        "+JOBS=2",
+        "+NEGATIVE=0",
+        "+RESET_PARTIAL=0"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/repeat_sub_9.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "returncode": 0,
+      "seconds": 4.331,
+      "log_sha256": "f6bf1549ebb6b74247c54c9d194d2a577b48d6cea51a29d9b300d35733bb2319",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "unknown_raw_register",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/unknown_raw_register_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=2",
+        "+NLINES=1600",
+        "+JOBS=1",
+        "+NEGATIVE=1",
+        "+RESET_PARTIAL=0"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/unknown_raw_register.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "returncode": 0,
+      "seconds": 1.472,
+      "log_sha256": "9215be3c8ad5a14e24750f35682fcbf8cf9d2bbc5fd4e4af618aa784e218eb60",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "reset_partial_sub_9",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/reset_partial_sub_9_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=2",
+        "+NLINES=1600",
+        "+JOBS=1",
+        "+NEGATIVE=0",
+        "+RESET_PARTIAL=1"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/reset_partial_sub_9.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "returncode": 0,
+      "seconds": 4.333,
+      "log_sha256": "8319441fada9bb47bf3a9228255b3a7f45eb2928c315ce5ec5fb390cfbec301b",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      }
+    },
+    {
+      "name": "async_sub_9",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/async_bram.vvp",
+        "+CASE=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9",
+        "+OUTPUT=/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/async_sub_9_observed.txt",
+        "+START=100e0000",
+        "+AMOUNT=35",
+        "+NTASKS=2",
+        "+NLINES=1600",
+        "+JOBS=1",
+        "+NEGATIVE=0",
+        "+RESET_PARTIAL=0"
+      ],
+      "status": "PASS",
+      "log": "build/host-jtag/iverilog-1793087678185609919/async_sub_9.log",
+      "binary_before": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/async_bram.vvp",
+        "sha256": "aac8dd278b3153883f1a2a829ac06a8d92d0e5180ffb892284f9a83d0c45cc94"
+      },
+      "returncode": 0,
+      "seconds": 519.765,
+      "log_sha256": "ed986b9ed16cba2f849d43f6c42e80e68ca9c65293a1d5ea2b95ce9baca3e046",
+      "warnings": [],
+      "binary_after": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/async_bram.vvp",
+        "sha256": "aac8dd278b3153883f1a2a829ac06a8d92d0e5180ffb892284f9a83d0c45cc94"
+      }
+    }
+  ],
+  "tests": [
+    {
+      "spec": {
+        "name": "backend",
+        "build": "backend"
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/backend.vvp",
+        "sha256": "4dd8bbc03398c10b39b93af0d7979ff40381252c0d8ce3534d129a217fd34a3e"
+      },
+      "results": [
+        "PASS jtag_backend 28 replies; independent AXIL channels, 32-word endian lines, rejection, stalls, timeout quarantine and joint reset"
+      ]
+    },
+    {
+      "spec": {
+        "name": "mailbox",
+        "build": "mailbox"
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/mailbox.vvp",
+        "sha256": "2a948060ac54070663c34c8f016e4d85a7d24abcbcdb739f72143017bf1ebed2"
+      },
+      "results": [
+        "PASS jtag_mailbox 8 asynchronous 604-bit requests and 568-bit responses; seed=3588c640, stalls, polls, sequence wrap, reset retention"
+      ]
+    },
+    {
+      "spec": {
+        "name": "capture_add_8",
+        "build": "bram",
+        "case": "capture_add_8",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 1,
+        "lines": 1472,
+        "jobs": 1,
+        "negative": 0,
+        "reset_partial": 0
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_8 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3060"
+      ]
+    },
+    {
+      "spec": {
+        "name": "capture_add_9",
+        "build": "bram",
+        "case": "capture_add_9",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 1,
+        "lines": 1472,
+        "jobs": 1,
+        "negative": 0,
+        "reset_partial": 0
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_9 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3076"
+      ]
+    },
+    {
+      "spec": {
+        "name": "capture_add_33",
+        "build": "bram",
+        "case": "capture_add_33",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 1,
+        "lines": 1472,
+        "jobs": 1,
+        "negative": 0,
+        "reset_partial": 0
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_33 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3124"
+      ]
+    },
+    {
+      "spec": {
+        "name": "capture_sub_8",
+        "build": "bram",
+        "case": "capture_sub_8",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 2,
+        "lines": 1600,
+        "jobs": 1,
+        "negative": 0,
+        "reset_partial": 0
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_8 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3382"
+      ]
+    },
+    {
+      "spec": {
+        "name": "capture_sub_9",
+        "build": "bram",
+        "case": "capture_sub_9",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 2,
+        "lines": 1600,
+        "jobs": 1,
+        "negative": 0,
+        "reset_partial": 0
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3414"
+      ]
+    },
+    {
+      "spec": {
+        "name": "capture_sub_33",
+        "build": "bram",
+        "case": "capture_sub_33",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 2,
+        "lines": 1600,
+        "jobs": 1,
+        "negative": 0,
+        "reset_partial": 0
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_33 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3510"
+      ]
+    },
+    {
+      "spec": {
+        "name": "capture_mul_8",
+        "build": "bram",
+        "case": "capture_mul_8",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 1,
+        "lines": 1472,
+        "jobs": 1,
+        "negative": 0,
+        "reset_partial": 0
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_8 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3060"
+      ]
+    },
+    {
+      "spec": {
+        "name": "capture_mul_9",
+        "build": "bram",
+        "case": "capture_mul_9",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 1,
+        "lines": 1472,
+        "jobs": 1,
+        "negative": 0,
+        "reset_partial": 0
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_9 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3076"
+      ]
+    },
+    {
+      "spec": {
+        "name": "capture_mul_33",
+        "build": "bram",
+        "case": "capture_mul_33",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 1,
+        "lines": 1472,
+        "jobs": 1,
+        "negative": 0,
+        "reset_partial": 0
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_33 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3124"
+      ]
+    },
+    {
+      "spec": {
+        "name": "repeat_sub_9",
+        "build": "bram",
+        "case": "capture_sub_9",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 2,
+        "lines": 1600,
+        "jobs": 2,
+        "negative": 0,
+        "reset_partial": 0
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9 mailbox=0 jobs=2 negative=0 reset_partial=0 lines=1600 commands=5221"
+      ]
+    },
+    {
+      "spec": {
+        "name": "unknown_raw_register",
+        "build": "bram",
+        "case": "capture_sub_9",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 2,
+        "lines": 1600,
+        "jobs": 1,
+        "negative": 1,
+        "reset_partial": 0
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9 mailbox=0 jobs=1 negative=1 reset_partial=0 lines=1600 commands=1624"
+      ]
+    },
+    {
+      "spec": {
+        "name": "reset_partial_sub_9",
+        "build": "bram",
+        "case": "capture_sub_9",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 2,
+        "lines": 1600,
+        "jobs": 1,
+        "negative": 0,
+        "reset_partial": 1
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/bram.vvp",
+        "sha256": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9 mailbox=0 jobs=1 negative=0 reset_partial=1 lines=1600 commands=5019"
+      ]
+    },
+    {
+      "spec": {
+        "name": "async_sub_9",
+        "build": "async_bram",
+        "case": "capture_sub_9",
+        "address": 269352960,
+        "amount": 35,
+        "tasks": 2,
+        "lines": 1600,
+        "jobs": 1,
+        "negative": 0,
+        "reset_partial": 0
+      },
+      "status": "PASS",
+      "binary": {
+        "path": "build/host-jtag/iverilog-1793087678185609919/async_bram.vvp",
+        "sha256": "aac8dd278b3153883f1a2a829ac06a8d92d0e5180ffb892284f9a83d0c45cc94"
+      },
+      "results": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/workspace/build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9 mailbox=1 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3219"
+      ]
+    }
+  ],
+  "compiler": {
+    "path": "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/iverilog",
+    "sha256": "34ff9d8020f106bc3cc40d69a02f6c798be41193fdac187c35e7e4d703cade93"
+  },
+  "tool_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "runtime": {
+    "path": "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+    "sha256": "5876e595e35ef237d7f4fdaf831698a7dc7e91239aed5ec0d98599df0f8fc990"
+  },
+  "stimuli": {
+    "sha256": "aea36e1ccfcba19a60630e97d578b0394f928b84981dd9a64fbcf485d1047eb2",
+    "files": {
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_33/expected.txt": "86a4530bb6c5fb32b737a806af6c84391bd844cab86e236f64389d22aa654e42",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_33/upload.txt": "b1c760312df0384bd6aa4901a3f3079dabfd72e0f7006a0cd90ff5264b8973c3",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_8/expected.txt": "17754d19eb3baf3667dfeda9598b67b9f29fd4d570a6e4be928230fb1925ab70",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_8/upload.txt": "4585ea2a6fb28c16798ccaf523c45862a39e046b5bc513eab07116160c1d4c1a",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_9/expected.txt": "ccf0e41812711d408fadb59f8e2ab70bb18db5009b6bd3a4a2a724a61dfbdb38",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_9/upload.txt": "374025713afd280678227e90843e7552b5c542b341eab5e759b33ba57ae28da8",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_33/expected.txt": "85181ba1efeae48e2de903fa41beffc1d62b877ab7c71d1cc87ec817b06f6e1d",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_33/upload.txt": "9003f5e171f971adf428016f3f5b2f924813a689f7d71fe705b29401eb3ed4cf",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_8/expected.txt": "9bf75c73aeb684144e8f14e894dbf7f0799e9474e08c947d055f5e7ac8d905c6",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_8/upload.txt": "4c70f2c6a8d518d9e3cfaaa1862021489d5fdccfd16ab7d04bd9c820ca8fe399",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_9/expected.txt": "0ce8c55a0344de44e5a4be1a418b9d49d032809eb4b2f937e7d393658b8e8427",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_9/upload.txt": "761384ec47a6198a7c50634a1707351ebb9d1e5bb1231bc88768825dbb57f76c",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_33/expected.txt": "6717b53c8b0cdf2a3662c92d66ad3e85c16ebd349548647af5313149c8e5426b",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_33/upload.txt": "1e30facc895eb1cf603a769a06b6ca47465f15b4341c3da31d1910eeab264543",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_8/expected.txt": "285db071c9a3a4deb9983b6c66ee31f5d806664d4318bf3c7c3ea050a3579de6",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_8/upload.txt": "6cc693e6eaeecbc3cd1bbd3081f7bdc0915810b7e47013c7f3a781a0e60a6e2f",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9/expected.txt": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9/partial.txt": "e5f3e964e7f17cd14b15ff9cb36190392c17d612d66fcb8965296028081bad1f",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9/upload.txt": "68cf7b0689343f22c979db0312eb718906a34d51c54e893699039f7630c885fb"
+    }
+  },
+  "finished_utc": "2026-10-27T08:03:53.922231+00:00",
+  "artifacts": {
+    "sha256": "e4a74ccb77f99839fb84b88490e7f67808e7f0e7d565bbd4e76c0dbec6546580",
+    "files": {
+      "build/host-jtag/iverilog-1793087678185609919/async_bram.vvp": "aac8dd278b3153883f1a2a829ac06a8d92d0e5180ffb892284f9a83d0c45cc94",
+      "build/host-jtag/iverilog-1793087678185609919/async_sub_9.log": "ed986b9ed16cba2f849d43f6c42e80e68ca9c65293a1d5ea2b95ce9baca3e046",
+      "build/host-jtag/iverilog-1793087678185609919/async_sub_9_observed.txt": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec",
+      "build/host-jtag/iverilog-1793087678185609919/backend.log": "6aa01624ceb729fc87435add4147be1c22d93ef693f1109825fd8fcd298034d0",
+      "build/host-jtag/iverilog-1793087678185609919/backend.vvp": "4dd8bbc03398c10b39b93af0d7979ff40381252c0d8ce3534d129a217fd34a3e",
+      "build/host-jtag/iverilog-1793087678185609919/bram.vvp": "656cf0bb011b053c616409905445c5fc0bbaa9c4637a5506ec46beb2f8c49e0f",
+      "build/host-jtag/iverilog-1793087678185609919/build_async_bram.log": "0b0c579f54a65d64ee208251bf5577cc51c374e7e0ad35851464c40fe41b9af6",
+      "build/host-jtag/iverilog-1793087678185609919/build_backend.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "build/host-jtag/iverilog-1793087678185609919/build_bram.log": "0b0c579f54a65d64ee208251bf5577cc51c374e7e0ad35851464c40fe41b9af6",
+      "build/host-jtag/iverilog-1793087678185609919/build_mailbox.log": "1c2aa309acf2474769102eed4b4bdd2e130999d7c527cfb4529384fa376af91a",
+      "build/host-jtag/iverilog-1793087678185609919/capture_add_33.log": "7657b837be6cca40abdc5b8d0ecbc4d3f0251495d1801c75699444fbf646f26a",
+      "build/host-jtag/iverilog-1793087678185609919/capture_add_33_observed.txt": "86a4530bb6c5fb32b737a806af6c84391bd844cab86e236f64389d22aa654e42",
+      "build/host-jtag/iverilog-1793087678185609919/capture_add_8.log": "b83667330ee72aa0e01bdacd48ee4ab6b0667f7712a8de6f17520c4d53d286c2",
+      "build/host-jtag/iverilog-1793087678185609919/capture_add_8_observed.txt": "17754d19eb3baf3667dfeda9598b67b9f29fd4d570a6e4be928230fb1925ab70",
+      "build/host-jtag/iverilog-1793087678185609919/capture_add_9.log": "e2e42844aa650beb04be05d68d609424dbe5c77ea31f3b4869a1fcf7c0ef676c",
+      "build/host-jtag/iverilog-1793087678185609919/capture_add_9_observed.txt": "ccf0e41812711d408fadb59f8e2ab70bb18db5009b6bd3a4a2a724a61dfbdb38",
+      "build/host-jtag/iverilog-1793087678185609919/capture_mul_33.log": "fbee9c63db362a840e41577f681cdeac325df1209f04f5cd9c509a61949a797f",
+      "build/host-jtag/iverilog-1793087678185609919/capture_mul_33_observed.txt": "85181ba1efeae48e2de903fa41beffc1d62b877ab7c71d1cc87ec817b06f6e1d",
+      "build/host-jtag/iverilog-1793087678185609919/capture_mul_8.log": "5756ae856816077aa012e3cab05a0c9ef2a0cf2b65021e1f6cba57dbd236d1e8",
+      "build/host-jtag/iverilog-1793087678185609919/capture_mul_8_observed.txt": "9bf75c73aeb684144e8f14e894dbf7f0799e9474e08c947d055f5e7ac8d905c6",
+      "build/host-jtag/iverilog-1793087678185609919/capture_mul_9.log": "b85cb14732fcda163ce5a715851ecfce1378157424d3e915feb53c0989cbf04a",
+      "build/host-jtag/iverilog-1793087678185609919/capture_mul_9_observed.txt": "0ce8c55a0344de44e5a4be1a418b9d49d032809eb4b2f937e7d393658b8e8427",
+      "build/host-jtag/iverilog-1793087678185609919/capture_sub_33.log": "847f30e751082bfadc697ca3df38f66559a6258c14cb59930e8e16464415ab93",
+      "build/host-jtag/iverilog-1793087678185609919/capture_sub_33_observed.txt": "6717b53c8b0cdf2a3662c92d66ad3e85c16ebd349548647af5313149c8e5426b",
+      "build/host-jtag/iverilog-1793087678185609919/capture_sub_8.log": "db1a842e5a0882b7eaccfbddc1cd687a3d59a0e16d347dbbfba130526e16a585",
+      "build/host-jtag/iverilog-1793087678185609919/capture_sub_8_observed.txt": "285db071c9a3a4deb9983b6c66ee31f5d806664d4318bf3c7c3ea050a3579de6",
+      "build/host-jtag/iverilog-1793087678185609919/capture_sub_9.log": "8b054493678e435ab3f84b9436238ea9662adfb679ea7b43f70f367bac480eec",
+      "build/host-jtag/iverilog-1793087678185609919/capture_sub_9_observed.txt": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec",
+      "build/host-jtag/iverilog-1793087678185609919/mailbox.log": "3d89720123e33d9143a1294a6b5d568168cc546353193dd86ad0a25e9e75a16e",
+      "build/host-jtag/iverilog-1793087678185609919/mailbox.vvp": "2a948060ac54070663c34c8f016e4d85a7d24abcbcdb739f72143017bf1ebed2",
+      "build/host-jtag/iverilog-1793087678185609919/python_qualification.log": "4eb428bd6cb9624abe8553aa5c9fea0d9bbb952ba9be9c158f9e90bd84c59a5d",
+      "build/host-jtag/iverilog-1793087678185609919/python_transport.log": "63d951d010c2c28da8f70128e0ba8e7427e09c55c47b8b793f811420834260c5",
+      "build/host-jtag/iverilog-1793087678185609919/repeat_sub_9.log": "f6bf1549ebb6b74247c54c9d194d2a577b48d6cea51a29d9b300d35733bb2319",
+      "build/host-jtag/iverilog-1793087678185609919/repeat_sub_9_observed.txt": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec",
+      "build/host-jtag/iverilog-1793087678185609919/reset_partial_sub_9.log": "8319441fada9bb47bf3a9228255b3a7f45eb2928c315ce5ec5fb390cfbec301b",
+      "build/host-jtag/iverilog-1793087678185609919/reset_partial_sub_9_observed.txt": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec",
+      "build/host-jtag/iverilog-1793087678185609919/reset_partial_sub_9_observed.txt.partial": "e5f3e964e7f17cd14b15ff9cb36190392c17d612d66fcb8965296028081bad1f",
+      "build/host-jtag/iverilog-1793087678185609919/runtime_version.log": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+      "build/host-jtag/iverilog-1793087678185609919/unknown_raw_register.log": "9215be3c8ad5a14e24750f35682fcbf8cf9d2bbc5fd4e4af618aa784e218eb60",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_33/expected.txt": "86a4530bb6c5fb32b737a806af6c84391bd844cab86e236f64389d22aa654e42",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_33/upload.txt": "b1c760312df0384bd6aa4901a3f3079dabfd72e0f7006a0cd90ff5264b8973c3",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_8/expected.txt": "17754d19eb3baf3667dfeda9598b67b9f29fd4d570a6e4be928230fb1925ab70",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_8/upload.txt": "4585ea2a6fb28c16798ccaf523c45862a39e046b5bc513eab07116160c1d4c1a",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_9/expected.txt": "ccf0e41812711d408fadb59f8e2ab70bb18db5009b6bd3a4a2a724a61dfbdb38",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_add_9/upload.txt": "374025713afd280678227e90843e7552b5c542b341eab5e759b33ba57ae28da8",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_33/expected.txt": "85181ba1efeae48e2de903fa41beffc1d62b877ab7c71d1cc87ec817b06f6e1d",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_33/upload.txt": "9003f5e171f971adf428016f3f5b2f924813a689f7d71fe705b29401eb3ed4cf",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_8/expected.txt": "9bf75c73aeb684144e8f14e894dbf7f0799e9474e08c947d055f5e7ac8d905c6",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_8/upload.txt": "4c70f2c6a8d518d9e3cfaaa1862021489d5fdccfd16ab7d04bd9c820ca8fe399",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_9/expected.txt": "0ce8c55a0344de44e5a4be1a418b9d49d032809eb4b2f937e7d393658b8e8427",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_mul_9/upload.txt": "761384ec47a6198a7c50634a1707351ebb9d1e5bb1231bc88768825dbb57f76c",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_33/expected.txt": "6717b53c8b0cdf2a3662c92d66ad3e85c16ebd349548647af5313149c8e5426b",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_33/upload.txt": "1e30facc895eb1cf603a769a06b6ca47465f15b4341c3da31d1910eeab264543",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_8/expected.txt": "285db071c9a3a4deb9983b6c66ee31f5d806664d4318bf3c7c3ea050a3579de6",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_8/upload.txt": "6cc693e6eaeecbc3cd1bbd3081f7bdc0915810b7e47013c7f3a781a0e60a6e2f",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9/expected.txt": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9/partial.txt": "e5f3e964e7f17cd14b15ff9cb36190392c17d612d66fcb8965296028081bad1f",
+      "build/host-jtag/iverilog-1793087678185609919/vectors/capture_sub_9/upload.txt": "68cf7b0689343f22c979db0312eb718906a34d51c54e893699039f7630c885fb",
+      "build/host-jtag/iverilog-1793087678185609919/version.log": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d"
+    }
+  }
+}

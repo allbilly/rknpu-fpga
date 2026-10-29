@@ -1,0 +1,54 @@
+{
+  "status": "RUNNING",
+  "started_utc": "2026-10-27T08:55:51.866093+00:00",
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-async-ew-clock-resetstatus-20261027-v6",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/audit.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/vivado.jou"
+  ],
+  "cwd": "/home/fedora/rknpu-fpga",
+  "limits": {
+    "MemoryMax": "4G",
+    "MemorySwapMax": "0",
+    "CPUQuota": "200%",
+    "TasksMax": 256,
+    "threads": 2,
+    "timeout_seconds": 600
+  },
+  "dcp_hashes": {
+    "old_v2": "4f78c3a889ca23ad1c28b0fe39f36852242409227feac59b59fa8f1f4e447fa4",
+    "new_reset_v3": "e28ae1dc57360f50f58bb96e0188b1c27b71c3f466ac773a9f8b4b66ff8b4fc1"
+  },
+  "helper_hashes_before": {
+    "fpga/ddr/async_job_cdc.tcl": "3e775ddef64a52896ff8ffc1a9e1a2f9c24669b5bc89dd6398715478dafc4df5",
+    "fpga/ddr/async_mem_cdc.tcl": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+    "build/ddr-reset-candidate/v1/workspace/fpga/ddr/reset_status_cdc.tcl": "dc34a33077b444f1934d46267b10b436453ec486b458548a819bb24338715a62"
+  },
+  "frozen_helpers": {
+    "build/async-ew-clock-mapping/reset-v3-status-v6/frozen/async_job_cdc.tcl": "3e775ddef64a52896ff8ffc1a9e1a2f9c24669b5bc89dd6398715478dafc4df5",
+    "build/async-ew-clock-mapping/reset-v3-status-v6/frozen/async_mem_cdc.tcl": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+    "build/async-ew-clock-mapping/reset-v3-status-v6/frozen/reset_status_cdc.tcl": "dc34a33077b444f1934d46267b10b436453ec486b458548a819bb24338715a62"
+  },
+  "preflight": {
+    "mem_available_kib": 25027076,
+    "psi_memory": "some avg10=0.00 avg60=0.00 avg300=0.00 total=2019236143\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=1142544514\n"
+  }
+}

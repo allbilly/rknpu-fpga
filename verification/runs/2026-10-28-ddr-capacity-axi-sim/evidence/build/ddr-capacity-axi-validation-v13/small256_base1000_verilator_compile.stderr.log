@@ -1,0 +1,7 @@
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v13/tb_capacity_axi.sv:3:26: Operator VAR 'BASE_ADDR' expects 31 bits on the Initial value, but Initial value's CONST '32'h1000' generates 32 bits.
+                                                                                                          : ... note: In instance 'tb_capacity_axi'
+    3 |   parameter logic [30:0] BASE_ADDR=0,
+      |                          ^~~~~~~~~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.048
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Error: Exiting due to 1 warning(s)

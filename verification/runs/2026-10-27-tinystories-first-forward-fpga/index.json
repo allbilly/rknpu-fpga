@@ -1,0 +1,340 @@
+{
+  "status": "PRESERVED_FIRST_PHYSICAL_TINYSTORIES_FORWARD_ONLY",
+  "scope": "One complete hybrid forward: all learned dense on full512 FPGA, explicit CPU other transformer operators; longer32-position generation remains running and is not accepted by this receipt",
+  "forward_positions": 1,
+  "long_generation_complete": false,
+  "flash_written": false,
+  "files": {
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/audit_first_forward.py": {
+      "source_sha256": "83243736c49b127e8c58e72033c07165de876b5f7108f4145ec4aed86f6be4ff",
+      "source_bytes": 7173,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/audit_first_forward.py",
+      "archive_sha256": "83243736c49b127e8c58e72033c07165de876b5f7108f4145ec4aed86f6be4ff",
+      "archive_bytes": 7173,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/audit_first_forward_v2.py": {
+      "source_sha256": "ba95ff697e5737bfe14bc406f0b7c06eb8ad27c18ccbaacf200c28b2d19bc9e8",
+      "source_bytes": 9894,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/audit_first_forward_v2.py",
+      "archive_sha256": "ba95ff697e5737bfe14bc406f0b7c06eb8ad27c18ccbaacf200c28b2d19bc9e8",
+      "archive_bytes": 9894,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/first-forward-snapshot.json": {
+      "source_sha256": "131b87cc4d6ec480907270804c88147a09f3e910cad1c60bbc5f75df46ee4dd6",
+      "source_bytes": 1143,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/first-forward-snapshot.json",
+      "archive_sha256": "131b87cc4d6ec480907270804c88147a09f3e910cad1c60bbc5f75df46ee4dd6",
+      "archive_bytes": 1143,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/image-review.json": {
+      "source_sha256": "35b4faab316af6bd26273d26178878110fadb91300838b8aedbc931b112d25bd",
+      "source_bytes": 49730,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/image-review.json",
+      "archive_sha256": "35b4faab316af6bd26273d26178878110fadb91300838b8aedbc931b112d25bd",
+      "archive_bytes": 49730,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/independent-first-forward-audit-v2.json": {
+      "source_sha256": "1549802380d2ebba3fb589a40c9f01fdb2b102c3cb96326c31b5efaf825c964b",
+      "source_bytes": 1320,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/independent-first-forward-audit-v2.json",
+      "archive_sha256": "1549802380d2ebba3fb589a40c9f01fdb2b102c3cb96326c31b5efaf825c964b",
+      "archive_bytes": 1320,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/independent-first-forward-audit.json": {
+      "source_sha256": "cf2e5413731df60955fa74efb6a8ce125ad8918e0815f3fc24dd218a75c37932",
+      "source_bytes": 1131,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/independent-first-forward-audit.json",
+      "archive_sha256": "cf2e5413731df60955fa74efb6a8ce125ad8918e0815f3fc24dd218a75c37932",
+      "archive_bytes": 1131,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/command.json": {
+      "source_sha256": "c80d15e939b8bd286df3169d3174c7f657f4cff78588d4dd54f37c5125bfaa18",
+      "source_bytes": 745,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/command.json",
+      "archive_sha256": "c80d15e939b8bd286df3169d3174c7f657f4cff78588d4dd54f37c5125bfaa18",
+      "archive_bytes": 745,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/load.json": {
+      "source_sha256": "0762cd4a41301f4de4813b8f63ed9ba569a68d64f06e3ea269783e09a392ad8c",
+      "source_bytes": 1973,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/load.json",
+      "archive_sha256": "0762cd4a41301f4de4813b8f63ed9ba569a68d64f06e3ea269783e09a392ad8c",
+      "archive_bytes": 1973,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/program.tcl": {
+      "source_sha256": "f24c0ab5f71985c58f3d04d8bd4b0463188d2a2a83c8e6256f12745e44cc5e9b",
+      "source_bytes": 4198,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/program.tcl",
+      "archive_sha256": "f24c0ab5f71985c58f3d04d8bd4b0463188d2a2a83c8e6256f12745e44cc5e9b",
+      "archive_bytes": 4198,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/program.tsv": {
+      "source_sha256": "9a30364a082fa5b4431092004d8b80a145efc7ef043e2e41a451bceed51caac6",
+      "source_bytes": 348,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/program.tsv",
+      "archive_sha256": "9a30364a082fa5b4431092004d8b80a145efc7ef043e2e41a451bceed51caac6",
+      "archive_bytes": 348,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/stdout.log": {
+      "source_sha256": "9b27dfe4207ff8bdc1833e709c88a12737096391e09b83b74a8cf2982c6864bc",
+      "source_bytes": 7137,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/stdout.log",
+      "archive_sha256": "9b27dfe4207ff8bdc1833e709c88a12737096391e09b83b74a8cf2982c6864bc",
+      "archive_bytes": 7137,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/vivado.jou": {
+      "source_sha256": "18fc3329248b5c09af7508797c0e99f13411724749d1fbd18882d6aa4f6ba3d5",
+      "source_bytes": 1663,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/vivado.jou",
+      "archive_sha256": "18fc3329248b5c09af7508797c0e99f13411724749d1fbd18882d6aa4f6ba3d5",
+      "archive_bytes": 1663,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/vivado.log": {
+      "source_sha256": "1205dc9f29fba96b974f7cb128f64e03e8c5355420dc0461905a8ed0d9558a8b",
+      "source_bytes": 8281,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/load-1/vivado.log",
+      "archive_sha256": "1205dc9f29fba96b974f7cb128f64e03e8c5355420dc0461905a8ed0d9558a8b",
+      "archive_bytes": 8281,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/bridge-stdout.log": {
+      "source_sha256": "f9aaa6b573d399bbc46a94d3caa832d38c6a1ff4507b8a4a7bce747bf888de80",
+      "source_bytes": 8100,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/bridge-stdout.log",
+      "archive_sha256": "f9aaa6b573d399bbc46a94d3caa832d38c6a1ff4507b8a4a7bce747bf888de80",
+      "archive_bytes": 8100,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/bridge.tcl": {
+      "source_sha256": "d50dae4082a080629f7e1f4cd010216cb5aeee1adc3f8d4f73bbdb4f9e4ff053",
+      "source_bytes": 6246,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/bridge.tcl",
+      "archive_sha256": "d50dae4082a080629f7e1f4cd010216cb5aeee1adc3f8d4f73bbdb4f9e4ff053",
+      "archive_bytes": 6246,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/command.json": {
+      "source_sha256": "154d097aa064b6fb6fc4ddf1965c02c427073d1c14f6dcbc6ecc19799db426f7",
+      "source_bytes": 1771,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/command.json",
+      "archive_sha256": "154d097aa064b6fb6fc4ddf1965c02c427073d1c14f6dcbc6ecc19799db426f7",
+      "archive_bytes": 1771,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/dense-calls.json": {
+      "source_sha256": "6a6b85f83c886fa5503b567aea604906660544e42ff0b66cf5e55fb0101b42c9",
+      "source_bytes": 9454,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/dense-calls.json",
+      "archive_sha256": "6a6b85f83c886fa5503b567aea604906660544e42ff0b66cf5e55fb0101b42c9",
+      "archive_bytes": 9454,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/host/LICENSE": {
+      "source_sha256": "e87b912002f04cdfa837eaf7f70548ab79b9cb62a285495edf575f3da875aec4",
+      "source_bytes": 1063,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/host/LICENSE",
+      "archive_sha256": "e87b912002f04cdfa837eaf7f70548ab79b9cb62a285495edf575f3da875aec4",
+      "archive_bytes": 1063,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/host/compile.json": {
+      "source_sha256": "3032fce87eb791d00777b47ee2c224538a7386cb679e846dc98810667e1a747c",
+      "source_bytes": 852,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/host/compile.json",
+      "archive_sha256": "3032fce87eb791d00777b47ee2c224538a7386cb679e846dc98810667e1a747c",
+      "archive_bytes": 852,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/host/compile.log": {
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_bytes": 0,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/host/compile.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/host/engine.c": {
+      "source_sha256": "b1a312bd020a9c016ac7aecfc4721dc20ca72c1835e81beaccbb969286a16efb",
+      "source_bytes": 40625,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/host/engine.c",
+      "archive_sha256": "b1a312bd020a9c016ac7aecfc4721dc20ca72c1835e81beaccbb969286a16efb",
+      "archive_bytes": 40625,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/logits.bin": {
+      "source_sha256": "da84021345aa0521e0ed1c37344b91e93ef077d964a56bd876fdd4326ae8a893",
+      "source_bytes": 2048,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/logits.bin",
+      "archive_sha256": "da84021345aa0521e0ed1c37344b91e93ef077d964a56bd876fdd4326ae8a893",
+      "archive_bytes": 2048,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/native-scans.jsonl": {
+      "source_sha256": "e4f268c81cb7a7f763a774a8fbeb9db08fde88bcf87f6796fcd82c45102b733c",
+      "source_bytes": 42113907,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/native-scans.jsonl.gz",
+      "archive_sha256": "8ee47843063c5c078ca2434db568595ad645d2593751e0c4d264d854b2c7dccf",
+      "archive_bytes": 3212701,
+      "compression": "gzip"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/raw-jobs-final.json": {
+      "source_sha256": "2592dff053c98aefce45728e09a11bbf301d20846f0bad2e52d1b490e5ceb8d0",
+      "source_bytes": 135778,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/raw-jobs-final.json",
+      "archive_sha256": "2592dff053c98aefce45728e09a11bbf301d20846f0bad2e52d1b490e5ceb8d0",
+      "archive_bytes": 135778,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/raw-jobs.json": {
+      "source_sha256": "2592dff053c98aefce45728e09a11bbf301d20846f0bad2e52d1b490e5ceb8d0",
+      "source_bytes": 135778,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/raw-jobs.json",
+      "archive_sha256": "2592dff053c98aefce45728e09a11bbf301d20846f0bad2e52d1b490e5ceb8d0",
+      "archive_bytes": 135778,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/raw-readback.jsonl": {
+      "source_sha256": "5b54c09b473d7179419e78c4bbc4b265615f4c78ff3025cac27525a4e77ce951",
+      "source_bytes": 103527,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/raw-readback.jsonl.gz",
+      "archive_sha256": "57d51d2977cb740a709898783edd159fe890ed2b617ab33e0b6482b9640961d7",
+      "archive_bytes": 38764,
+      "compression": "gzip"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/report.json": {
+      "source_sha256": "b1c56573476a3bf09f38f921351367d670dcb31f5a2a4609385bd53d9a7e751d",
+      "source_bytes": 2383,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/report.json",
+      "archive_sha256": "b1c56573476a3bf09f38f921351367d670dcb31f5a2a4609385bd53d9a7e751d",
+      "archive_bytes": 2383,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/text.txt": {
+      "source_sha256": "bc15aea0cf5608b9d6626d96415af8426b5f7b197ace3ed9789bd2368c359c91",
+      "source_bytes": 5,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs/text.txt",
+      "archive_sha256": "bc15aea0cf5608b9d6626d96415af8426b5f7b197ace3ed9789bd2368c359c91",
+      "archive_bytes": 5,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/ready.txt": {
+      "source_sha256": "54b0df6f5e96563c0609c8e10cfa66bc39ddc732b30d18295961a64ab47e34b7",
+      "source_bytes": 39,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/ready.txt",
+      "archive_sha256": "54b0df6f5e96563c0609c8e10cfa66bc39ddc732b30d18295961a64ab47e34b7",
+      "archive_bytes": 39,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/vivado.jou": {
+      "source_sha256": "b373ef581e648994b712038904b06aaaf6d9301a1939f67a0bf797dd450230de",
+      "source_bytes": 1822,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/vivado.jou",
+      "archive_sha256": "b373ef581e648994b712038904b06aaaf6d9301a1939f67a0bf797dd450230de",
+      "archive_bytes": 1822,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/vivado.log": {
+      "source_sha256": "db97e3268eaa2c968a443e8ac4ca3467de86cc1ab295ee2d9f3eba5edff7ef97",
+      "source_bytes": 9381,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/vivado.log",
+      "archive_sha256": "db97e3268eaa2c968a443e8ac4ca3467de86cc1ab295ee2d9f3eba5edff7ef97",
+      "archive_bytes": 9381,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/worker-stdout.log": {
+      "source_sha256": "8e4a17cc37f22b3b1986a534051ca2ddf630a0a73e56b2aa8ee60adf4be9a6f9",
+      "source_bytes": 209,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/worker-stdout.log",
+      "archive_sha256": "8e4a17cc37f22b3b1986a534051ca2ddf630a0a73e56b2aa8ee60adf4be9a6f9",
+      "archive_bytes": 209,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/program-template.tcl.in": {
+      "source_sha256": "d7ebf86450c55de4378692f0aae20f6af20fffe7366b329a29b3972e6429a96d",
+      "source_bytes": 3962,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/program-template.tcl.in",
+      "archive_sha256": "d7ebf86450c55de4378692f0aae20f6af20fffe7366b329a29b3972e6429a96d",
+      "archive_bytes": 3962,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/review_model_test.py": {
+      "source_sha256": "272216ee58c10bfc7cc971ff63fc1948a30df54c89cf04542a7dc0d147021383",
+      "source_bytes": 2724,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/review_model_test.py",
+      "archive_sha256": "272216ee58c10bfc7cc971ff63fc1948a30df54c89cf04542a7dc0d147021383",
+      "archive_bytes": 2724,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-model-20261026T215500Z/run_sram_tests.py": {
+      "source_sha256": "52847decc1b9f14f5efd9fe4b4fcccc1dfb324ed0cee7cf552924d2f47f4207e",
+      "source_bytes": 13440,
+      "archive_path": "build/fpga-bringup/tinystories-model-20261026T215500Z/run_sram_tests.py",
+      "archive_sha256": "52847decc1b9f14f5efd9fe4b4fcccc1dfb324ed0cee7cf552924d2f47f4207e",
+      "archive_bytes": 13440,
+      "compression": "none"
+    },
+    "build/tinystories-full-oracle/v1/donor-dense-calls.json": {
+      "source_sha256": "d8160e96989baf7b8c140beb996416d4ea06d2df8332da08129f097b3432efef",
+      "source_bytes": 610339,
+      "archive_path": "build/tinystories-full-oracle/v1/donor-dense-calls.json",
+      "archive_sha256": "d8160e96989baf7b8c140beb996416d4ea06d2df8332da08129f097b3432efef",
+      "archive_bytes": 610339,
+      "compression": "none"
+    },
+    "build/tinystories-full-oracle/v1/donor-logits.bin": {
+      "source_sha256": "c35b2be9a48e7fdc49c9b513ee1e0977766caf1ca442f9756aa2ec877a473e0c",
+      "source_bytes": 65536,
+      "archive_path": "build/tinystories-full-oracle/v1/donor-logits.bin",
+      "archive_sha256": "c35b2be9a48e7fdc49c9b513ee1e0977766caf1ca442f9756aa2ec877a473e0c",
+      "archive_bytes": 65536,
+      "compression": "none"
+    },
+    "build/tinystories-full-oracle/v1/donor-result.json": {
+      "source_sha256": "bc6de8356e528dbb91a1cdbea28fa8dbe0504bee3076a53bbc7be0e07067b956",
+      "source_bytes": 821,
+      "archive_path": "build/tinystories-full-oracle/v1/donor-result.json",
+      "archive_sha256": "bc6de8356e528dbb91a1cdbea28fa8dbe0504bee3076a53bbc7be0e07067b956",
+      "archive_bytes": 821,
+      "compression": "none"
+    },
+    "build/tinystories-full-oracle/v1/report.json": {
+      "source_sha256": "d3460c0211d399dea549c71e505bfb806e0f0e8f71e9d5df7f35ec1aaeea1939",
+      "source_bytes": 3264,
+      "archive_path": "build/tinystories-full-oracle/v1/report.json",
+      "archive_sha256": "d3460c0211d399dea549c71e505bfb806e0f0e8f71e9d5df7f35ec1aaeea1939",
+      "archive_bytes": 3264,
+      "compression": "none"
+    },
+    "build/tinystories-standalone-worker/bos-one-v1/logits.bin": {
+      "source_sha256": "da84021345aa0521e0ed1c37344b91e93ef077d964a56bd876fdd4326ae8a893",
+      "source_bytes": 2048,
+      "archive_path": "build/tinystories-standalone-worker/bos-one-v1/logits.bin",
+      "archive_sha256": "da84021345aa0521e0ed1c37344b91e93ef077d964a56bd876fdd4326ae8a893",
+      "archive_bytes": 2048,
+      "compression": "none"
+    },
+    "build/tinystories-standalone-worker/bos-one-v1/report.json": {
+      "source_sha256": "c1dbd1dfd23bf21d47c83df1926ec4a4863011afe895b095565a70c1b74ca47a",
+      "source_bytes": 2317,
+      "archive_path": "build/tinystories-standalone-worker/bos-one-v1/report.json",
+      "archive_sha256": "c1dbd1dfd23bf21d47c83df1926ec4a4863011afe895b095565a70c1b74ca47a",
+      "archive_bytes": 2317,
+      "compression": "none"
+    }
+  },
+  "total_files": 41,
+  "total_source_bytes": 43372175,
+  "total_archive_bytes": 4406206
+}

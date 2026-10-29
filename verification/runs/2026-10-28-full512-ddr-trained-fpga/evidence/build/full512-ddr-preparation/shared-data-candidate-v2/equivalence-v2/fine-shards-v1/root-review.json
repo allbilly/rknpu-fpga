@@ -1,0 +1,137 @@
+{
+  "status": "PASS_ROOT_INDEPENDENT_SHARED_DATA_EQUIVALENCE_COVERAGE_RNG_AND_NATIVE_LOG_AUDIT",
+  "utc": "2026-10-27T23:36:07.164487+00:00",
+  "producer_sha256": "7ec24a0c8544aa10cc4d362f59a682c95b66e1de1dcdb3a0d1fda1e391bcdcf9",
+  "parent_full_run_report_sha256": "1393701762f7e70e9f6537d3588984296835d9dd215b46ed409a1b1b87792af1",
+  "source_inputs_rehashed": 24,
+  "seed": "0x3588da7a",
+  "random_groups_per_C": 10000,
+  "raw_groups_per_C": 2500,
+  "finite_groups_per_C": 7500,
+  "directed_groups_per_command": 8,
+  "icarus_shards": 26,
+  "coverage": {
+    "32": [
+      [
+        0,
+        1000
+      ],
+      [
+        1000,
+        2000
+      ],
+      [
+        2000,
+        3000
+      ],
+      [
+        3000,
+        4000
+      ],
+      [
+        4000,
+        5000
+      ],
+      [
+        5000,
+        6000
+      ],
+      [
+        6000,
+        7000
+      ],
+      [
+        7000,
+        8000
+      ],
+      [
+        8000,
+        9000
+      ],
+      [
+        9000,
+        10000
+      ]
+    ],
+    "64": [
+      [
+        0,
+        625
+      ],
+      [
+        625,
+        1250
+      ],
+      [
+        1250,
+        1875
+      ],
+      [
+        1875,
+        2500
+      ],
+      [
+        2500,
+        3125
+      ],
+      [
+        3125,
+        3750
+      ],
+      [
+        3750,
+        4375
+      ],
+      [
+        4375,
+        5000
+      ],
+      [
+        5000,
+        5625
+      ],
+      [
+        5625,
+        6250
+      ],
+      [
+        6250,
+        6875
+      ],
+      [
+        6875,
+        7500
+      ],
+      [
+        7500,
+        8125
+      ],
+      [
+        8125,
+        8750
+      ],
+      [
+        8750,
+        9375
+      ],
+      [
+        9375,
+        10000
+      ]
+    ]
+  },
+  "rng_after_directed": {
+    "8": "34f064b2",
+    "32": "3f325781",
+    "64": "e8965771"
+  },
+  "rng_after_all_random": {
+    "8": "967a2009",
+    "32": "04edcb9e",
+    "64": "6b2ba108"
+  },
+  "runtime_caps_unchanged": true,
+  "prior_timeouts_preserved": true,
+  "scope": "Sampled RTL cell equivalence with capture-low hold checks only; not exhaustive proof, full controller, physical FPGA or RK silicon differential acceptance",
+  "hardware_accessed": false
+}

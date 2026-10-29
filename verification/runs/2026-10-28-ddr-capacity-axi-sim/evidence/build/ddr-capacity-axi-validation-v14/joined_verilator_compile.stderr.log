@@ -1,0 +1,13 @@
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v14/tb_capacity_bist_joined.sv:10:27: Signal is not used: 'start_ready'
+                                                                                                                     : ... note: In instance 'tb_capacity_bist_joined'
+   10 |   logic [31:0] seed;logic start_ready,busy,done,fault,trial,monitor_healthy;
+      |                           ^~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.048
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNSIGNED: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v14/tb_capacity_bist_joined.sv:98:18: Comparison is constant due to unsigned arithmetic
+                                                                                                                 : ... note: In instance 'tb_capacity_bist_joined'
+   98 |         if(araddr<BASE_ADDR||({1'b0,araddr}+32'd64)>{1'b0,BASE_ADDR}+{1'b0,SPAN_BYTES})$fatal(1,"joined AR out of range");
+      |                  ^
+                   ... For warning description see https://verilator.org/warn/UNSIGNED?v=5.048
+                   ... Use "/* verilator lint_off UNSIGNED */" and lint_on around source to disable this message.
+%Error: Exiting due to 2 warning(s)

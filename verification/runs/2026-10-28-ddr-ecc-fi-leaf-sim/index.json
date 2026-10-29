@@ -1,0 +1,3412 @@
+{
+  "archive_packer_sha256": "9d697c48f67e9b6b3cf041173f24d7c0eb3d1637dc6d1b065fb5e49d898b1c20",
+  "attempt_producer_statuses": {
+    "1": "FAIL",
+    "10": "FAIL",
+    "2": "FAIL",
+    "3": "FAIL",
+    "4": "NO_PRODUCER_REPORT_V4_RUNNER_EXCEPTION_CAPTURED_SEPARATELY",
+    "5": "FAIL",
+    "6": "FAIL",
+    "7": "PASS_FI_XOR_LEAF_VERILATOR_ONLY",
+    "8": "FAIL",
+    "9": "FAIL"
+  },
+  "coverage_references": [
+    {
+      "archive_bytes": 2241,
+      "archive_path": "attempts/v1/launch.json",
+      "archive_sha256": "cf8e7a24857615108b03ac8be3b9ad6975a24a6da8d6b3e3d87b15d4a9871a09",
+      "encoding": "identity",
+      "label": "attempt_v1:launch.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 2241,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v1/launch.json",
+      "source_sha256": "cf8e7a24857615108b03ac8be3b9ad6975a24a6da8d6b3e3d87b15d4a9871a09"
+    },
+    {
+      "archive_bytes": 1859,
+      "archive_path": "attempts/v1/report.json",
+      "archive_sha256": "7ed459512507c9ea9802f5d0cae73a0d367133959d58164a3f6ca538c9b17d3a",
+      "encoding": "identity",
+      "label": "attempt_v1:report.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 1859,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v1/report.json",
+      "source_sha256": "7ed459512507c9ea9802f5d0cae73a0d367133959d58164a3f6ca538c9b17d3a"
+    },
+    {
+      "archive_bytes": 9556,
+      "archive_path": "attempts/v1/run_validation.py",
+      "archive_sha256": "e0e13c7f44cc0770c1fddcdd4ce77b3f1ca8e14fa7652a5d6db16443ea3ab911",
+      "encoding": "identity",
+      "label": "attempt_v1:run_validation.py",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 9556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v1/run_validation.py",
+      "source_sha256": "e0e13c7f44cc0770c1fddcdd4ce77b3f1ca8e14fa7652a5d6db16443ea3ab911"
+    },
+    {
+      "archive_bytes": 5556,
+      "archive_path": "attempts/v1/source/mig_7series_v4_2_fi_xor.v",
+      "archive_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "encoding": "identity",
+      "label": "attempt_v1:source/mig_7series_v4_2_fi_xor.v",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v1/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_bytes": 6653,
+      "archive_path": "attempts/v1/tests/tb_mig_fi_xor.sv",
+      "archive_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+      "encoding": "identity",
+      "label": "attempt_v1:tests/tb_mig_fi_xor.sv",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 6653,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v1/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb"
+    },
+    {
+      "archive_bytes": 2331,
+      "archive_path": "attempts/v2/launch.json",
+      "archive_sha256": "6d702578d19604874ee521b9cd30cf40c7abe6fca2c44822ccc5e59c0597675c",
+      "encoding": "identity",
+      "label": "attempt_v2:launch.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 2331,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v2/launch.json",
+      "source_sha256": "6d702578d19604874ee521b9cd30cf40c7abe6fca2c44822ccc5e59c0597675c"
+    },
+    {
+      "archive_bytes": 7800,
+      "archive_path": "attempts/v2/report.json",
+      "archive_sha256": "21171428eea7816147e944a07ea64ab4b6e0d88a07c20b4f4ee5c28df62b43be",
+      "encoding": "identity",
+      "label": "attempt_v2:report.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 7800,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v2/report.json",
+      "source_sha256": "21171428eea7816147e944a07ea64ab4b6e0d88a07c20b4f4ee5c28df62b43be"
+    },
+    {
+      "archive_bytes": 10198,
+      "archive_path": "attempts/v2/run_validation.py",
+      "archive_sha256": "0448795878c23e90edd01524d2021b6a641a8749919c8745f04489295d7987ee",
+      "encoding": "identity",
+      "label": "attempt_v2:run_validation.py",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 10198,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v2/run_validation.py",
+      "source_sha256": "0448795878c23e90edd01524d2021b6a641a8749919c8745f04489295d7987ee"
+    },
+    {
+      "archive_bytes": 5556,
+      "archive_path": "attempts/v2/source/mig_7series_v4_2_fi_xor.v",
+      "archive_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "encoding": "identity",
+      "label": "attempt_v2:source/mig_7series_v4_2_fi_xor.v",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v2/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_bytes": 6653,
+      "archive_path": "attempts/v2/tests/tb_mig_fi_xor.sv",
+      "archive_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+      "encoding": "identity",
+      "label": "attempt_v2:tests/tb_mig_fi_xor.sv",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 6653,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v2/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb"
+    },
+    {
+      "archive_bytes": 168,
+      "archive_path": "attempts/v3/iverilog_compile.stderr.log",
+      "archive_sha256": "b7303237beacbcaf79a4da33c73cb4708e05e7674c0130d37bed172674018447",
+      "encoding": "identity",
+      "label": "attempt_v3:iverilog_compile.stderr.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 168,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/iverilog_compile.stderr.log",
+      "source_sha256": "b7303237beacbcaf79a4da33c73cb4708e05e7674c0130d37bed172674018447"
+    },
+    {
+      "archive_bytes": 0,
+      "archive_path": "attempts/v3/iverilog_compile.stdout.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "label": "attempt_v3:iverilog_compile.stdout.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/iverilog_compile.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_bytes": 2362,
+      "archive_path": "attempts/v3/launch.json",
+      "archive_sha256": "b859bfe1d54753a2d333b6edba7223d1b5fac5cc5bf5f6593b7785f48d8c29d4",
+      "encoding": "identity",
+      "label": "attempt_v3:launch.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 2362,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/launch.json",
+      "source_sha256": "b859bfe1d54753a2d333b6edba7223d1b5fac5cc5bf5f6593b7785f48d8c29d4"
+    },
+    {
+      "archive_bytes": 9742,
+      "archive_path": "attempts/v3/report.json",
+      "archive_sha256": "111ff051e7e6718f17a1f870ae52597ba31f109d4a0a88aaa03313d670aaebbb",
+      "encoding": "identity",
+      "label": "attempt_v3:report.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 9742,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/report.json",
+      "source_sha256": "111ff051e7e6718f17a1f870ae52597ba31f109d4a0a88aaa03313d670aaebbb"
+    },
+    {
+      "archive_bytes": 10226,
+      "archive_path": "attempts/v3/run_validation.py",
+      "archive_sha256": "f48349cd6847934fffc60007da3a1d351dbca7567c057c5846be586b0b3c2f25",
+      "encoding": "identity",
+      "label": "attempt_v3:run_validation.py",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 10226,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/run_validation.py",
+      "source_sha256": "f48349cd6847934fffc60007da3a1d351dbca7567c057c5846be586b0b3c2f25"
+    },
+    {
+      "archive_bytes": 5556,
+      "archive_path": "attempts/v3/source/mig_7series_v4_2_fi_xor.v",
+      "archive_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "encoding": "identity",
+      "label": "attempt_v3:source/mig_7series_v4_2_fi_xor.v",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_bytes": 6653,
+      "archive_path": "attempts/v3/tests/tb_mig_fi_xor.sv",
+      "archive_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+      "encoding": "identity",
+      "label": "attempt_v3:tests/tb_mig_fi_xor.sv",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 6653,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb"
+    },
+    {
+      "archive_bytes": 1925,
+      "archive_path": "attempts/v4/launch.json",
+      "archive_sha256": "331223f92cc67a924a1ebbdfb106e6c34a158ef8e92331d2321302b7416abbaa",
+      "encoding": "identity",
+      "label": "attempt_v4:launch.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 1925,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v4/launch.json",
+      "source_sha256": "331223f92cc67a924a1ebbdfb106e6c34a158ef8e92331d2321302b7416abbaa"
+    },
+    {
+      "archive_bytes": 7550,
+      "archive_path": "attempts/v4/run_verilator.py",
+      "archive_sha256": "3d6ad518490d0f6fac7d7efdfe1a493793fe266716a0ba4e28fde9f0db2ad343",
+      "encoding": "identity",
+      "label": "attempt_v4:run_verilator.py",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 7550,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v4/run_verilator.py",
+      "source_sha256": "3d6ad518490d0f6fac7d7efdfe1a493793fe266716a0ba4e28fde9f0db2ad343"
+    },
+    {
+      "archive_bytes": 5556,
+      "archive_path": "attempts/v4/source/mig_7series_v4_2_fi_xor.v",
+      "archive_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "encoding": "identity",
+      "label": "attempt_v4:source/mig_7series_v4_2_fi_xor.v",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v4/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_bytes": 6653,
+      "archive_path": "attempts/v4/tests/tb_mig_fi_xor.sv",
+      "archive_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+      "encoding": "identity",
+      "label": "attempt_v4:tests/tb_mig_fi_xor.sv",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 6653,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v4/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb"
+    },
+    {
+      "archive_bytes": 1339,
+      "archive_path": "attempts/v5/launch.json",
+      "archive_sha256": "ced169599643dc862a8ec7d1a3f130c13d8534f02aeeefaf7775182d9fba5ec5",
+      "encoding": "identity",
+      "label": "attempt_v5:launch.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 1339,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/launch.json",
+      "source_sha256": "ced169599643dc862a8ec7d1a3f130c13d8534f02aeeefaf7775182d9fba5ec5"
+    },
+    {
+      "archive_bytes": 4613,
+      "archive_path": "attempts/v5/report.json",
+      "archive_sha256": "92b1e76d73d4b08fc4dc9e56d4ff5ae5d7498d91c51e45c4c4c6930bd57f6283",
+      "encoding": "identity",
+      "label": "attempt_v5:report.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 4613,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/report.json",
+      "source_sha256": "92b1e76d73d4b08fc4dc9e56d4ff5ae5d7498d91c51e45c4c4c6930bd57f6283"
+    },
+    {
+      "archive_bytes": 7613,
+      "archive_path": "attempts/v5/run_verilator.py",
+      "archive_sha256": "39e0e4b132c6f76c4fad123d7d2bffca6ea1877c0ed8796d3b5cd4534f2cb386",
+      "encoding": "identity",
+      "label": "attempt_v5:run_verilator.py",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 7613,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/run_verilator.py",
+      "source_sha256": "39e0e4b132c6f76c4fad123d7d2bffca6ea1877c0ed8796d3b5cd4534f2cb386"
+    },
+    {
+      "archive_bytes": 5556,
+      "archive_path": "attempts/v5/source/mig_7series_v4_2_fi_xor.v",
+      "archive_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "encoding": "identity",
+      "label": "attempt_v5:source/mig_7series_v4_2_fi_xor.v",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_bytes": 6653,
+      "archive_path": "attempts/v5/tests/tb_mig_fi_xor.sv",
+      "archive_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+      "encoding": "identity",
+      "label": "attempt_v5:tests/tb_mig_fi_xor.sv",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 6653,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb"
+    },
+    {
+      "archive_bytes": 1179,
+      "archive_path": "attempts/v5/verilator_compile.stderr.log",
+      "archive_sha256": "b2cb40370c0fdd4eff05d8561782d00f2f332bc29e25646e3d0ff45d4a69dabd",
+      "encoding": "identity",
+      "label": "attempt_v5:verilator_compile.stderr.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 1179,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/verilator_compile.stderr.log",
+      "source_sha256": "b2cb40370c0fdd4eff05d8561782d00f2f332bc29e25646e3d0ff45d4a69dabd"
+    },
+    {
+      "archive_bytes": 0,
+      "archive_path": "attempts/v5/verilator_compile.stdout.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "label": "attempt_v5:verilator_compile.stdout.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/verilator_compile.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_bytes": 1681,
+      "archive_path": "attempts/v6/launch.json",
+      "archive_sha256": "13f46accc306d8d06b85f034b2034de6c017d203576d36c63f1e7720df80fc86",
+      "encoding": "identity",
+      "label": "attempt_v6:launch.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 1681,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/launch.json",
+      "source_sha256": "13f46accc306d8d06b85f034b2034de6c017d203576d36c63f1e7720df80fc86"
+    },
+    {
+      "archive_bytes": 6196,
+      "archive_path": "attempts/v6/report.json",
+      "archive_sha256": "a6e148801164620e1f0f506d9ea53652109f0fee17ecc4c14574c1d3344606f1",
+      "encoding": "identity",
+      "label": "attempt_v6:report.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 6196,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/report.json",
+      "source_sha256": "a6e148801164620e1f0f506d9ea53652109f0fee17ecc4c14574c1d3344606f1"
+    },
+    {
+      "archive_bytes": 7613,
+      "archive_path": "attempts/v6/run_verilator.py",
+      "archive_sha256": "39e0e4b132c6f76c4fad123d7d2bffca6ea1877c0ed8796d3b5cd4534f2cb386",
+      "encoding": "identity",
+      "label": "attempt_v6:run_verilator.py",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 7613,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/run_verilator.py",
+      "source_sha256": "39e0e4b132c6f76c4fad123d7d2bffca6ea1877c0ed8796d3b5cd4534f2cb386"
+    },
+    {
+      "archive_bytes": 5556,
+      "archive_path": "attempts/v6/source/mig_7series_v4_2_fi_xor.v",
+      "archive_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "encoding": "identity",
+      "label": "attempt_v6:source/mig_7series_v4_2_fi_xor.v",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_bytes": 6670,
+      "archive_path": "attempts/v6/tests/tb_mig_fi_xor.sv",
+      "archive_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+      "encoding": "identity",
+      "label": "attempt_v6:tests/tb_mig_fi_xor.sv",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 6670,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15"
+    },
+    {
+      "archive_bytes": 0,
+      "archive_path": "attempts/v6/verilator_compile.stderr.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "label": "attempt_v6:verilator_compile.stderr.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/verilator_compile.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_bytes": 9900,
+      "archive_path": "attempts/v6/verilator_compile.stdout.log",
+      "archive_sha256": "e2ce09e6e90759b80eee58135617f3e33ccfb721558d6e15bee0a7c399e3aeba",
+      "encoding": "identity",
+      "label": "attempt_v6:verilator_compile.stdout.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 9900,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/verilator_compile.stdout.log",
+      "source_sha256": "e2ce09e6e90759b80eee58135617f3e33ccfb721558d6e15bee0a7c399e3aeba"
+    },
+    {
+      "archive_bytes": 0,
+      "archive_path": "attempts/v6/verilator_run.stderr.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "label": "attempt_v6:verilator_run.stderr.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/verilator_run.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_bytes": 374,
+      "archive_path": "attempts/v6/verilator_run.stdout.log",
+      "archive_sha256": "edd6a1e05a097a7ebf7bab9f027af46417c9b3b769c10f94108d7713330db57b",
+      "encoding": "identity",
+      "label": "attempt_v6:verilator_run.stdout.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 374,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/verilator_run.stdout.log",
+      "source_sha256": "edd6a1e05a097a7ebf7bab9f027af46417c9b3b769c10f94108d7713330db57b"
+    },
+    {
+      "archive_bytes": 1467,
+      "archive_path": "attempts/v7/launch.json",
+      "archive_sha256": "770600bfe842b5b2fcaa125d5b4473b152fa4f279e3b1e676ae90bb2d6fd469b",
+      "encoding": "identity",
+      "label": "attempt_v7:launch.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 1467,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/launch.json",
+      "source_sha256": "770600bfe842b5b2fcaa125d5b4473b152fa4f279e3b1e676ae90bb2d6fd469b"
+    },
+    {
+      "archive_bytes": 6463,
+      "archive_path": "attempts/v7/report.json",
+      "archive_sha256": "f3ee0db65c2ab2fc6208fe5d31cd400962952320175d3282ff5d4ab73e39b24b",
+      "encoding": "identity",
+      "label": "attempt_v7:report.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 6463,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/report.json",
+      "source_sha256": "f3ee0db65c2ab2fc6208fe5d31cd400962952320175d3282ff5d4ab73e39b24b"
+    },
+    {
+      "archive_bytes": 8010,
+      "archive_path": "attempts/v7/run_verilator.py",
+      "archive_sha256": "05c4a41f3eb0227551e30ae98a965f4a154a4f270622c5d46ef251151b695ff1",
+      "encoding": "identity",
+      "label": "attempt_v7:run_verilator.py",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 8010,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/run_verilator.py",
+      "source_sha256": "05c4a41f3eb0227551e30ae98a965f4a154a4f270622c5d46ef251151b695ff1"
+    },
+    {
+      "archive_bytes": 5556,
+      "archive_path": "attempts/v7/source/mig_7series_v4_2_fi_xor.v",
+      "archive_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "encoding": "identity",
+      "label": "attempt_v7:source/mig_7series_v4_2_fi_xor.v",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_bytes": 6670,
+      "archive_path": "attempts/v7/tests/tb_mig_fi_xor.sv",
+      "archive_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+      "encoding": "identity",
+      "label": "attempt_v7:tests/tb_mig_fi_xor.sv",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 6670,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15"
+    },
+    {
+      "archive_bytes": 0,
+      "archive_path": "attempts/v7/verilator_compile.stderr.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "label": "attempt_v7:verilator_compile.stderr.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/verilator_compile.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_bytes": 9900,
+      "archive_path": "attempts/v7/verilator_compile.stdout.log",
+      "archive_sha256": "cd08a483917898980914d7ee1ac32090b05d27de41adf01a45b5e63b4be06fcd",
+      "encoding": "identity",
+      "label": "attempt_v7:verilator_compile.stdout.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 9900,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/verilator_compile.stdout.log",
+      "source_sha256": "cd08a483917898980914d7ee1ac32090b05d27de41adf01a45b5e63b4be06fcd"
+    },
+    {
+      "archive_bytes": 0,
+      "archive_path": "attempts/v7/verilator_run.stderr.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "label": "attempt_v7:verilator_run.stderr.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/verilator_run.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_bytes": 374,
+      "archive_path": "attempts/v7/verilator_run.stdout.log",
+      "archive_sha256": "8d0d8c7a0ff4bd864d4a9384d77584e1d4afdb43806e69b246e59fcb77769904",
+      "encoding": "identity",
+      "label": "attempt_v7:verilator_run.stdout.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 374,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/verilator_run.stdout.log",
+      "source_sha256": "8d0d8c7a0ff4bd864d4a9384d77584e1d4afdb43806e69b246e59fcb77769904"
+    },
+    {
+      "archive_bytes": 168,
+      "archive_path": "attempts/v8/iverilog_compile.stderr.log",
+      "archive_sha256": "fab4657894721c4de9920e9fc3e9d90e9e270d031e10cc866de721bb66e6ac29",
+      "encoding": "identity",
+      "label": "attempt_v8:iverilog_compile.stderr.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 168,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/iverilog_compile.stderr.log",
+      "source_sha256": "fab4657894721c4de9920e9fc3e9d90e9e270d031e10cc866de721bb66e6ac29"
+    },
+    {
+      "archive_bytes": 0,
+      "archive_path": "attempts/v8/iverilog_compile.stdout.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "label": "attempt_v8:iverilog_compile.stdout.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/iverilog_compile.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_bytes": 1498,
+      "archive_path": "attempts/v8/launch.json",
+      "archive_sha256": "f14000b98985b5e472857737dc784a2ac1dae7b905bfac405911ce5f5c3f716b",
+      "encoding": "identity",
+      "label": "attempt_v8:launch.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 1498,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/launch.json",
+      "source_sha256": "f14000b98985b5e472857737dc784a2ac1dae7b905bfac405911ce5f5c3f716b"
+    },
+    {
+      "archive_bytes": 10198,
+      "archive_path": "attempts/v8/report.json",
+      "archive_sha256": "c0a014ec9d1b5058717cb1c782adbdb84cb48660650c4e6dee13bfa79ec49fdc",
+      "encoding": "identity",
+      "label": "attempt_v8:report.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 10198,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/report.json",
+      "source_sha256": "c0a014ec9d1b5058717cb1c782adbdb84cb48660650c4e6dee13bfa79ec49fdc"
+    },
+    {
+      "archive_bytes": 7997,
+      "archive_path": "attempts/v8/run_icarus_behavior.py",
+      "archive_sha256": "c3243e8728cb63f2d4a4a9485716b7ed3bc9cbde1ffc43183b2f75ac927aa4e8",
+      "encoding": "identity",
+      "label": "attempt_v8:run_icarus_behavior.py",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 7997,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/run_icarus_behavior.py",
+      "source_sha256": "c3243e8728cb63f2d4a4a9485716b7ed3bc9cbde1ffc43183b2f75ac927aa4e8"
+    },
+    {
+      "archive_bytes": 5556,
+      "archive_path": "attempts/v8/source/mig_7series_v4_2_fi_xor.v",
+      "archive_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "encoding": "identity",
+      "label": "attempt_v8:source/mig_7series_v4_2_fi_xor.v",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_bytes": 6670,
+      "archive_path": "attempts/v8/tests/tb_mig_fi_xor.sv",
+      "archive_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+      "encoding": "identity",
+      "label": "attempt_v8:tests/tb_mig_fi_xor.sv",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 6670,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15"
+    },
+    {
+      "archive_bytes": 0,
+      "archive_path": "attempts/v8/vvp_run.stderr.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "label": "attempt_v8:vvp_run.stderr.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/vvp_run.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_bytes": 200,
+      "archive_path": "attempts/v8/vvp_run.stdout.log",
+      "archive_sha256": "e91c067b1bc8d552f77b9201baba3eef664c1d9f725541f678ff490bb72835eb",
+      "encoding": "identity",
+      "label": "attempt_v8:vvp_run.stdout.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 200,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/vvp_run.stdout.log",
+      "source_sha256": "e91c067b1bc8d552f77b9201baba3eef664c1d9f725541f678ff490bb72835eb"
+    },
+    {
+      "archive_bytes": 168,
+      "archive_path": "attempts/v9/iverilog_compile.stderr.log",
+      "archive_sha256": "e9aab14696ca8a6c213bbd6f502a56a0f198a8d3ce0316215bea81a2cb93aa54",
+      "encoding": "identity",
+      "label": "attempt_v9:iverilog_compile.stderr.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 168,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/iverilog_compile.stderr.log",
+      "source_sha256": "e9aab14696ca8a6c213bbd6f502a56a0f198a8d3ce0316215bea81a2cb93aa54"
+    },
+    {
+      "archive_bytes": 0,
+      "archive_path": "attempts/v9/iverilog_compile.stdout.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "label": "attempt_v9:iverilog_compile.stdout.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/iverilog_compile.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_bytes": 1581,
+      "archive_path": "attempts/v9/launch.json",
+      "archive_sha256": "d8b6350c7a876a0cfc9f691184605a3c43c85450cdbd8181a8cf76210e6e21ce",
+      "encoding": "identity",
+      "label": "attempt_v9:launch.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 1581,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/launch.json",
+      "source_sha256": "d8b6350c7a876a0cfc9f691184605a3c43c85450cdbd8181a8cf76210e6e21ce"
+    },
+    {
+      "archive_bytes": 10198,
+      "archive_path": "attempts/v9/report.json",
+      "archive_sha256": "9f4765863cbebc61cb154a8d2555612d2db706b56cfd7d7719a95ea735a706f2",
+      "encoding": "identity",
+      "label": "attempt_v9:report.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 10198,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/report.json",
+      "source_sha256": "9f4765863cbebc61cb154a8d2555612d2db706b56cfd7d7719a95ea735a706f2"
+    },
+    {
+      "archive_bytes": 8010,
+      "archive_path": "attempts/v9/run_icarus_behavior.py",
+      "archive_sha256": "f08707501c36ff052b1a7ae37b55a55a62420de6c4d2b550662af1a5c16cec6c",
+      "encoding": "identity",
+      "label": "attempt_v9:run_icarus_behavior.py",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 8010,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/run_icarus_behavior.py",
+      "source_sha256": "f08707501c36ff052b1a7ae37b55a55a62420de6c4d2b550662af1a5c16cec6c"
+    },
+    {
+      "archive_bytes": 5556,
+      "archive_path": "attempts/v9/source/mig_7series_v4_2_fi_xor.v",
+      "archive_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "encoding": "identity",
+      "label": "attempt_v9:source/mig_7series_v4_2_fi_xor.v",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_bytes": 6670,
+      "archive_path": "attempts/v9/tests/tb_mig_fi_xor.sv",
+      "archive_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+      "encoding": "identity",
+      "label": "attempt_v9:tests/tb_mig_fi_xor.sv",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 6670,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15"
+    },
+    {
+      "archive_bytes": 0,
+      "archive_path": "attempts/v9/vvp_run.stderr.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "label": "attempt_v9:vvp_run.stderr.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/vvp_run.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_bytes": 200,
+      "archive_path": "attempts/v9/vvp_run.stdout.log",
+      "archive_sha256": "65686496d34769dda35391291750709df743b729e0b55aeffdf9443cda05d3b9",
+      "encoding": "identity",
+      "label": "attempt_v9:vvp_run.stdout.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 200,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/vvp_run.stdout.log",
+      "source_sha256": "65686496d34769dda35391291750709df743b729e0b55aeffdf9443cda05d3b9"
+    },
+    {
+      "archive_bytes": 169,
+      "archive_path": "attempts/v10/iverilog_compile.stderr.log",
+      "archive_sha256": "5252ac0762efcbad09478caa3b3dfc2a06b56dc1edf4237ed55f494f39faf16f",
+      "encoding": "identity",
+      "label": "attempt_v10:iverilog_compile.stderr.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 169,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/iverilog_compile.stderr.log",
+      "source_sha256": "5252ac0762efcbad09478caa3b3dfc2a06b56dc1edf4237ed55f494f39faf16f"
+    },
+    {
+      "archive_bytes": 0,
+      "archive_path": "attempts/v10/iverilog_compile.stdout.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "label": "attempt_v10:iverilog_compile.stdout.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/iverilog_compile.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_bytes": 1682,
+      "archive_path": "attempts/v10/launch.json",
+      "archive_sha256": "9baea65c7dc821c8a1729e693042ee7e5e72e8d7457f391c80359cac5fd9040f",
+      "encoding": "identity",
+      "label": "attempt_v10:launch.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 1682,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/launch.json",
+      "source_sha256": "9baea65c7dc821c8a1729e693042ee7e5e72e8d7457f391c80359cac5fd9040f"
+    },
+    {
+      "archive_bytes": 10211,
+      "archive_path": "attempts/v10/report.json",
+      "archive_sha256": "b4e7ba4c1872d855992ebbb96116518309401e7a71bc06973cfcc355be864310",
+      "encoding": "identity",
+      "label": "attempt_v10:report.json",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 10211,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/report.json",
+      "source_sha256": "b4e7ba4c1872d855992ebbb96116518309401e7a71bc06973cfcc355be864310"
+    },
+    {
+      "archive_bytes": 8010,
+      "archive_path": "attempts/v10/run_icarus_behavior.py",
+      "archive_sha256": "f08707501c36ff052b1a7ae37b55a55a62420de6c4d2b550662af1a5c16cec6c",
+      "encoding": "identity",
+      "label": "attempt_v10:run_icarus_behavior.py",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 8010,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/run_icarus_behavior.py",
+      "source_sha256": "f08707501c36ff052b1a7ae37b55a55a62420de6c4d2b550662af1a5c16cec6c"
+    },
+    {
+      "archive_bytes": 5556,
+      "archive_path": "attempts/v10/source/mig_7series_v4_2_fi_xor.v",
+      "archive_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "encoding": "identity",
+      "label": "attempt_v10:source/mig_7series_v4_2_fi_xor.v",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_bytes": 6670,
+      "archive_path": "attempts/v10/tests/tb_mig_fi_xor.sv",
+      "archive_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+      "encoding": "identity",
+      "label": "attempt_v10:tests/tb_mig_fi_xor.sv",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 6670,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15"
+    },
+    {
+      "archive_bytes": 0,
+      "archive_path": "attempts/v10/vvp_run.stderr.log",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "identity",
+      "label": "attempt_v10:vvp_run.stderr.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/vvp_run.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_bytes": 201,
+      "archive_path": "attempts/v10/vvp_run.stdout.log",
+      "archive_sha256": "0a0ddb173bb66a84c506c9a202a34fac54dcc36c141b3f8d2b358fde37348f82",
+      "encoding": "identity",
+      "label": "attempt_v10:vvp_run.stdout.log",
+      "role": "attempt source/report/runner/log/history",
+      "source_bytes": 201,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/vvp_run.stdout.log",
+      "source_sha256": "0a0ddb173bb66a84c506c9a202a34fac54dcc36c141b3f8d2b358fde37348f82"
+    },
+    {
+      "archive_bytes": 3877,
+      "archive_path": "evidence/build/ddr-ecc-fi-leaf-root-review-v1.json",
+      "archive_sha256": "aa31aab813e47982c747ac2405199c549f0a64ce4fc7a660c4eeb881e2c1fa2d",
+      "encoding": "identity",
+      "label": "review:root-review",
+      "role": "root reviewed source evidence",
+      "source_bytes": 3877,
+      "source_path": "build/ddr-ecc-fi-leaf-root-review-v1.json",
+      "source_sha256": "aa31aab813e47982c747ac2405199c549f0a64ce4fc7a660c4eeb881e2c1fa2d"
+    },
+    {
+      "archive_bytes": 4559,
+      "archive_path": "evidence/build/ddr-ecc-fi-leaf-root-review-v1.py",
+      "archive_sha256": "698e730a7bc19c4c8983b16205ddfe38f3a778a244885b6c5da63fa28be34670",
+      "encoding": "identity",
+      "label": "review:root-reviewer",
+      "role": "root reviewed source evidence",
+      "source_bytes": 4559,
+      "source_path": "build/ddr-ecc-fi-leaf-root-review-v1.py",
+      "source_sha256": "698e730a7bc19c4c8983b16205ddfe38f3a778a244885b6c5da63fa28be34670"
+    },
+    {
+      "archive_bytes": 6914,
+      "archive_path": "evidence/build/full512-ddr-preparation/ecc-injection-contract-source-review-v1.json",
+      "archive_sha256": "c14c485b0a9ce34dbcef4a6e6fdca69952df672620a180428f962009f166b03a",
+      "encoding": "identity",
+      "label": "review:ecc-source-review",
+      "role": "root reviewed source evidence",
+      "source_bytes": 6914,
+      "source_path": "build/full512-ddr-preparation/ecc-injection-contract-source-review-v1.json",
+      "source_sha256": "c14c485b0a9ce34dbcef4a6e6fdca69952df672620a180428f962009f166b03a"
+    },
+    {
+      "archive_bytes": 4836,
+      "archive_path": "evidence/build/full512-ddr-preparation/ecc-injection-contract-source-review-v1.py",
+      "archive_sha256": "ee64c09c478eba0552d53d4dfef3ae87601ce755ba3cfe58e65d816d766b7fda",
+      "encoding": "identity",
+      "label": "review:ecc-source-reviewer",
+      "role": "root reviewed source evidence",
+      "source_bytes": 4836,
+      "source_path": "build/full512-ddr-preparation/ecc-injection-contract-source-review-v1.py",
+      "source_sha256": "ee64c09c478eba0552d53d4dfef3ae87601ce755ba3cfe58e65d816d766b7fda"
+    },
+    {
+      "archive_bytes": 5556,
+      "archive_path": "evidence/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v",
+      "archive_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "encoding": "identity",
+      "label": "review:selected-leaf",
+      "role": "root reviewed source evidence",
+      "source_bytes": 5556,
+      "source_path": "build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_bytes": 21939,
+      "archive_path": "evidence/build/full512-ddr-preparation/shared-data-constrained-prep-v4/preparation.json.gz",
+      "archive_sha256": "064fddd011b3c4055783800f83f472e97660dd8232a30a20b367c62e7d43d798",
+      "encoding": "gzip-mtime0-level9",
+      "label": "review:strict-source-preparation",
+      "role": "root reviewed source evidence",
+      "source_bytes": 97304,
+      "source_path": "build/full512-ddr-preparation/shared-data-constrained-prep-v4/preparation.json",
+      "source_sha256": "71fe220dfe1ac59327ead8576f799edccd2af36dae493013f8e09ca3d102d96b"
+    }
+  ],
+  "ecc_injection_source_review_sha256": "c14c485b0a9ce34dbcef4a6e6fdca69952df672620a180428f962009f166b03a",
+  "ecc_injection_source_review_status": "SOURCE_REVIEW_ONLY_NOT_INJECTION_QUALIFICATION",
+  "encoding_policy": "Text payloads larger than 16KiB use deterministic gzip level9/mtime0; smaller text identity. Compiled simulator/object/tool binaries excluded by SHA/reason.",
+  "file_count": 84,
+  "files": [
+    {
+      "archive_path": "attempts/v1/launch.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v1 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 2241,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v1/launch.json",
+      "source_sha256": "cf8e7a24857615108b03ac8be3b9ad6975a24a6da8d6b3e3d87b15d4a9871a09",
+      "stored_bytes": 2241,
+      "stored_sha256": "cf8e7a24857615108b03ac8be3b9ad6975a24a6da8d6b3e3d87b15d4a9871a09"
+    },
+    {
+      "archive_path": "attempts/v1/report.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v1 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 1859,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v1/report.json",
+      "source_sha256": "7ed459512507c9ea9802f5d0cae73a0d367133959d58164a3f6ca538c9b17d3a",
+      "stored_bytes": 1859,
+      "stored_sha256": "7ed459512507c9ea9802f5d0cae73a0d367133959d58164a3f6ca538c9b17d3a"
+    },
+    {
+      "archive_path": "attempts/v1/run_validation.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v1 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 9556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v1/run_validation.py",
+      "source_sha256": "e0e13c7f44cc0770c1fddcdd4ce77b3f1ca8e14fa7652a5d6db16443ea3ab911",
+      "stored_bytes": 9556,
+      "stored_sha256": "e0e13c7f44cc0770c1fddcdd4ce77b3f1ca8e14fa7652a5d6db16443ea3ab911"
+    },
+    {
+      "archive_path": "attempts/v1/source/mig_7series_v4_2_fi_xor.v",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v1 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v1/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "stored_bytes": 5556,
+      "stored_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_path": "attempts/v1/tests/tb_mig_fi_xor.sv",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v1 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 6653,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v1/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+      "stored_bytes": 6653,
+      "stored_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb"
+    },
+    {
+      "archive_path": "attempts/v10/iverilog_compile.stderr.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v10 source/report/launch/native-text artifact",
+        "actual V10 iverilog_compile native output"
+      ],
+      "source_bytes": 169,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/iverilog_compile.stderr.log",
+      "source_sha256": "5252ac0762efcbad09478caa3b3dfc2a06b56dc1edf4237ed55f494f39faf16f",
+      "stored_bytes": 169,
+      "stored_sha256": "5252ac0762efcbad09478caa3b3dfc2a06b56dc1edf4237ed55f494f39faf16f"
+    },
+    {
+      "archive_path": "attempts/v10/iverilog_compile.stdout.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v10 source/report/launch/native-text artifact",
+        "actual V10 iverilog_compile native output"
+      ],
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/iverilog_compile.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "attempts/v10/launch.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v10 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 1682,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/launch.json",
+      "source_sha256": "9baea65c7dc821c8a1729e693042ee7e5e72e8d7457f391c80359cac5fd9040f",
+      "stored_bytes": 1682,
+      "stored_sha256": "9baea65c7dc821c8a1729e693042ee7e5e72e8d7457f391c80359cac5fd9040f"
+    },
+    {
+      "archive_path": "attempts/v10/report.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v10 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 10211,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/report.json",
+      "source_sha256": "b4e7ba4c1872d855992ebbb96116518309401e7a71bc06973cfcc355be864310",
+      "stored_bytes": 10211,
+      "stored_sha256": "b4e7ba4c1872d855992ebbb96116518309401e7a71bc06973cfcc355be864310"
+    },
+    {
+      "archive_path": "attempts/v10/run_icarus_behavior.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v10 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 8010,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/run_icarus_behavior.py",
+      "source_sha256": "f08707501c36ff052b1a7ae37b55a55a62420de6c4d2b550662af1a5c16cec6c",
+      "stored_bytes": 8010,
+      "stored_sha256": "f08707501c36ff052b1a7ae37b55a55a62420de6c4d2b550662af1a5c16cec6c"
+    },
+    {
+      "archive_path": "attempts/v10/source/mig_7series_v4_2_fi_xor.v",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v10 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "stored_bytes": 5556,
+      "stored_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_path": "attempts/v10/tests/tb_mig_fi_xor.sv",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v10 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 6670,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+      "stored_bytes": 6670,
+      "stored_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15"
+    },
+    {
+      "archive_path": "attempts/v10/vvp_run.stderr.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v10 source/report/launch/native-text artifact",
+        "actual V10 vvp_run native output"
+      ],
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/vvp_run.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "attempts/v10/vvp_run.stdout.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v10 source/report/launch/native-text artifact",
+        "actual V10 vvp_run native output"
+      ],
+      "source_bytes": 201,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/vvp_run.stdout.log",
+      "source_sha256": "0a0ddb173bb66a84c506c9a202a34fac54dcc36c141b3f8d2b358fde37348f82",
+      "stored_bytes": 201,
+      "stored_sha256": "0a0ddb173bb66a84c506c9a202a34fac54dcc36c141b3f8d2b358fde37348f82"
+    },
+    {
+      "archive_path": "attempts/v2/launch.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v2 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 2331,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v2/launch.json",
+      "source_sha256": "6d702578d19604874ee521b9cd30cf40c7abe6fca2c44822ccc5e59c0597675c",
+      "stored_bytes": 2331,
+      "stored_sha256": "6d702578d19604874ee521b9cd30cf40c7abe6fca2c44822ccc5e59c0597675c"
+    },
+    {
+      "archive_path": "attempts/v2/report.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v2 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 7800,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v2/report.json",
+      "source_sha256": "21171428eea7816147e944a07ea64ab4b6e0d88a07c20b4f4ee5c28df62b43be",
+      "stored_bytes": 7800,
+      "stored_sha256": "21171428eea7816147e944a07ea64ab4b6e0d88a07c20b4f4ee5c28df62b43be"
+    },
+    {
+      "archive_path": "attempts/v2/run_validation.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v2 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 10198,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v2/run_validation.py",
+      "source_sha256": "0448795878c23e90edd01524d2021b6a641a8749919c8745f04489295d7987ee",
+      "stored_bytes": 10198,
+      "stored_sha256": "0448795878c23e90edd01524d2021b6a641a8749919c8745f04489295d7987ee"
+    },
+    {
+      "archive_path": "attempts/v2/source/mig_7series_v4_2_fi_xor.v",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v2 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v2/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "stored_bytes": 5556,
+      "stored_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_path": "attempts/v2/tests/tb_mig_fi_xor.sv",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v2 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 6653,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v2/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+      "stored_bytes": 6653,
+      "stored_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb"
+    },
+    {
+      "archive_path": "attempts/v3/iverilog_compile.stderr.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v3 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 168,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/iverilog_compile.stderr.log",
+      "source_sha256": "b7303237beacbcaf79a4da33c73cb4708e05e7674c0130d37bed172674018447",
+      "stored_bytes": 168,
+      "stored_sha256": "b7303237beacbcaf79a4da33c73cb4708e05e7674c0130d37bed172674018447"
+    },
+    {
+      "archive_path": "attempts/v3/iverilog_compile.stdout.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v3 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/iverilog_compile.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "attempts/v3/launch.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v3 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 2362,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/launch.json",
+      "source_sha256": "b859bfe1d54753a2d333b6edba7223d1b5fac5cc5bf5f6593b7785f48d8c29d4",
+      "stored_bytes": 2362,
+      "stored_sha256": "b859bfe1d54753a2d333b6edba7223d1b5fac5cc5bf5f6593b7785f48d8c29d4"
+    },
+    {
+      "archive_path": "attempts/v3/report.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v3 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 9742,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/report.json",
+      "source_sha256": "111ff051e7e6718f17a1f870ae52597ba31f109d4a0a88aaa03313d670aaebbb",
+      "stored_bytes": 9742,
+      "stored_sha256": "111ff051e7e6718f17a1f870ae52597ba31f109d4a0a88aaa03313d670aaebbb"
+    },
+    {
+      "archive_path": "attempts/v3/run_validation.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v3 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 10226,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/run_validation.py",
+      "source_sha256": "f48349cd6847934fffc60007da3a1d351dbca7567c057c5846be586b0b3c2f25",
+      "stored_bytes": 10226,
+      "stored_sha256": "f48349cd6847934fffc60007da3a1d351dbca7567c057c5846be586b0b3c2f25"
+    },
+    {
+      "archive_path": "attempts/v3/source/mig_7series_v4_2_fi_xor.v",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v3 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "stored_bytes": 5556,
+      "stored_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_path": "attempts/v3/tests/tb_mig_fi_xor.sv",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v3 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 6653,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+      "stored_bytes": 6653,
+      "stored_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb"
+    },
+    {
+      "archive_path": "attempts/v4/launch.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v4 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 1925,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v4/launch.json",
+      "source_sha256": "331223f92cc67a924a1ebbdfb106e6c34a158ef8e92331d2321302b7416abbaa",
+      "stored_bytes": 1925,
+      "stored_sha256": "331223f92cc67a924a1ebbdfb106e6c34a158ef8e92331d2321302b7416abbaa"
+    },
+    {
+      "archive_path": "attempts/v4/run_verilator.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v4 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 7550,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v4/run_verilator.py",
+      "source_sha256": "3d6ad518490d0f6fac7d7efdfe1a493793fe266716a0ba4e28fde9f0db2ad343",
+      "stored_bytes": 7550,
+      "stored_sha256": "3d6ad518490d0f6fac7d7efdfe1a493793fe266716a0ba4e28fde9f0db2ad343"
+    },
+    {
+      "archive_path": "attempts/v4/source/mig_7series_v4_2_fi_xor.v",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v4 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v4/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "stored_bytes": 5556,
+      "stored_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_path": "attempts/v4/tests/tb_mig_fi_xor.sv",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v4 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 6653,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v4/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+      "stored_bytes": 6653,
+      "stored_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb"
+    },
+    {
+      "archive_path": "attempts/v5/launch.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v5 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 1339,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/launch.json",
+      "source_sha256": "ced169599643dc862a8ec7d1a3f130c13d8534f02aeeefaf7775182d9fba5ec5",
+      "stored_bytes": 1339,
+      "stored_sha256": "ced169599643dc862a8ec7d1a3f130c13d8534f02aeeefaf7775182d9fba5ec5"
+    },
+    {
+      "archive_path": "attempts/v5/report.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v5 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 4613,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/report.json",
+      "source_sha256": "92b1e76d73d4b08fc4dc9e56d4ff5ae5d7498d91c51e45c4c4c6930bd57f6283",
+      "stored_bytes": 4613,
+      "stored_sha256": "92b1e76d73d4b08fc4dc9e56d4ff5ae5d7498d91c51e45c4c4c6930bd57f6283"
+    },
+    {
+      "archive_path": "attempts/v5/run_verilator.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v5 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 7613,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/run_verilator.py",
+      "source_sha256": "39e0e4b132c6f76c4fad123d7d2bffca6ea1877c0ed8796d3b5cd4534f2cb386",
+      "stored_bytes": 7613,
+      "stored_sha256": "39e0e4b132c6f76c4fad123d7d2bffca6ea1877c0ed8796d3b5cd4534f2cb386"
+    },
+    {
+      "archive_path": "attempts/v5/source/mig_7series_v4_2_fi_xor.v",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v5 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "stored_bytes": 5556,
+      "stored_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_path": "attempts/v5/tests/tb_mig_fi_xor.sv",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v5 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 6653,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+      "stored_bytes": 6653,
+      "stored_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb"
+    },
+    {
+      "archive_path": "attempts/v5/verilator_compile.stderr.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v5 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 1179,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/verilator_compile.stderr.log",
+      "source_sha256": "b2cb40370c0fdd4eff05d8561782d00f2f332bc29e25646e3d0ff45d4a69dabd",
+      "stored_bytes": 1179,
+      "stored_sha256": "b2cb40370c0fdd4eff05d8561782d00f2f332bc29e25646e3d0ff45d4a69dabd"
+    },
+    {
+      "archive_path": "attempts/v5/verilator_compile.stdout.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v5 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/verilator_compile.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "attempts/v6/launch.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v6 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 1681,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/launch.json",
+      "source_sha256": "13f46accc306d8d06b85f034b2034de6c017d203576d36c63f1e7720df80fc86",
+      "stored_bytes": 1681,
+      "stored_sha256": "13f46accc306d8d06b85f034b2034de6c017d203576d36c63f1e7720df80fc86"
+    },
+    {
+      "archive_path": "attempts/v6/report.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v6 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 6196,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/report.json",
+      "source_sha256": "a6e148801164620e1f0f506d9ea53652109f0fee17ecc4c14574c1d3344606f1",
+      "stored_bytes": 6196,
+      "stored_sha256": "a6e148801164620e1f0f506d9ea53652109f0fee17ecc4c14574c1d3344606f1"
+    },
+    {
+      "archive_path": "attempts/v6/run_verilator.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v6 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 7613,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/run_verilator.py",
+      "source_sha256": "39e0e4b132c6f76c4fad123d7d2bffca6ea1877c0ed8796d3b5cd4534f2cb386",
+      "stored_bytes": 7613,
+      "stored_sha256": "39e0e4b132c6f76c4fad123d7d2bffca6ea1877c0ed8796d3b5cd4534f2cb386"
+    },
+    {
+      "archive_path": "attempts/v6/source/mig_7series_v4_2_fi_xor.v",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v6 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "stored_bytes": 5556,
+      "stored_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_path": "attempts/v6/tests/tb_mig_fi_xor.sv",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v6 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 6670,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+      "stored_bytes": 6670,
+      "stored_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15"
+    },
+    {
+      "archive_path": "attempts/v6/verilator_compile.stderr.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v6 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/verilator_compile.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "attempts/v6/verilator_compile.stdout.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v6 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 9900,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/verilator_compile.stdout.log",
+      "source_sha256": "e2ce09e6e90759b80eee58135617f3e33ccfb721558d6e15bee0a7c399e3aeba",
+      "stored_bytes": 9900,
+      "stored_sha256": "e2ce09e6e90759b80eee58135617f3e33ccfb721558d6e15bee0a7c399e3aeba"
+    },
+    {
+      "archive_path": "attempts/v6/verilator_run.stderr.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v6 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/verilator_run.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "attempts/v6/verilator_run.stdout.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v6 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 374,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/verilator_run.stdout.log",
+      "source_sha256": "edd6a1e05a097a7ebf7bab9f027af46417c9b3b769c10f94108d7713330db57b",
+      "stored_bytes": 374,
+      "stored_sha256": "edd6a1e05a097a7ebf7bab9f027af46417c9b3b769c10f94108d7713330db57b"
+    },
+    {
+      "archive_path": "attempts/v7/launch.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v7 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 1467,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/launch.json",
+      "source_sha256": "770600bfe842b5b2fcaa125d5b4473b152fa4f279e3b1e676ae90bb2d6fd469b",
+      "stored_bytes": 1467,
+      "stored_sha256": "770600bfe842b5b2fcaa125d5b4473b152fa4f279e3b1e676ae90bb2d6fd469b"
+    },
+    {
+      "archive_path": "attempts/v7/report.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v7 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 6463,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/report.json",
+      "source_sha256": "f3ee0db65c2ab2fc6208fe5d31cd400962952320175d3282ff5d4ab73e39b24b",
+      "stored_bytes": 6463,
+      "stored_sha256": "f3ee0db65c2ab2fc6208fe5d31cd400962952320175d3282ff5d4ab73e39b24b"
+    },
+    {
+      "archive_path": "attempts/v7/run_verilator.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v7 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 8010,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/run_verilator.py",
+      "source_sha256": "05c4a41f3eb0227551e30ae98a965f4a154a4f270622c5d46ef251151b695ff1",
+      "stored_bytes": 8010,
+      "stored_sha256": "05c4a41f3eb0227551e30ae98a965f4a154a4f270622c5d46ef251151b695ff1"
+    },
+    {
+      "archive_path": "attempts/v7/source/mig_7series_v4_2_fi_xor.v",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v7 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "stored_bytes": 5556,
+      "stored_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_path": "attempts/v7/tests/tb_mig_fi_xor.sv",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v7 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 6670,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+      "stored_bytes": 6670,
+      "stored_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15"
+    },
+    {
+      "archive_path": "attempts/v7/verilator_compile.stderr.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v7 source/report/launch/native-text artifact",
+        "actual V7 verilator_compile native output"
+      ],
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/verilator_compile.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "attempts/v7/verilator_compile.stdout.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v7 source/report/launch/native-text artifact",
+        "actual V7 verilator_compile native output"
+      ],
+      "source_bytes": 9900,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/verilator_compile.stdout.log",
+      "source_sha256": "cd08a483917898980914d7ee1ac32090b05d27de41adf01a45b5e63b4be06fcd",
+      "stored_bytes": 9900,
+      "stored_sha256": "cd08a483917898980914d7ee1ac32090b05d27de41adf01a45b5e63b4be06fcd"
+    },
+    {
+      "archive_path": "attempts/v7/verilator_run.stderr.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v7 source/report/launch/native-text artifact",
+        "actual V7 verilator_run native output"
+      ],
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/verilator_run.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "attempts/v7/verilator_run.stdout.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v7 source/report/launch/native-text artifact",
+        "actual V7 verilator_run native output"
+      ],
+      "source_bytes": 374,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/verilator_run.stdout.log",
+      "source_sha256": "8d0d8c7a0ff4bd864d4a9384d77584e1d4afdb43806e69b246e59fcb77769904",
+      "stored_bytes": 374,
+      "stored_sha256": "8d0d8c7a0ff4bd864d4a9384d77584e1d4afdb43806e69b246e59fcb77769904"
+    },
+    {
+      "archive_path": "attempts/v8/iverilog_compile.stderr.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v8 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 168,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/iverilog_compile.stderr.log",
+      "source_sha256": "fab4657894721c4de9920e9fc3e9d90e9e270d031e10cc866de721bb66e6ac29",
+      "stored_bytes": 168,
+      "stored_sha256": "fab4657894721c4de9920e9fc3e9d90e9e270d031e10cc866de721bb66e6ac29"
+    },
+    {
+      "archive_path": "attempts/v8/iverilog_compile.stdout.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v8 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/iverilog_compile.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "attempts/v8/launch.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v8 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 1498,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/launch.json",
+      "source_sha256": "f14000b98985b5e472857737dc784a2ac1dae7b905bfac405911ce5f5c3f716b",
+      "stored_bytes": 1498,
+      "stored_sha256": "f14000b98985b5e472857737dc784a2ac1dae7b905bfac405911ce5f5c3f716b"
+    },
+    {
+      "archive_path": "attempts/v8/report.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v8 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 10198,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/report.json",
+      "source_sha256": "c0a014ec9d1b5058717cb1c782adbdb84cb48660650c4e6dee13bfa79ec49fdc",
+      "stored_bytes": 10198,
+      "stored_sha256": "c0a014ec9d1b5058717cb1c782adbdb84cb48660650c4e6dee13bfa79ec49fdc"
+    },
+    {
+      "archive_path": "attempts/v8/run_icarus_behavior.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v8 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 7997,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/run_icarus_behavior.py",
+      "source_sha256": "c3243e8728cb63f2d4a4a9485716b7ed3bc9cbde1ffc43183b2f75ac927aa4e8",
+      "stored_bytes": 7997,
+      "stored_sha256": "c3243e8728cb63f2d4a4a9485716b7ed3bc9cbde1ffc43183b2f75ac927aa4e8"
+    },
+    {
+      "archive_path": "attempts/v8/source/mig_7series_v4_2_fi_xor.v",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v8 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "stored_bytes": 5556,
+      "stored_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_path": "attempts/v8/tests/tb_mig_fi_xor.sv",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v8 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 6670,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+      "stored_bytes": 6670,
+      "stored_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15"
+    },
+    {
+      "archive_path": "attempts/v8/vvp_run.stderr.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v8 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/vvp_run.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "attempts/v8/vvp_run.stdout.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v8 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 200,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/vvp_run.stdout.log",
+      "source_sha256": "e91c067b1bc8d552f77b9201baba3eef664c1d9f725541f678ff490bb72835eb",
+      "stored_bytes": 200,
+      "stored_sha256": "e91c067b1bc8d552f77b9201baba3eef664c1d9f725541f678ff490bb72835eb"
+    },
+    {
+      "archive_path": "attempts/v9/iverilog_compile.stderr.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v9 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 168,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/iverilog_compile.stderr.log",
+      "source_sha256": "e9aab14696ca8a6c213bbd6f502a56a0f198a8d3ce0316215bea81a2cb93aa54",
+      "stored_bytes": 168,
+      "stored_sha256": "e9aab14696ca8a6c213bbd6f502a56a0f198a8d3ce0316215bea81a2cb93aa54"
+    },
+    {
+      "archive_path": "attempts/v9/iverilog_compile.stdout.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v9 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/iverilog_compile.stdout.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "attempts/v9/launch.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v9 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 1581,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/launch.json",
+      "source_sha256": "d8b6350c7a876a0cfc9f691184605a3c43c85450cdbd8181a8cf76210e6e21ce",
+      "stored_bytes": 1581,
+      "stored_sha256": "d8b6350c7a876a0cfc9f691184605a3c43c85450cdbd8181a8cf76210e6e21ce"
+    },
+    {
+      "archive_path": "attempts/v9/report.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v9 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 10198,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/report.json",
+      "source_sha256": "9f4765863cbebc61cb154a8d2555612d2db706b56cfd7d7719a95ea735a706f2",
+      "stored_bytes": 10198,
+      "stored_sha256": "9f4765863cbebc61cb154a8d2555612d2db706b56cfd7d7719a95ea735a706f2"
+    },
+    {
+      "archive_path": "attempts/v9/run_icarus_behavior.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v9 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 8010,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/run_icarus_behavior.py",
+      "source_sha256": "f08707501c36ff052b1a7ae37b55a55a62420de6c4d2b550662af1a5c16cec6c",
+      "stored_bytes": 8010,
+      "stored_sha256": "f08707501c36ff052b1a7ae37b55a55a62420de6c4d2b550662af1a5c16cec6c"
+    },
+    {
+      "archive_path": "attempts/v9/source/mig_7series_v4_2_fi_xor.v",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v9 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 5556,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/source/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "stored_bytes": 5556,
+      "stored_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_path": "attempts/v9/tests/tb_mig_fi_xor.sv",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v9 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 6670,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/tests/tb_mig_fi_xor.sv",
+      "source_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+      "stored_bytes": 6670,
+      "stored_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15"
+    },
+    {
+      "archive_path": "attempts/v9/vvp_run.stderr.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v9 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 0,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/vvp_run.stderr.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "attempts/v9/vvp_run.stdout.log",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "private v9 source/report/launch/native-text artifact"
+      ],
+      "source_bytes": 200,
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/vvp_run.stdout.log",
+      "source_sha256": "65686496d34769dda35391291750709df743b729e0b55aeffdf9443cda05d3b9",
+      "stored_bytes": 200,
+      "stored_sha256": "65686496d34769dda35391291750709df743b729e0b55aeffdf9443cda05d3b9"
+    },
+    {
+      "archive_path": "evidence/build/ddr-ecc-fi-leaf-root-review-v1.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "root independent native FI leaf behavior review; failed V10 producer status is preserved"
+      ],
+      "source_bytes": 3877,
+      "source_path": "build/ddr-ecc-fi-leaf-root-review-v1.json",
+      "source_sha256": "aa31aab813e47982c747ac2405199c549f0a64ce4fc7a660c4eeb881e2c1fa2d",
+      "stored_bytes": 3877,
+      "stored_sha256": "aa31aab813e47982c747ac2405199c549f0a64ce4fc7a660c4eeb881e2c1fa2d"
+    },
+    {
+      "archive_path": "evidence/build/ddr-ecc-fi-leaf-root-review-v1.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "root independent FI leaf review implementation"
+      ],
+      "source_bytes": 4559,
+      "source_path": "build/ddr-ecc-fi-leaf-root-review-v1.py",
+      "source_sha256": "698e730a7bc19c4c8983b16205ddfe38f3a778a244885b6c5da63fa28be34670",
+      "stored_bytes": 4559,
+      "stored_sha256": "698e730a7bc19c4c8983b16205ddfe38f3a778a244885b6c5da63fa28be34670"
+    },
+    {
+      "archive_path": "evidence/build/ddr-ecc-fi-leaf-sim-archive-v1/packer-global-bindings.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "stdlib symtable global-binding check receipt"
+      ],
+      "source_bytes": 246,
+      "source_path": "build/ddr-ecc-fi-leaf-sim-archive-v1/packer-global-bindings.json",
+      "source_sha256": "5495d1b1198c204c40ff84ca136017cf105cf763fed95d18fa7a5a92e1e444db",
+      "stored_bytes": 246,
+      "stored_sha256": "5495d1b1198c204c40ff84ca136017cf105cf763fed95d18fa7a5a92e1e444db"
+    },
+    {
+      "archive_path": "evidence/build/ddr-ecc-fi-leaf-sim-archive-v1/v4-launch-observation.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "v4 observed runner failure note; not a native producer receipt"
+      ],
+      "source_bytes": 1390,
+      "source_path": "build/ddr-ecc-fi-leaf-sim-archive-v1/v4-launch-observation.json",
+      "source_sha256": "706bc19a22f223e5daccbc86dbdd54d6c3862fe01b0e7f937c314eca844b74cd",
+      "stored_bytes": 1390,
+      "stored_sha256": "706bc19a22f223e5daccbc86dbdd54d6c3862fe01b0e7f937c314eca844b74cd"
+    },
+    {
+      "archive_path": "evidence/build/full512-ddr-preparation/ecc-injection-contract-source-review-v1.json",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "source-only ECC injection/recovery obligations review; not qualification"
+      ],
+      "source_bytes": 6914,
+      "source_path": "build/full512-ddr-preparation/ecc-injection-contract-source-review-v1.json",
+      "source_sha256": "c14c485b0a9ce34dbcef4a6e6fdca69952df672620a180428f962009f166b03a",
+      "stored_bytes": 6914,
+      "stored_sha256": "c14c485b0a9ce34dbcef4a6e6fdca69952df672620a180428f962009f166b03a"
+    },
+    {
+      "archive_path": "evidence/build/full512-ddr-preparation/ecc-injection-contract-source-review-v1.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "source-only ECC obligations reviewer implementation"
+      ],
+      "source_bytes": 4836,
+      "source_path": "build/full512-ddr-preparation/ecc-injection-contract-source-review-v1.py",
+      "source_sha256": "ee64c09c478eba0552d53d4dfef3ae87601ce755ba3cfe58e65d816d766b7fda",
+      "stored_bytes": 4836,
+      "stored_sha256": "ee64c09c478eba0552d53d4dfef3ae87601ce755ba3cfe58e65d816d766b7fda"
+    },
+    {
+      "archive_path": "evidence/build/full512-ddr-preparation/shared-data-constrained-prep-v4/preparation.json.gz",
+      "encoding": "gzip-mtime0-level9",
+      "kind": "text",
+      "roles": [
+        "160-file frozen strict route source-preparation manifest"
+      ],
+      "source_bytes": 97304,
+      "source_path": "build/full512-ddr-preparation/shared-data-constrained-prep-v4/preparation.json",
+      "source_sha256": "71fe220dfe1ac59327ead8576f799edccd2af36dae493013f8e09ca3d102d96b",
+      "stored_bytes": 21939,
+      "stored_sha256": "064fddd011b3c4055783800f83f472e97660dd8232a30a20b367c62e7d43d798"
+    },
+    {
+      "archive_path": "evidence/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "actual selected vendor FI_XOR source; exact frozen source leaf"
+      ],
+      "source_bytes": 5556,
+      "source_path": "build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v",
+      "source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "stored_bytes": 5556,
+      "stored_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    {
+      "archive_path": "evidence/prepare_archive.py.gz",
+      "encoding": "gzip-mtime0-level9",
+      "kind": "text",
+      "roles": [
+        "archive packer implementation"
+      ],
+      "source_bytes": 20041,
+      "source_path": "build/ddr-ecc-fi-leaf-sim-archive-v1/prepare_archive.py",
+      "source_sha256": "9d697c48f67e9b6b3cf041173f24d7c0eb3d1637dc6d1b065fb5e49d898b1c20",
+      "stored_bytes": 6821,
+      "stored_sha256": "7077d700ac2be7315d901cf032065752c2c030a9c1c68395f47ab4e6f91f0b27"
+    },
+    {
+      "archive_path": "evidence/run_archive.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "archive run wrapper source",
+        "archive runner source"
+      ],
+      "source_bytes": 2459,
+      "source_path": "build/ddr-ecc-fi-leaf-sim-archive-v1/run_archive.py",
+      "source_sha256": "1f8c7fa142e8e76153c8cf078352e05db51947be227a368ccac509b78d58a1ff",
+      "stored_bytes": 2459,
+      "stored_sha256": "1f8c7fa142e8e76153c8cf078352e05db51947be227a368ccac509b78d58a1ff"
+    },
+    {
+      "archive_path": "evidence/verify_archive.py",
+      "encoding": "identity",
+      "kind": "text",
+      "roles": [
+        "independent archive verifier source"
+      ],
+      "source_bytes": 4932,
+      "source_path": "build/ddr-ecc-fi-leaf-sim-archive-v1/verify_archive.py",
+      "source_sha256": "515646a875fdbb5ec85f618e7239c3fc4c624fb051cc2dd12041ae8d14863987",
+      "stored_bytes": 4932,
+      "stored_sha256": "515646a875fdbb5ec85f618e7239c3fc4c624fb051cc2dd12041ae8d14863987"
+    }
+  ],
+  "global_binding_receipt_sha256": "5495d1b1198c204c40ff84ca136017cf105cf763fed95d18fa7a5a92e1e444db",
+  "hash_only_excluded_binaries": [
+    {
+      "bytes": 19731,
+      "reason": "Python compiled bytecode excluded by hash from private attempt v1",
+      "sha256": "e3fcd572e31526f5dda688386851f20ba3d2372655655edae4007512cebb95f9",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v1/__pycache__/run_validation.cpython-314.pyc"
+    },
+    {
+      "bytes": 20863,
+      "reason": "Python compiled bytecode excluded by hash from private attempt v2",
+      "sha256": "7a23db01c29a254de57857ac4f89233809149c2268757c44d17195f4c628c845",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v2/__pycache__/run_validation.cpython-314.pyc"
+    },
+    {
+      "bytes": 20926,
+      "reason": "Python compiled bytecode excluded by hash from private attempt v3",
+      "sha256": "5749414a20641720ddb62a3769c95b5636894efcebe4a8be3ae416baa3f8f5b8",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/__pycache__/run_validation.cpython-314.pyc"
+    },
+    {
+      "bytes": 36593,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v3)",
+      "sha256": "6a14f4f342b47a1657c55e7e8c29983b7ea528a017f8a01bfd20ea92506b2cdd",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/runs/iverilog/fi.vvp"
+    },
+    {
+      "bytes": 16407,
+      "reason": "Python compiled bytecode excluded by hash from private attempt v4",
+      "sha256": "04b110b330e84233d9e6aae0f2426b83f98a47f7feb49093f57bff72044f1540",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v4/__pycache__/run_verilator.cpython-314.pyc"
+    },
+    {
+      "bytes": 16480,
+      "reason": "Python compiled bytecode excluded by hash from private attempt v5",
+      "sha256": "16001a86f6a810e499808c165bd67b6357ca882485593e182b79147cf4d23abe",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/__pycache__/run_verilator.cpython-314.pyc"
+    },
+    {
+      "bytes": 3365,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "debdca87c40af662296f2a5f172190e3ff6638871549175175db7bb46a71ac29",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor.cpp"
+    },
+    {
+      "bytes": 3508,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "fd5f414654cf1170fa7a50a5a70b388714223d8438d475e388fc031613c8bbfc",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor.h"
+    },
+    {
+      "bytes": 1928,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "57449dd68b9318d9fcbad472a7e9def6cf853a79454d0b3c22a5eacd8f28714e",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor.mk"
+    },
+    {
+      "bytes": 803,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "bfc48cfeff92a6087a910c2b642b29cc5fa447b27cac1ac237ccb9314a8f639c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.cpp"
+    },
+    {
+      "bytes": 1010,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "93720c1e78c577413aa64ce916f833c5a430fc1b2d7384c166b1ad59e079113b",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor__Syms.h"
+    },
+    {
+      "bytes": 913,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "2b6d5771832e3f3e580e5c18e7f4fabf9ea30289e337850d657597604d65857f",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor__Syms__Slow.cpp"
+    },
+    {
+      "bytes": 2126,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "cd6c1fa06219aff93801b26d3f1f73eb37e25ae6c64d449ff67e97abe3f85427",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor___024root.h"
+    },
+    {
+      "bytes": 1105748,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "fa4e8adfec530b47802d43ed447e1f8b91e423476916fdf246cb61d740a809f3",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor___024root__0.cpp"
+    },
+    {
+      "bytes": 8876,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "9a42fe2e2c6fbc032f74e09c40ce046e6bfbf91c6d7d12b5453689444f07895d",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.cpp"
+    },
+    {
+      "bytes": 30987,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "7243590dff60d6b678b4dad549b99136ff0388808724037e3e07b6d07797a095",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor___024root__1.cpp"
+    },
+    {
+      "bytes": 784,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "352bf898c08dc3f2e56bd360726b6ac7600aaf69a2252b8619824930c8bb2e99",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor___024root__Slow.cpp"
+    },
+    {
+      "bytes": 1134,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "3e2c49caae5c79459c32fd526291cb9d24c720ae755d61d844a732bc2beaf1b2",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor__main.cpp"
+    },
+    {
+      "bytes": 795,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "073bcddbf7099a1536e6b33bd8575b2ee9cb3546c6a1ad43bcc5af71609a40b7",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor__pch.h"
+    },
+    {
+      "bytes": 1792,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v5)",
+      "sha256": "91eaa20a3c0c11794684f4e3f6209af0a0f03c034bf2819f87150c90365c1486",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor_classes.mk"
+    },
+    {
+      "bytes": 16480,
+      "reason": "Python compiled bytecode excluded by hash from private attempt v6",
+      "sha256": "4fa375726285522040e05423963d4a49729335f02e3f40a20a23e22d70791552",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/__pycache__/run_verilator.cpython-314.pyc"
+    },
+    {
+      "bytes": 3365,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "debdca87c40af662296f2a5f172190e3ff6638871549175175db7bb46a71ac29",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor.cpp"
+    },
+    {
+      "bytes": 59,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "e2e4258eecf37774f29bb21bb17e084eb7f6662f73189292c8d86285f3cd8390",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor.d"
+    },
+    {
+      "bytes": 3508,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "fd5f414654cf1170fa7a50a5a70b388714223d8438d475e388fc031613c8bbfc",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor.h"
+    },
+    {
+      "bytes": 1928,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "57449dd68b9318d9fcbad472a7e9def6cf853a79454d0b3c22a5eacd8f28714e",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor.mk"
+    },
+    {
+      "bytes": 8896,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "8f97db374c02d670219a7b70fc8fe72f6ad0e0d397df800e2dbba60fdf6c7865",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor.o"
+    },
+    {
+      "bytes": 249678,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "b26d5e1e03f832fa6ef6d5acabeb8404f0359c92fae6b4945a5716674949df22",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__ALL.a"
+    },
+    {
+      "bytes": 803,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "bfc48cfeff92a6087a910c2b642b29cc5fa447b27cac1ac237ccb9314a8f639c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.cpp"
+    },
+    {
+      "bytes": 169,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "e82899d1f874fe350d5d33671a056f0372082e8127c97d6d9a247d7f734dfe54",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.d"
+    },
+    {
+      "bytes": 1360,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "c804c1583eff5ac1fa7f551f3af68b3e454c1f4092ee8ade33bc736e1b7b25e6",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.o"
+    },
+    {
+      "bytes": 1010,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "93720c1e78c577413aa64ce916f833c5a430fc1b2d7384c166b1ad59e079113b",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__Syms.h"
+    },
+    {
+      "bytes": 913,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "2b6d5771832e3f3e580e5c18e7f4fabf9ea30289e337850d657597604d65857f",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__Syms__Slow.cpp"
+    },
+    {
+      "bytes": 86,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "a7e4c72099bc1c87c8711e02dcf4b6857518a7a7c35bc5f4526b8e43891668be",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__Syms__Slow.d"
+    },
+    {
+      "bytes": 19840,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "31947d3a20441e5587784687abd339d41aea9559417250b3558ec96e76e77e45",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__Syms__Slow.o"
+    },
+    {
+      "bytes": 2126,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "cd6c1fa06219aff93801b26d3f1f73eb37e25ae6c64d449ff67e97abe3f85427",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root.h"
+    },
+    {
+      "bytes": 1105792,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "936a7425adc1fbfef127233917d25bae891d45c5055b6f733e8b8853350c674f",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__0.cpp"
+    },
+    {
+      "bytes": 88,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "0908d77a73b167b1126ec9c68136c70faaecde3d55f832ce65ed87212fd6bb35",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__0.d"
+    },
+    {
+      "bytes": 134720,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "5cc504b0c9838b6faca59f76789fb21b587e1bee3d370905a40b640e999f90b7",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__0.o"
+    },
+    {
+      "bytes": 9309,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "710c1f01ce3baee02aecb13d2e2c299b5cda71a2986dd63a1d9aec16bd78a629",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.cpp"
+    },
+    {
+      "bytes": 100,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "116df8e9e4ea3ebcba134e1e1500101455575be6e9db499a7fc0d61de73a9cff",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.d"
+    },
+    {
+      "bytes": 9792,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "fa74d3ad46a991a3e0ed0028a3be3aa074600a63968833ef296bfb4da92bed02",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.o"
+    },
+    {
+      "bytes": 30987,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "178c17866510e8a0e5d57ebefcb71a1270e9089aa2eccf365f866508f08d376c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__1.cpp"
+    },
+    {
+      "bytes": 88,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "321426f697db9068c532bf73c801688e2737648a752c38e02f3de2b8a3679d6c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__1.d"
+    },
+    {
+      "bytes": 18000,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "1dae73c551aa31895f656c5f62aff2a95559dcad37d80e83336643573d27b423",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__1.o"
+    },
+    {
+      "bytes": 784,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "352bf898c08dc3f2e56bd360726b6ac7600aaf69a2252b8619824930c8bb2e99",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__Slow.cpp"
+    },
+    {
+      "bytes": 94,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "0733c7024452ebfb5bd4c8d025b019a18accb8c16cfe60a9b9c7a55096c296a0",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__Slow.d"
+    },
+    {
+      "bytes": 36680,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "4dbd5283ab0482bdbdd794bb7085dc50e171cffea24bd5d497a3ca3299a734a8",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__Slow.o"
+    },
+    {
+      "bytes": 1134,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "3e2c49caae5c79459c32fd526291cb9d24c720ae755d61d844a732bc2beaf1b2",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__main.cpp"
+    },
+    {
+      "bytes": 158,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "59dffc7152e653c935cfe01ee9115c23c32cf315186c8dc56aa60e117ebabf7c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__main.d"
+    },
+    {
+      "bytes": 4632,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "bb1ebfa5a97c50a1cf761e288d0de49796487eb40e0972e47a5a2c5fffee4107",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__main.o"
+    },
+    {
+      "bytes": 795,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "073bcddbf7099a1536e6b33bd8575b2ee9cb3546c6a1ad43bcc5af71609a40b7",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__pch.h"
+    },
+    {
+      "bytes": 775,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "0af263d910099a9f2462025ef331114dacafe28e1b02749752b9a6c379d48008",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__pch.h.fast.d"
+    },
+    {
+      "bytes": 103909790,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "02a72ce31ef16903fafce36216be027882d454969ce2a4676c2d910289641c70",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__pch.h.fast.gch"
+    },
+    {
+      "bytes": 775,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "10e2f664f6c02924db0c28e3a313fff72031689997941ca7cfc8478cbd67da68",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__pch.h.slow.d"
+    },
+    {
+      "bytes": 103506212,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "67c20fe3127214abd6f567c9ff917f7f5e3ad9d6f5250d6b40538f144569c4cc",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__pch.h.slow.gch"
+    },
+    {
+      "bytes": 1947,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "3d9d14062697965c8c9c6f18434f1926e3f48cf2028b3661f726729eae1c187e",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__ver.d"
+    },
+    {
+      "bytes": 4275,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "7ea425330169a1d36fb1d6868f63d4aff7965c6884126be92fdbd821f84ef0dc",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__verFiles.dat"
+    },
+    {
+      "bytes": 1792,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "91eaa20a3c0c11794684f4e3f6209af0a0f03c034bf2819f87150c90365c1486",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor_classes.mk"
+    },
+    {
+      "bytes": 318056,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "916c54e89a70501b5fd06c85ec947b5cd15e0a0ae7b6f2b8794882135177ef9a",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/sim"
+    },
+    {
+      "bytes": 1141,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "948a8f879055777983137f537641b6d78cc70bf3d08af39d1de8e651d9136514",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/verilated.d"
+    },
+    {
+      "bytes": 249344,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "cacbbdcb181d0c69d784020d8e17729855e03e55dfe6fae687e7f3b7da35546c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/verilated.o"
+    },
+    {
+      "bytes": 683,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "81ed0c892ff318fba8aa3e10f6b49e92c32f3bdc081ba8017ffe189891cb4ab6",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/verilated_threads.d"
+    },
+    {
+      "bytes": 55304,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "ade80490e6c6ff4dc1df9438c97aeb0e32e66b8df1b739e2a7f09d9da617fdf4",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/verilated_threads.o"
+    },
+    {
+      "bytes": 680,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "c9dd56abc1eb7bb524b725a33aa8ddafb87ab721ba4fd79588166e048c8f46fe",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/verilated_timing.d"
+    },
+    {
+      "bytes": 17424,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v6)",
+      "sha256": "5e935bf3250c95c1e1b09e902940d68bcdd4d82daaa0f5be035f692d54e5fce4",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/verilated_timing.o"
+    },
+    {
+      "bytes": 17063,
+      "reason": "Python compiled bytecode excluded by hash from private attempt v7",
+      "sha256": "3333dce86060f7205a1319e0df18554345b0ecbf574b315c9c7e573c053b2210",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/__pycache__/run_verilator.cpython-314.pyc"
+    },
+    {
+      "bytes": 3365,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "debdca87c40af662296f2a5f172190e3ff6638871549175175db7bb46a71ac29",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor.cpp"
+    },
+    {
+      "bytes": 59,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "e2e4258eecf37774f29bb21bb17e084eb7f6662f73189292c8d86285f3cd8390",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor.d"
+    },
+    {
+      "bytes": 3508,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "fd5f414654cf1170fa7a50a5a70b388714223d8438d475e388fc031613c8bbfc",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor.h"
+    },
+    {
+      "bytes": 1928,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "57449dd68b9318d9fcbad472a7e9def6cf853a79454d0b3c22a5eacd8f28714e",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor.mk"
+    },
+    {
+      "bytes": 8896,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "8f97db374c02d670219a7b70fc8fe72f6ad0e0d397df800e2dbba60fdf6c7865",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor.o"
+    },
+    {
+      "bytes": 249678,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "87cc596a3bd3c6dd6061e923a35d9d23ee4cbc5d92fa1e26062edf90076d77c1",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__ALL.a"
+    },
+    {
+      "bytes": 803,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "bfc48cfeff92a6087a910c2b642b29cc5fa447b27cac1ac237ccb9314a8f639c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.cpp"
+    },
+    {
+      "bytes": 169,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "e82899d1f874fe350d5d33671a056f0372082e8127c97d6d9a247d7f734dfe54",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.d"
+    },
+    {
+      "bytes": 1360,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "c804c1583eff5ac1fa7f551f3af68b3e454c1f4092ee8ade33bc736e1b7b25e6",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.o"
+    },
+    {
+      "bytes": 1010,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "93720c1e78c577413aa64ce916f833c5a430fc1b2d7384c166b1ad59e079113b",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__Syms.h"
+    },
+    {
+      "bytes": 913,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "2b6d5771832e3f3e580e5c18e7f4fabf9ea30289e337850d657597604d65857f",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__Syms__Slow.cpp"
+    },
+    {
+      "bytes": 86,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "a7e4c72099bc1c87c8711e02dcf4b6857518a7a7c35bc5f4526b8e43891668be",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__Syms__Slow.d"
+    },
+    {
+      "bytes": 19840,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "31947d3a20441e5587784687abd339d41aea9559417250b3558ec96e76e77e45",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__Syms__Slow.o"
+    },
+    {
+      "bytes": 2126,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "cd6c1fa06219aff93801b26d3f1f73eb37e25ae6c64d449ff67e97abe3f85427",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root.h"
+    },
+    {
+      "bytes": 1105792,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "35edfe2ac21ba0e97fc955114a47f8d582351dd09790f4e9e0c3d51096eb97de",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__0.cpp"
+    },
+    {
+      "bytes": 88,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "0908d77a73b167b1126ec9c68136c70faaecde3d55f832ce65ed87212fd6bb35",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__0.d"
+    },
+    {
+      "bytes": 134720,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "976efc5324f25134993593b2e9df5b4667ee05b4dbf4a4fd48af2b216868f15d",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__0.o"
+    },
+    {
+      "bytes": 9309,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "ced35b60e096bfeb5c587cf75bd31af8be20eafa89f1fcc2331fb6d36a319aa2",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.cpp"
+    },
+    {
+      "bytes": 100,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "116df8e9e4ea3ebcba134e1e1500101455575be6e9db499a7fc0d61de73a9cff",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.d"
+    },
+    {
+      "bytes": 9792,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "e9f766fd9ce4a7b7f98be98b0e553bf1420ee1eaee59022e56bcd4d5b35e7c9b",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.o"
+    },
+    {
+      "bytes": 30987,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "70457416c313cf7e626143960d6d53ddea35ec843ca7187619497edb0788c1cf",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__1.cpp"
+    },
+    {
+      "bytes": 88,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "321426f697db9068c532bf73c801688e2737648a752c38e02f3de2b8a3679d6c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__1.d"
+    },
+    {
+      "bytes": 18000,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "8d24fbdb89f7a78916a57219e9fd5584b6604a34d41b7f6f1fd22d159d6b0284",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__1.o"
+    },
+    {
+      "bytes": 784,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "352bf898c08dc3f2e56bd360726b6ac7600aaf69a2252b8619824930c8bb2e99",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__Slow.cpp"
+    },
+    {
+      "bytes": 94,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "0733c7024452ebfb5bd4c8d025b019a18accb8c16cfe60a9b9c7a55096c296a0",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__Slow.d"
+    },
+    {
+      "bytes": 36680,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "4dbd5283ab0482bdbdd794bb7085dc50e171cffea24bd5d497a3ca3299a734a8",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__Slow.o"
+    },
+    {
+      "bytes": 1134,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "3e2c49caae5c79459c32fd526291cb9d24c720ae755d61d844a732bc2beaf1b2",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__main.cpp"
+    },
+    {
+      "bytes": 158,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "59dffc7152e653c935cfe01ee9115c23c32cf315186c8dc56aa60e117ebabf7c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__main.d"
+    },
+    {
+      "bytes": 4632,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "bb1ebfa5a97c50a1cf761e288d0de49796487eb40e0972e47a5a2c5fffee4107",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__main.o"
+    },
+    {
+      "bytes": 795,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "073bcddbf7099a1536e6b33bd8575b2ee9cb3546c6a1ad43bcc5af71609a40b7",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__pch.h"
+    },
+    {
+      "bytes": 775,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "0af263d910099a9f2462025ef331114dacafe28e1b02749752b9a6c379d48008",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__pch.h.fast.d"
+    },
+    {
+      "bytes": 103909790,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "02a72ce31ef16903fafce36216be027882d454969ce2a4676c2d910289641c70",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__pch.h.fast.gch"
+    },
+    {
+      "bytes": 775,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "10e2f664f6c02924db0c28e3a313fff72031689997941ca7cfc8478cbd67da68",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__pch.h.slow.d"
+    },
+    {
+      "bytes": 103506212,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "67c20fe3127214abd6f567c9ff917f7f5e3ad9d6f5250d6b40538f144569c4cc",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__pch.h.slow.gch"
+    },
+    {
+      "bytes": 1947,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "6d171440f495ab7485f02cceaee2e0456f948e42feb7b4101d0c17e0dd257e9d",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__ver.d"
+    },
+    {
+      "bytes": 4275,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "217848f3e72617d611c1a0592bfba89e28b0573a28c45607b7039c0e7dced3b9",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__verFiles.dat"
+    },
+    {
+      "bytes": 1792,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "91eaa20a3c0c11794684f4e3f6209af0a0f03c034bf2819f87150c90365c1486",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor_classes.mk"
+    },
+    {
+      "bytes": 318056,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "fcf6b365523853f5f5108cc324bbe60c604bca1707df198f2a2be2ffc61aedca",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/sim"
+    },
+    {
+      "bytes": 1141,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "948a8f879055777983137f537641b6d78cc70bf3d08af39d1de8e651d9136514",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/verilated.d"
+    },
+    {
+      "bytes": 249344,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "cacbbdcb181d0c69d784020d8e17729855e03e55dfe6fae687e7f3b7da35546c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/verilated.o"
+    },
+    {
+      "bytes": 683,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "81ed0c892ff318fba8aa3e10f6b49e92c32f3bdc081ba8017ffe189891cb4ab6",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/verilated_threads.d"
+    },
+    {
+      "bytes": 55304,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "ade80490e6c6ff4dc1df9438c97aeb0e32e66b8df1b739e2a7f09d9da617fdf4",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/verilated_threads.o"
+    },
+    {
+      "bytes": 680,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "c9dd56abc1eb7bb524b725a33aa8ddafb87ab721ba4fd79588166e048c8f46fe",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/verilated_timing.d"
+    },
+    {
+      "bytes": 17424,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v7)",
+      "sha256": "5e935bf3250c95c1e1b09e902940d68bcdd4d82daaa0f5be035f692d54e5fce4",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/verilated_timing.o"
+    },
+    {
+      "bytes": 16640,
+      "reason": "Python compiled bytecode excluded by hash from private attempt v8",
+      "sha256": "69ca4607703dd6cc52601f8232757771871ed880c4d265386d91af097f490022",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/__pycache__/run_icarus_behavior.cpython-314.pyc"
+    },
+    {
+      "bytes": 36586,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v8)",
+      "sha256": "c8cfa997a3937bbf6ecb2358b1ed8be5f3f79500af2ac87f4f7167f0c8fc65d4",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/runs/fi.vvp"
+    },
+    {
+      "bytes": 16696,
+      "reason": "Python compiled bytecode excluded by hash from private attempt v9",
+      "sha256": "8e65b51a65246c685a7581a4861eb408867666c0e78cf44c71d2ebca0107955e",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/__pycache__/run_icarus_behavior.cpython-314.pyc"
+    },
+    {
+      "bytes": 36586,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v9)",
+      "sha256": "5b8435112ac41f91814e8fd972e68741b867a0c49d04f248b033eb00e102d9e1",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/runs/fi.vvp"
+    },
+    {
+      "bytes": 16697,
+      "reason": "Python compiled bytecode excluded by hash from private attempt v10",
+      "sha256": "e00025aa4f4621abb8320e065a8b1b584669fbadf14e308d0cbccb0ba1645023",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/__pycache__/run_icarus_behavior.cpython-314.pyc"
+    },
+    {
+      "bytes": 36588,
+      "reason": "Verilator/Icarus compiled simulator or generated compiler intermediate excluded; native result is separately reported and hashed (v10)",
+      "sha256": "7636475b62ea07ecaf92f0c5c7ede465b2ac0103b82ebfb22abf77e4f8b6c5e7",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/runs/fi.vvp"
+    },
+    {
+      "bytes": 36593,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "6a14f4f342b47a1657c55e7e8c29983b7ea528a017f8a01bfd20ea92506b2cdd",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v3/runs/iverilog/fi.vvp"
+    },
+    {
+      "bytes": 3365,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "debdca87c40af662296f2a5f172190e3ff6638871549175175db7bb46a71ac29",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor.cpp"
+    },
+    {
+      "bytes": 3508,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "fd5f414654cf1170fa7a50a5a70b388714223d8438d475e388fc031613c8bbfc",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor.h"
+    },
+    {
+      "bytes": 1928,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "57449dd68b9318d9fcbad472a7e9def6cf853a79454d0b3c22a5eacd8f28714e",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor.mk"
+    },
+    {
+      "bytes": 803,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "bfc48cfeff92a6087a910c2b642b29cc5fa447b27cac1ac237ccb9314a8f639c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.cpp"
+    },
+    {
+      "bytes": 1010,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "93720c1e78c577413aa64ce916f833c5a430fc1b2d7384c166b1ad59e079113b",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor__Syms.h"
+    },
+    {
+      "bytes": 913,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "2b6d5771832e3f3e580e5c18e7f4fabf9ea30289e337850d657597604d65857f",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor__Syms__Slow.cpp"
+    },
+    {
+      "bytes": 2126,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "cd6c1fa06219aff93801b26d3f1f73eb37e25ae6c64d449ff67e97abe3f85427",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor___024root.h"
+    },
+    {
+      "bytes": 1105748,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "fa4e8adfec530b47802d43ed447e1f8b91e423476916fdf246cb61d740a809f3",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor___024root__0.cpp"
+    },
+    {
+      "bytes": 8876,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "9a42fe2e2c6fbc032f74e09c40ce046e6bfbf91c6d7d12b5453689444f07895d",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.cpp"
+    },
+    {
+      "bytes": 30987,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "7243590dff60d6b678b4dad549b99136ff0388808724037e3e07b6d07797a095",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor___024root__1.cpp"
+    },
+    {
+      "bytes": 784,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "352bf898c08dc3f2e56bd360726b6ac7600aaf69a2252b8619824930c8bb2e99",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor___024root__Slow.cpp"
+    },
+    {
+      "bytes": 1134,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "3e2c49caae5c79459c32fd526291cb9d24c720ae755d61d844a732bc2beaf1b2",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor__main.cpp"
+    },
+    {
+      "bytes": 795,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "073bcddbf7099a1536e6b33bd8575b2ee9cb3546c6a1ad43bcc5af71609a40b7",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor__pch.h"
+    },
+    {
+      "bytes": 1792,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "91eaa20a3c0c11794684f4e3f6209af0a0f03c034bf2819f87150c90365c1486",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v5/runs/obj/Vtb_mig_fi_xor_classes.mk"
+    },
+    {
+      "bytes": 3365,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "debdca87c40af662296f2a5f172190e3ff6638871549175175db7bb46a71ac29",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor.cpp"
+    },
+    {
+      "bytes": 59,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "e2e4258eecf37774f29bb21bb17e084eb7f6662f73189292c8d86285f3cd8390",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor.d"
+    },
+    {
+      "bytes": 3508,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "fd5f414654cf1170fa7a50a5a70b388714223d8438d475e388fc031613c8bbfc",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor.h"
+    },
+    {
+      "bytes": 1928,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "57449dd68b9318d9fcbad472a7e9def6cf853a79454d0b3c22a5eacd8f28714e",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor.mk"
+    },
+    {
+      "bytes": 8896,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "8f97db374c02d670219a7b70fc8fe72f6ad0e0d397df800e2dbba60fdf6c7865",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor.o"
+    },
+    {
+      "bytes": 249678,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "b26d5e1e03f832fa6ef6d5acabeb8404f0359c92fae6b4945a5716674949df22",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__ALL.a"
+    },
+    {
+      "bytes": 803,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "bfc48cfeff92a6087a910c2b642b29cc5fa447b27cac1ac237ccb9314a8f639c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.cpp"
+    },
+    {
+      "bytes": 169,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "e82899d1f874fe350d5d33671a056f0372082e8127c97d6d9a247d7f734dfe54",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.d"
+    },
+    {
+      "bytes": 1360,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "c804c1583eff5ac1fa7f551f3af68b3e454c1f4092ee8ade33bc736e1b7b25e6",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.o"
+    },
+    {
+      "bytes": 1010,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "93720c1e78c577413aa64ce916f833c5a430fc1b2d7384c166b1ad59e079113b",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__Syms.h"
+    },
+    {
+      "bytes": 913,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "2b6d5771832e3f3e580e5c18e7f4fabf9ea30289e337850d657597604d65857f",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__Syms__Slow.cpp"
+    },
+    {
+      "bytes": 86,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "a7e4c72099bc1c87c8711e02dcf4b6857518a7a7c35bc5f4526b8e43891668be",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__Syms__Slow.d"
+    },
+    {
+      "bytes": 19840,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "31947d3a20441e5587784687abd339d41aea9559417250b3558ec96e76e77e45",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__Syms__Slow.o"
+    },
+    {
+      "bytes": 2126,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "cd6c1fa06219aff93801b26d3f1f73eb37e25ae6c64d449ff67e97abe3f85427",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root.h"
+    },
+    {
+      "bytes": 1105792,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "936a7425adc1fbfef127233917d25bae891d45c5055b6f733e8b8853350c674f",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__0.cpp"
+    },
+    {
+      "bytes": 88,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "0908d77a73b167b1126ec9c68136c70faaecde3d55f832ce65ed87212fd6bb35",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__0.d"
+    },
+    {
+      "bytes": 134720,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "5cc504b0c9838b6faca59f76789fb21b587e1bee3d370905a40b640e999f90b7",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__0.o"
+    },
+    {
+      "bytes": 9309,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "710c1f01ce3baee02aecb13d2e2c299b5cda71a2986dd63a1d9aec16bd78a629",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.cpp"
+    },
+    {
+      "bytes": 100,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "116df8e9e4ea3ebcba134e1e1500101455575be6e9db499a7fc0d61de73a9cff",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.d"
+    },
+    {
+      "bytes": 9792,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "fa74d3ad46a991a3e0ed0028a3be3aa074600a63968833ef296bfb4da92bed02",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.o"
+    },
+    {
+      "bytes": 30987,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "178c17866510e8a0e5d57ebefcb71a1270e9089aa2eccf365f866508f08d376c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__1.cpp"
+    },
+    {
+      "bytes": 88,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "321426f697db9068c532bf73c801688e2737648a752c38e02f3de2b8a3679d6c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__1.d"
+    },
+    {
+      "bytes": 18000,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "1dae73c551aa31895f656c5f62aff2a95559dcad37d80e83336643573d27b423",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__1.o"
+    },
+    {
+      "bytes": 784,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "352bf898c08dc3f2e56bd360726b6ac7600aaf69a2252b8619824930c8bb2e99",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__Slow.cpp"
+    },
+    {
+      "bytes": 94,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "0733c7024452ebfb5bd4c8d025b019a18accb8c16cfe60a9b9c7a55096c296a0",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__Slow.d"
+    },
+    {
+      "bytes": 36680,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "4dbd5283ab0482bdbdd794bb7085dc50e171cffea24bd5d497a3ca3299a734a8",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor___024root__Slow.o"
+    },
+    {
+      "bytes": 1134,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "3e2c49caae5c79459c32fd526291cb9d24c720ae755d61d844a732bc2beaf1b2",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__main.cpp"
+    },
+    {
+      "bytes": 158,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "59dffc7152e653c935cfe01ee9115c23c32cf315186c8dc56aa60e117ebabf7c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__main.d"
+    },
+    {
+      "bytes": 4632,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "bb1ebfa5a97c50a1cf761e288d0de49796487eb40e0972e47a5a2c5fffee4107",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__main.o"
+    },
+    {
+      "bytes": 795,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "073bcddbf7099a1536e6b33bd8575b2ee9cb3546c6a1ad43bcc5af71609a40b7",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__pch.h"
+    },
+    {
+      "bytes": 775,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "0af263d910099a9f2462025ef331114dacafe28e1b02749752b9a6c379d48008",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__pch.h.fast.d"
+    },
+    {
+      "bytes": 103909790,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "02a72ce31ef16903fafce36216be027882d454969ce2a4676c2d910289641c70",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__pch.h.fast.gch"
+    },
+    {
+      "bytes": 775,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "10e2f664f6c02924db0c28e3a313fff72031689997941ca7cfc8478cbd67da68",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__pch.h.slow.d"
+    },
+    {
+      "bytes": 103506212,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "67c20fe3127214abd6f567c9ff917f7f5e3ad9d6f5250d6b40538f144569c4cc",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__pch.h.slow.gch"
+    },
+    {
+      "bytes": 1947,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "3d9d14062697965c8c9c6f18434f1926e3f48cf2028b3661f726729eae1c187e",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__ver.d"
+    },
+    {
+      "bytes": 4275,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "7ea425330169a1d36fb1d6868f63d4aff7965c6884126be92fdbd821f84ef0dc",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor__verFiles.dat"
+    },
+    {
+      "bytes": 1792,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "91eaa20a3c0c11794684f4e3f6209af0a0f03c034bf2819f87150c90365c1486",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/Vtb_mig_fi_xor_classes.mk"
+    },
+    {
+      "bytes": 318056,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "916c54e89a70501b5fd06c85ec947b5cd15e0a0ae7b6f2b8794882135177ef9a",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/sim"
+    },
+    {
+      "bytes": 1141,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "948a8f879055777983137f537641b6d78cc70bf3d08af39d1de8e651d9136514",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/verilated.d"
+    },
+    {
+      "bytes": 249344,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "cacbbdcb181d0c69d784020d8e17729855e03e55dfe6fae687e7f3b7da35546c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/verilated.o"
+    },
+    {
+      "bytes": 683,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "81ed0c892ff318fba8aa3e10f6b49e92c32f3bdc081ba8017ffe189891cb4ab6",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/verilated_threads.d"
+    },
+    {
+      "bytes": 55304,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "ade80490e6c6ff4dc1df9438c97aeb0e32e66b8df1b739e2a7f09d9da617fdf4",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/verilated_threads.o"
+    },
+    {
+      "bytes": 680,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "c9dd56abc1eb7bb524b725a33aa8ddafb87ab721ba4fd79588166e048c8f46fe",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/verilated_timing.d"
+    },
+    {
+      "bytes": 17424,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "5e935bf3250c95c1e1b09e902940d68bcdd4d82daaa0f5be035f692d54e5fce4",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v6/runs/obj/verilated_timing.o"
+    },
+    {
+      "bytes": 3365,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "debdca87c40af662296f2a5f172190e3ff6638871549175175db7bb46a71ac29",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor.cpp"
+    },
+    {
+      "bytes": 59,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "e2e4258eecf37774f29bb21bb17e084eb7f6662f73189292c8d86285f3cd8390",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor.d"
+    },
+    {
+      "bytes": 3508,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "fd5f414654cf1170fa7a50a5a70b388714223d8438d475e388fc031613c8bbfc",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor.h"
+    },
+    {
+      "bytes": 1928,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "57449dd68b9318d9fcbad472a7e9def6cf853a79454d0b3c22a5eacd8f28714e",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor.mk"
+    },
+    {
+      "bytes": 8896,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "8f97db374c02d670219a7b70fc8fe72f6ad0e0d397df800e2dbba60fdf6c7865",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor.o"
+    },
+    {
+      "bytes": 249678,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "87cc596a3bd3c6dd6061e923a35d9d23ee4cbc5d92fa1e26062edf90076d77c1",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__ALL.a"
+    },
+    {
+      "bytes": 803,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "bfc48cfeff92a6087a910c2b642b29cc5fa447b27cac1ac237ccb9314a8f639c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.cpp"
+    },
+    {
+      "bytes": 169,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "e82899d1f874fe350d5d33671a056f0372082e8127c97d6d9a247d7f734dfe54",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.d"
+    },
+    {
+      "bytes": 1360,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "c804c1583eff5ac1fa7f551f3af68b3e454c1f4092ee8ade33bc736e1b7b25e6",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__ConstPool__0__Slow.o"
+    },
+    {
+      "bytes": 1010,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "93720c1e78c577413aa64ce916f833c5a430fc1b2d7384c166b1ad59e079113b",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__Syms.h"
+    },
+    {
+      "bytes": 913,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "2b6d5771832e3f3e580e5c18e7f4fabf9ea30289e337850d657597604d65857f",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__Syms__Slow.cpp"
+    },
+    {
+      "bytes": 86,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "a7e4c72099bc1c87c8711e02dcf4b6857518a7a7c35bc5f4526b8e43891668be",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__Syms__Slow.d"
+    },
+    {
+      "bytes": 19840,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "31947d3a20441e5587784687abd339d41aea9559417250b3558ec96e76e77e45",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__Syms__Slow.o"
+    },
+    {
+      "bytes": 2126,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "cd6c1fa06219aff93801b26d3f1f73eb37e25ae6c64d449ff67e97abe3f85427",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root.h"
+    },
+    {
+      "bytes": 1105792,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "35edfe2ac21ba0e97fc955114a47f8d582351dd09790f4e9e0c3d51096eb97de",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__0.cpp"
+    },
+    {
+      "bytes": 88,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "0908d77a73b167b1126ec9c68136c70faaecde3d55f832ce65ed87212fd6bb35",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__0.d"
+    },
+    {
+      "bytes": 134720,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "976efc5324f25134993593b2e9df5b4667ee05b4dbf4a4fd48af2b216868f15d",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__0.o"
+    },
+    {
+      "bytes": 9309,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "ced35b60e096bfeb5c587cf75bd31af8be20eafa89f1fcc2331fb6d36a319aa2",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.cpp"
+    },
+    {
+      "bytes": 100,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "116df8e9e4ea3ebcba134e1e1500101455575be6e9db499a7fc0d61de73a9cff",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.d"
+    },
+    {
+      "bytes": 9792,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "e9f766fd9ce4a7b7f98be98b0e553bf1420ee1eaee59022e56bcd4d5b35e7c9b",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__0__Slow.o"
+    },
+    {
+      "bytes": 30987,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "70457416c313cf7e626143960d6d53ddea35ec843ca7187619497edb0788c1cf",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__1.cpp"
+    },
+    {
+      "bytes": 88,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "321426f697db9068c532bf73c801688e2737648a752c38e02f3de2b8a3679d6c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__1.d"
+    },
+    {
+      "bytes": 18000,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "8d24fbdb89f7a78916a57219e9fd5584b6604a34d41b7f6f1fd22d159d6b0284",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__1.o"
+    },
+    {
+      "bytes": 784,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "352bf898c08dc3f2e56bd360726b6ac7600aaf69a2252b8619824930c8bb2e99",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__Slow.cpp"
+    },
+    {
+      "bytes": 94,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "0733c7024452ebfb5bd4c8d025b019a18accb8c16cfe60a9b9c7a55096c296a0",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__Slow.d"
+    },
+    {
+      "bytes": 36680,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "4dbd5283ab0482bdbdd794bb7085dc50e171cffea24bd5d497a3ca3299a734a8",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor___024root__Slow.o"
+    },
+    {
+      "bytes": 1134,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "3e2c49caae5c79459c32fd526291cb9d24c720ae755d61d844a732bc2beaf1b2",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__main.cpp"
+    },
+    {
+      "bytes": 158,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "59dffc7152e653c935cfe01ee9115c23c32cf315186c8dc56aa60e117ebabf7c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__main.d"
+    },
+    {
+      "bytes": 4632,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "bb1ebfa5a97c50a1cf761e288d0de49796487eb40e0972e47a5a2c5fffee4107",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__main.o"
+    },
+    {
+      "bytes": 795,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "073bcddbf7099a1536e6b33bd8575b2ee9cb3546c6a1ad43bcc5af71609a40b7",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__pch.h"
+    },
+    {
+      "bytes": 775,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "0af263d910099a9f2462025ef331114dacafe28e1b02749752b9a6c379d48008",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__pch.h.fast.d"
+    },
+    {
+      "bytes": 103909790,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "02a72ce31ef16903fafce36216be027882d454969ce2a4676c2d910289641c70",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__pch.h.fast.gch"
+    },
+    {
+      "bytes": 775,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "10e2f664f6c02924db0c28e3a313fff72031689997941ca7cfc8478cbd67da68",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__pch.h.slow.d"
+    },
+    {
+      "bytes": 103506212,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "67c20fe3127214abd6f567c9ff917f7f5e3ad9d6f5250d6b40538f144569c4cc",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__pch.h.slow.gch"
+    },
+    {
+      "bytes": 1947,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "6d171440f495ab7485f02cceaee2e0456f948e42feb7b4101d0c17e0dd257e9d",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__ver.d"
+    },
+    {
+      "bytes": 4275,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "217848f3e72617d611c1a0592bfba89e28b0573a28c45607b7039c0e7dced3b9",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor__verFiles.dat"
+    },
+    {
+      "bytes": 1792,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "91eaa20a3c0c11794684f4e3f6209af0a0f03c034bf2819f87150c90365c1486",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/Vtb_mig_fi_xor_classes.mk"
+    },
+    {
+      "bytes": 318056,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "fcf6b365523853f5f5108cc324bbe60c604bca1707df198f2a2be2ffc61aedca",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/sim"
+    },
+    {
+      "bytes": 1141,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "948a8f879055777983137f537641b6d78cc70bf3d08af39d1de8e651d9136514",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/verilated.d"
+    },
+    {
+      "bytes": 249344,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "cacbbdcb181d0c69d784020d8e17729855e03e55dfe6fae687e7f3b7da35546c",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/verilated.o"
+    },
+    {
+      "bytes": 683,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "81ed0c892ff318fba8aa3e10f6b49e92c32f3bdc081ba8017ffe189891cb4ab6",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/verilated_threads.d"
+    },
+    {
+      "bytes": 55304,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "ade80490e6c6ff4dc1df9438c97aeb0e32e66b8df1b739e2a7f09d9da617fdf4",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/verilated_threads.o"
+    },
+    {
+      "bytes": 680,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "c9dd56abc1eb7bb524b725a33aa8ddafb87ab721ba4fd79588166e048c8f46fe",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/verilated_timing.d"
+    },
+    {
+      "bytes": 17424,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "5e935bf3250c95c1e1b09e902940d68bcdd4d82daaa0f5be035f692d54e5fce4",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v7/runs/obj/verilated_timing.o"
+    },
+    {
+      "bytes": 36586,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "c8cfa997a3937bbf6ecb2358b1ed8be5f3f79500af2ac87f4f7167f0c8fc65d4",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v8/runs/fi.vvp"
+    },
+    {
+      "bytes": 36586,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "5b8435112ac41f91814e8fd972e68741b867a0c49d04f248b033eb00e102d9e1",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v9/runs/fi.vvp"
+    },
+    {
+      "bytes": 36588,
+      "reason": "compiled simulator/object/generated compiler file excluded by SHA and reason",
+      "sha256": "7636475b62ea07ecaf92f0c5c7ede465b2ac0103b82ebfb22abf77e4f8b6c5e7",
+      "source_path": "build/ddr-ecc-fi-leaf-validation-v10/runs/fi.vvp"
+    }
+  ],
+  "hash_only_excluded_tools": [
+    {
+      "bytes": 79144,
+      "name": "iverilog",
+      "path": "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/iverilog",
+      "reason": "Native/compiler executable excluded; exact versions and launch argv are in attempt reports.",
+      "sha256": "34ff9d8020f106bc3cc40d69a02f6c798be41193fdac187c35e7e4d703cade93"
+    },
+    {
+      "bytes": 1978952,
+      "name": "vvp",
+      "path": "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+      "reason": "Native/compiler executable excluded; exact versions and launch argv are in attempt reports.",
+      "sha256": "5876e595e35ef237d7f4fdaf831698a7dc7e91239aed5ec0d98599df0f8fc990"
+    },
+    {
+      "bytes": 30045,
+      "name": "verilator",
+      "path": "/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/bin/verilator",
+      "reason": "Native/compiler executable excluded; exact versions and launch argv are in attempt reports.",
+      "sha256": "7550862b9b1b41aa6aadb60b6c793f1e796a3ccb5ef18375d834b7a13f39efeb"
+    },
+    {
+      "bytes": 1418488,
+      "name": "c++",
+      "path": "/usr/bin/ccache",
+      "reason": "Native/compiler executable excluded; exact versions and launch argv are in attempt reports.",
+      "sha256": "0eb8828d3c5975ed4b3ff6fa3b833de679380d84c752176feab6e2c4594552f2"
+    }
+  ],
+  "root_fi_leaf_review_sha256": "aa31aab813e47982c747ac2405199c549f0a64ce4fc7a660c4eeb881e2c1fa2d",
+  "root_fi_leaf_review_status": "PASS_ROOT_FI_LEAF_NATIVE_BEHAVIOR_ONLY_WITH_RECORDED_ICARUS_VENDOR_WARNING",
+  "root_reviewed_native_results": {
+    "icarus": {
+      "attempt": 10,
+      "bench_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+      "compile_stderr_sha256": "5252ac0762efcbad09478caa3b3dfc2a06b56dc1edf4237ed55f494f39faf16f",
+      "compile_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compile_warning": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v10/source/mig_7series_v4_2_fi_xor.v:106: warning: Anachronistic use of begin/end to surround generate schemes.\n",
+      "exact_marker": "PASS fi_xor_leaf seed=00003588 scenarios=38 byte_lanes=9 low72_only=1 write_clear=1",
+      "leaf_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "native_compile_rc": 0,
+      "native_run_rc": 0,
+      "producer_status_preserved": "FAIL",
+      "run_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run_stdout_sha256": "0a0ddb173bb66a84c506c9a202a34fac54dcc36c141b3f8d2b358fde37348f82"
+    },
+    "verilator": {
+      "attempt": 7,
+      "bench_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+      "compile_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compile_stdout_sha256": "cd08a483917898980914d7ee1ac32090b05d27de41adf01a45b5e63b4be06fcd",
+      "compile_warning": null,
+      "exact_marker": "PASS fi_xor_leaf seed=00003588 scenarios=38 byte_lanes=9 low72_only=1 write_clear=1",
+      "leaf_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "native_compile_rc": 0,
+      "native_run_rc": 0,
+      "producer_status_preserved": "PASS_FI_XOR_LEAF_VERILATOR_ONLY",
+      "run_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "run_stdout_sha256": "8d0d8c7a0ff4bd864d4a9384d77584e1d4afdb43806e69b246e59fcb77769904"
+    }
+  },
+  "schema": 1,
+  "scope": {
+    "controller_or_decoder_simulated": false,
+    "evidence_scope": "Root-reviewed actual vendor FI_XOR leaf behavioral test in Icarus13 and strict Verilator5.048. One unsuppressed Icarus vendor generate-style warning is preserved. V10 producer status remains FAIL due its finish-metadata postchecker; native run rc0/marker is separately root-reviewed.",
+    "hardware_accessed": false,
+    "leaf_source_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+    "memory_simulated": false,
+    "phy_simulated": false,
+    "physical_capacity_qualified": false,
+    "physical_ecc_injection_qualified": false,
+    "preserved_attempts_v1_to_v10": true,
+    "recovery_qualified": false,
+    "scenario_count": 38,
+    "v10_icarus_native_behavior_pass_producer_fail_preserved": true,
+    "v4_missing_producer_report": "A separately labeled tool-output observation records the private Python runner exception; not a synthesized producer receipt.",
+    "v7_strict_verilator_native_pass": true,
+    "vivado_executed": false
+  },
+  "selected_source_preparation_sha256": "71fe220dfe1ac59327ead8576f799edccd2af36dae493013f8e09ca3d102d96b",
+  "source_bytes": 467460,
+  "status": "PASS_DDR_FI_XOR_LEAF_SIMULATION_EVIDENCE_ARCHIVE",
+  "stored_bytes": 378875
+}

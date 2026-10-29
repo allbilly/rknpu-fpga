@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "mode": "sticky-fault",
+  "started_utc": "2026-10-26T17:37:45.616854+00:00",
+  "scope": "Actual USER2 physical raw captured EW BO execution; separate from full512, DDR, PCIe and RK equivalence",
+  "tests": [
+    {
+      "name": "sticky_fault_across_new_bridge_and_TAP_reset",
+      "status": "PASS",
+      "rke_status": 1852,
+      "error_code": 1,
+      "memory_read_opcode_sent": false
+    }
+  ],
+  "identity": {
+    "id": 1380664663,
+    "abi": 65536,
+    "status": 1852,
+    "actual_tck_frequency_hz": 3000000,
+    "actual_tck_period_ns": {
+      "numerator": 1000,
+      "denominator": 3
+    }
+  },
+  "finished_utc": "2026-10-26T17:37:45.693569+00:00",
+  "scans": 28,
+  "bridge_clean_quit": true
+}

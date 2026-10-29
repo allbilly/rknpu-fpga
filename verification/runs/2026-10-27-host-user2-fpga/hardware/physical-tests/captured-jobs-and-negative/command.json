@@ -1,0 +1,32 @@
+{
+  "started_utc": "2026-10-26T17:33:03.483936+00:00",
+  "bridge_script_sha256": "860ecc34606534f499adc42852188afbadf9c9074aa5621f48aa18b3c3297820",
+  "mode": "suite",
+  "load_receipt_sha256": "a988227f53a3f8ed164b2f7c81332beb8bfab3fd50be3b20ef5cdf17f7d5d44d",
+  "bridge_argv": [
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/captured-jobs-and-negative/bridge.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/captured-jobs-and-negative/vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/captured-jobs-and-negative/vivado.jou"
+  ],
+  "bridge_pid": 522202,
+  "worker_argv": [
+    "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/run_jobs.py",
+    "--out",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/captured-jobs-and-negative/jobs",
+    "--mode",
+    "suite"
+  ],
+  "worker_pid": 522342,
+  "worker_returncode": 0,
+  "bridge_returncode": 0,
+  "status": "PASS",
+  "finished_utc": "2026-10-26T17:37:36.371380+00:00",
+  "worker_report_sha256": "f745abb90dabe835a2e81e5669698ac47876efe2e464463efa6d6365750ed4d0"
+}

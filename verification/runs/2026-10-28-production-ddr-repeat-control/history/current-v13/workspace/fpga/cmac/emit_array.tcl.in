@@ -1,0 +1,43 @@
+# Reviewed-checkpoint-only bitstream emission. No programming or flash access.
+set checkpoint @CHECKPOINT@
+set bitstream @BITSTREAM@
+if {![info exists ::env(RK_ARRAY_REVIEW_SHA)] || $::env(RK_ARRAY_REVIEW_SHA) ne "@REVIEW_SHA@"} {
+    error "Use the source-bound reviewed-checkpoint emitter."
+}
+if {![info exists ::env(RK_CONFIRM_BOARD)] || $::env(RK_CONFIRM_BOARD) ne "YPCB_00338_1P1" ||
+    ![info exists ::env(RK_EMIT_BITSTREAM)] || $::env(RK_EMIT_BITSTREAM) ne "1"} {
+    error "Explicit board confirmation and RK_EMIT_BITSTREAM=1 required."
+}
+open_checkpoint $checkpoint
+if {[get_property PART [current_design]] ne "xc7k480tffg1156-2"} { error "Checkpoint part mismatch." }
+if {[get_property CFGBVS [current_design]] ne "@CFGBVS@"} { error "Checkpoint CFGBVS mismatch." }
+set voltage [get_property CONFIG_VOLTAGE [current_design]]
+if {![string is double -strict $voltage] || [catch {expr {double($voltage) == @VOLTAGE@}} same_voltage] || !$same_voltage} {
+    error "Checkpoint configuration voltage mismatch."
+}
+set clocks [get_clocks -quiet sys_clk]
+if {[llength $clocks] != 1} { error "Expected exactly one sys_clk." }
+set period [get_property PERIOD [lindex $clocks 0]]
+if {![string is double -strict $period] || [catch {expr {double($period) == 20.0}} same_period] || !$same_period} {
+    error "Checkpoint clock period mismatch."
+}
+set brams [get_cells -hierarchical -filter {REF_NAME == RAMB18E1 || REF_NAME == RAMB36E1}]
+if {[llength $brams] == 0} { error "No inferred block RAM in reviewed checkpoint." }
+foreach delay_type {max min} {
+    set paths [get_timing_paths -delay_type $delay_type -max_paths 1]
+    if {[llength $paths] == 0} { error "No $delay_type timing paths." }
+    foreach path $paths {
+        set slack [get_property SLACK $path]
+        if {![string is double -strict $slack] || [catch {expr {abs(double($slack)) < Inf}} finite] || !$finite || $slack < 0} {
+            error "Invalid or negative $delay_type slack ($slack)."
+        }
+    }
+}
+# Repeat DRC on the unchanged checkpoint, without severity demotion or waivers.
+report_drc -file @DRC_REPORT@
+foreach violation [get_drc_violations] {
+    set severity [string toupper [get_property SEVERITY $violation]]
+    if {$severity ni {WARNING ADVISORY INFO}} { error "Blocking DRC violation $violation ($severity)." }
+}
+write_bitstream $bitstream
+puts "Reviewed C32/K16 bitstream written. FPGA and flash NOT programmed."

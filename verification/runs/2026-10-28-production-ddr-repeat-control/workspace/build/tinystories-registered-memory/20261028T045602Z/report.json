@@ -1,0 +1,102 @@
+{
+  "status": "PASS_SHARED_REGISTERED_MEMORY_BOTH_SIMULATORS",
+  "scope": "Registered shared RAM source/native only; no FPGA, timing or whole application claim",
+  "inputs": {
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v14/workspace/rtl/tinystories/rk_shared_bram_regport.sv": "2a62a55bb6cc4ea6946f361726f6c53d347b5ed5b3fea337cad2082c3d8bffc1",
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v14/workspace/tests/tinystories/tb_shared_bram_regport.sv": "4028b4c8d9fc27915b72b5a3a8bf5ec3e538632f1610df41f62f16dfabdce495",
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v14/workspace/tools/tinystories/run_memory.py": "9e945b173aaafe6971a0f5160cc8c2225f392d13f300c6d272070cc1463833a9"
+  },
+  "commands": [
+    {
+      "name": "iverilog_version",
+      "argv": [
+        "iverilog",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.008169381879270077,
+      "log_sha256": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d"
+    },
+    {
+      "name": "vvp_version",
+      "argv": [
+        "vvp",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.004080402897670865,
+      "log_sha256": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6"
+    },
+    {
+      "name": "verilator_version",
+      "argv": [
+        "verilator",
+        "--version"
+      ],
+      "returncode": 0,
+      "seconds": 0.06451692199334502,
+      "log_sha256": "9d8d19bf7d16f490e1b9d701dc1438bf9ec2d7f4a41ca4f0ec8ee3d1a3df8253"
+    },
+    {
+      "name": "iverilog_compile",
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_shared_bram_regport",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v14/workspace/build/tinystories-registered-memory/20261028T045602Z/sim.vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v14/workspace/rtl/tinystories/rk_shared_bram_regport.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v14/workspace/tests/tinystories/tb_shared_bram_regport.sv"
+      ],
+      "returncode": 0,
+      "seconds": 0.016338821966201067,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "iverilog_run",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v14/workspace/build/tinystories-registered-memory/20261028T045602Z/sim.vvp"
+      ],
+      "returncode": 0,
+      "seconds": 0.016371693927794695,
+      "log_sha256": "9a03b0b972da8fc1ed5358de2e6be590088f38ab282ab9c024ee27d8b44aaea2"
+    },
+    {
+      "name": "verilator_compile",
+      "argv": [
+        "verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "--top-module",
+        "tb_shared_bram_regport",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v14/workspace/build/tinystories-registered-memory/20261028T045602Z/obj",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v14/workspace/rtl/tinystories/rk_shared_bram_regport.sv",
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v14/workspace/tests/tinystories/tb_shared_bram_regport.sv"
+      ],
+      "returncode": 0,
+      "seconds": 2.927742867032066,
+      "log_sha256": "0b45899b07ed5b9519a64185fcdd294a6b0f17fa0afc437fa7b3d4c0484d8e1a"
+    },
+    {
+      "name": "verilator_run",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v14/workspace/build/tinystories-registered-memory/20261028T045602Z/obj/sim"
+      ],
+      "returncode": 0,
+      "seconds": 0.003764047985896468,
+      "log_sha256": "ba0f31b030d351dd86618c4c83a48348329d7b00ab091998174d81c71530ebcf"
+    }
+  ],
+  "hardware_accessed": false,
+  "finished_utc": "2026-10-28T04:56:05.534008+00:00"
+}

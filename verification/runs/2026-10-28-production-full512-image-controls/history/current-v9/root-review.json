@@ -1,0 +1,79 @@
+{
+  "status": "PASS_INDEPENDENT_V9_SOURCE_NATIVE_AND_COMPLETE_HOST_RECEIPT_REVIEW_ONLY",
+  "producer_sha256": "64f8c06e22ee12e32a7c6543d20d0c4e3fb03863e1da4085fe4adc1b373be86a",
+  "source_sha256": "cd190c4674287e2626fd881a66c81ee41a7a27b6efde388287162827fad9d1bc",
+  "complete_source_files": 1090,
+  "recursive_source_sha256": "c38ef489c2902b0bbf2314feced8367ad2ac38aa9e73e948fc60c79d112879c5",
+  "v8_to_v9_added": [
+    "tests/ddr/trained_audit/__init__.py",
+    "tests/ddr/trained_audit/test_admission.py",
+    "tests/ddr/trained_audit/test_audit.py",
+    "tests/tinystories/test_memory_profile.py",
+    "tools/ddr/audit_trained_tile.py"
+  ],
+  "v8_to_v9_changed": [
+    "Makefile",
+    "tools/tinystories/run_model.py",
+    "tools/tinystories/run_projection.py"
+  ],
+  "v6_original_failure_preserved": true,
+  "make_test_seconds": 978.1482039859984,
+  "native_reports": {
+    "numeric_report.json": {
+      "sha256": "49ea8092ba438d8f9bd733b0ce6f99e6938f5670b8b063fef6e24c7b592cf1a0",
+      "status": "PASS",
+      "tests": 0
+    },
+    "rtl/report.json": {
+      "sha256": "77079549a8caeb24c407189edd3e018d98b88cfaf048260499f2a43497b97cbc",
+      "status": "PASS",
+      "tests": 249
+    },
+    "iverilog/report.json": {
+      "sha256": "f82991fe33f2973a55f1852babdc6e343597adedd01ff55c1868a84422ce5cbf",
+      "status": "PASS",
+      "tests": 249
+    },
+    "cmac_verilator/report.json": {
+      "sha256": "a78d745e68889ed58504c4d0085d5a7f68dc0862d677ddb67b4b1604bf0dc78e",
+      "status": "PASS_RAW_PRODUCT_PATH_ONLY",
+      "tests": 3
+    },
+    "cmac_iverilog/report.json": {
+      "sha256": "a1e65317c7fdfcbefa167984576bbac4c358cd5bfe0aaba2d709fb3d905bfc85",
+      "status": "PASS_RAW_PRODUCT_PATH_ONLY",
+      "tests": 3
+    }
+  },
+  "host": [
+    {
+      "path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v9/workspace/build/host-jtag/iverilog-1793143367305362835/report.json",
+      "sha256": "f9ff63dbab8e9995d081af28fa29b555c8cb906da695959ef562f264c18350d6",
+      "simulator": "iverilog",
+      "tests": 15,
+      "tool_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+      "seeds": {
+        "mailbox": "0x3588c640"
+      },
+      "async_seconds": 474.437
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v9/workspace/build/host-jtag/verilator-1793143301626965338/report.json",
+      "sha256": "6c36254a44618168d5b7079a4150d6ddd3f3d6257530d3c53f67ba96af53a50c",
+      "simulator": "verilator",
+      "tests": 15,
+      "tool_version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+      "seeds": {
+        "mailbox": "0x3588c640"
+      },
+      "async_seconds": 35.791
+    }
+  ],
+  "software_ddr_control_methods": 58,
+  "dual_control_commands": 6,
+  "dual_control_report_sha256": "bd4e5bded9e9b2ec4442410021f562ea71d5e42e6ec3c32a2757ecad3682e19a",
+  "numerical_or_ddr_composition_qualified_by_default_make": false,
+  "hardware_accessed": false,
+  "reviewer_sha256": "6540dd3009801451a0ea233bdfbc747d657788a2f3f7a1a7341088003909ead8",
+  "utc": "2026-10-27T23:32:44.687145+00:00"
+}

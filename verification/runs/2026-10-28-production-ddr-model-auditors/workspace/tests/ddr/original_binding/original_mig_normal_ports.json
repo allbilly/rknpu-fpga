@@ -1,0 +1,856 @@
+{
+  "schema_version": 1,
+  "top": "top_mig_7series_0_0",
+  "wrapper_sha256": "09c000b23396d629f924164b66e4bb8f289e369bf3ef274f1577d36a3892750d",
+  "normal_port_count": 169,
+  "defines_required_undefined": [
+    "SKIP_CALIB"
+  ],
+  "ports": [
+    {
+      "name": "c0_app_ecc_multiple_err",
+      "direction": "out",
+      "width": 8
+    },
+    {
+      "name": "c0_app_ecc_single_err",
+      "direction": "out",
+      "width": 8
+    },
+    {
+      "name": "c0_app_ref_ack",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_app_ref_req",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_app_sr_active",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_app_sr_req",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_app_zq_ack",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_app_zq_req",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_aresetn",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_ddr3_addr",
+      "direction": "out",
+      "width": 15
+    },
+    {
+      "name": "c0_ddr3_ba",
+      "direction": "out",
+      "width": 3
+    },
+    {
+      "name": "c0_ddr3_cas_n",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_ddr3_ck_n",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_ddr3_ck_p",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_ddr3_cke",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_ddr3_cs_n",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_ddr3_dq",
+      "direction": "inout",
+      "width": 72
+    },
+    {
+      "name": "c0_ddr3_dqs_n",
+      "direction": "inout",
+      "width": 9
+    },
+    {
+      "name": "c0_ddr3_dqs_p",
+      "direction": "inout",
+      "width": 9
+    },
+    {
+      "name": "c0_ddr3_odt",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_ddr3_ras_n",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_ddr3_reset_n",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_ddr3_we_n",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_device_temp",
+      "direction": "out",
+      "width": 12
+    },
+    {
+      "name": "c0_init_calib_complete",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_interrupt",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_mmcm_locked",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_araddr",
+      "direction": "in",
+      "width": 31
+    },
+    {
+      "name": "c0_s_axi_arburst",
+      "direction": "in",
+      "width": 2
+    },
+    {
+      "name": "c0_s_axi_arcache",
+      "direction": "in",
+      "width": 4
+    },
+    {
+      "name": "c0_s_axi_arid",
+      "direction": "in",
+      "width": 4
+    },
+    {
+      "name": "c0_s_axi_arlen",
+      "direction": "in",
+      "width": 8
+    },
+    {
+      "name": "c0_s_axi_arlock",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_arprot",
+      "direction": "in",
+      "width": 3
+    },
+    {
+      "name": "c0_s_axi_arqos",
+      "direction": "in",
+      "width": 4
+    },
+    {
+      "name": "c0_s_axi_arready",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_arsize",
+      "direction": "in",
+      "width": 3
+    },
+    {
+      "name": "c0_s_axi_arvalid",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_awaddr",
+      "direction": "in",
+      "width": 31
+    },
+    {
+      "name": "c0_s_axi_awburst",
+      "direction": "in",
+      "width": 2
+    },
+    {
+      "name": "c0_s_axi_awcache",
+      "direction": "in",
+      "width": 4
+    },
+    {
+      "name": "c0_s_axi_awid",
+      "direction": "in",
+      "width": 4
+    },
+    {
+      "name": "c0_s_axi_awlen",
+      "direction": "in",
+      "width": 8
+    },
+    {
+      "name": "c0_s_axi_awlock",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_awprot",
+      "direction": "in",
+      "width": 3
+    },
+    {
+      "name": "c0_s_axi_awqos",
+      "direction": "in",
+      "width": 4
+    },
+    {
+      "name": "c0_s_axi_awready",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_awsize",
+      "direction": "in",
+      "width": 3
+    },
+    {
+      "name": "c0_s_axi_awvalid",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_bid",
+      "direction": "out",
+      "width": 4
+    },
+    {
+      "name": "c0_s_axi_bready",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_bresp",
+      "direction": "out",
+      "width": 2
+    },
+    {
+      "name": "c0_s_axi_bvalid",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_ctrl_araddr",
+      "direction": "in",
+      "width": 32
+    },
+    {
+      "name": "c0_s_axi_ctrl_arready",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_ctrl_arvalid",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_ctrl_awaddr",
+      "direction": "in",
+      "width": 32
+    },
+    {
+      "name": "c0_s_axi_ctrl_awready",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_ctrl_awvalid",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_ctrl_bready",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_ctrl_bresp",
+      "direction": "out",
+      "width": 2
+    },
+    {
+      "name": "c0_s_axi_ctrl_bvalid",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_ctrl_rdata",
+      "direction": "out",
+      "width": 32
+    },
+    {
+      "name": "c0_s_axi_ctrl_rready",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_ctrl_rresp",
+      "direction": "out",
+      "width": 2
+    },
+    {
+      "name": "c0_s_axi_ctrl_rvalid",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_ctrl_wdata",
+      "direction": "in",
+      "width": 32
+    },
+    {
+      "name": "c0_s_axi_ctrl_wready",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_ctrl_wvalid",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_rdata",
+      "direction": "out",
+      "width": 512
+    },
+    {
+      "name": "c0_s_axi_rid",
+      "direction": "out",
+      "width": 4
+    },
+    {
+      "name": "c0_s_axi_rlast",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_rready",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_rresp",
+      "direction": "out",
+      "width": 2
+    },
+    {
+      "name": "c0_s_axi_rvalid",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_wdata",
+      "direction": "in",
+      "width": 512
+    },
+    {
+      "name": "c0_s_axi_wlast",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_wready",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_s_axi_wstrb",
+      "direction": "in",
+      "width": 64
+    },
+    {
+      "name": "c0_s_axi_wvalid",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_sys_clk_n",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_sys_clk_p",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c0_ui_clk",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c0_ui_clk_sync_rst",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_app_ecc_multiple_err",
+      "direction": "out",
+      "width": 8
+    },
+    {
+      "name": "c1_app_ecc_single_err",
+      "direction": "out",
+      "width": 8
+    },
+    {
+      "name": "c1_app_ref_ack",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_app_ref_req",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_app_sr_active",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_app_sr_req",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_app_zq_ack",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_app_zq_req",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_aresetn",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_ddr3_addr",
+      "direction": "out",
+      "width": 15
+    },
+    {
+      "name": "c1_ddr3_ba",
+      "direction": "out",
+      "width": 3
+    },
+    {
+      "name": "c1_ddr3_cas_n",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_ddr3_ck_n",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_ddr3_ck_p",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_ddr3_cke",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_ddr3_cs_n",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_ddr3_dq",
+      "direction": "inout",
+      "width": 72
+    },
+    {
+      "name": "c1_ddr3_dqs_n",
+      "direction": "inout",
+      "width": 9
+    },
+    {
+      "name": "c1_ddr3_dqs_p",
+      "direction": "inout",
+      "width": 9
+    },
+    {
+      "name": "c1_ddr3_odt",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_ddr3_ras_n",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_ddr3_reset_n",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_ddr3_we_n",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_device_temp",
+      "direction": "out",
+      "width": 12
+    },
+    {
+      "name": "c1_init_calib_complete",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_interrupt",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_mmcm_locked",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_araddr",
+      "direction": "in",
+      "width": 31
+    },
+    {
+      "name": "c1_s_axi_arburst",
+      "direction": "in",
+      "width": 2
+    },
+    {
+      "name": "c1_s_axi_arcache",
+      "direction": "in",
+      "width": 4
+    },
+    {
+      "name": "c1_s_axi_arid",
+      "direction": "in",
+      "width": 4
+    },
+    {
+      "name": "c1_s_axi_arlen",
+      "direction": "in",
+      "width": 8
+    },
+    {
+      "name": "c1_s_axi_arlock",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_arprot",
+      "direction": "in",
+      "width": 3
+    },
+    {
+      "name": "c1_s_axi_arqos",
+      "direction": "in",
+      "width": 4
+    },
+    {
+      "name": "c1_s_axi_arready",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_arsize",
+      "direction": "in",
+      "width": 3
+    },
+    {
+      "name": "c1_s_axi_arvalid",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_awaddr",
+      "direction": "in",
+      "width": 31
+    },
+    {
+      "name": "c1_s_axi_awburst",
+      "direction": "in",
+      "width": 2
+    },
+    {
+      "name": "c1_s_axi_awcache",
+      "direction": "in",
+      "width": 4
+    },
+    {
+      "name": "c1_s_axi_awid",
+      "direction": "in",
+      "width": 4
+    },
+    {
+      "name": "c1_s_axi_awlen",
+      "direction": "in",
+      "width": 8
+    },
+    {
+      "name": "c1_s_axi_awlock",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_awprot",
+      "direction": "in",
+      "width": 3
+    },
+    {
+      "name": "c1_s_axi_awqos",
+      "direction": "in",
+      "width": 4
+    },
+    {
+      "name": "c1_s_axi_awready",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_awsize",
+      "direction": "in",
+      "width": 3
+    },
+    {
+      "name": "c1_s_axi_awvalid",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_bid",
+      "direction": "out",
+      "width": 4
+    },
+    {
+      "name": "c1_s_axi_bready",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_bresp",
+      "direction": "out",
+      "width": 2
+    },
+    {
+      "name": "c1_s_axi_bvalid",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_ctrl_araddr",
+      "direction": "in",
+      "width": 32
+    },
+    {
+      "name": "c1_s_axi_ctrl_arready",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_ctrl_arvalid",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_ctrl_awaddr",
+      "direction": "in",
+      "width": 32
+    },
+    {
+      "name": "c1_s_axi_ctrl_awready",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_ctrl_awvalid",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_ctrl_bready",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_ctrl_bresp",
+      "direction": "out",
+      "width": 2
+    },
+    {
+      "name": "c1_s_axi_ctrl_bvalid",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_ctrl_rdata",
+      "direction": "out",
+      "width": 32
+    },
+    {
+      "name": "c1_s_axi_ctrl_rready",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_ctrl_rresp",
+      "direction": "out",
+      "width": 2
+    },
+    {
+      "name": "c1_s_axi_ctrl_rvalid",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_ctrl_wdata",
+      "direction": "in",
+      "width": 32
+    },
+    {
+      "name": "c1_s_axi_ctrl_wready",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_ctrl_wvalid",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_rdata",
+      "direction": "out",
+      "width": 512
+    },
+    {
+      "name": "c1_s_axi_rid",
+      "direction": "out",
+      "width": 4
+    },
+    {
+      "name": "c1_s_axi_rlast",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_rready",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_rresp",
+      "direction": "out",
+      "width": 2
+    },
+    {
+      "name": "c1_s_axi_rvalid",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_wdata",
+      "direction": "in",
+      "width": 512
+    },
+    {
+      "name": "c1_s_axi_wlast",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_wready",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_s_axi_wstrb",
+      "direction": "in",
+      "width": 64
+    },
+    {
+      "name": "c1_s_axi_wvalid",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_sys_clk_n",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_sys_clk_p",
+      "direction": "in",
+      "width": 1
+    },
+    {
+      "name": "c1_ui_clk",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "c1_ui_clk_sync_rst",
+      "direction": "out",
+      "width": 1
+    },
+    {
+      "name": "sys_rst",
+      "direction": "in",
+      "width": 1
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "checked_utc": "2026-10-26T21:48:17.481527+00:00",
+  "source_report": "/home/fedora/rknpu-fpga/build/tinystories-vivado/20261026T203942Z/report.json",
+  "source_report_sha256": "e730a8e1e53e114654e722eb0fffcfb1aa9af72d9d293c9017a01c8d794e4b68",
+  "source_report_status": "PASS_FULL512_DUAL_ROUTED_CHECKPOINT_ONLY",
+  "source_returncode": 0,
+  "input_count": 56,
+  "input_match_count": 56,
+  "artifact_count": 19,
+  "checked_count": 75,
+  "observed_manifest_sha256": "79735f316c7ab96170d53192c127cf4d50e91d9f466588257ed75ab0b1cfd010",
+  "mismatch_count": 0,
+  "mismatches": [],
+  "missing": [],
+  "native_report_checks": [
+    {
+      "name": "iverilog",
+      "path": "/home/fedora/rknpu-fpga/build/tinystories-joined-native/iverilog-v3/report.json",
+      "expected_sha256": "780b6d3b23c03d577eaf0a0b37ae7e2fb5d63e1bbc76aea028cc79a47d637e56",
+      "observed_sha256": "780b6d3b23c03d577eaf0a0b37ae7e2fb5d63e1bbc76aea028cc79a47d637e56",
+      "status": "PASS_TRAINED_TILE_DUAL_RAW_ENDPOINT_IVERILOG_ONLY",
+      "matches": true
+    },
+    {
+      "name": "verilator",
+      "path": "/home/fedora/rknpu-fpga/build/tinystories-joined-native/verilator-v2/report.json",
+      "expected_sha256": "9792826161e059e6bdb7d89d107973b65425659b94cd36ba3e947e03468fb815",
+      "observed_sha256": "9792826161e059e6bdb7d89d107973b65425659b94cd36ba3e947e03468fb815",
+      "status": "PASS_TRAINED_TILE_DUAL_RAW_ENDPOINT_VERILATOR_ONLY",
+      "matches": true
+    }
+  ],
+  "jtag_lock_matches": [],
+  "listening_ports_3121_3125_3741": [],
+  "all_source_inputs_match": true,
+  "all_artifacts_match": true,
+  "native_reports_match": true,
+  "artifact_match_count": 19
+}

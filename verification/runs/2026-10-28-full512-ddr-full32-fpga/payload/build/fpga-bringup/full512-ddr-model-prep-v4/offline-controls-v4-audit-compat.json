@@ -1,0 +1,144 @@
+{
+  "accepted_root_admission": {
+    "execution_approval_sha256": "fb94b5e9d1615a9a47d9a6ea32ed7d21b52c22f46191e005e04fe11ec04d3cab",
+    "image_review_sha256": "223b0dc3cc1a78a804a6f75b1d20baf3649bbe8265b192577580bbf4e258264a",
+    "trained_tile_prerequisite_sha256": "4d3ac12fc3e6cc4d92d492d4b231463e46e30cc7562b9ca0c0af75ca75836e44",
+    "validate_admission": "covered by offline package control; no hardware actions invoked"
+  },
+  "actual_trained_v6_audit_hardware_accessed_key_present": false,
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "py_compile",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/run_full_model.py",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/test_preflight.py",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/test_process_controls.py",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/test_runner_global_bindings.py"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "finished_utc": "2026-10-28T05:27:36.026417+00:00",
+      "name": "py_compile",
+      "returncode": 0,
+      "started_utc": "2026-10-28T05:27:35.944513+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/audit-compat-v4-py_compile.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/audit-compat-v4-py_compile.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4",
+        "-p",
+        "test*.py",
+        "-v"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "finished_utc": "2026-10-28T05:27:38.282181+00:00",
+      "name": "model_preparation_controls",
+      "returncode": 0,
+      "started_utc": "2026-10-28T05:27:36.026898+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/audit-compat-v4-model_preparation_controls.stderr.log",
+      "stderr_sha256": "224192434f1d5c37066bb0232933db502d05df2210045c26aa974c730cbe4f3d",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/audit-compat-v4-model_preparation_controls.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "make",
+        "generated-check"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "finished_utc": "2026-10-28T05:27:38.400111+00:00",
+      "name": "generated_check",
+      "returncode": 0,
+      "started_utc": "2026-10-28T05:27:38.282550+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/audit-compat-v4-generated_check.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/audit-compat-v4-generated_check.stdout.log",
+      "stdout_sha256": "b3381e2f4577fb00b88ccdb768c91d043d54433d20a7fd60cadfa29a8b28cfec"
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/home/fedora/rknpu-fpga/tests/ddr/model_audit",
+        "-p",
+        "test*.py",
+        "-v"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "finished_utc": "2026-10-28T05:27:39.237909+00:00",
+      "name": "ddr_model_audit_controls",
+      "returncode": 0,
+      "started_utc": "2026-10-28T05:27:38.400594+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/audit-compat-v4-ddr_model_audit_controls.stderr.log",
+      "stderr_sha256": "7f54a21a2f8cfda1e21c690675ad19004b81faf563e04e59700fbfcf8c085709",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/audit-compat-v4-ddr_model_audit_controls.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/run_full_model.py"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "finished_utc": "2026-10-28T05:27:39.375524+00:00",
+      "name": "offline_preflight",
+      "returncode": 0,
+      "started_utc": "2026-10-28T05:27:39.238399+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/audit-compat-v4-offline_preflight.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v4/audit-compat-v4-offline_preflight.stdout.log",
+      "stdout_sha256": "6ec6dd102e5b52d92626814cc45c0444c672204ff2aea32f271008b140a5877f"
+    }
+  ],
+  "flash_written": false,
+  "hardware_accessed": false,
+  "model_run_executed": false,
+  "python_version": "3.14.5 (main, May 10 2026, 10:21:34) [GCC 12.3.0]",
+  "root_prerequisite_inputs_after": {
+    "build/fpga-bringup/full512-ddr-trained-prep-v6/physical-test/trained-audit.json": "a4ac850f02f8b543b8e99c9309792aba22ec253bbe88dc95d088d1886e3cb1b3",
+    "build/fpga-bringup/full512-ddr-trained-prep-v6/root-trained-tile-review.json": "1897372b803a1a3194545789024a0ae988411a120cb42f9904cec1ccec4e3d72",
+    "build/full512-ddr-preparation/full512-bitfile-audit-v2/v12-image-review.json": "04ee9140232ebc4c2a263c66eb934c10b9b1ec83fa240a83278b244daf1efb18"
+  },
+  "root_prerequisite_inputs_before": {
+    "build/fpga-bringup/full512-ddr-trained-prep-v6/physical-test/trained-audit.json": "a4ac850f02f8b543b8e99c9309792aba22ec253bbe88dc95d088d1886e3cb1b3",
+    "build/fpga-bringup/full512-ddr-trained-prep-v6/root-trained-tile-review.json": "1897372b803a1a3194545789024a0ae988411a120cb42f9904cec1ccec4e3d72",
+    "build/full512-ddr-preparation/full512-bitfile-audit-v2/v12-image-review.json": "04ee9140232ebc4c2a263c66eb934c10b9b1ec83fa240a83278b244daf1efb18"
+  },
+  "schema": "full512-ddr-model-preparation-offline-controls-v4-audit-compat-v1",
+  "status": "PASS_OFFLINE_ONLY",
+  "tracked_package_hashes_after": {
+    "create_preparation.py": "c10371770f65c888bb20ca042d2c8e50c74d911638901d2fa899554b0033fc3c",
+    "execution-approval.json": "fb94b5e9d1615a9a47d9a6ea32ed7d21b52c22f46191e005e04fe11ec04d3cab",
+    "image-review.json": "223b0dc3cc1a78a804a6f75b1d20baf3649bbe8265b192577580bbf4e258264a",
+    "preparation.json": "85b894e47f7ef2f7c3d7499bdad8e8aea0b43a76f6539e37b802681a65f63b6c",
+    "run_full_model.py": "cd5ca6eec550b14bf225f371a0710e7d3842261ec5e5f7445dd327536069d1a8",
+    "test_preflight.py": "48a2ca45141e3059fbb9ee5469f2df7233a8b8f796f73e7762481fb9cb059e80",
+    "test_process_controls.py": "b328e1115158a1112ce6218c44d395503d1370e750119845ba08cefdccdffcfd",
+    "test_runner_global_bindings.py": "8ce078533f3b961fc4feca0d54a688dcdbd65de932b5ce8f5b56666d27573b52",
+    "trained-tile-prerequisite.json": "4d3ac12fc3e6cc4d92d492d4b231463e46e30cc7562b9ca0c0af75ca75836e44"
+  },
+  "tracked_package_hashes_before": {
+    "create_preparation.py": "c10371770f65c888bb20ca042d2c8e50c74d911638901d2fa899554b0033fc3c",
+    "execution-approval.json": "fb94b5e9d1615a9a47d9a6ea32ed7d21b52c22f46191e005e04fe11ec04d3cab",
+    "image-review.json": "223b0dc3cc1a78a804a6f75b1d20baf3649bbe8265b192577580bbf4e258264a",
+    "preparation.json": "85b894e47f7ef2f7c3d7499bdad8e8aea0b43a76f6539e37b802681a65f63b6c",
+    "run_full_model.py": "cd5ca6eec550b14bf225f371a0710e7d3842261ec5e5f7445dd327536069d1a8",
+    "test_preflight.py": "48a2ca45141e3059fbb9ee5469f2df7233a8b8f796f73e7762481fb9cb059e80",
+    "test_process_controls.py": "b328e1115158a1112ce6218c44d395503d1370e750119845ba08cefdccdffcfd",
+    "test_runner_global_bindings.py": "8ce078533f3b961fc4feca0d54a688dcdbd65de932b5ce8f5b56666d27573b52",
+    "trained-tile-prerequisite.json": "4d3ac12fc3e6cc4d92d492d4b231463e46e30cc7562b9ca0c0af75ca75836e44"
+  },
+  "vivado_executed": false
+}

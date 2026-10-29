@@ -1,0 +1,2512 @@
+{
+  "schema": "full512-routed-io-property-snapshot-v2",
+  "status": "PASS_READ_ONLY_FULL512_ROUTED_242_PORT_PROPERTY_SNAPSHOT",
+  "scope": "actual full512 post-route DCP properties matched against old EW physical pin specification; not proof of electrical/PHY training or RTL equivalence",
+  "design": {
+    "name": "checkpoint_post_route",
+    "top": "ypcb_ddr_dual_top",
+    "part": "xc7k480tffg1156-2",
+    "config_voltage": "1.8",
+    "cfgbvs": "GND"
+  },
+  "dcp": {
+    "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/strict-route-requalification-v1/output/post_route.dcp",
+    "sha256": "55a9a311a14227a89550e39f182deed2ca8885d39653c5c478b9bc4c51ffee89"
+  },
+  "port_count": 242,
+  "property_count": 1936,
+  "ports": {
+    "SYS_CLK": {
+      "PACKAGE_PIN": "AA28",
+      "IOSTANDARD": "LVCMOS18",
+      "SLEW": "",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "IN"
+    },
+    "c0_ddr3_addr[0]": {
+      "PACKAGE_PIN": "AK27",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[10]": {
+      "PACKAGE_PIN": "AL28",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[11]": {
+      "PACKAGE_PIN": "AL25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[12]": {
+      "PACKAGE_PIN": "AM25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[13]": {
+      "PACKAGE_PIN": "AK24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[14]": {
+      "PACKAGE_PIN": "AM27",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[1]": {
+      "PACKAGE_PIN": "AN23",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[2]": {
+      "PACKAGE_PIN": "AL24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[3]": {
+      "PACKAGE_PIN": "AK26",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[4]": {
+      "PACKAGE_PIN": "AH24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[5]": {
+      "PACKAGE_PIN": "AH25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[6]": {
+      "PACKAGE_PIN": "AL26",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[7]": {
+      "PACKAGE_PIN": "AJ24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[8]": {
+      "PACKAGE_PIN": "AJ25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_addr[9]": {
+      "PACKAGE_PIN": "AM23",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_ba[0]": {
+      "PACKAGE_PIN": "AM26",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_ba[1]": {
+      "PACKAGE_PIN": "AP24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_ba[2]": {
+      "PACKAGE_PIN": "AN28",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_cas_n": {
+      "PACKAGE_PIN": "AP26",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_ck_n[0]": {
+      "PACKAGE_PIN": "AP25",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_ck_p[0]": {
+      "PACKAGE_PIN": "AN25",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_cke[0]": {
+      "PACKAGE_PIN": "AP27",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_cs_n[0]": {
+      "PACKAGE_PIN": "AK28",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_dq[0]": {
+      "PACKAGE_PIN": "AG17",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[10]": {
+      "PACKAGE_PIN": "AL19",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[11]": {
+      "PACKAGE_PIN": "AM16",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[12]": {
+      "PACKAGE_PIN": "AL18",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[13]": {
+      "PACKAGE_PIN": "AL16",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[14]": {
+      "PACKAGE_PIN": "AM20",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[15]": {
+      "PACKAGE_PIN": "AN18",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[16]": {
+      "PACKAGE_PIN": "AL23",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[17]": {
+      "PACKAGE_PIN": "AN20",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[18]": {
+      "PACKAGE_PIN": "AK23",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[19]": {
+      "PACKAGE_PIN": "AP19",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[1]": {
+      "PACKAGE_PIN": "AG16",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[20]": {
+      "PACKAGE_PIN": "AN22",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[21]": {
+      "PACKAGE_PIN": "AN19",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[22]": {
+      "PACKAGE_PIN": "AM22",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[23]": {
+      "PACKAGE_PIN": "AP20",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[24]": {
+      "PACKAGE_PIN": "AJ21",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[25]": {
+      "PACKAGE_PIN": "AH22",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[26]": {
+      "PACKAGE_PIN": "AK21",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[27]": {
+      "PACKAGE_PIN": "AG21",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[28]": {
+      "PACKAGE_PIN": "AG22",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[29]": {
+      "PACKAGE_PIN": "AG20",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[2]": {
+      "PACKAGE_PIN": "AH17",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[30]": {
+      "PACKAGE_PIN": "AH23",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[31]": {
+      "PACKAGE_PIN": "AG23",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[32]": {
+      "PACKAGE_PIN": "AJ32",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[33]": {
+      "PACKAGE_PIN": "AK32",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[34]": {
+      "PACKAGE_PIN": "AK31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[35]": {
+      "PACKAGE_PIN": "AL30",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[36]": {
+      "PACKAGE_PIN": "AL34",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[37]": {
+      "PACKAGE_PIN": "AL31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[38]": {
+      "PACKAGE_PIN": "AK34",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[39]": {
+      "PACKAGE_PIN": "AL29",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[3]": {
+      "PACKAGE_PIN": "AJ19",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[40]": {
+      "PACKAGE_PIN": "AJ34",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[41]": {
+      "PACKAGE_PIN": "AH32",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[42]": {
+      "PACKAGE_PIN": "AJ30",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[43]": {
+      "PACKAGE_PIN": "AH34",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[44]": {
+      "PACKAGE_PIN": "AF31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[45]": {
+      "PACKAGE_PIN": "AG30",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[46]": {
+      "PACKAGE_PIN": "AG31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[47]": {
+      "PACKAGE_PIN": "AF30",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[48]": {
+      "PACKAGE_PIN": "AE32",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[49]": {
+      "PACKAGE_PIN": "AC33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[4]": {
+      "PACKAGE_PIN": "AH18",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[50]": {
+      "PACKAGE_PIN": "AF33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[51]": {
+      "PACKAGE_PIN": "AC32",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[52]": {
+      "PACKAGE_PIN": "AD34",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[53]": {
+      "PACKAGE_PIN": "AC34",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[54]": {
+      "PACKAGE_PIN": "AE33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[55]": {
+      "PACKAGE_PIN": "AE31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[56]": {
+      "PACKAGE_PIN": "AE26",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[57]": {
+      "PACKAGE_PIN": "AF29",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[58]": {
+      "PACKAGE_PIN": "AE24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[59]": {
+      "PACKAGE_PIN": "AF28",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[5]": {
+      "PACKAGE_PIN": "AH19",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[60]": {
+      "PACKAGE_PIN": "AF24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[61]": {
+      "PACKAGE_PIN": "AG25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[62]": {
+      "PACKAGE_PIN": "AF26",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[63]": {
+      "PACKAGE_PIN": "AF25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[64]": {
+      "PACKAGE_PIN": "AN34",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[65]": {
+      "PACKAGE_PIN": "AP30",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[66]": {
+      "PACKAGE_PIN": "AM33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[67]": {
+      "PACKAGE_PIN": "AN29",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[68]": {
+      "PACKAGE_PIN": "AP32",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[69]": {
+      "PACKAGE_PIN": "AP29",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[6]": {
+      "PACKAGE_PIN": "AJ16",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[70]": {
+      "PACKAGE_PIN": "AM31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[71]": {
+      "PACKAGE_PIN": "AP31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[7]": {
+      "PACKAGE_PIN": "AJ17",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[8]": {
+      "PACKAGE_PIN": "AL20",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dq[9]": {
+      "PACKAGE_PIN": "AN17",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_n[0]": {
+      "PACKAGE_PIN": "AK17",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_n[1]": {
+      "PACKAGE_PIN": "AM18",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_n[2]": {
+      "PACKAGE_PIN": "AP22",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_n[3]": {
+      "PACKAGE_PIN": "AJ20",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_n[4]": {
+      "PACKAGE_PIN": "AL33",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_n[5]": {
+      "PACKAGE_PIN": "AH33",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_n[6]": {
+      "PACKAGE_PIN": "AF34",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_n[7]": {
+      "PACKAGE_PIN": "AE28",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_n[8]": {
+      "PACKAGE_PIN": "AP33",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_p[0]": {
+      "PACKAGE_PIN": "AK16",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_p[1]": {
+      "PACKAGE_PIN": "AM17",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_p[2]": {
+      "PACKAGE_PIN": "AP21",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_p[3]": {
+      "PACKAGE_PIN": "AH20",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_p[4]": {
+      "PACKAGE_PIN": "AK33",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_p[5]": {
+      "PACKAGE_PIN": "AG33",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_p[6]": {
+      "PACKAGE_PIN": "AE34",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_p[7]": {
+      "PACKAGE_PIN": "AE27",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_dqs_p[8]": {
+      "PACKAGE_PIN": "AN32",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c0_ddr3_odt[0]": {
+      "PACKAGE_PIN": "AK29",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_ras_n": {
+      "PACKAGE_PIN": "AJ29",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_reset_n": {
+      "PACKAGE_PIN": "AD31",
+      "IOSTANDARD": "LVCMOS15",
+      "SLEW": "FAST",
+      "DRIVE": "12",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_ddr3_we_n": {
+      "PACKAGE_PIN": "AN27",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c0_sys_clk_n": {
+      "PACKAGE_PIN": "AH28",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "IN"
+    },
+    "c0_sys_clk_p": {
+      "PACKAGE_PIN": "AH27",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "IN"
+    },
+    "c1_ddr3_addr[0]": {
+      "PACKAGE_PIN": "E27",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[10]": {
+      "PACKAGE_PIN": "F26",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[11]": {
+      "PACKAGE_PIN": "D26",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[12]": {
+      "PACKAGE_PIN": "H25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[13]": {
+      "PACKAGE_PIN": "D25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[14]": {
+      "PACKAGE_PIN": "B26",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[1]": {
+      "PACKAGE_PIN": "C27",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[2]": {
+      "PACKAGE_PIN": "B28",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[3]": {
+      "PACKAGE_PIN": "D27",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[4]": {
+      "PACKAGE_PIN": "C24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[5]": {
+      "PACKAGE_PIN": "D24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[6]": {
+      "PACKAGE_PIN": "C25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[7]": {
+      "PACKAGE_PIN": "A24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[8]": {
+      "PACKAGE_PIN": "A25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_addr[9]": {
+      "PACKAGE_PIN": "J24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_ba[0]": {
+      "PACKAGE_PIN": "F24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_ba[1]": {
+      "PACKAGE_PIN": "J25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_ba[2]": {
+      "PACKAGE_PIN": "E24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_cas_n": {
+      "PACKAGE_PIN": "E26",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_ck_n[0]": {
+      "PACKAGE_PIN": "A26",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_ck_p[0]": {
+      "PACKAGE_PIN": "B25",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_cke[0]": {
+      "PACKAGE_PIN": "A28",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_cs_n[0]": {
+      "PACKAGE_PIN": "F28",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_dq[0]": {
+      "PACKAGE_PIN": "A29",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[10]": {
+      "PACKAGE_PIN": "D30",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[11]": {
+      "PACKAGE_PIN": "D29",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[12]": {
+      "PACKAGE_PIN": "E33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[13]": {
+      "PACKAGE_PIN": "E34",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[14]": {
+      "PACKAGE_PIN": "E31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[15]": {
+      "PACKAGE_PIN": "F34",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[16]": {
+      "PACKAGE_PIN": "B23",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[17]": {
+      "PACKAGE_PIN": "A21",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[18]": {
+      "PACKAGE_PIN": "C23",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[19]": {
+      "PACKAGE_PIN": "B20",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[1]": {
+      "PACKAGE_PIN": "B33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[20]": {
+      "PACKAGE_PIN": "B22",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[21]": {
+      "PACKAGE_PIN": "A23",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[22]": {
+      "PACKAGE_PIN": "C20",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[23]": {
+      "PACKAGE_PIN": "B21",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[24]": {
+      "PACKAGE_PIN": "G31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[25]": {
+      "PACKAGE_PIN": "G32",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[26]": {
+      "PACKAGE_PIN": "F29",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[27]": {
+      "PACKAGE_PIN": "F31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[28]": {
+      "PACKAGE_PIN": "E29",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[29]": {
+      "PACKAGE_PIN": "G33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[2]": {
+      "PACKAGE_PIN": "A31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[30]": {
+      "PACKAGE_PIN": "H33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[31]": {
+      "PACKAGE_PIN": "H32",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[32]": {
+      "PACKAGE_PIN": "B18",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[33]": {
+      "PACKAGE_PIN": "C17",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[34]": {
+      "PACKAGE_PIN": "C19",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[35]": {
+      "PACKAGE_PIN": "B16",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[36]": {
+      "PACKAGE_PIN": "A18",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[37]": {
+      "PACKAGE_PIN": "A16",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[38]": {
+      "PACKAGE_PIN": "C18",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[39]": {
+      "PACKAGE_PIN": "B17",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[3]": {
+      "PACKAGE_PIN": "C33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[40]": {
+      "PACKAGE_PIN": "K27",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[41]": {
+      "PACKAGE_PIN": "L24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[42]": {
+      "PACKAGE_PIN": "K24",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[43]": {
+      "PACKAGE_PIN": "L28",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[44]": {
+      "PACKAGE_PIN": "K26",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[45]": {
+      "PACKAGE_PIN": "M27",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[46]": {
+      "PACKAGE_PIN": "L25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[47]": {
+      "PACKAGE_PIN": "M26",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[48]": {
+      "PACKAGE_PIN": "F16",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[49]": {
+      "PACKAGE_PIN": "E18",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[4]": {
+      "PACKAGE_PIN": "C32",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[50]": {
+      "PACKAGE_PIN": "E16",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[51]": {
+      "PACKAGE_PIN": "H19",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[52]": {
+      "PACKAGE_PIN": "H17",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[53]": {
+      "PACKAGE_PIN": "H20",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[54]": {
+      "PACKAGE_PIN": "E17",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[55]": {
+      "PACKAGE_PIN": "H18",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[56]": {
+      "PACKAGE_PIN": "D20",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[57]": {
+      "PACKAGE_PIN": "F21",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[58]": {
+      "PACKAGE_PIN": "E23",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[59]": {
+      "PACKAGE_PIN": "G21",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[5]": {
+      "PACKAGE_PIN": "A30",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[60]": {
+      "PACKAGE_PIN": "G20",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[61]": {
+      "PACKAGE_PIN": "D21",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[62]": {
+      "PACKAGE_PIN": "F20",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[63]": {
+      "PACKAGE_PIN": "F23",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[64]": {
+      "PACKAGE_PIN": "L34",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[65]": {
+      "PACKAGE_PIN": "K34",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[66]": {
+      "PACKAGE_PIN": "K31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[67]": {
+      "PACKAGE_PIN": "K33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[68]": {
+      "PACKAGE_PIN": "L31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[69]": {
+      "PACKAGE_PIN": "J30",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[6]": {
+      "PACKAGE_PIN": "B30",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[70]": {
+      "PACKAGE_PIN": "L33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[71]": {
+      "PACKAGE_PIN": "J34",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[7]": {
+      "PACKAGE_PIN": "A33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[8]": {
+      "PACKAGE_PIN": "D31",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dq[9]": {
+      "PACKAGE_PIN": "F33",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_n[0]": {
+      "PACKAGE_PIN": "B32",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_n[1]": {
+      "PACKAGE_PIN": "C34",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_n[2]": {
+      "PACKAGE_PIN": "A20",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_n[3]": {
+      "PACKAGE_PIN": "H30",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_n[4]": {
+      "PACKAGE_PIN": "D17",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_n[5]": {
+      "PACKAGE_PIN": "K29",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_n[6]": {
+      "PACKAGE_PIN": "G18",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_n[7]": {
+      "PACKAGE_PIN": "G23",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_n[8]": {
+      "PACKAGE_PIN": "J32",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_p[0]": {
+      "PACKAGE_PIN": "B31",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_p[1]": {
+      "PACKAGE_PIN": "D34",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_p[2]": {
+      "PACKAGE_PIN": "A19",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_p[3]": {
+      "PACKAGE_PIN": "H29",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_p[4]": {
+      "PACKAGE_PIN": "D16",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_p[5]": {
+      "PACKAGE_PIN": "K28",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_p[6]": {
+      "PACKAGE_PIN": "G17",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_p[7]": {
+      "PACKAGE_PIN": "G22",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_dqs_p[8]": {
+      "PACKAGE_PIN": "K32",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "UNTUNED_SPLIT_50",
+      "DIRECTION": "INOUT"
+    },
+    "c1_ddr3_odt[0]": {
+      "PACKAGE_PIN": "B27",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_ras_n": {
+      "PACKAGE_PIN": "E28",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_reset_n": {
+      "PACKAGE_PIN": "F18",
+      "IOSTANDARD": "LVCMOS15",
+      "SLEW": "FAST",
+      "DRIVE": "12",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_ddr3_we_n": {
+      "PACKAGE_PIN": "F25",
+      "IOSTANDARD": "SSTL15",
+      "SLEW": "FAST",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "c1_sys_clk_n": {
+      "PACKAGE_PIN": "G26",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "IN"
+    },
+    "c1_sys_clk_p": {
+      "PACKAGE_PIN": "G25",
+      "IOSTANDARD": "DIFF_SSTL15",
+      "SLEW": "",
+      "DRIVE": "",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "IN"
+    },
+    "led_3bits_tri_o[0]": {
+      "PACKAGE_PIN": "P30",
+      "IOSTANDARD": "LVCMOS18",
+      "SLEW": "SLOW",
+      "DRIVE": "12",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "led_3bits_tri_o[1]": {
+      "PACKAGE_PIN": "M30",
+      "IOSTANDARD": "LVCMOS18",
+      "SLEW": "SLOW",
+      "DRIVE": "12",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    },
+    "led_3bits_tri_o[2]": {
+      "PACKAGE_PIN": "N30",
+      "IOSTANDARD": "LVCMOS18",
+      "SLEW": "SLOW",
+      "DRIVE": "12",
+      "PULLTYPE": "",
+      "DIFF_TERM": "0",
+      "IN_TERM": "NONE",
+      "DIRECTION": "OUT"
+    }
+  },
+  "property_names": [
+    "PACKAGE_PIN",
+    "IOSTANDARD",
+    "SLEW",
+    "DRIVE",
+    "PULLTYPE",
+    "DIFF_TERM",
+    "IN_TERM",
+    "DIRECTION"
+  ],
+  "old_pin_spec": {
+    "facts_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/facts.tsv",
+    "facts_sha256": "d43cf886762bdbcf2ff12fcebe9db6d744fbf7afd0b840e63231728adae34183",
+    "comparison_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/comparison.json",
+    "comparison_sha256": "f1cbc43f5e2759964c6cd26182ab31465ae9d1754fcf731f81e97886b07617b6",
+    "status": "PASS_READONLY_ROUTED_IO_FACTS_COLLECTED",
+    "matched_ports": 242,
+    "compared_properties": 1936,
+    "mismatch_count": 0,
+    "board_xdc_sha256": "18f8b2bdd853c991df4395a40ca184b7ee4618f035b19f9e073423f071d11a15",
+    "mig_xdc_sha256": "5ea42669bed59d09cfad5c25a08aec20e0824d48895071ecd2acfbff8261b6fc"
+  },
+  "native_query": {
+    "report_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/query-report.json",
+    "report_sha256": "e58fabc586326b78d74a042d7cb4bf39de81bb1384b061d7e984187fae28f353",
+    "status": "PASS_NATIVE_READ_ONLY_FULL512_ROUTE_IO_QUERY",
+    "returncode": 0,
+    "stdout_marker_count": 1
+  },
+  "route_review": {
+    "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/strict-route-requalification-v1/root-route-review.json",
+    "path_sha256": "86f8075fdd25da073b19bad5afe36fa49aa17d28e172f8fdb20fdb85494a84fc",
+    "status": "PASS_INDEPENDENT_FULL512_DDR_ROUTE_AND_TIMING_ONLY",
+    "post_route_dcp_sha256": "55a9a311a14227a89550e39f182deed2ca8885d39653c5c478b9bc4c51ffee89"
+  },
+  "artifacts": {
+    "facts": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-io-facts.tsv",
+      "sha256": "7e5700df36a756c22713f0e2b7aeced05b299fbd3cc09aded3a111fae4f346aa",
+      "bytes": 73592
+    },
+    "properties": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-properties.txt",
+      "sha256": "e8608e8b797b18f137a041546763711591237d1d91555b5a3f718e45ff481516",
+      "bytes": 1002012
+    },
+    "ports_tcl": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-ports.tcl",
+      "sha256": "2a4618922ecb704107b01fac2998004fd97760781770577614524a0341f269e9",
+      "bytes": 38278
+    },
+    "report_io": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-route-report-io.rpt",
+      "sha256": "a48bc77fc30097af4e93b7304d976489a5e517f02488e0290148abc412004c9f",
+      "bytes": 362034
+    },
+    "query_report": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/query-report.json",
+      "sha256": "e58fabc586326b78d74a042d7cb4bf39de81bb1384b061d7e984187fae28f353",
+      "bytes": 769
+    },
+    "route_review": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/strict-route-requalification-v1/root-route-review.json",
+      "sha256": "86f8075fdd25da073b19bad5afe36fa49aa17d28e172f8fdb20fdb85494a84fc",
+      "bytes": 2235
+    },
+    "dcp": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/strict-route-requalification-v1/output/post_route.dcp",
+      "sha256": "55a9a311a14227a89550e39f182deed2ca8885d39653c5c478b9bc4c51ffee89",
+      "bytes": 131401959
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "status": "PASS_PIPELINED_FULL512_CHECKPOINT",
+  "started_utc": "2026-10-26T09:37:59.750007+00:00",
+  "authorization": "User: fix the failed timing; u can build vivado",
+  "scope": "Registered preparation stage implementation only; no bitstream or hardware admission",
+  "source_sha256": "4c40ca1974fc62709de0be270dd34381dbfcf29dd16fb509bfae52d06817981b",
+  "package": "/home/fedora/rknpu-fpga/build/full512-pipeline-preparation/1793008000",
+  "package_report_sha256": "13ec3b38ad76206cf370704d36da2f62f76a5e8915f2e5e12cf47cf94e6445ce",
+  "review_sha256": "f8230b6fce43e68eca15bc53f2cbbc90714809c2692fa9845d9f35f918de3f65",
+  "build_tcl_sha256": "51166e19781f9b34bc5e2ea01ff7764bd2fcee059aa7d4408360f7467a5221ec",
+  "argv": [
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/full512-pipeline-preparation/1793008000/build.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/full512-pipeline-implementation/1793007479542120029/vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/full512-pipeline-implementation/1793007479542120029/vivado.jou"
+  ],
+  "environment": {
+    "RK_FULL512_STARTUP_SOURCE_SHA": "4c40ca1974fc62709de0be270dd34381dbfcf29dd16fb509bfae52d06817981b",
+    "RK_CONFIRM_BOARD": "YPCB_00338_1P1",
+    "RK_CONFIG_VOLTAGE": "1.8",
+    "RK_CFGBVS": "GND",
+    "RK_LED_ACTIVE_LOW": "0",
+    "RK_EMIT_BITSTREAM": "0"
+  },
+  "hardware_accessed": false,
+  "bitstream_emitted": false,
+  "flash_written": false,
+  "pid": 378778,
+  "returncode": 0,
+  "finished_utc": "2026-10-26T10:22:10.226084+00:00",
+  "elapsed_seconds": 2650.477228187956,
+  "snapshot_intact": true,
+  "outputs": {
+    "implementation/check_timing.rpt": "6004405f909fb95abc0ab4011e04c106e3fec4d9f139f7242b00346b5d5cde65",
+    "implementation/check_timing_no_clock.rpt": "7bf91af1af4f7dbbab43d849f7a442dadddc6f965a5214e18e5812d15d273f67",
+    "implementation/check_timing_unconstrained_internal_endpoints.rpt": "a87ffff45159bb65b4514c13f4daf712c5ca2affb3da2f6b60d507fa16ed9ab2",
+    "implementation/drc.rpt": "a40253dd93eb99122f7097aae1a053e76d7bd22c2c833519422e309e0e2d2fa8",
+    "implementation/post_synth.dcp": "c3d735a6d18ef8b7ccd062542c2d68fecc09638d8d6352ab3966ba26cf498ad8",
+    "implementation/pulse_width.rpt": "24550ff5ba72222485d1d34fb0f690def787c92a552ac21fb1575f3b3d2d9bd5",
+    "implementation/routed.dcp": "f84afbbfc182bb75106ab3e5d97792382a9c9457d70fe238b6727e1875aeb5c2",
+    "implementation/timing.rpt": "53efb6460c9e4daa8b0e3c355069800063c41f8e411c26a5030b208640cfa3d0",
+    "implementation/utilization.rpt": "59e84cc4c29a7fb3b65cb3eade0f1fc00745f9124cbce7831737a61cb34eca8f",
+    "implementation/utilization_synth.rpt": "fc5cdba22c36e7e6bbe7d88ca33a5d8c3f8a53eb971201bdd82ca73b9afefe08"
+  }
+}

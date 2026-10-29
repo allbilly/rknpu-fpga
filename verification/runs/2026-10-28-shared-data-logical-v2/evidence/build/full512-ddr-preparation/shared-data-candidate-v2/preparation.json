@@ -1,0 +1,27 @@
+{
+  "status": "PREPARED_UNQUALIFIED_SHARED_DATA_DECODE_AREA_CANDIDATE",
+  "inputs": {
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/prepare_shared_data_candidate_v1.py": "b0e33dd66f2c303e43543ba4fbadfcee49e23f5c4132b1c2ce5f7eefb805a159"
+  },
+  "files": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": "32862d4d14fefa4f5ffed5d8457a334d5ee691e58ab5986684ab267e7a1716e9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/rk_cmac_fp16_array_dsp_prefix_pipe.sv": "27908a593196c654e5be4df94b168751789d10bd3a442980217564f1c5edeb82",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/rk_cmac_fp16_shared_data.sv": "7434af380e4f8f07ff60a96269d6727186478099989eb855c16427f60283cecc"
+  },
+  "atomic_c_supported": [
+    8,
+    32,
+    64
+  ],
+  "target_atomic_k": 16,
+  "product_lanes_target": 512,
+  "source_contract": "Identical magnitude/sign/exponent/nonzero and lowest-data-NaN preparation shared across kernels; weight NaN still wins, even for masked pairs",
+  "per_kernel_capture_registers_retained": true,
+  "pipeline_stages_or_rounding_changed": false,
+  "raw_commands_or_layout_changed": false,
+  "equivalence_qualified": false,
+  "resource_fit_qualified": false,
+  "hardware_accessed": false
+}

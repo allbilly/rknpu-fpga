@@ -1,0 +1,463 @@
+{
+  "baseline_timeout_report_sha256": "1393701762f7e70e9f6537d3588984296835d9dd215b46ed409a1b1b87792af1",
+  "c32_first_half_timeout_receipt_sha256": "2ab2b8b8e4297529750b6098458cddd7b2125fbee85ced8a4a8a80b160da30ec",
+  "c8_prior_icarus": {
+    "count": 10000,
+    "finite": 7500,
+    "first": 0,
+    "marker": "PASS shared_cell_equivalence C=8 directed=8 first=0 count=10000 full_raw=2500 finite_exp=7500 seed=0x3588da7a rng_start=34f064b2 rng_end=967a2009 capture0_churn=checked",
+    "raw": 2500,
+    "runtime_seconds": 266.5493960031308,
+    "stdout_sha256": "7ef3759a291f8321635cb806f976ba8870206b7969073d0ded1337b7f215419e"
+  },
+  "checked_utc": "2026-10-27T23:33:15.792049+00:00",
+  "completed_fine_shards": 26,
+  "directed_cases_each_run": 8,
+  "fine_icarus_shards": {
+    "32": {
+      "coverage": [
+        [
+          0,
+          1000
+        ],
+        [
+          1000,
+          2000
+        ],
+        [
+          2000,
+          3000
+        ],
+        [
+          3000,
+          4000
+        ],
+        [
+          4000,
+          5000
+        ],
+        [
+          5000,
+          6000
+        ],
+        [
+          6000,
+          7000
+        ],
+        [
+          7000,
+          8000
+        ],
+        [
+          8000,
+          9000
+        ],
+        [
+          9000,
+          10000
+        ]
+      ],
+      "finite": 7500,
+      "frames": 10000,
+      "raw": 2500,
+      "rng_end_full": "04edcb9e",
+      "rng_start_full": "3f325781",
+      "shards": [
+        {
+          "finite": 750,
+          "frames": 1000,
+          "name": "iverilog_C32_first0_count1000",
+          "raw": 250,
+          "rng_end": "f8050339",
+          "rng_start": "3f325781",
+          "runtime_seconds": 107.95234816195443,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e9adb32d12f3f3abcb1a04ca64241be6a4f77e082061661789117607878ed65e"
+        },
+        {
+          "finite": 750,
+          "frames": 1000,
+          "name": "iverilog_C32_first1000_count1000",
+          "raw": 250,
+          "rng_end": "9aa098ce",
+          "rng_start": "f8050339",
+          "runtime_seconds": 106.27952082292177,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "489270901762d5e9d56fe60f208d784a387935bbb2fca905496d59addee06f00"
+        },
+        {
+          "finite": 750,
+          "frames": 1000,
+          "name": "iverilog_C32_first2000_count1000",
+          "raw": 250,
+          "rng_end": "74f996ba",
+          "rng_start": "9aa098ce",
+          "runtime_seconds": 109.71052949503064,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "d5ae955843f2761a11459cd76d0c7674c0a1b73798ea24105b607008449a81a6"
+        },
+        {
+          "finite": 750,
+          "frames": 1000,
+          "name": "iverilog_C32_first3000_count1000",
+          "raw": 250,
+          "rng_end": "855a437f",
+          "rng_start": "74f996ba",
+          "runtime_seconds": 113.44850566796958,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "3eaa5acdee5818faca17c2b0665f7e8f09e15d9e6b19b5e48f7ba3e431b47521"
+        },
+        {
+          "finite": 750,
+          "frames": 1000,
+          "name": "iverilog_C32_first4000_count1000",
+          "raw": 250,
+          "rng_end": "c5814b73",
+          "rng_start": "855a437f",
+          "runtime_seconds": 109.20930752996355,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "9d608fcdaaa110308f6e1ebeff735945a4fda326e4e6c4bab3d9aae683668ce7"
+        },
+        {
+          "finite": 750,
+          "frames": 1000,
+          "name": "iverilog_C32_first5000_count1000",
+          "raw": 250,
+          "rng_end": "4f4367c6",
+          "rng_start": "c5814b73",
+          "runtime_seconds": 109.23791839904152,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "fc776e6b7bd705be45f80903dacb459e3d8d882ffa70d5270e881751713942de"
+        },
+        {
+          "finite": 750,
+          "frames": 1000,
+          "name": "iverilog_C32_first6000_count1000",
+          "raw": 250,
+          "rng_end": "dd1388f6",
+          "rng_start": "4f4367c6",
+          "runtime_seconds": 105.83541325386614,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "673afd97e8b03da0f150821c8ae138da9831a44a75d97bdbca9bbf4d098c2a31"
+        },
+        {
+          "finite": 750,
+          "frames": 1000,
+          "name": "iverilog_C32_first7000_count1000",
+          "raw": 250,
+          "rng_end": "0d3740f1",
+          "rng_start": "dd1388f6",
+          "runtime_seconds": 106.15266309608705,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "aa4a625b8a64efb44bafeac2030ea825eca1c575392b17315b3f5a5faa185c4e"
+        },
+        {
+          "finite": 750,
+          "frames": 1000,
+          "name": "iverilog_C32_first8000_count1000",
+          "raw": 250,
+          "rng_end": "1aef49b0",
+          "rng_start": "0d3740f1",
+          "runtime_seconds": 112.6202227959875,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "ad3c5a4950ff158b19445c07f20cd9609808ac4961a36cf8757b3372c8f2925c"
+        },
+        {
+          "finite": 750,
+          "frames": 1000,
+          "name": "iverilog_C32_first9000_count1000",
+          "raw": 250,
+          "rng_end": "04edcb9e",
+          "rng_start": "1aef49b0",
+          "runtime_seconds": 117.16147783887573,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "939ab7d0e83152f042009e991ac58718be0c51ca63a798120e9fa7c6cd6ee5d7"
+        }
+      ]
+    },
+    "64": {
+      "coverage": [
+        [
+          0,
+          625
+        ],
+        [
+          625,
+          1250
+        ],
+        [
+          1250,
+          1875
+        ],
+        [
+          1875,
+          2500
+        ],
+        [
+          2500,
+          3125
+        ],
+        [
+          3125,
+          3750
+        ],
+        [
+          3750,
+          4375
+        ],
+        [
+          4375,
+          5000
+        ],
+        [
+          5000,
+          5625
+        ],
+        [
+          5625,
+          6250
+        ],
+        [
+          6250,
+          6875
+        ],
+        [
+          6875,
+          7500
+        ],
+        [
+          7500,
+          8125
+        ],
+        [
+          8125,
+          8750
+        ],
+        [
+          8750,
+          9375
+        ],
+        [
+          9375,
+          10000
+        ]
+      ],
+      "finite": 7500,
+      "frames": 10000,
+      "raw": 2500,
+      "rng_end_full": "6b2ba108",
+      "rng_start_full": "e8965771",
+      "shards": [
+        {
+          "finite": 468,
+          "frames": 625,
+          "name": "iverilog_C64_first0_count625",
+          "raw": 157,
+          "rng_end": "5fb9e5c1",
+          "rng_start": "e8965771",
+          "runtime_seconds": 158.374607559992,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "4a2ca070640b7d997538bec5d9b26a3830740790ffacb784389eb90c7985093d"
+        },
+        {
+          "finite": 469,
+          "frames": 625,
+          "name": "iverilog_C64_first625_count625",
+          "raw": 156,
+          "rng_end": "aed07006",
+          "rng_start": "5fb9e5c1",
+          "runtime_seconds": 154.78891546605155,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "54f863213ba05adaa78cf11abd47215cc76d34045a80e2f7b80a6fe66e43fe47"
+        },
+        {
+          "finite": 469,
+          "frames": 625,
+          "name": "iverilog_C64_first1250_count625",
+          "raw": 156,
+          "rng_end": "4927cbc5",
+          "rng_start": "aed07006",
+          "runtime_seconds": 157.63480209582485,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "518c80baacfdad0b20705582bf0d9ad007225a7b289c3cd696e7064d4f46b15c"
+        },
+        {
+          "finite": 469,
+          "frames": 625,
+          "name": "iverilog_C64_first1875_count625",
+          "raw": 156,
+          "rng_end": "de929ecb",
+          "rng_start": "4927cbc5",
+          "runtime_seconds": 152.16693443292752,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "723c69e71aec166d5045afc2e1039e84d809c7046b2190829beb674de52fa974"
+        },
+        {
+          "finite": 468,
+          "frames": 625,
+          "name": "iverilog_C64_first2500_count625",
+          "raw": 157,
+          "rng_end": "e240accb",
+          "rng_start": "de929ecb",
+          "runtime_seconds": 144.75447227992117,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "3ba107ecd242e88db9d4861a8ade8f457030f79fa0711f7e5af0333e67ead92b"
+        },
+        {
+          "finite": 469,
+          "frames": 625,
+          "name": "iverilog_C64_first3125_count625",
+          "raw": 156,
+          "rng_end": "c24eafd0",
+          "rng_start": "e240accb",
+          "runtime_seconds": 138.33749517286196,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "9b8888977f7f0b6bc161233149fcbf8d2125117f9b8425b2f7308ff4576ad8a4"
+        },
+        {
+          "finite": 469,
+          "frames": 625,
+          "name": "iverilog_C64_first3750_count625",
+          "raw": 156,
+          "rng_end": "50c40849",
+          "rng_start": "c24eafd0",
+          "runtime_seconds": 150.90909249312244,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "c36bf809b4a4b784cbf0b04a8b4491020f74e759f63dbb96a27028e18262350e"
+        },
+        {
+          "finite": 469,
+          "frames": 625,
+          "name": "iverilog_C64_first4375_count625",
+          "raw": 156,
+          "rng_end": "03a6911d",
+          "rng_start": "50c40849",
+          "runtime_seconds": 180.03687386889942,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "a20ed6f6216922201cd12fc24244d445b247b39c5a0fcc0dd74a6b329c8fac44"
+        },
+        {
+          "finite": 468,
+          "frames": 625,
+          "name": "iverilog_C64_first5000_count625",
+          "raw": 157,
+          "rng_end": "eadd4b0f",
+          "rng_start": "03a6911d",
+          "runtime_seconds": 176.4374217640143,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "4459df1161856ea8a29801b9df8dcc3d0ad2bbc82c343e3f601d026100ca0fb5"
+        },
+        {
+          "finite": 469,
+          "frames": 625,
+          "name": "iverilog_C64_first5625_count625",
+          "raw": 156,
+          "rng_end": "b14a55e2",
+          "rng_start": "eadd4b0f",
+          "runtime_seconds": 164.4457880128175,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "7103ce9c4dd6974035d12a37d6c9c93409416689c298bee294b8b638d673229f"
+        },
+        {
+          "finite": 469,
+          "frames": 625,
+          "name": "iverilog_C64_first6250_count625",
+          "raw": 156,
+          "rng_end": "093c3f5a",
+          "rng_start": "b14a55e2",
+          "runtime_seconds": 173.78032912802882,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "bfac2cae7ff80ad6d95d8f2c51d9f3d47dc5e0e2029dd0c7d357981f4d8c210c"
+        },
+        {
+          "finite": 469,
+          "frames": 625,
+          "name": "iverilog_C64_first6875_count625",
+          "raw": 156,
+          "rng_end": "41892ec6",
+          "rng_start": "093c3f5a",
+          "runtime_seconds": 177.9261182330083,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "ce05eb6c9316b342328c3019f64e0c730b9ea9340160da9178d3d80af30e70c7"
+        },
+        {
+          "finite": 468,
+          "frames": 625,
+          "name": "iverilog_C64_first7500_count625",
+          "raw": 157,
+          "rng_end": "826404f3",
+          "rng_start": "41892ec6",
+          "runtime_seconds": 172.44645475200377,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "750ea46ed9beae960d20c158bca7f2db0d73ca2f13705929ecacaeb5909190b9"
+        },
+        {
+          "finite": 469,
+          "frames": 625,
+          "name": "iverilog_C64_first8125_count625",
+          "raw": 156,
+          "rng_end": "6ee21ce2",
+          "rng_start": "826404f3",
+          "runtime_seconds": 160.16056961100549,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "2b3ad3240d53bf185e3ec363a3f2d287bb7b2324d3d14c95c3b2c4ea720af98c"
+        },
+        {
+          "finite": 469,
+          "frames": 625,
+          "name": "iverilog_C64_first8750_count625",
+          "raw": 156,
+          "rng_end": "b78180a9",
+          "rng_start": "6ee21ce2",
+          "runtime_seconds": 179.0652444139123,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "2d676d00f4354fc30b5c8ac5be5c147be3c3c577dd27b1f849cb68d756c760e4"
+        },
+        {
+          "finite": 469,
+          "frames": 625,
+          "name": "iverilog_C64_first9375_count625",
+          "raw": 156,
+          "rng_end": "6b2ba108",
+          "rng_start": "b78180a9",
+          "runtime_seconds": 184.45555711211637,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "ebee9765d2551f815d73b9eeb1b75b87528da9634d638eda5f64920206736ff9"
+        }
+      ]
+    }
+  },
+  "full_verilator": {
+    "32": {
+      "count": 10000,
+      "finite": 7500,
+      "first": 0,
+      "raw": 2500,
+      "rng_end": "04edcb9e",
+      "rng_start": "3f325781"
+    },
+    "64": {
+      "count": 10000,
+      "finite": 7500,
+      "first": 0,
+      "raw": 2500,
+      "rng_end": "6b2ba108",
+      "rng_start": "e8965771"
+    },
+    "8": {
+      "count": 10000,
+      "finite": 7500,
+      "first": 0,
+      "raw": 2500,
+      "rng_end": "967a2009",
+      "rng_start": "34f064b2"
+    }
+  },
+  "hardware_accessed": false,
+  "runner_report_sha256": "7ec24a0c8544aa10cc4d362f59a682c95b66e1de1dcdb3a0d1fda1e391bcdcf9",
+  "same_v2_vvp_sha256": "91452b904ae3ce4facc314555e1731a719b6d276d34c91771c4878adbecd0e69",
+  "scope": "Read-only postprocessing of the reviewed V2 simulator receipts; one fixed seed, all per-command output markers, disjoint frame unions and RNG stream boundaries verified. No simulation or hardware command executed.",
+  "seed": "0x3588da7a",
+  "source_hashes_verified": 24,
+  "status": "PASS_INDEPENDENT_FINE_SHARD_COVERAGE_RNG_AND_LOG_AUDIT"
+}

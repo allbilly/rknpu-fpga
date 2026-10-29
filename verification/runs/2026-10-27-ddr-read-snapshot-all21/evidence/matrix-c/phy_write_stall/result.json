@@ -1,0 +1,57 @@
+{
+  "name": "phy_write_stall",
+  "status": "PASS",
+  "spec": {
+    "name": "phy_write_stall",
+    "case": "capture_sub_9",
+    "address": 269352960,
+    "amount": 35,
+    "tasks": 2,
+    "lines": 1600,
+    "jobs": 1,
+    "negative": 4,
+    "reset_recovery": 0
+  },
+  "metrics": {
+    "lines": 1600,
+    "physical_bytes": 102400,
+    "uploaded_nonzero": 77,
+    "successful_jobs": 0,
+    "phy_user_returns": null,
+    "host_read64_packets": 2,
+    "host_read64_axi_reads": 2,
+    "uncached_phy_user_returns": null,
+    "phy_user_returns_minimum": 4995
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/obj/sim",
+      "+CASE=/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_sub_9",
+      "+OUTPUT=/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/snapshot-matrix-C-v3/phy_write_stall/observed.txt",
+      "+START=100e0000",
+      "+AMOUNT=35",
+      "+NTASKS=2",
+      "+NLINES=1600",
+      "+JOBS=1",
+      "+NEGATIVE=4",
+      "+RESET_RECOVERY=0"
+    ],
+    "timeout_seconds": 300,
+    "started_utc": "2026-10-27T14:23:07.678030+00:00",
+    "status": "EXITED",
+    "pid": 957749,
+    "returncode": 0,
+    "seconds": 203.76486174413003,
+    "finished_utc": "2026-10-27T14:26:31.443159+00:00",
+    "log_sha256": "c2936edf043daedc84d0cb0acb0f5e9367fa7f16c368a3222bdcdae22fea3f69"
+  },
+  "marker": "PASS jtag_ew_ddr_read_snapshot jobs=1 negative=4 recovered=0 lines=1600 uploaded_nonzero=77 rawtasks=2 phy_user_returns=5139 read64_packets=2 read64_axi_reads=2 scope=actual_AXI_UI_MC_modeled_PHY",
+  "phy_user_returns": 5139,
+  "read64_packets": 2,
+  "read64_axi_reads": 2,
+  "readback_physical_bytes": 0,
+  "persisted_final_image_physical_bytes": 0,
+  "observed_text_bytes": 0,
+  "observed_sha256": null,
+  "successful_jobs": 0
+}

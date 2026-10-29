@@ -1,0 +1,28 @@
+{
+  "status": "COMPILED_TEST_ORACLE_ONLY",
+  "argv": [
+    "c++",
+    "-std=c++17",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-fPIC",
+    "-shared",
+    "/home/fedora/rknpu-fpga/build/tinystories-full-oracle/v1/arithmetic/batch.cpp",
+    "-o",
+    "/home/fedora/rknpu-fpga/build/tinystories-full-oracle/v1/arithmetic/oracle.so"
+  ],
+  "returncode": 0,
+  "sources": {
+    "/home/fedora/rknpu-fpga/build/cmac_group_candidate/donor_booth_helper.cpp": "f7c53e8e4d0d12db0c9d62e2c0b2fac3fe95458b3af85328b6f0b3bf9036d2f0",
+    "/home/fedora/rknpu-fpga/tools/tinystories/oracle.py": "0a4af27ce5b99f69c5e783f332bf5c62805e5fabfb4b895c27e9870e39b475be",
+    "/home/fedora/rknpu-fpga/tools/cmac/cacc_reference.py": "1a0511a30d75e7d02c34ca5b3064a51b6b93d6791540159beb4a6f7be1618369",
+    "/home/fedora/rknpu-fpga/build/tinystories-full-oracle/v1/arithmetic/donor.cpp": "001889aa7ee6db027c7249f30295f4d663126390daea4b65c02feedef146f658",
+    "/home/fedora/rknpu-fpga/build/tinystories-full-oracle/v1/arithmetic/batch.cpp": "443d99c93d78f74eeb89c466cb372da912863618514d79633548f8f9831aa9c3",
+    "/home/fedora/rknpu-fpga/build/tinystories-full-oracle/v1/arithmetic/oracle.so": "dabb4aa33d17edf6a11e0ea62e1efe2ca54370aeb938d39b16796796c9d26a5d"
+  },
+  "compiler_version": "c++ (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)",
+  "hardware_accessed": false,
+  "cpu_fallback": false
+}

@@ -1,0 +1,63 @@
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:375:57: Operator TASKREF 'manual_line' expects 31 bits on the Function Argument, but Function Argument's ADD generates 32 bits.
+                                                                                                           : ... note: In instance 'tb_capacity_axi'
+  375 |       reset_system();wait_monitor_ready();direct_mode=1;manual_line(1'b1,BASE_ADDR+SPAN_BYTES,payload,1,1'b0);
+      |                                                         ^~~~~~~~~~~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.048
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:405:48: Operator ASSIGN expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'k' generates 32 bits.
+                                                                                                           : ... note: In instance 'tb_capacity_axi'
+  405 |         fence_read_fault_only=1;read_fault_mode=k;manual_retire(BASE_ADDR,4,1'b0);
+      |                                                ^
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:12:66: Signal is not used: 'sw_trial'
+                                                                                                            : ... note: In instance 'tb_capacity_axi'
+   12 |   logic sw_busy,sw_done,sw_fault;logic [7:0] sw_fault_code;logic sw_trial;
+      |                                                                  ^~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.048
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:13:68: Signal is not used: 'sw_mismatch_address'
+                                                                                                            : ... note: In instance 'tb_capacity_axi'
+   13 |   logic [31:0] sw_completed_writes,sw_completed_reads;logic [30:0] sw_mismatch_address;
+      |                                                                    ^~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:14:17: Signal is not used: 'sw_mismatch_expected'
+                                                                                                            : ... note: In instance 'tb_capacity_axi'
+   14 |   logic [511:0] sw_mismatch_expected,sw_mismatch_actual;
+      |                 ^~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:14:38: Signal is not used: 'sw_mismatch_actual'
+                                                                                                            : ... note: In instance 'tb_capacity_axi'
+   14 |   logic [511:0] sw_mismatch_expected,sw_mismatch_actual;
+      |                                      ^~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:33:15: Signal is not used: 'awcache'
+                                                                                                            : ... note: In instance 'tb_capacity_axi'
+   33 |   logic [3:0] awcache,arcache,awqos,arqos;logic [2:0] awprot,arprot;
+      |               ^~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:33:23: Signal is not used: 'arcache'
+                                                                                                            : ... note: In instance 'tb_capacity_axi'
+   33 |   logic [3:0] awcache,arcache,awqos,arqos;logic [2:0] awprot,arprot;
+      |                       ^~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:33:31: Signal is not used: 'awqos'
+                                                                                                            : ... note: In instance 'tb_capacity_axi'
+   33 |   logic [3:0] awcache,arcache,awqos,arqos;logic [2:0] awprot,arprot;
+      |                               ^~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:33:37: Signal is not used: 'arqos'
+                                                                                                            : ... note: In instance 'tb_capacity_axi'
+   33 |   logic [3:0] awcache,arcache,awqos,arqos;logic [2:0] awprot,arprot;
+      |                                     ^~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:33:55: Signal is not used: 'awprot'
+                                                                                                            : ... note: In instance 'tb_capacity_axi'
+   33 |   logic [3:0] awcache,arcache,awqos,arqos;logic [2:0] awprot,arprot;
+      |                                                       ^~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:33:62: Signal is not used: 'arprot'
+                                                                                                            : ... note: In instance 'tb_capacity_axi'
+   33 |   logic [3:0] awcache,arcache,awqos,arqos;logic [2:0] awprot,arprot;
+      |                                                              ^~~~~~
+%Warning-UNSIGNED: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:199:18: Comparison is constant due to unsigned arithmetic
+                                                                                                         : ... note: In instance 'tb_capacity_axi'
+  199 |         if(araddr<BASE_ADDR || ({1'b0,araddr}+32'd64)>{1'b0,BASE_ADDR}+{1'b0,SPAN_BYTES})$fatal(1,"AR outside configured span");
+      |                  ^
+                   ... For warning description see https://verilator.org/warn/UNSIGNED?v=5.048
+                   ... Use "/* verilator lint_off UNSIGNED */" and lint_on around source to disable this message.
+%Warning-UNSIGNED: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v9/tb_capacity_axi.sv:211:24: Comparison is constant due to unsigned arithmetic
+                                                                                                         : ... note: In instance 'tb_capacity_axi'
+  211 |         if(read_address<BASE_ADDR || ({1'b0,read_address}+32'd64)>{1'b0,BASE_ADDR}+{1'b0,SPAN_BYTES})$fatal(1,"R response outside accepted AR range");
+      |                        ^
+%Error: Exiting due to 14 warning(s)

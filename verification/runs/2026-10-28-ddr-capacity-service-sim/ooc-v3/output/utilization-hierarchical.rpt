@@ -1,0 +1,37 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (lin64) Build 6511674 Tue Jun 16 11:01:26 MDT 2026
+| Date         : Wed Oct 28 16:33:34 2026
+| Host         : fedora running 64-bit unknown
+| Command      : report_utilization -hierarchical -file /home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v3/output/utilization-hierarchical.rpt
+| Design       : rk_ddr_capacity_service
+| Device       : xc7k480tffg1156-2
+| Speed File   : -2
+| Design State : Synthesized
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------------+-----------------------+------------+------------+---------+------+------+--------+--------+------------+
+|           Instance          |         Module        | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------------+-----------------------+------------+------------+---------+------+------+--------+--------+------------+
+| rk_ddr_capacity_service     |                 (top) |       1821 |       1821 |       0 |    0 | 2094 |      0 |      0 |          0 |
+|   (rk_ddr_capacity_service) |                 (top) |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   bist                      |  rk_ddr_capacity_bist |       1522 |       1522 |       0 |    0 | 1885 |      0 |      0 |          0 |
+|     adapter                 |   rk_ddr_capacity_axi |        931 |        931 |       0 |    0 |  906 |      0 |      0 |          0 |
+|       (adapter)             |   rk_ddr_capacity_axi |        520 |        520 |       0 |    0 |  852 |      0 |      0 |          0 |
+|       fence                 |    rk_mig_write_fence |        411 |        411 |       0 |    0 |   54 |      0 |      0 |          0 |
+|     monitor                 |    rk_mig_ecc_monitor |        114 |        114 |       0 |    0 |  195 |      0 |      0 |          0 |
+|     sweep                   | rk_ddr_capacity_sweep |        477 |        477 |       0 |    0 |  784 |      0 |      0 |          0 |
+|   owner                     | rk_ddr_capacity_owner |        212 |        212 |       0 |    0 |   66 |      0 |      0 |          0 |
+|   registers                 |  rk_ddr_capacity_regs |         87 |         87 |       0 |    0 |  143 |      0 |      0 |          0 |
++-----------------------------+-----------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

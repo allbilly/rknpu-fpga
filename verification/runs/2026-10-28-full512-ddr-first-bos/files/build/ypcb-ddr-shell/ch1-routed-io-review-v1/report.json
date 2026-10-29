@@ -1,0 +1,97 @@
+{
+  "argv": [
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/query.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/vivado.jou",
+    "-tclargs",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/post_route.dcp",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/facts.tsv",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/properties.txt",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/report_io.rpt"
+  ],
+  "baseline_route_io_report_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/io.rpt",
+  "baseline_route_io_report_sha256_after": "8243fce324e9fe23d9980206ab4859687dfdff4a3481f47fd78dd9c517786220",
+  "bitstream_emitted": false,
+  "board_xdc_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-source-v1/board.xdc",
+  "board_xdc_sha256_after": "18f8b2bdd853c991df4395a40ca184b7ee4618f035b19f9e073423f071d11a15",
+  "board_xdc_sha256_before": "18f8b2bdd853c991df4395a40ca184b7ee4618f035b19f9e073423f071d11a15",
+  "board_xdc_sha256_expected": "18f8b2bdd853c991df4395a40ca184b7ee4618f035b19f9e073423f071d11a15",
+  "cgroup": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/codex-ch1-routed-io-review-v1-20261027T1701Z.scope",
+  "comparison_postprocess_utc": "2026-10-27T17:02:49.087617+00:00",
+  "comparison_postprocessed_from_captured_facts": true,
+  "comparison_status": "PASS_READONLY_ROUTED_IO_FACTS_COLLECTED",
+  "constraints_modified": false,
+  "cpu.stat": "usage_usec 47135820\nuser_usec 45598636\nsystem_usec 1537184\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 474\nnr_throttled 26\nthrottled_usec 1498784\nnr_bursts 0\nburst_usec 0",
+  "cpu_pressure_some_avg10": 0.0,
+  "cwd": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1",
+  "dcp_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/post_route.dcp",
+  "dcp_sha256_after": "394d58fb8ef02187fb25a3c6f99df4d9874bbd558c6f0fd7861b83ae0ae2262e",
+  "dcp_sha256_before": "394d58fb8ef02187fb25a3c6f99df4d9874bbd558c6f0fd7861b83ae0ae2262e",
+  "dcp_sha256_expected": "394d58fb8ef02187fb25a3c6f99df4d9874bbd558c6f0fd7861b83ae0ae2262e",
+  "elapsed_seconds": 47.29397528199479,
+  "finished_utc": "2026-10-27T17:02:03.060124+00:00",
+  "hardware_accessed": false,
+  "implementation_executed": false,
+  "kernel_limits": {
+    "cpu.max": "100000 100000",
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "pids.max": "128"
+  },
+  "mem_available_kib": 24211020,
+  "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+  "memory.peak": "1828728832",
+  "memory_pressure_full_avg10": 0.0,
+  "mig_xdc_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-source-v1/mig-original.xdc",
+  "mig_xdc_sha256_after": "5ea42669bed59d09cfad5c25a08aec20e0824d48895071ecd2acfbff8261b6fc",
+  "mig_xdc_sha256_before": "5ea42669bed59d09cfad5c25a08aec20e0824d48895071ecd2acfbff8261b6fc",
+  "mig_xdc_sha256_expected": "5ea42669bed59d09cfad5c25a08aec20e0824d48895071ecd2acfbff8261b6fc",
+  "mismatch_count": 0,
+  "placement_or_routing_executed": false,
+  "port_count": 242,
+  "query_outputs": {
+    "comparison.json": {
+      "bytes": 934265,
+      "sha256": "f1cbc43f5e2759964c6cd26182ab31465ae9d1754fcf731f81e97886b07617b6"
+    },
+    "facts.tsv": {
+      "bytes": 53647,
+      "sha256": "d43cf886762bdbcf2ff12fcebe9db6d744fbf7afd0b840e63231728adae34183"
+    },
+    "properties.txt": {
+      "bytes": 1001029,
+      "sha256": "eb3d3cefd4461fd00103279a790d7978fb3e77b7f365c84f60556646f3313d0d"
+    },
+    "report_io.rpt": {
+      "bytes": 362087,
+      "sha256": "3d77153ad280084815675dddee9f69dedcbcd646f559b6e5e6baa9b4e85d7ca6"
+    }
+  },
+  "query_tcl_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/query.tcl",
+  "query_tcl_sha256": "b50de8f9cd7fcff82ca55a4b4a9f1db0a6045a6d02d8c4fdba20b77842dfe967",
+  "returncode": 0,
+  "route_io_report_sha256_before": "8243fce324e9fe23d9980206ab4859687dfdff4a3481f47fd78dd9c517786220",
+  "route_report_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-route-v1/report.json",
+  "route_report_sha256_after": "babcaf75c7e5a592b0f9be3e65692fbc80d94c87050838c232a517d69b72e5a1",
+  "route_report_sha256_before": "babcaf75c7e5a592b0f9be3e65692fbc80d94c87050838c232a517d69b72e5a1",
+  "run_wrapper_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/run.py",
+  "run_wrapper_sha256": "3c7add2e11afdf8a498332b681920cadf9168b29719bdb751f08a990bf8ebf6b",
+  "schema": "routed-io-review-ch1-v1",
+  "scope": "read-only CH1 routed DCP port property/clock/IO report query; actual logical UI0/UI1 physical MIG bindings recorded; source XDC parsed for static comparison; no checkpoint/constraint writes",
+  "started_utc": "2026-10-27T17:01:15.747960+00:00",
+  "status": "PASS_READONLY_ROUTED_IO_FACTS_COLLECTED",
+  "timeout_seconds": 600,
+  "unknown_property_count": 0,
+  "vivado_pid": 993431,
+  "vivado_sha256": "121b8c468f96f7ee750fc8f7d2386c54d047b204a5b8b7a5dada85f04997302d",
+  "vivado_version_context": [
+    "# Vivado v2026.1 (64-bit)",
+    "# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026"
+  ]
+}

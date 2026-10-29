@@ -1,0 +1,32 @@
+{
+  "bench_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+  "cgroup": {
+    "cpu.max": "200000 100000",
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "commands": [],
+  "error": "ValueError('Tool version command failed')",
+  "finished_utc": "2026-10-28T06:42:42.894060+00:00",
+  "hardware_accessed": false,
+  "memory_or_ecc_decoder_simulated": false,
+  "phy_simulated": false,
+  "physical_capacity_qualified": false,
+  "physical_ecc_injection_qualified": false,
+  "schema": "mig-fi-xor-leaf-validation-v1",
+  "scope": "Frozen MIG FI_XOR leaf contract only; no controller, ECC decoder, MIG memory, PHY, physical injection, or hardware qualification.",
+  "source_closure_count": 160,
+  "source_closure_manifest_sha256": "85ed4aed6a3761b2e12f86b21bc9a5adc79e60049148ac958290bcb30650ff69",
+  "source_inputs": {
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v1/run_validation.py": "e0e13c7f44cc0770c1fddcdd4ce77b3f1ca8e14fa7652a5d6db16443ea3ab911",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v1/source/mig_7series_v4_2_fi_xor.v": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v1/tests/tb_mig_fi_xor.sv": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/preparation.json": "71fe220dfe1ac59327ead8576f799edccd2af36dae493013f8e09ca3d102d96b",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+  },
+  "started_utc": "2026-10-28T06:42:42.824645+00:00",
+  "status": "FAIL",
+  "tools": {},
+  "vivado_executed": false
+}

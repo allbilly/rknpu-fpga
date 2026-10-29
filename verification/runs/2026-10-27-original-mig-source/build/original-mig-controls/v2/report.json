@@ -1,0 +1,94 @@
+{
+  "status": "PASS_ORIGINAL_MIG_PREPARATION_AND_MOCK_GENERATION_CONTROLS_ONLY",
+  "scope": "Actual unchanged-source preparation, copied-input tampering and mocked Tcl guards only; no Vivado generation or hardware",
+  "hardware_accessed": false,
+  "vivado_executed": false,
+  "controls": [
+    {
+      "name": "good",
+      "status": "PASS",
+      "expected_rejection": false
+    },
+    {
+      "name": "xml",
+      "status": "PASS",
+      "expected_rejection": true
+    },
+    {
+      "name": "script",
+      "status": "PASS",
+      "expected_rejection": true
+    },
+    {
+      "name": "extra",
+      "status": "PASS",
+      "expected_rejection": true
+    },
+    {
+      "name": "origin",
+      "status": "PASS",
+      "expected_rejection": true
+    },
+    {
+      "name": "input_inventory",
+      "status": "PASS",
+      "expected_rejection": true
+    },
+    {
+      "name": "scope",
+      "status": "PASS",
+      "expected_rejection": true
+    },
+    {
+      "name": "existing",
+      "status": "PASS",
+      "expected_rejection": true
+    },
+    {
+      "name": "flag_vivado",
+      "status": "PASS",
+      "expected_rejection": true
+    },
+    {
+      "name": "flag_controller",
+      "status": "PASS",
+      "expected_rejection": true
+    },
+    {
+      "name": "flag_clock",
+      "status": "PASS",
+      "expected_rejection": true
+    },
+    {
+      "name": "flag_ready",
+      "status": "PASS",
+      "expected_rejection": true
+    },
+    {
+      "name": "flag_hardware",
+      "status": "PASS",
+      "expected_rejection": true
+    },
+    {
+      "name": "flag_flash",
+      "status": "PASS",
+      "expected_rejection": true
+    }
+  ],
+  "unit_methods": 5,
+  "unit_log_sha256": "f3afb2b2809946b5a04a2e822999071f433317d43814c958cbfdb37541f6e1a9",
+  "tool_sources": {
+    "tools/ddr/prepare_original_mig.py": "945bb28dc87d4481a28b14b423bdaa98bff190352b63cd8b6a14445f05310aab",
+    "tools/ddr/interface.py": "23f6567f69cf4a13eecb5897b3ed728c63e40bd162a6e55bc3914e21a910d612",
+    "tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+    "fpga/ddr/generate_original_mig.tcl.in": "02b32d36f8837417ee54542df1f46736b922d881f55a438a8697f01721a5a3d9",
+    "fpga/ddr/mig_c0_reference.json": "b10c6d542d583ee486481b1811dbc71f4a6684849fd54b98a0eb2c952239fc2f",
+    "tools/ddr/__init__.py": "2fa618901727a59f5d29c19d1e31fdf6a1177c3705413e26d3a486ac4b6a5580",
+    "tests/ddr/original_mig/test_prepare.py": "a0adfd5ac106bac1c847983865ef224119e7ae5b114e524449866a8c09758845",
+    "fpga/ddr/original_mig.mk": "17bc4b260571fd7e1c946d80dc64c1725492b5b5b890e532fd5bb33ce10e970c"
+  },
+  "prepared_package": "build/original-mig-preparation/rzq7-v2",
+  "prepared_report_sha256": "6287b30b9bddfbff587ff4362170c411244acbeb135b0429dd0d143b454aad48",
+  "utc": "2026-10-26T23:18:16.360663+00:00",
+  "runner_sha256": "68273a9164470beb89f3e50b43925e803da807db3821b2d7bf6e20d809e37a40"
+}

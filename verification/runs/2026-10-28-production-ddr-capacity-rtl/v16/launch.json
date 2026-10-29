@@ -1,0 +1,73 @@
+{
+  "admission_collector_sha256": "9ec2284eaad22abbcdd1920e872d8d9ace913ca758cad98b419f00c8e2695aaf",
+  "admission_sha256": "e42c6f3c43463074b910aa2c8301faa3806413c5d6b1599c13bc75f871d9fd47",
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-production-model-v16-20261028t0646",
+    "-p",
+    "MemoryMax=6G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "python3",
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/run.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "make",
+        "generated-check"
+      ],
+      "name": "generated_check",
+      "returncode": 0,
+      "seconds": 2.0074776099063456,
+      "status": "PASS"
+    },
+    {
+      "argv": [
+        "make",
+        "test"
+      ],
+      "name": "production_test",
+      "returncode": 0,
+      "seconds": 876.0480639240704,
+      "status": "PASS"
+    }
+  ],
+  "fresh_host_sample": {
+    "cpu_psi_some_avg10": 0.0,
+    "memavailable_bytes": 27020914688,
+    "memory_psi_full_avg10": 0.0,
+    "pass": true
+  },
+  "limits": {
+    "cpu.max": "200000 100000",
+    "memory.max": "6442450944",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "outer_deadline_seconds": 3600,
+  "private_copy_file_count": 1105,
+  "runner_report_path": "build/production-model-auditors/current-v16/report.json",
+  "runner_report_sha256": "acd687f69299a5d7245e2fea0c53d853e7f68e2880368d6f77f1c1330dd64922",
+  "runner_sha256": "583a13756af78b53761a3e48f6dd905989eade3b7dd1496c0a197aa6e4454a0f",
+  "source_file_count": 1105,
+  "source_manifest_sha256": "7c4d4cdc91c0ce4471f47a12081d7fbde512763e6773ed92ba69df659837bcbd",
+  "source_scope": "private recursive RTL/FPGA/model/tools/tests/Makefile copy, no .git or pycache; generated-check then serial literal make test",
+  "started_utc": "2026-10-28T07:05:43.512475+00:00",
+  "status": "EXITED_RC0",
+  "systemd_invocation_id": "09cccfdeb9404583b58d2b83ee90d673",
+  "systemd_run_returncode": 0,
+  "systemd_run_stdout": "Running as unit: rknpu-production-model-v16-20261028t0646.scope; invocation ID: 09cccfdeb9404583b58d2b83ee90d673",
+  "systemd_terminal": {
+    "ActiveState": "inactive",
+    "Result": "success",
+    "SubState": "dead"
+  },
+  "unit": "rknpu-production-model-v16-20261028t0646"
+}

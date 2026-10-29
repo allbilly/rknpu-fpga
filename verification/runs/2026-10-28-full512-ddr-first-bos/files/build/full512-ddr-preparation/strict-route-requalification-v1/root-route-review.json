@@ -1,0 +1,58 @@
+{
+  "status": "PASS_INDEPENDENT_FULL512_DDR_ROUTE_AND_TIMING_ONLY",
+  "utc": "2026-10-28T03:36:42.304019+00:00",
+  "scope": "Fresh strict qualification and checkpoint serialization of the repaired routed design; parent native pass and wrapper provenance failure remain separate. No new implementation, image, FPGA application, DDR capacity/ECC or RK silicon acceptance",
+  "producer_sha256": "4b2a818634a278760283cd05f9bd5caac1243f4c0dab1e5817f17e9adab87527",
+  "parent_routed_dcp_sha256": "6f80fd89beda0dd26244b860927f4e214c141a02a965558a07b63f3f0bc68478",
+  "parent_failed_route_report_sha256": "9416024535c7086168fe6cdc9d60ec26c7770adc3173294b36357ad9702a41a2",
+  "post_route_dcp_sha256": "55a9a311a14227a89550e39f182deed2ca8885d39653c5c478b9bc4c51ffee89",
+  "source_post_opt_dcp_sha256": "e1a6441e396e11a1c78223ae78a3d8a9d482223449436d601cfe879a88b26e0b",
+  "input_hashes_rehashed": 343,
+  "route_counts": {
+    "logical nets": 503995,
+    "routable nets": 422138,
+    "fully routed nets": 422138,
+    "nets with routing errors": 0
+  },
+  "timing": {
+    "setup_ns": 0.004,
+    "hold_ns": 0.048,
+    "pulse_ns": 0.264,
+    "setup_endpoints": 169809,
+    "hold_endpoints": 168357,
+    "pulse_endpoints": 70329
+  },
+  "all_pulse_rows": {
+    "counts": {
+      "Min Period": 102,
+      "Max Period": 16,
+      "Low Pulse Width": 56,
+      "High Pulse Width": 58
+    },
+    "worst_reported_slack_ns": 0.264
+  },
+  "product_dsps": 512,
+  "total_dsps": 516,
+  "ports": 242,
+  "status_chains": 9,
+  "reset_banks": 4,
+  "default_drc": {
+    "DPIP-1": 1032,
+    "DPOP-1": 516,
+    "DPOP-2": 516,
+    "REQP-1709": 2
+  },
+  "helper_reports": {
+    "ew_job": "f0fb70bd24305355a287d086d91fb256d7973ca16bfc34b40145987507bb7391",
+    "cmac_job": "82c86af07385c5dd1e40d9135b35a5681b449b20c3f3969bcabfa6cbd776b25a",
+    "ew_memory": "f68e3b61cda1022e1279d974ddf7d25619122108df898cb3c62d99b4916b3648",
+    "cmac_memory": "68a02e08a23ad2730f81b5ca538ae9e613e1933299cfede9d50c7598e780f2a2"
+  },
+  "parent_native_returncode": 0,
+  "parent_wrapper_status": "FAIL",
+  "parent_provenance_failure_preserved": true,
+  "checkpoint_exported": true,
+  "complete_controller_matrix_qualified": false,
+  "bitstream_emitted": false,
+  "hardware_accessed": false
+}

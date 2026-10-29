@@ -1,0 +1,11 @@
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v6/source/tb_capacity_regs_badparams.sv:8:15: Signal is not used: 'rdata'
+                                                                                                                              : ... note: In instance 'tb_capacity_regs_badparams'
+    8 |   wire [31:0] rdata,request_seed;
+      |               ^~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.048
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v6/source/tb_capacity_regs_badparams.sv:8:21: Signal is not used: 'request_seed'
+                                                                                                                              : ... note: In instance 'tb_capacity_regs_badparams'
+    8 |   wire [31:0] rdata,request_seed;
+      |                     ^~~~~~~~~~~~
+%Error: Exiting due to 2 warning(s)

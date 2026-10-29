@@ -1,0 +1,214 @@
+{
+  "files": {
+    "control_fi_bus": {
+      "evidence": [
+        {
+          "anchor": "assign fi_xor_we     = fi_xor_we_r & {C_DQ_WIDTH/8{ecc_on_off_r}}",
+          "lines": [
+            193
+          ]
+        },
+        {
+          "anchor": "fi_xor_we_r[0*C_DATA_WIDTH/8+:C_DATA_WIDTH/8]",
+          "lines": [
+            581
+          ]
+        },
+        {
+          "anchor": "fi_xor_we_r[1*C_DATA_WIDTH/8+:C_DATA_WIDTH/8]",
+          "lines": [
+            596
+          ]
+        }
+      ],
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/002/mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "sha256": "5146f0f3e8dfc1e0e95673ba2ff357f52f4c4a5baca88a9489b37f926d801917"
+    },
+    "control_permissions": {
+      "evidence": [
+        {
+          "anchor": "P_REG_FI_ECC_RDAC = 1'b0",
+          "lines": [
+            206
+          ]
+        },
+        {
+          "anchor": "P_REG_FI_D_31_00_RDAC = 1'b0",
+          "lines": [
+            234
+          ]
+        },
+        {
+          "anchor": "P_REG_FI_D_63_32_RDAC = 1'b0",
+          "lines": [
+            227
+          ]
+        },
+        {
+          "anchor": "P_REG_FI_ECC_WRAC = (C_ECC_TEST == \"ON\")",
+          "lines": [
+            209
+          ]
+        },
+        {
+          "anchor": "P_REG_FI_ECC_ADDR = 32'h0000_0380",
+          "lines": [
+            210
+          ]
+        },
+        {
+          "anchor": "P_REG_FI_D_31_00_ADDR = 32'h0000_0300",
+          "lines": [
+            238
+          ]
+        },
+        {
+          "anchor": "P_REG_FI_D_63_32_ADDR = 32'h0000_0304",
+          "lines": [
+            231
+          ]
+        }
+      ],
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/004/mig_7series_v4_2_axi_ctrl_top.v",
+      "sha256": "1a0b8cbbcd037f1ad61dbaeac866b3b4f3020624f1b727c66b23390a47d08ce5"
+    },
+    "generated_profile": {
+      "evidence": [
+        {
+          "anchor": "parameter C1_ECC_TEST              = \"OFF\"",
+          "lines": [
+            592
+          ]
+        },
+        {
+          "anchor": "(C1_ECC_TEST == \"OFF\") ? C1_DATA_WIDTH : C1_DQ_WIDTH",
+          "lines": [
+            593
+          ]
+        }
+      ],
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/099/top_mig_7series_0_0_mig.v",
+      "sha256": "616d24bbcd3c5c57a1ac23d21488e80b8b3f16a29df65ed110f629f7d3c5e36e"
+    },
+    "mc_placement": {
+      "evidence": [
+        {
+          "anchor": "mc_wrdata_en_r <= mc_wrdata_en",
+          "lines": [
+            936
+          ]
+        },
+        {
+          "anchor": ".wrdata_in (mc_wrdata_i)",
+          "lines": [
+            949
+          ]
+        },
+        {
+          "anchor": ".wrdata_out (mc_wrdata)",
+          "lines": [
+            950
+          ]
+        },
+        {
+          "anchor": ".wrdata_en (mc_wrdata_en_i)",
+          "lines": [
+            951
+          ]
+        }
+      ],
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/048/mig_7series_v4_2_mc.v",
+      "sha256": "98e99f2d2dc416ea8fb917f68fd5d609da3f574c3c417c15a31719d612f98c8b"
+    },
+    "one_shot_mask": {
+      "evidence": [
+        {
+          "anchor": "reg [DQ_WIDTH-1:0]              fi_xor_data = {DQ_WIDTH{1'b0}}",
+          "lines": [
+            98
+          ]
+        },
+        {
+          "anchor": "if (wrdata_en) begin",
+          "lines": [
+            110
+          ]
+        },
+        {
+          "anchor": "else if (fi_xor_we[i]) begin",
+          "lines": [
+            113
+          ]
+        },
+        {
+          "anchor": "assign wrdata_out[0+:DQ_WIDTH] = wrdata_in[0+:DQ_WIDTH] ^ fi_xor_data[0+:DQ_WIDTH]",
+          "lines": [
+            125
+          ]
+        },
+        {
+          "anchor": "assign wrdata_out[DQ_WIDTH+:(2*nCK_PER_CLK-1)*DQ_WIDTH] = wrdata_in[DQ_WIDTH+:(2*nCK_PER_CLK-1)*DQ_WIDTH]",
+          "lines": [
+            128
+          ]
+        }
+      ],
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v",
+      "sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+    },
+    "ui_width_adaptation": {
+      "evidence": [
+        {
+          "anchor": "if(ECC_TEST == \"ON\") begin",
+          "lines": [
+            870,
+            886,
+            1121
+          ]
+        },
+        {
+          "anchor": "assign app_wdf_data[o*72+:72] = {app_wdf_data_axi_o[o*64+:8],app_wdf_data_axi_o[o*64+:64]}",
+          "lines": [
+            873
+          ]
+        },
+        {
+          "anchor": "assign app_raw_not_ecc = {2*nCK_PER_CLK{1'b0}}",
+          "lines": [
+            1125,
+            1128
+          ]
+        }
+      ],
+      "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/058/mig_7series_v4_2_memc_ui_top_axi.v",
+      "sha256": "f220f191951c2f34106f07960091330203a4bd248e85ef30e043f73fed081393"
+    }
+  },
+  "findings": {
+    "active_image_injection_available": false,
+    "ecc_test_enable_changes_generated_payload_width": true,
+    "fi_mask_applies_to": "Only first 72-bit codeword of each 576-bit controller write datum",
+    "fi_register_readback_available": false,
+    "joint_reset_alone_establishes_mask_disarmed": false,
+    "mask_lifetime": "Held until wrdata_en; write event clears all bytes and wins over simultaneous arm",
+    "mask_reset_port_present": false
+  },
+  "hardware_accessed": false,
+  "physical_ecc_injection_qualified": false,
+  "recovery_qualified": false,
+  "required_future_profile_work": [
+    "Enable ECC_TEST in a separately source-bound generated/controller profile; retain normal 64-bit payload semantics",
+    "Qualify the complete controller/AXI width adaptation and fresh full numerical regression",
+    "Exclusive data/control ownership must prevent unrelated writes or maintenance/RMW writes consuming the armed mask",
+    "Explicitly write zero to all nine FI mask bytes before startup/recovery admission; FI registers cannot be read back",
+    "Do not arm concurrently with wrdata_en; bind observed intended MC write and auto-clear to the target line",
+    "Observe valid-qualified controller ECC events and exact corrected/uncorrectable read behavior",
+    "Keep the normal monitor strict; diagnostic expected-fault receipts are separate from normal job success",
+    "Prove fault quarantine, pending AXI drain and source-bound whole-domain recovery before resuming raw jobs"
+  ],
+  "reviewer_sha256": "ee64c09c478eba0552d53d4dfef3ae87601ce755ba3cfe58e65d816d766b7fda",
+  "schema": "ecc-injection-source-obligations-v1",
+  "status": "SOURCE_REVIEW_ONLY_NOT_INJECTION_QUALIFICATION",
+  "utc": "2026-10-28T06:40:25.585723+00:00",
+  "vivado_executed": false
+}

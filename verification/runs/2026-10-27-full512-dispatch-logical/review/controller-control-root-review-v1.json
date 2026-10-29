@@ -1,0 +1,14 @@
+{
+  "status": "PASS_INDEPENDENT_DUAL_CSR_LEAF_CONTROL_REVIEW_ONLY",
+  "input_report_sha256": "677f1a0009232685970c3e4cda87d210d6569323b858438d4f188aa6c9aae149",
+  "sources": {
+    "build/full512-ddr-preparation/dual-csr-v1/source/rk_dual_job_control.sv": "c37d67bacf7e3fbea99489f2dd0aaf5b93ae56790b3342f097bdb6d277046c6f",
+    "rtl/rk_job_control.sv": "5507702165a738d1655a5af651ba233955cb6c94e09a5b16469509319305a9f7",
+    "build/full512-ddr-preparation/dual-csr-v1/tests/tb_dual_job_control.sv": "226f83aad4bcd67db658e401708f8e190398fdd17319eb59e425f5d59f4dd442"
+  },
+  "native_commands": 4,
+  "zero_native_stderr": true,
+  "numerical_qualification": false,
+  "hardware_accessed": false,
+  "contract": "Two raw CSR banks, one owner through selected ACK, invalid namespaces retain DECERR, failed owner retained until joint reset"
+}

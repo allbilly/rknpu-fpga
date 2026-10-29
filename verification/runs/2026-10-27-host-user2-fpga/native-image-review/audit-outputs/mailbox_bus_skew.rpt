@@ -1,0 +1,221 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (lin64) Build 6511674 Tue Jun 16 11:01:26 MDT 2026
+| Date         : Tue Oct 27 01:15:57 2026
+| Host         : fedora running 64-bit unknown
+| Command      : report_bus_skew -warn_on_violation -file /home/fedora/rknpu-fpga/build/host-image-review/20261026T171408Z/audit-outputs/mailbox_bus_skew.rpt
+| Design       : ypcb_jtag_ew_top
+| Device       : 7k480t-ffg1156
+| Speed File   : -2  PRODUCTION 1.12 2017-02-17
+| Design State : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bus Skew Report
+
+Table of Contents
+-----------------
+1. Bus Skew Report Summary
+2. Bus Skew Report Per Constraint
+
+1. Bus Skew Report Summary
+--------------------------
+
+Id  Position  From                            To                              Corner  Requirement(ns)  Actual(ns)  Slack(ns)
+--  --------  ------------------------------  ------------------------------  ------  ---------------  ----------  ---------
+1   6         [get_cells -quiet -hier -filter {NAME =~ u_mailbox/held_reg*}]
+                                              [get_cells -quiet -hier -filter {NAME =~ u_mailbox/req_reg*}]
+                                                                              Slow             40.000       0.917     39.083
+2   9         [get_cells -quiet -hier -filter {NAME =~ u_mailbox/response_reg*}]
+                                              [get_cells -quiet -hier -filter {NAME =~ u_mailbox/response_tck_reg*}]
+                                                                              Slow            333.332       0.940    332.392
+
+
+2. Bus Skew Report Per Constraint
+---------------------------------
+
+Id: 1
+set_bus_skew -from [get_cells -quiet -hier -filter {NAME =~ u_mailbox/held_reg*}] -to [get_cells -quiet -hier -filter {NAME =~ u_mailbox/req_reg*}] 40.000
+Requirement: 40.000ns
+Endpoints: 604
+
+From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
+--------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
+jtag_tck              sys_clk               u_mailbox/req_reg[200]/D        u_mailbox/req_reg[561]/D        Slow         0.917     39.083
+
+
+Slack (MET) :             39.083ns  (requirement - actual skew)
+  Endpoint Source:        u_mailbox/held_reg[200]/C
+                            (rising edge-triggered cell FDRE clocked by jtag_tck)
+  Endpoint Destination:   u_mailbox/req_reg[200]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk)
+  Reference Source:       u_mailbox/held_reg[561]/C
+                            (rising edge-triggered cell FDRE clocked by jtag_tck)
+  Reference Destination:  u_mailbox/req_reg[561]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk)
+  Path Type:              Bus Skew (Max at Slow Process Corner)
+  Requirement:            40.000ns
+  Endpoint Relative Delay:    0.594ns
+  Reference Relative Delay:  -0.812ns
+  Relative CRPR:              0.489ns
+  Actual Bus Skew:            0.917ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+
+Endpoint path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock jtag_tck rise edge)
+                                                      0.000     0.000 r  <hidden>
+    BSCAN_X0Y1           BSCANE2                      0.000     0.000 r  u_bscan/TCK
+                         net (fo=1, routed)           1.765     1.765    tck
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.093     1.858 r  tck_BUFG_inst/O
+                         net (fo=1785, routed)        1.280     3.138    u_mailbox/tck
+    SLICE_X48Y171        FDRE                                         r  u_mailbox/held_reg[200]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y171        FDRE (Prop_fdre_C_Q)         0.236     3.374 r  u_mailbox/held_reg[200]/Q
+                         net (fo=1, routed)           0.618     3.992    u_mailbox/held[200]
+    SLICE_X56Y171        FDRE                                         r  u_mailbox/req_reg[200]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk rise edge)    0.000     0.000 r  <hidden>
+    AA28                                              0.000     0.000 r  SYS_CLK
+                         net (fo=0)                   0.000     0.000    SYS_CLK
+    AA28                 IBUF (Prop_ibuf_I_O)         0.676     0.676 r  u_ibuf50/O
+                         net (fo=1, routed)           1.586     2.262    clk_ib
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     2.345 r  u_bufg50/O
+                         net (fo=4384, routed)        1.142     3.487    u_mailbox/clk
+    SLICE_X56Y171        FDRE                                         r  u_mailbox/req_reg[200]/C
+                         clock pessimism              0.000     3.487    <hidden>
+    SLICE_X56Y171        FDRE (Setup_fdre_C_D)       -0.088     3.399    u_mailbox/req_reg[200]
+  -------------------------------------------------------------------
+                         data arrival                           3.992    <hidden>
+                         clock arrival                          3.399    <hidden>
+  -------------------------------------------------------------------
+                         relative delay                         0.594    <hidden>
+
+Reference path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock jtag_tck rise edge)
+                                                      0.000     0.000 r  <hidden>
+    BSCAN_X0Y1           BSCANE2                      0.000     0.000 r  u_bscan/TCK
+                         net (fo=1, routed)           1.509     1.509    tck
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.083     1.592 r  tck_BUFG_inst/O
+                         net (fo=1785, routed)        1.330     2.922    u_mailbox/tck
+    SLICE_X43Y145        FDRE                                         r  u_mailbox/held_reg[561]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y145        FDRE (Prop_fdre_C_Q)         0.178     3.100 r  u_mailbox/held_reg[561]/Q
+                         net (fo=1, routed)           0.232     3.332    u_mailbox/held[561]
+    SLICE_X44Y145        FDRE                                         r  u_mailbox/req_reg[561]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk rise edge)    0.000     0.000 r  <hidden>
+    AA28                                              0.000     0.000 r  SYS_CLK
+                         net (fo=0)                   0.000     0.000    SYS_CLK
+    AA28                 IBUF (Prop_ibuf_I_O)         0.751     0.751 r  u_ibuf50/O
+                         net (fo=1, routed)           1.698     2.449    clk_ib
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.542 r  u_bufg50/O
+                         net (fo=4384, routed)        1.468     4.010    u_mailbox/clk
+    SLICE_X44Y145        FDRE                                         r  u_mailbox/req_reg[561]/C
+                         clock pessimism              0.000     4.010    <hidden>
+    SLICE_X44Y145        FDRE (Hold_fdre_C_D)         0.135     4.145    u_mailbox/req_reg[561]
+  -------------------------------------------------------------------
+                         data arrival                           3.332    <hidden>
+                         clock arrival                          4.145    <hidden>
+  -------------------------------------------------------------------
+                         relative delay                        -0.812    <hidden>
+
+
+
+Id: 2
+set_bus_skew -from [get_cells -quiet -hier -filter {NAME =~ u_mailbox/response_reg*}] -to [get_cells -quiet -hier -filter {NAME =~ u_mailbox/response_tck_reg*}] 333.332
+Requirement: 333.332ns
+Endpoints: 536
+
+From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
+--------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
+sys_clk               jtag_tck              u_mailbox/response_tck_reg[387]/D
+                                                                            u_mailbox/response_tck_reg[519]/D
+                                                                                                            Slow         0.940    332.392
+
+
+Slack (MET) :             332.392ns  (requirement - actual skew)
+  Endpoint Source:        u_mailbox/response_reg[387]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk)
+  Endpoint Destination:   u_mailbox/response_tck_reg[387]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck)
+  Reference Source:       u_mailbox/response_reg[519]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk)
+  Reference Destination:  u_mailbox/response_tck_reg[519]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck)
+  Path Type:              Bus Skew (Max at Slow Process Corner)
+  Requirement:            333.332ns
+  Endpoint Relative Delay:    2.070ns
+  Reference Relative Delay:   0.642ns
+  Relative CRPR:              0.489ns
+  Actual Bus Skew:            0.940ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+
+Endpoint path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk rise edge)    0.000     0.000 r  <hidden>
+    AA28                                              0.000     0.000 r  SYS_CLK
+                         net (fo=0)                   0.000     0.000    SYS_CLK
+    AA28                 IBUF (Prop_ibuf_I_O)         0.751     0.751 r  u_ibuf50/O
+                         net (fo=1, routed)           1.698     2.449    clk_ib
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.093     2.542 r  u_bufg50/O
+                         net (fo=4384, routed)        1.281     3.823    u_mailbox/clk
+    SLICE_X54Y184        FDRE                                         r  u_mailbox/response_reg[387]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X54Y184        FDRE (Prop_fdre_C_Q)         0.259     4.082 r  u_mailbox/response_reg[387]/Q
+                         net (fo=1, routed)           0.716     4.798    u_mailbox/response_reg_n_0_[387]
+    SLICE_X55Y184        FDRE                                         r  u_mailbox/response_tck_reg[387]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock jtag_tck rise edge)
+                                                      0.000     0.000 r  <hidden>
+    BSCAN_X0Y1           BSCANE2                      0.000     0.000 r  u_bscan/TCK
+                         net (fo=1, routed)           1.509     1.509    tck
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.083     1.592 r  tck_BUFG_inst/O
+                         net (fo=1785, routed)        1.148     2.740    u_mailbox/tck
+    SLICE_X55Y184        FDRE                                         r  u_mailbox/response_tck_reg[387]/C
+                         clock pessimism              0.000     2.740    <hidden>
+    SLICE_X55Y184        FDRE (Setup_fdre_C_D)       -0.013     2.727    u_mailbox/response_tck_reg[387]
+  -------------------------------------------------------------------
+                         data arrival                           4.798    <hidden>
+                         clock arrival                          2.727    <hidden>
+  -------------------------------------------------------------------
+                         relative delay                         2.070    <hidden>
+
+Reference path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk rise edge)    0.000     0.000 r  <hidden>
+    AA28                                              0.000     0.000 r  SYS_CLK
+                         net (fo=0)                   0.000     0.000    SYS_CLK
+    AA28                 IBUF (Prop_ibuf_I_O)         0.676     0.676 r  u_ibuf50/O
+                         net (fo=1, routed)           1.586     2.262    clk_ib
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.083     2.345 r  u_bufg50/O
+                         net (fo=4384, routed)        1.330     3.675    u_mailbox/clk
+    SLICE_X49Y148        FDRE                                         r  u_mailbox/response_reg[519]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y148        FDRE (Prop_fdre_C_Q)         0.178     3.853 r  u_mailbox/response_reg[519]/Q
+                         net (fo=1, routed)           0.233     4.086    u_mailbox/response_reg_n_0_[519]
+    SLICE_X45Y148        FDRE                                         r  u_mailbox/response_tck_reg[519]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock jtag_tck rise edge)
+                                                      0.000     0.000 r  <hidden>
+    BSCAN_X0Y1           BSCANE2                      0.000     0.000 r  u_bscan/TCK
+                         net (fo=1, routed)           1.765     1.765    tck
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.093     1.858 r  tck_BUFG_inst/O
+                         net (fo=1785, routed)        1.468     3.326    u_mailbox/tck
+    SLICE_X45Y148        FDRE                                         r  u_mailbox/response_tck_reg[519]/C
+                         clock pessimism              0.000     3.326    <hidden>
+    SLICE_X45Y148        FDRE (Hold_fdre_C_D)         0.118     3.444    u_mailbox/response_tck_reg[519]
+  -------------------------------------------------------------------
+                         data arrival                           4.086    <hidden>
+                         clock arrival                          3.444    <hidden>
+  -------------------------------------------------------------------
+                         relative delay                         0.642    <hidden>
+
+
+

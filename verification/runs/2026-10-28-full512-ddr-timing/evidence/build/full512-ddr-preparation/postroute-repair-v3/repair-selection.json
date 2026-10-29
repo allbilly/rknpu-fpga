@@ -1,0 +1,30 @@
+{
+  "ce_query_report_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/route-v6-failing-paths-v1/output-v3/root-selection-review.json",
+  "ce_query_report_sha256": "1c1d72ab2be58da871a7f29d08d86b1911b919bbd69f114974f8b53cdfe50a49",
+  "note": "No net names are guessed. Root/Boot must bind the actual CE-driver query result and approve this selection before any native action.",
+  "parent_routed_dcp_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v6/output/post_route.dcp",
+  "parent_routed_dcp_sha256": "bf2d55d590b4457519d5c415dde305f1c06e1d2437520dd092d90ed1ed22eb20",
+  "parent_v6_route_report_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v6/report.json",
+  "parent_v6_route_report_sha256": "ba68bc0e2c44d553a584c392bf388937b4a045919f18aa348d90c55217213f3a",
+  "schema": "full512-postroute-ce-driver-selection-v1",
+  "selected_nets": [
+    "platform/endpoint/backend/rsp_valid_i_2_n_0",
+    "platform/endpoint/control/bank[0].control/command_address[31]_i_1_n_0",
+    "platform/endpoint/control/bank[0].control/command_amount[31]_i_1_n_0",
+    "platform/endpoint/control/bank[0].control/fields_valid[2]_i_1_n_0",
+    "platform/endpoint/control/bank[0].control/result_code[0]",
+    "platform/endpoint/control/bank[1].control/command_address[31]_i_1_n_0",
+    "platform/endpoint/control/bank[1].control/command_amount[31]_i_1_n_0",
+    "platform/endpoint/control/bank[1].control/fields_valid[2]_i_1_n_0",
+    "platform/endpoint/control/bank[1].control/result_tag[31]_i_1_n_0",
+    "platform/endpoint/engine/cmac/job_crossing/descriptor_held0",
+    "platform/endpoint/engine/ew/job_crossing/descriptor_held0",
+    "platform/endpoint/memory/adapter/legacy/CEB2",
+    "platform/endpoint/memory/adapter/snapshot_data[511]_i_1_n_0"
+  ],
+  "source_post_opt_dcp_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/synthesis/post_opt.dcp",
+  "source_post_opt_dcp_sha256": "e1a6441e396e11a1c78223ae78a3d8a9d482223449436d601cfe879a88b26e0b",
+  "status": "ROOT_REVIEWED_ACTUAL_CE_DRIVER_NET_SELECTION",
+  "selection_rule": "Actual observed SIGNAL LUT2..6/O CE nets with >=32 sinks; no guessed names; low-fanout/D paths left to AggressiveExplore",
+  "selected_affected_ce_paths": 1106
+}

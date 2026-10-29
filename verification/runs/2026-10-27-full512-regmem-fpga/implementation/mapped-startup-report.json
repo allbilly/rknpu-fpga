@@ -1,0 +1,168 @@
+{
+  "status": "PASS_ACTUAL_CLOSED_FULL512_MAPPED_STARTUP_WITH_PROVEN_LUT_MODEL_ONLY",
+  "started_utc": "2026-10-26T12:25:47.143822+00:00",
+  "scope": "Replay the actual closed full512 synthesis netlist without boundary mocks.\n\nObserves the built-in raw K65 numerical scoreboard through the physical top\nports. This is binary functional simulation, not SDF, routed timing, pad voltage,\nclock measurement, hardware execution or a general RK3588 equivalence test.\n",
+  "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+  "inputs": {
+    "/home/fedora/rknpu-fpga/tools/cmac/regmem/run_closed_mapped.py": "8b7d80e3db59c4979b449630022e8810e3a2394b48e9bc78c114de18afe542ed",
+    "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-replay/20261026T122537Z-lutproof/producer-source.py": "8b7d80e3db59c4979b449630022e8810e3a2394b48e9bc78c114de18afe542ed",
+    "/home/fedora/rknpu-fpga/tools/evidence.py": "b660f509dd530516b77e45eedb6fd0d7430495dcc675a827971894cdc5cc2a54",
+    "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-preparation/report.json": "bf7ed33d4d49c1e58947128c3a58009f9dc359985bcaf1cececc8bb51820b287",
+    "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-preparation/export-run-20261026T112927Z/report.json": "6ecbf57c73fa220fd791817cba768c34c1cd749d4b3321c42f4324c46b1c9498",
+    "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-preparation/export.tcl": "69d5e1e4118de87d857998fcc4bd7cf52294d0de93ebb2723c309359a0237731",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/report.json": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/implementation/post_synth.dcp": "c63b42a84565c2102c8b4f724d6bf389e3764aa9e7fdc4a91c7e4e6b9e3da692",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/closed_fast_lut.v": "2e65d2a2412536357b35cffed150b73bfc70f017176474bf8cc3494fc291c969",
+    "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-preparation/tb_closed.sv": "45dab1d831ac867d4b1c921bc7497ae6e2616751dc808e62fafe7aaf256c6974",
+    "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-harness-controls/report.json": "a04ece0a28c73d7ce8c9d335748b7260cef1650385efddcd5cab096d2b017599",
+    "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/iverilog": "34ff9d8020f106bc3cc40d69a02f6c798be41193fdac187c35e7e4d703cade93",
+    "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp": "5876e595e35ef237d7f4fdaf831698a7dc7e91239aed5ec0d98599df0f8fc990",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/report.json": "0289b40242cbd0daa5215c145f85fd1d46ebbe7153c8ff0515336be4ce0052e4",
+    "/home/fedora/rknpu-fpga/tools/cmac/regmem/prove_fast_lut.py": "aa7bfd5385d37ebc0214a8cd50d15816a8f1cabb4f917d8b3c85b84416ddf6a6",
+    "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-preparation/closed.v": "91d13f62ee3f9260d8c99f831ca1ccb239fc60f9c6dabd9c918f4728c7d6768b",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/original_lut_models.v": "1b7f7db2016a33cdb04e9e27d71ce9aa78d74d9fcf4fe646c2b72d592b138773",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/fast_lut_models.v": "ccdc01e17e62e432ac3638e5cceb259836dbcc7daccab4c74889edf2a6c96bc8",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/tb_lut.sv": "318655b19e4202a97f6cc8f3a8ca462831e7db2f2c2ec5f98cb7d5b58c0b734d",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/inventory.json": "13624bdba31f5fd7abf93ca385f586943ccf590bcf50c7955a1a6062dd4a1b8a",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/proof.vvp": "40864a240f01b9cc420869e6ef473272fbbdfac30233a613e82543bc4cce36b9",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/iverilog_version.log": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/vvp_version.log": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/wrong_output_control.log": "2905d34c48430310fecb2478c2b75d27fc7d900abf18a47ec0e4e65da5146e9c",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/actual.log": "88263cbaeb7abbf811d450ccefe6bd1b60e91f05568550246c92e2098c7b261b",
+    "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-replay/20261026T122537Z-lutproof/sim.vvp": "73a2652531e6cb97e8e4fc1279f7731c68885c8e6de22819b6e155f79792a4bd"
+  },
+  "channels": 32,
+  "kernels": 16,
+  "parallel_products": 512,
+  "clock_period_ns": 20,
+  "simulator": "iverilog",
+  "compile_address_space_limit_bytes": 25769803776,
+  "resource_admission": {
+    "memory_available_bytes": 28944363520,
+    "swap_free_bytes": 12059881472,
+    "reserve_bytes": 4294967296,
+    "requested_address_space_gib": 24
+  },
+  "compile_timeout_seconds": 1800,
+  "simulation_timeout_seconds": 7200,
+  "delay_selection": "Explicit -Ttyp preserves default typical functional-model delays; no SDF",
+  "seed": "No PRNG; frozen raw K65/4096-halfword ROM workload",
+  "checker_control": "Deliberately inverted PASS predicate; not DUT/ROM corruption injection",
+  "validated_lut_model": {
+    "report": "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/report.json",
+    "sha256": "0289b40242cbd0daa5215c145f85fd1d46ebbe7153c8ff0515336be4ce0052e4",
+    "original_netlist_sha256": "91d13f62ee3f9260d8c99f831ca1ccb239fc60f9c6dabd9c918f4728c7d6768b",
+    "derived_netlist_sha256": "2e65d2a2412536357b35cffed150b73bfc70f017176474bf8cc3494fc291c969",
+    "configurations": {
+      "4": 183,
+      "5": 290,
+      "6": 751
+    },
+    "comparisons": 3419904,
+    "scope": "Only LUT4/5/6 behavioral bodies have exhaustive configured four-state equivalence; all other mapped text/models unchanged"
+  },
+  "commands": [
+    {
+      "name": "compiler_version",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-V"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T12:25:47.335804+00:00",
+      "pid": 441279,
+      "returncode": 0,
+      "seconds": 0.21057034004479647,
+      "finished_utc": "2026-10-26T12:25:47.546405+00:00",
+      "log_sha256": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d"
+    },
+    {
+      "name": "runtime_version",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "-V"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T12:25:47.738761+00:00",
+      "pid": 441282,
+      "returncode": 0,
+      "seconds": 0.20437570195645094,
+      "finished_utc": "2026-10-26T12:25:47.943159+00:00",
+      "log_sha256": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6"
+    },
+    {
+      "name": "compile",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Ttyp",
+        "-s",
+        "tb_closed",
+        "-s",
+        "glbl",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-replay/20261026T122537Z-lutproof/sim.vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/closed_fast_lut.v",
+        "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-preparation/tb_closed.sv"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T12:25:48.135779+00:00",
+      "pid": 441283,
+      "returncode": 0,
+      "seconds": 661.5921461421531,
+      "finished_utc": "2026-10-26T12:36:49.728752+00:00",
+      "log_sha256": "f65e39561bbc2b2fbdf87e738242854701023ff6cd190247dc7d525505fe44c5"
+    },
+    {
+      "name": "actual",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-replay/20261026T122537Z-lutproof/sim.vvp",
+        "+NEGATIVE=0"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T12:37:00.835478+00:00",
+      "pid": 443716,
+      "returncode": 0,
+      "seconds": 6389.578793279128,
+      "finished_utc": "2026-10-26T14:23:30.414299+00:00",
+      "log_sha256": "8ee6bc12fd4183da80bd4e19f077a6008827a6f5babf362d6f74614eea82f51c"
+    },
+    {
+      "name": "inverted_checker",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-replay/20261026T122537Z-lutproof/sim.vvp",
+        "+NEGATIVE=1"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T14:23:33.080902+00:00",
+      "pid": 472752,
+      "returncode": 1,
+      "seconds": 5791.954709101934,
+      "finished_utc": "2026-10-26T16:00:05.035634+00:00",
+      "log_sha256": "77d878b5aa2c14e9005757918761f130b5c5ea8a675ff7398f33007dc426b5e1"
+    }
+  ],
+  "bitstream_emitted": false,
+  "hardware_accessed": false,
+  "image_admission": false,
+  "compiler_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "runtime_version": "Icarus Verilog runtime version 13.0 (stable) (v13_0)",
+  "compiled_image": {
+    "path": "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-replay/20261026T122537Z-lutproof/sim.vvp",
+    "sha256": "73a2652531e6cb97e8e4fc1279f7731c68885c8e6de22819b6e155f79792a4bd"
+  },
+  "result": "PASS closed_mapped_full512_startup pad_pass=1 pad_fail=0 stable_cycles=32 observed_cycles=59973",
+  "finished_utc": "2026-10-26T16:00:05.037647+00:00",
+  "artifacts": {
+    "producer-source.py": "8b7d80e3db59c4979b449630022e8810e3a2394b48e9bc78c114de18afe542ed",
+    "compiler_version.log": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d",
+    "runtime_version.log": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+    "compile.log": "f65e39561bbc2b2fbdf87e738242854701023ff6cd190247dc7d525505fe44c5",
+    "sim.vvp": "73a2652531e6cb97e8e4fc1279f7731c68885c8e6de22819b6e155f79792a4bd",
+    "actual.log": "8ee6bc12fd4183da80bd4e19f077a6008827a6f5babf362d6f74614eea82f51c",
+    "inverted_checker.log": "77d878b5aa2c14e9005757918761f130b5c5ea8a675ff7398f33007dc426b5e1"
+  }
+}

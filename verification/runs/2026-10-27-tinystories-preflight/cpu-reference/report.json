@@ -1,0 +1,86 @@
+{
+  "status": "PASS_FRESH_OFFICIAL_CPU_TINYSTORIES260K_REFERENCE",
+  "scope": "Fresh official llama2.c CPU reference only; no FPGA access or runtime fallback",
+  "source_package": "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v1",
+  "source_report_sha256": "ed6dc3b8164056b571246454448e8649e8ccea65051565f98271c952f7307331",
+  "hardware_accessed": false,
+  "flash_written": false,
+  "commands": [
+    {
+      "name": "version",
+      "argv": [
+        "/usr/lib64/ccache/gcc",
+        "--version"
+      ],
+      "returncode": 0,
+      "seconds": 0.0793203329667449,
+      "stdout_sha256": "dcddcefbfc2827a1d7b83a86a683bfa8e1ae76b6080fc490c9110d51e0e3da40",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/version.stdout",
+      "stderr": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/version.stderr"
+    },
+    {
+      "name": "compile",
+      "argv": [
+        "/usr/lib64/ccache/gcc",
+        "-O3",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/run",
+        "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v1/reference/run.c",
+        "-lm"
+      ],
+      "returncode": 0,
+      "seconds": 7.764649325050414,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/compile.stdout",
+      "stderr": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/compile.stderr"
+    },
+    {
+      "name": "greedy",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/run",
+        "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v1/assets/stories260K.bin",
+        "-t",
+        "0",
+        "-s",
+        "1",
+        "-n",
+        "32",
+        "-i",
+        "Once upon a time",
+        "-z",
+        "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v1/assets/tok512.bin"
+      ],
+      "returncode": 0,
+      "seconds": 0.07306233490817249,
+      "stdout_sha256": "f969e22e5853d54d7fff97fff16855451c22a400672036d7dc66f21eabcebf89",
+      "stderr_sha256": "faeb4972ae67d9f2600fd71e906e1b55a9b8a99a7c593279c390c10d6e30d6cd",
+      "stdout": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/greedy.stdout",
+      "stderr": "/home/fedora/rknpu-fpga/build/tinystories-cpu-reference/20261026T180701Z/greedy.stderr"
+    }
+  ],
+  "started_utc": "2026-10-26T18:07:01.037994+00:00",
+  "compiler": {
+    "path": "/usr/lib64/ccache/gcc",
+    "sha256": "0eb8828d3c5975ed4b3ff6fa3b833de679380d84c752176feab6e2c4594552f2",
+    "version": "gcc (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)"
+  },
+  "text": "Once upon a time, there was a little girl named Lily. She loved to play outside in the park. One",
+  "model_config": {
+    "dim": 64,
+    "hidden_dim": 172,
+    "layers": 5,
+    "heads": 8,
+    "kv_heads": 4,
+    "vocab": 512,
+    "context": 512
+  },
+  "seed": 1,
+  "temperature": 0,
+  "step_limit": 32,
+  "generated_token_ids": "Not recorded by the unmodified C runner",
+  "binary_sha256": "63e0a766ad2466ec63c90a2db2405983a8a7c2690c8f8bbe53536e2543ad8379",
+  "source_package_rechecked": true,
+  "finished_utc": "2026-10-26T18:07:09.402330+00:00"
+}

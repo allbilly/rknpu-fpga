@@ -1,0 +1,20 @@
+{
+  "status": "PREPARED_REGENERATED_ORIGINAL_MIG_WIDTH1_ARBITER_VARIANT_ONLY",
+  "utc": "2026-10-26T23:43:43.915274+00:00",
+  "scope": "One separately derived arbiter definition, same byte-exact WIDTH1 correction used by the bounded MC model; raw regenerated controller remains unchanged. This is not complete generated-controller or physical qualification.",
+  "origin": {
+    "path": "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/generation/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/controller/mig_7series_v4_2_round_robin_arb.v",
+    "sha256": "a4b107a17899ee17b42c76e91f8789737d74b65d37c1be6f895bbe24b8b614ef"
+  },
+  "descriptor_sha256": "48eea43eb2fe930ffed0a31587feeac9e0b46c9b5b1f12997f65e44e8a882266",
+  "variant_id": "rknpu-mig42-round-robin-width-one-v1",
+  "derived": {
+    "path": "/home/fedora/rknpu-fpga/build/original-mig-derived/rzq7-width1-v1/mig_7series_v4_2_round_robin_arb.v",
+    "sha256": "ae6be8a3f77170c867bf076a4291bd6b0755c1250ab32215a8b679274b88368f"
+  },
+  "generation_report_sha256": "85761e96dd18edd537ac6b3b0392e522be3adcd3d985e5d1f5dc8d2f7239c42d",
+  "source_review_sha256": "25e47e0647463b34885008e15cc3c9b6e808b46dba2b0fd43c419d520aa573fa",
+  "integration_rule": "Compile exactly one arbiter definition; replace the original definition with this source, keep all periodic-read behavior and other generated sources/settings unchanged. Do not import a cached unpatched DCP/XCI implementation as a substitute.",
+  "hardware_accessed": false,
+  "physical_integration_ready": false
+}

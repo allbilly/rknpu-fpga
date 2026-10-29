@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+"""Create deterministic selected source/text evidence archive; never copies native tools."""
+from __future__ import annotations
+import datetime,gzip,hashlib,json,os,pathlib,signal,subprocess,sys,time
+ROOT=pathlib.Path('/home/fedora/rknpu-fpga');BUILD=ROOT/'build/ddr-diagnostic-control-sim-archive-v1'
+OUT=ROOT/'verification/runs/2026-10-28-ddr-diagnostic-control-sim'
+def sha(path):
+ h=hashlib.sha256()
+ with pathlib.Path(path).open('rb') as f:
+  for b in iter(lambda:f.read(1<<20),b''):h.update(b)
+ return h.hexdigest()
+def utc():return datetime.datetime.now(datetime.timezone.utc).isoformat()
+def writej(path,obj):pathlib.Path(path).write_text(json.dumps(obj,indent=2,sort_keys=True)+'\n')
+def store(src,dst,archive_root):
+ src=pathlib.Path(src);raw=src.read_bytes();source_hash=hashlib.sha256(raw).hexdigest()
+ if len(raw)>16384:
+  dest=dst.with_name(dst.name+'.gz')
+  with dest.open('xb') as target:
+   with gzip.GzipFile(filename='',fileobj=target,mode='wb',compresslevel=9,mtime=0) as z:z.write(raw)
+  codec='gzip-mtime0-level9'
+ else:dest=dst;dest.write_bytes(raw);codec='identity'
+ return {'archive_path':str(dest.relative_to(archive_root)),'compression':codec,'source_sha256':source_hash,
+  'source_bytes':len(raw),'archive_sha256':sha(dest),'archive_bytes':dest.stat().st_size}
+def main():
+ started=utc();plan_path=BUILD/'archive-plan.json';plan=json.loads(plan_path.read_text())
+ if OUT.exists():raise SystemExit(f'refusing existing output: {OUT}')
+ before={x['source_path']:sha(ROOT/x['source_path']) for x in plan['files']}
+ for row in plan['files']:
+  if before[row['source_path']]!=row['source_sha256']:raise RuntimeError('source changed since plan: '+row['source_path'])
+ OUT.mkdir(parents=True);files=[]
+ for row in plan['files']:
+  src=ROOT/row['source_path'];dst=OUT/row['archive_path'];dst.parent.mkdir(parents=True,exist_ok=True)
+  stored=store(src,dst,OUT)
+  if stored['source_sha256']!=row['source_sha256'] or stored['source_bytes']!=row['source_bytes']:
+   raise RuntimeError('source changed during copy: '+row['source_path'])
+  files.append({**row,**stored})
+ # Archive exact plan; the plan itself cannot contain its own hash, but index binds it.
+ dst=OUT/'provenance/archive-plan.json';dst.parent.mkdir(parents=True,exist_ok=True)
+ files.append({'source_path':str(plan_path.relative_to(ROOT)),'archive_path':'provenance/archive-plan.json',
+  'role':'exact selected-file plan and exclusions','source_sha256':sha(plan_path),'source_bytes':plan_path.stat().st_size,
+  **store(plan_path,dst,OUT)})
+ after={x['source_path']:sha(ROOT/x['source_path']) for x in plan['files']}
+ if before!=after:raise RuntimeError('included sources changed while copying')
+ paths=[x['archive_path'] for x in files]
+ if len(paths)!=len(set(paths)):raise RuntimeError('duplicate archive paths in selected payload index')
+ index={'schema':'ddr-diagnostic-control-sim-archive-v1','status':'PASS_SELECTED_SOURCE_AND_TEXT_EVIDENCE_ONLY',
+  'created_utc':utc(),'scope':plan['scope'],'file_count':len(files),'unique_archive_paths':len(set(paths)),
+  'source_bytes':sum(x['source_bytes'] for x in files),'archive_bytes':sum(x['archive_bytes'] for x in files),
+  'compression_policy':plan['compression_policy'],'files':files,'excluded_files':plan['excluded_files'],
+  'excluded_file_count':plan['excluded_file_count'],'excluded_bytes':plan['excluded_bytes'],
+  'attempts':plan['attempts'],'owner_root_review':plan['owner_root_review'],'regs_root_review':plan['regs_root_review'],
+  'mux_root_review':plan['mux_root_review'],'service_lint':plan['service_lint'],'regs_v1_terminal':plan['regs_v1_terminal'],
+  'owner_regs_mux_service_integration_qualified':False,'board_integration_qualified':False,'physical_capacity_qualified':False,
+  'hardware_executed':False,'sha256sums_present':False,'plan_sha256':sha(plan_path),
+  'source_hashes_before':before,'source_hashes_after':after}
+ index_path=OUT/'index.json';writej(index_path,index)
+ # Archive payload inventory/hash/decompression audit before writing the external audit receipt.
+ expected=set(paths);actual={str(p.relative_to(OUT)) for p in OUT.rglob('*') if p.is_file() and p!=index_path}
+ if expected!=actual:raise RuntimeError(f'archive coverage mismatch missing={sorted(expected-actual)} extra={sorted(actual-expected)}')
+ for row in files:
+  stored=OUT/row['archive_path']
+  if sha(stored)!=row['archive_sha256'] or stored.stat().st_size!=row['archive_bytes']:raise RuntimeError('stored payload hash/size mismatch '+row['archive_path'])
+  h=hashlib.sha256();count=0
+  if row['compression']=='gzip-mtime0-level9':
+   with gzip.open(stored,'rb') as f:
+    for b in iter(lambda:f.read(1<<20),b''):h.update(b);count+=len(b)
+   actual_hash=h.hexdigest()
+  else:actual_hash=sha(stored);count=stored.stat().st_size
+  if actual_hash!=row['source_sha256'] or count!=row['source_bytes']:raise RuntimeError('decoded payload mismatch '+row['archive_path'])
+ run={'schema':'ddr-diagnostic-control-sim-archive-run-v1','status':'PASS','started_utc':started,'finished_utc':utc(),
+  'argv':sys.argv,'cwd':str(pathlib.Path.cwd()),'plan_path':str(plan_path),'plan_sha256':sha(plan_path),
+  'packer_path':str(pathlib.Path(__file__).resolve()),'packer_sha256':sha(__file__),'archive_path':str(OUT),
+  'index_path':str(index_path),'index_sha256':sha(index_path),'included_file_count':len(files),
+  'excluded_file_count':len(plan['excluded_files']),'source_bytes':index['source_bytes'],'archive_bytes':index['archive_bytes'],
+  'unique_paths':len(set(paths)),'sources_stable':before==after,'unindexed_files':0,
+  'owner_regs_mux_service_integration_claim':False,'physical_capacity_qualified':False}
+ writej(BUILD/'archive-run.json',run)
+ audit={'schema':'ddr-diagnostic-control-sim-archive-audit-v1','status':'PASS','index_sha256':sha(index_path),
+  'indexed_file_rows':len(files),'unique_index_paths':len(set(paths)),'actual_payload_files':len(actual),
+  'unindexed_payloads':0,'missing_payloads':0,'all_stored_and_decompressed_hashes_match':True,
+  'included_source_hashes_stable':before==after,'excluded_file_hashes_recorded':True,
+  'owner_review_status':index['owner_root_review']['status'],'regs_review_status':index['regs_root_review']['status'],
+  'mux_review_status':index['mux_root_review']['status'],'service_lint_status':index['service_lint']['status'],
+  'regs_v1_producer_status':index['regs_v1_terminal']['producer_status'],
+  'regs_v1_terminal_status':index['regs_v1_terminal']['terminal_status'],
+  'physical_or_integrated_claimed':False,'sha256sums_present':False}
+ writej(BUILD/'archive-audit.json',audit)
+ print(json.dumps({'status':run['status'],'archive':str(OUT),'index_sha256':sha(index_path),
+  'files':len(files),'unique_paths':len(set(paths)),'source_bytes':index['source_bytes'],'archive_bytes':index['archive_bytes'],
+  'excluded_files':len(plan['excluded_files']),'run_receipt':str(BUILD/'archive-run.json'),'audit_receipt':str(BUILD/'archive-audit.json')},indent=2))
+ return 0
+if __name__=='__main__':raise SystemExit(main())

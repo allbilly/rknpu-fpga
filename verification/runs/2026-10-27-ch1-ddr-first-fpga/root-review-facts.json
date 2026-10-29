@@ -1,0 +1,110 @@
+{
+  "bitstream_drc": {
+    "checks_found": 6,
+    "critical_warnings": 0,
+    "errors": 0,
+    "path": "build/ypcb-ddr-shell/ch1-image-v2/emission/bitstream_drc.rpt",
+    "rules": [
+      {
+        "checks": 2,
+        "description": "Input pipelining",
+        "rule": "DPIP-1",
+        "severity": "Warning"
+      },
+      {
+        "checks": 1,
+        "description": "PREG Output pipelining",
+        "rule": "DPOP-1",
+        "severity": "Warning"
+      },
+      {
+        "checks": 1,
+        "description": "MREG Output pipelining",
+        "rule": "DPOP-2",
+        "severity": "Warning"
+      },
+      {
+        "checks": 2,
+        "description": "Clock output buffering",
+        "rule": "REQP-1709",
+        "severity": "Warning"
+      }
+    ],
+    "sha256": "cbe1ef2895de9af6813837ec8b10d76b835738a181daece903b239a26b5e9dfb",
+    "warnings": 6
+  },
+  "command_count": 8078,
+  "complete_readback_before_ack": true,
+  "critical_warning_event_count_in_emission_logs": 0,
+  "default_drc": {
+    "checks_found": 6,
+    "critical_warnings": 0,
+    "errors": 0,
+    "path": "build/ypcb-ddr-shell/ch1-image-v2/emission/default_drc.rpt",
+    "rules": [
+      {
+        "checks": 2,
+        "description": "Input pipelining",
+        "rule": "DPIP-1",
+        "severity": "Warning"
+      },
+      {
+        "checks": 1,
+        "description": "PREG Output pipelining",
+        "rule": "DPOP-1",
+        "severity": "Warning"
+      },
+      {
+        "checks": 1,
+        "description": "MREG Output pipelining",
+        "rule": "DPOP-2",
+        "severity": "Warning"
+      },
+      {
+        "checks": 2,
+        "description": "Clock output buffering",
+        "rule": "REQP-1709",
+        "severity": "Warning"
+      }
+    ],
+    "sha256": "e17b01375fa72d7d5be2d53e7b11c3a7fd706a63a404481bad57470294a6a2d3",
+    "warnings": 6
+  },
+  "ecc_injection_qualified": false,
+  "electrical_signoff": false,
+  "flash_written": false,
+  "full512_integrated": false,
+  "full_capacity_qualified": false,
+  "hardware_accessed": true,
+  "historical_wire_audit_v1_error": "ValueError('Actual bridge differs from admitted no-programming scan bridge')",
+  "historical_wire_audit_v1_status": "FAIL_INDEPENDENT_CH1_PHYSICAL_AUDIT",
+  "image_review_status": "REVIEWED_EXPERIMENTAL_CH1_EW_DDR_IMAGE_FOR_VOLATILE_TRIAL",
+  "image_sha256": "45bd540cfaf7327ad8db5ba4e3a7548a209db1aeba4423f37159a72287296339",
+  "independent_wire_audit_status": "PASS_INDEPENDENT_PHYSICAL_CH1_SCRATCH_AND_RAW_SUB9_AUDIT",
+  "pcie_tested": false,
+  "physical_producer_status": "PASS_PHYSICAL_CH1_SCRATCH_AND_RAW_EW_REQUIRES_INDEPENDENT_WIRE_AUDIT",
+  "raw_acknowledgments": 1,
+  "raw_case": "capture_sub_9",
+  "raw_complete_bo_bytes": 102400,
+  "raw_submits": 1,
+  "raw_tasks": 2,
+  "rk_silicon_equivalence": false,
+  "scan_count": 24238,
+  "scope": "One authorized volatile CH1 image load; small scratch check and one raw SUB9 complete BO readback before ACK. Not a full DDR/ECC/PCIe/RK/electrical signoff.",
+  "scratch_addresses": [
+    64,
+    4096,
+    6144,
+    2097216,
+    16777280,
+    2147483584
+  ],
+  "scratch_bytes": 768,
+  "scratch_trials_per_address_order_count": 2,
+  "selected_physical_channel": 1,
+  "software_crc_validation": "NOT_PERFORMED",
+  "source_sha256": "a2dfec2162c2df789e3510bd547429592341d8bebd59c835eb4cec1f5af451b7",
+  "source_tag": "a2dfec21",
+  "status": "PASS_PRESERVED_FIRST_CH1_VOLATILE_PHYSICAL_TRIAL_EVIDENCE_SCOPE_ONLY",
+  "volatile_configuration_loads": 1
+}

@@ -1,0 +1,145 @@
+{
+  "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1174480-i5379384.scope",
+  "cgroup_limits_requested": {
+    "CPUQuota": "200%",
+    "MemoryMax": "4GiB",
+    "MemorySwapMax": 0,
+    "TasksMax": 256
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_axil_diagnostic_router",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/router_iverilog.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_axil_diagnostic_router.sv",
+        "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/tb_axil_diagnostic_router.sv"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6",
+      "finished_utc": "2026-10-28T08:20:15.492012+00:00",
+      "name": "iverilog_compile",
+      "returncode": 0,
+      "started_utc": "2026-10-28T08:20:15.475958+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/iverilog_compile.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/iverilog_compile.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.016055
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/router_iverilog.vvp"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6",
+      "finished_utc": "2026-10-28T08:20:15.508055+00:00",
+      "name": "iverilog_sim",
+      "returncode": 0,
+      "started_utc": "2026-10-28T08:20:15.492260+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/iverilog_sim.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/iverilog_sim.stdout.log",
+      "stdout_sha256": "02754a10f0ab76af9a27f48bbbf31fc951235b87c442fe8e1b9703148c47b1b7",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.015809
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "--Wall",
+        "--top-module",
+        "tb_axil_diagnostic_router",
+        "-j",
+        "2",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/verilator_obj",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_axil_diagnostic_router.sv",
+        "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/tb_axil_diagnostic_router.sv"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6",
+      "finished_utc": "2026-10-28T08:20:15.673329+00:00",
+      "name": "verilator_compile",
+      "returncode": 1,
+      "started_utc": "2026-10-28T08:20:15.508455+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/verilator_compile.stderr.log",
+      "stderr_sha256": "b7c80f72a3ca804615eef2addad7d394fb17e60aa4e9889d0d805339c445686b",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/verilator_compile.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.164891
+    }
+  ],
+  "failure": "RuntimeError('strict Verilator compile failed')",
+  "finished_utc": "2026-10-28T08:20:15.673931+00:00",
+  "hardware_executed": false,
+  "host_admission": {
+    "MemAvailable_kib": 26983424,
+    "SwapFree_kib": 22642708,
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1174480-i5379384.scope",
+    "cpu_psi_some_avg10": 0.0,
+    "memory_psi_full_avg10": 0.0,
+    "utc": "2026-10-28T08:20:15.413607+00:00"
+  },
+  "host_final": {
+    "MemAvailable_kib": 26974252,
+    "SwapFree_kib": 22642716,
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1174480-i5379384.scope",
+    "cpu_psi_some_avg10": 0.0,
+    "memory_psi_full_avg10": 0.0,
+    "utc": "2026-10-28T08:20:15.674295+00:00"
+  },
+  "max_native_timeout_seconds": 300,
+  "parent_integration_qualified": false,
+  "physical_capacity_qualified": false,
+  "schema": "axil-diagnostic-router-validation-v1",
+  "scope": "Standalone router with tagged independent child stubs; not full parent/register/board integration.",
+  "seed": "0x3588b157",
+  "sources_after": {
+    "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/run_validation.py": "8e5ef56ef140f44d5b52e8ae6bd2e40d283226a528366309bcdd585bbde0c1d2",
+    "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/tb_axil_diagnostic_router.sv": "eefc951526be77f18a4bcc0c8d0905a620cebf6ac36e52787580f900e47bfdfd",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_axil_diagnostic_router.sv": "df8fb194691661a50861d813a141fb7746c42e81fa423a38b4d8050b1ca20288"
+  },
+  "sources_before": {
+    "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/run_validation.py": "8e5ef56ef140f44d5b52e8ae6bd2e40d283226a528366309bcdd585bbde0c1d2",
+    "/home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/tb_axil_diagnostic_router.sv": "eefc951526be77f18a4bcc0c8d0905a620cebf6ac36e52787580f900e47bfdfd",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_axil_diagnostic_router.sv": "df8fb194691661a50861d813a141fb7746c42e81fa423a38b4d8050b1ca20288"
+  },
+  "sources_unchanged": true,
+  "started_utc": "2026-10-28T08:20:15.475958+00:00",
+  "status": "FAIL",
+  "tool_versions": {
+    "iverilog": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/iverilog",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "verilator": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/verilator",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+    },
+    "vvp": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/vvp",
+      "returncode": 0,
+      "stderr": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.",
+      "stdout": ""
+    }
+  },
+  "vivado_executed": false
+}

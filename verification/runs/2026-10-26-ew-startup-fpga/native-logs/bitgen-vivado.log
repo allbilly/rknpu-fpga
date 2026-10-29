@@ -1,0 +1,132 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 09-oct-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Mon Oct 26 13:04:07 2026
+# Process ID         : 260389
+# Current directory  : /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417
+# Command line       : vivado -mode batch -source /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/emit-bitstream.tcl -log /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitgen-vivado.log -journal /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitgen-vivado.jou
+# Log file           : /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitgen-vivado.log
+# Journal file       : /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitgen-vivado.jou
+# Running On         : fedora
+# Platform           : unknown
+# Operating System   : unknown
+# Processor Detail   : AMD Ryzen 7 4700U with Radeon Graphics
+# CPU Frequency      : 4129.590 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 8
+# Host memory        : 39639 MB
+# Swap memory        : 25769 MB
+# Total Virtual      : 65409 MB
+# Available Virtual  : 45266 MB
+#-----------------------------------------------------------
+source /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/emit-bitstream.tcl
+# set dcp {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/implementation/routed.dcp}
+# set out {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitstream}
+# if {[file exists $out]} {error "Fresh image output required"}
+# file mkdir $out
+# open_checkpoint $dcp
+Command: open_checkpoint /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/implementation/routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 1673.906 ; gain = 8.906 ; free physical = 2053 ; free virtual = 42914
+INFO: [Device 21-403] Loading part xc7k480tffg1156-2
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2158.598 ; gain = 0.000 ; free physical = 1635 ; free virtual = 42497
+INFO: [Netlist 29-17] Analyzing 466 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2246.348 ; gain = 1.000 ; free physical = 1513 ; free virtual = 42375
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2827.254 ; gain = 0.000 ; free physical = 994 ; free virtual = 41856
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2827.254 ; gain = 0.000 ; free physical = 994 ; free virtual = 41856
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2827.254 ; gain = 0.000 ; free physical = 994 ; free virtual = 41856
+Read placeStorage: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.11 . Memory (MB): peak = 2846.332 ; gain = 19.078 ; free physical = 994 ; free virtual = 41856
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2846.332 ; gain = 0.000 ; free physical = 994 ; free virtual = 41856
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2846.332 ; gain = 0.000 ; free physical = 994 ; free virtual = 41856
+Read Physdb Files: Time (s): cpu = 00:00:00.24 ; elapsed = 00:00:00.19 . Memory (MB): peak = 2846.332 ; gain = 19.078 ; free physical = 994 ; free virtual = 41856
+Restored from archive | CPU: 0.280000 secs | Memory: 5.757408 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.27 ; elapsed = 00:00:00.22 . Memory (MB): peak = 2846.332 ; gain = 25.016 ; free physical = 994 ; free virtual = 41856
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2846.332 ; gain = 0.000 ; free physical = 994 ; free virtual = 41856
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2026.1 (64-bit) build 6511674
+open_checkpoint: Time (s): cpu = 00:00:24 ; elapsed = 00:00:15 . Memory (MB): peak = 2846.367 ; gain = 1183.367 ; free physical = 994 ; free virtual = 41856
+# if {[get_property PART [current_design]] ne "xc7k480tffg1156-2"} {error "Wrong exact routed part"}
+# if {![report_route_status -boolean_check ROUTED_FULLY] || [report_route_status -boolean_check ERRORS_IN_ROUTES]} {error "Routed checkpoint not clean"}
+# if {[get_property CONFIG_VOLTAGE [current_design]] != 1.8 || [get_property CFGBVS [current_design]] ne "GND"} {error "Changed configuration-bank pair"}
+# set clocks [get_clocks -quiet]
+# if {[llength $clocks]!=1 || [get_property NAME [lindex $clocks 0]] ne "sys_clk" || [get_property PERIOD [lindex $clocks 0]] != 20.0} {error "Changed clock constraint"}
+# foreach type {max min} {
+#     set paths [get_timing_paths -delay_type $type -max_paths 1]
+#     if {[llength $paths]!=1} {error "Missing routed timing path"}
+#     set slack [get_property SLACK [lindex $paths 0]]
+#     if {![string is double -strict $slack] || [catch {expr {abs(double($slack)) < Inf}} finite] || !$finite || $slack < 0} {error "Negative/invalid routed slack"}
+# }
+# set_property BITSTREAM.CONFIG.USR_ACCESS 0xd1d0e3d0 [current_design]
+# report_drc -ruledeck bitstream_checks -file [file join $out pre_bitstream_drc.rpt]
+Command: report_drc -ruledeck bitstream_checks -file /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitstream/pre_bitstream_drc.rpt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/fedora/vivado/2026.1/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitstream/pre_bitstream_drc.rpt.
+report_drc completed successfully
+# foreach item [get_drc_violations] {
+#     set severity [string toupper [get_property SEVERITY $item]]
+#     if {$severity ni {WARNING ADVISORY INFO}} {error "Blocking bitstream DRC $item ($severity)"}
+# }
+# write_checkpoint [file join $out image.dcp]
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3082.566 ; gain = 0.000 ; free physical = 842 ; free virtual = 41704
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3082.566 ; gain = 0.000 ; free physical = 842 ; free virtual = 41704
+Writing XDEF routing.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3082.566 ; gain = 0.000 ; free physical = 841 ; free virtual = 41703
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.25 ; elapsed = 00:00:00.06 . Memory (MB): peak = 3082.566 ; gain = 0.000 ; free physical = 837 ; free virtual = 41701
+Wrote PlaceStorage: Time (s): cpu = 00:00:00.27 ; elapsed = 00:00:00.14 . Memory (MB): peak = 3082.566 ; gain = 0.000 ; free physical = 835 ; free virtual = 41702
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3082.566 ; gain = 0.000 ; free physical = 835 ; free virtual = 41703
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3082.566 ; gain = 0.000 ; free physical = 835 ; free virtual = 41703
+Write Physdb Complete: Time (s): cpu = 00:00:00.54 ; elapsed = 00:00:00.21 . Memory (MB): peak = 3082.566 ; gain = 0.000 ; free physical = 835 ; free virtual = 41703
+INFO: [Common 17-1381] The checkpoint '/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitstream/image.dcp' has been generated.
+# write_bitstream [file join $out ew-startup.bit]
+Command: write_bitstream /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitstream/ew-startup.bit
+Attempting to get a license for feature 'Vivado_Implementation' and/or device 'xc7k480t'
+INFO: [Common 17-349] Got license for feature 'Vivado_Implementation' and/or device 'xc7k480t'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+Integrating Hard IP ELF/MEM with the PDI.
+INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
+Initializing bitstream generation complete. Time (s): cpu = 00:00:00.62 ; elapsed = 00:00:00.64 . Memory (MB): peak = 3129.129 ; gain = 25.781 ; free physical = 704 ; free virtual = 41571
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitstream/ew-startup.bit...
+Generate Bitstream complete. Time (s): cpu = 00:00:19 ; elapsed = 00:00:10 . Memory (MB): peak = 3559.293 ; gain = 455.945 ; free physical = 354 ; free virtual = 41097
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Common 17-83] Releasing license: Vivado_Implementation
+8 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:23 ; elapsed = 00:00:42 . Memory (MB): peak = 3559.613 ; gain = 477.047 ; free physical = 335 ; free virtual = 41089
+# puts "PASS_SOURCE_REVIEWED_EW_BITSTREAM_EMISSION"
+PASS_SOURCE_REVIEWED_EW_BITSTREAM_EMISSION
+# exit
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 26 13:05:09 2026...

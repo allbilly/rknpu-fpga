@@ -1,0 +1,62 @@
+{
+  "status": "PASS_INDEPENDENT_SELECTED_SHARED_DATA_CONTROLLER_CASES_ONLY",
+  "utc": "2026-10-28T00:16:21.708226+00:00",
+  "producer_sha256": "74b208b7e445287ec405b53238472ca045fda78f4e3d853110b13f42e88a98e5",
+  "source_inputs_rehashed": 401,
+  "binary_sha256": "120a413d661c4bc03631142c3b2b70559cbdf9b2ba121b3c2ab3f5505f3af8bf",
+  "cases": [
+    {
+      "name": "host_memory_timeout",
+      "negative": 9,
+      "jobs": 0,
+      "recovered": 0,
+      "phy_returns": 68,
+      "read64_packets": 2,
+      "native_seconds": 83.8086906389799,
+      "complete_bo_bytes": 0
+    },
+    {
+      "name": "calibration_loss",
+      "negative": 5,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 11139,
+      "read64_packets": 2,
+      "native_seconds": 463.56877257907763,
+      "complete_bo_bytes": 0
+    },
+    {
+      "name": "ctrl_timeout",
+      "negative": 7,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 17928,
+      "read64_packets": 2,
+      "native_seconds": 835.7251375550404,
+      "complete_bo_bytes": 0
+    },
+    {
+      "name": "dropped_return",
+      "negative": 3,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 11140,
+      "read64_packets": 2,
+      "native_seconds": 413.81487019592896,
+      "complete_bo_bytes": 0
+    },
+    {
+      "name": "phy_write_stall",
+      "negative": 4,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 12970,
+      "read64_packets": 2,
+      "native_seconds": 513.8442899328656,
+      "complete_bo_bytes": 0
+    }
+  ],
+  "complete_matrix_qualified": false,
+  "scope": "Real AXI/UI/MC components with encoded PHY only; successful jobs require complete raw BO readback; error codes/quarantine/recovery asserted by unchanged bound SV",
+  "hardware_accessed": false
+}

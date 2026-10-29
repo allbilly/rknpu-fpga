@@ -1,0 +1,32 @@
+{
+  "status": "PASS_INDEPENDENT_SELECTED_SHARED_DATA_CONTROLLER_CASES_ONLY",
+  "utc": "2026-10-27T23:50:11.513652+00:00",
+  "producer_sha256": "91bbeb2f1c766578ed9f021d3d5ec9b6bd1dea8305b4444ef3947dd83c053d90",
+  "source_inputs_rehashed": 401,
+  "binary_sha256": "120a413d661c4bc03631142c3b2b70559cbdf9b2ba121b3c2ab3f5505f3af8bf",
+  "cases": [
+    {
+      "name": "unknown_command",
+      "negative": 1,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 11208,
+      "read64_packets": 3,
+      "native_seconds": 550.2494020280428,
+      "complete_bo_bytes": 0
+    },
+    {
+      "name": "rmw_ue",
+      "negative": 2,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 12969,
+      "read64_packets": 2,
+      "native_seconds": 605.970639922889,
+      "complete_bo_bytes": 0
+    }
+  ],
+  "complete_matrix_qualified": false,
+  "scope": "Real AXI/UI/MC components with encoded PHY only; successful jobs require complete raw BO readback; error codes/quarantine/recovery asserted by unchanged bound SV",
+  "hardware_accessed": false
+}

@@ -1,0 +1,43 @@
+{
+  "status": "PASS_INDEPENDENT_SHARED_DATA_TRAINED_TILE_SAME_EPOCH_CONTROLLER_REUSE_ONLY",
+  "utc": "2026-10-27T23:37:10.001260+00:00",
+  "producer_sha256": "18fa033225cae5487c171e5b6657320ce92cd654c261a1085dbed2e615f8b60e",
+  "binary_sha256": "9bd3ce2690c9c28d81abbd9a3b440ad6addafed148d611b8257d5953558c9f9c",
+  "inputs_rehashed": 421,
+  "raw_jobs": 3,
+  "cmac_jobs": 2,
+  "ew_tasks": 2,
+  "engine_writes": 96,
+  "cmac_safe_rearms": 2,
+  "checked_full_bo_bytes": 270336,
+  "phy_user_returns": 27614,
+  "read64_packets": 4226,
+  "read64_axi_reads": 4226,
+  "captures": [
+    {
+      "phase": "cmac",
+      "raw_bytes": 90112,
+      "ascii_bytes": 194304,
+      "sha256": "814c3511b247c52ff28e456690f1693198a4baa8d088f71d6164b783c6a4fe13"
+    },
+    {
+      "phase": "ew",
+      "raw_bytes": 90112,
+      "ascii_bytes": 194304,
+      "sha256": "4818833be5ac95e9f84fc89177323e1a9ef22701b87c0851defb4296181f6765"
+    },
+    {
+      "phase": "repeat",
+      "raw_bytes": 90112,
+      "ascii_bytes": 194304,
+      "sha256": "2c41b4327c1b37cf8424f856d67f369e743ff676b90f8043c98b6dbbebf832e3"
+    }
+  ],
+  "readback_then_ack_stage_order_exact": true,
+  "original_trained_commands_and_deltas_unchanged": true,
+  "native_seconds": 2125.1314229848795,
+  "arithmetic_profile": "PRIVATE_SHARED_DATA_CANDIDATE",
+  "complete_fault_matrix_qualified": false,
+  "full_model_or_physical_ddr_qualified": false,
+  "hardware_accessed": false
+}

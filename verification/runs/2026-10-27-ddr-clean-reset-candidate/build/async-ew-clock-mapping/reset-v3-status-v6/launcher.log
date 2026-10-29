@@ -1,0 +1,661 @@
+Running as unit: rknpu-async-ew-clock-resetstatus-20261027-v6.scope; invocation ID: 78da2c882db34613b55b28e37e584095
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 09-oct-2027.
+
+****** Vivado v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Tue Oct 27 16:55:53 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/audit.tcl
+# set_param general.maxThreads 2
+# open_checkpoint {/home/fedora/rknpu-fpga/build/original-ddr-real-synthesis/v2/actual_sources_synth.dcp}
+Command: open_checkpoint /home/fedora/rknpu-fpga/build/original-ddr-real-synthesis/v2/actual_sources_synth.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 1673.965 ; gain = 8.906 ; free physical = 6436 ; free virtual = 45625
+INFO: [Device 21-403] Loading part xc7k480tffg1156-2
+Netlist sorting complete. Time (s): cpu = 00:00:00.25 ; elapsed = 00:00:00.25 . Memory (MB): peak = 2200.469 ; gain = 0.000 ; free physical = 5806 ; free virtual = 44997
+INFO: [Netlist 29-17] Analyzing 2877 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.12 . Memory (MB): peak = 2364.469 ; gain = 0.000 ; free physical = 5526 ; free virtual = 44717
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3069.922 ; gain = 0.000 ; free physical = 4782 ; free virtual = 43972
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3069.922 ; gain = 0.000 ; free physical = 4782 ; free virtual = 43972
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3069.922 ; gain = 0.000 ; free physical = 4782 ; free virtual = 43972
+Read placeStorage: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3089.000 ; gain = 19.078 ; free physical = 4782 ; free virtual = 43972
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3089.000 ; gain = 0.000 ; free physical = 4782 ; free virtual = 43972
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3089.000 ; gain = 0.000 ; free physical = 4782 ; free virtual = 43972
+Read Physdb Files: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.08 . Memory (MB): peak = 3089.000 ; gain = 19.078 ; free physical = 4782 ; free virtual = 43972
+Restored from archive | CPU: 0.130000 secs | Memory: 2.029732 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.12 . Memory (MB): peak = 3089.000 ; gain = 26.016 ; free physical = 4782 ; free virtual = 43972
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3089.000 ; gain = 0.000 ; free physical = 4782 ; free virtual = 43972
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1164 instances were transformed.
+  IOBUFDS_DIFF_OUT_INTERMDISABLE => IOBUFDS_DIFF_OUT_INTERMDISABLE (IBUFDS_INTERMDISABLE_INT(x2), INV, OBUFTDS(x2)): 18 instances
+  IOBUF_INTERMDISABLE => IOBUF_INTERMDISABLE (IBUF_INTERMDISABLE, OBUFT): 144 instances
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 2 instances
+  OBUFTDS => OBUFTDS_DUAL_BUF (INV, OBUFTDS(x2)): 18 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 980 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 2 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2026.1 (64-bit) build 6511674
+open_checkpoint: Time (s): cpu = 00:00:34 ; elapsed = 00:00:30 . Memory (MB): peak = 3089.035 ; gain = 1425.977 ; free physical = 4782 ; free virtual = 43972
+# source {/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/frozen/reset_status_cdc.tcl}
+## proc rk_status_require {ok message} {if {!$ok} {error $message}}
+## proc rk_status_one {objects label} {
+##     rk_status_require [expr {[llength $objects]==1}] "Expected one $label"
+##     return [lindex $objects 0]
+## }
+## proc rk_status_cell {name} {return [rk_status_one [get_cells -quiet [list $name]] "status cell $name"]}
+## proc rk_status_pin {name} {return [rk_status_one [get_pins -quiet [list $name]] "status pin $name"]}
+## proc rk_status_clock {name period} {
+##     set clock [rk_status_one [get_clocks -quiet [list $name]] "status clock $name"]
+##     rk_status_require [expr {abs([get_property PERIOD $clock]-$period)<0.000001}] "Changed status clock period"
+##     return $clock
+## }
+## proc rk_status_ff {cell clock} {
+##     rk_status_require [expr {[get_property REF_NAME $cell] in {FDCE FDRE FDSE FDPE}}] "Status endpoint is not a flip-flop"
+##     rk_status_require [expr {[get_clocks -quiet -of_objects [rk_status_pin $cell/C]] eq $clock}] "Wrong status register clock"
+## }
+## proc rk_status_boundary_origin {endpoint pin clock} {
+##     set starts [all_fanin -flat -startpoints_only -to [rk_status_pin $endpoint/$pin]]
+##     set start [rk_status_one $starts "registered MIG UI status origin"]
+##     set cell [rk_status_one [get_cells -quiet -of_objects $start] "MIG status source register"]
+##     rk_status_ff $cell $clock
+##     rk_status_require [expr {$start eq [rk_status_pin $cell/C]}] "Unexpected MIG status startpoint"
+##     return $cell
+## }
+## proc rk_status_chain {endpoint relative source from_clock to_clock} {
+##     set cells {}
+##     for {set i 0} {$i<3} {incr i} {lappend cells [rk_status_cell [format {%s/%s_reg[%d]} $endpoint $relative $i]]}
+##     # Literal comparison avoids treating generated hierarchy's [0]/[1] as
+##     # wildcard character classes in a Vivado NAME filter.
+##     set all {};set stem $endpoint/${relative}_reg
+##     foreach candidate [get_cells -quiet -hier -filter "NAME =~ $endpoint/*"] {
+##         if {[string first $stem [get_property NAME $candidate]]==0} {lappend all $candidate}
+##     }
+##     rk_status_require [expr {[lsort $all] eq [lsort $cells]}] "Changed status synchronizer depth"
+##     rk_status_ff $source $from_clock
+##     set previous $source
+##     foreach cell $cells {
+##         rk_status_ff $cell $to_clock
+##         rk_status_require [expr {[get_property ASYNC_REG $cell]}] "Missing source ASYNC_REG property"
+##         set starts [lsort -unique [all_fanin -flat -startpoints_only -to [rk_status_pin $cell/D]]]
+##         rk_status_require [expr {$starts eq [list [rk_status_pin $previous/C]]}] "Status chain contains restart logic, a bus or another source"
+##         set previous $cell
+##     }
+##     return [list $relative $source $from_clock $to_clock $cells]
+## }
+## proc rk_status_inventory {endpoint sys ui0 ui1} {
+##     rk_status_require [regexp {^[A-Za-z_][A-Za-z0-9_$/]*$} $endpoint] "Invalid status hierarchy"
+##     set block [rk_status_cell $endpoint]
+##     rk_status_require [expr {[get_property REF_NAME $block] eq "rk_jtag_ew_ddr_async"}] "Wrong status endpoint module"
+##     set owner [rk_status_cell $endpoint/reset_owner]
+##     rk_status_require [expr {[get_property REF_NAME $owner] eq "rk_mig_reset_coordinator"}] "Wrong reset owner module"
+##     set sys [rk_status_clock $sys 20.000]
+##     set ui0 [rk_status_clock $ui0 7.500];set ui1 [rk_status_clock $ui1 7.500]
+##     rk_status_require [expr {$sys ne $ui0 && $sys ne $ui1 && $ui0 ne $ui1}] "Status clocks must remain distinct"
+##     set result {}
+##     for {set domain 0} {$domain<2} {incr domain} {
+##         set ui [expr {$domain==0 ? $ui0 : $ui1}]
+##         set origin [rk_status_boundary_origin $endpoint c${domain}_ui_clk_sync_rst $ui]
+##         lappend result [rk_status_chain $endpoint reset_owner/reset${domain}_sync $origin $ui $sys]
+##         foreach {name origin_name} {fresh fresh release clients_rst_n} {
+##             set source [rk_status_cell [format {%s/reset_owner/ui_domain[%d].%s_reg} $endpoint $domain $origin_name]]
+##             lappend result [rk_status_chain $endpoint reset_owner/${name}${domain}_sync $source $ui $sys]
+##         }
+##         set source [rk_status_cell [format {%s/reset_owner/assertion_seen_reg[%d]} $endpoint $domain]]
+##         lappend result [rk_status_chain $endpoint [format {reset_owner/ui_domain[%d].assertion_sync} $domain] $source $sys $ui]
+##     }
+##     set source [rk_status_cell $endpoint/sequence_complete_registered_reg]
+##     lappend result [rk_status_chain $endpoint sequence_sync $source $sys $ui0]
+##     rk_status_require [expr {[llength $result]==9}] "Incomplete reset status inventory"
+##     return $result
+## }
+## proc rk_status_cdc_constrain {endpoint sys ui0 ui1} {
+##     # Inventory and correspondence must pass BEFORE setting any exception.
+##     set inventory [rk_status_inventory $endpoint $sys $ui0 $ui1]
+##     foreach item $inventory {
+##         lassign $item label source from_clock to_clock cells
+##         set_property DONT_TOUCH TRUE $cells
+##         # Only the actual asynchronous level's first D input is excluded.
+##         # CLR/R/PRE and every subsequent data stage remain fully timed.
+##         set_false_path -from [rk_status_pin $source/C] -to [rk_status_pin [lindex $cells 0]/D]
+##     }
+## }
+## proc rk_status_first_path_audit {source first} {
+##     # Directed get_timing_paths queries can return an excepted path object.
+##     # Vivado2026.1 labels the object False Path and leaves all three timing
+##     # properties empty (report_timing renders that as inf). Require this
+##     # native-observed schema and the exact endpoints, never a numeric path.
+##     set p [rk_status_one [get_timing_paths -quiet -from [rk_status_pin $source/C] -to [rk_status_pin $first/D] -max_paths 1] "first status timing object"]
+##     rk_status_require [expr {[get_property EXCEPTION $p] eq "False Path" &&
+##         [get_property SLACK $p] eq "" && [get_property REQUIREMENT $p] eq "" &&
+##         [get_property REQUIRED_TIME $p] eq "" &&
+##         [get_property STARTPOINT_PIN $p] eq [rk_status_pin $source/C] &&
+##         [get_property ENDPOINT_PIN $p] eq [rk_status_pin $first/D]}] "First status path is not an explicit untimed false path"
+## }
+## proc rk_status_cdc_audit {endpoint sys ui0 ui1 output} {
+##     rk_status_require [expr {[llength [get_waivers]]==0}] "Unexpected CDC waiver"
+##     set inventory [rk_status_inventory $endpoint $sys $ui0 $ui1]
+##     set f [open [file join $output reset_status_cdc.tsv] w]
+##     foreach item $inventory {
+##         lassign $item label source from_clock to_clock cells
+##         foreach cell $cells {rk_status_require [expr {[get_property DONT_TOUCH $cell]}] "Unprotected status synchronizer"}
+##         set first [lindex $cells 0]
+##         rk_status_first_path_audit $source $first
+##         # Resolve the clock name back to a clock object. A serialized name
+##         # can also name a MIG net and is not a typed get_property argument.
+##         set period [get_property PERIOD [get_clocks -quiet [list $to_clock]]]
+##         for {set i 1} {$i<3} {incr i} {
+##             set previous [lindex $cells [expr {$i-1}]];set cell [lindex $cells $i]
+##             set p [rk_status_one [get_timing_paths -quiet -from [rk_status_pin $previous/C] -to [rk_status_pin $cell/D] -delay_type max -max_paths 1] "timed later status stage"]
+##             set slack [get_property SLACK $p];set required [get_property REQUIREMENT $p]
+##             rk_status_require [expr {[string is double -strict $slack] && abs($slack)<Inf && $slack>=0 &&
+##                 [string is double -strict $required] && abs($required-$period)<0.000001}] "Later status stage is cut, loosened or setup-failing"
+##             puts $f "TIMED\t$label\t$i\t$required\t$slack"
+##         }
+##         puts $f "CHAIN\t$label\t$source\t$from_clock\t$to_clock\t3"
+##     }
+##     close $f
+##     report_exceptions -file [file join $output reset_status_exceptions.rpt]
+##     report_cdc -details -file [file join $output reset_status_cdc.rpt]
+##     report_timing_summary -file [file join $output unplaced_platform_timing.rpt]
+##     puts PASS_NINE_CLEAN_STATUS_CHAINS_ONLY_RESET_PINS_AND_PLATFORM_SIGNOFF_OPEN
+## }
+# set failed [catch {rk_status_inventory endpoint sys_clock clk_pll_i clk_pll_i_1} message]
+# if {!$failed || $message ne "Status chain contains restart logic, a bus or another source"} {error "Old-checkpoint structural negative mismatch: code=$failed message=$message"}
+# set nf [open {/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/negative/old-v2-structural-negative.tsv} w]
+# puts $nf "EXPECTED_REJECTION\t$message"
+# close $nf
+# close_design
+# open_checkpoint {/home/fedora/rknpu-fpga/build/original-ddr-real-synthesis/reset-v3/actual_sources_synth.dcp}
+Command: open_checkpoint /home/fedora/rknpu-fpga/build/original-ddr-real-synthesis/reset-v3/actual_sources_synth.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3089.035 ; gain = 0.000 ; free physical = 4775 ; free virtual = 43966
+Netlist sorting complete. Time (s): cpu = 00:00:00.26 ; elapsed = 00:00:00.26 . Memory (MB): peak = 3089.035 ; gain = 0.000 ; free physical = 4775 ; free virtual = 43966
+INFO: [Netlist 29-17] Analyzing 2933 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.1 . Memory (MB): peak = 3089.035 ; gain = 0.000 ; free physical = 4775 ; free virtual = 43965
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3089.035 ; gain = 0.000 ; free physical = 4736 ; free virtual = 43927
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3089.035 ; gain = 0.000 ; free physical = 4736 ; free virtual = 43927
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3089.035 ; gain = 0.000 ; free physical = 4736 ; free virtual = 43927
+Read placeStorage: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3108.078 ; gain = 19.043 ; free physical = 4736 ; free virtual = 43927
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3108.078 ; gain = 0.000 ; free physical = 4736 ; free virtual = 43927
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3108.078 ; gain = 0.000 ; free physical = 4736 ; free virtual = 43927
+Read Physdb Files: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 3108.078 ; gain = 19.043 ; free physical = 4736 ; free virtual = 43927
+Restored from archive | CPU: 0.080000 secs | Memory: 0.881805 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 3108.078 ; gain = 19.043 ; free physical = 4736 ; free virtual = 43927
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3108.078 ; gain = 0.000 ; free physical = 4736 ; free virtual = 43927
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1164 instances were transformed.
+  IOBUFDS_DIFF_OUT_INTERMDISABLE => IOBUFDS_DIFF_OUT_INTERMDISABLE (IBUFDS_INTERMDISABLE_INT(x2), INV, OBUFTDS(x2)): 18 instances
+  IOBUF_INTERMDISABLE => IOBUF_INTERMDISABLE (IBUF_INTERMDISABLE, OBUFT): 144 instances
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 2 instances
+  OBUFTDS => OBUFTDS_DUAL_BUF (INV, OBUFTDS(x2)): 18 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 980 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 2 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2026.1 (64-bit) build 6511674
+open_checkpoint: Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 3108.113 ; gain = 19.078 ; free physical = 4736 ; free virtual = 43927
+# source {/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/frozen/async_job_cdc.tcl}
+## proc rk_job_require {condition message} {if {!$condition} {error $message}}
+## proc rk_job_finite {value} {
+##     return [expr {[string is double -strict $value] &&
+##         ![catch {expr {abs(double($value)) < Inf}} result] && $result}]
+## }
+## proc rk_job_one {objects label} {
+##     rk_job_require [expr {[llength $objects] == 1}] "Expected exactly one $label"
+##     return [lindex $objects 0]
+## }
+## proc rk_job_prefix {instance} {
+##     rk_job_require [regexp {^([A-Za-z_][A-Za-z0-9_$]*/)*([A-Za-z_][A-Za-z0-9_$]*)?$} $instance] "Unsupported crossing hierarchy"
+##     return [expr {$instance eq "" ? "" : "$instance/"}]
+## }
+## proc rk_job_cell {prefix name} {
+##     return [rk_job_one [get_cells -quiet [list ${prefix}${name}]] "crossing register $name"]
+## }
+## proc rk_job_clock {name period} {
+##     set clock [rk_job_one [get_clocks -quiet $name] "crossing clock $name"]
+##     set actual [get_property PERIOD $clock]
+##     rk_job_require [expr {[rk_job_finite $actual] && abs($actual-$period)<0.000001}] "Changed crossing clock period"
+##     return $clock
+## }
+## proc rk_job_vectors {prefix source target count} {
+##     set a {};set b {}
+##     for {set bit 0} {$bit<$count} {incr bit} {
+##         lappend a [rk_job_cell $prefix [format {%s_reg[%d]} $source $bit]]
+##         lappend b [rk_job_cell $prefix [format {%s_reg[%d]} $target $bit]]
+##     }
+##     return [list $a $b]
+## }
+## proc rk_job_profile {profile} {
+##     rk_job_require [expr {$profile in {full8 ew_e1_e8 ew_engine_e1_e8}}] "Unsupported job result mapping profile"
+## }
+## proc rk_job_boundary_pin {block name} {
+##     set found {}
+##     foreach pin [get_pins -quiet -of_objects $block] {
+##         if {[get_property REF_PIN_NAME $pin] eq $name} {lappend found $pin}
+##     }
+##     return [rk_job_one $found "job boundary pin $name"]
+## }
+## proc rk_job_ground {object label {boundary upper}} {
+##     rk_job_require [expr {$boundary in {upper lower}}] "Invalid constant observer boundary"
+##     set options [list -quiet -segments -of_objects $object]
+##     if {$boundary eq "lower"} {lappend options -boundary_type lower}
+##     set net [rk_job_one [get_nets {*}$options] "$label constant net"]
+##     rk_job_require [expr {[get_property TYPE $net] eq "GROUND" &&
+##         [get_property DRIVER_COUNT $net]==1}] "$label is not a proved single-driver constant zero"
+##     return $net
+## }
+## proc rk_job_zero_error_codes {prefix {profile ew_e1_e8}} {
+##     # Explicit selected-EW profile only: raw E1..E8 and protocol E5 have zero
+##     # bits7:4. Verify actual input pins AND observable top output ports. An
+##     # absent register alone is never constant-field evidence.
+##     rk_job_require [expr {$prefix ne ""}] "Folded EW errors require an explicit job instance"
+##     set instance [string range $prefix 0 end-1]
+##     set block [rk_job_one [get_cells -quiet [list $instance]] "folded EW job hierarchy"]
+##     rk_job_require [expr {![get_property IS_PRIMITIVE $block]}] "Folded EW job must be hierarchical"
+##     rk_job_require [expr {$profile in {ew_e1_e8 ew_engine_e1_e8}}] "Invalid folded EW observer profile"
+##     if {$profile eq "ew_engine_e1_e8"} {
+##         # The joined platform does not export ui_result_code at its top. Its
+##         # actual EW engine boundary is the observable constant, never an
+##         # absent register or a different platform fault-code signal.
+##         rk_job_require [regexp {^(.+)/job_crossing$} $instance -> parent] "EW observer requires the engine job_crossing child"
+##         set engine [rk_job_one [get_cells -quiet [list $parent]] "EW engine observer hierarchy"]
+##         rk_job_require [expr {![get_property IS_PRIMITIVE $engine] &&
+##             [get_property REF_NAME $engine] eq "rk_ew_async_engine"}] "Unexpected EW observer module"
+##     }
+##     set facts {}
+##     for {set bit 4} {$bit<8} {incr bit} {
+##         set input [rk_job_boundary_pin $block [format {d_result_code[%d]} $bit]]
+##         set unused [rk_job_boundary_pin $block [format {s_result_code[%d]} $bit]]
+##         rk_job_require [expr {[get_property DIRECTION $input] eq "IN" &&
+##             [get_property DIRECTION $unused] eq "OUT"}] "Changed folded error boundary direction"
+##         if {$profile eq "ew_engine_e1_e8"} {
+##             set output [rk_job_boundary_pin $engine [format {ui_result_code[%d]} $bit]]
+##         } else {
+##             set found {}
+##             foreach port [get_ports -quiet] {
+##                 if {[get_property NAME $port] eq [format {ui_result_code[%d]} $bit]} {lappend found $port}
+##             }
+##             set output [rk_job_one $found "observable EW error-code port"]
+##         }
+##         rk_job_require [expr {[get_property DIRECTION $output] eq "OUT"}] "Wrong observable error-code direction"
+##         set from [rk_job_ground $input "EW source error bit$bit"]
+##         # A hierarchical output's upper segment may be unused/absent. Query
+##         # its actual internal driver, never treat absence as a constant.
+##         set to [rk_job_ground $output "EW output error bit$bit" \
+##             [expr {$profile eq "ew_engine_e1_e8" ? "lower" : "upper"}]]
+##         rk_job_require [expr {[llength [get_nets -quiet -segments -of_objects $unused]]==0}] "Folded child error output unexpectedly connected"
+##         foreach name [list [format {result_held_reg[%d]} [expr {$bit+32}]] [format {s_result_code_reg[%d]} $bit]] {
+##             rk_job_require [expr {[llength [get_cells -quiet [list ${prefix}${name}]]]==0}] "Expected explicitly folded error register"
+##         }
+##         lappend facts [list ZERO_CODE $bit $input $from $output $to]
+##     }
+##     return $facts
+## }
+## proc rk_job_payloads {prefix {profile full8}} {
+##     rk_job_profile $profile
+##     if {$profile ne "full8"} {rk_job_zero_error_codes $prefix $profile}
+##     lassign [rk_job_vectors $prefix descriptor_held descriptor_latched 64] descriptor_source descriptor_target
+##     set result_source {};set result_target {}
+##     for {set bit 0} {$bit<41} {incr bit} {
+##         if {$profile ne "full8" && $bit>=36 && $bit<40} {continue}
+##         lappend result_source [rk_job_cell $prefix [format {result_held_reg[%d]} $bit]]
+##         if {$bit<32} {
+##             set target [format {s_result_tasks_reg[%d]} $bit]
+##         } elseif {$bit<40} {
+##             set target [format {s_result_code_reg[%d]} [expr {$bit-32}]]
+##         } else {
+##             set target s_result_error_reg
+##         }
+##         lappend result_target [rk_job_cell $prefix $target]
+##     }
+##     return [list [list descriptor $descriptor_source $descriptor_target 40.000] \
+##         [list result $result_source $result_target 15.000]]
+## }
+## proc rk_job_sync_cells {prefix name} {
+##     set cells {}
+##     for {set bit 0} {$bit<3} {incr bit} {
+##         lappend cells [rk_job_cell $prefix [format {%s_reg[%d]} $name $bit]]
+##     }
+##     set all [get_cells -quiet -hier -filter "NAME =~ ${prefix}${name}_reg*"]
+##     rk_job_require [expr {[lsort $all] eq [lsort $cells]}] "Changed synchronizer depth"
+##     return $cells
+## }
+## proc rk_job_cdc_constrain {instance source_clock destination_clock {profile full8}} {
+##     rk_job_profile $profile
+##     set prefix [rk_job_prefix $instance]
+##     set source [rk_job_clock $source_clock 7.500]
+##     set destination [rk_job_clock $destination_clock 20.000]
+##     rk_job_require [expr {$source ne $destination}] "Crossing clocks must be distinct"
+##     foreach payload [rk_job_payloads $prefix $profile] {
+##         lassign $payload label a b bound
+##         set_max_delay -datapath_only $bound -from $a -to $b
+##         # Each payload remains stable until the corresponding synchronized
+##         # witness returns; there is no synchronous hold relation across clocks.
+##         set_false_path -hold -from $a -to $b
+##         set_bus_skew $bound -from $a -to $b
+##     }
+##     foreach name {request_sync result_sync fault_sync} {
+##         set cells [rk_job_sync_cells $prefix $name]
+##         set_property ASYNC_REG TRUE $cells
+##         set_property DONT_TOUCH TRUE $cells
+##         # Only each chain's first asynchronous D pin is cut; later stages stay timed.
+##         set_false_path -to [get_pins [lindex $cells 0]/D]
+##     }
+## }
+## proc rk_job_register_clock {cell expected} {
+##     rk_job_require [expr {[get_property REF_NAME $cell] in {FDCE FDRE FDSE FDPE}}] "Crossing endpoint is not a flip-flop"
+##     set actual [rk_job_one [get_clocks -of_objects [get_pins $cell/C]] "mapped register clock"]
+##     rk_job_require [expr {$actual eq $expected}] "Wrong crossing register clock"
+## }
+## proc rk_job_report_skew {instance output} {
+##     rk_job_prefix $instance
+##     set options [list -warn_on_violation -file $output]
+##     if {$instance ne ""} {
+##         set block [rk_job_one [get_cells -quiet [list $instance]] "job crossing hierarchy"]
+##         rk_job_require [expr {![get_property IS_PRIMITIVE $block]}] "Job crossing scope must be hierarchical"
+##         lappend options -cells $block
+##     }
+##     report_bus_skew {*}$options
+## }
+## proc rk_job_cdc_audit {instance source_clock destination_clock output {profile full8}} {
+##     rk_job_profile $profile
+##     set prefix [rk_job_prefix $instance]
+##     set source [rk_job_clock $source_clock 7.500]
+##     set destination [rk_job_clock $destination_clock 20.000]
+##     rk_job_require [expr {$source ne $destination && [llength [get_waivers]]==0}] "Changed crossing clocks/waivers"
+##     set facts [open [file join $output async_job_cdc.tsv] w]
+##     if {$profile ne "full8"} {
+##         puts $facts "PROFILE\t$profile"
+##         foreach row [rk_job_zero_error_codes $prefix $profile] {puts $facts [join $row "\t"]}
+##     }
+##     foreach {name origin clock period} [list request_sync request_toggle $destination 20.000 \
+##             result_sync result_toggle $source 7.500 fault_sync d_protocol_fault $source 7.500] {
+##         set cells [rk_job_sync_cells $prefix $name]
+##         for {set bit 0} {$bit<3} {incr bit} {
+##             set cell [lindex $cells $bit]
+##             rk_job_register_clock $cell $clock
+##             rk_job_require [expr {[get_property ASYNC_REG $cell] && [get_property DONT_TOUCH $cell]}] "Unprotected synchronizer"
+##             set previous [expr {$bit==0 ? [rk_job_cell $prefix ${origin}_reg] : [lindex $cells [expr {$bit-1}]]}]
+##             if {$bit==0} {
+##                 rk_job_register_clock $previous [expr {$name eq "request_sync" ? $source : $destination}]
+##             }
+##             set starts [lsort -unique [all_fanin -flat -startpoints_only -to [get_pins $cell/D]]]
+##             rk_job_require [expr {$starts eq [list [get_pins $previous/C]]}] "Unexpected synchronizer fanin"
+##             if {$bit>0} {
+##                 set path [rk_job_one [get_timing_paths -quiet -from $previous -to $cell -delay_type max -max_paths 1] "later synchronizer timing path"]
+##                 set slack [get_property SLACK $path];set required [get_property REQUIREMENT $path]
+##                 rk_job_require [expr {[rk_job_finite $slack] && $slack>=0 && [rk_job_finite $required] && abs($required-$period)<0.000001}] "Later synchronizer is cut/failing"
+##             }
+##             puts $facts "SYNC\t$cell\t$clock\t$starts"
+##         }
+##     }
+##     foreach payload [rk_job_payloads $prefix $profile] {
+##         lassign $payload label a b bound
+##         set from_clock [expr {$label eq "descriptor" ? $source : $destination}]
+##         set to_clock [expr {$label eq "descriptor" ? $destination : $source}]
+##         set n [llength $a]
+##         for {set bit 0} {$bit<$n} {incr bit} {
+##             set from [lindex $a $bit];set to [lindex $b $bit]
+##             rk_job_register_clock $from $from_clock;rk_job_register_clock $to $to_clock
+##             set crosses {}
+##             foreach start [all_fanin -flat -startpoints_only -to [get_pins $to/D]] {
+##                 set clock [get_clocks -quiet -of_objects $start]
+##                 if {[llength $clock]==1 && [lindex $clock 0] eq $from_clock} {lappend crosses $start}
+##             }
+##             rk_job_require [expr {[lsort -unique $crosses] eq [list [get_pins $from/C]]}] "Wrong held-payload bit correspondence"
+##             set path [rk_job_one [get_timing_paths -quiet -from $from -to $to -delay_type max -max_paths 1] "active held-payload max-delay path"]
+##             set slack [get_property SLACK $path];set required [get_property REQUIREMENT $path]
+##             rk_job_require [expr {[rk_job_finite $slack] && $slack>=0 && [rk_job_finite $required] && abs($required-$bound)<0.000001}] "Payload path cut/loosened/failing"
+##         }
+##         puts $facts "PAYLOAD\t$label\t$n\t$bound"
+##         report_timing -from $a -to $b -max_paths $n -file [file join $output async_job_${label}_payload_timing.rpt]
+##     }
+##     close $facts
+##     report_cdc -details -file [file join $output async_job_cdc.rpt]
+##     report_exceptions -file [file join $output async_job_exceptions.rpt]
+##     rk_job_report_skew $instance [file join $output async_job_bus_skew.rpt]
+##     set channel [open [file join $output async_job_bus_skew.rpt] r]
+##     set text [read $channel];close $channel
+##     set slacks [regexp -all -inline -line {^Slack \((MET|VIOLATED)\)\s*:\s*([^\s]+)ns} $text]
+##     set limits [regexp -all -inline -line {^Requirement:\s*([^\s]+)ns\s*$} $text]
+##     set details [regexp -all -inline -line {^[ \t]+Requirement:\s*([^\s]+)ns\s*$} $text]
+##     rk_job_require [expr {[llength $slacks]==6 && [llength $limits]==4 && [llength $details]==4}] "Incomplete skew coverage"
+##     foreach {whole status slack} $slacks {
+##         rk_job_require [expr {$status eq "MET" && [rk_job_finite $slack] && $slack>=0}] "Crossing bus skew failed"
+##     }
+##     set observed {};set observed_details {}
+##     foreach {whole value} $limits {
+##         rk_job_require [rk_job_finite $value] "Invalid skew requirement"
+##         lappend observed [expr {double($value)}]
+##     }
+##     foreach {whole value} $details {
+##         rk_job_require [rk_job_finite $value] "Invalid skew detail requirement"
+##         lappend observed_details [expr {double($value)}]
+##     }
+##     rk_job_require [expr {[lsort -real $observed] eq {15.0 40.0} && [lsort -real $observed_details] eq {15.0 40.0}}] "Changed skew limits"
+## }
+# source {/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/frozen/async_mem_cdc.tcl}
+## proc rk_mem_require {condition message} {if {!$condition} {error $message}}
+## proc rk_mem_finite {value} {
+##     return [expr {[string is double -strict $value] &&
+##         ![catch {expr {abs(double($value)) < Inf}} result] && $result}]
+## }
+## proc rk_mem_one {objects label} {
+##     rk_mem_require [expr {[llength $objects] == 1}] "Expected exactly one $label"
+##     return [lindex $objects 0]
+## }
+## proc rk_mem_prefix {instance} {
+##     rk_mem_require [regexp {^([A-Za-z_][A-Za-z0-9_$]*/)*([A-Za-z_][A-Za-z0-9_$]*)?$} $instance] "Unsupported crossing hierarchy"
+##     return [expr {$instance eq "" ? "" : "$instance/"}]
+## }
+## proc rk_mem_cell {prefix name} {
+##     return [rk_mem_one [get_cells -quiet [list ${prefix}${name}]] "crossing register $name"]
+## }
+## proc rk_mem_clock {name period} {
+##     set clock [rk_mem_one [get_clocks -quiet $name] "crossing clock $name"]
+##     set actual [get_property PERIOD $clock]
+##     rk_mem_require [expr {[rk_mem_finite $actual] && abs($actual-$period)<0.000001}] "Changed crossing clock period"
+##     return $clock
+## }
+## proc rk_mem_vectors {prefix source target count} {
+##     set a {};set b {}
+##     for {set bit 0} {$bit<$count} {incr bit} {
+##         lappend a [rk_mem_cell $prefix [format {%s_reg[%d]} $source $bit]]
+##         lappend b [rk_mem_cell $prefix [format {%s_reg[%d]} $target $bit]]
+##     }
+##     return [list $a $b]
+## }
+## proc rk_mem_payloads {prefix} {
+##     lassign [rk_mem_vectors $prefix request_held request_latched 49] request_source request_target
+##     set response_source {};set response_target {}
+##     for {set bit 0} {$bit<17} {incr bit} {
+##         lappend response_source [rk_mem_cell $prefix [format {response_held_reg[%d]} $bit]]
+##         lappend response_target [rk_mem_cell $prefix [expr {$bit==16 ? "s_mem_rsp_error_reg" : [format {s_mem_rsp_rdata_reg[%d]} $bit]}]]
+##     }
+##     return [list [list request $request_source $request_target 15.000] [list response $response_source $response_target 40.000]]
+## }
+## proc rk_mem_sync_cells {prefix name} {
+##     set cells {}
+##     for {set bit 0} {$bit<3} {incr bit} {
+##         lappend cells [rk_mem_cell $prefix [format {%s_reg[%d]} $name $bit]]
+##     }
+##     set all [get_cells -quiet -hier -filter "NAME =~ ${prefix}${name}_reg*"]
+##     rk_mem_require [expr {[lsort $all] eq [lsort $cells]}] "Changed synchronizer depth"
+##     return $cells
+## }
+## proc rk_mem_cdc_constrain {instance source_clock destination_clock} {
+##     set prefix [rk_mem_prefix $instance]
+##     set source [rk_mem_clock $source_clock 20.000]
+##     set destination [rk_mem_clock $destination_clock 7.500]
+##     rk_mem_require [expr {$source ne $destination}] "Crossing clocks must be distinct"
+##     foreach payload [rk_mem_payloads $prefix] {
+##         lassign $payload label a b bound
+##         set_max_delay -datapath_only $bound -from $a -to $b
+##         # The transfer is asynchronous and held until its synchronized witness;
+##         # no synchronous hold relationship exists between these source clocks.
+##         set_false_path -hold -from $a -to $b
+##         set_bus_skew $bound -from $a -to $b
+##     }
+##     foreach name {request_sync response_sync fault_sync} {
+##         set cells [rk_mem_sync_cells $prefix $name]
+##         set_property ASYNC_REG TRUE $cells
+##         set_property DONT_TOUCH TRUE $cells
+##         # Only the first asynchronous D pin is cut. Later stages stay timed.
+##         set_false_path -to [get_pins [lindex $cells 0]/D]
+##     }
+## }
+## proc rk_mem_register_clock {cell expected} {
+##     rk_mem_require [expr {[get_property REF_NAME $cell] in {FDCE FDRE FDSE FDPE}}] "Crossing endpoint is not a flip-flop"
+##     set actual [rk_mem_one [get_clocks -of_objects [get_pins $cell/C]] "mapped register clock"]
+##     rk_mem_require [expr {$actual eq $expected}] "Wrong crossing register clock"
+## }
+## proc rk_mem_report_skew {instance output} {
+##     rk_mem_prefix $instance
+##     set options [list -warn_on_violation -file $output]
+##     if {$instance ne ""} {
+##         set block [rk_mem_one [get_cells -quiet [list $instance]] "memory crossing hierarchy"]
+##         rk_mem_require [expr {![get_property IS_PRIMITIVE $block]}] "Memory crossing scope must be hierarchical"
+##         lappend options -cells $block
+##     }
+##     report_bus_skew {*}$options
+## }
+## proc rk_mem_cdc_audit {instance source_clock destination_clock output} {
+##     set prefix [rk_mem_prefix $instance]
+##     set source [rk_mem_clock $source_clock 20.000]
+##     set destination [rk_mem_clock $destination_clock 7.500]
+##     rk_mem_require [expr {$source ne $destination && [llength [get_waivers]]==0}] "Changed crossing clocks/waivers"
+##     set facts [open [file join $output async_memory_cdc.tsv] w]
+##     foreach {name origin clock period} [list request_sync request_toggle $destination 7.500 response_sync response_toggle $source 20.000 fault_sync d_protocol_fault $source 20.000] {
+##         set cells [rk_mem_sync_cells $prefix $name]
+##         for {set bit 0} {$bit<3} {incr bit} {
+##             set cell [lindex $cells $bit]
+##             rk_mem_register_clock $cell $clock
+##             rk_mem_require [expr {[get_property ASYNC_REG $cell] && [get_property DONT_TOUCH $cell]}] "Unprotected synchronizer"
+##             set previous [expr {$bit==0 ? [rk_mem_cell $prefix ${origin}_reg] : [lindex $cells [expr {$bit-1}]]}]
+##             if {$bit==0} {
+##                 rk_mem_register_clock $previous [expr {$name eq "request_sync" ? $source : $destination}]
+##             }
+##             set starts [lsort -unique [all_fanin -flat -startpoints_only -to [get_pins $cell/D]]]
+##             rk_mem_require [expr {$starts eq [list [get_pins $previous/C]]}] "Unexpected synchronizer fanin"
+##             if {$bit>0} {
+##                 set path [rk_mem_one [get_timing_paths -quiet -from $previous -to $cell -delay_type max -max_paths 1] "later synchronizer timing path"]
+##                 set slack [get_property SLACK $path];set required [get_property REQUIREMENT $path]
+##                 rk_mem_require [expr {[rk_mem_finite $slack] && $slack>=0 && [rk_mem_finite $required] && abs($required-$period)<0.000001}] "Later synchronizer is cut/failing"
+##             }
+##             puts $facts "SYNC\t$cell\t$clock\t$starts"
+##         }
+##     }
+##     foreach payload [rk_mem_payloads $prefix] {
+##         lassign $payload label a b bound
+##         set from_clock [expr {$label eq "request" ? $source : $destination}]
+##         set to_clock [expr {$label eq "request" ? $destination : $source}]
+##         set n [llength $a]
+##         for {set bit 0} {$bit<$n} {incr bit} {
+##             set from [lindex $a $bit];set to [lindex $b $bit]
+##             rk_mem_register_clock $from $from_clock;rk_mem_register_clock $to $to_clock
+##             set crosses {}
+##             foreach start [all_fanin -flat -startpoints_only -to [get_pins $to/D]] {
+##                 set clock [get_clocks -quiet -of_objects $start]
+##                 if {[llength $clock]==1 && [lindex $clock 0] eq $from_clock} {lappend crosses $start}
+##             }
+##             rk_mem_require [expr {[lsort -unique $crosses] eq [list [get_pins $from/C]]}] "Wrong held-payload bit correspondence"
+##             set path [rk_mem_one [get_timing_paths -quiet -from $from -to $to -delay_type max -max_paths 1] "active held-payload max-delay path"]
+##             set slack [get_property SLACK $path];set required [get_property REQUIREMENT $path]
+##             rk_mem_require [expr {[rk_mem_finite $slack] && $slack>=0 && [rk_mem_finite $required] && abs($required-$bound)<0.000001}] "Payload path cut/loosened/failing"
+##         }
+##         puts $facts "PAYLOAD\t$label\t$n\t$bound"
+##         report_timing -from $a -to $b -max_paths $n -file [file join $output ${label}_payload_timing.rpt]
+##     }
+##     close $facts
+##     report_cdc -details -file [file join $output async_memory_cdc.rpt]
+##     report_exceptions -file [file join $output async_memory_exceptions.rpt]
+##     rk_mem_report_skew $instance [file join $output async_memory_bus_skew.rpt]
+##     set channel [open [file join $output async_memory_bus_skew.rpt] r]
+##     set text [read $channel];close $channel
+##     set slacks [regexp -all -inline -line {^Slack \((MET|VIOLATED)\)\s*:\s*([^\s]+)ns} $text]
+##     set limits [regexp -all -inline -line {^Requirement:\s*([^\s]+)ns\s*$} $text]
+##     set details [regexp -all -inline -line {^[ \t]+Requirement:\s*([^\s]+)ns\s*$} $text]
+##     rk_mem_require [expr {[llength $slacks]==6 && [llength $limits]==4 && [llength $details]==4}] "Incomplete skew coverage"
+##     foreach {whole status slack} $slacks {
+##         rk_mem_require [expr {$status eq "MET" && [rk_mem_finite $slack] && $slack>=0}] "Crossing bus skew failed"
+##     }
+##     set observed {};set observed_details {}
+##     foreach {whole value} $limits {
+##         rk_mem_require [rk_mem_finite $value] "Invalid skew requirement"
+##         lappend observed [expr {double($value)}]
+##     }
+##     foreach {whole value} $details {
+##         rk_mem_require [rk_mem_finite $value] "Invalid skew detail requirement"
+##         lappend observed_details [expr {double($value)}]
+##     }
+##     rk_mem_require [expr {[lsort -real $observed] eq {15.0 40.0} && [lsort -real $observed_details] eq {15.0 40.0}}] "Changed skew limits"
+## }
+# set failed [catch {rk_status_inventory endpoint clk_pll_i clk_pll_i clk_pll_i_1} message]
+# if {!$failed || $message ne "Changed status clock period"} {error "Negative clock-name control mismatch: code=$failed message=$message"}
+# set nf [open {/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/negative/clock-name-negative.tsv} w]
+# puts $nf "EXPECTED_REJECTION\t$message"
+# close $nf
+# rk_status_cdc_constrain endpoint sys_clock clk_pll_i clk_pll_i_1
+# rk_job_cdc_constrain endpoint/engine/job_crossing clk_pll_i sys_clock ew_engine_e1_e8
+# rk_mem_cdc_constrain endpoint/engine/memory_crossing sys_clock clk_pll_i
+# rk_status_cdc_audit endpoint sys_clock clk_pll_i clk_pll_i_1 {/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/status}
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+report_exceptions: Time (s): cpu = 00:00:14 ; elapsed = 00:00:08 . Memory (MB): peak = 3233.047 ; gain = 62.969 ; free physical = 4521 ; free virtual = 43712
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-433] Consider using Xilinx recommended XPM_CDC modules to avoid Critical severities
+INFO: [Timing 38-314] The report_cdc command only analyzes and reports clock domain crossing paths where clocks have been defined on both source and destination sides. Ports with no input delay constraint are skipped. Please run check_timing to verify there are no missing clock definitions in your design, nor any unconstrained input port.
+report_cdc: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 3239.047 ; gain = 6.000 ; free physical = 4509 ; free virtual = 43700
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+report_timing_summary: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 3239.047 ; gain = 0.000 ; free physical = 4495 ; free virtual = 43688
+PASS_NINE_CLEAN_STATUS_CHAINS_ONLY_RESET_PINS_AND_PLATFORM_SIGNOFF_OPEN
+# rk_job_cdc_audit endpoint/engine/job_crossing clk_pll_i sys_clock {/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/job} ew_engine_e1_e8
+INFO: [Timing 38-78] ReportTimingParams: -from_pins  -to_pins  -max_paths 64 -nworst 1 -delay_type max -sort_by slack.
+INFO: [Timing 38-78] ReportTimingParams: -from_pins  -to_pins  -max_paths 37 -nworst 1 -delay_type max -sort_by slack.
+INFO: [Timing 38-433] Consider using Xilinx recommended XPM_CDC modules to avoid Critical severities
+INFO: [Timing 38-314] The report_cdc command only analyzes and reports clock domain crossing paths where clocks have been defined on both source and destination sides. Ports with no input delay constraint are skipped. Please run check_timing to verify there are no missing clock definitions in your design, nor any unconstrained input port.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+report_exceptions: Time (s): cpu = 00:00:14 ; elapsed = 00:00:09 . Memory (MB): peak = 3265.047 ; gain = 26.000 ; free physical = 4442 ; free virtual = 43636
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+report_bus_skew: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 3266.047 ; gain = 1.000 ; free physical = 4446 ; free virtual = 43640
+# rk_mem_cdc_audit endpoint/engine/memory_crossing sys_clock clk_pll_i {/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/memory}
+INFO: [Timing 38-78] ReportTimingParams: -from_pins  -to_pins  -max_paths 49 -nworst 1 -delay_type max -sort_by slack.
+INFO: [Timing 38-78] ReportTimingParams: -from_pins  -to_pins  -max_paths 17 -nworst 1 -delay_type max -sort_by slack.
+INFO: [Timing 38-433] Consider using Xilinx recommended XPM_CDC modules to avoid Critical severities
+INFO: [Timing 38-314] The report_cdc command only analyzes and reports clock domain crossing paths where clocks have been defined on both source and destination sides. Ports with no input delay constraint are skipped. Please run check_timing to verify there are no missing clock definitions in your design, nor any unconstrained input port.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+report_exceptions: Time (s): cpu = 00:00:14 ; elapsed = 00:00:09 . Memory (MB): peak = 3270.023 ; gain = 3.977 ; free physical = 4431 ; free virtual = 43625
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+report_bus_skew: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 3275.961 ; gain = 5.938 ; free physical = 4448 ; free virtual = 43643
+# puts PASS_RESET_JOB_MEMORY_CDC_AUDITS_WITH_OLD_DCP_AND_CLOCK_NEGATIVES
+PASS_RESET_JOB_MEMORY_CDC_AUDITS_WITH_OLD_DCP_AND_CLOCK_NEGATIVES
+# exit
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 16:58:05 2026...

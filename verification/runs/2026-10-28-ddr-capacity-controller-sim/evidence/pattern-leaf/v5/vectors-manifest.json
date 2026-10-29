@@ -1,0 +1,39 @@
+{
+  "address_generation": "uniform deterministic aligned line indices in [0,2^31/64)",
+  "boundary_addresses": [
+    "0x00000000",
+    "0x00000040",
+    "0x00001000",
+    "0x00001fc0",
+    "0x00002000",
+    "0x0000ffc0",
+    "0x00010000",
+    "0x00100000",
+    "0x7fff0000",
+    "0x7fffff00",
+    "0x7fffffc0"
+  ],
+  "boundary_seeds": [
+    "0x00000000",
+    "0x3588c350",
+    "0xffffffff"
+  ],
+  "boundary_trials": [
+    0,
+    1
+  ],
+  "expected_data": "independent little-endian 16-word formula; no import of tools.ddr.capacity_pattern",
+  "golden_words": "test_pattern.py separately pins address-zero words and bytes",
+  "hardware_executed": false,
+  "physical_capacity_qualified": false,
+  "random_rows": 4096,
+  "random_seed": "0x3588b157",
+  "random_seed_and_trial": "getrandbits(32), getrandbits(1) from Python random.Random(0x3588b157)",
+  "rows": 4162,
+  "rtl_source_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv",
+  "rtl_source_sha256": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+  "schema": "ddr-capacity-pattern-leaf-vectors-v1",
+  "vectors_bytes": 628462,
+  "vectors_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v5/vectors.txt",
+  "vectors_sha256": "234ef1bf547c6fdb0ee5eb0d027199192e495ae639442bd62ab2604358b3114c"
+}

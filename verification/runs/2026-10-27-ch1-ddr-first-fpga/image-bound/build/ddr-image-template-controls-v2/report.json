@@ -1,0 +1,105 @@
+{
+  "status": "PASS_IMAGE_TEMPLATE_RELATIVE_PATH_GUARDS_ONLY",
+  "created_utc": "2026-10-27T18:34:24Z",
+  "scope": "portable renderer/template path and hash guard controls only; no Vivado or hardware",
+  "source_hashes_before": {
+    "tests/ddr/image/test_template.py": "df89d9f0f20b83c8ad646be2a05f32a4160bab32a322f1a781c17f06ab80dfd5",
+    "tools/ddr/image_template.py": "f8b72158e62567168f4687390089f640c9030485f2180927e412700a8e09d73f",
+    "fpga/ddr/emit_ch1.tcl.in": "6e83853cd6faa7cadca5c50dc39951d272eb21cb67e893cde9917cb6c5c02ddc",
+    "fpga/ddr/reset_status_cdc.tcl": "dc34a33077b444f1934d46267b10b436453ec486b458548a819bb24338715a62",
+    "fpga/ddr/reset_bridge_board_cdc.tcl": "52fd4505d707565aea742ffa876b21dc639e434ba31cb721e74e1d5b52f5a46d",
+    "fpga/ddr/async_job_cdc.tcl": "3e775ddef64a52896ff8ffc1a9e1a2f9c24669b5bc89dd6398715478dafc4df5",
+    "fpga/ddr/async_mem_cdc.tcl": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+    "fpga/ddr/mailbox_ui_cdc.tcl": "37317bab81796bf22bae04e83586450160a3297b8cbca6cecee4c52ed513ecf0"
+  },
+  "versions": {
+    "python_version": {
+      "stdout": "Python 3.14.5\n",
+      "stderr": "",
+      "rc": 0
+    },
+    "make_version": {
+      "stdout": "GNU Make 4.4.1\nBuilt for x86_64-redhat-linux-gnu\nCopyright (C) 1988-2023 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n",
+      "stderr": "",
+      "rc": 0
+    },
+    "tcl_version": {
+      "stdout": "9.0.3\n",
+      "stderr": "",
+      "rc": 0
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "--version"
+      ],
+      "start_utc": "2026-10-27T18:34:24Z",
+      "elapsed_seconds": 0.003,
+      "returncode": 0,
+      "stdout": "Python 3.14.5\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "make",
+        "--version"
+      ],
+      "start_utc": "2026-10-27T18:34:24Z",
+      "elapsed_seconds": 0.001,
+      "returncode": 0,
+      "stdout": "GNU Make 4.4.1\nBuilt for x86_64-redhat-linux-gnu\nCopyright (C) 1988-2023 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "tclsh"
+      ],
+      "start_utc": "2026-10-27T18:34:24Z",
+      "elapsed_seconds": 0.005,
+      "returncode": 0,
+      "stdout": "9.0.3\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ddr/image",
+        "-v"
+      ],
+      "start_utc": "2026-10-27T18:34:24Z",
+      "elapsed_seconds": 0.363,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_positive_render_binds_five_helpers_checkpoint_exact242_ports_and_safe_tcl_literals (test_template.ImageTemplateTests.test_positive_render_binds_five_helpers_checkpoint_exact242_ports_and_safe_tcl_literals) ... ok\ntest_rejects_bad_missing_or_unbound_hash_inputs_and_helper_sets (test_template.ImageTemplateTests.test_rejects_bad_missing_or_unbound_hash_inputs_and_helper_sets) ... ok\ntest_rejects_bad_source_tag_and_incomplete_or_changed_io_snapshot (test_template.ImageTemplateTests.test_rejects_bad_source_tag_and_incomplete_or_changed_io_snapshot) ... ok\ntest_relative_hash_bound_inputs_resolve_when_sourced_from_another_working_directory (test_template.ImageTemplateTests.test_relative_hash_bound_inputs_resolve_when_sourced_from_another_working_directory) ... ok\ntest_relative_input_tamper_still_fails_before_design_access_and_conflicting_alias_hashes_reject (test_template.ImageTemplateTests.test_relative_input_tamper_still_fails_before_design_access_and_conflicting_alias_hashes_reject) ... ok\ntest_tcl_hash_guard_rejects_missing_bound_checkpoint_before_design_or_bitstream (test_template.ImageTemplateTests.test_tcl_hash_guard_rejects_missing_bound_checkpoint_before_design_or_bitstream) ... ok\ntest_tcl_hash_guard_rejects_tampered_bound_helper_before_design_or_bitstream (test_template.ImageTemplateTests.test_tcl_hash_guard_rejects_tampered_bound_helper_before_design_or_bitstream) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.275s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "make",
+        "generated-check"
+      ],
+      "start_utc": "2026-10-27T18:34:24Z",
+      "elapsed_seconds": 0.143,
+      "returncode": 0,
+      "stdout": "python3 tools/gen_regfile.py --check\npython3 tools/gen_demo.py --check\nDemo generated files match.\n",
+      "stderr": ""
+    }
+  ],
+  "source_hashes_after": {
+    "tests/ddr/image/test_template.py": "df89d9f0f20b83c8ad646be2a05f32a4160bab32a322f1a781c17f06ab80dfd5",
+    "tools/ddr/image_template.py": "f8b72158e62567168f4687390089f640c9030485f2180927e412700a8e09d73f",
+    "fpga/ddr/emit_ch1.tcl.in": "6e83853cd6faa7cadca5c50dc39951d272eb21cb67e893cde9917cb6c5c02ddc",
+    "fpga/ddr/reset_status_cdc.tcl": "dc34a33077b444f1934d46267b10b436453ec486b458548a819bb24338715a62",
+    "fpga/ddr/reset_bridge_board_cdc.tcl": "52fd4505d707565aea742ffa876b21dc639e434ba31cb721e74e1d5b52f5a46d",
+    "fpga/ddr/async_job_cdc.tcl": "3e775ddef64a52896ff8ffc1a9e1a2f9c24669b5bc89dd6398715478dafc4df5",
+    "fpga/ddr/async_mem_cdc.tcl": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+    "fpga/ddr/mailbox_ui_cdc.tcl": "37317bab81796bf22bae04e83586450160a3297b8cbca6cecee4c52ed513ecf0"
+  },
+  "source_hashes_unchanged": true,
+  "finished_utc": "2026-10-27T18:34:24Z"
+}

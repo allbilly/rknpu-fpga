@@ -1,0 +1,104 @@
+{
+  "cgroup": {
+    "cpu.max": "200000 100000",
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "--top-module",
+        "tb_mig_fi_xor",
+        "-j",
+        "2",
+        "-MAKEFLAGS",
+        "CXX=/usr/lib64/ccache/c++",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v5/runs/obj",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v5/source/mig_7series_v4_2_fi_xor.v",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v5/tests/tb_mig_fi_xor.sv"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "diagnostics": [
+        "%Warning-PROCASSINIT: /home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v5/tests/tb_mig_fi_xor.sv:6:17: Procedural assignment to declaration with initial value: 'clk'",
+        "%Error: Exiting due to 1 warning(s)"
+      ],
+      "error": "verilator_compile returned 1",
+      "finished_utc": "2026-10-28T06:45:39.899573+00:00",
+      "name": "verilator_compile",
+      "owned_process_group_absent": true,
+      "pgid": 1155902,
+      "pid": 1155902,
+      "returncode": 1,
+      "seconds": 0.20152557594701648,
+      "started_utc": "2026-10-28T06:45:39.697790+00:00",
+      "status": "FAIL",
+      "stderr_log": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v5/verilator_compile.stderr.log",
+      "stderr_sha256": "b2cb40370c0fdd4eff05d8561782d00f2f332bc29e25646e3d0ff45d4a69dabd",
+      "stdout_log": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v5/verilator_compile.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 300
+    }
+  ],
+  "error": "ValueError('verilator_compile returned 1')",
+  "finished_utc": "2026-10-28T06:45:39.912473+00:00",
+  "flash_written": false,
+  "hardware_accessed": false,
+  "memory_or_ecc_decoder_simulated": false,
+  "native_timeout_seconds": 300,
+  "phy_simulated": false,
+  "physical_capacity_qualified": false,
+  "physical_ecc_injection_qualified": false,
+  "previous_iverilog_failure": "v3 rejected the actual source warning and did not launch this Verilator run",
+  "schema": "mig-fi-xor-verilator-validation-v1",
+  "scope": "Strict Verilator simulation of actual vendor FI_XOR leaf only; no controller, memory, ECC decoder, PHY, physical injection, or hardware qualification.",
+  "source_inputs": {
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v5/run_verilator.py": "39e0e4b132c6f76c4fad123d7d2bffca6ea1877c0ed8796d3b5cd4534f2cb386",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v5/source/mig_7series_v4_2_fi_xor.v": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v5/tests/tb_mig_fi_xor.sv": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/preparation.json": "71fe220dfe1ac59327ead8576f799edccd2af36dae493013f8e09ca3d102d96b",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+  },
+  "started_utc": "2026-10-28T06:45:39.695138+00:00",
+  "status": "FAIL",
+  "tool_paths": {
+    "cxx": {
+      "path": "/usr/bin/ccache",
+      "sha256": "0eb8828d3c5975ed4b3ff6fa3b833de679380d84c752176feab6e2c4594552f2"
+    },
+    "verilator": {
+      "path": "/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/bin/verilator",
+      "sha256": "7550862b9b1b41aa6aadb60b6c793f1e796a3ccb5ef18375d834b7a13f39efeb"
+    }
+  },
+  "tool_versions": {
+    "cxx": {
+      "argv": [
+        "/usr/lib64/ccache/c++",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "c++ (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n"
+    },
+    "verilator": {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426\n"
+    }
+  },
+  "vivado_executed": false,
+  "warning_suppression_flags": []
+}

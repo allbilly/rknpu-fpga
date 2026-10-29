@@ -1,0 +1,58 @@
+{
+  "status": "PASS_ROOT_HOST_ROUTED_CDC_TIMING_REVIEW_ONLY",
+  "reviewer": "Root independent exact-native/source review",
+  "reviewed_utc": "2026-10-26T16:43:04.814244+00:00",
+  "scope": "Separate USER2-controlled HALF EW1MiB BRAM transport checkpoint only; not full512 compute acceptance, image admission or actual host execution",
+  "protocol_source_sha256": "980adc4825924530625d9e270f727fd9a91e10b901e76ef244bb276b72aed9f7",
+  "implementation_source_sha256": "3a0ef75f961f58fdb3469a48eb3e5320a458c42e29b6445d246ebbcb08e4d8ce",
+  "original_failed_implementation": "build/host-jtag-implementation/20261026T154734Z/run.json",
+  "original_status_unchanged": true,
+  "auditor_only_change": true,
+  "constraint_prologue_exact": true,
+  "rtl_xdc_exact": true,
+  "native_audit_rc": 0,
+  "system_clock_ns": 20,
+  "tck_model_period_ns": 166.666,
+  "response_budget_ns": 333.332,
+  "timing": {
+    "setup_slack_ns": 0.747,
+    "hold_slack_ns": 0.037,
+    "pulse_slack_ns": 9.6,
+    "failing_endpoints": 0
+  },
+  "routable_and_fully_routed_nets": 10206,
+  "route_errors": 0,
+  "request": {
+    "bits": 604,
+    "maxdelay_ns": 40,
+    "slack_ns": 39.058,
+    "skew_ns": 0.917,
+    "skew_slack_ns": 39.083
+  },
+  "response": {
+    "bits": 536,
+    "maxdelay_ns": 333.332,
+    "slack_ns": 332.344,
+    "skew_ns": 0.94,
+    "skew_slack_ns": 332.392
+  },
+  "sync_stages_each_direction": 3,
+  "factory_dsp_warnings": 4,
+  "outputs": {
+    "mailbox_cdc.tsv": "9060bf114e34acdf78f8d7d251f226ca649410519da20528801ee036eeba4f4d",
+    "mailbox_held_timing.rpt": "ab20594b35a97d5c55ab6fe271279d7b6ee1c159b878f4e10ab43e80ded731a1",
+    "mailbox_response_timing.rpt": "b35890902061a979119d5a837a480b478ff6235507bc2601aef003d558baf6e7",
+    "mailbox_cdc.rpt": "7efe41b7e1c9a62fa1974c49ffc3fed640e4223db8e27eadde138749c0b96604",
+    "mailbox_exceptions.rpt": "5dffbfbc1d95e1dfcaaf239cc324bb4c51a0e35409999895633f92933b1d6595",
+    "mailbox_bus_skew.rpt": "8f628f181350fa1296e7153a11e458a04beab6acb734dc492d3d4136976238c8",
+    "timing.rpt": "cf19ed9cd9ed8d653d5a201a636af0e6bcdeee6c1cd2a9eb8789142f9486ee4d",
+    "check_timing.rpt": "684333b5e347bc1b8b3037a7dbb77ccd1d017ffd68e631f96904f0657e7c2c52",
+    "pulse_width.rpt": "81df5b5744b37baa09ea2f114306ece0d6cd4d2cc2b46fce1a84c2edd9cc3d09",
+    "route_status.rpt": "9b1bf1e67a9435d446f515e7dfd26515fbd4cd39207d7728728b1341c2c847d1",
+    "drc.rpt": "6726b5d875729a3ee0948513f4673623acb1b1c2303824e443d336cde76cbbe1",
+    "result.txt": "d78b506861e5009f11f8c88fe28d355ec1b3663c22104f7010786d9d0f461512"
+  },
+  "launch_sha256": "7f947bd764c194fc6958dfe81b75a8d8acb0783f24ea92f8a5586e465a6f0d0f",
+  "image_admission": false,
+  "hardware_accessed": false
+}

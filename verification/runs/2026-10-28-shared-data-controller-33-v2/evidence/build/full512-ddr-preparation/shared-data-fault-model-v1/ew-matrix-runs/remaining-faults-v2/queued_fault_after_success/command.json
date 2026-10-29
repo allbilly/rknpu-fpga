@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-fault-model-v1/native-compile-v2/obj/Vtb_jtag_dual_ddr_async",
+    "+CASE=/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-fault-model-v1/ew-vectors-v1/capture_sub_9",
+    "+OUTPUT=/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-fault-model-v1/ew-matrix-runs/remaining-faults-v2/queued_fault_after_success/observed.txt",
+    "+START=100e0000",
+    "+AMOUNT=35",
+    "+NTASKS=2",
+    "+NLINES=1600",
+    "+JOBS=2",
+    "+NEGATIVE=6",
+    "+RESET_RECOVERY=0",
+    "+CSR_BASE=0"
+  ],
+  "finished_utc": "2026-10-28T00:45:49.623930+00:00",
+  "pid": 1092706,
+  "returncode": 0,
+  "seconds": 602.7126477081329,
+  "started_utc": "2026-10-28T00:35:46.909724+00:00",
+  "status": "EXITED",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "4b2d4c383651e9dd9141b281534f5043e313e7b2d0d45e67ad88238313311300",
+  "timeout_seconds": 1800
+}

@@ -1,0 +1,83 @@
+{
+  "bench_port_inventory": {
+    "path": "source/port-names.json",
+    "sha256": "8a4d967d9dd8c433ff806289985bed52562561b600842a553c0800b3ecf61487"
+  },
+  "created_utc": "2026-10-28T08:05:27.575822+00:00",
+  "derived_service_generator": {
+    "path": "source/compose_service.py",
+    "sha256": "334af48562b84e7fd55a9ab50c17cb622431564752782ac01be287875ac81e7c"
+  },
+  "inputs": {
+    "run_validation.py": "7360d0a3df987d72e4d4ce60f4195220d8d83de6b62fda17c9848e754237ca8a",
+    "source/compose_service.py": "334af48562b84e7fd55a9ab50c17cb622431564752782ac01be287875ac81e7c",
+    "source/port-names.json": "8a4d967d9dd8c433ff806289985bed52562561b600842a553c0800b3ecf61487",
+    "source/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "source/rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "source/rk_ddr_capacity_owner.sv": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+    "source/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "source/rk_ddr_capacity_regs.sv": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+    "source/rk_ddr_capacity_service.sv": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc",
+    "source/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "source/rk_ddr_diagnostic_mux.sv": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+    "source/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "source/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+    "source/tb_ddr_capacity_service.sv": "eae033ec158e7fc47836aec34684a425c2e187d9f341f3ce9f4c0daf01d271cc"
+  },
+  "origins": {
+    "source/rk_ddr_capacity_axi.sv": {
+      "path": "rtl/ddr/rk_ddr_capacity_axi.sv",
+      "sha256": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8"
+    },
+    "source/rk_ddr_capacity_bist.sv": {
+      "path": "rtl/ddr/rk_ddr_capacity_bist.sv",
+      "sha256": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae"
+    },
+    "source/rk_ddr_capacity_owner.sv": {
+      "path": "build/ddr-capacity-owner-source-v1/rk_ddr_capacity_owner.sv",
+      "sha256": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e"
+    },
+    "source/rk_ddr_capacity_pattern.sv": {
+      "path": "rtl/ddr/rk_ddr_capacity_pattern.sv",
+      "sha256": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8"
+    },
+    "source/rk_ddr_capacity_regs.sv": {
+      "path": "build/ddr-capacity-owner-source-v1/rk_ddr_capacity_regs.sv",
+      "sha256": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7"
+    },
+    "source/rk_ddr_capacity_service.sv": {
+      "path": "build/ddr-capacity-service-source-v3/rk_ddr_capacity_service.sv",
+      "sha256": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc"
+    },
+    "source/rk_ddr_capacity_sweep.sv": {
+      "path": "rtl/ddr/rk_ddr_capacity_sweep.sv",
+      "sha256": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af"
+    },
+    "source/rk_ddr_diagnostic_mux.sv": {
+      "path": "build/ddr-capacity-mux-source-v2/rk_ddr_diagnostic_mux.sv",
+      "sha256": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd"
+    },
+    "source/rk_mig_ecc_monitor.sv": {
+      "path": "rtl/ddr/rk_mig_ecc_monitor.sv",
+      "sha256": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5"
+    },
+    "source/rk_mig_write_fence.sv": {
+      "path": "rtl/ddr/rk_mig_write_fence.sv",
+      "sha256": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+    }
+  },
+  "schema": "ddr-capacity-service-frozen-inputs-v1",
+  "scope": "Private UI-domain composition with modeled AXI memory and ECC-control slaves. Service combines four public capacity RTL modules, private owner/register bank and v2 diagnostic mux, plus real fence/ECC monitor. Not actual MIG/PHY or physical DDR. v2 normal master mock IDs match service owner observed bus contract (ID zero). v3 checks normal memory write B ID against ID0 per owner observed-bus contract and logs actual payload on failure. v4 reports internal owner and register state on CSR failure for diagnostics only. v5 drains memory B and independent control-channel R concurrently, preserving the owner one-outstanding-per-lane contract. v6 adds raw normal-read mismatch values only for testbench diagnosis. v7 compares post-reset normal readback against retained post-BIST RAM snapshot. v8 makes Verilator sizing explicit, removes unused bench declarations, and retains success-run counters for marker reporting. v9 mock stores line indices only instead of unused address bits. v10 modeled BIST AXI checks assert full selected address bounds/alignment, consuming high/low address bits. v11 computes the mock address window via relative offset and underflow bit for strict BASE=0/upper-window lint.",
+  "selected_rtl_order": [
+    "rk_ddr_capacity_service.sv",
+    "rk_ddr_capacity_owner.sv",
+    "rk_ddr_capacity_regs.sv",
+    "rk_ddr_diagnostic_mux.sv",
+    "rk_ddr_capacity_pattern.sv",
+    "rk_ddr_capacity_sweep.sv",
+    "rk_ddr_capacity_axi.sv",
+    "rk_mig_write_fence.sv",
+    "rk_mig_ecc_monitor.sv",
+    "rk_ddr_capacity_bist.sv"
+  ]
+}

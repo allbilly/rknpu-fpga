@@ -1,0 +1,62 @@
+{
+  "status": "PASS_INDEPENDENT_SELECTED_SHARED_DATA_CONTROLLER_CASES_ONLY",
+  "utc": "2026-10-28T01:19:24.810955+00:00",
+  "producer_sha256": "7e622b30298d806a9a44c91d26d6ff14855e22b713de8880de66962322d9b1f3",
+  "source_inputs_rehashed": 401,
+  "binary_sha256": "120a413d661c4bc03631142c3b2b70559cbdf9b2ba121b3c2ab3f5505f3af8bf",
+  "cases": [
+    {
+      "name": "numerical_k65",
+      "negative": 0,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 18248,
+      "read64_packets": 322,
+      "native_seconds": 870.9089833239559,
+      "complete_bo_bytes": 20480
+    },
+    {
+      "name": "repeat_k65",
+      "negative": 0,
+      "jobs": 2,
+      "recovered": 0,
+      "phy_returns": 25357,
+      "read64_packets": 642,
+      "native_seconds": 1301.096207428025,
+      "complete_bo_bytes": 20480
+    },
+    {
+      "name": "queued_calibration_loss",
+      "negative": 6,
+      "jobs": 2,
+      "recovered": 0,
+      "phy_returns": 18248,
+      "read64_packets": 322,
+      "native_seconds": 986.248153320048,
+      "complete_bo_bytes": 20480
+    },
+    {
+      "name": "late_pending_fault",
+      "negative": 8,
+      "jobs": 1,
+      "recovered": 0,
+      "phy_returns": 17928,
+      "read64_packets": 2,
+      "native_seconds": 923.5526213268749,
+      "complete_bo_bytes": 0
+    },
+    {
+      "name": "joint_reset_recovery",
+      "negative": 2,
+      "jobs": 2,
+      "recovered": 1,
+      "phy_returns": 18183,
+      "read64_packets": 321,
+      "native_seconds": 1558.9911490238737,
+      "complete_bo_bytes": 20480
+    }
+  ],
+  "complete_matrix_qualified": false,
+  "scope": "Real AXI/UI/MC components with encoded PHY only; successful jobs require complete raw BO readback; error codes/quarantine/recovery asserted by unchanged bound SV",
+  "hardware_accessed": false
+}

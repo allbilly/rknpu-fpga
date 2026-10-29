@@ -1,0 +1,283 @@
+{
+  "status": "PASS_RESET_EPOCH_CONTROLS_ONLY",
+  "scope": "Reset-candidate public epoch controls, rejected draft and unmodified main baseline only; no physical reset proof",
+  "inputs": {
+    "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/workspace/rtl/ddr/rk_mig_reset_coordinator.sv": "b8d2a7c2e2f1084d5be481d76f26bf1e4998470fb75d74468ceacf6873027490",
+    "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/workspace/rtl/ddr/rk_jtag_ew_ddr_async.sv": "8c708314825c6e403c9b60fb5e2530d30bf05ddd6795984db57e3044d92aad9d",
+    "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/workspace/tests/ddr/tb_mig_reset_epoch_samples.sv": "00960b8602de151b70a71ce6c240bd8f6a9a5fd61b54babb57b5cd8291f93664",
+    "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/rejected-drafts/timeout-gated-by-sample-valid.sv": "a2a0db25267f4e90c8253a4620b67bab814404dae147d2d33432b080c7318b88",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_reset_coordinator.sv": "c457acd1d88c969b6cbe15c9de1faaaa2b826536277121aabae857124bb8b117"
+  },
+  "frozen_inputs": {
+    "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/candidate/rtl/ddr/rk_mig_reset_coordinator.sv": "b8d2a7c2e2f1084d5be481d76f26bf1e4998470fb75d74468ceacf6873027490",
+    "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/candidate/rtl/ddr/rk_jtag_ew_ddr_async.sv": "8c708314825c6e403c9b60fb5e2530d30bf05ddd6795984db57e3044d92aad9d",
+    "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/candidate/tests/ddr/tb_mig_reset_epoch_samples.sv": "00960b8602de151b70a71ce6c240bd8f6a9a5fd61b54babb57b5cd8291f93664",
+    "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/rejected/timeout-gated-by-sample-valid.sv": "a2a0db25267f4e90c8253a4620b67bab814404dae147d2d33432b080c7318b88",
+    "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/main/rtl/ddr/rk_mig_reset_coordinator.sv": "c457acd1d88c969b6cbe15c9de1faaaa2b826536277121aabae857124bb8b117"
+  },
+  "mutant": {
+    "path": "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/mutant/rtl/ddr/rk_mig_reset_coordinator.sv",
+    "sha256": "a2993f00204e0fe4fe85ea20c020595e1a65dc27fa2a24bf8b5ae1b5454cd806",
+    "exact_guard_token": "samples_current && ",
+    "replacement_count": 10,
+    "only_mutation": "Removed exact occurrences of samples_current && "
+  },
+  "seed": "Not randomized; bench uses fixed clocks and directed sequences",
+  "commands": [
+    {
+      "name": "iverilog_version",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.019974909955635667,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/iverilog_version.log",
+      "log_sha256": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d"
+    },
+    {
+      "name": "vvp_version",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.008717783028259873,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/vvp_version.log",
+      "log_sha256": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6"
+    },
+    {
+      "name": "verilator_version",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--version"
+      ],
+      "returncode": 0,
+      "seconds": 0.1183052200358361,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/verilator_version.log",
+      "log_sha256": "9d8d19bf7d16f490e1b9d701dc1438bf9ec2d7f4a41ca4f0ec8ee3d1a3df8253"
+    },
+    {
+      "name": "candidate_iverilog_compile",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_mig_reset_epoch_samples",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/candidate_iverilog.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/candidate/rtl/ddr/rk_mig_reset_coordinator.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/candidate/tests/ddr/tb_mig_reset_epoch_samples.sv"
+      ],
+      "returncode": 0,
+      "seconds": 0.038171426858752966,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/candidate_iverilog_compile.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "candidate_iverilog_run",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/candidate_iverilog.vvp"
+      ],
+      "returncode": 0,
+      "seconds": 0.03614144981838763,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/candidate_iverilog_run.log",
+      "log_sha256": "31b65d6a05157e1cbd23f0dca6a151a2cb5362eec65ab99f3d2917d96b2e2200"
+    },
+    {
+      "name": "candidate_verilator_compile",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "--top-module",
+        "tb_mig_reset_epoch_samples",
+        "-j",
+        "1",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/candidate_verilator",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/candidate/rtl/ddr/rk_mig_reset_coordinator.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/candidate/tests/ddr/tb_mig_reset_epoch_samples.sv"
+      ],
+      "returncode": 0,
+      "seconds": 4.538729307008907,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/candidate_verilator_compile.log",
+      "log_sha256": "338a4735702ac78d026e07ac81db3ae5d8de969924f9990fd4d929422ee393b7"
+    },
+    {
+      "name": "candidate_verilator_run",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/candidate_verilator/sim"
+      ],
+      "returncode": 0,
+      "seconds": 0.006625488866120577,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/candidate_verilator_run.log",
+      "log_sha256": "aafa64913211b6d708fb0dfba8199b38c889fb0358a66296c26565e372e4afe6"
+    },
+    {
+      "name": "rejected_draft_compile",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_mig_reset_epoch_samples",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/rejected_draft.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/rejected/timeout-gated-by-sample-valid.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/candidate/tests/ddr/tb_mig_reset_epoch_samples.sv"
+      ],
+      "returncode": 0,
+      "seconds": 0.03546251403167844,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/rejected_draft_compile.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "rejected_draft_run",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/rejected_draft.vvp"
+      ],
+      "returncode": 1,
+      "seconds": 0.01998103316873312,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/rejected_draft_run.log",
+      "log_sha256": "998b7cd64ffc9fdc5bffef2a17a2f5e4efba8dccd2d265990d817decd7fd9a6a"
+    },
+    {
+      "name": "guard_removed_mutant_compile",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_mig_reset_epoch_samples",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/guard_removed_mutant.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/mutant/rtl/ddr/rk_mig_reset_coordinator.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/candidate/tests/ddr/tb_mig_reset_epoch_samples.sv"
+      ],
+      "returncode": 0,
+      "seconds": 0.036165906116366386,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/guard_removed_mutant_compile.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "guard_removed_mutant_run",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/guard_removed_mutant.vvp"
+      ],
+      "returncode": 1,
+      "seconds": 0.018911030143499374,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/guard_removed_mutant_run.log",
+      "log_sha256": "2ae4591309f6550ecd121e5ea3547daf2d55a8509f723003243a6e265bcc5ff0"
+    },
+    {
+      "name": "main_checkout_baseline_compile",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_mig_reset_epoch_samples",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/main_checkout_baseline.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/main/rtl/ddr/rk_mig_reset_coordinator.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/candidate/tests/ddr/tb_mig_reset_epoch_samples.sv"
+      ],
+      "returncode": 0,
+      "seconds": 0.021233337000012398,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/main_checkout_baseline_compile.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "main_checkout_baseline_run",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/main_checkout_baseline.vvp"
+      ],
+      "returncode": 0,
+      "seconds": 0.0356022659689188,
+      "log_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/main_checkout_baseline_run.log",
+      "log_sha256": "31b65d6a05157e1cbd23f0dca6a151a2cb5362eec65ab99f3d2917d96b2e2200"
+    }
+  ],
+  "tests": [
+    {
+      "name": "candidate_iverilog",
+      "outcome": "PASS",
+      "stages": null,
+      "returncode": 0,
+      "marker": [
+        "PASS mig_reset_epoch_samples cases=5 hold=1 sync=5 timeout_sync8=2 scope=public_status_only"
+      ],
+      "binary_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/candidate_iverilog.vvp",
+      "binary_sha256": "bff3fde97bb12b5c23d1b247dadf48f436d510a8bb496964df5e24ff5f82f736",
+      "expected_failure": null
+    },
+    {
+      "name": "candidate_verilator",
+      "outcome": "PASS",
+      "stages": null,
+      "returncode": 0,
+      "marker": [
+        "PASS mig_reset_epoch_samples cases=5 hold=1 sync=5 timeout_sync8=2 scope=public_status_only"
+      ],
+      "binary_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/candidate_verilator/sim",
+      "binary_sha256": "ac5c1bd49f87d5c52b66589e7ded3aa6e5ed9b4c5f50a5347d1cc3ebf0fc63cc",
+      "expected_failure": null
+    },
+    {
+      "name": "rejected_draft",
+      "outcome": "EXPECTED_REJECTION",
+      "stages": null,
+      "returncode": 1,
+      "marker": [],
+      "binary_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/rejected_draft.vvp",
+      "binary_sha256": "27fd7ab9dbcd24515526eec5e21165bd5fdaea74a6059ced90ae3a784138adff",
+      "expected_failure": "Unqualified samples postponed the independent reset timeout"
+    },
+    {
+      "name": "guard_removed_mutant",
+      "outcome": "EXPECTED_REJECTION",
+      "stages": null,
+      "returncode": 1,
+      "marker": [],
+      "binary_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/guard_removed_mutant.vvp",
+      "binary_sha256": "8b98d47bd6cc40f844f0370ae0ed2b61dbe65471276dc86949d2e73e8596c34e",
+      "expected_failure": "Stale status admitted a new epoch"
+    },
+    {
+      "name": "main_checkout_baseline",
+      "outcome": "PASS",
+      "stages": null,
+      "returncode": 0,
+      "marker": [
+        "PASS mig_reset_epoch_samples cases=5 hold=1 sync=5 timeout_sync8=2 scope=public_status_only"
+      ],
+      "binary_path": "build/ddr-reset-candidate/v1/epoch-controls-v2/main_checkout_baseline.vvp",
+      "binary_sha256": "d51eaa0d25cd75edfd2352f700b0d55aa11a225408cb6884c5b8c9462f71e057",
+      "expected_failure": null
+    }
+  ],
+  "tool_versions": {
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "vvp": "Icarus Verilog runtime version 13.0 (stable) (v13_0)",
+    "verilator": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+  },
+  "limits": {
+    "compile_seconds": 180,
+    "runtime_seconds": 30,
+    "core_dumps": false
+  },
+  "hardware_accessed": false,
+  "vivado_executed": false,
+  "physical_reset_qualified": false,
+  "finished_utc": "2026-10-27T08:11:01.785151+00:00"
+}

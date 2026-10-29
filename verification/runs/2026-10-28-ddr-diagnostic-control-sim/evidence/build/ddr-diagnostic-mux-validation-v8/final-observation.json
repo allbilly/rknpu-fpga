@@ -1,0 +1,109 @@
+{
+  "blocked_parameter_cases": {
+    "ADDR_WIDTH=0": {
+      "iverilog": "Icarus 13 compiler abort 139 in elaboration (see build/ddr-diagnostic-mux-validation-v3/results/iverilog_bad_addr_compile.stderr.log)",
+      "verilator": "compile rejected at stage with two unsuppressed %Warning-ASCRANGE for [-1:0] port declarations (see this v8/results/verilator_bad_addr_compile.stderr.log)"
+    },
+    "DATA_WIDTH=7": "not attempted after runner stopped on earlier zero-width address case",
+    "ID_WIDTH=0": "not attempted after runner stopped on earlier zero-width address case"
+  },
+  "completed_invalid_runtime_params": [
+    {
+      "case": "bad_data_granularity",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_DATA_WIDTH",
+      "simulator": "iverilog",
+      "value": 10
+    },
+    {
+      "case": "bad_data_odd",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_DATA_WIDTH",
+      "simulator": "iverilog",
+      "value": 9
+    },
+    {
+      "case": "bad_data_granularity",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_DATA_WIDTH",
+      "simulator": "verilator",
+      "value": 10
+    },
+    {
+      "case": "bad_data_odd",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_DATA_WIDTH",
+      "simulator": "verilator",
+      "value": 9
+    }
+  ],
+  "completed_main_profiles": [
+    {
+      "addr_width": 31,
+      "configuration": "memory",
+      "data_width": 512,
+      "id_width": 4,
+      "marker": "PASS diagnostic_mux checks=25282 addr=31 data=512 id=4 seed=3588",
+      "simulator": "iverilog"
+    },
+    {
+      "addr_width": 32,
+      "configuration": "control",
+      "data_width": 32,
+      "id_width": 1,
+      "marker": "PASS diagnostic_mux checks=25282 addr=32 data=32 id=1 seed=3588",
+      "simulator": "iverilog"
+    },
+    {
+      "addr_width": 31,
+      "configuration": "memory",
+      "data_width": 512,
+      "id_width": 4,
+      "marker": "PASS diagnostic_mux checks=25282 addr=31 data=512 id=4 seed=3588",
+      "simulator": "verilator"
+    },
+    {
+      "addr_width": 32,
+      "configuration": "control",
+      "data_width": 32,
+      "id_width": 1,
+      "marker": "PASS diagnostic_mux checks=25282 addr=32 data=32 id=1 seed=3588",
+      "simulator": "verilator"
+    }
+  ],
+  "frozen_inputs": {
+    "run_validation.py": "d71c53f95ef731db22bb23e3047e4582cbd774e86d5320b0d5d2cb3966e2eede",
+    "source/rk_ddr_diagnostic_mux.sv": "c771344eb0b09506763336905d739a29f3a26f226848267d5f6b201f4d1a8e57",
+    "source/tb_ddr_diagnostic_mux.sv": "6705833596b40e1710973a8d202bdf91c18f73e2b638fb6e032ecf41389401fe",
+    "source/tb_ddr_diagnostic_mux_badparams.sv": "542ed52df12c622b25f968cb80e3f5c8148d2b2765697ae677d38c15f47281c3"
+  },
+  "frozen_inputs_sha256": "a60b077dadd3decec62fba84ea4a8a311ac241ba9314ddf610021ff22afa7398",
+  "git_head": "8b23d647d4a1c8cdaf7bdad2160f45b285ca6909",
+  "hardware_executed": false,
+  "integrity_errors": [],
+  "limitations": "Both legal-width profiles passed in both simulators (25,282 checks/profile); DATA_WIDTH 9 and 10 expected-fatal parameters passed at time zero in both simulators. No zero-range parameter is reported as a pass. No lint suppressions used.",
+  "original_rtl_sha256": "c771344eb0b09506763336905d739a29f3a26f226848267d5f6b201f4d1a8e57",
+  "physical_capacity_qualified": false,
+  "postrun_hashes": {
+    "run_validation.py": "d71c53f95ef731db22bb23e3047e4582cbd774e86d5320b0d5d2cb3966e2eede",
+    "source/rk_ddr_diagnostic_mux.sv": "c771344eb0b09506763336905d739a29f3a26f226848267d5f6b201f4d1a8e57",
+    "source/tb_ddr_diagnostic_mux.sv": "6705833596b40e1710973a8d202bdf91c18f73e2b638fb6e032ecf41389401fe",
+    "source/tb_ddr_diagnostic_mux_badparams.sv": "542ed52df12c622b25f968cb80e3f5c8148d2b2765697ae677d38c15f47281c3"
+  },
+  "runner_report_path": "/home/fedora/rknpu-fpga/build/ddr-diagnostic-mux-validation-v8/report.json",
+  "runner_report_sha256": "9a59a608ef49a0fc2b593401a8aa07adadbc9b52f5c0470a061f10e5b2cbef4a",
+  "source_findings": [],
+  "source_unchanged": true,
+  "status": "PARTIAL_MAIN_AND_BYTE_GRANULAR_PARAMETER_CONTROLS_PASS_ZERO_RANGE_PARAMETERS_BLOCKED_BY_FRONTENDS",
+  "tool_versions": {
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "verilator": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+    "vvp": "Icarus Verilog runtime version 13.0 (stable) (v13_0)"
+  },
+  "utc": "2026-10-28T07:45:15.433025+00:00",
+  "vivado_executed": false
+}

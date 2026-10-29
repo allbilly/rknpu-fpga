@@ -1,0 +1,56 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-ddr-ecc-fi-leaf-v2-20261028t0648",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "python3",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v2/run_validation.py"
+  ],
+  "cwd": "/home/fedora/rknpu-fpga",
+  "flash_written": false,
+  "hardware_accessed": false,
+  "launch_performed": false,
+  "per_command_deadline_seconds": 300,
+  "prepared_utc": "2026-10-28T06:43:32.207500+00:00",
+  "previous_failure_preserved": "build/ddr-ecc-fi-leaf-validation-v1/report.json (version flag vvp --version rejected before compile)",
+  "private_runner": {
+    "path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v2/run_validation.py",
+    "sha256": "0448795878c23e90edd01524d2021b6a641a8749919c8745f04489295d7987ee"
+  },
+  "required_cgroup": {
+    "cpu.max": "200000 100000",
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "schema": "ddr-ecc-fi-leaf-launch-v2",
+  "selected_source": {
+    "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v",
+    "private_copy": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v2/source/mig_7series_v4_2_fi_xor.v",
+    "private_copy_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+    "sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+  },
+  "status": "PREPARED_TO_LAUNCH",
+  "strict_no_diagnostic_suppression": true,
+  "strict_source_preparation": {
+    "file_count": 160,
+    "manifest_sha256": "85ed4aed6a3761b2e12f86b21bc9a5adc79e60049148ac958290bcb30650ff69",
+    "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/preparation.json",
+    "sha256": "71fe220dfe1ac59327ead8576f799edccd2af36dae493013f8e09ca3d102d96b"
+  },
+  "test_scope": "Actual archived 72-bit FI_XOR data leaf only; no MIG controller/ECC decoder/memory/PHY or physical qualification.",
+  "testbench": {
+    "path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v2/tests/tb_mig_fi_xor.sv",
+    "sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb"
+  },
+  "vivado_executed": false
+}

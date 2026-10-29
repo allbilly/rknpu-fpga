@@ -1,0 +1,15 @@
+test_ack_must_restore_general_memory_ready_before_owner_can_submit_again (test_transport.DdrTransportTests.test_ack_must_restore_general_memory_ready_before_owner_can_submit_again) ... ok
+test_code_zero_pending_fault_is_failure_poison_and_never_acked (test_transport.DdrTransportTests.test_code_zero_pending_fault_is_failure_poison_and_never_acked) ... ok
+test_foreign_pending_result_cannot_be_read_or_written (test_transport.DdrTransportTests.test_foreign_pending_result_cannot_be_read_or_written) ... ok
+test_fresh_health_fault_revokes_cached_success_read_permission (test_transport.DdrTransportTests.test_fresh_health_fault_revokes_cached_success_read_permission) ... ok
+test_memory_before_initialization_refuses_without_ram_and_wait_can_retry (test_transport.DdrTransportTests.test_memory_before_initialization_refuses_without_ram_and_wait_can_retry) ... ok
+test_pending_success_allows_owned_read_blocks_write_until_ack_two_roundtrips (test_transport.DdrTransportTests.test_pending_success_allows_owned_read_blocks_write_until_ack_two_roundtrips) ... ok
+test_raw_bo_bytes_rmw_neighbors_and_31bit_range_are_preserved (test_transport.DdrTransportTests.test_raw_bo_bytes_rmw_neighbors_and_31bit_range_are_preserved) ... ok
+test_rkad_abi_idcode_and_no_write_before_identity (test_transport.DdrTransportTests.test_rkad_abi_idcode_and_no_write_before_identity) ... ok
+test_unsupported_register_status_and_noncontiguous_upload_fail_closed (test_transport.DdrTransportTests.test_unsupported_register_status_and_noncontiguous_upload_fail_closed) ... ok
+test_wait_memory_ready_uses_status_bit4_not_can_submit_and_poisons_timeout (test_transport.DdrTransportTests.test_wait_memory_ready_uses_status_bit4_not_can_submit_and_poisons_timeout) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.024s
+
+OK

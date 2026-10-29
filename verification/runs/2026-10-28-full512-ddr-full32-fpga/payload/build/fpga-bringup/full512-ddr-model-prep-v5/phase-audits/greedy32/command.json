@@ -1,0 +1,39 @@
+{
+  "argv": [
+    "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+    "/home/fedora/rknpu-fpga/tools/tinystories/audit_model.py",
+    "--run",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v5/physical-test",
+    "--package",
+    "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v2",
+    "--catalog",
+    "/home/fedora/rknpu-fpga/build/tinystories-programs/all-v1/report.json",
+    "--reference",
+    "/home/fedora/rknpu-fpga/build/tinystories-full-oracle/v1",
+    "--phase",
+    "greedy32",
+    "--memory-profile",
+    "ddr",
+    "--out",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v5/phase-audits/greedy32/audit.json"
+  ],
+  "audit_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v5/phase-audits/greedy32/audit.json",
+  "audit_sha256": "a42190ec944e3433d15230d310b8320cb5ff43e25b562bf303ad8001d1d8cc36",
+  "audited_parent_report_sha256": "759a186a10c7d610ff3e8688d3ca7b96a50c8a339603c4b6130101aadfea3b83",
+  "command_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v5/phase-audits/greedy32/command.json",
+  "finished_utc": "2026-10-28T08:18:59.588458+00:00",
+  "parent_report_sha256_at_audit": "759a186a10c7d610ff3e8688d3ca7b96a50c8a339603c4b6130101aadfea3b83",
+  "parent_report_snapshot_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v5/phase-report-snapshots/greedy32.report.json",
+  "pgid": 1173567,
+  "phase": "greedy32",
+  "pid": 1173567,
+  "process_group": {
+    "live_after": [],
+    "pid": 1173567,
+    "returncode": 0,
+    "zombies_after": []
+  },
+  "returncode": 0,
+  "started_utc": "2026-10-28T08:18:29.348945+00:00",
+  "status": "PASS"
+}

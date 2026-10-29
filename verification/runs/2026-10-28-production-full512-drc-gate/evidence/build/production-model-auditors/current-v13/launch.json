@@ -1,0 +1,209 @@
+{
+  "admission_json_sha256": "dc91ab36d69b5cd32a7f4e1a9cec3780324ed38264cc1eb3aec30dff8b3d98fa",
+  "admission_samples": [
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 22468464640,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T03:02:30.304548+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 22464995328,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T03:03:05.412483+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 15.38,
+      "memavailable_bytes": 22428864512,
+      "memory_psi_full_avg10": 0.0,
+      "pass": false,
+      "utc": "2026-10-28T03:03:41.014428+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.32,
+      "memavailable_bytes": 22450307072,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T03:04:22.336954+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 22504210432,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T03:05:05.086081+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.0,
+      "memavailable_bytes": 22480109568,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T03:05:41.681289+00:00"
+    }
+  ],
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-production-model-auditors-current-v13",
+    "-p",
+    "MemoryMax=6G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=30",
+    "3600s",
+    "python3",
+    "build/production-model-auditors/current-v13/run.py"
+  ],
+  "cgroup": {
+    "cpu.max": "200000 100000",
+    "memory.max": "6442450944",
+    "memory.swap.max": "0",
+    "path": "user.slice/user-1000.slice/user@1000.service/app.slice/rknpu-production-model-auditors-current-v13.scope",
+    "pids.max": "256"
+  },
+  "cwd": "/home/fedora/rknpu-fpga",
+  "expected_cgroup": {
+    "cpu.max": "200000 100000",
+    "memory.max": "6442450944",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "finished_utc": "2026-10-28T03:20:45.047623+00:00",
+  "flash_written": false,
+  "full_recursive_source_file_count": 1095,
+  "full_recursive_source_manifest_sha256": "5d8cc56d880bdc6e710b9e6e25d12856d48578075ce4bf9834eb7a67c1f7ded5",
+  "generated_check_pid": 1119178,
+  "generated_check_returncode": 0,
+  "generated_check_status": "PASS",
+  "hardware_accessed": false,
+  "host_suites": [
+    {
+      "async_seconds": 444.295,
+      "path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v13/workspace/build/host-jtag/iverilog-1793157138615361780/report.json",
+      "seeds": {
+        "mailbox": "0x3588c640"
+      },
+      "sha256": "b1b6aa20906e4bd07d93ab24ed361a4b922b0c96eb8ff14d3e5ebf86235da01e",
+      "simulator": "iverilog",
+      "tests": 15,
+      "tool_version": "Icarus Verilog version 13.0 (stable) (v13_0)"
+    },
+    {
+      "async_seconds": 38.489,
+      "path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v13/workspace/build/host-jtag/verilator-1793157070060932902/report.json",
+      "seeds": {
+        "mailbox": "0x3588c640"
+      },
+      "sha256": "c47b847119dc517ccb66b85631d9cd7b18fbc34d961346d54a293868eac25a31",
+      "simulator": "verilator",
+      "tests": 15,
+      "tool_version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+    }
+  ],
+  "logs": {
+    "generated_check.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "generated_check.stdout.log": {
+      "bytes": 99,
+      "sha256": "b3381e2f4577fb00b88ccdb768c91d043d54433d20a7fd60cadfa29a8b28cfec"
+    },
+    "production_test.stderr.log": {
+      "bytes": 49593,
+      "sha256": "1d53d01cd94ac5f310fea669e1befccc4dcf82ab4b20cea2e199b3ac43d7cd0e"
+    },
+    "production_test.stdout.log": {
+      "bytes": 98682,
+      "sha256": "6687103a518f9d1a96c9d2230f1fe0c906d38c0b488b64fd0b5c7536eb364990"
+    }
+  },
+  "make_test_pid": 1119189,
+  "observed_utc": "2026-10-28T03:21:06.811232+00:00",
+  "owned_processes_remaining": false,
+  "parent_deadline_seconds": 3600,
+  "private_copy_file_count": 1095,
+  "private_copy_manifest_sha256": "5d8cc56d880bdc6e710b9e6e25d12856d48578075ce4bf9834eb7a67c1f7ded5",
+  "production_test_returncode": 0,
+  "production_test_seconds": 890.0862195058726,
+  "production_test_status": "PASS",
+  "root_review_path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v13/root-review.json",
+  "root_review_sha256": "b173cd9bd76a6236e779ea0ff4e1187bdcf00612b2413bb4fbeef4615f6d3be2",
+  "root_review_status": "PASS_INDEPENDENT_V13_SOURCE_NATIVE_AND_COMPLETE_HOST_RECEIPT_REVIEW_ONLY",
+  "run_py_pid": 1119167,
+  "run_report_path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v13/report.json",
+  "run_report_sha256": "9a2f0c98d77d7ba556238fb48bdf6d0d25d366dd332f80ca36e02a6bed472f70",
+  "run_report_status": "PASS_PRIVATE_COMPLETE_PRODUCTION_MAKE_TEST_V13_ONLY",
+  "software_ddr_control_methods": 84,
+  "source_delta_from_v12": {
+    "added": [],
+    "changed": [
+      "fpga/ddr/emit_full512_ch1.tcl.in",
+      "tests/ddr/full512_image/test_template.py"
+    ],
+    "removed": []
+  },
+  "source_revision_sha256": "1a706042d9078be9df8c0082f799a533fa18ff2b0990d1468846d363855e1d5e",
+  "started_utc": "2026-10-28T03:05:49.523455+00:00",
+  "status": "PASS_PRIVATE_COMPLETE_PRODUCTION_MAKE_TEST_V13_ONLY",
+  "systemd_active_state": "inactive",
+  "systemd_control_group": "user.slice/user-1000.slice/user@1000.service/app.slice/rknpu-production-model-auditors-current-v13.scope",
+  "systemd_invocation_id": "97e281b195a24539bb18983b90c53eaf",
+  "systemd_result": "success",
+  "timeout_pid": 1119166,
+  "unit": "rknpu-production-model-auditors-current-v13.scope",
+  "versions": {
+    "iverilog": {
+      "argv": [
+        "iverilog",
+        "-V"
+      ],
+      "first_lines": [
+        "Icarus Verilog version 13.0 (stable) (v13_0)",
+        "",
+        "Copyright (c) 2000-2026 Stephen Williams (steve@icarus.com)"
+      ]
+    },
+    "make": {
+      "argv": [
+        "make",
+        "--version"
+      ],
+      "first_lines": [
+        "GNU Make 4.4.1",
+        "Built for x86_64-redhat-linux-gnu",
+        "Copyright (C) 1988-2023 Free Software Foundation, Inc."
+      ]
+    },
+    "python": {
+      "argv": [
+        "python3",
+        "--version"
+      ],
+      "first_lines": [
+        "Python 3.14.5"
+      ]
+    },
+    "verilator": {
+      "argv": [
+        "verilator",
+        "--version"
+      ],
+      "first_lines": [
+        "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+      ]
+    }
+  },
+  "vivado_executed": false,
+  "workspace_prelaunch_exists": false
+}

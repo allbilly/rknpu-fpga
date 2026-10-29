@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-ddr-capacity-service-validation-v5",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/home/linuxbrew/.linuxbrew/bin/python3",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-validation-v5/run_validation.py"
+  ],
+  "bench_sha256": "5bf7636f2130cff84f15d41c98ef2702da90336f3475d4a33d231bfeb0258ca6",
+  "cgroup_requested": {
+    "CPUQuota": "200%",
+    "MemoryMax": "4G",
+    "MemorySwapMax": 0,
+    "TasksMax": 256
+  },
+  "cwd": "/home/fedora/rknpu-fpga",
+  "frozen_inputs_sha256": "1ee5eb26fb1972173e9d8b1e765cb5ac24da9db7fff15e66c8e4859b57476d0b",
+  "launch_status": "PREPARED",
+  "runner_sha256": "7360d0a3df987d72e4d4ce60f4195220d8d83de6b62fda17c9848e754237ca8a",
+  "utc": "2026-10-28T08:14:00Z"
+}

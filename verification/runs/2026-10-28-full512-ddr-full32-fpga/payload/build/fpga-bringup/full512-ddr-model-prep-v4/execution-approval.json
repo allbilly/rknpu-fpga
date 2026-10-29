@@ -1,0 +1,23 @@
+{
+  "schema": "root-full512-ddr-model-execution-approval-v1",
+  "status": "ROOT_APPROVED_FULL512_DDR_TINYSTORIES_FULLMODEL_VOLATILE_TRIAL",
+  "approved": true,
+  "utc": "2026-10-28T05:28:55.582543+00:00",
+  "authorization": "User: u can start fpga test if needed",
+  "scope": "One reviewed volatile load, firstBOS, repeatedBOS and full32 original TinyStories workload; abort on any failed control or audit, no reset/reprogram between phases",
+  "trained_tile_prerequisite_sha256": "4d3ac12fc3e6cc4d92d492d4b231463e46e30cc7562b9ca0c0af75ca75836e44",
+  "image_review_sha256": "223b0dc3cc1a78a804a6f75b1d20baf3649bbe8265b192577580bbf4e258264a",
+  "canonical_hardware_review_sha256": "04ee9140232ebc4c2a263c66eb934c10b9b1ec83fa240a83278b244daf1efb18",
+  "bitstream_sha256": "d627b7155c4a4ad6b948424fbd28240a666ea6071bfe8c5d5b19f7da051b0031",
+  "source_sha256": "5e99f881eea21ff01bdf02f02435c7722a5ef78b820308727ac84f39edf0981f",
+  "usr_access": "5e99f881",
+  "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+  "expected_dna_port": "004E544714C705C",
+  "expected_raw_idcode": "23751093",
+  "memory_profile": "ddr",
+  "selected_physical_channel": 1,
+  "programming_scope": "volatile-sram",
+  "flash_authorized": false,
+  "reviewed_runner_sha256": "cd5ca6eec550b14bf225f371a0710e7d3842261ec5e5f7445dd327536069d1a8",
+  "actual_trained_auditor_schema_checked": true
+}

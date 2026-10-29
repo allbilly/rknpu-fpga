@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "receipt_kind": "WRAPPER_POSTRUN_FINALIZATION_FAILURE",
+  "captured_utc": "2026-10-26T17:34:44.963621+00:00",
+  "original_runner_output_directory": "build/production-refresh-host-controls/20261026T172521Z",
+  "original_launch_json_sha256": "dd978945b5ef505a7579194ed0a07c7a20a129faec858fc54a0bbb1f1653d00c",
+  "original_partial_run_report_sha256": "4b4ed70878627502326c58adb2039bcb9b4e7826ba17635f9b30aaf83c5dc2a1",
+  "raw_traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 91, in <module>\nAttributeError: 'list' object has no attribute 'get'\n",
+  "failed_action": "Offline JSON summary aggregation after both make commands had completed",
+  "make_command_record": {
+    "name": "production_test",
+    "argv": [
+      "make",
+      "-j2",
+      "test"
+    ],
+    "cwd": "/home/fedora/rknpu-fpga/build/production-refresh-host-controls/20261026T172521Z/workspace",
+    "started_utc": "2026-10-26T17:25:22.300488+00:00",
+    "status": "PASS",
+    "timeout_seconds": 1200,
+    "pid": 518737,
+    "returncode": 0,
+    "seconds": 452.074,
+    "finished_utc": "2026-10-26T17:32:54.377492+00:00",
+    "log_path": "build/production-refresh-host-controls/20261026T172521Z/production_test.log",
+    "log_sha256": "fe77fbeff7003d92326432d92d09a6c2169a2e41d13c668952558dd5d696c1b1"
+  },
+  "make_command_log_sha256": "fe77fbeff7003d92326432d92d09a6c2169a2e41d13c668952558dd5d696c1b1",
+  "source_manifest_before_sha256": "0df67a3f63826116dc575cb52a5fd3dab0da715c9e31fe33d8d5e9ffa53df917",
+  "note": "Receipt records the wrapper finalization error; it does not alter or relabel the preserved launch.json or report.json."
+}

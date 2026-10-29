@@ -1,0 +1,403 @@
+{
+  "schema": 1,
+  "profile": "host-jtag-ew-ila",
+  "top": "ypcb_jtag_ew_top",
+  "part": "xc7k480tffg1156-2",
+  "clock": {
+    "name": "sys_clk",
+    "port": "SYS_CLK",
+    "period_ns": 20.0,
+    "frequency_hz": 50000000,
+    "anchor_pin": "endpoint/engine/state_reg[0]/C"
+  },
+  "core": {
+    "name": "u_rk_ew_ila",
+    "depth": 1024,
+    "input_pipe_stages": 0,
+    "jtag_user_chain": 1
+  },
+  "synthesis_options": [
+    "-flatten_hierarchy",
+    "none",
+    "-fsm_extraction",
+    "off"
+  ],
+  "probes": [
+    {
+      "name": "backend_state",
+      "width": 3,
+      "nets": [
+        "endpoint/backend/state[0]",
+        "endpoint/backend/state[1]",
+        "endpoint/backend/state[2]"
+      ],
+      "description": "Mailbox SYS backend state including timeout quarantine"
+    },
+    {
+      "name": "dma_state",
+      "width": 3,
+      "nets": [
+        "endpoint/engine/state[0]",
+        "endpoint/engine/state[1]",
+        "endpoint/engine/state[2]"
+      ],
+      "description": "Raw command fetch and execution state"
+    },
+    {
+      "name": "engine_state",
+      "width": 4,
+      "nets": [
+        "endpoint/engine/engine/state[0]",
+        "endpoint/engine/engine/state[1]",
+        "endpoint/engine/engine/state[2]",
+        "endpoint/engine/engine/state[3]"
+      ],
+      "description": "EW operand read arithmetic and acknowledged write state"
+    },
+    {
+      "name": "job_control",
+      "width": 8,
+      "nets": [
+        "rst_n",
+        "endpoint/core_start_valid",
+        "endpoint/core_start_ready",
+        "endpoint/core_busy",
+        "endpoint/core_done",
+        "endpoint/core_error",
+        "irq",
+        "fault"
+      ],
+      "description": "LSB order reset release start valid start ready busy done core error IRQ fault"
+    },
+    {
+      "name": "memory_request",
+      "width": 3,
+      "nets": [
+        "endpoint/mem_req_valid",
+        "endpoint/mem_req_ready",
+        "endpoint/mem_req_write"
+      ],
+      "description": "LSB order request valid ready write"
+    },
+    {
+      "name": "memory_address",
+      "width": 32,
+      "nets": [
+        "endpoint/mem_req_addr[0]",
+        "endpoint/mem_req_addr[1]",
+        "endpoint/mem_req_addr[2]",
+        "endpoint/mem_req_addr[3]",
+        "endpoint/mem_req_addr[4]",
+        "endpoint/mem_req_addr[5]",
+        "endpoint/mem_req_addr[6]",
+        "endpoint/mem_req_addr[7]",
+        "endpoint/mem_req_addr[8]",
+        "endpoint/mem_req_addr[9]",
+        "endpoint/mem_req_addr[10]",
+        "endpoint/mem_req_addr[11]",
+        "endpoint/mem_req_addr[12]",
+        "endpoint/mem_req_addr[13]",
+        "endpoint/mem_req_addr[14]",
+        "endpoint/mem_req_addr[15]",
+        "endpoint/mem_req_addr[16]",
+        "endpoint/mem_req_addr[17]",
+        "endpoint/mem_req_addr[18]",
+        "endpoint/mem_req_addr[19]",
+        "endpoint/mem_req_addr[20]",
+        "endpoint/mem_req_addr[21]",
+        "endpoint/mem_req_addr[22]",
+        "endpoint/mem_req_addr[23]",
+        "endpoint/mem_req_addr[24]",
+        "endpoint/mem_req_addr[25]",
+        "endpoint/mem_req_addr[26]",
+        "endpoint/mem_req_addr[27]",
+        "endpoint/mem_req_addr[28]",
+        "endpoint/mem_req_addr[29]",
+        "endpoint/mem_req_addr[30]",
+        "endpoint/mem_req_addr[31]"
+      ],
+      "description": "Byte address of the unchanged halfword memory request"
+    },
+    {
+      "name": "memory_write_data",
+      "width": 16,
+      "nets": [
+        "endpoint/mem_req_wdata[0]",
+        "endpoint/mem_req_wdata[1]",
+        "endpoint/mem_req_wdata[2]",
+        "endpoint/mem_req_wdata[3]",
+        "endpoint/mem_req_wdata[4]",
+        "endpoint/mem_req_wdata[5]",
+        "endpoint/mem_req_wdata[6]",
+        "endpoint/mem_req_wdata[7]",
+        "endpoint/mem_req_wdata[8]",
+        "endpoint/mem_req_wdata[9]",
+        "endpoint/mem_req_wdata[10]",
+        "endpoint/mem_req_wdata[11]",
+        "endpoint/mem_req_wdata[12]",
+        "endpoint/mem_req_wdata[13]",
+        "endpoint/mem_req_wdata[14]",
+        "endpoint/mem_req_wdata[15]"
+      ],
+      "description": "Raw halfword write payload"
+    },
+    {
+      "name": "memory_response",
+      "width": 3,
+      "nets": [
+        "endpoint/mem_rsp_valid",
+        "endpoint/mem_rsp_ready",
+        "endpoint/mem_rsp_error"
+      ],
+      "description": "LSB order response valid ready error"
+    },
+    {
+      "name": "memory_read_data",
+      "width": 16,
+      "nets": [
+        "endpoint/mem_rsp_rdata[0]",
+        "endpoint/mem_rsp_rdata[1]",
+        "endpoint/mem_rsp_rdata[2]",
+        "endpoint/mem_rsp_rdata[3]",
+        "endpoint/mem_rsp_rdata[4]",
+        "endpoint/mem_rsp_rdata[5]",
+        "endpoint/mem_rsp_rdata[6]",
+        "endpoint/mem_rsp_rdata[7]",
+        "endpoint/mem_rsp_rdata[8]",
+        "endpoint/mem_rsp_rdata[9]",
+        "endpoint/mem_rsp_rdata[10]",
+        "endpoint/mem_rsp_rdata[11]",
+        "endpoint/mem_rsp_rdata[12]",
+        "endpoint/mem_rsp_rdata[13]",
+        "endpoint/mem_rsp_rdata[14]",
+        "endpoint/mem_rsp_rdata[15]"
+      ],
+      "description": "Raw halfword response payload"
+    },
+    {
+      "name": "dma_error",
+      "width": 8,
+      "nets": [
+        "endpoint/core_error_code[0]",
+        "endpoint/core_error_code[1]",
+        "endpoint/core_error_code[2]",
+        "endpoint/core_error_code[3]",
+        "endpoint/core_error_code[4]",
+        "endpoint/core_error_code[5]",
+        "endpoint/core_error_code[6]",
+        "endpoint/core_error_code[7]"
+      ],
+      "description": "Sticky raw DMA or arithmetic error code"
+    },
+    {
+      "name": "mailbox_status",
+      "width": 8,
+      "nets": [
+        "rsp_status[0]",
+        "rsp_status[1]",
+        "rsp_status[2]",
+        "rsp_status[3]",
+        "rsp_status[4]",
+        "rsp_status[5]",
+        "rsp_status[6]",
+        "rsp_status[7]"
+      ],
+      "description": "Mailbox reply status; interpret alongside control and backend state"
+    },
+    {
+      "name": "completed_tasks",
+      "width": 32,
+      "nets": [
+        "endpoint/core_completed_tasks[0]",
+        "endpoint/core_completed_tasks[1]",
+        "endpoint/core_completed_tasks[2]",
+        "endpoint/core_completed_tasks[3]",
+        "endpoint/core_completed_tasks[4]",
+        "endpoint/core_completed_tasks[5]",
+        "endpoint/core_completed_tasks[6]",
+        "endpoint/core_completed_tasks[7]",
+        "endpoint/core_completed_tasks[8]",
+        "endpoint/core_completed_tasks[9]",
+        "endpoint/core_completed_tasks[10]",
+        "endpoint/core_completed_tasks[11]",
+        "endpoint/core_completed_tasks[12]",
+        "endpoint/core_completed_tasks[13]",
+        "endpoint/core_completed_tasks[14]",
+        "endpoint/core_completed_tasks[15]",
+        "endpoint/core_completed_tasks[16]",
+        "endpoint/core_completed_tasks[17]",
+        "endpoint/core_completed_tasks[18]",
+        "endpoint/core_completed_tasks[19]",
+        "endpoint/core_completed_tasks[20]",
+        "endpoint/core_completed_tasks[21]",
+        "endpoint/core_completed_tasks[22]",
+        "endpoint/core_completed_tasks[23]",
+        "endpoint/core_completed_tasks[24]",
+        "endpoint/core_completed_tasks[25]",
+        "endpoint/core_completed_tasks[26]",
+        "endpoint/core_completed_tasks[27]",
+        "endpoint/core_completed_tasks[28]",
+        "endpoint/core_completed_tasks[29]",
+        "endpoint/core_completed_tasks[30]",
+        "endpoint/core_completed_tasks[31]"
+      ],
+      "description": "Successful raw task completion count"
+    },
+    {
+      "name": "command_configuration",
+      "width": 4,
+      "nets": [
+        "endpoint/engine/cmd_valid",
+        "endpoint/engine/cmd_ready",
+        "endpoint/engine/cfg_valid",
+        "endpoint/engine/cfg_ready"
+      ],
+      "description": "LSB order command valid ready then configuration valid ready"
+    },
+    {
+      "name": "command_word",
+      "width": 64,
+      "nets": [
+        "endpoint/engine/word_data[0]",
+        "endpoint/engine/word_data[1]",
+        "endpoint/engine/word_data[2]",
+        "endpoint/engine/word_data[3]",
+        "endpoint/engine/word_data[4]",
+        "endpoint/engine/word_data[5]",
+        "endpoint/engine/word_data[6]",
+        "endpoint/engine/word_data[7]",
+        "endpoint/engine/word_data[8]",
+        "endpoint/engine/word_data[9]",
+        "endpoint/engine/word_data[10]",
+        "endpoint/engine/word_data[11]",
+        "endpoint/engine/word_data[12]",
+        "endpoint/engine/word_data[13]",
+        "endpoint/engine/word_data[14]",
+        "endpoint/engine/word_data[15]",
+        "endpoint/engine/word_data[16]",
+        "endpoint/engine/word_data[17]",
+        "endpoint/engine/word_data[18]",
+        "endpoint/engine/word_data[19]",
+        "endpoint/engine/word_data[20]",
+        "endpoint/engine/word_data[21]",
+        "endpoint/engine/word_data[22]",
+        "endpoint/engine/word_data[23]",
+        "endpoint/engine/word_data[24]",
+        "endpoint/engine/word_data[25]",
+        "endpoint/engine/word_data[26]",
+        "endpoint/engine/word_data[27]",
+        "endpoint/engine/word_data[28]",
+        "endpoint/engine/word_data[29]",
+        "endpoint/engine/word_data[30]",
+        "endpoint/engine/word_data[31]",
+        "endpoint/engine/word_data[32]",
+        "endpoint/engine/word_data[33]",
+        "endpoint/engine/word_data[34]",
+        "endpoint/engine/word_data[35]",
+        "endpoint/engine/word_data[36]",
+        "endpoint/engine/word_data[37]",
+        "endpoint/engine/word_data[38]",
+        "endpoint/engine/word_data[39]",
+        "endpoint/engine/word_data[40]",
+        "endpoint/engine/word_data[41]",
+        "endpoint/engine/word_data[42]",
+        "endpoint/engine/word_data[43]",
+        "endpoint/engine/word_data[44]",
+        "endpoint/engine/word_data[45]",
+        "endpoint/engine/word_data[46]",
+        "endpoint/engine/word_data[47]",
+        "endpoint/engine/word_data[48]",
+        "endpoint/engine/word_data[49]",
+        "endpoint/engine/word_data[50]",
+        "endpoint/engine/word_data[51]",
+        "endpoint/engine/word_data[52]",
+        "endpoint/engine/word_data[53]",
+        "endpoint/engine/word_data[54]",
+        "endpoint/engine/word_data[55]",
+        "endpoint/engine/word_data[56]",
+        "endpoint/engine/word_data[57]",
+        "endpoint/engine/word_data[58]",
+        "endpoint/engine/word_data[59]",
+        "endpoint/engine/word_data[60]",
+        "endpoint/engine/word_data[61]",
+        "endpoint/engine/word_data[62]",
+        "endpoint/engine/word_data[63]"
+      ],
+      "description": "Unchanged fetched command QWORD before profile decode"
+    }
+  ],
+  "state_codebooks": [
+    {
+      "name": "backend_state",
+      "source": "rtl/host/rk_jtag_backend.sv",
+      "type": "state_t",
+      "signal": "endpoint/backend/state",
+      "declared_width": 3,
+      "selected_bits": [
+        0,
+        1,
+        2
+      ],
+      "values": {
+        "IDLE": 0,
+        "WRITE_REG": 1,
+        "READ_REG": 2,
+        "MEM_REQ": 3,
+        "MEM_RSP": 4,
+        "QUARANTINE": 5
+      }
+    },
+    {
+      "name": "dma_state",
+      "source": "rtl/rk_ew_dma.sv",
+      "type": "state_t",
+      "signal": "endpoint/engine/state",
+      "declared_width": 3,
+      "selected_bits": [
+        0,
+        1,
+        2
+      ],
+      "values": {
+        "IDLE": 0,
+        "CHECK": 1,
+        "FETCH_REQ": 2,
+        "FETCH_WAIT": 3,
+        "SEND": 4,
+        "RUN": 5
+      }
+    },
+    {
+      "name": "engine_state",
+      "source": "rtl/rk_ew_engine.sv",
+      "type": "state_t",
+      "signal": "endpoint/engine/engine/state",
+      "declared_width": 4,
+      "selected_bits": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "values": {
+        "IDLE": 0,
+        "A_REQ": 1,
+        "A_WAIT": 2,
+        "B_REQ": 3,
+        "B_WAIT": 4,
+        "CALC_REQ": 5,
+        "CALC_WAIT": 6,
+        "W_REQ": 7,
+        "W_WAIT": 8
+      }
+    }
+  ],
+  "description": "Optional source preparation only. USER2 mailbox ownership is preserved and the ILA hub uses USER1. A separately validated acquisition and exclusive cable ownership workflow may arm before an explicit host SUBMIT. No arming transport restart bitstream programming or physical capture is implemented here. All shared hardware JTAG accesses including ILA arm and readout must stay at or below6MHz.",
+  "references": [
+    "https://docs.amd.com/r/en-US/ug908-vivado-programming-debugging/Using-XDC-Commands-to-Insert-Debug-Cores",
+    "https://docs.amd.com/r/en-US/ug835-vivado-tcl-commands/create_debug_core",
+    "https://docs.amd.com/r/en-US/ug835-vivado-tcl-commands/implement_debug_core",
+    "https://docs.amd.com/r/en-US/ug908-vivado-programming-debugging/Changing-the-BSCAN-User-Scan-Chain-of-the-Debug-Core-Hub",
+    "https://docs.amd.com/r/en-US/ug908-vivado-programming-debugging/Debug-Cores-Clocking-Guidelines"
+  ]
+}

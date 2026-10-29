@@ -1,0 +1,41 @@
+{
+  "command": [
+    "/home/linuxbrew/.linuxbrew/bin/verilator",
+    "--lint-only",
+    "--Wall",
+    "--top-module",
+    "rk_ddr_capacity_bist",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_bist.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_axi.sv",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv"
+  ],
+  "hardware_executed": false,
+  "returncode": 0,
+  "scope": "Elaboration/lint only, no behavioral simulation, mapping, MIG, timing or physical capacity qualification",
+  "source_hashes_after": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+  },
+  "source_hashes_before": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+  },
+  "status": "PASS_STRICT_COMPOSITION_LINT_ONLY",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "89eae8e2b490d75248a33231f28ad460754d34de870ecb2139269b106c5fddb6",
+  "timeout_seconds": 300,
+  "tool_sha256": "7550862b9b1b41aa6aadb60b6c793f1e796a3ccb5ef18375d834b7a13f39efeb",
+  "tool_version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+  "utc": "2026-10-28T06:42:51.141911+00:00"
+}

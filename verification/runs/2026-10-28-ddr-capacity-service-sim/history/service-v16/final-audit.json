@@ -1,0 +1,138 @@
+{
+  "command_count": 11,
+  "frozen_manifest_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-validation-v16/frozen-inputs.json",
+  "frozen_manifest_sha256": "deecbe9d41bf4b3f408a4b28f2557b9b0b41bbbea8d43ea1c4d6d632055be16d",
+  "git_head": "8b23d647d4a1c8cdaf7bdad2160f45b285ca6909",
+  "hardware_executed": false,
+  "issues": [],
+  "originals": {
+    "source/rk_ddr_capacity_axi.sv": {
+      "path": "rtl/ddr/rk_ddr_capacity_axi.sv",
+      "sha256": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8"
+    },
+    "source/rk_ddr_capacity_bist.sv": {
+      "path": "rtl/ddr/rk_ddr_capacity_bist.sv",
+      "sha256": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae"
+    },
+    "source/rk_ddr_capacity_owner.sv": {
+      "path": "build/ddr-capacity-owner-source-v1/rk_ddr_capacity_owner.sv",
+      "sha256": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e"
+    },
+    "source/rk_ddr_capacity_pattern.sv": {
+      "path": "rtl/ddr/rk_ddr_capacity_pattern.sv",
+      "sha256": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8"
+    },
+    "source/rk_ddr_capacity_regs.sv": {
+      "path": "build/ddr-capacity-owner-source-v1/rk_ddr_capacity_regs.sv",
+      "sha256": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7"
+    },
+    "source/rk_ddr_capacity_service.sv": {
+      "path": "build/ddr-capacity-service-source-v3/rk_ddr_capacity_service.sv",
+      "sha256": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc"
+    },
+    "source/rk_ddr_capacity_sweep.sv": {
+      "path": "rtl/ddr/rk_ddr_capacity_sweep.sv",
+      "sha256": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af"
+    },
+    "source/rk_ddr_diagnostic_mux.sv": {
+      "path": "build/ddr-capacity-mux-source-v2/rk_ddr_diagnostic_mux.sv",
+      "sha256": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd"
+    },
+    "source/rk_mig_ecc_monitor.sv": {
+      "path": "rtl/ddr/rk_mig_ecc_monitor.sv",
+      "sha256": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5"
+    },
+    "source/rk_mig_write_fence.sv": {
+      "path": "rtl/ddr/rk_mig_write_fence.sv",
+      "sha256": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+    }
+  },
+  "physical_capacity_qualified": false,
+  "postrun_hashes": {
+    "run_validation.py": "99b6a5801fa64d66736deb54dd1fd795a2517ff2c344847fd6b50bbac4f234eb",
+    "source/compose_service.py": "334af48562b84e7fd55a9ab50c17cb622431564752782ac01be287875ac81e7c",
+    "source/port-names.json": "8a4d967d9dd8c433ff806289985bed52562561b600842a553c0800b3ecf61487",
+    "source/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "source/rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "source/rk_ddr_capacity_owner.sv": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+    "source/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "source/rk_ddr_capacity_regs.sv": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+    "source/rk_ddr_capacity_service.sv": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc",
+    "source/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "source/rk_ddr_diagnostic_mux.sv": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+    "source/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "source/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+    "source/tb_ddr_capacity_service.sv": "4df37811b31294d2015a49ef31627610765f81bd0d5523c8dee982d847adff87"
+  },
+  "profiles": [
+    {
+      "base_addr": 0,
+      "marker": "PASS capacity_service base=00000000 span=00000100 lines=4 diagnostic_writes=8 diagnostic_reads=8 fences=4",
+      "profile": "base0_256",
+      "simulator": "iverilog",
+      "span_bytes": 256
+    },
+    {
+      "base_addr": 4096,
+      "marker": "PASS capacity_service base=00001000 span=00000200 lines=8 diagnostic_writes=16 diagnostic_reads=16 fences=4",
+      "profile": "base1000_512",
+      "simulator": "iverilog",
+      "span_bytes": 512
+    },
+    {
+      "base_addr": 0,
+      "marker": "PASS capacity_service base=00000000 span=00000100 lines=4 diagnostic_writes=8 diagnostic_reads=8 fences=4",
+      "profile": "base0_256",
+      "simulator": "verilator",
+      "span_bytes": 256
+    },
+    {
+      "base_addr": 4096,
+      "marker": "PASS capacity_service base=00001000 span=00000200 lines=8 diagnostic_writes=16 diagnostic_reads=16 fences=4",
+      "profile": "base1000_512",
+      "simulator": "verilator",
+      "span_bytes": 512
+    }
+  ],
+  "runner_report_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-validation-v16/report.json",
+  "runner_report_sha256": "a68a4a283b111d818ef00865092d9009a3e328885ac8d608012429dbf6b40e49",
+  "scope": "Private composed service with behavioral RAM/ECC-control slaves only; no real MIG/PHY/board/full capacity qualification.",
+  "source_default_timeout_cycles": 65536,
+  "source_inputs": {
+    "run_validation.py": "99b6a5801fa64d66736deb54dd1fd795a2517ff2c344847fd6b50bbac4f234eb",
+    "source/compose_service.py": "334af48562b84e7fd55a9ab50c17cb622431564752782ac01be287875ac81e7c",
+    "source/port-names.json": "8a4d967d9dd8c433ff806289985bed52562561b600842a553c0800b3ecf61487",
+    "source/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "source/rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "source/rk_ddr_capacity_owner.sv": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+    "source/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "source/rk_ddr_capacity_regs.sv": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+    "source/rk_ddr_capacity_service.sv": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc",
+    "source/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "source/rk_ddr_diagnostic_mux.sv": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+    "source/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "source/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+    "source/tb_ddr_capacity_service.sv": "4df37811b31294d2015a49ef31627610765f81bd0d5523c8dee982d847adff87"
+  },
+  "status": "PASS_PRIVATE_FULL_SERVICE_MODELED_AXI_AUDIT",
+  "test_contracts": [
+    "normal memory and ECC-control read/write before handoff",
+    "START rejected with normal_job_owned and normal_host_busy",
+    "accepted START while memory B (lane0) and CTRL R (lane1) are independently held despite true logical quiet witnesses; both drain before selection",
+    "internal ECC monitor initialization completes before BIST launch",
+    "full modeled BIST pattern verifies all 512 bits per line at base 0 span 256 and base 0x1000 span 512; counters and four fences checked; final STATUS 0x68",
+    "normal READY/VALID does not leak during diagnostic ownership",
+    "held late normal AW after grant faults owner code4 and does not forward; status remains readable",
+    "joint reset restores normal selection and model RAM persists; normal memory/control traffic and seed/start rearm work",
+    "returned BIST line corruption triggers expected owner code5/sweep mismatch code4; all sixteen expected/actual words and address checked",
+    "same-edge external platform-health loss after BIST done rejects owner completion with code1; reset restores normal traffic"
+  ],
+  "test_service_timeout_override": 256,
+  "tool_versions": {
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "verilator": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+    "vvp": "Icarus Verilog runtime version 13.0 (stable) (v13_0)"
+  },
+  "utc": "2026-10-28T08:10:08.509609+00:00",
+  "vivado_executed": false
+}

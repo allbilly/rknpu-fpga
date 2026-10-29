@@ -1,0 +1,55 @@
+# Standalone generation of the unchanged original MIG project. No implementation
+# or hardware action. A separate native command receipt must accompany execution.
+set expected_inputs @INPUTS@
+set project_xml @PROJECT_XML@
+set out @OUTPUT@
+proc rk_original_require {condition message} {if {!$condition} {error $message}}
+proc rk_original_inputs {} {
+    global expected_inputs
+    dict for {path expected} $expected_inputs {
+        rk_original_require [file isfile $path] "Missing frozen generation input"
+        set raw [exec sha256sum -z -- $path]
+        rk_original_require [regexp {^([0-9a-f]{64})[ \t]} $raw -> actual] "Invalid SHA256 result"
+        rk_original_require [expr {$actual eq $expected}] "Frozen generation input changed"
+    }
+}
+rk_original_inputs
+rk_original_require [expr {[version -short] eq "2026.1"}] "Unreviewed generator version"
+rk_original_require [expr {![file exists $out]}] "Fresh generation directory required"
+file mkdir $out
+create_project rknpu_original_mig [file join $out project] -part xc7k480tffg1156-2
+rk_original_require [expr {[get_property PART [current_project]] eq "xc7k480tffg1156-2"}] "Wrong generation target"
+set_property target_language Verilog [current_project]
+file mkdir [file join $out ip]
+create_ip -name mig_7series -vendor xilinx.com -library ip -version 4.2 -module_name top_mig_7series_0_0 -dir [file join $out ip]
+set ip [get_ips top_mig_7series_0_0]
+rk_original_require [expr {[llength $ip] == 1}] "Expected one exact original MIG IP"
+set_property CONFIG.XML_INPUT_FILE $project_xml $ip
+generate_target all $ip
+report_ip_status -file [file join $out ip_status.rpt]
+set root [file join $out ip top_mig_7series_0_0 top_mig_7series_0_0]
+foreach name {
+    user_design/rtl/top_mig_7series_0_0.v
+    user_design/rtl/top_mig_7series_0_0_mig.v
+    user_design/rtl/axi/mig_7series_v4_2_axi_mc.v
+    user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_top.v
+    user_design/rtl/controller/mig_7series_v4_2_mc.v
+} {
+    rk_original_require [file isfile [file join $root $name]] "Missing generated controller source"
+}
+rk_original_inputs
+set version_file [open [file join $out native_version.txt] {WRONLY CREAT EXCL}]
+puts $version_file [version]
+close $version_file
+set receipt [open [file join $out generation.tsv] {WRONLY CREAT EXCL}]
+puts $receipt "STATUS\tPASS_GENERATED_ORIGINAL_MIG_SOURCES_ONLY"
+puts $receipt "PART\txc7k480tffg1156-2"
+puts $receipt "MODULE\ttop_mig_7series_0_0"
+puts $receipt "TOOL_SHORT\t[version -short]"
+puts $receipt "SOURCE_INPUTS_UNCHANGED\t1"
+puts $receipt "PHYSICAL_INTEGRATION_READY\t0"
+puts $receipt "HARDWARE_ACCESSED\t0"
+close $receipt
+close_project
+puts "PASS_GENERATED_ORIGINAL_MIG_SOURCES_ONLY"
+exit

@@ -1,0 +1,32 @@
+{
+  "status": "PASS_ROOT_TINYSTORIES_PREPARATION_AND_FIRST_TILE_REVIEW_ONLY",
+  "utc": "2026-10-26T18:45:38.579860+00:00",
+  "model_and_static_data_copies_identical": 120,
+  "static_projection_count": 36,
+  "static_tiles": 116,
+  "packed_weight_bytes": 557056,
+  "cpu_reference_scope": "Official unmodified C, full5layers; source packagev1",
+  "current_package_scope": "v2samebinaryassetsandtiles,strongermetadatavalidation",
+  "first_tile_native": {
+    "simulator": "Icarus13",
+    "products": 512,
+    "reads": 2176,
+    "writes": 32,
+    "acknowledgments": 32,
+    "modes": [
+      0,
+      6,
+      7
+    ]
+  },
+  "unity_compaction_scope": "126976 finite comparisons each simulator, ALU-only; complete raw compaction/joined host not verified",
+  "full_make_status": "FAIL600secondIcarusSUB9timeout",
+  "focused_replay": {
+    "status": "RUNNING",
+    "pid": 554154,
+    "path": "/home/fedora/rknpu-fpga/build/tinystories-host-timeout-replay/20261026T184305Z/report.json",
+    "live_now": true
+  },
+  "fpga_model_inference": false,
+  "tinygrad_integration_deferred": true
+}

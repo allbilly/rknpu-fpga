@@ -1,0 +1,42 @@
+{
+  "status": "RESOURCE_GATE_PASS_FOR_PRODUCTION_V7",
+  "required": {
+    "MemAvailable_min_bytes": 8589934592,
+    "CPU_PSI_some_avg10_max_exclusive": 5.0,
+    "memory_PSI_full_avg10_max_exclusive": 1.0,
+    "cgroup": {
+      "MemoryMax": "6442450944",
+      "MemorySwapMax": "0",
+      "CPUQuota": "200%",
+      "TasksMax": 256
+    }
+  },
+  "samples": [
+    {
+      "utc": "2026-10-27T19:40:33.988796+00:00",
+      "memavailable_bytes": 30948483072,
+      "cpu_psi_some_avg10": 0.0,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true
+    },
+    {
+      "utc": "2026-10-27T19:41:14.591285+00:00",
+      "memavailable_bytes": 29318426624,
+      "cpu_psi_some_avg10": 0.0,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true
+    },
+    {
+      "utc": "2026-10-27T19:41:53.270712+00:00",
+      "memavailable_bytes": 28863455232,
+      "cpu_psi_some_avg10": 0.0,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true
+    }
+  ],
+  "launch_performed": true,
+  "run_py_sha256": "4d006cf389aff2afebc5e7bf323794d74575072b33f2338415bee45b63993002",
+  "actual_launch_utc": "2026-10-27T19:42:09.181565+00:00",
+  "unit": "rknpu-production-model-auditors-current-v7.scope",
+  "launch_receipt_written_post_start": true
+}

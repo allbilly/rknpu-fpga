@@ -1,0 +1,6 @@
+%Warning-DECLFILENAME: /home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v5/source/tb_capacity_regs.sv:193:8: Filename 'tb_capacity_regs' does not match MODULE name: 'tb_capacity_regs_badparams'
+  193 | module tb_capacity_regs_badparams #(parameter logic [30:0] BAD_BASE=0, parameter logic [31:0] BAD_SPAN=32'h80000000);
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/DECLFILENAME?v=5.048
+                       ... Use "/* verilator lint_off DECLFILENAME */" and lint_on around source to disable this message.
+%Error: Exiting due to 1 warning(s)

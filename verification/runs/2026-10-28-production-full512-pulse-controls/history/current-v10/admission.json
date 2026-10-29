@@ -1,0 +1,45 @@
+{
+  "launch_performed": false,
+  "parent_v9_report_sha256": "64f8c06e22ee12e32a7c6543d20d0c4e3fb03863e1da4085fe4adc1b373be86a",
+  "required": {
+    "CPU_PSI_some_avg10_max_exclusive": 5.0,
+    "MemAvailable_min_bytes": 8589934592,
+    "cgroup": {
+      "CPUQuota": "200%",
+      "MemoryMax": "6442450944",
+      "MemorySwapMax": "0",
+      "TasksMax": 256
+    },
+    "memory_PSI_full_avg10_max_exclusive": 1.0
+  },
+  "run_py_sha256": "2dd4f7c0de214c860af811e74684d0ae818990681634e0f58b855da3cf4e98b5",
+  "sample_sources": {
+    "CPU_PSI_some_avg10": "/proc/pressure/cpu",
+    "MemAvailable": "/proc/meminfo",
+    "memory_PSI_full_avg10": "/proc/pressure/memory"
+  },
+  "samples": [
+    {
+      "cpu_psi_some_avg10": 0.44,
+      "memavailable_bytes": 27050803200,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T00:32:07.964149+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.3,
+      "memavailable_bytes": 26994102272,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T00:32:54.562544+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.55,
+      "memavailable_bytes": 26949423104,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T00:33:38.386700+00:00"
+    }
+  ],
+  "status": "RESOURCE_GATE_PASS_FOR_PRODUCTION_V10"
+}

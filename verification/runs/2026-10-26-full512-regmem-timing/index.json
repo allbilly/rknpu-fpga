@@ -1,0 +1,1312 @@
+{
+  "schema_version": 1,
+  "status": "PRESERVED_FULL512_REGISTERED_RAM_TIMING_TEXT_EVIDENCE",
+  "created_utc": "2026-10-26T13:10:00.388634+00:00",
+  "scope": "Complete125-file frozen source snapshot and selected native/timing/INIT/DRC/model/observer control text; DCP/netlist/binaries and full execution closures remain local. No image/programming admission or actual full512 FPGA result.",
+  "part": "xc7k480tffg1156-2",
+  "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+  "frozen_source_files": {
+    "build/rknpu-dsp-prefix-array-area/1792947201846706713/report.json": "90ac37edaf9c7d1d46314c4688d1f22da4fff4e0fc6f77258d8b12bc3334baaf",
+    "build/rknpu-dsp-prefix-array-generated-top-replay/1792950494827304453/report.json": "14b1d5d6eda5d14a7e5753aff7ba1e79c0d288f8cafd31c876c675b2ead28133",
+    "build/rknpu-dsp-prefix-array-native/1792947201927138428/report.json": "9d990fd582edf65cdba41932b9697d861864947b9825031f862b53bf22f2bd99",
+    "build/rknpu-dsp-prefix-board-replay/1792947718359945807/report.json": "344e1c977516efa22d0d5e362ca0794182353cab69ede29906fd06309dae689d",
+    "build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/area_snapshot.json": "90ac37edaf9c7d1d46314c4688d1f22da4fff4e0fc6f77258d8b12bc3334baaf",
+    "build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/board_snapshot.json": "344e1c977516efa22d0d5e362ca0794182353cab69ede29906fd06309dae689d",
+    "build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/mapped_snapshot.json": "14b1d5d6eda5d14a7e5753aff7ba1e79c0d288f8cafd31c876c675b2ead28133",
+    "build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/native_snapshot.json": "9d990fd582edf65cdba41932b9697d861864947b9825031f862b53bf22f2bd99",
+    "build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/profile_evidence.json": "a3d2fd87fc12680a9b34ef30bf667c504aca720ca6b47746d742de59d9671739",
+    "build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/report.json": "b71c71aca1a2bccd80c263bd5e8854bc11b2688749a55aaf192a7eb2a261b635",
+    "build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/rk_cmac_cacc_fp16_array.sv": "90f27bf34886173f3c7228d55f837139bbca65abb7a4411ea1bf230105700e4c",
+    "fpga/cmac/array_sources.json": "aface51453933d919e833d5d9d8dac5a606ee287f1d9f42c371f12cb12dbd659",
+    "fpga/cmac/build_array.tcl.in": "fc721b15d329e531e5937a97bd8346c635a2458c779b2a8db82e34b362fb1275",
+    "fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+    "fpga/cmac/startup/ypcb_cmac_array_startup.xdc": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+    "fpga/cmac/startup/ypcb_cmac_array_startup_top.sv": "57cc07ce50aaa85ef556307948356c6360de72c147787ae6b2cedb9617cbe490",
+    "fpga/cmac/ypcb_cmac_array_top.sv": "2872f3470a267f8a2128631a082eacaa2ccaf39c799cee1eee298c42c60335ad",
+    "fpga/ew_checkpoint.tcl.in": "e598156491a55bdd5fd00f33a0b72bbfb978b487eda327267bba85e1b271a61b",
+    "fpga/ypcb.xdc": "daa9aaddb8c02f539a58bb00faf9dedc260b205542a6d7851850c3b233325817",
+    "generated/rk_cmac_cacc_fp16_array.sv": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+    "rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+    "rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+    "rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+    "rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+    "rtl/cmac/experimental/rk_cmac_fp16_array_fixed.sv": "f224977011f01de1f9772221c7be3d1fe11e2e5e9f2358991941f076f293b1ec",
+    "rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+    "rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+    "rtl/cmac/experimental/rk_cmac_fp16_cell_fixed.sv": "a5cd977ff063a50e0f77eabd087e5f71ba0101dc4914990c2c2e9c86e30034e7",
+    "rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+    "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+    "rtl/cmac/experimental/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+    "rtl/cmac/rk_cacc_fp16_array.sv": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+    "rtl/cmac/rk_cmac_array_bram_demo.sv": "faa444d27e54562b3f1fe8fcc7a0b732ca6c2d4eae561dc723ab7acf1aeeeb38",
+    "rtl/cmac/rk_cmac_array_core.sv": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+    "rtl/cmac/rk_cmac_array_datapath.sv": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+    "rtl/cmac/rk_cmac_array_demo_rom.sv": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+    "rtl/cmac/rk_cmac_array_dma.sv": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+    "rtl/cmac/rk_cmac_array_front.sv": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+    "rtl/cmac/rk_cmac_cacc_fp16_array.sv": "b66904ee5a76325f72032adea874692179e981d459b57ad738414f39e9e209c6",
+    "rtl/cmac/rk_cmac_demo_memory.sv": "d79444d1776d5664736da3d9d17405b0f890fda30759fa578f35a94cc69ae58d",
+    "rtl/cmac/rk_cmac_fp16_array.sv": "62f8d10e064a21751b7b9e73713d8665d52a95f10151288a0167a8d7c4ec7223",
+    "rtl/cmac/rk_cmac_fp16_cell.sv": "a44f54a1c8b76f5703d9807a05c308c03b7e2859aba06adadaa3772e79347109",
+    "rtl/cmac/rk_cmac_frame_output.sv": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+    "rtl/cmac/rk_cmac_output_nvdla.sv": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+    "rtl/cmac/rk_cmac_rw_arbiter.sv": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+    "rtl/cmac/rk_cmac_writer.sv": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+    "rtl/cmac/rk_nvdla_cacc.sv": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+    "rtl/cmac/rk_nvdla_fp32_to_fp16.sv": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+    "rtl/rk_cmac_profile.sv": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+    "rtl/rk_startup_reset.sv": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+    "rtl/vendor/nvdla/HLS_fp32_to_fp16.v": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+    "rtl/vendor/nvdla/LICENSE": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb",
+    "rtl/vendor/nvdla/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+    "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+    "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+    "rtl/vendor/nvdla/assertion_header.h": "433144e681c5823d1e886c9872a8e6b2bd0b2d7e7f221f2dc8620ba04c2585e9",
+    "rtl/vendor/nvdla/assertion_task.h": "1bff44cbd43cead87f9357c8ba25e1b7a1a639fabfc081082470655b69e25cbd",
+    "rtl/vendor/nvdla/compat/NV_DW_lsd.v": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+    "rtl/vendor/nvdla/compat/nv_assert_never.v": "28a3ff37142647e9499cc0dd88095313c029acffe1bf7806160eb9fbbd288732",
+    "rtl/vendor/nvdla/compat/nv_assert_no_x.v": "6eb56dc9ea269a4b071d3c00de3a23f5b75782b72403bcc72a7acc9e625a6e97",
+    "rtl/vendor/nvdla/nv_assert_never.vlib": "d5b31a424e4518cdf58ef9fe303a749cd514bc1d134a9ac8198b454adc12c2ad",
+    "rtl/vendor/nvdla/nv_assert_no_x.vlib": "64ae1b6d9735257b681d3ad42ee0e05f425fc0ec11308c845cb7f668ce117a02",
+    "tests/cmac/array_data/board_rom.hex": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+    "tests/cmac/array_data/commands.hex": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+    "tests/cmac/array_data/fixture.json": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+    "tests/cmac/array_data/fp32.hex": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+    "tests/cmac/array_data/groups.hex": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+    "tests/cmac/array_data/input.hex": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+    "tests/cmac/array_data/reads.hex": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+    "tests/cmac/array_data/source_report.json": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+    "tests/cmac/array_data/weight.hex": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+    "tests/cmac/array_data/writes.hex": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+    "tests/cmac/startup/tb_array_startup.sv": "b861e0913aad677326a580880a167277e2218502ad52eed867848ff66842d3c0",
+    "tests/cmac/startup/test_prepare.py": "9c62e707c2cbb828ceb21c78398fd925f9cdabe3fd320009020cebbd45d4efcd",
+    "tests/cmac/startup/test_qualification.py": "102fefec73b9b07d6dd236cb69fae3fad805411e50e70afea04bd7dedb575aac",
+    "tests/test_fpga_build.py": "2fa9140cecbc82e13274315536336313094b3a94e77ca003480524d85a3f3e13",
+    "tools/cmac/audit_dsp_prefix_compile_inventory.py": "1aa44ce3df0af418a8ae636959138bdc081bd58e91b81057e7fe7fcf24b0ac82",
+    "tools/cmac/audit_dsp_prefix_pin_cone.py": "d2fbe7cf11742acda2d940ee344739f2bd533b3f96497510725f8bf093c15717",
+    "tools/cmac/audit_lane_dsp_product.py": "13bf929b6926de037196f25a0db1651840f095bcd01b2de16f0f506d676157fb",
+    "tools/cmac/audit_lane_dsp_ranges.py": "35a7c42ff6a1fec392d137e570295056c601965744a70350ebff091fb62af3ea",
+    "tools/cmac/balanced_max/prepare.py": "e3defc7ca9c095ec7e72b0e442fb7b93a05050f4877cdc2a9e57750db9a5dfc6",
+    "tools/cmac/balanced_max/run.py": "1c5fba5f2a68b1e01fbf011f51b5d89d8ea4d07bff5ad9ad65cf810ec0664feb",
+    "tools/cmac/check_lane_dsp.py": "17e920716c0a18db515094c53b5c7ee9a41fb52301daf712db9d211b4ca5f95c",
+    "tools/cmac/dsp_array_contract.py": "49905e33d4af52c06ed3e74e68037b18fb05a2444046e10eb7ab22ad52d57368",
+    "tools/cmac/dsp_prefix_array_contract.py": "8bac0c7b674fbb5d21c3f97bc5340f27f416aac348917c21814ed436811c921f",
+    "tools/cmac/dsp_prefix_build_contract.py": "5ef720a266b51c7de3df84f96a406691290cde4fd3862ac33c7b2ad6ef13e1b9",
+    "tools/cmac/dsp_prefix_compile_admission.py": "4396df1950c6f56af47b67d186b5d97a0626810252cec666705966a42add46f9",
+    "tools/cmac/dsp_prefix_mapped_contract.py": "bb550e278ad6dac9572d672d94c09a538db03383ecf73b5692a58e9f1e863b89",
+    "tools/cmac/dsp_prefix_protected_library_contract.py": "13d2ff846881aaa48373cb9a77eeaff579cf498bfd402063d6b74904fd454f74",
+    "tools/cmac/dsp_prefix_top_compile_admission.py": "000db28344e67219edfad141822c08329cf584457ce93b497b09190458748f3c",
+    "tools/cmac/gen_array_board.py": "fa27464c1ab58d0facd426e0aca893ecc123f604d6fcec349b44eeb4133270b2",
+    "tools/cmac/lane_dsp_library.py": "697237ed52458fb8dafad09f3c2b05615f1aa41a4a997a4a67930f315fcb3c03",
+    "tools/cmac/map_dsp_prefix_array.py": "ff44e73b6a4ef956627b302a383a688c7e8bb4500ac8b30d72dc58aa67d632d5",
+    "tools/cmac/map_dsp_prefix_board.py": "3e7ff8d57dc01665d8f81e0825880aa7c2f46103e04c9932bccc0a3d0ff1fa6d",
+    "tools/cmac/map_fixed_board.py": "d798e497bcb436d61278944f477a6ca89d2588837abb80e400bfcf0690d9b439",
+    "tools/cmac/pipeline/prepare.py": "60daf7076df93d71dcdb7a60375f1900ac604b2bc908dd27b2399d44940e9915",
+    "tools/cmac/pipeline/run.py": "2327f49ce80cb38b2965174a1be32bf49a77eb851dd8fa482bcc927a4ae63bd8",
+    "tools/cmac/prepare_dsp_prefix_array.py": "6456da3f40d98e80de6f9d16b6577d3a2500ae6c695f7e36f97b7a4ac9a9bd35",
+    "tools/cmac/prepare_dsp_prefix_board.py": "878cb06616fc460a088fbb18dd35ee232ac6a54c9b8a6ce47f630d54d2a4d71a",
+    "tools/cmac/prepare_dsp_prefix_checkpoint.py": "c9ac283ebb21a50e2fd78d76337b72e4a82246d06541880c94503c27887d9629",
+    "tools/cmac/prove_dsp_prefix_actual_model.py": "47efdcbbc88d0f93ed747e398214d57978dfaed82d53e7d5b6143fbb63072f83",
+    "tools/cmac/prove_lane_dsp_components.py": "c6ba910ec7aebf53cdb028b68a978071f03230ae2609fcb8edd6fed2949ab54b",
+    "tools/cmac/prove_lane_dsp_composed.py": "fcd91f2eced2f14b4f6fe42ec5131c342e4a4e8ffa506ba4e21fe183857c4ea9",
+    "tools/cmac/prove_lane_dsp_tree_ranges.py": "d4e7daa3ce35ed0af460cbbb0e9c3981b0aa22d1146adbf16a3d6dde9f1eeb10",
+    "tools/cmac/regmem/prepare.py": "43ccb66812a7d08874a9f82c10a2a7185edb19e1064518ac3da44b75237d2597",
+    "tools/cmac/regmem/run_memory.py": "62c4fbb68da30e3aa48202472a7c902209ce5c798abc67cffe12188c73a27e61",
+    "tools/cmac/replay_dsp_prefix_board.py": "f10d734661edbe6c6134d2c26cf4a379ace1a7acc64f29bb38fd4768603c3295",
+    "tools/cmac/startup/__init__.py": "0d21589252ac552e822c3b02da41720b8dd85b3dd65daa93c6511268c672df38",
+    "tools/cmac/startup/prepare.py": "a4d74258640de9d856b5374146d08e5e4fa6704401934f8a601d7fcc1aeb7b86",
+    "tools/cmac/startup/qualification.py": "b1ea244ce5e980387a7fbf3a2f05fbe10a8e76be03de0f88fb9ac8c5d44cd5af",
+    "tools/cmac/startup/run.py": "65bd7dd4cefd961efefec7a328773adfeed220e1c7c36614e51952ad6a1ebd47",
+    "tools/cmac/test_dsp_prefix_array_native.py": "1587a928863b5290a5161085ffad749d330665c6f11c6908d35529669e1dbbfe",
+    "tools/cmac/test_dsp_prefix_carry.py": "f85adeb697e540ebbd61515a29427d1c49ffa2ca3b202e9488f898cd2f8c253c",
+    "tools/cmac/test_dsp_prefix_fdce_startup.py": "8555eb593672e95f009c98714d1a58ac60d9a12d45279716ef89333bb1b68095",
+    "tools/cmac/test_dsp_prefix_mapped_array.py": "49b0aded77c959e232c2db3bf92800e8ee9eda32a8abdd7c2e0e22bbf807537b",
+    "tools/cmac/test_dsp_prefix_primitive_models.py": "443d34ba4312ac4a724409b7fb18a436f30353114d15fac3f202c82de5f6eb7b",
+    "tools/cmac/test_fixed_array_board.py": "c1674b8a5c1eeedebbd96c5c7949371f1fa905ca8671491a39c8a70af0231928",
+    "tools/cmac/test_fixed_mapped_array.py": "6ccc0efff1b87cb7424a5ab39a85812c932ad9d6548eb26a26a56fdfb3639a25",
+    "tools/cmac/test_mapped_prefix_dsp.py": "2de4980c02d1478a2c8141f4678c71cb92e8ca5e7f91a364a56d271a44c07369",
+    "tools/cmac/verify_dsp_prefix_clean_replay.py": "5d781c8560fafd8f0998b82a840bc07704495ffbd1014d8bc90a397cce383d23",
+    "tools/cmac/vivado_array.py": "59e56a9dc53a924ae777f7ccf37d579d72cb641aa27afedb4010c1b9c25e652b",
+    "tools/cmac/vivado_dsp_prefix_array.py": "0f94dd93dec5b3803d1136ae49afebc62dcc03c72ac346294874bf3803cc14c6",
+    "tools/cmac/xc7_primitive_counts.py": "708a3e6b88a8b1889262291cc7c0a909e2ef9ba88c569a6d69477b9e2f81b8d7",
+    "tools/evidence.py": "b660f509dd530516b77e45eedb6fd0d7430495dcc675a827971894cdc5cc2a54",
+    "tools/prepare_ew_fpga.py": "ac566b94c343baee21253f5389e624863d80bbf6f55cc755d2c40e18ba015dc6"
+  },
+  "clock_period_ns": 20,
+  "channels": 32,
+  "kernels": 16,
+  "cmac_products": 512,
+  "source_git_revision": "8b23d647d4a1c8cdaf7bdad2160f45b285ca6909",
+  "source_includes_uncommitted_work": true,
+  "routed_dcp_sha256": "9e3166635b11da4f44877991ee8c15fb9bc11d98727ce20038dba810819bba9f",
+  "timing": {
+    "setup_slack_ns": 0.987,
+    "hold_slack_ns": 0.057,
+    "pulse_slack_ns": 9.6,
+    "failing_endpoints": 0
+  },
+  "files": {
+    "snapshot/build/rknpu-dsp-prefix-array-area/1792947201846706713/report.json": {
+      "sha256": "90ac37edaf9c7d1d46314c4688d1f22da4fff4e0fc6f77258d8b12bc3334baaf",
+      "bytes": 16176,
+      "origin": "build/full512-regmem-preparation/1793013000/source/build/rknpu-dsp-prefix-array-area/1792947201846706713/report.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/build/rknpu-dsp-prefix-array-generated-top-replay/1792950494827304453/report.json": {
+      "sha256": "14b1d5d6eda5d14a7e5753aff7ba1e79c0d288f8cafd31c876c675b2ead28133",
+      "bytes": 84104,
+      "origin": "build/full512-regmem-preparation/1793013000/source/build/rknpu-dsp-prefix-array-generated-top-replay/1792950494827304453/report.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/build/rknpu-dsp-prefix-array-native/1792947201927138428/report.json": {
+      "sha256": "9d990fd582edf65cdba41932b9697d861864947b9825031f862b53bf22f2bd99",
+      "bytes": 20454,
+      "origin": "build/full512-regmem-preparation/1793013000/source/build/rknpu-dsp-prefix-array-native/1792947201927138428/report.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/build/rknpu-dsp-prefix-board-replay/1792947718359945807/report.json": {
+      "sha256": "344e1c977516efa22d0d5e362ca0794182353cab69ede29906fd06309dae689d",
+      "bytes": 66562,
+      "origin": "build/full512-regmem-preparation/1793013000/source/build/rknpu-dsp-prefix-board-replay/1792947718359945807/report.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/area_snapshot.json": {
+      "sha256": "90ac37edaf9c7d1d46314c4688d1f22da4fff4e0fc6f77258d8b12bc3334baaf",
+      "bytes": 16176,
+      "origin": "build/full512-regmem-preparation/1793013000/source/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/area_snapshot.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/board_snapshot.json": {
+      "sha256": "344e1c977516efa22d0d5e362ca0794182353cab69ede29906fd06309dae689d",
+      "bytes": 66562,
+      "origin": "build/full512-regmem-preparation/1793013000/source/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/board_snapshot.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/mapped_snapshot.json": {
+      "sha256": "14b1d5d6eda5d14a7e5753aff7ba1e79c0d288f8cafd31c876c675b2ead28133",
+      "bytes": 84104,
+      "origin": "build/full512-regmem-preparation/1793013000/source/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/mapped_snapshot.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/native_snapshot.json": {
+      "sha256": "9d990fd582edf65cdba41932b9697d861864947b9825031f862b53bf22f2bd99",
+      "bytes": 20454,
+      "origin": "build/full512-regmem-preparation/1793013000/source/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/native_snapshot.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/profile_evidence.json": {
+      "sha256": "a3d2fd87fc12680a9b34ef30bf667c504aca720ca6b47746d742de59d9671739",
+      "bytes": 344,
+      "origin": "build/full512-regmem-preparation/1793013000/source/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/profile_evidence.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/report.json": {
+      "sha256": "b71c71aca1a2bccd80c263bd5e8854bc11b2688749a55aaf192a7eb2a261b635",
+      "bytes": 33889,
+      "origin": "build/full512-regmem-preparation/1793013000/source/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/report.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/rk_cmac_cacc_fp16_array.sv": {
+      "sha256": "90f27bf34886173f3c7228d55f837139bbca65abb7a4411ea1bf230105700e4c",
+      "bytes": 2864,
+      "origin": "build/full512-regmem-preparation/1793013000/source/build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/rk_cmac_cacc_fp16_array.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/fpga/cmac/array_sources.json": {
+      "sha256": "aface51453933d919e833d5d9d8dac5a606ee287f1d9f42c371f12cb12dbd659",
+      "bytes": 1492,
+      "origin": "build/full512-regmem-preparation/1793013000/source/fpga/cmac/array_sources.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/fpga/cmac/build_array.tcl.in": {
+      "sha256": "fc721b15d329e531e5937a97bd8346c635a2458c779b2a8db82e34b362fb1275",
+      "bytes": 5325,
+      "origin": "build/full512-regmem-preparation/1793013000/source/fpga/cmac/build_array.tcl.in",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv": {
+      "sha256": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+      "bytes": 1206,
+      "origin": "build/full512-regmem-preparation/1793013000/source/fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/fpga/cmac/startup/ypcb_cmac_array_startup.xdc": {
+      "sha256": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+      "bytes": 737,
+      "origin": "build/full512-regmem-preparation/1793013000/source/fpga/cmac/startup/ypcb_cmac_array_startup.xdc",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/fpga/cmac/startup/ypcb_cmac_array_startup_top.sv": {
+      "sha256": "57cc07ce50aaa85ef556307948356c6360de72c147787ae6b2cedb9617cbe490",
+      "bytes": 1133,
+      "origin": "build/full512-regmem-preparation/1793013000/source/fpga/cmac/startup/ypcb_cmac_array_startup_top.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/fpga/cmac/ypcb_cmac_array_top.sv": {
+      "sha256": "2872f3470a267f8a2128631a082eacaa2ccaf39c799cee1eee298c42c60335ad",
+      "bytes": 1069,
+      "origin": "build/full512-regmem-preparation/1793013000/source/fpga/cmac/ypcb_cmac_array_top.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/fpga/ew_checkpoint.tcl.in": {
+      "sha256": "e598156491a55bdd5fd00f33a0b72bbfb978b487eda327267bba85e1b271a61b",
+      "bytes": 4277,
+      "origin": "build/full512-regmem-preparation/1793013000/source/fpga/ew_checkpoint.tcl.in",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/fpga/ypcb.xdc": {
+      "sha256": "daa9aaddb8c02f539a58bb00faf9dedc260b205542a6d7851850c3b233325817",
+      "bytes": 977,
+      "origin": "build/full512-regmem-preparation/1793013000/source/fpga/ypcb.xdc",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/generated/rk_cmac_cacc_fp16_array.sv": {
+      "sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+      "bytes": 2907,
+      "origin": "build/full512-regmem-preparation/1793013000/source/generated/rk_cmac_cacc_fp16_array.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv": {
+      "sha256": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+      "bytes": 4672,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv": {
+      "sha256": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+      "bytes": 3699,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv": {
+      "sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+      "bytes": 2231,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv": {
+      "sha256": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+      "bytes": 2624,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/experimental/rk_cmac_fp16_array_fixed.sv": {
+      "sha256": "f224977011f01de1f9772221c7be3d1fe11e2e5e9f2358991941f076f293b1ec",
+      "bytes": 2071,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_fixed.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv": {
+      "sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+      "bytes": 2747,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": {
+      "sha256": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+      "bytes": 4325,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/experimental/rk_cmac_fp16_cell_fixed.sv": {
+      "sha256": "a5cd977ff063a50e0f77eabd087e5f71ba0101dc4914990c2c2e9c86e30034e7",
+      "bytes": 3020,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_fixed.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv": {
+      "sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+      "bytes": 737,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv": {
+      "sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+      "bytes": 2279,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/experimental/rk_cmac_fp16_rows.sv": {
+      "sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+      "bytes": 2533,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cacc_fp16_array.sv": {
+      "sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+      "bytes": 3163,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cacc_fp16_array.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_array_bram_demo.sv": {
+      "sha256": "faa444d27e54562b3f1fe8fcc7a0b732ca6c2d4eae561dc723ab7acf1aeeeb38",
+      "bytes": 3828,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_bram_demo.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_array_core.sv": {
+      "sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+      "bytes": 5388,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_core.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_array_datapath.sv": {
+      "sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+      "bytes": 3926,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_datapath.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_array_demo_rom.sv": {
+      "sha256": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+      "bytes": 483,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_demo_rom.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_array_dma.sv": {
+      "sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+      "bytes": 6303,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_dma.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_array_front.sv": {
+      "sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+      "bytes": 7939,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_front.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_cacc_fp16_array.sv": {
+      "sha256": "b66904ee5a76325f72032adea874692179e981d459b57ad738414f39e9e209c6",
+      "bytes": 2853,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_cacc_fp16_array.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_demo_memory.sv": {
+      "sha256": "d79444d1776d5664736da3d9d17405b0f890fda30759fa578f35a94cc69ae58d",
+      "bytes": 2605,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_demo_memory.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_fp16_array.sv": {
+      "sha256": "62f8d10e064a21751b7b9e73713d8665d52a95f10151288a0167a8d7c4ec7223",
+      "bytes": 2071,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_fp16_array.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_fp16_cell.sv": {
+      "sha256": "a44f54a1c8b76f5703d9807a05c308c03b7e2859aba06adadaa3772e79347109",
+      "bytes": 3255,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_fp16_cell.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_frame_output.sv": {
+      "sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+      "bytes": 4186,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_frame_output.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_output_nvdla.sv": {
+      "sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+      "bytes": 4276,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_output_nvdla.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_rw_arbiter.sv": {
+      "sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+      "bytes": 3718,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_rw_arbiter.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_cmac_writer.sv": {
+      "sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+      "bytes": 3673,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_writer.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_nvdla_cacc.sv": {
+      "sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+      "bytes": 3722,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_cacc.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/cmac/rk_nvdla_fp32_to_fp16.sv": {
+      "sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+      "bytes": 1553,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/rk_cmac_profile.sv": {
+      "sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+      "bytes": 8801,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/rk_cmac_profile.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/rk_startup_reset.sv": {
+      "sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+      "bytes": 1158,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/rk_startup_reset.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/vendor/nvdla/HLS_fp32_to_fp16.v": {
+      "sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+      "bytes": 66473,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/vendor/nvdla/LICENSE": {
+      "sha256": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb",
+      "bytes": 10504,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/LICENSE",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/vendor/nvdla/NV_DW02_tree.v": {
+      "sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+      "bytes": 1781,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_DW02_tree.v",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v": {
+      "sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+      "bytes": 32017,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": {
+      "sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+      "bytes": 20574,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/vendor/nvdla/assertion_header.h": {
+      "sha256": "433144e681c5823d1e886c9872a8e6b2bd0b2d7e7f221f2dc8620ba04c2585e9",
+      "bytes": 1387,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/assertion_header.h",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/vendor/nvdla/assertion_task.h": {
+      "sha256": "1bff44cbd43cead87f9357c8ba25e1b7a1a639fabfc081082470655b69e25cbd",
+      "bytes": 5885,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/assertion_task.h",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/vendor/nvdla/compat/NV_DW_lsd.v": {
+      "sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+      "bytes": 1670,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/vendor/nvdla/compat/nv_assert_never.v": {
+      "sha256": "28a3ff37142647e9499cc0dd88095313c029acffe1bf7806160eb9fbbd288732",
+      "bytes": 1104,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/nv_assert_never.v",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/vendor/nvdla/compat/nv_assert_no_x.v": {
+      "sha256": "6eb56dc9ea269a4b071d3c00de3a23f5b75782b72403bcc72a7acc9e625a6e97",
+      "bytes": 691,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/nv_assert_no_x.v",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/vendor/nvdla/nv_assert_never.vlib": {
+      "sha256": "d5b31a424e4518cdf58ef9fe303a749cd514bc1d134a9ac8198b454adc12c2ad",
+      "bytes": 3550,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/nv_assert_never.vlib",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/rtl/vendor/nvdla/nv_assert_no_x.vlib": {
+      "sha256": "64ae1b6d9735257b681d3ad42ee0e05f425fc0ec11308c845cb7f668ce117a02",
+      "bytes": 3758,
+      "origin": "build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/nv_assert_no_x.vlib",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/array_data/board_rom.hex": {
+      "sha256": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+      "bytes": 36864,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/board_rom.hex",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/array_data/commands.hex": {
+      "sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+      "bytes": 833,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/commands.hex",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/array_data/fixture.json": {
+      "sha256": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+      "bytes": 1662,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/fixture.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/array_data/fp32.hex": {
+      "sha256": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+      "bytes": 576,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/fp32.hex",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/array_data/groups.hex": {
+      "sha256": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+      "bytes": 2304,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/groups.hex",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/array_data/input.hex": {
+      "sha256": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+      "bytes": 960,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/input.hex",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/array_data/reads.hex": {
+      "sha256": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+      "bytes": 84864,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/reads.hex",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/array_data/source_report.json": {
+      "sha256": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+      "bytes": 14399,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/source_report.json",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/array_data/weight.hex": {
+      "sha256": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+      "bytes": 15360,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/weight.hex",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/array_data/writes.hex": {
+      "sha256": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+      "bytes": 832,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/writes.hex",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/startup/tb_array_startup.sv": {
+      "sha256": "b861e0913aad677326a580880a167277e2218502ad52eed867848ff66842d3c0",
+      "bytes": 10674,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/startup/tb_array_startup.sv",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/startup/test_prepare.py": {
+      "sha256": "9c62e707c2cbb828ceb21c78398fd925f9cdabe3fd320009020cebbd45d4efcd",
+      "bytes": 17512,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/startup/test_prepare.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/cmac/startup/test_qualification.py": {
+      "sha256": "102fefec73b9b07d6dd236cb69fae3fad805411e50e70afea04bd7dedb575aac",
+      "bytes": 10058,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/cmac/startup/test_qualification.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tests/test_fpga_build.py": {
+      "sha256": "2fa9140cecbc82e13274315536336313094b3a94e77ca003480524d85a3f3e13",
+      "bytes": 12505,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tests/test_fpga_build.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/audit_dsp_prefix_compile_inventory.py": {
+      "sha256": "1aa44ce3df0af418a8ae636959138bdc081bd58e91b81057e7fe7fcf24b0ac82",
+      "bytes": 7514,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/audit_dsp_prefix_compile_inventory.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/audit_dsp_prefix_pin_cone.py": {
+      "sha256": "d2fbe7cf11742acda2d940ee344739f2bd533b3f96497510725f8bf093c15717",
+      "bytes": 13730,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/audit_dsp_prefix_pin_cone.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/audit_lane_dsp_product.py": {
+      "sha256": "13bf929b6926de037196f25a0db1651840f095bcd01b2de16f0f506d676157fb",
+      "bytes": 13670,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/audit_lane_dsp_product.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/audit_lane_dsp_ranges.py": {
+      "sha256": "35a7c42ff6a1fec392d137e570295056c601965744a70350ebff091fb62af3ea",
+      "bytes": 13527,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/audit_lane_dsp_ranges.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/balanced_max/prepare.py": {
+      "sha256": "e3defc7ca9c095ec7e72b0e442fb7b93a05050f4877cdc2a9e57750db9a5dfc6",
+      "bytes": 9883,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/balanced_max/prepare.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/balanced_max/run.py": {
+      "sha256": "1c5fba5f2a68b1e01fbf011f51b5d89d8ea4d07bff5ad9ad65cf810ec0664feb",
+      "bytes": 15492,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/balanced_max/run.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/check_lane_dsp.py": {
+      "sha256": "17e920716c0a18db515094c53b5c7ee9a41fb52301daf712db9d211b4ca5f95c",
+      "bytes": 12278,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/check_lane_dsp.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/dsp_array_contract.py": {
+      "sha256": "49905e33d4af52c06ed3e74e68037b18fb05a2444046e10eb7ab22ad52d57368",
+      "bytes": 3219,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/dsp_array_contract.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/dsp_prefix_array_contract.py": {
+      "sha256": "8bac0c7b674fbb5d21c3f97bc5340f27f416aac348917c21814ed436811c921f",
+      "bytes": 1744,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/dsp_prefix_array_contract.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/dsp_prefix_build_contract.py": {
+      "sha256": "5ef720a266b51c7de3df84f96a406691290cde4fd3862ac33c7b2ad6ef13e1b9",
+      "bytes": 4369,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/dsp_prefix_build_contract.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/dsp_prefix_compile_admission.py": {
+      "sha256": "4396df1950c6f56af47b67d186b5d97a0626810252cec666705966a42add46f9",
+      "bytes": 11831,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/dsp_prefix_compile_admission.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/dsp_prefix_mapped_contract.py": {
+      "sha256": "bb550e278ad6dac9572d672d94c09a538db03383ecf73b5692a58e9f1e863b89",
+      "bytes": 5506,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/dsp_prefix_mapped_contract.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/dsp_prefix_protected_library_contract.py": {
+      "sha256": "13d2ff846881aaa48373cb9a77eeaff579cf498bfd402063d6b74904fd454f74",
+      "bytes": 6357,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/dsp_prefix_protected_library_contract.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/dsp_prefix_top_compile_admission.py": {
+      "sha256": "000db28344e67219edfad141822c08329cf584457ce93b497b09190458748f3c",
+      "bytes": 6327,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/dsp_prefix_top_compile_admission.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/gen_array_board.py": {
+      "sha256": "fa27464c1ab58d0facd426e0aca893ecc123f604d6fcec349b44eeb4133270b2",
+      "bytes": 4748,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/gen_array_board.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/lane_dsp_library.py": {
+      "sha256": "697237ed52458fb8dafad09f3c2b05615f1aa41a4a997a4a67930f315fcb3c03",
+      "bytes": 3106,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/lane_dsp_library.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/map_dsp_prefix_array.py": {
+      "sha256": "ff44e73b6a4ef956627b302a383a688c7e8bb4500ac8b30d72dc58aa67d632d5",
+      "bytes": 14708,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/map_dsp_prefix_array.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/map_dsp_prefix_board.py": {
+      "sha256": "3e7ff8d57dc01665d8f81e0825880aa7c2f46103e04c9932bccc0a3d0ff1fa6d",
+      "bytes": 19058,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/map_dsp_prefix_board.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/map_fixed_board.py": {
+      "sha256": "d798e497bcb436d61278944f477a6ca89d2588837abb80e400bfcf0690d9b439",
+      "bytes": 14732,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/map_fixed_board.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/pipeline/prepare.py": {
+      "sha256": "60daf7076df93d71dcdb7a60375f1900ac604b2bc908dd27b2399d44940e9915",
+      "bytes": 8126,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/pipeline/prepare.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/pipeline/run.py": {
+      "sha256": "2327f49ce80cb38b2965174a1be32bf49a77eb851dd8fa482bcc927a4ae63bd8",
+      "bytes": 9576,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/pipeline/run.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/prepare_dsp_prefix_array.py": {
+      "sha256": "6456da3f40d98e80de6f9d16b6577d3a2500ae6c695f7e36f97b7a4ac9a9bd35",
+      "bytes": 8596,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/prepare_dsp_prefix_array.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/prepare_dsp_prefix_board.py": {
+      "sha256": "878cb06616fc460a088fbb18dd35ee232ac6a54c9b8a6ce47f630d54d2a4d71a",
+      "bytes": 8313,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/prepare_dsp_prefix_board.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/prepare_dsp_prefix_checkpoint.py": {
+      "sha256": "c9ac283ebb21a50e2fd78d76337b72e4a82246d06541880c94503c27887d9629",
+      "bytes": 4564,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/prepare_dsp_prefix_checkpoint.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/prove_dsp_prefix_actual_model.py": {
+      "sha256": "47efdcbbc88d0f93ed747e398214d57978dfaed82d53e7d5b6143fbb63072f83",
+      "bytes": 8690,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/prove_dsp_prefix_actual_model.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/prove_lane_dsp_components.py": {
+      "sha256": "c6ba910ec7aebf53cdb028b68a978071f03230ae2609fcb8edd6fed2949ab54b",
+      "bytes": 9469,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/prove_lane_dsp_components.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/prove_lane_dsp_composed.py": {
+      "sha256": "fcd91f2eced2f14b4f6fe42ec5131c342e4a4e8ffa506ba4e21fe183857c4ea9",
+      "bytes": 13051,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/prove_lane_dsp_composed.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/prove_lane_dsp_tree_ranges.py": {
+      "sha256": "d4e7daa3ce35ed0af460cbbb0e9c3981b0aa22d1146adbf16a3d6dde9f1eeb10",
+      "bytes": 8918,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/prove_lane_dsp_tree_ranges.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/regmem/prepare.py": {
+      "sha256": "43ccb66812a7d08874a9f82c10a2a7185edb19e1064518ac3da44b75237d2597",
+      "bytes": 5734,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/regmem/prepare.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/regmem/run_memory.py": {
+      "sha256": "62c4fbb68da30e3aa48202472a7c902209ce5c798abc67cffe12188c73a27e61",
+      "bytes": 4504,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/regmem/run_memory.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/replay_dsp_prefix_board.py": {
+      "sha256": "f10d734661edbe6c6134d2c26cf4a379ace1a7acc64f29bb38fd4768603c3295",
+      "bytes": 20014,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/replay_dsp_prefix_board.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/startup/__init__.py": {
+      "sha256": "0d21589252ac552e822c3b02da41720b8dd85b3dd65daa93c6511268c672df38",
+      "bytes": 74,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/startup/__init__.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/startup/prepare.py": {
+      "sha256": "a4d74258640de9d856b5374146d08e5e4fa6704401934f8a601d7fcc1aeb7b86",
+      "bytes": 20939,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/startup/prepare.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/startup/qualification.py": {
+      "sha256": "b1ea244ce5e980387a7fbf3a2f05fbe10a8e76be03de0f88fb9ac8c5d44cd5af",
+      "bytes": 25320,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/startup/qualification.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/startup/run.py": {
+      "sha256": "65bd7dd4cefd961efefec7a328773adfeed220e1c7c36614e51952ad6a1ebd47",
+      "bytes": 9717,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/startup/run.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/test_dsp_prefix_array_native.py": {
+      "sha256": "1587a928863b5290a5161085ffad749d330665c6f11c6908d35529669e1dbbfe",
+      "bytes": 13559,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/test_dsp_prefix_array_native.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/test_dsp_prefix_carry.py": {
+      "sha256": "f85adeb697e540ebbd61515a29427d1c49ffa2ca3b202e9488f898cd2f8c253c",
+      "bytes": 14224,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/test_dsp_prefix_carry.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/test_dsp_prefix_fdce_startup.py": {
+      "sha256": "8555eb593672e95f009c98714d1a58ac60d9a12d45279716ef89333bb1b68095",
+      "bytes": 6888,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/test_dsp_prefix_fdce_startup.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/test_dsp_prefix_mapped_array.py": {
+      "sha256": "49b0aded77c959e232c2db3bf92800e8ee9eda32a8abdd7c2e0e22bbf807537b",
+      "bytes": 17191,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/test_dsp_prefix_mapped_array.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/test_dsp_prefix_primitive_models.py": {
+      "sha256": "443d34ba4312ac4a724409b7fb18a436f30353114d15fac3f202c82de5f6eb7b",
+      "bytes": 10569,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/test_dsp_prefix_primitive_models.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/test_fixed_array_board.py": {
+      "sha256": "c1674b8a5c1eeedebbd96c5c7949371f1fa905ca8671491a39c8a70af0231928",
+      "bytes": 17006,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/test_fixed_array_board.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/test_fixed_mapped_array.py": {
+      "sha256": "6ccc0efff1b87cb7424a5ab39a85812c932ad9d6548eb26a26a56fdfb3639a25",
+      "bytes": 21937,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/test_fixed_mapped_array.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/test_mapped_prefix_dsp.py": {
+      "sha256": "2de4980c02d1478a2c8141f4678c71cb92e8ca5e7f91a364a56d271a44c07369",
+      "bytes": 14886,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/test_mapped_prefix_dsp.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/verify_dsp_prefix_clean_replay.py": {
+      "sha256": "5d781c8560fafd8f0998b82a840bc07704495ffbd1014d8bc90a397cce383d23",
+      "bytes": 8758,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/verify_dsp_prefix_clean_replay.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/vivado_array.py": {
+      "sha256": "59e56a9dc53a924ae777f7ccf37d579d72cb641aa27afedb4010c1b9c25e652b",
+      "bytes": 7760,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/vivado_array.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/vivado_dsp_prefix_array.py": {
+      "sha256": "0f94dd93dec5b3803d1136ae49afebc62dcc03c72ac346294874bf3803cc14c6",
+      "bytes": 16319,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/vivado_dsp_prefix_array.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/cmac/xc7_primitive_counts.py": {
+      "sha256": "708a3e6b88a8b1889262291cc7c0a909e2ef9ba88c569a6d69477b9e2f81b8d7",
+      "bytes": 1226,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/cmac/xc7_primitive_counts.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/evidence.py": {
+      "sha256": "b660f509dd530516b77e45eedb6fd0d7430495dcc675a827971894cdc5cc2a54",
+      "bytes": 1530,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/evidence.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "snapshot/tools/prepare_ew_fpga.py": {
+      "sha256": "ac566b94c343baee21253f5389e624863d80bbf6f55cc755d2c40e18ba015dc6",
+      "bytes": 26020,
+      "origin": "build/full512-regmem-preparation/1793013000/source/tools/prepare_ew_fpga.py",
+      "role": "exact frozen125-file source snapshot"
+    },
+    "profile/report.json": {
+      "sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+      "bytes": 21133,
+      "origin": "build/full512-regmem-preparation/1793013000/report.json",
+      "role": "source preparation and checkpoint-only admission"
+    },
+    "profile/build.tcl": {
+      "sha256": "ecda4325c745ae04dc19fbeb9a2fe7669f83c6605b8eb272639bffdc2570c880",
+      "bytes": 11977,
+      "origin": "build/full512-regmem-preparation/1793013000/build.tcl",
+      "role": "source preparation and checkpoint-only admission"
+    },
+    "profile/root-build-review.json": {
+      "sha256": "f3339a2b6a8961c9a0cafa489d27ca4d2dacdd7f9198381587eb3971973ddcc9",
+      "bytes": 2259,
+      "origin": "build/full512-regmem-preparation/1793013000/root-build-review.json",
+      "role": "source preparation and checkpoint-only admission"
+    },
+    "implementation/check_timing.rpt": {
+      "sha256": "638826e57622edd42c124dced855c54a5b6226ef1cea15f4dd486e93ba18e735",
+      "bytes": 3259,
+      "origin": "build/full512-regmem-preparation/1793013000/implementation/check_timing.rpt",
+      "role": "original routed/synthesis report"
+    },
+    "implementation/check_timing_no_clock.rpt": {
+      "sha256": "7bf91af1af4f7dbbab43d849f7a442dadddc6f965a5214e18e5812d15d273f67",
+      "bytes": 185,
+      "origin": "build/full512-regmem-preparation/1793013000/implementation/check_timing_no_clock.rpt",
+      "role": "original routed/synthesis report"
+    },
+    "implementation/check_timing_unconstrained_internal_endpoints.rpt": {
+      "sha256": "a87ffff45159bb65b4514c13f4daf712c5ca2affb3da2f6b60d507fa16ed9ab2",
+      "bytes": 356,
+      "origin": "build/full512-regmem-preparation/1793013000/implementation/check_timing_unconstrained_internal_endpoints.rpt",
+      "role": "original routed/synthesis report"
+    },
+    "implementation/drc.rpt": {
+      "sha256": "0eb52c4522cbcde714a5c4cc7429537f70fb43f4e2af619fe4887a8a8f22a787",
+      "bytes": 1137091,
+      "origin": "build/full512-regmem-preparation/1793013000/implementation/drc.rpt",
+      "role": "original routed/synthesis report"
+    },
+    "implementation/pulse_width.rpt": {
+      "sha256": "104f6dd8139a755c54c619d3da8871d63769eadfa22dd13f5d433a5c719de27c",
+      "bytes": 1548,
+      "origin": "build/full512-regmem-preparation/1793013000/implementation/pulse_width.rpt",
+      "role": "original routed/synthesis report"
+    },
+    "implementation/timing.rpt": {
+      "sha256": "e2e11a819ca92be3a697256db16771c8d2193e7aa0202e37ecc60e1f27da8a7e",
+      "bytes": 43692,
+      "origin": "build/full512-regmem-preparation/1793013000/implementation/timing.rpt",
+      "role": "original routed/synthesis report"
+    },
+    "implementation/utilization.rpt": {
+      "sha256": "b9f6dc23d8be7cde1e125607f6d0b3542a40b28f541c3321747199f0071d1cb3",
+      "bytes": 11580,
+      "origin": "build/full512-regmem-preparation/1793013000/implementation/utilization.rpt",
+      "role": "original routed/synthesis report"
+    },
+    "implementation/utilization_synth.rpt": {
+      "sha256": "e0b3696c4d038390d82dc6d6d917a3769d158bb99eb68fe8bc724dcaf79571c7",
+      "bytes": 9364,
+      "origin": "build/full512-regmem-preparation/1793013000/implementation/utilization_synth.rpt",
+      "role": "original routed/synthesis report"
+    },
+    "review/run.json": {
+      "sha256": "549a7c637bdaa1a49e7ec13f5f70ad89cdef784c658e4ee181ae6d8789ba5c59",
+      "bytes": 2971,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/run.json",
+      "role": "actual implementation/root review; no image or programming admission"
+    },
+    "review/root-timing-review.json": {
+      "sha256": "d746efef15b6fcc365567b1417da66d3e9c524761c02d1ede1c6da8d50439af5",
+      "bytes": 2231,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/root-timing-review.json",
+      "role": "actual implementation/root review; no image or programming admission"
+    },
+    "review/root-init-drc-review.json": {
+      "sha256": "dd3a75c6227f8acea1861826377b002a6e891b1a676f3d5d65dfc427c0c74468",
+      "bytes": 53356,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/root-init-drc-review.json",
+      "role": "actual implementation/root review; no image or programming admission"
+    },
+    "review/review-facts.py": {
+      "sha256": "6ce7c31941215adefc11137f9da9bd0bb674adabaf8a63dd5b8fae86c3f6f193",
+      "bytes": 7381,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/review-facts.py",
+      "role": "actual implementation/root review; no image or programming admission"
+    },
+    "review/post-route-audit.tcl": {
+      "sha256": "81ce519a1d37c1396308506cd2b1ef418867f7d54ba567d4d97c744adbe7d7de",
+      "bytes": 37124,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit.tcl",
+      "role": "actual implementation/root review; no image or programming admission"
+    },
+    "review/post-route-audit-context.json": {
+      "sha256": "5389693f931db2e66be4ec88f4e6b679119cb4ea4bc6b87f0a4a62d86884df9a",
+      "bytes": 25019,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-context.json",
+      "role": "actual implementation/root review; no image or programming admission"
+    },
+    "review/archive-text.py": {
+      "sha256": "abda4babbe9ffe90ed0c97951a3518b0a5de2d86cc4bf737db91fe31f2942d58",
+      "bytes": 5454,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/archive-text.py",
+      "role": "actual implementation/root review; no image or programming admission"
+    },
+    "native-audit/route_status.rpt": {
+      "sha256": "13b13e157a2492a684221eecb0572b449f1103d28cc123914aa81e4ca6c58a0f",
+      "bytes": 588,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/route_status.rpt",
+      "role": "exact native routed audit output"
+    },
+    "native-audit/facts.tsv": {
+      "sha256": "d3d495596cf93158439daf18d0b133e868e92c113a9092c4add6a1d727973d46",
+      "bytes": 47928,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/facts.tsv",
+      "role": "exact native routed audit output"
+    },
+    "native-audit/timing.rpt": {
+      "sha256": "d68a9453e2280bd47222a85902532d1c7e00d567e338bb70aa5ea221441314f4",
+      "bytes": 43528,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/timing.rpt",
+      "role": "exact native routed audit output"
+    },
+    "native-audit/pulse_width.rpt": {
+      "sha256": "bbdc853f444e851c746a2e9a495cdb126b471be84723e34b7490d7121acd6bb3",
+      "bytes": 1459,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/pulse_width.rpt",
+      "role": "exact native routed audit output"
+    },
+    "native-audit/check_timing.rpt": {
+      "sha256": "dab4971f1a5fee9dad26c2513d69c454ed95c1790575ad5cfecab4437df55aa6",
+      "bytes": 3161,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/check_timing.rpt",
+      "role": "exact native routed audit output"
+    },
+    "native-audit/drc.rpt": {
+      "sha256": "0ba5824db1637f4259d78a7e669716a88ec045fcc7b2b33e84c40ff7531dbde5",
+      "bytes": 1137133,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/drc.rpt",
+      "role": "exact native routed audit output"
+    },
+    "native-audit/startup-and-control-facts.tsv": {
+      "sha256": "a05e2146d5226277008b6bc85c5c6afdda33a7e22e97bce65a8a1d15ca4f1f2d",
+      "bytes": 2275454,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/startup-and-control-facts.tsv",
+      "role": "exact native routed audit output"
+    },
+    "native-audit/function-cones.tsv": {
+      "sha256": "57c1a347e18bfe4a6f5ed940e752352d23a6cc0ff875529eaa794676efdd0684",
+      "bytes": 726746,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/function-cones.tsv",
+      "role": "exact native routed audit output"
+    },
+    "native-audit/implemented.xdc": {
+      "sha256": "fe5c24d090a3a275d8265c229d39e8a76b3abad9d9ff4d29e953b24cda3398bc",
+      "bytes": 1623,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/implemented.xdc",
+      "role": "exact native routed audit output"
+    },
+    "native-audit/utilization_hierarchical.rpt": {
+      "sha256": "d4d0f72576ca3c86ad275bd2f95e8db13c4a2b765aac2940de20adb324c1315a",
+      "bytes": 471336,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/utilization_hierarchical.rpt",
+      "role": "exact native routed audit output"
+    },
+    "native-audit/exceptions.rpt": {
+      "sha256": "62fe38b877ae0f0e0b913ed78fd1c4f73eb8d1d4dc0b008fe9b6dca44a0741f6",
+      "bytes": 1330,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/exceptions.rpt",
+      "role": "exact native routed audit output"
+    },
+    "native-audit/result.txt": {
+      "sha256": "cd4a5f336cead51d946771f61ebaefe483a9cfc86f3d7b7a7f6d68ed0d18e806",
+      "bytes": 152,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/result.txt",
+      "role": "exact native routed audit output"
+    },
+    "review/original-native-audit-wrapper-FAIL.json": {
+      "sha256": "73e39e2cea0297b6efd586ed2f662c7bd95d2b3b7ed257d2fd1f9b4f4759f934",
+      "bytes": 5848,
+      "origin": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-launch-20261026T115834Z/report.json",
+      "role": "original failed wrapper retained; actual Tcl exited0, independent root review is separate"
+    },
+    "native-board/iverilog/report.json": {
+      "sha256": "b593852d4ef55e8c31f5ed00b56b60c813981ea2c4f826b41f7724f8387fde74",
+      "bytes": 26706,
+      "origin": "build/regmem-board/iverilog-reviewed-20261026T110614Z/report.json",
+      "role": "full raw K65 native board report; binary remains external"
+    },
+    "native-board/iverilog/led0_mode0.log": {
+      "sha256": "be6971a3d8717b6b8686a8f0e7d05ae17b49a0cb54a11dd211e6a6800e5b95ef",
+      "bytes": 359,
+      "origin": "build/regmem-board/iverilog-reviewed-20261026T110614Z/led0_mode0.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/iverilog/led0_mode1.log": {
+      "sha256": "7111128585d0d359e65e0d314093fb281fb581c70148b44b164b30bbd6ef8e79",
+      "bytes": 345,
+      "origin": "build/regmem-board/iverilog-reviewed-20261026T110614Z/led0_mode1.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/iverilog/led0_mode2.log": {
+      "sha256": "a51efa5b8a8a1350033931c39f15a0b77c4d35f0b67b616717297447542ee0ea",
+      "bytes": 353,
+      "origin": "build/regmem-board/iverilog-reviewed-20261026T110614Z/led0_mode2.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/iverilog/led0_mode3.log": {
+      "sha256": "85505f125556f35e3f764725a4cb088852f36344dbd6e8d63acbc127947b3150",
+      "bytes": 348,
+      "origin": "build/regmem-board/iverilog-reviewed-20261026T110614Z/led0_mode3.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/iverilog/led0_mode4.log": {
+      "sha256": "94195694240890819a65fb3f2d67905adf545c88ffcbffb949895c2b95bfd615",
+      "bytes": 353,
+      "origin": "build/regmem-board/iverilog-reviewed-20261026T110614Z/led0_mode4.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/iverilog/led0_mode10.log": {
+      "sha256": "33335688361aad73145106f39a3fb5d7c2199cdd6519314932e0a429fc4846f1",
+      "bytes": 347,
+      "origin": "build/regmem-board/iverilog-reviewed-20261026T110614Z/led0_mode10.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/iverilog/led0_fresh_after10.log": {
+      "sha256": "be6971a3d8717b6b8686a8f0e7d05ae17b49a0cb54a11dd211e6a6800e5b95ef",
+      "bytes": 359,
+      "origin": "build/regmem-board/iverilog-reviewed-20261026T110614Z/led0_fresh_after10.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/iverilog/led0_mode11.log": {
+      "sha256": "97eecad337fc961f03aea87a3d74fe075b07c04be1f5c458447266a663a6dd5b",
+      "bytes": 350,
+      "origin": "build/regmem-board/iverilog-reviewed-20261026T110614Z/led0_mode11.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/iverilog/led0_fresh_after11.log": {
+      "sha256": "be6971a3d8717b6b8686a8f0e7d05ae17b49a0cb54a11dd211e6a6800e5b95ef",
+      "bytes": 359,
+      "origin": "build/regmem-board/iverilog-reviewed-20261026T110614Z/led0_fresh_after11.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/iverilog/led0_mode12.log": {
+      "sha256": "a053bd7605ee4be9a8b96c03a1e4844baf28f69769625d1f19b1fb7aa9fb0914",
+      "bytes": 355,
+      "origin": "build/regmem-board/iverilog-reviewed-20261026T110614Z/led0_mode12.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/iverilog/led0_fresh_after12.log": {
+      "sha256": "be6971a3d8717b6b8686a8f0e7d05ae17b49a0cb54a11dd211e6a6800e5b95ef",
+      "bytes": 359,
+      "origin": "build/regmem-board/iverilog-reviewed-20261026T110614Z/led0_fresh_after12.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/verilator/report.json": {
+      "sha256": "7b2f7fda50aaa11d72b3822729710d7dc9ab3a8ea704eabe0c413015ba14e651",
+      "bytes": 46068,
+      "origin": "build/regmem-board/verilator-20261026T105744Z/native/report.json",
+      "role": "full raw K65 native board report; binary remains external"
+    },
+    "native-board/verilator/led0_mode0.log": {
+      "sha256": "910d829bc4246cdfd7ad8b32e783f5879a1922d8df68e113abb7658b591fdc11",
+      "bytes": 529,
+      "origin": "build/regmem-board/verilator-20261026T105744Z/native/led0_mode0.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/verilator/led0_mode1.log": {
+      "sha256": "adbcaf986fb35e076276f8ac752f507bb3d5fa3f1fe1d1ae7ba604820551ad25",
+      "bytes": 516,
+      "origin": "build/regmem-board/verilator-20261026T105744Z/native/led0_mode1.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/verilator/led0_mode2.log": {
+      "sha256": "0e97bcd0f3610275d13beb966adbb05562d263dd4e044bdfbb1f407a628f0121",
+      "bytes": 526,
+      "origin": "build/regmem-board/verilator-20261026T105744Z/native/led0_mode2.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/verilator/led0_mode3.log": {
+      "sha256": "68ed5c7ed00644fcebda808d03f8cf9a43031ad43b876edc28500828bd652fb6",
+      "bytes": 519,
+      "origin": "build/regmem-board/verilator-20261026T105744Z/native/led0_mode3.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/verilator/led0_mode10.log": {
+      "sha256": "24138fc6883f7311c17ada591cfa91ec8f0f3fb8bd41a31eafe8be18e377c83f",
+      "bytes": 518,
+      "origin": "build/regmem-board/verilator-20261026T105744Z/native/led0_mode10.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/verilator/led0_fresh_after10.log": {
+      "sha256": "9090c751e87a0ac0af4e027591a9d1046ff979eea426619b1158ce9520ac36d9",
+      "bytes": 529,
+      "origin": "build/regmem-board/verilator-20261026T105744Z/native/led0_fresh_after10.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/verilator/led0_mode11.log": {
+      "sha256": "188ad3c535758154a73b498aa8f43967088b8d3ee2bb67d00f4fac48a87548c2",
+      "bytes": 521,
+      "origin": "build/regmem-board/verilator-20261026T105744Z/native/led0_mode11.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/verilator/led0_fresh_after11.log": {
+      "sha256": "6a9326b85ed5db3ba77fdd95e534757472936649e90ae5dcd231d20ec71e621e",
+      "bytes": 529,
+      "origin": "build/regmem-board/verilator-20261026T105744Z/native/led0_fresh_after11.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/verilator/led0_mode12.log": {
+      "sha256": "ee3d9f4b03c8b62a9ecb53708d345e1b94cc4806615f5395fb844eae0f3763b4",
+      "bytes": 528,
+      "origin": "build/regmem-board/verilator-20261026T105744Z/native/led0_mode12.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "native-board/verilator/led0_fresh_after12.log": {
+      "sha256": "b8e9ab53cb98ed529b3bf59c769365f692bf4e5d17b12b6cae0fcf1ce615e9cc",
+      "bytes": 529,
+      "origin": "build/regmem-board/verilator-20261026T105744Z/native/led0_fresh_after12.log",
+      "role": "actual original result/fault/abort/restart log"
+    },
+    "lut-model-proof/report.json": {
+      "sha256": "0289b40242cbd0daa5215c145f85fd1d46ebbe7153c8ff0515336be4ce0052e4",
+      "bytes": 6544,
+      "origin": "build/regmem-fast-lut-proof/20261026T121838Z/report.json",
+      "role": "exhaustive exact configured four-state model proof; AMD models/netlist/binary remain external"
+    },
+    "lut-model-proof/inventory.json": {
+      "sha256": "13624bdba31f5fd7abf93ca385f586943ccf590bcf50c7955a1a6062dd4a1b8a",
+      "bytes": 23139,
+      "origin": "build/regmem-fast-lut-proof/20261026T121838Z/inventory.json",
+      "role": "exhaustive exact configured four-state model proof; AMD models/netlist/binary remain external"
+    },
+    "lut-model-proof/actual.log": {
+      "sha256": "88263cbaeb7abbf811d450ccefe6bd1b60e91f05568550246c92e2098c7b261b",
+      "bytes": 199,
+      "origin": "build/regmem-fast-lut-proof/20261026T121838Z/actual.log",
+      "role": "exhaustive exact configured four-state model proof; AMD models/netlist/binary remain external"
+    },
+    "lut-model-proof/wrong_output_control.log": {
+      "sha256": "2905d34c48430310fecb2478c2b75d27fc7d900abf18a47ec0e4e65da5146e9c",
+      "bytes": 196,
+      "origin": "build/regmem-fast-lut-proof/20261026T121838Z/wrong_output_control.log",
+      "role": "exhaustive exact configured four-state model proof; AMD models/netlist/binary remain external"
+    },
+    "preparation-tools/tools/cmac/regmem/run_closed_mapped.py": {
+      "sha256": "8b7d80e3db59c4979b449630022e8810e3a2394b48e9bc78c114de18afe542ed",
+      "bytes": 14136,
+      "origin": "tools/cmac/regmem/run_closed_mapped.py",
+      "role": "current source/preparation control; not part of frozen hardware manifest"
+    },
+    "preparation-tools/tools/cmac/regmem/prove_fast_lut.py": {
+      "sha256": "aa7bfd5385d37ebc0214a8cd50d15816a8f1cabb4f917d8b3c85b84416ddf6a6",
+      "bytes": 11798,
+      "origin": "tools/cmac/regmem/prove_fast_lut.py",
+      "role": "current source/preparation control; not part of frozen hardware manifest"
+    },
+    "preparation-tools/tools/hardware/sample_cmac512.py": {
+      "sha256": "7ab67fa521686bed327012489629ce6fd73103779400733fb652b03d2a3fd2ee",
+      "bytes": 15925,
+      "origin": "tools/hardware/sample_cmac512.py",
+      "role": "current source/preparation control; not part of frozen hardware manifest"
+    },
+    "preparation-tools/tools/hardware/sample_cmac512.tcl.in": {
+      "sha256": "fb7db6e88d798401e9d611b9f5536855071c4a20d2d19bce890f0421baa0e8e8",
+      "bytes": 4546,
+      "origin": "tools/hardware/sample_cmac512.tcl.in",
+      "role": "current source/preparation control; not part of frozen hardware manifest"
+    },
+    "preparation-tools/tools/hardware/sample_ew.py": {
+      "sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+      "bytes": 15835,
+      "origin": "tools/hardware/sample_ew.py",
+      "role": "current source/preparation control; not part of frozen hardware manifest"
+    },
+    "preparation-tools/tests/hardware/test_sample_cmac512.py": {
+      "sha256": "b5368201bbee7a162d53709c1a5dc527df48e1f1a8ed34cb530d54928eb141bf",
+      "bytes": 14658,
+      "origin": "tests/hardware/test_sample_cmac512.py",
+      "role": "current source/preparation control; not part of frozen hardware manifest"
+    },
+    "preparation-tools/tests/hardware/test_sample_ew.py": {
+      "sha256": "ce837bf4c88b3c93cf0243af6c62036eaa583b5dc9668a277bc1fc7119b54b36",
+      "bytes": 13036,
+      "origin": "tests/hardware/test_sample_ew.py",
+      "role": "current source/preparation control; not part of frozen hardware manifest"
+    },
+    "observer-controls/audit.json": {
+      "sha256": "799a7ee899b2a9fe9b531558b29ace912bf51d34a099835b239c2b44120b1369",
+      "bytes": 4234,
+      "origin": "build/cmac512-observer-controls-v2/audit.json",
+      "role": "SYNTHETIC observer controls only, no hardware"
+    },
+    "observer-copy-controls/audit.json": {
+      "sha256": "50b40e4779ea88e79c9c74348c67a8578c42c4941d88ff084feb29a81778aa81",
+      "bytes": 12812,
+      "origin": "build/cmac512-observer-copy-controls/20261026T120104Z/audit.json",
+      "role": "SYNTHETIC observer controls only, no hardware"
+    },
+    "production/report.json": {
+      "sha256": "17d0228c15d5af6273aa0a180cc69f44b7b7b18eb507d0d6b53912d60db9d929",
+      "bytes": 248021,
+      "origin": "build/production-refresh-private/20261026T125525Z/report.json",
+      "role": "fresh471.858s source-identical production suite only, not experimental FPGA proof"
+    }
+  },
+  "mapped_startup_qualification_included": false,
+  "bitstream_included": false,
+  "hardware_programmed": false,
+  "image_admission": false
+}

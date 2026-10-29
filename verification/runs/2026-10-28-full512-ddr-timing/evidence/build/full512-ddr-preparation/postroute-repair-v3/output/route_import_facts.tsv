@@ -1,0 +1,6 @@
+IMPORTED_DCP	/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v6/output/post_route.dcp	ypcb_ddr_dual_top	xc7k480tffg1156-2
+CLOCKS	sys_clock	clk_pll_i_1	clk_pll_i	platform/mig	platform/mig/c0_ui_clk	platform/mig/c1_ui_clk
+CONSTANT_PROOF	35	101	3
+PAYLOADS	EW	64	37	CMAC	64	10	EW_MEMORY	2	CMAC_MEMORY	2	STATUS	9	PERMIT	5	BOARD_RESET	4
+MIG_CHANNELS	parent_routed_checkpoint	platform/mig	top_mig_7series_0_0	top_mig_7series_0_0	platform/mig/u_top_mig_7series_0_0_mig	top_mig_7series_0_0_mig	top_mig_7series_0_0_mig	platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure	mig_7series_v4_2_infrastructure__1	mig_7series_v4_2_infrastructure	platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure	mig_7series_v4_2_infrastructure	mig_7series_v4_2_infrastructure	platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi	mig_7series_v4_2_memc_ui_top_axi	mig_7series_v4_2_memc_ui_top_axi	platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi	mig_7series_v4_2_memc_ui_top_axi__parameterized0	mig_7series_v4_2_memc_ui_top_axi	platform/mig/c0_ui_clk	platform/mig/c1_ui_clk
+CONSTANT_PROOF	post_route	35	101	3

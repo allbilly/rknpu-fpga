@@ -1,0 +1,4 @@
+Selected evidence archive: optimized same-ELF all-21 logical DDR read-snapshot cases.
+The accepted union is bound to one compiled native ELF and preserves all reports, logs, full observed BO text, vectors/goldens, source pins, and independent review receipts. The original matrix-A parent remains FAIL; its failed unknown-command run is preserved, while joint-reset recovery is admitted only by the separate successful per-case evidence and recovery-prefix audit.
+
+Scope: selected frozen-local-source and actual logical 21-case text receipts, including every generated MIG/primitive/model HDL input used by the accepted compile. Unused vendor template/archive bulk and the native ELF/objects are excluded; this is not a full binary DAG or physical DDR proof. The scope is actual AXI/UI/MC with a modeled PHY. No physical DDR, FPGA/RK equivalence, or current CMAC-async qualification is claimed.

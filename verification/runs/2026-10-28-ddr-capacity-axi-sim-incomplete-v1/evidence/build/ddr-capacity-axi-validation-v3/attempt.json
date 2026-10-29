@@ -1,0 +1,63 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_capacity_axi",
+        "-Ptb_capacity_axi.BASE_ADDR=0",
+        "-Ptb_capacity_axi.SPAN_BYTES=256",
+        "-Ptb_capacity_axi.TIMEOUT_CYCLES=32",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v3/test.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_axi.sv",
+        "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv",
+        "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v3/tb_capacity_axi.sv"
+      ],
+      "name": "compile",
+      "returncode": 0,
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v3/icarus-compile.log",
+      "stdout_sha256": "ce345ed2422f47088922bd60291e3b67dd439b93c182a336d422f8c4339f040d"
+    },
+    {
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v3/test.vvp"
+      ],
+      "name": "integrated_base_run",
+      "returncode": 0,
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v3/icarus-sim.log",
+      "stdout_sha256": "3fd0c1157e3fb7d955d4424de0724af6fc61606029c869751f9a94814fb33b41"
+    },
+    {
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v3/test.vvp",
+        "+FAULTS"
+      ],
+      "name": "direct_fault_run",
+      "returncode": 1,
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v3/icarus-faults.log",
+      "stdout_sha256": "69c65c7b4f137bb442e88ccd8b1fb2d7fe14b4ae5a028b15391c9eaaf7141f0a"
+    }
+  ],
+  "failure_excerpt": "PASS_AXI_INTEGRATED span=256 base=00000000 writes=8 reads=12 fences=4\nFATAL: /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v3/tb_capacity_axi.sv:204: fence AR before write pass B responses\n       Time: 3335000  Scope: tb_capacity_axi",
+  "hardware_executed": false,
+  "native_simulator": "Icarus Verilog 13.0 / VVP 13.0",
+  "physical_capacity_qualified": false,
+  "schema": "capacity-axi-v3-preserved-direct-fault-attempt-v1",
+  "source_hashes": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v3/tb_capacity_axi.sv": "930001e9ad0d3bf0c426e9242766e85c4a3cd75c17540512688fb413b190c494",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+  },
+  "status": "FAIL_TESTBENCH_EXPECTED_FENCE_COUNT_TOO_STRICT_FOR_DIRECT_SINGLE_WRITE_PROBE"
+}

@@ -1,0 +1,23 @@
+{
+  "contract": "Actual rk_mig_ecc_monitor snapshot_valid implies exactstatus0/onoff1/IRQmask3, heldstablewhilevalid. Beforefirstcapturedvalidatedsnapshot outputs0; aftercapture tuple0/1/3 untiljointreset. Existing fence validatesall96snapshotbits; errors/pendingtransactions/responseflags untouched.",
+  "critical_failure_reference": "/home/fedora/rknpu-fpga/build/full512-capacity-admission-targeted-repair-run-v1/report.json",
+  "fresh_synthesis_started": false,
+  "generic_source_path": "/home/fedora/rknpu-fpga/rtl/ddr/rk_ddr_capacity_axi.sv",
+  "generic_source_sha256": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+  "hardware_accessed": false,
+  "required_evidence": [
+    "strictmonitor publication invariant includingfaults/4state",
+    "pairedadapter equivalence underpublication contract",
+    "unchangedgenericnegativefault/rejection tests oncandidate",
+    "fast fullparentnormal/BIST/reset",
+    "actualUI/MC capacitytest",
+    "freshsynthesis/routing/image/hardware"
+  ],
+  "source_published": false,
+  "status": "PRIVATE_VALIDATED_RETIREMENT_HEALTH_TUPLE_COMPRESSION_PENDING_TESTS",
+  "supported_parent": "Actual strictmonitor composition only; genericpublicadapter unchanged",
+  "target": "Remove96-load retirementECCsnapshot CE, retainone validatedreceiptbit; no changedclock/timeout/error/computeprofile",
+  "utc": "2026-10-28T18:22:15.836690+00:00",
+  "variant_path": "/home/fedora/rknpu-fpga/build/full512-capacity-retire-snapshot-variant-v1/rk_ddr_capacity_axi.sv",
+  "variant_sha256": "2fde9e9b2a18c9d714a4d994fdb812b9c141b010ac0e2fd3070a0812e0d43195"
+}

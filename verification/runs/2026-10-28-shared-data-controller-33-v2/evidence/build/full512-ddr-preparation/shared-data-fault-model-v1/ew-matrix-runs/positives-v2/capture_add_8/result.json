@@ -1,0 +1,70 @@
+{
+  "command": {
+    "argv": [
+      "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-fault-model-v1/native-compile-v2/obj/Vtb_jtag_dual_ddr_async",
+      "+CASE=/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-fault-model-v1/ew-vectors-v1/capture_add_8",
+      "+OUTPUT=/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-fault-model-v1/ew-matrix-runs/positives-v2/capture_add_8/observed.txt",
+      "+START=100e0000",
+      "+AMOUNT=35",
+      "+NTASKS=1",
+      "+NLINES=1472",
+      "+JOBS=1",
+      "+NEGATIVE=0",
+      "+RESET_RECOVERY=0",
+      "+CSR_BASE=0"
+    ],
+    "finished_utc": "2026-10-28T00:27:31.379552+00:00",
+    "pid": 1087224,
+    "returncode": 0,
+    "seconds": 589.6189976101741,
+    "started_utc": "2026-10-28T00:17:41.759570+00:00",
+    "status": "EXITED",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "10140e1bd8847787e083d7e728f5233877fcb406ca260fdaf36dc53a012c09fb",
+    "timeout_seconds": 1800
+  },
+  "expected_marker": "PASS jtag_dual_ddr_read_snapshot csr_base=00000000 jobs=1 negative=0 recovered=0 lines=1472 uploaded_nonzero=72 rawtasks=1 phy_user_returns=6312 read64_packets=1474 read64_axi_reads=1474 scope=actual_AXI_UI_MC_modeled_PHY",
+  "expected_metrics": {
+    "command_corruption_read_packets": 0,
+    "command_corruption_write_packets": 0,
+    "host_read64_axi_reads": 1474,
+    "host_read64_packets": 1474,
+    "lines": 1472,
+    "phy_user_returns": 6312,
+    "phy_user_returns_minimum": 6147,
+    "physical_bytes": 94208,
+    "successful_jobs": 1,
+    "uncached_phy_user_returns": 52006,
+    "uploaded_nonzero": 72
+  },
+  "name": "capture_add_8",
+  "observed_bytes": 203136,
+  "observed_marker": "PASS jtag_dual_ddr_read_snapshot csr_base=00000000 jobs=1 negative=0 recovered=0 lines=1472 uploaded_nonzero=72 rawtasks=1 phy_user_returns=6312 read64_packets=1474 read64_axi_reads=1474 scope=actual_AXI_UI_MC_modeled_PHY",
+  "observed_marker_fields": {
+    "jobs": "1",
+    "lines": "1472",
+    "negative": "0",
+    "phy_user_returns": "6312",
+    "rawtasks": "1",
+    "read64_axi_reads": "1474",
+    "read64_packets": "1474",
+    "recovered": "0",
+    "scope": "actual_AXI_UI_MC_modeled_PHY",
+    "uploaded_nonzero": "72"
+  },
+  "observed_sha256": "17754d19eb3baf3667dfeda9598b67b9f29fd4d570a6e4be928230fb1925ab70",
+  "readback_exact": true,
+  "spec": {
+    "address": 269352960,
+    "amount": 35,
+    "case": "capture_add_8",
+    "jobs": 1,
+    "lines": 1472,
+    "name": "capture_add_8",
+    "negative": 0,
+    "reset_recovery": 0,
+    "tasks": 1
+  },
+  "status": "PASS",
+  "timeout_seconds": 1800
+}

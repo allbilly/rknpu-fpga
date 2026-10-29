@@ -1,0 +1,53 @@
+{
+  "status": "PASS_REGISTERED_BRAM_FULL512_CHECKPOINT",
+  "started_utc": "2026-10-26T11:18:31.402682+00:00",
+  "authorization": "User: fix the failed timing; u can build vivado",
+  "scope": "Fresh full512 registered-BRAM checkpoint only; mapped/startup/image review incomplete; no bitstream or programming",
+  "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+  "package": "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000",
+  "package_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+  "review_sha256": "f3339a2b6a8961c9a0cafa489d27ca4d2dacdd7f9198381587eb3971973ddcc9",
+  "build_tcl_sha256": "ecda4325c745ae04dc19fbeb9a2fe7669f83c6605b8eb272639bffdc2570c880",
+  "argv": [
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/build.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-implementation/20261026T111740Z/vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-implementation/20261026T111740Z/vivado.jou"
+  ],
+  "environment": {
+    "RK_FULL512_STARTUP_SOURCE_SHA": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+    "RK_CONFIRM_BOARD": "YPCB_00338_1P1",
+    "RK_CONFIG_VOLTAGE": "1.8",
+    "RK_CFGBVS": "GND",
+    "RK_LED_ACTIVE_LOW": "0",
+    "RK_EMIT_BITSTREAM": "0"
+  },
+  "hardware_accessed": false,
+  "bitstream_emitted": false,
+  "flash_written": false,
+  "placement_seed": "Vivado default; no seed override",
+  "git_revision": "8b23d647d4a1c8cdaf7bdad2160f45b285ca6909",
+  "source_is_snapshot_of_dirty_worktree": true,
+  "pid": 408763,
+  "returncode": 0,
+  "finished_utc": "2026-10-26T11:49:51.510248+00:00",
+  "elapsed_seconds": 1880.107088499004,
+  "snapshot_intact": true,
+  "outputs": {
+    "implementation/check_timing.rpt": "638826e57622edd42c124dced855c54a5b6226ef1cea15f4dd486e93ba18e735",
+    "implementation/check_timing_no_clock.rpt": "7bf91af1af4f7dbbab43d849f7a442dadddc6f965a5214e18e5812d15d273f67",
+    "implementation/check_timing_unconstrained_internal_endpoints.rpt": "a87ffff45159bb65b4514c13f4daf712c5ca2affb3da2f6b60d507fa16ed9ab2",
+    "implementation/drc.rpt": "0eb52c4522cbcde714a5c4cc7429537f70fb43f4e2af619fe4887a8a8f22a787",
+    "implementation/post_synth.dcp": "c63b42a84565c2102c8b4f724d6bf389e3764aa9e7fdc4a91c7e4e6b9e3da692",
+    "implementation/pulse_width.rpt": "104f6dd8139a755c54c619d3da8871d63769eadfa22dd13f5d433a5c719de27c",
+    "implementation/routed.dcp": "9e3166635b11da4f44877991ee8c15fb9bc11d98727ce20038dba810819bba9f",
+    "implementation/timing.rpt": "e2e11a819ca92be3a697256db16771c8d2193e7aa0202e37ecc60e1f27da8a7e",
+    "implementation/utilization.rpt": "b9f6dc23d8be7cde1e125607f6d0b3542a40b28f541c3321747199f0071d1cb3",
+    "implementation/utilization_synth.rpt": "e0b3696c4d038390d82dc6d6d917a3769d158bb99eb68fe8bc724dcaf79571c7"
+  }
+}

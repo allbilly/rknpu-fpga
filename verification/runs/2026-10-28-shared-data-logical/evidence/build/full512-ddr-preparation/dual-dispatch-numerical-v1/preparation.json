@@ -1,0 +1,14 @@
+{
+  "status": "PREPARED_ACTUAL_FULL512_CMAC_THROUGH_SHARED_DISPATCH_NUMERICAL_BENCH",
+  "parent_bench": "/home/fedora/rknpu-fpga/tests/ddr/tb_cmac_async_engine.sv",
+  "parent_sha256": "ffe7291fed87dda50022dcaf6c92f38fe285a50fd19686c30f9da90fd0c0d7b9",
+  "bench": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-dispatch-numerical-v1/tb_cmac_async_engine.sv",
+  "bench_sha256": "92168712ce0913d4c40690fd93b83da337d8124949cdcd86de5e270b3416e848",
+  "deltas": "Replace direct CMAC bridge with actual shared dispatcher, preserve all nine modes/expected words/addresses/counts/numerics/seed; update hierarchy observers; assert CMAC ready selection and owned EW exclusion",
+  "expected_numbers_changed": false,
+  "goldens_or_timeouts_changed": false,
+  "seed": "0x3588ad16",
+  "ew_numerical_qualified": false,
+  "ddr_qualified": false,
+  "hardware_accessed": false
+}

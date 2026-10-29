@@ -1,0 +1,27 @@
+TIMED	reset_owner/reset0_sync	1	20.000	19.615
+TIMED	reset_owner/reset0_sync	2	20.000	19.438
+CHAIN	reset_owner/reset0_sync	platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/rstdiv0_sync_r1_reg	clk_pll_i_1	sys_clock	3
+TIMED	reset_owner/fresh0_sync	1	20.000	19.396
+TIMED	reset_owner/fresh0_sync	2	20.000	19.438
+CHAIN	reset_owner/fresh0_sync	platform/endpoint/reset_owner/ui_domain[0].fresh_reg	clk_pll_i_1	sys_clock	3
+TIMED	reset_owner/release0_sync	1	20.000	19.615
+TIMED	reset_owner/release0_sync	2	20.000	19.438
+CHAIN	reset_owner/release0_sync	platform/endpoint/reset_owner/ui_domain[0].clients_rst_n_reg	clk_pll_i_1	sys_clock	3
+TIMED	reset_owner/ui_domain[0].assertion_sync	1	7.500	7.099
+TIMED	reset_owner/ui_domain[0].assertion_sync	2	7.500	6.922
+CHAIN	reset_owner/ui_domain[0].assertion_sync	platform/endpoint/reset_owner/assertion_seen_reg[0]	sys_clock	clk_pll_i_1	3
+TIMED	reset_owner/reset1_sync	1	20.000	19.608
+TIMED	reset_owner/reset1_sync	2	20.000	19.470
+CHAIN	reset_owner/reset1_sync	platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/rstdiv0_sync_r1_reg	clk_pll_i	sys_clock	3
+TIMED	reset_owner/fresh1_sync	1	20.000	19.360
+TIMED	reset_owner/fresh1_sync	2	20.000	19.433
+CHAIN	reset_owner/fresh1_sync	platform/endpoint/reset_owner/ui_domain[1].fresh_reg	clk_pll_i	sys_clock	3
+TIMED	reset_owner/release1_sync	1	20.000	19.606
+TIMED	reset_owner/release1_sync	2	20.000	19.433
+CHAIN	reset_owner/release1_sync	platform/endpoint/reset_owner/ui_domain[1].clients_rst_n_reg	clk_pll_i	sys_clock	3
+TIMED	reset_owner/ui_domain[1].assertion_sync	1	7.500	7.089
+TIMED	reset_owner/ui_domain[1].assertion_sync	2	7.500	6.916
+CHAIN	reset_owner/ui_domain[1].assertion_sync	platform/endpoint/reset_owner/assertion_seen_reg[1]	sys_clock	clk_pll_i	3
+TIMED	sequence_sync	1	7.500	7.099
+TIMED	sequence_sync	2	7.500	6.838
+CHAIN	sequence_sync	platform/endpoint/sequence_complete_registered_reg	sys_clock	clk_pll_i_1	3

@@ -1,0 +1,102 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-production-model-auditors-20261027-v3",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+    "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v3/run.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "make",
+        "generated-check"
+      ],
+      "log_sha256": "b3381e2f4577fb00b88ccdb768c91d043d54433d20a7fd60cadfa29a8b28cfec",
+      "name": "generated_check",
+      "returncode": 0,
+      "seconds": 0.32690104306675494,
+      "status": "PASS"
+    },
+    {
+      "argv": [
+        "make",
+        "test"
+      ],
+      "log_sha256": "df6306fcc41b417875ae2a78f37f38408cb91a825d2bfc1efd535518b013292c",
+      "name": "production_test",
+      "returncode": 0,
+      "seconds": 1035.7087461310439,
+      "status": "PASS"
+    }
+  ],
+  "copied_input_count": 1051,
+  "core_source_sha256": "493195964b189d3cf829c31104d6fcb8d72d5e7dc3a8c8310d2ceb62add2e873",
+  "elapsed_seconds": 1036.0356471741106,
+  "finished_utc": "2026-10-27T08:04:20.527374+00:00",
+  "invocation_id": "59fdbbf6a9534c3d962e0ac555871df2",
+  "mem_available_bytes": 23654850560,
+  "memory_psi_full": {
+    "avg10": 0.0,
+    "avg300": 0.0,
+    "avg60": 0.0,
+    "total": 1142354641
+  },
+  "minimum_host_headroom_bytes": 8589934592,
+  "optional_observer_copied_hash": "003bce7db016ef319504765c8f3cf17d2390e4db5c1bf7e761b0e26703b9be32",
+  "optional_observer_native_qualification": false,
+  "optional_observer_source": "tools/tinystories/audit_model.py",
+  "peak_cgroup_memory_bytes_observed": 2925047808,
+  "production_reports": {
+    "cmac_iverilog/report.json": {
+      "sha256": "dd3a6583f0c2ec7adab260b4d02ca306e2b4a6d75a3825d318af8de8f7ef557e",
+      "status": "PASS_RAW_PRODUCT_PATH_ONLY",
+      "tests": 3
+    },
+    "cmac_verilator/report.json": {
+      "sha256": "50ed9895fa5104a36d272a9462ce7c55d87f9b36db2c5e075220e702eef3d090",
+      "status": "PASS_RAW_PRODUCT_PATH_ONLY",
+      "tests": 3
+    },
+    "iverilog/report.json": {
+      "sha256": "2dbe15b4c89c51f10f60fafd1d9e3eade9d6922fbcf1799dbbbd5a3238f39aa5",
+      "status": "PASS",
+      "tests": 249
+    },
+    "numeric_report.json": {
+      "sha256": "315ecbf95a61b08f87646412a1dc8b8eb5d94666cc5fa55869616f7566a8a46f",
+      "status": "PASS",
+      "tests": 0
+    },
+    "rtl/report.json": {
+      "sha256": "a95567db5170492586ff6adc444040eb98b958c9ea365c7a89308e7867d37bfc",
+      "status": "PASS",
+      "tests": 249
+    }
+  },
+  "psi_full_avg10_limit": 1.0,
+  "run_script_sha256": "e321b563ed1194c5e2fd0269e9c58dd984d29f9a84b6282affb4ea849573c965",
+  "runner_report_path": "build/production-model-auditors/current-v3/report.json",
+  "runner_report_sha256": "771161eaf29d1935a67a6c70dcf155854e20f8a5e3600c6fdabe5c72c816534a",
+  "source_after_sha256": "2a3d4a7b195ba1995bc6bc547926cb9005b8f7d2ee6a78d9ddeb197cde869b15",
+  "source_before_sha256": "2a3d4a7b195ba1995bc6bc547926cb9005b8f7d2ee6a78d9ddeb197cde869b15",
+  "source_revision_expected": "2a3d4a7b195ba1995bc6bc547926cb9005b8f7d2ee6a78d9ddeb197cde869b15",
+  "source_unchanged": true,
+  "started_utc": "2026-10-27T07:47:03.507907+00:00",
+  "status": "PASS_PRIVATE_COMPLETE_PRODUCTION_MAKE_TEST_ONLY",
+  "systemd_cgroup": {
+    "CPUQuota": "200%",
+    "MemoryMax": "4G",
+    "MemorySwapMax": "0",
+    "TasksMax": 256
+  }
+}

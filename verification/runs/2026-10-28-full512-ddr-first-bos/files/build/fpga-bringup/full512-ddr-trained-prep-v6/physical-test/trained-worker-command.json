@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "python3",
+    "/home/fedora/rknpu-fpga/tools/tinystories/run_projection.py",
+    "--vectors",
+    "build/full512-ddr-preparation/trained-alternation-source-v2/vectors",
+    "--vectors-sha256",
+    "ad69a7caf1e1be5757c477df80fb09301f00efbf03143560472eca11efb7fa49",
+    "--memory-profile",
+    "ddr",
+    "--port",
+    "3721",
+    "--quit-bridge",
+    "--out",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-trained-prep-v6/physical-test/trained-tile"
+  ],
+  "script_sha256": "0c4b36492ab5eafc6939104eabbc150f063f19a2339a21a211d82bce498b68d0",
+  "started_utc": "2026-10-28T04:59:47.538028+00:00",
+  "vectors_report_sha256": "ad69a7caf1e1be5757c477df80fb09301f00efbf03143560472eca11efb7fa49"
+}

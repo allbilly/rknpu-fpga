@@ -1,0 +1,7 @@
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v8/tb_capacity_owner.sv:106:15: Signal is not driven, nor used: 'n'
+                                                                                                                 : ... note: In instance 'tb_capacity_owner'
+  106 |     integer i,n;
+      |               ^
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.048
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Error: Exiting due to 1 warning(s)

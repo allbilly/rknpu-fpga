@@ -1,0 +1,7 @@
+PASS_PUBLIC_PATTERN_GOLDENS rows=18 base=00001000 software_oracle=tools/ddr/capacity_pattern.py
+PASS_AXI_INTEGRATED span=256 base=00001000 writes=8 reads=12 fences=4
+PASS_AXI_TESTBENCH scope=adapter_contract_only physical=NOT_QUALIFIED
+- /home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v14/tb_capacity_axi.sv:486: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.048 2026-04-26
+- Verilator: $finish at 3us; walltime 0.001 s; speed 4.952 ms/s
+- Verilator: cpu 0.001 s on 1 threads; allocated 7 MB

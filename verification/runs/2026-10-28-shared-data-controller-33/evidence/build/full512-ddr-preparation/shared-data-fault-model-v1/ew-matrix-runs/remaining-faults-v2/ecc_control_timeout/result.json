@@ -1,0 +1,68 @@
+{
+  "command": {
+    "argv": [
+      "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-fault-model-v1/native-compile-v2/obj/Vtb_jtag_dual_ddr_async",
+      "+CASE=/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-fault-model-v1/ew-vectors-v1/capture_sub_9",
+      "+OUTPUT=/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-fault-model-v1/ew-matrix-runs/remaining-faults-v2/ecc_control_timeout/observed.txt",
+      "+START=100e0000",
+      "+AMOUNT=35",
+      "+NTASKS=2",
+      "+NLINES=1600",
+      "+JOBS=1",
+      "+NEGATIVE=7",
+      "+RESET_RECOVERY=0",
+      "+CSR_BASE=0"
+    ],
+    "finished_utc": "2026-10-28T00:35:46.856084+00:00",
+    "pid": 1090753,
+    "returncode": 0,
+    "seconds": 272.2123221321963,
+    "started_utc": "2026-10-28T00:31:14.642405+00:00",
+    "status": "EXITED",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "72618699d2c75c68d90321432dda1b37dfbc008a56a33fb0897fd3aa69e35bfa",
+    "timeout_seconds": 300
+  },
+  "expected_marker": "PASS jtag_dual_ddr_read_snapshot csr_base=00000000 jobs=1 negative=7 recovered=0 lines=1600 uploaded_nonzero=77 rawtasks=2 phy_user_returns=5320 read64_packets=2 read64_axi_reads=2 scope=actual_AXI_UI_MC_modeled_PHY",
+  "expected_metrics": {
+    "host_read64_axi_reads": 2,
+    "host_read64_packets": 2,
+    "lines": 1600,
+    "phy_user_returns": null,
+    "phy_user_returns_minimum": 4995,
+    "physical_bytes": 102400,
+    "successful_jobs": 0,
+    "uncached_phy_user_returns": null,
+    "uploaded_nonzero": 77
+  },
+  "name": "ecc_control_timeout",
+  "observed_bytes": 0,
+  "observed_marker": "PASS jtag_dual_ddr_read_snapshot csr_base=00000000 jobs=1 negative=7 recovered=0 lines=1600 uploaded_nonzero=77 rawtasks=2 phy_user_returns=5320 read64_packets=2 read64_axi_reads=2 scope=actual_AXI_UI_MC_modeled_PHY",
+  "observed_marker_fields": {
+    "jobs": "1",
+    "lines": "1600",
+    "negative": "7",
+    "phy_user_returns": "5320",
+    "rawtasks": "2",
+    "read64_axi_reads": "2",
+    "read64_packets": "2",
+    "recovered": "0",
+    "scope": "actual_AXI_UI_MC_modeled_PHY",
+    "uploaded_nonzero": "77"
+  },
+  "observed_sha256": null,
+  "readback_exact": false,
+  "spec": {
+    "address": 269352960,
+    "amount": 35,
+    "case": "capture_sub_9",
+    "jobs": 1,
+    "lines": 1600,
+    "name": "ecc_control_timeout",
+    "negative": 7,
+    "reset_recovery": 0,
+    "tasks": 2
+  },
+  "status": "PASS",
+  "timeout_seconds": 300
+}

@@ -1,0 +1,14 @@
+{
+  "finding": "testbench put_aw/put_w/rd sampled READY after tick() delay, so the successful handshake dropped READY before the loop condition; corrected in fresh v2 only",
+  "hardware_executed": false,
+  "native_pid": 1166692,
+  "observed_utc": "2026-10-28T07:26:52.476401+00:00",
+  "preserved_report_status": "RUNNING; parent was terminated before runner finalization; not treated as a completed simulation result",
+  "process_group": 1166682,
+  "scope": "rknpu-capacity-regs-validation-v1.scope",
+  "status": "ABORT_CONFIRMED_HARNESS_HANDSHAKE_BUG",
+  "supervisor_pid": 1166682,
+  "termination": "TERM sent only to the owned systemd scope after root-confirmed testbench handshake bug",
+  "verified_argv": "python3 /home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v1/run_validation.py -> vvp /home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v1/results/capacity_regs.vvp",
+  "vivado_executed": false
+}

@@ -1,0 +1,119 @@
+{
+  "status": "PASS_INDEPENDENT_ALL_NINE_FULL512_CMAC_DISPATCH_MODES_BOTH_SIMULATORS_ONLY",
+  "evidence": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-dispatch-numerical-v1/iverilog-modes-v1/report.json": "3e4dd544bed6d4579d31f833f8d2a866460f90c8977299c9ee4438022e715814",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-dispatch-numerical-v1/verilator-modes-v1/report.json": "3c84fc5174bdfdfa0fc4ca8ca305b7764754df8601c62818e3e8433be102b3ef"
+  },
+  "binary_sha256": {
+    "iverilog": "c72910ac1a73af979e81f97ba9960fa09957ea28b4d25a447ed19fc25292e514",
+    "verilator": "ab3d271ba8b8e42ce715ee5c97a792ad9c6d586c0213983914e8ce9d8d6d22e6"
+  },
+  "modes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "seed": "0x3588ad16",
+  "numerical_counts": {
+    "0": [
+      2,
+      2,
+      98,
+      13056,
+      128,
+      13576,
+      2
+    ],
+    "1": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "2": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "3": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      4,
+      0
+    ],
+    "4": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "5": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "6": [
+      1,
+      1,
+      49,
+      6528,
+      64,
+      6788,
+      0
+    ],
+    "7": [
+      1,
+      1,
+      49,
+      6528,
+      64,
+      6788,
+      1
+    ],
+    "8": [
+      1,
+      1,
+      49,
+      6528,
+      64,
+      6788,
+      1
+    ]
+  },
+  "scope_review_sha256": "e36d07c6038142efbe98271253d5eec2bbd47e7e0ee311a3a28d70dd27ab5082",
+  "verilator_compile_sha256": "85b9f115ad1e915df0901ba9d4a14599ffca9d67cec07aec8bd2d4bb82d55c64",
+  "reviewed_warning_policy": "56 exact known warnings retained; strict-fatal receipt preserved; no warning-kind suppressions",
+  "full512_product_lanes": 512,
+  "repeat_raw_jobs": 2,
+  "repeat_operand_reads": 13056,
+  "repeat_writes": 128,
+  "repeat_memory_responses": 13576,
+  "repeat_safe_rearms": 2,
+  "ew_numerical_composition_qualified": false,
+  "ddr_composition_qualified": false,
+  "mapped_or_timing_qualified": false,
+  "hardware_accessed": false
+}

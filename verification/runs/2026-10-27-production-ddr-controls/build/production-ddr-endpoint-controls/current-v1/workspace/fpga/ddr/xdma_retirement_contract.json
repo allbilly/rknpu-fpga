@@ -1,0 +1,647 @@
+{
+  "schema_version": 1,
+  "status": "SOURCE_SUPPORTED_READBACK_FENCE_CANDIDATE_NOT_YET_QUALIFIED",
+  "scope": "Source ordering argument for the separately pinned archived controller. No new RTL, MC/PHY simulation, physical DDR validation or global reset/drain acknowledgment.",
+  "catalog": {
+    "path": "fpga/ddr/xdma_archive_reference.json",
+    "sha256": "49e35169ae339e3b7520af1265cec0585581bbb42e483e12f9308df7de722904",
+    "archive_sha256": "09050b7ca090b3f8206d7735f9de919788f2a35d868311b7911f8d6c7812a84a"
+  },
+  "sources": {
+    "wrapper": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/top_mig_7series_0_0.v",
+      "sha256": "febfef3d11ab42d5aad7540dfadfbd1e44eddbaa669d8b46cf129d67be1bd828",
+      "bytes": 22584
+    },
+    "core": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/top_mig_7series_0_0_mig.v",
+      "sha256": "aa09f2d6fa37b440a1dc36ff7a7e50d2cb32d6b290e1a0af8779e8704f0d17ba",
+      "bytes": 138551
+    },
+    "memory_top": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/ip_top/mig_7series_v4_2_memc_ui_top_axi.v",
+      "sha256": "c88637b037f97fe069266f749aee2cf8bf5286923bd0988b68eaac15a1ed0bb6",
+      "bytes": 57984
+    },
+    "memory_interface": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/ip_top/mig_7series_v4_2_mem_intfc.v",
+      "sha256": "cd8507787a595e5591f94c32f3c52f939e1e377f6dece8af7aec9fb97879b11f",
+      "bytes": 43928
+    },
+    "axi_write_command": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_wr_cmd_fsm.v",
+      "sha256": "9357a4c13f8b890e5baf67b8321fec2494f2a351cd3ce5ad8ab8140aabdf0fd3",
+      "bytes": 6682
+    },
+    "axi_arbiter": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "sha256": "992f1d1a33deb893784553f84843ce19e2bb02787ec42046182bac0f0b32ef29",
+      "bytes": 12139
+    },
+    "axi_address": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_translator.v",
+      "sha256": "483ad56bcf65bfa05a83e414504776b0ba33cecf639878df9f8fc2ae9e7b2e4f",
+      "bytes": 9738
+    },
+    "axi_write_address": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_aw_channel.v",
+      "sha256": "e736dacd4c9f6b751722b1fb55d6e12a7b1f1bab1b8c1afaf22d40fffdbecaf1",
+      "bytes": 10655
+    },
+    "axi_read": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_r_channel.v",
+      "sha256": "13a23ff1dd32164e98c1d90702819eac060b0717ec52da435d73485fa442daf1",
+      "bytes": 12758
+    },
+    "ui_command": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/ui/mig_7series_v4_2_ui_cmd.v",
+      "sha256": "0961499cbcd0130efc6403687c88dca66ca064273d0f4215b722b4d1051638b8",
+      "bytes": 11341
+    },
+    "ui_read": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/ui/mig_7series_v4_2_ui_rd_data.v",
+      "sha256": "5be750304d5ae624dbbc516e74e7c8090968b2a7c0f56c3b617da322569381b0",
+      "bytes": 20181
+    },
+    "bank_compare": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/controller/mig_7series_v4_2_bank_compare.v",
+      "sha256": "ed85f3f2b2430a8e5028c8adc21db598ada44d5f83b0515777c648c4adb060f3",
+      "bytes": 10848
+    },
+    "bank_queue": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/controller/mig_7series_v4_2_bank_queue.v",
+      "sha256": "8c379fc4f9fab724f0ac94d008d9de844159b295fc12e1458c603d1d9209eeb9",
+      "bytes": 23289
+    },
+    "bank_state": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/controller/mig_7series_v4_2_bank_state.v",
+      "sha256": "465babb32d1346f6c7c7e7f2f5dd67d71438aea9ae31056258e15af3bd36b35f",
+      "bytes": 36755
+    },
+    "bank_common": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/controller/mig_7series_v4_2_bank_common.v",
+      "sha256": "20458b07b3bc751e788e8bb613cfc88792cc52ae97fa8f1e596c33f2fccd6dd1",
+      "bytes": 18422
+    },
+    "rank_control": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/controller/mig_7series_v4_2_rank_cntrl.v",
+      "sha256": "25f0ba1a096ede1f408fe8fa1f1e045624d7f2b349e966fac487369ce7ec4ef7",
+      "bytes": 22800
+    },
+    "memory_controller": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/controller/mig_7series_v4_2_mc.v",
+      "sha256": "98e99f2d2dc416ea8fb917f68fd5d609da3f574c3c417c15a31719d612f98c8b",
+      "bytes": 42870
+    },
+    "column_machine": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/controller/mig_7series_v4_2_col_mach.v",
+      "sha256": "a91e4cd5e8afcf0f956e94144d896a78849dafea0e31b5d88b62147de9f7bf0a",
+      "bytes": 16640
+    },
+    "ecc_decoder": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/ecc/mig_7series_v4_2_ecc_dec_fix.v",
+      "sha256": "84745585695a18896e41aec6f3f2a51faca2774f4fe1e931ad9a67256eb7f140",
+      "bytes": 6657
+    },
+    "ecc_status": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "sha256": "5146f0f3e8dfc1e0e95673ba2ff357f52f4c4a5baca88a9489b37f926d801917",
+      "bytes": 29651
+    }
+  },
+  "witness_implemented": false,
+  "witness_qualified": false,
+  "controller_simulated": false,
+  "physical_integration_ready": false,
+  "joint_reset_drain_verified": false,
+  "selected_profile": {
+    "channel": 0,
+    "ranks": 1,
+    "bank_machines": 4,
+    "ordering": "NORM",
+    "address_map": "BANK_ROW_COLUMN",
+    "burst_mode": "8",
+    "phy_ratio": 4,
+    "axi_address_width": 31,
+    "axi_data_width": 512,
+    "axi_id_width": 4,
+    "ecc": "ON",
+    "electrical_profile_substitution_allowed": false,
+    "evidence": [
+      {
+        "source": "core",
+        "lines": [
+          104,
+          125
+        ]
+      },
+      {
+        "source": "core",
+        "lines": [
+          178,
+          178
+        ]
+      },
+      {
+        "source": "core",
+        "lines": [
+          399,
+          399
+        ]
+      },
+      {
+        "source": "core",
+        "lines": [
+          459,
+          486
+        ]
+      }
+    ]
+  },
+  "candidate": {
+    "operation": "After observing completion of the final acknowledged write request, stop new memory requests and issue a normal aligned single-beat AXI read to exactly that write request address. Observe its valid response, then obtain a fresh sticky ECC status snapshot.",
+    "address": "The same 31-bit, 64-byte-aligned AWADDR of the final write; do not use an arbitrary scratch/read-only address.",
+    "axi_read_fields": {
+      "ARID": 0,
+      "ARLEN": 0,
+      "ARSIZE": 6,
+      "ARBURST": 1,
+      "ARLOCK": 0,
+      "ARCACHE": 0,
+      "ARPROT": 0,
+      "ARQOS": 0
+    },
+    "required_response": {
+      "RID": 0,
+      "RRESP": 0,
+      "RLAST": 1
+    },
+    "inference": "Under the assumptions below, the read cannot issue before the final write column command, which cannot issue before preceding ordered writes or before its RMW read returns. The rank write-to-read interlock and actual returned read data provide an observable ordering witness. This is a source-supported candidate, awaiting directed qualification against the real archived control/data path.",
+    "not_established": [
+      "All banks precharged or idle.",
+      "All PHY or maintenance queues empty.",
+      "A platform-wide reset/drain acknowledgment.",
+      "Physical memory correctness or RK numerical equivalence."
+    ],
+    "assumptions": [
+      "One exclusive memory owner on channel 0; no concurrent host/PCIe/JTAG or other-master memory traffic.",
+      "Exactly the pinned NORM ordering, single-rank, ECC-enabled controller profile; no changed ordering/address/clock parameters.",
+      "The existing single-outstanding, ID-zero, aligned 64-byte single-beat memory profile; no unsupported bursts, narrow accesses or channel-select truncation.",
+      "All earlier read responses have completed, every earlier write has received its B response, and no new write can enter after the recorded final write.",
+      "At least one write was issued, and the enclosing final 64-byte beat remains mapped, initialized and exclusively owned.",
+      "No reset, calibration/clock loss, timeout, AXI protocol/error response, ECC disable or status-clear race occurs between the job and the checked fence.",
+      "The subsequent monitor snapshot requires IRQ mask 3, ECC enabled, zero sticky CE/UE status and no concurrent monitor fault."
+    ]
+  },
+  "source_ordering_chain": [
+    {
+      "statement": "The generated profile is NORM, with four bank machines, one rank and BANK_ROW_COLUMN addressing. NORM orders write column commands; reads do not universally join that ordering queue.",
+      "evidence": [
+        {
+          "source": "core",
+          "lines": [
+            108,
+            125
+          ]
+        },
+        {
+          "source": "core",
+          "lines": [
+            399,
+            399
+          ]
+        },
+        {
+          "source": "bank_queue",
+          "lines": [
+            92,
+            111
+          ]
+        },
+        {
+          "source": "bank_queue",
+          "lines": [
+            450,
+            455
+          ]
+        },
+        {
+          "source": "bank_queue",
+          "lines": [
+            490,
+            493
+          ]
+        }
+      ]
+    },
+    {
+      "statement": "B is pushed after the final native command acceptance, not physical retirement. The subsequent read is introduced only after this observed B; the shared native command pipeline preserves accepted command sequence before bank-machine allocation.",
+      "evidence": [
+        {
+          "source": "axi_write_command",
+          "lines": [
+            113,
+            119
+          ]
+        },
+        {
+          "source": "axi_arbiter",
+          "lines": [
+            125,
+            130
+          ]
+        },
+        {
+          "source": "ui_command",
+          "lines": [
+            120,
+            151
+          ]
+        },
+        {
+          "source": "ui_command",
+          "lines": [
+            272,
+            280
+          ]
+        }
+      ]
+    },
+    {
+      "statement": "Read and write use the same byte-to-native address translator. Reusing the exact aligned final AWADDR preserves rank, bank, row and column decoding. Channel 0 has one rank.",
+      "evidence": [
+        {
+          "source": "axi_address",
+          "lines": [
+            142,
+            150
+          ]
+        },
+        {
+          "source": "ui_command",
+          "lines": [
+            237,
+            252
+          ]
+        }
+      ]
+    },
+    {
+      "statement": "Busy rank-bank comparisons place later requests behind existing requests to that rank-bank. Head advancement and open-bank transfer follow predecessor completion/column issue, rather than allowing a later same-bank read to bypass a pending RMW write.",
+      "evidence": [
+        {
+          "source": "bank_compare",
+          "lines": [
+            218,
+            234
+          ]
+        },
+        {
+          "source": "bank_queue",
+          "lines": [
+            68,
+            89
+          ]
+        },
+        {
+          "source": "bank_queue",
+          "lines": [
+            299,
+            318
+          ]
+        },
+        {
+          "source": "bank_queue",
+          "lines": [
+            425,
+            447
+          ]
+        },
+        {
+          "source": "bank_queue",
+          "lines": [
+            514,
+            535
+          ]
+        },
+        {
+          "source": "bank_state",
+          "lines": [
+            577,
+            579
+          ]
+        }
+      ]
+    },
+    {
+      "statement": "Masked ECC writes select native WRITE_BYTES. They remain write requests for NORM ordering; their first column phase is a read. The state machine waits for the matching PHY RMW return before reasserting column readiness for the write phase.",
+      "evidence": [
+        {
+          "source": "axi_write_address",
+          "lines": [
+            135,
+            136
+          ]
+        },
+        {
+          "source": "axi_write_address",
+          "lines": [
+            235,
+            236
+          ]
+        },
+        {
+          "source": "bank_compare",
+          "lines": [
+            157,
+            164
+          ]
+        },
+        {
+          "source": "bank_compare",
+          "lines": [
+            205,
+            211
+          ]
+        },
+        {
+          "source": "bank_state",
+          "lines": [
+            289,
+            330
+          ]
+        }
+      ]
+    },
+    {
+      "statement": "Actual write column issue requires order_q_zero. The ordering queue advances only at non-RMW-read column issue, so issuance of the final write requires preceding ordered write columns to have issued.",
+      "evidence": [
+        {
+          "source": "bank_queue",
+          "lines": [
+            425,
+            455
+          ]
+        },
+        {
+          "source": "bank_queue",
+          "lines": [
+            474,
+            493
+          ]
+        },
+        {
+          "source": "bank_common",
+          "lines": [
+            195,
+            206
+          ]
+        },
+        {
+          "source": "bank_state",
+          "lines": [
+            805,
+            828
+          ]
+        },
+        {
+          "source": "bank_state",
+          "lines": [
+            876,
+            878
+          ]
+        }
+      ]
+    },
+    {
+      "statement": "The rank-control write-to-read timer starts from writes issued to that rank and derives its interval from CWL, burst length and nWTR. The bank-state read issue path checks that interlock and PHY FIFO readiness; this is not an arbitrary software wait.",
+      "evidence": [
+        {
+          "source": "rank_control",
+          "lines": [
+            305,
+            352
+          ]
+        },
+        {
+          "source": "bank_state",
+          "lines": [
+            805,
+            828
+          ]
+        },
+        {
+          "source": "bank_state",
+          "lines": [
+            851,
+            878
+          ]
+        }
+      ]
+    },
+    {
+      "statement": "RMW read errors are raw validity-qualified ECC events even though RMW returns do not produce normal UI read data. These events feed sticky ECC status while ECC is enabled. A preceding RMW read must have returned before its write phase can issue.",
+      "evidence": [
+        {
+          "source": "column_machine",
+          "lines": [
+            420,
+            437
+          ]
+        },
+        {
+          "source": "ecc_decoder",
+          "lines": [
+            168,
+            178
+          ]
+        },
+        {
+          "source": "memory_top",
+          "lines": [
+            1107,
+            1110
+          ]
+        },
+        {
+          "source": "ecc_status",
+          "lines": [
+            348,
+            352
+          ]
+        },
+        {
+          "source": "bank_state",
+          "lines": [
+            309,
+            330
+          ]
+        }
+      ]
+    },
+    {
+      "statement": "The fence read response is produced from physical read-return data through the ECC/UI read path and AXI data FIFO. The UI multiple-error bit is stored with the read beat and selects SLVERR; no write-data forwarding source was found on this inspected return path.",
+      "evidence": [
+        {
+          "source": "memory_controller",
+          "lines": [
+            874,
+            886
+          ]
+        },
+        {
+          "source": "column_machine",
+          "lines": [
+            432,
+            435
+          ]
+        },
+        {
+          "source": "ui_read",
+          "lines": [
+            311,
+            324
+          ]
+        },
+        {
+          "source": "ui_read",
+          "lines": [
+            356,
+            386
+          ]
+        },
+        {
+          "source": "memory_top",
+          "lines": [
+            929,
+            946
+          ]
+        },
+        {
+          "source": "axi_read",
+          "lines": [
+            189,
+            195
+          ]
+        },
+        {
+          "source": "axi_read",
+          "lines": [
+            230,
+            245
+          ]
+        }
+      ]
+    }
+  ],
+  "rejected_witnesses": {
+    "final_b_or_clean_ecc_status": {
+      "statement": "B is a command-acceptance response and the independent control-port status read has no memory retirement dependency. Neither alone supplies the required ordering witness.",
+      "evidence": [
+        {
+          "source": "axi_write_command",
+          "lines": [
+            113,
+            119
+          ]
+        }
+      ]
+    },
+    "arbitrary_address_read": {
+      "statement": "NORM allows reads to bypass the global write order. Only the same-rank-bank dependency on the final write supplies the additional link; an unrelated address is insufficient.",
+      "evidence": [
+        {
+          "source": "bank_queue",
+          "lines": [
+            92,
+            111
+          ]
+        },
+        {
+          "source": "bank_queue",
+          "lines": [
+            490,
+            493
+          ]
+        }
+      ]
+    },
+    "bank_idle": {
+      "statement": "Internal bank idle reflects queue ownership. A bank machine may finish and pass an open bank when its non-RMW-read column command is sent. That is not a public all-PHY-work-retired signal.",
+      "evidence": [
+        {
+          "source": "bank_common",
+          "lines": [
+            191,
+            193
+          ]
+        },
+        {
+          "source": "bank_queue",
+          "lines": [
+            425,
+            447
+          ]
+        }
+      ]
+    },
+    "mc_read_idle": {
+      "statement": "mc_read_idle is derived from the column read FIFO being empty and calibration complete. It does not count write retirement and is not a public wrapper drain acknowledgment.",
+      "evidence": [
+        {
+          "source": "memory_controller",
+          "lines": [
+            539,
+            545
+          ]
+        },
+        {
+          "source": "memory_interface",
+          "lines": [
+            627,
+            627
+          ]
+        },
+        {
+          "source": "memory_interface",
+          "lines": [
+            845,
+            845
+          ]
+        }
+      ]
+    },
+    "public_maintenance_ack": {
+      "statement": "The wrapper exposes maintenance acknowledgments, but the generated core hardwires self-refresh, refresh and ZQ requests to zero. They cannot be commanded as a fence through this existing interface.",
+      "evidence": [
+        {
+          "source": "wrapper",
+          "lines": [
+            98,
+            100
+          ]
+        },
+        {
+          "source": "core",
+          "lines": [
+            2074,
+            2078
+          ]
+        }
+      ]
+    }
+  },
+  "next_source_implementation": {
+    "component": "A separate ordinary-AXI readback-fence sequencer below the unchanged raw command boundary, followed by the existing ECC monitor check.",
+    "ownership": "Record the last accepted write address, track outstanding write completion, freeze new memory admission, and retain the final beat allocation until fence/error recovery finishes. Require audited exclusive ownership; do not turn B into a retirement counter.",
+    "failure_behavior": "Hold pending AR until handshake, reject non-OKAY/nonzero-ID/missing-RLAST responses, quarantine on clock/calibration/reset uncertainty or timeout, and never publish successful job completion before the qualified fence and monitor snapshot.",
+    "controller_port_extension": "No new MIG port is needed for this candidate because it uses the existing AXI read channel. It does not replace a separately audited whole-domain reset protocol.",
+    "required_qualification": [
+      "Exercise actual pinned bank queue/compare/state and rank-control logic with writes spanning different banks and delayed RMW read returns; a hand-written echo slave alone cannot qualify the source ordering premise.",
+      "Demonstrate that a same-final-address read stays behind the final RMW write while an unrelated-bank read can complete early, preserving the negative control.",
+      "Cover same-row bank passing, different-row/precharge paths, prior writes to other banks, repeated final addresses, PHY-side backpressure and read-response stalls.",
+      "Bind the wrapper to unchanged raw BO replays and full output oracles after the ordering premise passes; do not replace commands with tensor operations.",
+      "Retain reset/calibration-loss/error and pending-channel expectations; do not manufacture a generic drained acknowledgment or successful memory initialization result."
+    ]
+  }
+}

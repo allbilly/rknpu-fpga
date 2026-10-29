@@ -1,0 +1,45 @@
+{
+  "RTL_or_bitstream_changed": false,
+  "observed_states": [
+    {
+      "address": "0x8",
+      "count": 2,
+      "staged_fields": 0,
+      "status": "0x10"
+    },
+    {
+      "address": "0x108",
+      "count": 643,
+      "staged_fields": 0,
+      "status": "0x10"
+    },
+    {
+      "address": "0x108",
+      "count": 1,
+      "staged_fields": 3,
+      "status": "0x711"
+    },
+    {
+      "address": "0x108",
+      "count": 321,
+      "staged_fields": 3,
+      "status": "0x714"
+    },
+    {
+      "address": "0x108",
+      "count": 2,
+      "staged_fields": 3,
+      "status": "0x10"
+    }
+  ],
+  "source_contract": "rk_job_control_admission.status_word: fields_valid bits10:8 remain until successful ACK; staged order address/amount/tag makes masks1,3,7",
+  "statistics": {
+    "commands": 1623,
+    "idcodes": 1,
+    "initial_retained_sequence": 81,
+    "scans": 4873,
+    "tap_resets": 1
+  },
+  "trace_path": "build/fpga-bringup/full512-capacity-retire-prep-v1/physical-test/epoch-1-cmac/native-scans.jsonl",
+  "trace_sha256": "d0fd7b719880afbbf355f3581a27f8b0ef326a0a89b5a06c6fe429f1a84a1085"
+}

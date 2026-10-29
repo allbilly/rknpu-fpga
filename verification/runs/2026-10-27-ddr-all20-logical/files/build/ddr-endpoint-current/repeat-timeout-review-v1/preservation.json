@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "status": "PRESERVED_O3_POSITIVE_SHARD_TIMEOUT_REVIEW",
+  "created_utc": "2026-10-27T03:30:40.642028+00:00",
+  "scope": "Mechanical preservation/source-bound status only. Repeat timeout remains failed; no full20 acceptance. No replay/build/Vivado/hardware.",
+  "preserved_files": [
+    {
+      "source": "/home/fedora/rknpu-fpga/build/ddr-endpoint-current/positives-o3-v1/report.json",
+      "archive_path": "artifacts/build/ddr-endpoint-current/positives-o3-v1/report.json",
+      "source_bytes": 61287,
+      "source_sha256": "bdf1e4d937293a34f37037a788eafe4ba96de2cb1126fa84d78e53619b13fe4f",
+      "archive_bytes": 61287,
+      "archive_sha256": "bdf1e4d937293a34f37037a788eafe4ba96de2cb1126fa84d78e53619b13fe4f",
+      "byte_equal": true
+    },
+    {
+      "source": "/home/fedora/rknpu-fpga/build/ddr-endpoint-current/positives-o3-v1/repeat_sub_9/run.json",
+      "archive_path": "artifacts/build/ddr-endpoint-current/positives-o3-v1/repeat_sub_9/run.json",
+      "source_bytes": 1149,
+      "source_sha256": "e64cc6b5652c3796a9051161d74c085c8e37782f791b8b875cbffe14612ee3fa",
+      "archive_bytes": 1149,
+      "archive_sha256": "e64cc6b5652c3796a9051161d74c085c8e37782f791b8b875cbffe14612ee3fa",
+      "byte_equal": true
+    },
+    {
+      "source": "/home/fedora/rknpu-fpga/build/ddr-endpoint-current/positives-o3-v1/repeat_sub_9/run.log",
+      "archive_path": "artifacts/build/ddr-endpoint-current/positives-o3-v1/repeat_sub_9/run.log",
+      "source_bytes": 1890,
+      "source_sha256": "c336a52efad5b39c389efe883d3ce9e5cd6603d45bccc8f2908a93e292faa01b",
+      "archive_bytes": 1890,
+      "archive_sha256": "c336a52efad5b39c389efe883d3ce9e5cd6603d45bccc8f2908a93e292faa01b",
+      "byte_equal": true
+    },
+    {
+      "source": "/home/fedora/rknpu-fpga/build/ddr-endpoint-current/positives-o3-v1/repeat_sub_9/observed.txt",
+      "archive_path": "artifacts/build/ddr-endpoint-current/positives-o3-v1/repeat_sub_9/observed.txt",
+      "source_bytes": 61440,
+      "source_sha256": "aae599536522682b386fde7ad354684686b9a4db42a73c20ea1dbd27b7d23714",
+      "archive_bytes": 61440,
+      "archive_sha256": "aae599536522682b386fde7ad354684686b9a4db42a73c20ea1dbd27b7d23714",
+      "byte_equal": true
+    }
+  ],
+  "source_hashes": {
+    "positive_shard_report_sha256": "bdf1e4d937293a34f37037a788eafe4ba96de2cb1126fa84d78e53619b13fe4f",
+    "faults_o3_report_sha256": "715e2f949edc1919e30fc8ba2a204324605f5327fa6c395787ac9b470d081699",
+    "native_o3_build_report_sha256": "d82e4398f4a2538ddf1dce760140672a3d29624fdbcdf2dabdfe5c7fd6a7265a",
+    "compiler_o3_profile_sha256": "a13d620527ff7e6b08fcfe801de3f66c21c1728594eb5c710f3f5375e2aadbbd",
+    "compiler_wrapper_sha256": "a66c62bbc9aa915ac90cdea10bc9ddb7b28c33e5d1673f3e38a1a9396ee8e721",
+    "underlying_cxx_sha256": "579d25c2d1e45abeed0c63a517b5c52f6d09ea811a787bf7a7c677a7fd0726f6",
+    "frozen_elf_path": "/home/fedora/rknpu-fpga/build/ddr-endpoint-current/native-o3-v1/obj/sim",
+    "frozen_elf_bytes": 10906104,
+    "frozen_elf_sha256": "0ad597d18a1a89106e22f55b239eb1d3c7d5b70e2e5ea980025e1a24f3bf6d73",
+    "native_report_binary_sha256": "0ad597d18a1a89106e22f55b239eb1d3c7d5b70e2e5ea980025e1a24f3bf6d73",
+    "frozen_elf_matches_report": true
+  },
+  "positive_shard": {
+    "status": "FAIL",
+    "selected_cases": [
+      "capture_add_8",
+      "capture_add_9",
+      "capture_add_33",
+      "capture_sub_8",
+      "capture_sub_9",
+      "capture_sub_33",
+      "capture_mul_8",
+      "capture_mul_9",
+      "capture_mul_33",
+      "repeat_sub_9"
+    ],
+    "completed_case_count": 9,
+    "pass_count": 9,
+    "passed_cases": [
+      "capture_add_8",
+      "capture_add_9",
+      "capture_add_33",
+      "capture_sub_8",
+      "capture_sub_9",
+      "capture_sub_33",
+      "capture_mul_8",
+      "capture_mul_9",
+      "capture_mul_33"
+    ],
+    "repeat_sub_9_status": "FAIL",
+    "repeat_sub_9_elapsed_seconds": 1804.879522133153,
+    "repeat_sub_9_timeout_seconds": 1800,
+    "repeat_sub_9_child_pid": 776182,
+    "repeat_sub_9_partial_observed_bytes": 61440,
+    "repeat_sub_9_observed_compared_as_pass": false
+  },
+  "fault_shard": {
+    "status": "PASS_JOINED_DDR_SELECTED_LOGICAL_CASES_ONLY",
+    "case_count": 10,
+    "pass_count": 10,
+    "passed_cases": [
+      "ecc_control_timeout",
+      "joint_reset_recovery",
+      "host_memory_timeout",
+      "unknown_command",
+      "rmw_ue",
+      "dropped_return",
+      "phy_write_stall",
+      "calibration_loss",
+      "queued_fault_after_success",
+      "late_pending_result_fault"
+    ]
+  },
+  "combined_acceptance": {
+    "expected_positive_cases": 10,
+    "positive_passes": 9,
+    "fault_cases": 10,
+    "fault_passes": 10,
+    "full20_accepted": false
+  },
+  "process_check": {
+    "timed_out_child_pid": 776182,
+    "timed_out_child_absent": true,
+    "matching_run_endpoint_runner_processes": [],
+    "runner_and_child_absent": true
+  },
+  "stored_files_after_write": [
+    {
+      "path": "artifacts/build/ddr-endpoint-current/positives-o3-v1/repeat_sub_9/observed.txt",
+      "bytes": 61440,
+      "sha256": "aae599536522682b386fde7ad354684686b9a4db42a73c20ea1dbd27b7d23714"
+    },
+    {
+      "path": "artifacts/build/ddr-endpoint-current/positives-o3-v1/repeat_sub_9/run.json",
+      "bytes": 1149,
+      "sha256": "e64cc6b5652c3796a9051161d74c085c8e37782f791b8b875cbffe14612ee3fa"
+    },
+    {
+      "path": "artifacts/build/ddr-endpoint-current/positives-o3-v1/repeat_sub_9/run.log",
+      "bytes": 1890,
+      "sha256": "c336a52efad5b39c389efe883d3ce9e5cd6603d45bccc8f2908a93e292faa01b"
+    },
+    {
+      "path": "artifacts/build/ddr-endpoint-current/positives-o3-v1/report.json",
+      "bytes": 61287,
+      "sha256": "bdf1e4d937293a34f37037a788eafe4ba96de2cb1126fa84d78e53619b13fe4f"
+    }
+  ],
+  "stored_file_count": 5,
+  "final_recheck_utc": "2026-10-27T03:30:40.643178+00:00"
+}

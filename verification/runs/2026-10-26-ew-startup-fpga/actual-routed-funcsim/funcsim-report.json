@@ -1,0 +1,82 @@
+{
+  "status": "PASS_ACTUAL_VIVADO_ROUTED_FUNCTIONAL_STARTUP",
+  "started_utc": "2026-10-26T04:54:06.713945+00:00",
+  "source_files": {
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/native-facts/tb_startup_funcsim.sv": "3489e17861f2c30b75f81d78d1564a03bb1e43040c0f07853bb471601b8843b5",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/native-facts/ew-startup-funcsim.v": "ce1ba4195634db5122e56713a08c5f8d76eaec1a3b4da2577966c9e07faa4087",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/BUFG.v": "de25f10ec56230b8ffd5c8d772ae5d815f47f40604ce4209eed0efccd5a8dd1f",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/CARRY4.v": "f2f62f5b5736dfa889da76f24cf7fdc9b456282420ef6a203e06d34408d4d75d",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v": "a98661443ef3a3b41a64d1d26d20326ebc4f229a84e96192c02759e6b9f8b7b5",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/FDCE.v": "55f43d08c637cf7b734ed9e64484a70697748d2b6a5ad8e4c3fd8fa6405dbef0",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/FDRE.v": "c6fdb4feddc181a2e7ec5c3abef314fef6d5755f999fc9ccad3bf79d1b543a1c",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/FDSE.v": "173afee3263388433ef35431935175575fea2b4592d77cf87641ea83d416de82",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/IBUF.v": "594f51b2321e68cc0e2175c12996a37fe9d3bd7ea0063420795cb51accef9fe5",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/INV.v": "e7ff76ec57c6554d4c4da9bee3c9e3a7351d4f32e87434507059a38b6901e856",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/LUT1.v": "23be0311d281a612284fb355fb0778ac83e4d3a484c93e6a5a9d27dc471cbfc2",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/LUT2.v": "7d148945093cd956ad3e924290b8fc778f5ea4b323397ebf5a6f78a3f0bbde06",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/LUT3.v": "86711b745e4b5a71bf71eb6ab2747a2467da354949b45c7c5e4851dab5f6ed96",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/LUT4.v": "e1785d5dc015e002bef5b249a536144bbf2c2b6932192701cb6c828e817a8b75",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/LUT5.v": "5eb071b18bcc3d48cefccd19c42dc1f7db6087272480c3e6015921f4bfec9ead",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/LUT6.v": "0b6aff98f29cb3cd2745269519d84efc04b6b1a4f1244906558b5b37d67f7d87",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/MUXF7.v": "9ea29291c201b0eac484317a1151d7597f98e5426dee30d0d68b4acde00d6aba",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/MUXF8.v": "e17c29c2acb76b3b90b6b6cc2371b51fdbf226ca29e0cdec96e93a8d3cb5afcf",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/OBUF.v": "577fb9b1936020a37933c8aacea86dded84c9e4182d728d9368afbf3e7caab85",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+    "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb"
+  },
+  "dcp_sha256": "6ff196db78e0dcf4eba8c903a3646d46da9d61c4ee9d2199cc3800341e79b725",
+  "commands": [
+    {
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_startup_funcsim",
+        "-s",
+        "glbl",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/native-facts/funcsim",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/native-facts/tb_startup_funcsim.sv",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/native-facts/ew-startup-funcsim.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/glbl.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/BUFG.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/CARRY4.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/DSP48E1.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/FDCE.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/FDRE.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/FDSE.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/IBUF.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/INV.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/LUT1.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/LUT2.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/LUT3.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/LUT4.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/LUT5.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/LUT6.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/MUXF7.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/MUXF8.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/OBUF.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/RAMB18E1.v",
+        "/home/fedora/rknpu-fpga/tests/vendor/xilinx-unisim/verilog/src/unisims/RAMB36E1.v"
+      ],
+      "returncode": 0,
+      "log_sha256": "0090338415b22aa0e17d823b161020184cccdf73490c22b69d864205f854c29a"
+    },
+    {
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/native-facts/funcsim"
+      ],
+      "returncode": 0,
+      "log_sha256": "4481949edcc556d3e7ec1c99812da80b93ca8df08d3e4af03f0c90b37bae15ec"
+    }
+  ],
+  "hardware_accessed": false,
+  "scope": "Actual Vivado routed functional simulation; no SDF, physical or full512 qualification",
+  "iverilog_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "finished_utc": "2026-10-26T04:54:14.551732+00:00",
+  "elapsed_seconds": 7.833413060987368,
+  "inputs_intact": true
+}

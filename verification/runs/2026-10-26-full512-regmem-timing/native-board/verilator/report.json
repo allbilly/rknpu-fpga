@@ -1,0 +1,1139 @@
+{
+  "status": "PASS_REGISTERED_BRAM_FULL512_STARTUP_NATIVE_ONLY",
+  "started_utc": "2026-10-26T10:57:44.736285+00:00",
+  "profile": "full512-registered-bram-startup-native",
+  "simulator": "verilator",
+  "polarity": 0,
+  "package": "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000",
+  "package_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+  "channels": 32,
+  "kernels": 16,
+  "parallel_products": 512,
+  "inputs": {
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/NV_DW_lsd.v": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/rk_cmac_profile.sv": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_cacc.sv": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cacc_fp16_array.sv": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/generated/rk_cmac_cacc_fp16_array.sv": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_fp32_to_fp16.sv": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_writer.sv": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_output_nvdla.sv": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_frame_output.sv": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_datapath.sv": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_front.sv": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_rw_arbiter.sv": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_core.sv": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_dma.sv": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_demo_rom.sv": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/rk_startup_reset.sv": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/nv_assert_never.v": "28a3ff37142647e9499cc0dd88095313c029acffe1bf7806160eb9fbbd288732",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/nv_assert_no_x.v": "6eb56dc9ea269a4b071d3c00de3a23f5b75782b72403bcc72a7acc9e625a6e97",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/startup/tb_array_startup.sv": "b861e0913aad677326a580880a167277e2218502ad52eed867848ff66842d3c0",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/board_rom.hex": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/commands.hex": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/fixture.json": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/fp32.hex": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/groups.hex": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/input.hex": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/reads.hex": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/source_report.json": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/weight.hex": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/writes.hex": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+    "/home/fedora/rknpu-fpga/tools/cmac/startup/qualification.py": "b1ea244ce5e980387a7fbf3a2f05fbe10a8e76be03de0f88fb9ac8c5d44cd5af",
+    "/home/fedora/rknpu-fpga/tools/cmac/regmem/warnings.py": "70fe95e0c6c95ac759a71426d74d90147cde400f5bb4a764b05f13dfcb7f6e5a",
+    "/home/fedora/rknpu-fpga/tools/cmac/regmem/run_board.py": "411f17d14164dfc52c9eeb60d7d20aaa7f3812d1809de515fda9020155a7143c"
+  },
+  "scope": "Original raw K65/whole4096-halfword startup/fault/abort bench on frozen registered-BRAM-control source; configuration model only",
+  "commands": [
+    {
+      "name": "version",
+      "argv": [
+        "verilator",
+        "--version"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T10:57:44.737219+00:00",
+      "pid": 404785,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T10:57:44.806606+00:00",
+      "seconds": 0.0691785120870918,
+      "log_sha256": "9d8d19bf7d16f490e1b9d701dc1438bf9ec2d7f4a41ca4f0ec8ee3d1a3df8253"
+    },
+    {
+      "name": "hierarchy",
+      "argv": [
+        "verilator",
+        "--json-only",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-Wno-fatal",
+        "--timescale-override",
+        "1ns/1ps",
+        "-DDESIGNWARE_NOEXIST",
+        "-DASSERT_ON",
+        "-I/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla",
+        "--top-module",
+        "tb_array_startup",
+        "-GLED_ACTIVE_LOW=0",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj",
+        "--json-only-output",
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/hierarchy.tree.json",
+        "--json-only-meta-output",
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/hierarchy.meta.json",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_DW02_tree.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/rk_cmac_profile.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_cacc.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cacc_fp16_array.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/generated/rk_cmac_cacc_fp16_array.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_writer.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_output_nvdla.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_frame_output.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_datapath.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_front.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_rw_arbiter.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_core.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_dma.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_demo_rom.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/rk_startup_reset.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/nv_assert_never.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/nv_assert_no_x.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/startup/tb_array_startup.sv"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T10:57:44.808283+00:00",
+      "pid": 404789,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T10:57:45.177866+00:00",
+      "seconds": 0.36921716784127057,
+      "log_sha256": "88e5a6fd7b1f1ca4e2b42806f8420a123fb781723d4de5ce0409742c6f4c1562"
+    },
+    {
+      "name": "compile",
+      "argv": [
+        "verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-Wno-fatal",
+        "--timescale-override",
+        "1ns/1ps",
+        "-DDESIGNWARE_NOEXIST",
+        "-DASSERT_ON",
+        "-I/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla",
+        "--top-module",
+        "tb_array_startup",
+        "-GLED_ACTIVE_LOW=0",
+        "-j",
+        "1",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_DW02_tree.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/rk_cmac_profile.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_cacc.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cacc_fp16_array.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/generated/rk_cmac_cacc_fp16_array.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_writer.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_output_nvdla.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_frame_output.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_datapath.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_front.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_rw_arbiter.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_core.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_dma.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_demo_rom.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/rk_startup_reset.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/nv_assert_never.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/nv_assert_no_x.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/startup/tb_array_startup.sv"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T10:57:49.139944+00:00",
+      "pid": 404797,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T10:58:40.520967+00:00",
+      "seconds": 51.38048881897703,
+      "log_sha256": "fd88d14f7d21142cc69cb140501c5d5ba66d10f0554a83b94ce84d235b9ae34d"
+    },
+    {
+      "name": "led0_mode0",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj/sim",
+        "+MODE=0"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T10:58:40.569996+00:00",
+      "pid": 405046,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:01:43.192155+00:00",
+      "seconds": 182.6215400279034,
+      "log_sha256": "910d829bc4246cdfd7ad8b32e783f5879a1922d8df68e113abb7658b591fdc11"
+    },
+    {
+      "name": "led0_mode1",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj/sim",
+        "+MODE=1"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:01:43.229267+00:00",
+      "pid": 406025,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:02:33.297672+00:00",
+      "seconds": 50.06785328919068,
+      "log_sha256": "adbcaf986fb35e076276f8ac752f507bb3d5fa3f1fe1d1ae7ba604820551ad25"
+    },
+    {
+      "name": "led0_mode2",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj/sim",
+        "+MODE=2"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:02:33.334666+00:00",
+      "pid": 406386,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:04:45.156319+00:00",
+      "seconds": 131.8209753560368,
+      "log_sha256": "0e97bcd0f3610275d13beb966adbb05562d263dd4e044bdfbb1f407a628f0121"
+    },
+    {
+      "name": "led0_mode3",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj/sim",
+        "+MODE=3"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:04:45.192421+00:00",
+      "pid": 407016,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:05:32.477400+00:00",
+      "seconds": 47.28431296092458,
+      "log_sha256": "68ed5c7ed00644fcebda808d03f8cf9a43031ad43b876edc28500828bd652fb6"
+    },
+    {
+      "name": "led0_mode10",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj/sim",
+        "+MODE=10"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:05:32.515729+00:00",
+      "pid": 407237,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:06:21.033443+00:00",
+      "seconds": 48.51701788185164,
+      "log_sha256": "24138fc6883f7311c17ada591cfa91ec8f0f3fb8bd41a31eafe8be18e377c83f"
+    },
+    {
+      "name": "led0_fresh_after10",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj/sim",
+        "+MODE=0"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:06:21.076414+00:00",
+      "pid": 407481,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:09:18.678172+00:00",
+      "seconds": 177.60102492407896,
+      "log_sha256": "9090c751e87a0ac0af4e027591a9d1046ff979eea426619b1158ce9520ac36d9"
+    },
+    {
+      "name": "led0_mode11",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj/sim",
+        "+MODE=11"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:09:18.719709+00:00",
+      "pid": 407783,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:10:16.512944+00:00",
+      "seconds": 57.79263565503061,
+      "log_sha256": "188ad3c535758154a73b498aa8f43967088b8d3ee2bb67d00f4fac48a87548c2"
+    },
+    {
+      "name": "led0_fresh_after11",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj/sim",
+        "+MODE=0"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:10:16.553962+00:00",
+      "pid": 408027,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:13:09.688531+00:00",
+      "seconds": 173.13385501713492,
+      "log_sha256": "6a9326b85ed5db3ba77fdd95e534757472936649e90ae5dcd231d20ec71e621e"
+    },
+    {
+      "name": "led0_mode12",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj/sim",
+        "+MODE=12"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:13:09.724632+00:00",
+      "pid": 408329,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:15:18.464901+00:00",
+      "seconds": 128.73969566309825,
+      "log_sha256": "ee3d9f4b03c8b62a9ecb53708d345e1b94cc4806615f5395fb844eae0f3763b4"
+    },
+    {
+      "name": "led0_fresh_after12",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj/sim",
+        "+MODE=0"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:15:18.502588+00:00",
+      "pid": 408546,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:18:10.305846+00:00",
+      "seconds": 171.80263943504542,
+      "log_sha256": "b8e9ab53cb98ed529b3bf59c769365f692bf4e5d17b12b6cae0fcf1ce615e9cc"
+    }
+  ],
+  "tests": [
+    {
+      "spec": {
+        "name": "led0_mode0",
+        "polarity": 0,
+        "mode": 0,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=0 polarity=0 outcome=success error=00 hold=64 release=65 init=4096 checks=4096 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=59896; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode1",
+        "polarity": 0,
+        "mode": 1,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=1 polarity=0 outcome=fault error=05 hold=64 release=65 init=4096 checks=0 cmd_reads=1 operand_reads=0 writes=0 acks=0 frames=0 cycles=16410; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode2",
+        "polarity": 0,
+        "mode": 2,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=2 polarity=0 outcome=fault error=fd hold=64 release=65 init=4096 checks=1 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=43516; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode3",
+        "polarity": 0,
+        "mode": 3,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=3 polarity=0 outcome=fault error=fe hold=64 release=65 init=4096 checks=0 cmd_reads=196 operand_reads=20 writes=0 acks=0 frames=0 cycles=17123; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode10",
+        "polarity": 0,
+        "mode": 10,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=10 polarity=0 outcome=abort error=00 hold=64 release=65 init=4096 checks=0 cmd_reads=20 operand_reads=0 writes=0 acks=0 frames=0 cycles=16448; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_fresh_after10",
+        "polarity": 0,
+        "mode": 0,
+        "fresh_after": 10
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=0 polarity=0 outcome=success error=00 hold=64 release=65 init=4096 checks=4096 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=59896; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode11",
+        "polarity": 0,
+        "mode": 11,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=11 polarity=0 outcome=abort error=00 hold=64 release=65 init=4096 checks=0 cmd_reads=196 operand_reads=544 writes=0 acks=0 frames=1 cycles=19201; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_fresh_after11",
+        "polarity": 0,
+        "mode": 0,
+        "fresh_after": 11
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=0 polarity=0 outcome=success error=00 hold=64 release=65 init=4096 checks=4096 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=59896; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode12",
+        "polarity": 0,
+        "mode": 12,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=12 polarity=0 outcome=abort error=00 hold=64 release=65 init=4096 checks=20 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=43570; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_fresh_after12",
+        "polarity": 0,
+        "mode": 0,
+        "fresh_after": 12
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=0 polarity=0 outcome=success error=00 hold=64 release=65 init=4096 checks=4096 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=59896; configuration model only"
+    }
+  ],
+  "hardware_programmed": false,
+  "mapped_startup_verified": false,
+  "tool_version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+  "hierarchy_warning_locations": [
+    {
+      "kind": "DECLFILENAME",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+      "line": 680,
+      "column": 8
+    },
+    {
+      "kind": "PINCONNECTEMPTY",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 327,
+      "column": 76
+    },
+    {
+      "kind": "PINCONNECTEMPTY",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 409,
+      "column": 87
+    },
+    {
+      "kind": "DECLFILENAME",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 11,
+      "column": 8
+    },
+    {
+      "kind": "PINCONNECTEMPTY",
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+      "line": 19,
+      "column": 34
+    },
+    {
+      "kind": "PINCONNECTEMPTY",
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+      "line": 19,
+      "column": 44
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 89,
+      "column": 6
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 105,
+      "column": 32
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 131,
+      "column": 4
+    },
+    {
+      "kind": "WIDTHEXPAND",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 1287,
+      "column": 10
+    },
+    {
+      "kind": "WIDTHXZEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 367,
+      "column": 24
+    },
+    {
+      "kind": "WIDTHXZEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 377,
+      "column": 24
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 387,
+      "column": 17
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 397,
+      "column": 21
+    },
+    {
+      "kind": "WIDTHEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 414,
+      "column": 63
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 426,
+      "column": 16
+    },
+    {
+      "kind": "WIDTHXZEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 436,
+      "column": 23
+    },
+    {
+      "kind": "WIDTHEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 498,
+      "column": 56
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 519,
+      "column": 25
+    },
+    {
+      "kind": "WIDTHXZEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 529,
+      "column": 28
+    },
+    {
+      "kind": "WIDTHEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 656,
+      "column": 69
+    },
+    {
+      "kind": "WIDTHEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 656,
+      "column": 96
+    },
+    {
+      "kind": "WIDTHEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 656,
+      "column": 96
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 79,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 82,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 98,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 103,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 104,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 105,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 106,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 107,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 108,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 132,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 687,
+      "column": 14
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 712,
+      "column": 14
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 723,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 726,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 734,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 742,
+      "column": 14
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 751,
+      "column": 13
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 752,
+      "column": 13
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 753,
+      "column": 13
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 802,
+      "column": 13
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 804,
+      "column": 13
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 806,
+      "column": 13
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 820,
+      "column": 14
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 1465,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 1485,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 1475,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+      "line": 7,
+      "column": 23
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+      "line": 7,
+      "column": 34
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 107,
+      "column": 28
+    },
+    {
+      "kind": "UNUSEDPARAM",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 13,
+      "column": 21
+    },
+    {
+      "kind": "UNUSEDPARAM",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 55,
+      "column": 21
+    }
+  ],
+  "hierarchy": {
+    "rk_cmac_fp16_array_dsp_prefix_pipe": 1,
+    "rk_cmac_fp16_cell_dsp_prefix_pipe": 16,
+    "rk_cmac_fp16_lane_dsp_prefix": 512,
+    "rk_cmac_fp16_discarded_carry": 512
+  },
+  "compile_warning_locations": [
+    {
+      "kind": "DECLFILENAME",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+      "line": 680,
+      "column": 8
+    },
+    {
+      "kind": "PINCONNECTEMPTY",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 327,
+      "column": 76
+    },
+    {
+      "kind": "PINCONNECTEMPTY",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 409,
+      "column": 87
+    },
+    {
+      "kind": "DECLFILENAME",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 11,
+      "column": 8
+    },
+    {
+      "kind": "PINCONNECTEMPTY",
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+      "line": 19,
+      "column": 34
+    },
+    {
+      "kind": "PINCONNECTEMPTY",
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+      "line": 19,
+      "column": 44
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 89,
+      "column": 6
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 105,
+      "column": 32
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 131,
+      "column": 4
+    },
+    {
+      "kind": "WIDTHEXPAND",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 1287,
+      "column": 10
+    },
+    {
+      "kind": "WIDTHXZEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 367,
+      "column": 24
+    },
+    {
+      "kind": "WIDTHXZEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 377,
+      "column": 24
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 387,
+      "column": 17
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 397,
+      "column": 21
+    },
+    {
+      "kind": "WIDTHEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 414,
+      "column": 63
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 426,
+      "column": 16
+    },
+    {
+      "kind": "WIDTHXZEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 436,
+      "column": 23
+    },
+    {
+      "kind": "WIDTHEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 498,
+      "column": 56
+    },
+    {
+      "kind": "WIDTHTRUNC",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 519,
+      "column": 25
+    },
+    {
+      "kind": "WIDTHXZEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 529,
+      "column": 28
+    },
+    {
+      "kind": "WIDTHEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 656,
+      "column": 69
+    },
+    {
+      "kind": "WIDTHEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 656,
+      "column": 96
+    },
+    {
+      "kind": "WIDTHEXPAND",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 656,
+      "column": 96
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 79,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 82,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 98,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 103,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 104,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 105,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 106,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 107,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 108,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "line": 132,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 687,
+      "column": 14
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 712,
+      "column": 14
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 723,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 726,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 734,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 742,
+      "column": 14
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 751,
+      "column": 13
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 752,
+      "column": 13
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 753,
+      "column": 13
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 802,
+      "column": 13
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 804,
+      "column": 13
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 806,
+      "column": 13
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 820,
+      "column": 14
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 1465,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 1485,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 1475,
+      "column": 15
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+      "line": 7,
+      "column": 23
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+      "line": 7,
+      "column": 34
+    },
+    {
+      "kind": "UNUSEDSIGNAL",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 107,
+      "column": 28
+    },
+    {
+      "kind": "UNUSEDPARAM",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 13,
+      "column": 21
+    },
+    {
+      "kind": "UNUSEDPARAM",
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "line": 55,
+      "column": 21
+    },
+    {
+      "kind": "SYNCASYNCNET",
+      "path": "fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv",
+      "line": 14,
+      "column": 10,
+      "review": "Source-bound startup-only mixed reset styles; no DRC waiver"
+    }
+  ],
+  "compiled_image": {
+    "path": "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/obj/sim",
+    "sha256": "1239ee171d567dc5ebb6daa1fe68a4f71cb750f74d583d6a8aafaac868fec47d"
+  },
+  "finished_utc": "2026-10-26T11:18:10.325987+00:00",
+  "artifacts": {
+    "version.log": "9d8d19bf7d16f490e1b9d701dc1438bf9ec2d7f4a41ca4f0ec8ee3d1a3df8253",
+    "hierarchy.log": "88e5a6fd7b1f1ca4e2b42806f8420a123fb781723d4de5ce0409742c6f4c1562",
+    "hierarchy.tree.json": "12dccf41b0da4ea398a3014cd832b1b7fdc67ed4a1451d623c66ff73470ff234",
+    "hierarchy.meta.json": "174258eb9508ee471e06aa115de247dd9bfd179eb0374d87a46bcd9d4bf0b938",
+    "compile.log": "fd88d14f7d21142cc69cb140501c5d5ba66d10f0554a83b94ce84d235b9ae34d",
+    "led0_mode0.log": "910d829bc4246cdfd7ad8b32e783f5879a1922d8df68e113abb7658b591fdc11",
+    "led0_mode1.log": "adbcaf986fb35e076276f8ac752f507bb3d5fa3f1fe1d1ae7ba604820551ad25",
+    "led0_mode2.log": "0e97bcd0f3610275d13beb966adbb05562d263dd4e044bdfbb1f407a628f0121",
+    "led0_mode3.log": "68ed5c7ed00644fcebda808d03f8cf9a43031ad43b876edc28500828bd652fb6",
+    "led0_mode10.log": "24138fc6883f7311c17ada591cfa91ec8f0f3fb8bd41a31eafe8be18e377c83f",
+    "led0_fresh_after10.log": "9090c751e87a0ac0af4e027591a9d1046ff979eea426619b1158ce9520ac36d9",
+    "led0_mode11.log": "188ad3c535758154a73b498aa8f43967088b8d3ee2bb67d00f4fac48a87548c2",
+    "led0_fresh_after11.log": "6a9326b85ed5db3ba77fdd95e534757472936649e90ae5dcd231d20ec71e621e",
+    "led0_mode12.log": "ee3d9f4b03c8b62a9ecb53708d345e1b94cc4806615f5395fb844eae0f3763b4",
+    "led0_fresh_after12.log": "b8e9ab53cb98ed529b3bf59c769365f692bf4e5d17b12b6cae0fcf1ce615e9cc"
+  }
+}

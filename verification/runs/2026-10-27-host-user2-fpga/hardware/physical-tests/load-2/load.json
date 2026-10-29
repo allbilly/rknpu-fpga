@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "action": "program-sram",
+  "started_utc": "2026-10-26T17:37:45.883272+00:00",
+  "hardware_programmed": true,
+  "flash_written": false,
+  "bitstream_sha256": "6e319afa2d5ca50c083a5b458a57144db90044f357df5fd24de765abc74385ba",
+  "image_review_sha256": "62a64153120d6f6255d904f3d8def693cdde347b5333a18e5140ef83e5ad0ee2",
+  "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+  "expected_dna_port": "004E544714C705C",
+  "source_sha256": "3a0ef75f961f58fdb3469a48eb3e5320a458c42e29b6445d246ebbcb08e4d8ce",
+  "program_tcl_sha256": "9e2ef6d882907afa0ff0a072074797e4d58647df691b47e909b802851f5ffb84",
+  "finished_utc": "2026-10-26T17:39:37.678740+00:00",
+  "native": {
+    "TARGET": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+    "DNA_PORT": "004E544714C705C",
+    "TCK_HZ": "3000000",
+    "IDCODE_BEFORE": "23751093",
+    "PROGRAM_FILE": "/home/fedora/rknpu-fpga/build/host-image-review/20261026T171408Z/image-command/bitstream/host-user2-ew.bit",
+    "PROGRAM_RETURNED": "1",
+    "INIT_COMPLETE": "1",
+    "DONE": "1",
+    "USR_ACCESS": "3a0ef75f",
+    "IDCODE_AFTER": "23751093",
+    "PROGRAMMED": "1",
+    "CLEANUP": "1",
+    "PASS": "1"
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+      "-mode",
+      "batch",
+      "-source",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/load-2/program.tcl",
+      "-log",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/load-2/vivado.log",
+      "-journal",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/load-2/vivado.jou"
+    ],
+    "started_utc": "2026-10-26T17:37:45.895278+00:00",
+    "script_sha256": "9e2ef6d882907afa0ff0a072074797e4d58647df691b47e909b802851f5ffb84",
+    "pid": 523257,
+    "returncode": 0,
+    "finished_utc": "2026-10-26T17:39:37.678198+00:00",
+    "status": "PASS"
+  }
+}

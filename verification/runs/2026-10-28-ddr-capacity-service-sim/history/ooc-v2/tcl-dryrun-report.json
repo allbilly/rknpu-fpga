@@ -1,0 +1,91 @@
+{
+  "argv": [
+    "/home/linuxbrew/.linuxbrew/bin/tclsh",
+    "/tmp/ddr-service-tcl-dryrun-1jykd0ap/harness.tcl"
+  ],
+  "copy_hashes_after": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/00-rk_ddr_capacity_service.sv": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/01-rk_ddr_capacity_owner.sv": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/02-rk_ddr_capacity_regs.sv": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/03-rk_ddr_diagnostic_mux.sv": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/04-rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/05-rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/06-rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/07-rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/08-rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/09-rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5"
+  },
+  "copy_hashes_before": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/00-rk_ddr_capacity_service.sv": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/01-rk_ddr_capacity_owner.sv": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/02-rk_ddr_capacity_regs.sv": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/03-rk_ddr_diagnostic_mux.sv": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/04-rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/05-rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/06-rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/07-rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/08-rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/09-rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5"
+  },
+  "hardware_accessed": false,
+  "returncode": 0,
+  "schema": "ddr-capacity-service-ooc-tcl-stub-dryrun-v1",
+  "scope": "Stubbed Vivado Tcl command interface; no Vivado, synthesis, placement, timing, hardware, or bitstream execution",
+  "source_count": 10,
+  "source_hashes_after": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-mux-source-v2/rk_ddr_diagnostic_mux.sv": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_capacity_owner.sv": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_capacity_regs.sv": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-source-v3/rk_ddr_capacity_service.sv": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+  },
+  "source_hashes_before": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-mux-source-v2/rk_ddr_diagnostic_mux.sv": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_capacity_owner.sv": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_capacity_regs.sv": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-source-v3/rk_ddr_capacity_service.sv": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+  },
+  "source_paths_in_order": [
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/00-rk_ddr_capacity_service.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/01-rk_ddr_capacity_owner.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/02-rk_ddr_capacity_regs.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/03-rk_ddr_diagnostic_mux.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/04-rk_ddr_capacity_bist.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/05-rk_ddr_capacity_axi.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/06-rk_ddr_capacity_sweep.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/07-rk_ddr_capacity_pattern.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/08-rk_mig_write_fence.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/source/09-rk_mig_ecc_monitor.sv"
+  ],
+  "status": "PASS_TCL_OOC_DRYRUN_10_SOURCES",
+  "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/tcl-dryrun.stderr.log",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/tcl-dryrun.stdout.log",
+  "stdout_sha256": "971c55c48c73b50ea62927cb84ae3b24ff9fcd3c21bf339d420a227b907221b0",
+  "stub_harness_sha256": "3a5c0d35aaad3380f75bce5e88ba16c7740b5c67eb3d33af5ddb49844269c153",
+  "stubbed_command_order": [
+    "set_param",
+    "read_verilog",
+    "synth_design",
+    "report_utilization",
+    "report_utilization"
+  ],
+  "synth_tcl_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-vivado-ooc-v2/synth.tcl",
+  "synth_tcl_sha256": "825a7a3d3e2a49fa9370f0766942198e2f225ca4eb026d36adedcfd7ba14c125",
+  "synthesis_executed": false,
+  "tclsh_patchlevel": "9.0.3",
+  "tclsh_path": "/home/linuxbrew/.linuxbrew/Cellar/tcl-tk/9.0.3/bin/tclsh9.0",
+  "tclsh_sha256": "a42d3b5d812f3bf649aeb1729f5a5e03dcf92ee93925ea0246fd26afa4914762",
+  "vivado_executed": false
+}

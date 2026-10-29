@@ -1,0 +1,33 @@
+{
+  "status": "APPROVED_PIPELINED_FULL512_CHECKPOINT_BUILD_ONLY",
+  "reviewer": "Root architecture and exact-source review",
+  "reviewed_utc": "2026-10-26T09:37:59.540291+00:00",
+  "authorization": "User: fix the failed timing; u can build vivado",
+  "scope": "Registered preparation stage implementation only; no bitstream or hardware admission",
+  "prepared_report_sha256": "13ec3b38ad76206cf370704d36da2f62f76a5e8915f2e5e12cf47cf94e6445ce",
+  "source_sha256": "4c40ca1974fc62709de0be270dd34381dbfcf29dd16fb509bfae52d06817981b",
+  "build_tcl_sha256": "51166e19781f9b34bc5e2ea01ff7764bd2fcee059aa7d4408360f7467a5221ec",
+  "part": "xc7k480tffg1156-2",
+  "parallel_products": 512,
+  "pipeline_stages": 2,
+  "clock_period_ns": 20,
+  "electrical": {
+    "config_voltage": "1.8",
+    "cfgbvs": "GND",
+    "led_active_low": 0,
+    "optical_polarity_unknown": true,
+    "rail_or_strap_new_measurement": false
+  },
+  "reviewed_changes": [
+    "Added a real register boundary after unchanged exponent/operand preparation; lane arithmetic, rounding/reduction order and NaN priority preserved",
+    "Pipeline can hold two tagged frames, freezes both stages under backpressure, accepts one frame/cycle when unstalled",
+    "Parent busy includes preparation ownership; reset cancels both valid stages",
+    "Payload registers have configuration INIT0, are completely overwritten on acceptance and do not add19200 runtime reset loads",
+    "Fresh full512208-frame native runs pass both simulators including burst32outputs, reset during preparation and X rejection; corrupted oracle rejects",
+    "Board clock/pins/startup reset unchanged;20ns,512products,BRAM,timing/internalconstraints/DRC gates intact; bit emission disabled",
+    "Fresh raw-board/mapped/startup and exact-image reviews remain before any bitstream admission"
+  ],
+  "build_admission": true,
+  "bitstream_emission_approved": false,
+  "programming_approved": false
+}

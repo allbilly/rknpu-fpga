@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "observed_utc": "2026-10-26T05:06:50.150419+00:00",
+  "commands": [
+    {
+      "mode": "normal",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/hardware",
+        "-p",
+        "test_sample_ew.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "log_sha256": "9fbb373f4c9d370301b1762cc59d8e9b8f1ae011a112b470aea5403384f4ffca"
+    },
+    {
+      "mode": "optimized",
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/hardware",
+        "-p",
+        "test_sample_ew.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "log_sha256": "f54f7f3aaa08c552cd25947e8c24754cfb9211458b1235e887f5408f902f4160"
+    }
+  ],
+  "source_files": {
+    "tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+    "tools/hardware/sample_ew.tcl.in": "2f46cad5d5335df5bbf9b7b6bba5c8a3d3732c3903bb78b163388e2022d5cf32",
+    "tests/hardware/test_sample_ew.py": "ce837bf4c88b3c93cf0243af6c62036eaa583b5dc9668a277bc1fc7119b54b36"
+  },
+  "scope": "10 controls per Python mode; mocked transport only, no hardware"
+}

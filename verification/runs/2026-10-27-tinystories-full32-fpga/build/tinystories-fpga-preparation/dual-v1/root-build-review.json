@@ -1,0 +1,52 @@
+{
+  "status": "PASS_ROOT_DUAL_CHECKPOINT_BUILD_REVIEW",
+  "utc": "2026-10-26T20:37:50.411221+00:00",
+  "source_sha256": "1e01179cf730fdec0faa6644eae1f51dbeee4a5474f3734b327a0f8c7677b425",
+  "source_files": 51,
+  "synthesis_files": 37,
+  "part": "xc7k480tffg1156-2",
+  "top": "ypcb_tinystories_top",
+  "clock_period_ns": 20,
+  "tck_period_ns": 166.666,
+  "products": 512,
+  "memory_bytes": 1048576,
+  "electrical": {
+    "config_voltage": 1.8,
+    "cfgbvs": "GND",
+    "iostandard": "LVCMOS18",
+    "known_used_reference": true,
+    "new_rail_measurement": false,
+    "compiled_led_active_low": 0,
+    "optical_polarity": "unknown"
+  },
+  "native": {
+    "iverilog": "5PASS",
+    "verilator": "5PASS",
+    "registered_reset_revision": "495d5374268bfb52aaeb896b6b25373a6e4d84ab6df4b33c53f0dbf4fd18ad6e"
+  },
+  "controls": {
+    "host_legacy": 53,
+    "legacy_job_control_simulators": 2,
+    "shared_ram_simulators": 2,
+    "new_controls_each_tcl": 21,
+    "negative_tcl_gate_cases": 17
+  },
+  "expected_reset_gate": "CMAC reset fanin restricted to dedicated synchronous releaseFF and registered startup reset, SYS clock only; old state decode forbidden",
+  "scope": "Authorized fresh checkpoint-only implementation; no bitstream or physical programming admission",
+  "authorization": "User: implement REVIEW_AND_PLAN.md, u can build vivado",
+  "build_tcl_sha256": "7357941d5ea42900cdc45a8d013851ff230603efb293b353fa093ebaa3aa0817",
+  "native_reports": {
+    "iverilog": {
+      "path": "/home/fedora/rknpu-fpga/build/tinystories-joined-native/iverilog-v3/report.json",
+      "sha256": "780b6d3b23c03d577eaf0a0b37ae7e2fb5d63e1bbc76aea028cc79a47d637e56"
+    },
+    "verilator": {
+      "path": "/home/fedora/rknpu-fpga/build/tinystories-joined-native/verilator-v2/report.json",
+      "sha256": "9792826161e059e6bdb7d89d107973b65425659b94cd36ba3e947e03468fb815"
+    }
+  },
+  "broader_make": "Fresh serial make test running separately; individual deadlines unchanged",
+  "flash_authorized": false,
+  "native_thread_limit": 2,
+  "thread_scope": "Host resource limit only; no clock, timing, DRC, placement target or product-count change"
+}

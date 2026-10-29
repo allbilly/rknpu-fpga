@@ -1,0 +1,149 @@
+{
+  "status": "PASS_PRIVATE_DISPATCH_CONTROL_AND_OLD_NEGATIVE_ONLY",
+  "scope": "Icarus control-only dispatch handshakes with handshake-only child models; no arithmetic/DDR/physical qualification",
+  "resource_scope": {
+    "MemoryMax": "512M",
+    "MemorySwapMax": "0",
+    "CPUQuota": "100%",
+    "TasksMax": 128
+  },
+  "started_utc": "2026-10-27T19:34:20Z",
+  "tools": {
+    "iverilog": {
+      "argv": [
+        "iverilog",
+        "-V"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.007,
+      "stdout": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n",
+      "stderr": ""
+    },
+    "vvp": {
+      "argv": [
+        "vvp",
+        "-V"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.002,
+      "stdout": "",
+      "stderr": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n"
+    }
+  },
+  "source_hashes_before": {
+    "build/full512-ddr-preparation/combined-source-v5/source/hdl/148/rk_dual_async_dispatch.sv": "ff1aad529daf361fc5585fcb9d59e42c8840b55c8ca1bc9378b595fccb98205f",
+    "rtl/ddr/rk_dual_async_dispatch.sv": "b76983ef8ab2a2aee6f9004690c43ea446d0528b033defa2d291bd3713043091",
+    "tests/ddr/dispatch/control_models.sv": "d69ba0c620ea8d01bc5a4dfd7c4220075ab1bbed2932bbfcd8de2d652057e5e7",
+    "tests/ddr/dispatch/tb_dual_dispatch.sv": "5c6a84586799df8903ea7db299439575852b47e193a98d373b2d74cbf976ddbf",
+    "build/full512-ddr-preparation/dual-csr-v1/dispatch-pending-offer-controls/tb_dual_dispatch.sv": "e3e41a8d251de427d2a564086447d2c0260245792e44b211dbac3496f1f244dd"
+  },
+  "commands": [],
+  "existing_bench_fixed_private": {
+    "compile": {
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_dual_dispatch",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-csr-v1/dispatch-pending-offer-controls/results-v1/existing_fixed_private.vvp",
+        "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-source-v5/source/hdl/148/rk_dual_async_dispatch.sv",
+        "/home/fedora/rknpu-fpga/tests/ddr/dispatch/control_models.sv",
+        "/home/fedora/rknpu-fpga/tests/ddr/dispatch/tb_dual_dispatch.sv"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.011,
+      "stdout": "",
+      "stderr": ""
+    },
+    "run": {
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-csr-v1/dispatch-pending-offer-controls/results-v1/existing_fixed_private.vvp"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.007,
+      "stdout": "PASS dual_async_dispatch control_only=1 chain=EW-CMAC-EW req_result_backpressure=1 admission_readback_gate=1 failed_owner_late_drain=1 unowned_response=1 unknown_selection=1\n/home/fedora/rknpu-fpga/tests/ddr/dispatch/tb_dual_dispatch.sv:226: $finish called at 956000 (1ps)\n",
+      "stderr": ""
+    },
+    "expected_marker_present": true,
+    "expected_result": true,
+    "binary_sha256": "56a978f8887b41a6476da2c0d9b9c40ce3cae371997b4df79fc327f44ad8f9d1"
+  },
+  "pending_offer_fixed_private": {
+    "compile": {
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_dual_dispatch",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-csr-v1/dispatch-pending-offer-controls/results-v1/pending_offer_fixed_private.vvp",
+        "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/combined-source-v5/source/hdl/148/rk_dual_async_dispatch.sv",
+        "/home/fedora/rknpu-fpga/tests/ddr/dispatch/control_models.sv",
+        "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-csr-v1/dispatch-pending-offer-controls/tb_dual_dispatch.sv"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.011,
+      "stdout": "",
+      "stderr": ""
+    },
+    "run": {
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-csr-v1/dispatch-pending-offer-controls/results-v1/pending_offer_fixed_private.vvp"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.008,
+      "stdout": "PASS dual_async_dispatch control_only=1 chain=EW-CMAC-EW req_result_backpressure=1 admission_readback_gate=1 failed_owner_late_drain=1 unowned_response=1 unknown_selection=1 duplicate_offer_without_ready=1\n/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-csr-v1/dispatch-pending-offer-controls/tb_dual_dispatch.sv:248: $finish called at 1126000 (1ps)\n",
+      "stderr": ""
+    },
+    "expected_marker_present": true,
+    "expected_result": true,
+    "binary_sha256": "ff9ea9d101bdbdc485f19ad653f1264c45eb4c1a6241bb2a930373cd5bd62bb4"
+  },
+  "pending_offer_old_public_negative": {
+    "compile": {
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_dual_dispatch",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-csr-v1/dispatch-pending-offer-controls/results-v1/pending_offer_old_public_negative.vvp",
+        "/home/fedora/rknpu-fpga/rtl/ddr/rk_dual_async_dispatch.sv",
+        "/home/fedora/rknpu-fpga/tests/ddr/dispatch/control_models.sv",
+        "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-csr-v1/dispatch-pending-offer-controls/tb_dual_dispatch.sv"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.012,
+      "stdout": "",
+      "stderr": ""
+    },
+    "run": {
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-csr-v1/dispatch-pending-offer-controls/results-v1/pending_offer_old_public_negative.vvp"
+      ],
+      "returncode": 1,
+      "elapsed_seconds": 0.013,
+      "stdout": "FATAL: /home/fedora/rknpu-fpga/build/full512-ddr-preparation/dual-csr-v1/dispatch-pending-offer-controls/tb_dual_dispatch.sv:211: second offered request was ignored while downstream READY was low\n       Time: 971000  Scope: tb_dual_dispatch.duplicate_offered_request_fault_without_ready\n",
+      "stderr": ""
+    },
+    "expected_marker_present": true,
+    "expected_result": true,
+    "binary_sha256": "859f6bee49f84a0e9050b90f28b9f60fb3765393a6bd8439ebae1c1e121c4636"
+  },
+  "source_hashes_after": {
+    "build/full512-ddr-preparation/combined-source-v5/source/hdl/148/rk_dual_async_dispatch.sv": "ff1aad529daf361fc5585fcb9d59e42c8840b55c8ca1bc9378b595fccb98205f",
+    "rtl/ddr/rk_dual_async_dispatch.sv": "b76983ef8ab2a2aee6f9004690c43ea446d0528b033defa2d291bd3713043091",
+    "tests/ddr/dispatch/control_models.sv": "d69ba0c620ea8d01bc5a4dfd7c4220075ab1bbed2932bbfcd8de2d652057e5e7",
+    "tests/ddr/dispatch/tb_dual_dispatch.sv": "5c6a84586799df8903ea7db299439575852b47e193a98d373b2d74cbf976ddbf",
+    "build/full512-ddr-preparation/dual-csr-v1/dispatch-pending-offer-controls/tb_dual_dispatch.sv": "e3e41a8d251de427d2a564086447d2c0260245792e44b211dbac3496f1f244dd"
+  },
+  "source_hashes_unchanged": true,
+  "finished_utc": "2026-10-27T19:34:20Z"
+}

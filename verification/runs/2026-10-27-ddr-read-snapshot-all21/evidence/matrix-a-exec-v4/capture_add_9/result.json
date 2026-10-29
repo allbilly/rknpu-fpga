@@ -1,0 +1,59 @@
+{
+  "name": "capture_add_9",
+  "status": "PASS",
+  "spec": {
+    "name": "capture_add_9",
+    "case": "capture_add_9",
+    "address": 269352960,
+    "amount": 35,
+    "tasks": 1,
+    "lines": 1472,
+    "jobs": 1,
+    "negative": 0,
+    "reset_recovery": 0
+  },
+  "metrics": {
+    "lines": 1472,
+    "physical_bytes": 94208,
+    "uploaded_nonzero": 72,
+    "successful_jobs": 1,
+    "phy_user_returns": 6336,
+    "host_read64_packets": 1474,
+    "host_read64_axi_reads": 1474,
+    "uncached_phy_user_returns": 52030,
+    "phy_user_returns_minimum": 6147,
+    "command_corruption_read_packets": 0,
+    "command_corruption_write_packets": 0
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/obj/sim",
+      "+CASE=/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_add_9",
+      "+OUTPUT=/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/snapshot-matrix-A-exec4-v3/capture_add_9/observed.txt",
+      "+START=100e0000",
+      "+AMOUNT=35",
+      "+NTASKS=1",
+      "+NLINES=1472",
+      "+JOBS=1",
+      "+NEGATIVE=0",
+      "+RESET_RECOVERY=0"
+    ],
+    "timeout_seconds": 1800,
+    "started_utc": "2026-10-27T14:02:58.520064+00:00",
+    "status": "EXITED",
+    "pid": 953813,
+    "returncode": 0,
+    "seconds": 371.6722031699028,
+    "finished_utc": "2026-10-27T14:09:10.192652+00:00",
+    "log_sha256": "ab836d41d73413aa2be75d4ebaa81d7425dd6104c54d62f35857b0f272e1c3d0"
+  },
+  "marker": "PASS jtag_ew_ddr_read_snapshot jobs=1 negative=0 recovered=0 lines=1472 uploaded_nonzero=72 rawtasks=1 phy_user_returns=6336 read64_packets=1474 read64_axi_reads=1474 scope=actual_AXI_UI_MC_modeled_PHY",
+  "phy_user_returns": 6336,
+  "read64_packets": 1474,
+  "read64_axi_reads": 1474,
+  "readback_physical_bytes": 94208,
+  "persisted_final_image_physical_bytes": 94208,
+  "observed_text_bytes": 203136,
+  "observed_sha256": "ccf0e41812711d408fadb59f8e2ab70bb18db5009b6bd3a4a2a724a61dfbdb38",
+  "successful_jobs": 1
+}

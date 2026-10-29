@@ -1,0 +1,39 @@
+{
+  "status": "PASS_ROOT_INDEPENDENT_DDR_FIRST_AND_REPEATED_BOS_CONTROLS_ONLY",
+  "utc": "2026-10-28T06:03:10.655262+00:00",
+  "source_tag": "5e99f881",
+  "bitstream_sha256": "d627b7155c4a4ad6b948424fbd28240a666ea6071bfe8c5d5b19f7da051b0031",
+  "single_load_receipt_sha256": "3ead78b2616c44aa180b811581ac5ea141f90813dc695d03454d0d66d48bc19c",
+  "same_loaded_controller_epoch": true,
+  "controls": {
+    "one-complete-forward-position": {
+      "status": "PASS_INDEPENDENT_PHYSICAL_DDR_TINYSTORIES_BOS_CONTROL_ONLY",
+      "positions": 1,
+      "raw_jobs": 232,
+      "tasks": 348,
+      "output_bo_bytes": 950272,
+      "logits_sha256": "da84021345aa0521e0ed1c37344b91e93ef077d964a56bd876fdd4326ae8a893",
+      "generated_tokens": [
+        403
+      ],
+      "text": "Once",
+      "worker_report_sha256": "c8fb3de127b01febece755afc69a1434d4c2d8bd221eb9cb53524844d1b89a98"
+    },
+    "repeated-complete-forward-position": {
+      "status": "PASS_INDEPENDENT_PHYSICAL_DDR_TINYSTORIES_REPEATED_BOS_CONTROL_ONLY",
+      "positions": 1,
+      "raw_jobs": 232,
+      "tasks": 348,
+      "output_bo_bytes": 950272,
+      "logits_sha256": "da84021345aa0521e0ed1c37344b91e93ef077d964a56bd876fdd4326ae8a893",
+      "generated_tokens": [
+        403
+      ],
+      "text": "Once",
+      "worker_report_sha256": "61dd4961d124840ba1068d09f2e42601fde6c6673fa7d09a63f4e30a9306136d"
+    }
+  },
+  "full32_positions_accepted": false,
+  "hardware_accessed": false,
+  "scope": "Fresh read-only replay of both completed immutable control traces while independent greedy32 worker runs; full32 is not yet accepted"
+}

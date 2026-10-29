@@ -1,0 +1,122 @@
+{
+  "cgroup": {
+    "cpu.max": "200000 100000",
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_mig_fi_xor",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/runs/fi.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/source/mig_7series_v4_2_fi_xor.v",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/tests/tb_mig_fi_xor.sv"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "diagnostics": [
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/source/mig_7series_v4_2_fi_xor.v:106: warning: Anachronistic use of begin/end to surround generate schemes."
+      ],
+      "finished_utc": "2026-10-28T06:47:37.383233+00:00",
+      "name": "iverilog_compile",
+      "owned_process_group_absent": true,
+      "pgid": 1156343,
+      "pid": 1156343,
+      "recorded_vendor_warnings": [
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/source/mig_7series_v4_2_fi_xor.v:106: warning: Anachronistic use of begin/end to surround generate schemes."
+      ],
+      "returncode": 0,
+      "seconds": 0.20195093611255288,
+      "started_utc": "2026-10-28T06:47:37.180998+00:00",
+      "status": "PASS",
+      "stderr_log": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/iverilog_compile.stderr.log",
+      "stderr_sha256": "fab4657894721c4de9920e9fc3e9d90e9e270d031e10cc866de721bb66e6ac29",
+      "stdout_log": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/iverilog_compile.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/runs/fi.vvp"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "diagnostics": [],
+      "error": "vvp_run native output differs: ['PASS fi_xor_leaf seed=00003588 scenarios=38 byte_lanes=9 low72_only=1 write_clear=1', '/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/tests/tb_mig_fi_xor.sv:163: $finish called at 457 (1ps)']",
+      "finished_utc": "2026-10-28T06:47:37.599006+00:00",
+      "name": "vvp_run",
+      "owned_process_group_absent": true,
+      "pgid": 1156347,
+      "pid": 1156347,
+      "returncode": 0,
+      "seconds": 0.20111754909157753,
+      "started_utc": "2026-10-28T06:47:37.397602+00:00",
+      "status": "FAIL",
+      "stderr_log": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/vvp_run.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_log": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/vvp_run.stdout.log",
+      "stdout_sha256": "e91c067b1bc8d552f77b9201baba3eef664c1d9f725541f678ff490bb72835eb",
+      "timeout_seconds": 300
+    }
+  ],
+  "error": "ValueError(\"vvp_run native output differs: ['PASS fi_xor_leaf seed=00003588 scenarios=38 byte_lanes=9 low72_only=1 write_clear=1', '/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/tests/tb_mig_fi_xor.sv:163: $finish called at 457 (1ps)']\")",
+  "finished_utc": "2026-10-28T06:47:37.611820+00:00",
+  "flash_written": false,
+  "hardware_accessed": false,
+  "iverilog_binary_sha256": "c8cfa997a3937bbf6ecb2358b1ed8be5f3f79500af2ac87f4f7167f0c8fc65d4",
+  "memory_or_ecc_decoder_simulated": false,
+  "phy_simulated": false,
+  "physical_capacity_qualified": false,
+  "physical_ecc_injection_qualified": false,
+  "schema": "mig-fi-xor-icarus-behavior-v1",
+  "scope": "Actual FI_XOR leaf simulation only; compile warning is recorded unsuppressed; no controller/ECC decoder/memory/PHY/physical qualification.",
+  "source_closure_count": 160,
+  "source_closure_manifest_sha256": "85ed4aed6a3761b2e12f86b21bc9a5adc79e60049148ac958290bcb30650ff69",
+  "source_inputs": {
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/run_icarus_behavior.py": "c3243e8728cb63f2d4a4a9485716b7ed3bc9cbde1ffc43183b2f75ac927aa4e8",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/source/mig_7series_v4_2_fi_xor.v": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/tests/tb_mig_fi_xor.sv": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/preparation.json": "71fe220dfe1ac59327ead8576f799edccd2af36dae493013f8e09ca3d102d96b",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+  },
+  "started_utc": "2026-10-28T06:47:37.178851+00:00",
+  "status": "FAIL",
+  "tool_versions": {
+    "iverilog": {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-V"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n"
+    },
+    "vvp": {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "-V"
+      ],
+      "returncode": 0,
+      "stderr": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n",
+      "stdout": ""
+    }
+  },
+  "tools": {
+    "iverilog": {
+      "path": "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/iverilog",
+      "sha256": "34ff9d8020f106bc3cc40d69a02f6c798be41193fdac187c35e7e4d703cade93"
+    },
+    "vvp": {
+      "path": "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+      "sha256": "5876e595e35ef237d7f4fdaf831698a7dc7e91239aed5ec0d98599df0f8fc990"
+    }
+  },
+  "vivado_executed": false,
+  "warning_policy": "No suppression. Icarus emitted the exact source-line106 generate-style warning; behavioral run proceeds only if compile rc0 and no other diagnostics.",
+  "warning_suppression_used": false
+}

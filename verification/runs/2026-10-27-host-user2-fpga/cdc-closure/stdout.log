@@ -1,0 +1,218 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 09-oct-2027.
+
+****** Vivado v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Tue Oct 27 00:12:23 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/audit.tcl
+# set expected [dict create {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/implementation/routed.dcp} 08d08574fd0ee089a28a701b7330252ea3872d2ff286a5708e35592f2340694a {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/report.json} e4898e31e6b7dd9d5787e5080b353b42faabc372250a550e1b7dafffd918d83f {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/ew_checkpoint.tcl.in} e598156491a55bdd5fd00f33a0b72bbfb978b487eda327267bba85e1b271a61b {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/mailbox_cdc.tcl} 6f22260415c966bdcf67b8ad074890407fdeeddb579a8edcbaf9a17e1054264f {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/reference.json} 5e5da5c265f37cce18de06bde72be2d9cd213cca1877435f35c5e5c6801ea39e {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/sources.json} c0f5128163d28637453d669da0b0f1bb1f7e69d8a68cce9a41ddc75d06e750c4 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/ypcb_jtag_ew.xdc} ccc99d7317675f9f62c5f2909f3de74aa3dc42ec918a60b8da719761f613db1a {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/ypcb_jtag_ew_top.sv} e2e65afd7c5ad8c43b81b80ee75fef717ed19c7ec2559ad588f6a8b4f804713b {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/__init__.py} ee209ca74eeeddd062b447c39eaf9a13d49afbce88a2989b1466dec81e4a61a0 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/dma.py} 693383b2c08bc5e9081e978c3b0b82a60d7b08a713e428343a60b69d021f5b88 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/half.py} 61e0609848174bced70f730fa7de6f39bd0187161d21064a2dae5d9da65a59dd {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/profile.py} 5551ef4adbb1fb2a965ea01ec13442738e3986846638e4cf42fdd74461d31510 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/sim.py} fc36adc8c316af7f602bdbafbf344dcab75ae372d11cbe1b57091af7ed597de4 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/host/rk_jtag_backend.sv} 9f298914314b09e42c9bf4d62db1c3de05b241f1c6ca3fd169a95e5df9d2995e {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/host/rk_jtag_ew_bram.sv} 224aa317817aecd3fd24134ffefdb7360344ba70d304ba9dfd1d99630d8801d3 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_bram.sv} ffb9db11b442a47d7f3f82a5ef78f5de00fc999732aa5cdf670b9c6da98e963c {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_ew_dma.sv} 55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_ew_engine.sv} aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_ew_regs.sv} 592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_fp16_alu.sv} f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_job_control.sv} ff1466965b75d5d3c11aca7ab032d82fbaaf57146ffd03ae20a04c950d41e902 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_startup_reset.sv} 884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/vendor/opentpu/LICENSE} c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/vendor/opentpu/PROVENANCE.json} 638687f84ab47a71bd813520102ede951be82d78b31ce874062fd9c15f956375 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/vendor/opentpu/otpu_jtag_mailbox.sv} 46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/backend_ew_captures.json} 5c98369169d95dc14471dc7d7c7a61f50e75565167fad2156c8be40de0b80251 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/mailbox_scan.svh} c3cdff9268a78079210c43faf2fcfbaac34e688b6a935c2900b41f852ca63291 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/tb_jtag_backend.sv} d55f6bada7065f7a82a44ae43913149603c207f266ef1ce2d41872393b824fc6 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/tb_jtag_ew_bram.sv} d1045dae24ad9fa0844b278edc6938e710d308b6b8e81c1ad5f5d6e6c0102a73 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/tb_jtag_mailbox.sv} 27859e6c480a5e454be26a8ec520b45b2837297ec128b3161eb4b027735dd006 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/test_prepare.py} 91a38f96cbc1f0cb1f0416f5fa0569db80cce70d3272e9852bee6132d02817b9 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/test_qualification.py} 105b6b79e4ec61f4f695b506c149451344103bc5dc14e07e7771b08cc6b08fd5 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/test_transport.py} a612f8d2c875a4ac1b6fc20c42afc1058f2f5e2737faed77d1f19f74f766caf7 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/vendor.vlt} 80a259d488dee931d87cacbe9a5c10045ffbb18e2c3cdf70e4ecf0219e68997a {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/dma_fixtures.py} 9bd9d1ee00e3e96d31006577f52890e095b56f1f1e60b9d84d59f277aa9e3b00 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/evidence.py} b660f509dd530516b77e45eedb6fd0d7430495dcc675a827971894cdc5cc2a54 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/__init__.py} 98bcb034c2129e1cc979aef878358e800a2b092eeaaeda71356a44ca975af09b {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/prepare.py} b0727b34133eb216acf3d2701c05a328a07d24062fbb3bbf1339af86a427def1 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/qualification.py} 9756eb990ea0c00061f1f9a6037bb2dc4a1f38f9ef8a52360d6b5f81262f3c83 {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/run_rtl.py} 5e4861ad5aaa958994ae0e220e67c46db214c9aee25ef9304f91f7dfa0fc841f {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/transport.py} ad65b88676f21b751348cb7e0de051f88c3a50bcb41444bb15e28ba3eb15103d {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/prepare_ew_fpga.py} ac566b94c343baee21253f5389e624863d80bbf6f55cc755d2c40e18ba015dc6 {/home/fedora/rknpu-fpga/fpga/host/mailbox_cdc.tcl} b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804]
+# proc pinned {} {global expected;dict for {p h} $expected {if {[string range [exec sha256sum -z -- $p] 0 63] ne $h} {error "Changed bound CDC input"}}}
+# pinned
+# open_checkpoint {/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/implementation/routed.dcp}
+Command: open_checkpoint /home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/implementation/routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 1673.965 ; gain = 8.906 ; free physical = 13079 ; free virtual = 38924
+INFO: [Device 21-403] Loading part xc7k480tffg1156-2
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2158.609 ; gain = 0.000 ; free physical = 12500 ; free virtual = 38344
+INFO: [Netlist 29-17] Analyzing 819 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2263.172 ; gain = 3.000 ; free physical = 12392 ; free virtual = 38236
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2902.109 ; gain = 0.000 ; free physical = 11870 ; free virtual = 37715
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2902.109 ; gain = 0.000 ; free physical = 11870 ; free virtual = 37715
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2902.109 ; gain = 0.000 ; free physical = 11870 ; free virtual = 37715
+Read placeStorage: Time (s): cpu = 00:00:00.31 ; elapsed = 00:00:00.32 . Memory (MB): peak = 2916.648 ; gain = 14.539 ; free physical = 11864 ; free virtual = 37709
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2916.648 ; gain = 0.000 ; free physical = 11864 ; free virtual = 37709
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00.36 ; elapsed = 00:00:00.15 . Memory (MB): peak = 2916.648 ; gain = 0.000 ; free physical = 11864 ; free virtual = 37709
+Read Physdb Files: Time (s): cpu = 00:00:00.71 ; elapsed = 00:00:00.49 . Memory (MB): peak = 2916.648 ; gain = 14.539 ; free physical = 11864 ; free virtual = 37709
+Restored from archive | CPU: 0.750000 secs | Memory: 14.161232 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.74 ; elapsed = 00:00:00.53 . Memory (MB): peak = 2916.648 ; gain = 22.477 ; free physical = 11864 ; free virtual = 37709
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2916.648 ; gain = 0.000 ; free physical = 11838 ; free virtual = 37682
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2026.1 (64-bit) build 6511674
+open_checkpoint: Time (s): cpu = 00:00:26 ; elapsed = 00:00:16 . Memory (MB): peak = 2916.684 ; gain = 1253.625 ; free physical = 11838 ; free virtual = 37682
+# set out {/home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/outputs}
+# source {/home/fedora/rknpu-fpga/fpga/host/mailbox_cdc.tcl}
+## proc rk_host_finite {value} {
+##     return [expr {[string is double -strict $value] &&
+##         ![catch {expr {abs(double($value)) < Inf}} finite] && $finite}]
+## }
+## proc rk_host_one {objects description} {
+##     if {[llength $objects] != 1} { error "Expected exactly one $description." }
+##     return [lindex $objects 0]
+## }
+## proc rk_host_clock {name period} {
+##     set clock [rk_host_one [get_clocks -quiet $name] $name]
+##     set actual [get_property PERIOD $clock]
+##     if {![rk_host_finite $actual] || abs($actual-$period)>0.000001} {
+##         error "Wrong $name clock period ($actual)."
+##     }
+##     return $clock
+## }
+## proc rk_host_payload_cells {source target} {
+##     set a [get_cells -quiet -hier -filter "NAME =~ u_mailbox/${source}_reg*"]
+##     set b [get_cells -quiet -hier -filter "NAME =~ u_mailbox/${target}_reg*"]
+##     if {![llength $a] || ![llength $b]} { error "Missing held mailbox payload: $source/$target" }
+##     return [list $a $b]
+## }
+## proc rk_host_cdc_constrain {} {
+##     set bscan [rk_host_one [get_cells -quiet -hier -filter {REF_NAME == BSCANE2}] USER2]
+##     if {[get_property JTAG_CHAIN $bscan] != 2} { error "Expected USER2 JTAG_CHAIN=2." }
+##     rk_host_clock sys_clk 20.000
+##     create_clock -name jtag_tck -period 166.666 [get_pins $bscan/TCK]
+##     rk_host_clock jtag_tck 166.666
+##     foreach {source target bound} {held req 40.000 response response_tck 333.332} {
+##         lassign [rk_host_payload_cells $source $target] a b
+##         set_max_delay -datapath_only $bound -from $a -to $b
+##         set_false_path -hold -from $a -to $b
+##         set_bus_skew $bound -from $a -to $b
+##     }
+##     foreach prefix {rq_sync rs_sync} {
+##         set cells [get_cells -quiet -hier -filter "NAME =~ u_mailbox/${prefix}_reg*"]
+##         set first [get_cells -quiet [list [format {u_mailbox/%s_reg[0]} $prefix]]]
+##         if {[llength $cells]!=3 || [llength $first]!=1} { error "Missing mailbox toggle synchronizer." }
+##         set_property ASYNC_REG TRUE $cells
+##         set_property DONT_TOUCH TRUE $cells
+##         # Only the asynchronous first-stage D pin is exempted. Later stages
+##         # and the held payloads retain their setup/max-delay constraints.
+##         set_false_path -to [get_pins $first/D]
+##     }
+## }
+## proc rk_host_cdc_audit {out} {
+##     set bscan [rk_host_one [get_cells -quiet -hier -filter {REF_NAME == BSCANE2}] USER2]
+##     if {[get_property JTAG_CHAIN $bscan] != 2} { error "Changed USER2 primitive." }
+##     rk_host_clock sys_clk 20.000
+##     rk_host_clock jtag_tck 166.666
+##     set tck [rk_host_one [get_clocks -of_objects [get_pins $bscan/TCK]] {BSCAN TCK clock}]
+##     if {$tck ne [get_clocks jtag_tck]} { error "BSCAN TCK is not the constrained JTAG clock." }
+##     set facts [open [file join $out mailbox_cdc.tsv] w]
+##     foreach {prefix origin clock period} {rq_sync req_toggle sys_clk 20.000 rs_sync rsp_toggle jtag_tck 166.666} {
+##         for {set bit 0} {$bit<3} {incr bit} {
+##             set name [format {u_mailbox/%s_reg[%d]} $prefix $bit]
+##             set cell [rk_host_one [get_cells -quiet [list $name]] {mailbox synchronizer stage}]
+##             if {![get_property ASYNC_REG $cell] || ![get_property DONT_TOUCH $cell]} {
+##                 error "Unprotected mailbox synchronizer stage: $name"
+##             }
+##             set actual [rk_host_one [get_clocks -of_objects [get_pins $cell/C]] {synchronizer clock}]
+##             if {$actual ne [get_clocks $clock]} { error "Wrong synchronizer clock: $name" }
+##             set prior [expr {$bit==0 ? "u_mailbox/${origin}_reg" :
+##                 [format {u_mailbox/%s_reg[%d]} $prefix [expr {$bit-1}]]}]
+##             set previous [rk_host_one [get_cells -quiet [list $prior]] {synchronizer input register}]
+##             set starts [lsort [all_fanin -flat -startpoints_only -to [get_pins $cell/D]]]
+##             if {[llength $starts]!=1 || [lindex $starts 0] ne [lindex [get_pins $previous/C] 0]} {
+##                 error "Unexpected synchronizer fanin: $name $starts"
+##             }
+##             if {$bit>0} {
+##                 set path [rk_host_one [get_timing_paths -quiet -from $previous -to $cell -delay_type max -max_paths 1] {timed later synchronizer stage}]
+##                 set slack [get_property SLACK $path]
+##                 set required [get_property REQUIREMENT $path]
+##                 if {![rk_host_finite $slack] || $slack<0 || ![rk_host_finite $required] || abs($required-$period)>0.000001} {
+##                     error "Later synchronizer stage is cut or fails timing: $name"
+##                 }
+##             }
+##             puts $facts "SYNC\t$name\t$actual\t$starts"
+##         }
+##     }
+##     foreach {source target budget} {held req 40.000 response response_tck 333.332} {
+##         lassign [rk_host_payload_cells $source $target] a b
+##         set path [rk_host_one [get_timing_paths -quiet -from $a -to $b -delay_type max -max_paths 1] {active mailbox payload max-delay path}]
+##         set slack [get_property SLACK $path]
+##         set required [get_property REQUIREMENT $path]
+##         if {![rk_host_finite $slack] || $slack<0 || ![rk_host_finite $required] || abs($required-$budget)>0.000001} {
+##             error "Mailbox payload bound differs or fails: $source"
+##         }
+##         puts $facts "PAYLOAD\t$source\t$target\t[llength $a]\t[llength $b]\t$required\t$slack"
+##         report_timing -from $a -to $b -delay_type max -max_paths 32 -file [file join $out mailbox_${source}_timing.rpt]
+##     }
+##     close $facts
+##     report_cdc -details -file [file join $out mailbox_cdc.rpt]
+##     report_exceptions -file [file join $out mailbox_exceptions.rpt]
+##     report_bus_skew -warn_on_violation -file [file join $out mailbox_bus_skew.rpt]
+##     set channel [open [file join $out mailbox_bus_skew.rpt] r]
+##     set text [read $channel]; close $channel
+##     # This standalone design has exactly the two mailbox bus-skew constraints.
+##     # Use the documented native report form preserved in the donor evidence.
+##     set slacks [regexp -all -inline -line {^Slack \((MET|VIOLATED)\)\s*:\s*([^\s]+)ns} $text]
+##     # Native reports repeat each requirement: an unindented constraint header
+##     # and an indented path detail. Require both complete inventories and equal
+##     # values; do not mistake the second copy for another constraint.
+##     set limits [regexp -all -inline -line {^Requirement:\s*([^\s]+)ns\s*$} $text]
+##     set details [regexp -all -inline -line {^[ \t]+Requirement:\s*([^\s]+)ns\s*$} $text]
+##     if {[llength $slacks]!=6 || [llength $limits]!=4 || [llength $details]!=4} {
+##         error "Incomplete mailbox bus-skew report."
+##     }
+##     foreach {whole status slack} $slacks {
+##         if {$status ne "MET" || ![rk_host_finite $slack] || $slack<0} { error "Mailbox bus skew failed." }
+##     }
+##     set bounds {}
+##     foreach {whole value} $limits {
+##         if {![rk_host_finite $value]} { error "Invalid bus-skew requirement." }
+##         lappend bounds $value
+##     }
+##     set bounds [lsort -real $bounds]
+##     set detail_bounds {}
+##     foreach {whole value} $details {
+##         if {![rk_host_finite $value]} { error "Invalid detailed bus-skew requirement." }
+##         lappend detail_bounds $value
+##     }
+##     foreach expected $bounds detail [lsort -real $detail_bounds] {
+##         if {$expected != $detail} { error "Conflicting bus-skew requirements." }
+##     }
+##     if {abs([lindex $bounds 0]-40.0)>0.000001 || abs([lindex $bounds 1]-333.332)>0.000001} {
+##         error "Changed mailbox bus-skew budgets."
+##     }
+## }
+# rk_host_cdc_audit $out
+INFO: [Timing 38-78] ReportTimingParams: -from_pins  -to_pins  -max_paths 32 -nworst 1 -delay_type max -sort_by slack.
+INFO: [Timing 38-78] ReportTimingParams: -from_pins  -to_pins  -max_paths 32 -nworst 1 -delay_type max -sort_by slack.
+INFO: [Timing 38-314] The report_cdc command only analyzes and reports clock domain crossing paths where clocks have been defined on both source and destination sides. Ports with no input delay constraint are skipped. Please run check_timing to verify there are no missing clock definitions in your design, nor any unconstrained input port.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+report_bus_skew: Time (s): cpu = 00:00:30 ; elapsed = 00:00:30 . Memory (MB): peak = 2979.086 ; gain = 0.000 ; free physical = 11869 ; free virtual = 37714
+# report_timing_summary -delay_type min_max -report_unconstrained -file [file join $out timing.rpt]
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+# check_timing -verbose -file [file join $out check_timing.rpt]
+# report_pulse_width -file [file join $out pulse_width.rpt]
+# report_route_status -file [file join $out route_status.rpt]
+# report_drc -file [file join $out drc.rpt]
+Command: report_drc -file /home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/outputs/drc.rpt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/fedora/vivado/2026.1/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/outputs/drc.rpt.
+report_drc completed successfully
+# foreach kind {max min} {
+#  set path [get_timing_paths -delay_type $kind -max_paths 1]
+#  if {[llength $path]!=1 || ![rk_host_finite [get_property SLACK $path]] || [get_property SLACK $path]<0} {error "Timing gate failed"}
+# }
+# foreach violation [get_drc_violations] {
+#  if {[string toupper [get_property SEVERITY $violation]] ni {WARNING ADVISORY INFO}} {error "Blocking DRC"}
+# }
+# if {![report_route_status -boolean_check ROUTED_FULLY] || [report_route_status -boolean_check ERRORS_IN_ROUTES]} {error "Routing gate failed"}
+# if {[llength [get_waivers]]!=0} {error "Unexpected waiver"}
+# pinned
+# set f [open [file join $out result.txt] w]
+# puts $f "PASS_READONLY_HOST_ROUTED_CDC_GATES_NO_IMAGE_OR_HARDWARE"
+# close $f
+# puts "PASS_READONLY_HOST_ROUTED_CDC_GATES_NO_IMAGE_OR_HARDWARE"
+PASS_READONLY_HOST_ROUTED_CDC_GATES_NO_IMAGE_OR_HARDWARE
+# exit
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 00:13:23 2026...

@@ -1,0 +1,15 @@
+%Warning-PINMISSING: /home/fedora/rknpu-fpga/build/ddr-diagnostic-mux-validation-v7/source/tb_ddr_diagnostic_mux_badparams.sv:43:108: Instance has missing pin: 'm_axi_arqos'
+   43 |   rk_ddr_diagnostic_mux #(.ADDR_WIDTH(BAD_ADDR_WIDTH),.DATA_WIDTH(BAD_DATA_WIDTH),.ID_WIDTH(BAD_ID_WIDTH)) dut (
+      |                                                                                                            ^~~
+                     /home/fedora/rknpu-fpga/build/ddr-diagnostic-mux-validation-v7/source/rk_ddr_diagnostic_mux.sv:51:37: ... Location of port declaration
+   51 |     output logic [3:0] m_axi_awqos, m_axi_arqos,
+      |                                     ^~~~~~~~~~~
+                     ... For warning description see https://verilator.org/warn/PINMISSING?v=5.048
+                     ... Use "/* verilator lint_off PINMISSING */" and lint_on around source to disable this message.
+%Warning-UNDRIVEN: /home/fedora/rknpu-fpga/build/ddr-diagnostic-mux-validation-v7/source/tb_ddr_diagnostic_mux_badparams.sv:30:54: Signal is not driven: 'm_axi_arqos'
+                                                                                                                                 : ... note: In instance 'tb_ddr_diagnostic_mux_badparams'
+   30 |   wire [3:0] m_axi_awcache,m_axi_arcache,m_axi_awqos,m_axi_arqos;
+      |                                                      ^~~~~~~~~~~
+                   ... For warning description see https://verilator.org/warn/UNDRIVEN?v=5.048
+                   ... Use "/* verilator lint_off UNDRIVEN */" and lint_on around source to disable this message.
+%Error: Exiting due to 2 warning(s)

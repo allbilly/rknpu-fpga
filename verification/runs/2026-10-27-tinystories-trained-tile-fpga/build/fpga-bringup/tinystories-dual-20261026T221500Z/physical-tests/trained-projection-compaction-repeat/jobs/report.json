@@ -1,0 +1,266 @@
+{
+  "status": "PASS_PHYSICAL_TRAINED_TILE_COMPACTION_AND_REARM_REQUIRES_AUDIT",
+  "vectors_report_sha256": "ad69a7caf1e1be5757c477df80fb09301f00efbf03143560472eca11efb7fa49",
+  "started_utc": "2026-10-26T22:03:09.015861+00:00",
+  "jobs": [
+    {
+      "profile": "cmac",
+      "tag": 637534209,
+      "expected": "cmac",
+      "status": "PASS",
+      "regions": [
+        {
+          "address": 268500992,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "95a20219836ab4ceb0ab0213b96b1489fa7c08f5ce3d89d2660e6cfda86e4649",
+          "expected_sha256": "95a20219836ab4ceb0ab0213b96b1489fa7c08f5ce3d89d2660e6cfda86e4649"
+        },
+        {
+          "address": 268566528,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "fb82cdf742dd5cc356fa58b5f016a1044ee4af46c981ef0086c1ec1107605c28",
+          "expected_sha256": "fb82cdf742dd5cc356fa58b5f016a1044ee4af46c981ef0086c1ec1107605c28"
+        },
+        {
+          "address": 268697600,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "0c172c18c330eaea3562b0cb55e89b6ae828b327570a19684b626e60d8da6416",
+          "expected_sha256": "0c172c18c330eaea3562b0cb55e89b6ae828b327570a19684b626e60d8da6416"
+        },
+        {
+          "address": 268763136,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "59c7f9d7f576836e61fb2681d426833931c6115a3051ea29e115aa5e136655a5",
+          "expected_sha256": "59c7f9d7f576836e61fb2681d426833931c6115a3051ea29e115aa5e136655a5"
+        },
+        {
+          "address": 268828672,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "7d38ea614107ecc98b5eba8b6def3ec88dfc7d2c02f2c7f2a9e75b86dd733689",
+          "expected_sha256": "7d38ea614107ecc98b5eba8b6def3ec88dfc7d2c02f2c7f2a9e75b86dd733689"
+        },
+        {
+          "address": 269352960,
+          "bytes": 69632,
+          "matches": true,
+          "sha256": "e4dea9c2c7bb36a628b1865618c303beee2ccb4aac4fb0d5f23edf8a986431c5",
+          "expected_sha256": "e4dea9c2c7bb36a628b1865618c303beee2ccb4aac4fb0d5f23edf8a986431c5"
+        }
+      ],
+      "completion": {
+        "tag": 637534209,
+        "completed_tasks": 1,
+        "error_code": 0,
+        "status": 1812
+      },
+      "bytes_checked": 90112,
+      "ack_after_complete_readback": true
+    },
+    {
+      "profile": "ew",
+      "tag": 637534210,
+      "expected": "ew",
+      "status": "PASS",
+      "regions": [
+        {
+          "address": 268500992,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "95a20219836ab4ceb0ab0213b96b1489fa7c08f5ce3d89d2660e6cfda86e4649",
+          "expected_sha256": "95a20219836ab4ceb0ab0213b96b1489fa7c08f5ce3d89d2660e6cfda86e4649"
+        },
+        {
+          "address": 268566528,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "fb82cdf742dd5cc356fa58b5f016a1044ee4af46c981ef0086c1ec1107605c28",
+          "expected_sha256": "fb82cdf742dd5cc356fa58b5f016a1044ee4af46c981ef0086c1ec1107605c28"
+        },
+        {
+          "address": 268697600,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "0c172c18c330eaea3562b0cb55e89b6ae828b327570a19684b626e60d8da6416",
+          "expected_sha256": "0c172c18c330eaea3562b0cb55e89b6ae828b327570a19684b626e60d8da6416"
+        },
+        {
+          "address": 268763136,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "66b8a76b62b0760bb5bdc3ca7b997a49ba43ff97cd7dc7683646e6aeab26b97e",
+          "expected_sha256": "66b8a76b62b0760bb5bdc3ca7b997a49ba43ff97cd7dc7683646e6aeab26b97e"
+        },
+        {
+          "address": 268828672,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "7d38ea614107ecc98b5eba8b6def3ec88dfc7d2c02f2c7f2a9e75b86dd733689",
+          "expected_sha256": "7d38ea614107ecc98b5eba8b6def3ec88dfc7d2c02f2c7f2a9e75b86dd733689"
+        },
+        {
+          "address": 269352960,
+          "bytes": 69632,
+          "matches": true,
+          "sha256": "b3c72471fe3f6a73dec2b447b0f8ea47f2fcdb433d588591b81fd3df5a1eff04",
+          "expected_sha256": "b3c72471fe3f6a73dec2b447b0f8ea47f2fcdb433d588591b81fd3df5a1eff04"
+        }
+      ],
+      "completion": {
+        "tag": 637534210,
+        "completed_tasks": 2,
+        "error_code": 0,
+        "status": 1812
+      },
+      "bytes_checked": 90112,
+      "ack_after_complete_readback": true
+    },
+    {
+      "profile": "cmac",
+      "tag": 637534211,
+      "expected": "repeat",
+      "status": "PASS",
+      "regions": [
+        {
+          "address": 268500992,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "95a20219836ab4ceb0ab0213b96b1489fa7c08f5ce3d89d2660e6cfda86e4649",
+          "expected_sha256": "95a20219836ab4ceb0ab0213b96b1489fa7c08f5ce3d89d2660e6cfda86e4649"
+        },
+        {
+          "address": 268566528,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "fb82cdf742dd5cc356fa58b5f016a1044ee4af46c981ef0086c1ec1107605c28",
+          "expected_sha256": "fb82cdf742dd5cc356fa58b5f016a1044ee4af46c981ef0086c1ec1107605c28"
+        },
+        {
+          "address": 268697600,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "0c172c18c330eaea3562b0cb55e89b6ae828b327570a19684b626e60d8da6416",
+          "expected_sha256": "0c172c18c330eaea3562b0cb55e89b6ae828b327570a19684b626e60d8da6416"
+        },
+        {
+          "address": 268763136,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "66b8a76b62b0760bb5bdc3ca7b997a49ba43ff97cd7dc7683646e6aeab26b97e",
+          "expected_sha256": "66b8a76b62b0760bb5bdc3ca7b997a49ba43ff97cd7dc7683646e6aeab26b97e"
+        },
+        {
+          "address": 268828672,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "7d38ea614107ecc98b5eba8b6def3ec88dfc7d2c02f2c7f2a9e75b86dd733689",
+          "expected_sha256": "7d38ea614107ecc98b5eba8b6def3ec88dfc7d2c02f2c7f2a9e75b86dd733689"
+        },
+        {
+          "address": 269352960,
+          "bytes": 69632,
+          "matches": true,
+          "sha256": "e4dea9c2c7bb36a628b1865618c303beee2ccb4aac4fb0d5f23edf8a986431c5",
+          "expected_sha256": "e4dea9c2c7bb36a628b1865618c303beee2ccb4aac4fb0d5f23edf8a986431c5"
+        }
+      ],
+      "completion": {
+        "tag": 637534211,
+        "completed_tasks": 1,
+        "error_code": 0,
+        "status": 1812
+      },
+      "bytes_checked": 90112,
+      "ack_after_complete_readback": true
+    },
+    {
+      "profile": "ew",
+      "tag": 637534212,
+      "expected": "ew",
+      "status": "PASS",
+      "regions": [
+        {
+          "address": 268500992,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "95a20219836ab4ceb0ab0213b96b1489fa7c08f5ce3d89d2660e6cfda86e4649",
+          "expected_sha256": "95a20219836ab4ceb0ab0213b96b1489fa7c08f5ce3d89d2660e6cfda86e4649"
+        },
+        {
+          "address": 268566528,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "fb82cdf742dd5cc356fa58b5f016a1044ee4af46c981ef0086c1ec1107605c28",
+          "expected_sha256": "fb82cdf742dd5cc356fa58b5f016a1044ee4af46c981ef0086c1ec1107605c28"
+        },
+        {
+          "address": 268697600,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "0c172c18c330eaea3562b0cb55e89b6ae828b327570a19684b626e60d8da6416",
+          "expected_sha256": "0c172c18c330eaea3562b0cb55e89b6ae828b327570a19684b626e60d8da6416"
+        },
+        {
+          "address": 268763136,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "66b8a76b62b0760bb5bdc3ca7b997a49ba43ff97cd7dc7683646e6aeab26b97e",
+          "expected_sha256": "66b8a76b62b0760bb5bdc3ca7b997a49ba43ff97cd7dc7683646e6aeab26b97e"
+        },
+        {
+          "address": 268828672,
+          "bytes": 4096,
+          "matches": true,
+          "sha256": "7d38ea614107ecc98b5eba8b6def3ec88dfc7d2c02f2c7f2a9e75b86dd733689",
+          "expected_sha256": "7d38ea614107ecc98b5eba8b6def3ec88dfc7d2c02f2c7f2a9e75b86dd733689"
+        },
+        {
+          "address": 269352960,
+          "bytes": 69632,
+          "matches": true,
+          "sha256": "b3c72471fe3f6a73dec2b447b0f8ea47f2fcdb433d588591b81fd3df5a1eff04",
+          "expected_sha256": "b3c72471fe3f6a73dec2b447b0f8ea47f2fcdb433d588591b81fd3df5a1eff04"
+        }
+      ],
+      "completion": {
+        "tag": 637534212,
+        "completed_tasks": 2,
+        "error_code": 0,
+        "status": 1812
+      },
+      "bytes_checked": 90112,
+      "ack_after_complete_readback": true
+    }
+  ],
+  "hardware_access_attempted": true,
+  "hardware_accessed": true,
+  "flash_written": false,
+  "cpu_dense_fallback": false,
+  "scope": "BOS Wq0 first32 outputs, two raw CMAC jobs and two linked EW compactions; not full model",
+  "identities": {
+    "ew": {
+      "id": 1380664663,
+      "abi": 65536,
+      "status": 16
+    },
+    "cmac": {
+      "id": 1380664141,
+      "abi": 65536,
+      "status": 16
+    }
+  },
+  "initial_bytes_uploaded_and_verified": 90112,
+  "bridge_quit_ack": true,
+  "finished_utc": "2026-10-26T22:04:28.600276+00:00",
+  "artifacts": {
+    "native-scans.jsonl": "3634403de9513c24634c5cedac99dc1c04d97b266443364b16cc8b6ae884ba31",
+    "job0-readback.bin": "7961bb66c5fe6ff38f05e724f87f8187e1bb523b1861d4795e3d98cde0285137",
+    "job1-readback.bin": "c8bda26fb21e69a76b93b6f14b071cacf1068f6d36a0b2fb76bd80ebf1f2b467",
+    "job2-readback.bin": "2f379907843ebb3a26076b3593806b59b92140c6b1ce6d96ddb9eccaf295eaa1",
+    "job3-readback.bin": "c8bda26fb21e69a76b93b6f14b071cacf1068f6d36a0b2fb76bd80ebf1f2b467"
+  }
+}

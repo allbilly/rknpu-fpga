@@ -1,0 +1,1633 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-26T18:06:29.530371+00:00",
+  "purpose": "Mechanical inventory of TinyStories/stories260/llama model runners, shape/operator, transport/packing and asset-provenance references in openTPU, vortex and ypcb. No code executed and no repository modified.",
+  "queries": {
+    "repositories": [
+      "/home/fedora/openTPU",
+      "/home/fedora/vortex",
+      "/home/fedora/ypcb"
+    ],
+    "filename_terms": [
+      "tinystories",
+      "TinyStories",
+      "stories260",
+      "Stories260",
+      "llama",
+      "model",
+      "manifest",
+      "provenance"
+    ],
+    "excluded_large_or_generated": "Broad build/bitstream/model trees were excluded; selected only TinyStories-specific manifests and named model/kernel/bitstream assets. No dot-config/credential scans.",
+    "relevant_filename_hits": {
+      "openTPU": [
+        "/home/fedora/openTPU/docs/mac_c0182800.md",
+        "/home/fedora/openTPU/docs/mac_c0182863.md",
+        "/home/fedora/openTPU/docs/bitstreams.md",
+        "/home/fedora/openTPU/docs/llama.md",
+        "/home/fedora/openTPU/opentpu/llm/llama.py",
+        "/home/fedora/openTPU/opentpu/llm/qwen3.py",
+        "/home/fedora/openTPU/opentpu/host/jtag.py",
+        "/home/fedora/openTPU/tools/run_tinystories_shared_jtag.py",
+        "/home/fedora/openTPU/tools/run_tinystories_jtag.py",
+        "/home/fedora/openTPU/tools/prepare_tinystories_tiles.py",
+        "/home/fedora/openTPU/tools/check_tinystories_shared_model.py",
+        "/home/fedora/openTPU/runtime/c0182800/local-validation.json",
+        "/home/fedora/openTPU/runtime/c0182863/local-validation.json",
+        "/home/fedora/openTPU/build/hardware/tinystories-c0182863-20261018-v1/manifest.json",
+        "/home/fedora/openTPU/build/hardware/tinystories-c0182863-20261018-v1/program-fetch/manifest.json",
+        "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/manifest.json",
+        "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/host/opentpu/llm/llama.py",
+        "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/otpu.bit",
+        "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182800/otpu.bit"
+      ],
+      "vortex": [
+        "/home/fedora/vortex/docs/tinystories.md",
+        "/home/fedora/vortex/ci/ypcb_tinystories.py",
+        "/home/fedora/vortex/ci/test_ypcb_tinystories.py",
+        "/home/fedora/vortex/ci/test_ypcb_model_dependencies.py",
+        "/home/fedora/vortex/tests/regression/tinystories_q8/kernel.cpp",
+        "/home/fedora/vortex/tests/regression/tinystories_q8/common.h",
+        "/home/fedora/vortex/tests/regression/tinystories_q8/Makefile",
+        "/home/fedora/vortex/runtime/tinystories/README.md",
+        "/home/fedora/vortex/runtime/tinystories/qualification.json",
+        "/home/fedora/vortex/runtime/tinystories/kernel.json",
+        "/home/fedora/vortex/build_ypcb_tinystories32/model-source/model.json",
+        "/home/fedora/vortex/build_ypcb_tinystories32/model-source/download.json",
+        "/home/fedora/vortex/build_ypcb_tinystories32/fpga-jtag-20261025-v2/manifest.json",
+        "/home/fedora/vortex/build_ypcb_tinystories32/simx-20261025-v1/manifest.json",
+        "/home/fedora/vortex/build_ypcb_tinystories32/model-source/stories260K.bin",
+        "/home/fedora/vortex/build_ypcb_tinystories32/model-source/stories260K-q8.bin",
+        "/home/fedora/vortex/build_ypcb_tinystories32/model-source/tok512.bin",
+        "/home/fedora/vortex/build_ypcb_tinystories32/tests/regression/tinystories_q8/kernel.vxbin",
+        "/home/fedora/vortex/build_ypcb_4gb32/dual-4gib-image-20261025-v2/vortex_ypcb.bit"
+      ],
+      "ypcb": []
+    },
+    "ypcb_content_hits": [
+      "/home/fedora/ypcb/docs/PROJECTS.md:21-24",
+      "/home/fedora/ypcb/README.md:18-21"
+    ],
+    "ypcb_direct_filename_hits": [],
+    "notes": [
+      "The `~/ypcb` workspace index points to the independent `~/openTPU` and `~/vortex` repositories; no TinyStories/stories260/llama model or manifest filename was returned directly under the YPCB checkout.",
+      "The Vortex runner declares external `/home/fedora/qwen3.c` inputs; those external files were not read because this inventory is scoped to the three requested repositories.",
+      "OpenTPU local TinyStories receipts pin the checkpoint hash and uploaded image/readback; raw checkpoint/config is not included in the selected TinyStories package."
+    ],
+    "filename_filter_results": {
+      "openTPU": [
+        "/home/fedora/openTPU/docs/llama.md",
+        "/home/fedora/openTPU/opentpu/llm/llama.py",
+        "/home/fedora/openTPU/tools/run_tinystories_shared_jtag.py",
+        "/home/fedora/openTPU/tools/run_tinystories_jtag.py",
+        "/home/fedora/openTPU/tools/prepare_tinystories_tiles.py",
+        "/home/fedora/openTPU/tools/check_tinystories_shared_model.py",
+        "/home/fedora/openTPU/runtime/c0182800/local-validation.json",
+        "/home/fedora/openTPU/runtime/c0182863/local-validation.json",
+        "/home/fedora/openTPU/build/hardware/tinystories-c0182863-20261018-v1/manifest.json",
+        "/home/fedora/openTPU/build/hardware/tinystories-c0182863-20261018-v1/program-fetch/manifest.json",
+        "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/manifest.json",
+        "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/host/opentpu/llm/llama.py"
+      ],
+      "vortex": [
+        "/home/fedora/vortex/docs/tinystories.md",
+        "/home/fedora/vortex/ci/ypcb_tinystories.py",
+        "/home/fedora/vortex/ci/test_ypcb_tinystories.py",
+        "/home/fedora/vortex/ci/test_ypcb_model_dependencies.py",
+        "/home/fedora/vortex/runtime/tinystories/README.md",
+        "/home/fedora/vortex/runtime/tinystories/qualification.json",
+        "/home/fedora/vortex/runtime/tinystories/kernel.json",
+        "/home/fedora/vortex/build_ypcb_tinystories32/model-source/model.json",
+        "/home/fedora/vortex/build_ypcb_tinystories32/model-source/download.json",
+        "/home/fedora/vortex/build_ypcb_tinystories32/fpga-jtag-20261025-v2/manifest.json",
+        "/home/fedora/vortex/build_ypcb_tinystories32/simx-20261025-v1/manifest.json",
+        "/home/fedora/vortex/tests/regression/tinystories_q8/kernel.cpp",
+        "/home/fedora/vortex/tests/regression/tinystories_q8/common.h",
+        "/home/fedora/vortex/tests/regression/tinystories_q8/Makefile",
+        "/home/fedora/vortex/build_ypcb_tinystories32/model-source/stories260K.bin",
+        "/home/fedora/vortex/build_ypcb_tinystories32/model-source/stories260K-q8.bin",
+        "/home/fedora/vortex/build_ypcb_tinystories32/model-source/tok512.bin",
+        "/home/fedora/vortex/build_ypcb_tinystories32/tests/regression/tinystories_q8/kernel.vxbin"
+      ],
+      "ypcb": []
+    },
+    "targeted_content_search_results": {
+      "openTPU": [
+        "/home/fedora/openTPU/docs/mac_c0182800.md",
+        "/home/fedora/openTPU/docs/mac_c0182863.md",
+        "/home/fedora/openTPU/docs/bitstreams.md",
+        "/home/fedora/openTPU/opentpu/llm/qwen3.py",
+        "/home/fedora/openTPU/opentpu/host/jtag.py",
+        "/home/fedora/openTPU/tools/check_tinystories_shared_model.py"
+      ],
+      "vortex": [
+        "/home/fedora/vortex/docs/tinystories.md",
+        "/home/fedora/vortex/ci/ypcb_tinystories.py",
+        "/home/fedora/vortex/tests/regression/tinystories_q8/kernel.cpp",
+        "/home/fedora/vortex/tests/regression/tinystories_q8/common.h"
+      ],
+      "ypcb": [
+        "/home/fedora/ypcb/README.md",
+        "/home/fedora/ypcb/docs/PROJECTS.md"
+      ]
+    },
+    "broad_generic_name_matches_excluded": [
+      {
+        "path": "/home/fedora/openTPU/opentpu/host/runtime_model.py",
+        "reason": "Generic runtime_model filename; targeted searches did not identify it as a TinyStories runner, asset or transport-packing source."
+      },
+      {
+        "path": "/home/fedora/openTPU/runtime/c0182800/calibration/host-model-review.json",
+        "reason": "Generic calibration host-model review, not TinyStories model or runner provenance."
+      },
+      {
+        "path": "/home/fedora/openTPU/runtime/c0182863/calibration/host-model-review.json",
+        "reason": "Generic calibration host-model review, not TinyStories model or runner provenance."
+      }
+    ],
+    "relevant_filename_hits_removed": "Broad generic filename hits are separated from actual TinyStories-relevant filename results."
+  },
+  "evidence_files": [
+    {
+      "path": "/home/fedora/openTPU/docs/mac_c0182800.md",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU docs: c0182800 TinyStories receipt and USER2 caveat",
+      "exists": true,
+      "bytes": 7108,
+      "sha256": "7c47a84efa3eea0e503d543d25227da3db651cc7dbf21137e88c9418bcd01059",
+      "snippets": [
+        {
+          "first_line": 17,
+          "last_line": 23,
+          "literal": "17: Local JTAG SRAM loading, live image identity and CH0 calibration passed with\n18: PCIe absent. Full-memory zero initialization, the 1,371-instruction fetch check\n19: (65 exact words, 1,496 cycles) and int8 matmul (32 exact words, 333 cycles) passed.\n20: TinyStories passed: all 28,909,056 uploaded bytes and their SHA256 matched, all\n21: 15 program readback/load checks passed, and eight tokens matched the ISA exactly.\n22: Calibration stayed unchanged and final ECC guards passed. See the small\n23: [local validation receipt](../runtime/c0182800/local-validation.json)."
+        },
+        {
+          "first_line": 72,
+          "last_line": 73,
+          "literal": "72: JTAG transfer timing does not establish PCIe or accelerator bandwidth. Local\n73: TinyStories is an additional check, separate from the completed Mac acceptance."
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/openTPU/docs/mac_c0182863.md",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU docs: c0182863 TinyStories readback and JTAG result",
+      "exists": true,
+      "bytes": 17523,
+      "sha256": "ee1ad1371e39c8753d599f4de73654b66a286037a8f5943428659a31235d13ed",
+      "snippets": [
+        {
+          "first_line": 20,
+          "last_line": 31,
+          "literal": "20: Local SRAM INIT/DONE/IDCODE, live USER2 identity with PCIe absent, CH0 calibration\n21: preserving CH1 and the fresh exact-image ISA oracle passed. Required full-memory\n22: initialization, the 1,371-instruction fetch check with 65 exact output words and\n23: int8 matmul with 32 exact output words also passed. Trained TinyStories passed:\n24: all 28,909,056 model bytes and SHA256 read back exactly, all 15 program readback/\n25: load checks passed, and all eight physical tokens matched the ISA. Calibration\n26: was unchanged. Three 64 MiB native-read runs passed at median 4.452533 GB/s\n27: from FPGA counters, with final 16 KiB comparisons. This is synthetic combined-\n28: channel throughput, separate from PCIe transfer bandwidth and Qwen decode\n29: bandwidth. The local JTAG client/server exited\n30: zero and the hardware lease was verified free. See the small\n31: [local validation receipt](../runtime/c0182863/local-validation.json)."
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/openTPU/docs/bitstreams.md",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU image inventory: local TinyStories profile distinctions",
+      "exists": true,
+      "bytes": 38261,
+      "sha256": "9aa8a06e7e244b3b48b93b10720216f3201ebb8f8f3c2b68475bcb293db53a94",
+      "snippets": [
+        {
+          "first_line": 32,
+          "last_line": 36,
+          "literal": "32: | **[c0182800](mac_c0182800.md)** | 100 MHz / 800 MT/s | Baseline CH0 shared-response repair and registered host reset; CH1 automatic calibration, matching host calibration for CH0 | Local JTAG SRAM/identity, full-memory initialization, program fetch, matmul, exact TinyStories and native-read benchmark; permanent program, independent verify and flash boot; Mac LFM230M and Qwen3.5-2B exact ISA comparisons | Retained tested fallback. Cold/warm repeatability, broader PCIe/reset reliability and controlled comparisons remain open |\n33: | **[c0182863](mac_c0182863.md)** | 148.837209 MHz / 1066.667 MT/s | Faster compute/DDR and quantizer predicate timing correction; same manual CH0/automatic CH1 calibration | Local JTAG SRAM, initialization, program fetch, matmul, exact TinyStories and native-read benchmark; permanent program, independent verify and flash boot; Mac LFM230M and Qwen3.5-2B exact ISA comparisons | Retained tested faster image. Cold/warm repeats, initialization-pause comparison, controlled host/wall-decode profiling and the modeled corner cases below remain open |\n34: | **[c0182600](mac_c0182600.md)** | 100 MHz / 800 MT/s | Both-channel automatic eight-/nine-lane calibration using embedded firmware `c0172608`; corrected CH0 path and both interfaces retained | Local SRAM/startup, full initialization, program fetch, matmul, model readback, eight ISA-exact TinyStories tokens, public JTAG runtime postflight and native-read benchmark | **Mac PCIe/LFM/Qwen acceptance and repeatability pending.** Permanent programming/boot not performed; retain as automatic-startup fallback |\n35: | **[c0182663](mac_c0182663.md)** | 148.837209 MHz / 1066.667 MT/s | Faster automatic-startup successor with embedded firmware `c0172668` and quantizer timing correction | Local SRAM/startup, full initialization, program fetch, matmul, model readback, eight ISA-exact TinyStories tokens, public JTAG runtime postflight and native-read benchmark | **Mac PCIe/LFM/Qwen acceptance and repeatability pending.** Permanent programming/boot not performed; this was the selected automatic-startup Mac candidate |\n36: | **c0182461** | 100 MHz / 1066.667 MT/s | DDR-rate comparison at baseline compute speed; CH1 automatic calibration and matching host calibration for CH0 | Local JTAG SRAM/identity, initialization, program fetch, matmul, exact TinyStories and native-read benchmark | **Mac acceptance and repeatability pending.** Optional comparison only; no recorded permanent programming/boot |"
+        },
+        {
+          "first_line": 49,
+          "last_line": 55,
+          "literal": "49: TinyStories results belong to the frozen test hosts, not a separate inference\n50: run through the newly exported public tools. Full-range arbitrary-payload and\n51: retention qualification remain open for these exact integrated images.\n52: \n53: The tested workload passes are bounded evidence. A later simulation of the\n54: **exact c0182863 compiled memory bridge** reproduced two other corner cases:\n55: simultaneous accepts publish a Gray counter change from 0 to 3, and a six-bit"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/openTPU/docs/llama.md",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU current Llama-like runner documentation (SmolLM3/Phi-4; adjacent to TinyStories support)",
+      "exists": true,
+      "bytes": 12615,
+      "sha256": "671b1cc893519b64b9bb09ba4dd1780e5c53363d8225910cc26fd403bbe220da",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 9,
+          "literal": "1: # SmolLM3 and Phi-4-mini on openTPU\n2: \n3: openTPU runs two Llama-style decoders of 3-4B parameters:\n4: [SmolLM3-3B](https://huggingface.co/HuggingFaceTB/SmolLM3-3B) and\n5: [Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct). They are Qwen3\n6: without the RMSNorm on each q and k head, so they run on Qwen3's code (`opentpu/llm/qwen3.py`):\n7: its DRAM image, kernels, resident decode and chunked prefill. `opentpu/llm/llama.py` only reads\n8: their configs. The ISA, the RTL, the bitstream and the W8A8 numerics are the same as for the\n9: other models."
+        },
+        {
+          "first_line": 21,
+          "last_line": 35,
+          "literal": "21: ## The models\n22: \n23: - **SmolLM3-3B**: 36 layers, hidden size 2048, 16 query heads and 4 KV heads of 128, a SwiGLU\n24:   MLP 11008 wide, a 128,256-token vocabulary and a tied LM head. RoPE (theta 5e6) runs in 27\n25:   layers; every fourth layer (3, 7, ..., 35) has no positional encoding (\"NoPE\",\n26:   `no_rope_layers`).\n27: - **Phi-4-mini-instruct** (3.8B): 32 layers, hidden size 3072, 24 query heads and 8 KV heads of\n28:   128, a SwiGLU MLP 8192 wide, a 200,064-token vocabulary and a tied LM head. The checkpoint\n29:   fuses q, k and v into `qkv_proj` and gate and up into `gate_up_proj`. RoPE covers the first 96\n30:   of each head's 128 dimensions (`partial_rotary_factor` 0.75, theta 1e4) and is LongRoPE: up to\n31:   `original_max_position_embeddings` (4096) positions Hugging Face uses the short factors, which\n32:   divide the frequencies (all 1.0 in this checkpoint), and scales cos and sin by the attention\n33:   factor `sqrt(1 + ln(131072 / 4096) / ln(4096))` = 1.1902.\n34: \n35: Both have no biases and plain RMSNorm, and neither uses a sliding window."
+        },
+        {
+          "first_line": 66,
+          "last_line": 80,
+          "literal": "66: **The embedding is gathered from the int8 LM head.** An fp32 embedding table would be 1.0 GB\n67: (SmolLM3) or 2.3 GB (Phi-4-mini): beside int8 weights it does not fit the card's 4 GiB. The tied\n68: LM head is already in DRAM as int8 with one scale per 128-block, so the device reads the token's\n69: row out of it with the shared table gather (`kernels/gather.py`, `gather_row`): the row streams\n70: as rows of one block each against a one-hot operand (row j of one-hot block k is 1 at element\n71: 4k + j at MCOLS 4), so each MM gives four elements of every block, dequantized by the MXU's own\n72: arithmetic, `f32(f32(i2f(127 q) * s) * f32(1/127))`, within an ulp of `q * s`; one copy per\n73: block puts the row in order. The one-hot operand sits in the image's lookup tables. The resident\n74: decode, the per-position programs and the prefill runs all gather their rows on the device, with\n75: the token ids as run arguments or compiled into the program, so the host never dequantizes a row\n76: (`Engine.device_inputs`, [host.md](host.md)). `qwen3.gathered_rows` (`gather.dequant_row`) is\n77: the host's reference for the tests, and the float64 emulation quantizes the embedding row too.\n78: With a 4-bit LM head the image holds an int8 table of its own. The gather adds 49 (SmolLM3) or\n79: 57 (Phi-4-mini) instructions to the resident decode program, and a token id costs it two run\n80: arguments (the row's byte offset and its scales' offset) instead of one."
+        },
+        {
+          "first_line": 82,
+          "last_line": 84,
+          "literal": "82: **Weights are read lazily.** `load_weights` returns a mapping that converts each tensor to fp32\n83: when it is first used (`qwen3.Weights`), so a 3-4B checkpoint (12-15 GB in fp32) is never all in\n84: memory: building the image quantizes one tensor at a time."
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/openTPU/opentpu/llm/llama.py",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU Llama config adapter/model spec",
+      "exists": true,
+      "bytes": 4419,
+      "sha256": "6a97d03b0ff10a17fdb00c82c4ec3d89cc55a68a2f39a695cf5969937617ed44",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 18,
+          "literal": "1: \"\"\"Llama-like decoders on openTPU: SmolLM3 (e.g. SmolLM3-3B) and Phi-3 / Phi-4-mini.\n2: \n3: They are Qwen3 (qwen3.py) without the RMSNorm on each q and k head, so they run on Qwen3's\n4: Spec, DRAM image, kernels and Engine; this module only reads their configs (spec_from_hf).\n5: What differs from Qwen3, all in qwen3.py and off for Qwen3:\n6:   qk_norm   False: no q_norm / k_norm\n7:   nope      SmolLM3's layers without RoPE (config no_rope_layers[i] == 0, every 4th layer):\n8:             one hardware loop still runs every layer, each with a rope gate (qwen3._rope_gate)\n9:   rotary    partial RoPE (Phi-3 partial_rotary_factor 0.75: 96 of 128 dimensions; the others\n10:             pass through, as Qwen3.5's)\n11:   rope_div, rope_scale\n12:             LongRoPE (Phi-3 rope_scaling type longrope): the short factors divide the\n13:             frequencies, the attention factor scales cos and sin; the KV capacity stays within\n14:             original_max_position_embeddings (ctx), where Hugging Face uses the short factors\n15:   embed     \"int8\": the embedding rows are int8 per 128 (their vocabularies, 128K and 200K,\n16:             make an fp32 table 1-2.4 GB): the device gathers them from the tied int8 LM head\n17:             (kernels.gather.gather_row)\n18: Phi-3's fused qkv_proj and gate_up_proj are read as separate q/k/v and gate/up projections"
+        },
+        {
+          "first_line": 26,
+          "last_line": 50,
+          "literal": "26: \n27: from . import formats as FM\n28: from .qwen3 import Spec\n29: \n30: MODEL_TYPES = (\"llama\", \"smollm3\", \"phi3\")\n31: \n32: \n33: def spec_from_hf(model_dir) -> Spec:\n34:     \"\"\"The qwen3.Spec of a SmolLM3 / Phi-3 / Llama checkpoint, as Hugging Face's modeling code\n35:     reads its config.json (the RoPE parameters as transformers' standardize_rope_params).\"\"\"\n36:     c = json.loads((Path(model_dir) / \"config.json\").read_text())\n37:     mt = c.get(\"model_type\")\n38:     if mt not in MODEL_TYPES:\n39:         raise ValueError(f\"{model_dir}: model type {mt!r} is not a Llama-like one {MODEL_TYPES}\")\n40:     if c.get(\"attention_bias\") or c.get(\"mlp_bias\"):\n41:         raise ValueError(f\"{model_dir}: attention / MLP biases are not supported\")\n42:     H, nq = c[\"hidden_size\"], c[\"num_attention_heads\"]\n43:     d = c.get(\"head_dim\") or H // nq\n44:     L = c[\"num_hidden_layers\"]\n45:     rp = dict(c.get(\"rope_scaling\") or {})\n46:     rp.update(c.get(\"rope_parameters\") or {})\n47:     theta = rp.get(\"rope_theta\", c.get(\"rope_theta\", 10000.0))\n48:     rotary = int(d * rp.get(\"partial_rotary_factor\", c.get(\"partial_rotary_factor\", 1.0)))\n49:     kind = rp.get(\"rope_type\", rp.get(\"type\", \"default\"))\n50:     extra: dict = {}"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/openTPU/opentpu/llm/qwen3.py",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU model/DRAM and weight/gather layout",
+      "exists": true,
+      "bytes": 148049,
+      "sha256": "13f2bdf480de7797d22c202527d9f5c75bb1a6a239a48d948fc93445e00c871f",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 18,
+          "literal": "1: \"\"\"Qwen3 dense decoder (e.g. Qwen3-0.6B / 1.7B) on openTPU.\n2: \n3: Pieces:\n4:   Spec              model dimensions (from a Hugging Face config.json)\n5:   load_weights      Hugging Face safetensors -> fp32 numpy arrays (HF parameter names)\n6:   reference_logits  plain numpy forward pass (the math, fp32), for debugging\n7:   Image             the per-slice DRAM layout: every layer's weights, norms and KV cache in one\n8:                     fixed-size block (so a hardware loop walks the layers with one address\n9:                     register), the tied LM head, and a small I/O area\n10:   qwen3_step        the ol kernel for one decode token: 28 layers, final norm, LM head\n11:   qwen3_rows        R token rows at once, each row (sequence, position): batched decode (b\n12:                     sequences, one KV cache each) and chunked prefill (consecutive positions\n13:                     of one sequence; causal because each token attends over its own prefix)\n14:   Engine            runs tokens on a backend (ISA simulator, RTL simulation or the board) and\n15:                     keeps the KV caches in device DRAM between tokens\n16: \n17: Weights are int8 with one fp32 scale per 128 inputs (per row); activations are quantized the\n18: same way on the fly (W8A8). The residual stream, norms, RoPE and softmax are fp32."
+        },
+        {
+          "first_line": 148,
+          "last_line": 170,
+          "literal": "148:     def _split_fused(self, model_dir: Path) -> None:\n149:         \"\"\"Phi-3's fused projections also under the names of separate ones: qkv_proj's rows\n150:         are q, k and v (num_attention_heads, num_key_value_heads, num_key_value_heads heads),\n151:         gate_up_proj's the gate's, then the up projection's (Phi3MLP: chunk(2)).\"\"\"\n152:         fused = [n for n in self._where if n.endswith((\"self_attn.qkv_proj.weight\",\n153:                                                         \"mlp.gate_up_proj.weight\"))]\n154:         if not fused:\n155:             return\n156:         c = json.loads((model_dir / \"config.json\").read_text())\n157:         d = c.get(\"head_dim\") or c[\"hidden_size\"] // c[\"num_attention_heads\"]\n158:         nq, nkv = c[\"num_attention_heads\"] * d, c[\"num_key_value_heads\"] * d\n159:         ff = c[\"intermediate_size\"]\n160:         for n in fused:\n161:             h, k, _ = self._where[n]\n162:             if n.endswith(\"qkv_proj.weight\"):\n163:                 p = n[:-len(\"qkv_proj.weight\")]\n164:                 parts = ((\"q_proj\", 0, nq), (\"k_proj\", nq, nq + nkv),\n165:                          (\"v_proj\", nq + nkv, nq + 2 * nkv))\n166:             else:\n167:                 p = n[:-len(\"gate_up_proj.weight\")]\n168:                 parts = ((\"gate_proj\", 0, ff), (\"up_proj\", ff, 2 * ff))\n169:             for name, a, b in parts:\n170:                 self._where[p + name + \".weight\"] = (h, k, (a, b))"
+        },
+        {
+          "first_line": 292,
+          "last_line": 305,
+          "literal": "292: # =============================================================================== lookup tables\n293: def _lookup_alloc(b: \"_Bump\", spec, cap: int, block: int = None, D: int = 128,\n294:                   head: tuple | None = None, M: int = 4, embed_host: bool = False,\n295:                   rows: int = 1) -> dict:\n296:     \"\"\"DRAM for the device-side inputs of a run-time position (RunPos): every token's embedding\n297:     row, the RoPE cos / sin rows of every position, and the attention mask table\n298:     (attention.Bucket: cap entries +inf, then a block of -inf). The embedding rows are fp32\n299:     (flushed, as the host writes them), or with spec.embed \"int8\" int8 with a scale per D block\n300:     (kernels.gather.gather_row, with its one-hot operand for M MXU columns): the LM head's\n301:     rows when `head` (its data and scale addresses) is given -- a tied int8 head whole on one\n302:     slice -- else a table of their own, or with `embed_host` a slot of `rows` of them that the\n303:     host fills from the table it keeps (embed_record: each row's int8 data, then its scale\n304:     words) and a mailbox for the generate loop's requests (opentpu.host.offload.RowLayout).\n305:     A dense model's image also holds the prompt runs' additive mask tiles (amask_table).\"\"\""
+        },
+        {
+          "first_line": 312,
+          "last_line": 324,
+          "literal": "312:     if getattr(spec, \"embed\", \"f32\") == \"int8\":\n313:         if head is not None:\n314:             emb = {\"embed_q\": head, \"own\": False}\n315:         elif embed_host:\n316:             rec = embed_record(H, D)\n317:             slot = b.alloc(rows * rec)\n318:             emb = {\"embed_q\": (slot, slot + H), \"own\": False, \"host\": True, \"rec\": rec,\n319:                    \"rows\": rows, \"mbox\": b.alloc(RowLayout.WORDS)}\n320:         else:\n321:             emb = {\"embed_q\": (b.alloc(V * H), b.alloc(4 * V * (H // D))), \"own\": True}\n322:         emb.update(onehot=b.alloc(4 * M * onehot_blocks(D, M, \"int8\") * D), M=M)\n323:     else:\n324:         emb = {\"embed\": b.alloc(4 * V * H)}"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/openTPU/opentpu/host/jtag.py",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU physical USER2/XVC packing and 64-byte DDR burst transport",
+      "exists": true,
+      "bytes": 10718,
+      "sha256": "afd1f80cbde7137501d917dce9171144e968498542beaab30948e8feb8f296c7",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 5,
+          "literal": "1: \"\"\"Physical USER2/XVC transport for otpu_fpga_top_openxc7_jtag.\n2: \n3: JTAG is deliberately serial: register accesses and whole 64-byte DDR bursts\n4: share one mailbox. This transport is not an XDMA device or a bandwidth proxy.\n5: \"\"\""
+        },
+        {
+          "first_line": 127,
+          "last_line": 145,
+          "literal": "127:     def _command(self, opcode, addr, data=0, strobes=15):\n128:         with self._dma:\n129:             if self._failed or self.link is None:\n130:                 raise IOError(\"JTAG connection needs recovery after a failed transaction\")\n131:             self._seq = self._seq % 65535+1\n132:             seq = self._seq\n133:             frame = data | addr << 512 | strobes << 544 | opcode << 548 | seq << 556 | MAGIC << 572\n134:             try:\n135:                 self.link.scan(frame)\n136:                 deadline = time.monotonic()+self.timeout\n137:                 while True:\n138:                     r = self.link.scan(0)\n139:                     if (r >> 536) & 0xffffffff != MAGIC:\n140:                         raise IOError(\"JTAG mailbox response magic mismatch\")\n141:                     if (r >> 520) & 0xffff == seq:\n142:                         status = (r >> 512) & 0xff\n143:                         if status:\n144:                             raise JtagCommandError(opcode,addr,status)\n145:                         return r & ((1 << 512)-1)"
+        },
+        {
+          "first_line": 198,
+          "last_line": 228,
+          "literal": "198:     def mem_read(self,ch,off,n,out=None):\n199:         base = self._range(ch,off,n)\n200:         buf = np.empty(n,np.uint8) if out is None else out\n201:         mv = memoryview(buf).cast(\"B\")\n202:         if len(mv) < n:\n203:             raise ValueError(\"Output buffer too small\")\n204:         with self._dma:\n205:             pos=0\n206:             while pos<n:\n207:                 addr=base+pos\n208:                 offset=addr % 64\n209:                 k=min(64-offset,n-pos)\n210:                 beat=self._command(3,addr-offset).to_bytes(64,\"little\")\n211:                 mv[pos:pos+k]=beat[offset:offset+k]\n212:                 pos+=k\n213:         return buf\n214: \n215:     def mem_write(self,ch,off,data):\n216:         src=memoryview(np.ascontiguousarray(data,np.uint8).reshape(-1)).cast(\"B\")\n217:         base=self._range(ch,off,len(src))\n218:         with self._dma:\n219:             pos=0\n220:             while pos<len(src):\n221:                 addr=base+pos\n222:                 offset=addr % 64\n223:                 k=min(64-offset,len(src)-pos)\n224:                 beat=bytearray(64) if offset==0 and k==64 else bytearray(\n225:                     self._command(3,addr-offset).to_bytes(64,\"little\"))\n226:                 beat[offset:offset+k]=src[pos:pos+k]\n227:                 self._command(4,addr-offset,int.from_bytes(beat,\"little\"))\n228:                 pos+=k"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/openTPU/tools/run_tinystories_shared_jtag.py",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU shared-response TinyStories JTAG runner and model-image readback",
+      "exists": true,
+      "bytes": 11347,
+      "sha256": "c21430062c9c714e4104b4d9d0a112b827e1d0a308777e3de964fd8289944844",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 6,
+          "literal": "1: #!/usr/bin/env python3\n2: \"\"\"Test trained TinyStories on an exact reviewed shared-response JTAG image.\n3: \n4: Default is an offline input preflight. --execute uses an already owned XVC\n5: server and image-bound CH0 calibration receipt. No programming or flash writes.\n6: \"\"\""
+        },
+        {
+          "first_line": 68,
+          "last_line": 82,
+          "literal": "68:         h = json.loads((host/'host-preparation.json').read_text())\n69:         assert h['build_id'] == a.build_id and h['program_readback_required']\n70:         assert h['host_interfaces'] == ['pcie','jtag'], 'Both runtime interfaces required'\n71:         for name, digest in h['generated_sources'].items():\n72:             assert sha(host/name) == digest, name\n73:         oracle = json.loads(a.oracle.read_text())\n74:         assert oracle['status'] == 'PASS_TRAINED_TINYSTORIES_INT8_ISA_ORACLE_PHYSICAL_PENDING'\n75:         assert oracle['target_build_id'] == a.build_id, 'ISA oracle belongs to another image'\n76:         assert sha(oracle['board_identity_receipt']) == oracle['board_identity_receipt_sha256']\n77:         assert sha(a.model/'model.safetensors') == oracle['model_sha256']\n78:         assert sha(a.model/'config.json') == oracle['model_config_sha256']\n79:         for name, digest in oracle['source_hashes'].items():\n80:             source = host/name if (host/name).exists() else ROOT/name\n81:             assert sha(source) == digest, 'ISA oracle source differs: '+name\n82:         assert str(importlib.import_module('opentpu').__file__).startswith(str(host)+'/')"
+        },
+        {
+          "first_line": 108,
+          "last_line": 129,
+          "literal": "108:         state.update(identity=identity, live_config=asdict(cfg), status='CHECKING_LIVE_ARITHMETIC_CONFIG')\n109:         save()\n110:         for key in ('S', 'D', 'MCOLS', 'ACT_BLOCKS', 'ACT_ROWS', 'TMEM_WORDS', 'IMEM_WORDS', 'LANES', 'PAIR', 'DSTEP', 'STREAM'):\n111:             assert getattr(cfg, key) == oracle['config'][key], 'ISA arithmetic config differs: '+key\n112:         state.update(identity=identity, status='REQUIRED_MEMORY_INITIALIZATION')\n113:         save()\n114:         board.scrub(force=True)\n115:         state['initialization_chunks'] = len(transport.scrub_log)\n116:         state['status'] = 'PHYSICAL_PROGRAM_FETCH_REGRESSION_BEFORE_MODEL_UPLOAD'\n117:         save()\n118:         state['program_fetch'] = program_fetch_check(board, a.program_load_reference, a.out/'program-fetch')\n119:         save()\n120:         state['matmul'] = matmul_check(board)\n121:         assert state['matmul']['exact_match']\n122:         state['status'] = 'UPLOADING_TRAINED_MODEL_THROUGH_JTAG'\n123:         save()\n124: \n125:         def physical_backend(config, images):\n126:             nonlocal backend\n127:             assert [len(image) for image in images] == oracle['upload_image_bytes']\n128:             hashes = [hashlib.sha256(image.tobytes()).hexdigest() for image in images]\n129:             assert hashes == oracle['upload_image_sha256'], 'Physical image differs from ISA initial image'"
+        },
+        {
+          "first_line": 133,
+          "last_line": 167,
+          "literal": "133:             original_write = transport.mem_write\n134: \n135:             def measured_write(channel, offset, data):\n136:                 # Bound each serial transfer so progress is saved while a\n137:                 # channel's multi-megabyte contiguous image is still uploading.\n138:                 for start in range(0, len(data), 256 << 10):\n139:                     part = data[start:start+(256 << 10)]\n140:                     original_write(channel, offset+start, part)\n141:                     state['uploaded_bytes'] += len(part)\n142:                     state['upload_seconds'] = time.monotonic()-started\n143:                     save()\n144: \n145:             # Reuse the exclusively held verified Board; every load_program\n146:             # passes ProgramReadbackBoard before any IMEM load control write.\n147:             with patch.object(board_module, 'Board', lambda *args, **kwargs: board), \\\n148:                  patch.object(transport, 'mem_write', measured_write):\n149:                 backend = board_module.BoardBackend(config, images, transport=transport, status=False)\n150:             state['upload_seconds'] = time.monotonic()-started\n151:             assert state['uploaded_bytes'] == len(images[0]), 'Incomplete or unexpected model upload extent'\n152:             state['status'] = 'VERIFYING_UPLOADED_MODEL_IMAGE'\n153:             save()\n154:             readback = hashlib.sha256()\n155:             for offset in range(0, len(images[0]), 256 << 10):\n156:                 nbytes = min(256 << 10, len(images[0])-offset)\n157:                 got = board.read(offset, nbytes)\n158:                 if not np.array_equal(got, images[0][offset:offset+nbytes]):\n159:                     images[0][offset:offset+nbytes].tofile(a.out/'weight-mismatch.expected.bin')\n160:                     got.tofile(a.out/'weight-mismatch.actual.bin')\n161:                     state['weight_mismatch_offset'] = offset\n162:                     raise RuntimeError('Initial image readback differs; inference withheld')\n163:                 readback.update(got.tobytes())\n164:                 state['verified_image_bytes'] = offset+nbytes\n165:                 save()\n166:             assert readback.hexdigest() == hashes[0]\n167:             state['uploaded_image_readback_sha256'] = readback.hexdigest()"
+        },
+        {
+          "first_line": 172,
+          "last_line": 185,
+          "literal": "172:         def token(token_id):\n173:             state['actual_token_ids'].append(int(token_id))\n174:             save()\n175: \n176:         engine = Engine(load_spec(a.model), load_weights(a.model), cap=oracle['context_capacity'],\n177:                         cfg=cfg, backend=physical_backend, rows=1, pipeline=False,\n178:                         wformat='int8', resident=False, prog_cache=False)\n179:         got = engine.generate(oracle['prompt_token_ids'], max_new=len(oracle['expected_token_ids']), on_token=token)\n180:         assert got == oracle['expected_token_ids'], 'Physical greedy tokens differ from exact ISA'\n181:         transport.guard()\n182:         assert calibration_snapshot(transport) == before, 'Calibration changed'\n183:         state.update(status='PASS_PHYSICAL_JTAG_TINYSTORIES_INT8_EXACT_ISA_TOKENS',\n184:                      model_stats=engine.stats, calibration_unchanged=True,\n185:                      limitations='Small trained model acceptance; original LFM230M/Mac regression and PCIe bandwidth remain pending')"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/openTPU/tools/run_tinystories_jtag.py",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU c0182800 TinyStories JTAG runner",
+      "exists": true,
+      "bytes": 10588,
+      "sha256": "d09b5c8e6f8cd5eb04ea776acdf14d65c3d213ef2c3ca1af10309b168e3dbb1f",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 5,
+          "literal": "1: #!/usr/bin/env python3\n2: \"\"\"Test the prepared trained TinyStories model on reviewed c0182800 via JTAG.\n3: \n4: Default is an offline input preflight. --execute uses an already owned XVC\n5: server and image-bound CH0 calibration receipt. No programming or flash writes."
+        },
+        {
+          "first_line": 65,
+          "last_line": 82,
+          "literal": "65:         oracle = json.loads(a.oracle.read_text())\n66:         assert oracle['status'] == 'PASS_TRAINED_TINYSTORIES_INT8_ISA_ORACLE_PHYSICAL_PENDING'\n67:         assert sha(oracle['board_identity_receipt']) == oracle['board_identity_receipt_sha256']\n68:         assert sha(a.model/'model.safetensors') == oracle['model_sha256']\n69:         assert sha(a.model/'config.json') == oracle['model_config_sha256']\n70:         for name, digest in oracle['source_hashes'].items():\n71:             source = host/name if (host/name).exists() else ROOT/name\n72:             assert sha(source) == digest, 'ISA oracle source differs: '+name\n73:         assert str(importlib.import_module('opentpu').__file__).startswith(str(host)+'/')\n74:         state.update(oracle_sha256=sha(a.oracle), model_sha256=oracle['model_sha256'],\n75:                      expected_token_ids=oracle['expected_token_ids'],\n76:                      expected_upload_image_bytes=oracle['upload_image_bytes'],\n77:                      host_preparation_sha256=sha(host/'host-preparation.json'))\n78:         fetch_binding, _, _ = fetch_inputs(a.program_load_reference)\n79:         state['program_fetch_inputs'] = fetch_binding\n80:         state['sources'][str(ROOT/'tools/spare_program_fetch_check.py')] = sha(ROOT/'tools/spare_program_fetch_check.py')\n81:         if not a.execute:\n82:             state['status'] = 'PASS_SMALL_JTAG_MODEL_INPUTS_REVIEWED_IMAGE_AND_PHYSICAL_TEST_PENDING'"
+        },
+        {
+          "first_line": 110,
+          "last_line": 127,
+          "literal": "110:         save()\n111:         state['matmul'] = matmul_check(board)\n112:         assert state['matmul']['exact_match']\n113:         state['status'] = 'UPLOADING_TRAINED_MODEL_THROUGH_JTAG'\n114:         save()\n115: \n116:         def physical_backend(config, images):\n117:             nonlocal backend\n118:             assert [len(image) for image in images] == oracle['upload_image_bytes']\n119:             hashes = [hashlib.sha256(image.tobytes()).hexdigest() for image in images]\n120:             assert hashes == oracle['upload_image_sha256'], 'Physical image differs from ISA initial image'\n121:             started = time.monotonic()\n122:             state.update(uploaded_bytes=0, upload_expected_bytes=len(images[0]))\n123:             save()\n124:             original_write = transport.mem_write\n125: \n126:             def measured_write(channel, offset, data):\n127:                 # Bound each serial transfer so progress is saved while a"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/openTPU/tools/prepare_tinystories_tiles.py",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU trained-checkpoint 128-wide tile-padding converter",
+      "exists": true,
+      "bytes": 10069,
+      "sha256": "9a37ae2b4346961eaded0264f0f8fd9228a48a80288e488d4359d8890ce127e4",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 7,
+          "literal": "1: #!/usr/bin/env python3\n2: \"\"\"Pad a downloaded trained TinyStories Llama to the board's 128-wide tiles.\n3: \n4: No training, compiler changes or hardware access. Keep the original checkpoint.\n5: Accept the derived checkpoint only after FP32 logits and greedy continuations\n6: match the original HF implementation. Quantized ISA/hardware tests are separate.\n7: \"\"\""
+        },
+        {
+          "first_line": 27,
+          "last_line": 38,
+          "literal": "27: def convert(config, weights, tile):\n28:     import torch\n29:     assert config['model_type'] == 'llama' and config['hidden_act'] == 'silu'\n30:     assert not config.get('attention_bias') and not config.get('mlp_bias')\n31:     assert not config.get('rope_scaling') and not config.get('rope_parameters')\n32:     assert not config.get('partial_rotary_factor')\n33:     old_h, old_d = config['hidden_size'], config['head_dim']\n34:     assert old_d % 2 == 0 and config['num_attention_heads'] == config['num_key_value_heads']\n35:     assert config['intermediate_size'] % tile == 0\n36:     new_h = math.ceil(old_h / tile) * tile\n37:     new_d = math.ceil(old_d / tile) * tile\n38:     assert old_d < new_d and old_h < new_h"
+        },
+        {
+          "first_line": 56,
+          "last_line": 80,
+          "literal": "56:         if name in ('model.embed_tokens.weight', 'lm_head.weight'):\n57:             assert value.shape == (config['vocab_size'], old_h)\n58:             padded = value.new_zeros((value.shape[0], new_h))\n59:             padded[:, :old_h] = value\n60:         elif name.endswith('norm.weight'):\n61:             assert value.shape == (old_h,)\n62:             padded = value.new_zeros(new_h)\n63:             padded[:old_h] = value * math.sqrt(norm_factor)\n64:         elif name.endswith(('q_proj.weight', 'k_proj.weight', 'v_proj.weight')):\n65:             assert value.shape == (heads * old_d, old_h)\n66:             padded = value.new_zeros((heads * new_d, new_h))\n67:             scale = math.sqrt(new_d / old_d) if name.endswith('q_proj.weight') else 1.0\n68:             padded[projected, :old_h] = value * scale\n69:         elif name.endswith('o_proj.weight'):\n70:             assert value.shape == (old_h, heads * old_d)\n71:             padded = value.new_zeros((new_h, heads * new_d))\n72:             padded[:old_h, projected] = value\n73:         elif name.endswith(('gate_proj.weight', 'up_proj.weight')):\n74:             assert value.shape == (config['intermediate_size'], old_h)\n75:             padded = value.new_zeros((value.shape[0], new_h))\n76:             padded[:, :old_h] = value\n77:         elif name.endswith('down_proj.weight'):\n78:             assert value.shape == (old_h, config['intermediate_size'])\n79:             padded = value.new_zeros((new_h, value.shape[1]))\n80:             padded[:old_h] = value"
+        },
+        {
+          "first_line": 86,
+          "last_line": 94,
+          "literal": "86:     # theta_new^(-2*j/D) == theta_old^(-2*j/d) for every active frequency.\n87:     theta = config.get('rope_theta', 10000.0) ** (new_d / old_d)\n88:     converted = dict(config, hidden_size=new_h, head_dim=new_d,\n89:                      rope_theta=theta, rms_norm_eps=config['rms_norm_eps'] * norm_factor)\n90:     converted['_opentpu_padding'] = dict(\n91:         original_hidden=old_h, original_head_dim=old_d, tile=tile,\n92:         coordinate_map=coords.tolist(), norm_weight_scale=math.sqrt(norm_factor),\n93:         query_weight_scale=math.sqrt(new_d / old_d),\n94:         note='Zero padding with RMS epsilon/weight and attention/RoPE compensation; trained weights retained.')"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/openTPU/tools/check_tinystories_shared_model.py",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU offline TinyStories ISA/reference provenance check",
+      "exists": true,
+      "bytes": 8248,
+      "sha256": "013db1828516d0db7deb2394e4d499bc2bb891dbe4e013c76d112cf59e397534",
+      "snippets": [
+        {
+          "first_line": 100,
+          "last_line": 120,
+          "literal": "100:         assert sha(profile.package/'host/host-preparation.json')==sha(host/'host-preparation.json')\n101:         cfg = device_config(info, DRAM_BYTES=1 << 27)\n102:         assert (cfg.S, cfg.D, cfg.MCOLS, cfg.LANES, cfg.act_rows) == (1, 128, 4, 8, 4)\n103:         spec = load_spec(a.model)\n104:         spec.check(cfg)\n105:         state.update(model=str(a.model.resolve()), conversion_sha256=sha(conversion),\n106:                      board_identity_receipt=str(a.board_identity.resolve()),\n107:                      board_identity_receipt_sha256=sha(a.board_identity),\n108:                      target_bitstream_sha256=identity['package']['bitstream_sha256'],\n109:                      target_package_manifest_sha256=identity['package']['manifest_sha256'],\n110:                      config=asdict(cfg), model_spec=asdict(spec),\n111:                      model_sha256=sha(a.model/'model.safetensors'),\n112:                      model_config_sha256=sha(a.model/'config.json'),\n113:                      host_preparation_sha256=sha(host/'host-preparation.json'),\n114:                      source_hashes={name: sha(host/name if (host/name).exists() else ROOT/name) for name in (\n115:                          'opentpu/llm/llama.py', 'opentpu/llm/qwen3.py',\n116:                          'opentpu/compiler.py', 'opentpu/isa.py', 'opentpu/isasim.py',\n117:                          'opentpu/fp32.py', 'opentpu/quant.py', 'tools/check_tinystories_shared_model.py')},\n118:                      limitations=['ISA memory reduced to 128 MiB; arithmetic, TMEM and IMEM match the real board.',\n119:                                   'FP32 conversion equivalence and int8 arithmetic are separate checks.',\n120:                                   'No JTAG upload, physical memory, FPGA execution or bandwidth result.'])"
+        },
+        {
+          "first_line": 140,
+          "last_line": 150,
+          "literal": "140:             state['expected_token_ids'] = generated\n141:             save()\n142:             if token in spec.eos:\n143:                 break\n144:             logits = engine.step(token)\n145:         state.update(status='PASS_TRAINED_TINYSTORIES_INT8_ISA_ORACLE_PHYSICAL_PENDING',\n146:                      decoded=tokenizer.decode(tokens[1:] + generated),\n147:                      physical_token_comparison_pending=True, image_bytes=engine.image.nbytes)\n148:         print(json.dumps({name: state[name] for name in\n149:                           ('status', 'upload_image_bytes', 'expected_token_ids', 'decoded')}), flush=True)\n150:     except BaseException as error:"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/openTPU/runtime/c0182800/local-validation.json",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU c0182800 TinyStories physical receipt",
+      "exists": true,
+      "bytes": 1986,
+      "sha256": "9ada17b787bbb1ffd384cf774e5f442b20254374cd88d77e327fa4158afa873f",
+      "selected_json_fields": {
+        "status": "PASS_LOCAL_JTAG_TINYSTORIES_INT8_EXACT_ISA",
+        "build_id": "c0182800",
+        "bitstream_sha256": "df2521d80de1d69ea4ca758821dc67a814b95d67ac851b78727c9154a3104bf2",
+        "model": "sdobson/tinystories-llama-15m with verified tile padding",
+        "weight_format": "int8",
+        "uploaded_and_verified_image_bytes": 28909056,
+        "uploaded_image_readback_sha256": "74facccd6c0e3f7e76676617a3b7a4074c1efb784d675ac1b5bdb08dca980950",
+        "programs_readback_exact_and_loaded": 15,
+        "expected_token_ids": [
+          29892,
+          727,
+          471,
+          263,
+          2217,
+          7826,
+          4257,
+          365
+        ],
+        "actual_token_ids": [
+          29892,
+          727,
+          471,
+          263,
+          2217,
+          7826,
+          4257,
+          365
+        ],
+        "physical_transport": "JTAG USER2 with PCIe absent",
+        "permanent_flash_written": false,
+        "physical_pcie_verified": false,
+        "limitations": [
+          "One small trained-model prompt; original Mac LFM230M acceptance remains pending.",
+          "JTAG wall time does not qualify PCIe or device bandwidth.",
+          "Offline DDR pad timing and broad physical reliability remain unqualified."
+        ]
+      }
+    },
+    {
+      "path": "/home/fedora/openTPU/runtime/c0182863/local-validation.json",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU c0182863 TinyStories physical receipt",
+      "exists": true,
+      "bytes": 1965,
+      "sha256": "7ddc7f20ec87257388070d4095a452e7d25be3872d646c58d75066837ea4d7e0",
+      "selected_json_fields": {
+        "status": "PASS_C0182863_LOCAL_JTAG_TINYSTORIES_AND_NATIVE_READ_BENCHMARK_MAC_LFM_PENDING",
+        "build_id": "c0182863",
+        "bitstream_sha256": "03b513a44544009afff9dfb82515bf84c5df84ac6a63673a0882308ce8a323ae",
+        "model_bytes_verified": 28909056,
+        "model_readback_sha256": "74facccd6c0e3f7e76676617a3b7a4074c1efb784d675ac1b5bdb08dca980950",
+        "actual_token_ids": [
+          29892,
+          727,
+          471,
+          263,
+          2217,
+          7826,
+          4257,
+          365
+        ],
+        "physical_transport": "jtag",
+        "program_load_readbacks": 15,
+        "flash_written": false,
+        "pcie_bandwidth_verified": false,
+        "limitations": [
+          "Native benchmark is synthetic combined-channel read throughput with final-chunk comparisons; no PCIe bandwidth or LFM speedup claim.",
+          "Original LFM230M acceptance remains for the Mac."
+        ]
+      }
+    },
+    {
+      "path": "/home/fedora/openTPU/build/hardware/tinystories-c0182863-20261018-v1/manifest.json",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU c0182863 trained TinyStories image/model/readback provenance",
+      "exists": true,
+      "bytes": 11882,
+      "sha256": "6c697924e50b74952f92b43badf7532a44d4b810f639f2f62d1670b92f886244",
+      "selected_json_fields": {
+        "status": "PASS_PHYSICAL_JTAG_TINYSTORIES_INT8_EXACT_ISA_TOKENS",
+        "build_id": "c0182863",
+        "model_sha256": "9f74baf73f258f040f0994b9fb67da17eb92cf56b2214f309b5d037c82e1da8b",
+        "bitstream_sha256": "03b513a44544009afff9dfb82515bf84c5df84ac6a63673a0882308ce8a323ae",
+        "expected_upload_image_bytes": [
+          28909056
+        ],
+        "uploaded_bytes": 28909056,
+        "upload_expected_bytes": 28909056,
+        "uploaded_image_readback_sha256": "74facccd6c0e3f7e76676617a3b7a4074c1efb784d675ac1b5bdb08dca980950",
+        "expected_token_ids": [
+          29892,
+          727,
+          471,
+          263,
+          2217,
+          7826,
+          4257,
+          365
+        ],
+        "actual_token_ids": [
+          29892,
+          727,
+          471,
+          263,
+          2217,
+          7826,
+          4257,
+          365
+        ],
+        "program_fetch": {
+          "status": "PASS_PHYSICAL_1371_INSTRUCTION_FETCH_AND_65_EXACT_WORDS",
+          "reference_sha256": "6e9afcf46e5f767cad62696f9c4991f5becb684713b34a18afd53016ee539153",
+          "program_sha256": "bf1854414d8a19ce54e551abe9c6bc1cfa062adc934c24ded8e1197b566c0ba7",
+          "expected_output_sha256": "dd03a527b23a6132be0f93094e4032cbe03e3378c61cc061f9bf3d75a6331787",
+          "program_address": 65536,
+          "source_address": 143740,
+          "output_address": 196612,
+          "limitation": "Synthetic program; original LFM230M/Mac acceptance remains separate",
+          "stats": {
+            "cycles": 1503,
+            "instructions": [
+              1371
+            ],
+            "b_reads": 3,
+            "b_writes": 3,
+            "a_reads": 0,
+            "a_writes": 0,
+            "b_stall": 0,
+            "status": 233
+          },
+          "actual_output_sha256": "dd03a527b23a6132be0f93094e4032cbe03e3378c61cc061f9bf3d75a6331787",
+          "instructions": 1371,
+          "words_compared": 65,
+          "cycles": 1503,
+          "exact_match": true
+        },
+        "matmul": {
+          "physical": true,
+          "operation": "MM int8 weights with QACT",
+          "output_shape": [
+            2,
+            16
+          ],
+          "reduction": 256,
+          "bytes_compared": 128,
+          "expected_instructions": 5,
+          "actual_instructions": 5,
+          "cycles": 337,
+          "exact_match": true,
+          "actual_words": [
+            1106311348,
+            1078740312,
+            3256988193,
+            1068449824,
+            3227944614,
+            1101052092,
+            1101496660,
+            1105193614,
+            3244967774,
+            1093543234,
+            1092960390,
+            1104932818,
+            1096995774,
+            1088653733,
+            3237401432,
+            1092886436,
+            1091795845,
+            1081543176,
+            3250676561,
+            3256533735,
+            3248873799,
+            3245134754,
+            3231887644,
+            1103229758,
+            1107168013,
+            1061270128,
+            1082773638,
+            3239923403,
+            1079531372,
+            3217569008,
+            3244942805,
+            1086764266
+          ],
+          "expected_words": [
+            1106311348,
+            1078740312,
+            3256988193,
+            1068449824,
+            3227944614,
+            1101052092,
+            1101496660,
+            1105193614,
+            3244967774,
+            1093543234,
+            1092960390,
+            1104932818,
+            1096995774,
+            1088653733,
+            3237401432,
+            1092886436,
+            1091795845,
+            1081543176,
+            3250676561,
+            3256533735,
+            3248873799,
+            3245134754,
+            3231887644,
+            1103229758,
+            1107168013,
+            1061270128,
+            1082773638,
+            3239923403,
+            1079531372,
+            3217569008,
+            3244942805,
+            1086764266
+          ]
+        },
+        "sources": {
+          "/home/fedora/openTPU/tools/run_tinystories_shared_jtag.py": "c21430062c9c714e4104b4d9d0a112b827e1d0a308777e3de964fd8289944844",
+          "/home/fedora/openTPU/tools/spare_program_fetch_check.py": "abab0b99eb33cd936970d5f83e0c0660582036087c7bd5144335050184e48dd2"
+        },
+        "hardware_accessed": true,
+        "flash_written": false
+      }
+    },
+    {
+      "path": "/home/fedora/openTPU/build/hardware/tinystories-c0182863-20261018-v1/program-fetch/manifest.json",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU standalone pre-model program-fetch control receipt",
+      "exists": true,
+      "bytes": 890,
+      "sha256": "ba1634017b7b068e1c0b7577819f953034834015fd229c4099277f2483a9d831",
+      "selected_json_fields": {
+        "status": "PASS_PHYSICAL_1371_INSTRUCTION_FETCH_AND_65_EXACT_WORDS",
+        "program_address": 65536,
+        "source_address": 143740,
+        "output_address": 196612,
+        "instructions": 1371,
+        "words_compared": 65,
+        "cycles": 1503,
+        "exact_match": true,
+        "limitation": "Synthetic program; original LFM230M/Mac acceptance remains separate"
+      }
+    },
+    {
+      "path": "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/manifest.json",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU c0182863 fixed-image package provenance (offline package manifest)",
+      "exists": true,
+      "bytes": 34840,
+      "sha256": "143554ed99423f024344a916e5b6c7ee1e53d210a78bfa5d9b534762bd1dbdfb",
+      "selected_json_fields": {
+        "status": "EXPERIMENTAL_SPARE_DUAL_HOST_OFFLINE_REVIEW_PASS_EXTERNAL_DDR_TIMING_AND_PHYSICAL_PENDING",
+        "build_id": null,
+        "bitstream_sha256": null,
+        "interfaces": null,
+        "jtag_chain": null,
+        "jtag_max_hz": null,
+        "host_dma_hz": null,
+        "pcie": "XDMA Gen2 x8",
+        "hardware_accessed": false,
+        "flash_written": false
+      }
+    },
+    {
+      "path": "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/host/opentpu/llm/llama.py",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU frozen image host Llama adapter snapshot",
+      "exists": true,
+      "bytes": 4419,
+      "sha256": "6a97d03b0ff10a17fdb00c82c4ec3d89cc55a68a2f39a695cf5969937617ed44",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 18,
+          "literal": "1: \"\"\"Llama-like decoders on openTPU: SmolLM3 (e.g. SmolLM3-3B) and Phi-3 / Phi-4-mini.\n2: \n3: They are Qwen3 (qwen3.py) without the RMSNorm on each q and k head, so they run on Qwen3's\n4: Spec, DRAM image, kernels and Engine; this module only reads their configs (spec_from_hf).\n5: What differs from Qwen3, all in qwen3.py and off for Qwen3:\n6:   qk_norm   False: no q_norm / k_norm\n7:   nope      SmolLM3's layers without RoPE (config no_rope_layers[i] == 0, every 4th layer):\n8:             one hardware loop still runs every layer, each with a rope gate (qwen3._rope_gate)\n9:   rotary    partial RoPE (Phi-3 partial_rotary_factor 0.75: 96 of 128 dimensions; the others\n10:             pass through, as Qwen3.5's)\n11:   rope_div, rope_scale\n12:             LongRoPE (Phi-3 rope_scaling type longrope): the short factors divide the\n13:             frequencies, the attention factor scales cos and sin; the KV capacity stays within\n14:             original_max_position_embeddings (ctx), where Hugging Face uses the short factors\n15:   embed     \"int8\": the embedding rows are int8 per 128 (their vocabularies, 128K and 200K,\n16:             make an fp32 table 1-2.4 GB): the device gathers them from the tied int8 LM head\n17:             (kernels.gather.gather_row)\n18: Phi-3's fused qkv_proj and gate_up_proj are read as separate q/k/v and gate/up projections"
+        },
+        {
+          "first_line": 26,
+          "last_line": 50,
+          "literal": "26: \n27: from . import formats as FM\n28: from .qwen3 import Spec\n29: \n30: MODEL_TYPES = (\"llama\", \"smollm3\", \"phi3\")\n31: \n32: \n33: def spec_from_hf(model_dir) -> Spec:\n34:     \"\"\"The qwen3.Spec of a SmolLM3 / Phi-3 / Llama checkpoint, as Hugging Face's modeling code\n35:     reads its config.json (the RoPE parameters as transformers' standardize_rope_params).\"\"\"\n36:     c = json.loads((Path(model_dir) / \"config.json\").read_text())\n37:     mt = c.get(\"model_type\")\n38:     if mt not in MODEL_TYPES:\n39:         raise ValueError(f\"{model_dir}: model type {mt!r} is not a Llama-like one {MODEL_TYPES}\")\n40:     if c.get(\"attention_bias\") or c.get(\"mlp_bias\"):\n41:         raise ValueError(f\"{model_dir}: attention / MLP biases are not supported\")\n42:     H, nq = c[\"hidden_size\"], c[\"num_attention_heads\"]\n43:     d = c.get(\"head_dim\") or H // nq\n44:     L = c[\"num_hidden_layers\"]\n45:     rp = dict(c.get(\"rope_scaling\") or {})\n46:     rp.update(c.get(\"rope_parameters\") or {})\n47:     theta = rp.get(\"rope_theta\", c.get(\"rope_theta\", 10000.0))\n48:     rotary = int(d * rp.get(\"partial_rotary_factor\", c.get(\"partial_rotary_factor\", 1.0)))\n49:     kind = rp.get(\"rope_type\", rp.get(\"type\", \"default\"))\n50:     extra: dict = {}"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/otpu.bit",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU c0182863 bitstream binary asset",
+      "exists": true,
+      "bytes": 13163043,
+      "sha256": "03b513a44544009afff9dfb82515bf84c5df84ac6a63673a0882308ce8a323ae"
+    },
+    {
+      "path": "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182800/otpu.bit",
+      "repository": "/home/fedora/openTPU",
+      "role": "OpenTPU c0182800 bitstream binary asset",
+      "exists": true,
+      "bytes": 13337671,
+      "sha256": "df2521d80de1d69ea4ca758821dc67a814b95d67ac851b78727c9154a3104bf2"
+    },
+    {
+      "path": "/home/fedora/vortex/docs/tinystories.md",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex TinyStories-260K shape, CPU/GPU split, JTAG transport, result",
+      "exists": true,
+      "bytes": 8431,
+      "sha256": "75119f4ad83b2789be1604c8030f986bbb1074e27ba419d0de0cd7df87439662",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 18,
+          "literal": "1: # TinyStories-260K through qwen3.c and Vortex\n2: \n3: The initial test uses the smallest published Karpathy TinyStories checkpoint:\n4: 260K parameters, dimension 64, five transformer layers, eight query heads,\n5: four KV heads and a 512-token vocabulary. Eight greedy generation steps from\n6: BOS exercise 288 matrix projections and produce 4096 logits.\n7: \n8: The host is the separate [`allbilly/qwen3.c`](https://github.com/allbilly/qwen3.c)\n9: Git checkout. Its explicit Llama compatibility mode preserves TinyStories'\n10: normalization epsilon, rotary layout and attention semantics. It accepts a\n11: distinct converted-checkpoint magic; the normal Qwen3 entry point rejects it.\n12: The source FP32 checkpoint and tokenizer have pinned SHA-256 checksums.\n13: \n14: All matrix projections run on Vortex using INT8 operands, FP32 per-group\n15: scales and FP32 output. Weights stay resident between tokens. Attention,\n16: normalization, RoPE, activations and greedy selection use CPU code. This is\n17: a complete hybrid transformer inference test; this kernel does not use TCU\n18: instructions."
+        },
+        {
+          "first_line": 20,
+          "last_line": 43,
+          "literal": "20: ## Measured result \u2014 October 26, 2026\n21: \n22: The physical JTAG run passed, with all 27 independent completion checks:\n23: \n24: - Generated text: `Once upon a time, there was a`.\n25: - All eight token IDs match the independently executed original FP32 model.\n26: - All 4096 FPGA logits are bitwise equal to the CPU Q8 reference: absolute\n27:   and relative L2 error are both zero.\n28: - All 288 projections ran on Vortex, with zero CPU projection fallback.\n29: - CH1 ECC was enabled with zero corrected/uncorrected errors. The AFU drained\n30:   to status 4, all owned vendor helpers stopped, and both leases were available.\n31: \n32: | Execution | Retired instructions | GPU cycles | Eight-step application loop | Same-precision maximum logit error |\n33: |---|---:|---:|---:|---:|\n34: | SimX | 4,096,256 | 7,955,223 | 30.223 s | 0 |\n35: | Physical FPGA through JTAG | 4,096,256 | 8,478,008 | 2382.645 s | 0 |\n36: \n37: SimX wall time is simulator execution time. The physical application loop\n38: includes JTAG transfers, command submission, synchronization and host math;\n39: its throughput was 0.003357613 tokens/s. The entire native process, including\n40: initialization, the 518,656-byte resident-weight upload and final close, took\n41: 3751.055 seconds. This first integration prioritizes numerical qualification.\n42: The initial weight upload and the 288 host/device projection calls account\n43: for substantial JTAG overhead."
+        },
+        {
+          "first_line": 50,
+          "last_line": 54,
+          "literal": "50: [The Git-tracked completion audit](../runtime/tinystories/qualification.json)\n51: contains source/model/kernel hashes and numerical results.\n52: [Reference logs and outputs](../runtime/tinystories/references/) retain all\n53: 4096 values. Full local command and cleanup receipts are under\n54: `build_ypcb_tinystories32/fpga-jtag-20261025-v2/`."
+        },
+        {
+          "first_line": 121,
+          "last_line": 129,
+          "literal": "121: | Property | This qwen3.c test | MICRO 2026 TinyGPT/U250 | Public TinyGPT/U280 |\n122: |---|---|---|---|\n123: | Model | TinyStories-260K, full Llama transformer | TinyStories-15M, decoder-only transformer | Small two-layer matrix-vector network |\n124: | Host engine | qwen3.c with explicit Llama mode | Derived from llama2.c | Custom OpenCL host |\n125: | GPU work | All projections; other operations on CPU | OpenCL transformer operations; fused-attention experiment | Two mat-vec layers and activation |\n126: | Arithmetic here | Group-scaled INT8, FP32 scales/output | Precision not specified in the abstract | Inspected v1 kernel uses float |\n127: | Hardware | YPCB XC7K480T, 1 core / 8 warps / 8 threads | Alveo U250; best reported baseline 2c8w8t | Alveo U280 configurations |\n128: | Host interface | JTAG runtime for this qualification | Alveo OpenCL flow | OpenCL/XRT |\n129: | Evidence | Local logs and numerical comparisons | Authors' workshop abstract | Public sources and execution instructions |"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/vortex/ci/ypcb_tinystories.py",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex/Qwen3.c TinyStories qualification runner and pinned inputs",
+      "exists": true,
+      "bytes": 16853,
+      "sha256": "ce6a71c620b2857440dd48f894ed8fdd147e1050d4d93228037b852a7f870372",
+      "snippets": [
+        {
+          "first_line": 132,
+          "last_line": 157,
+          "literal": "132:     parser = argparse.ArgumentParser(description='Compare qwen3.c TinyStories CPU and Vortex inference')\n133:     parser.add_argument('--build', type=Path, required=True)\n134:     parser.add_argument('--qwen3', type=Path, required=True)\n135:     parser.add_argument('--model', type=Path, required=True)\n136:     parser.add_argument('--out', type=Path, required=True)\n137:     parser.add_argument('--driver', choices=['simx', 'jtag'], required=True)\n138:     parser.add_argument('--vivado-bin', type=Path)\n139:     parser.add_argument('--sram-image', type=Path, help='Explicitly load the qualified image into volatile SRAM')\n140:     parser.add_argument('--crc-checker', type=Path)\n141:     parser.add_argument('--steps', type=int, choices=range(1, 65), default=8)\n142:     parser.add_argument('--hardware-lease', type=Path,\n143:                         default=Path.home() / 'ypcb/build/hardware-locks/ypcb-jtag.lock')\n144:     args = parser.parse_args()\n145:     if args.driver == 'jtag' and args.vivado_bin is None:\n146:         parser.error('--vivado-bin is required for JTAG')\n147:     if args.sram_image is not None and (args.driver != 'jtag' or args.crc_checker is None):\n148:         parser.error('--sram-image requires JTAG and --crc-checker')\n149:     root = next(path for path in Path(__file__).resolve().parents if (path / '.git').exists())\n150:     build, qwen, model, out = [path.resolve() for path in [args.build, args.qwen3, args.model, args.out]]\n151:     out.mkdir(parents=True, exist_ok=False)\n152:     state = {'status': 'PREPARED', 'interface': args.driver, 'hardware_accessed': False,\n153:              'FPGA_programmed': False, 'flash_written': False, 'steps': args.steps,\n154:              'model': 'TinyStories-260K', 'architecture': 'llama2',\n155:              'host_engine': 'qwen3.c/runq.c', 'gpu_scope': 'all matrix projections; other operations on CPU',\n156:              'expected_bitstream_sha256': EXPECTED,\n157:              'live_bitstream_sha256_verified': False, 'commands': {}}"
+        },
+        {
+          "first_line": 194,
+          "last_line": 233,
+          "literal": "194:     failure = None\n195:     try:\n196:         sources = [qwen / name for name in ['runq.c', 'qwen3.h', 'npu_matmul.h', 'npu_matmul.c',\n197:                    'tinystories/run.c', 'tinystories/reference.c', 'tinystories/vortex_matmul.cpp',\n198:                    'tinystories/prepare.py', 'tinystories/vendor/llama2.c']]\n199:         sources += [root / 'tests/regression/tinystories_q8' / name for name in ['kernel.cpp', 'common.h', 'Makefile']]\n200:         sources += [Path(__file__).resolve(), root / 'ci/ypcb_tinystories.py',\n201:                     root / 'ci/ypcb_macos.py', root / 'ci/ypcb_run_fpga.py',\n202:                     root / 'hw/syn/xilinx/ypcb/jtag_server.tcl']\n203:         binaries = qwen / 'build/tinystories'\n204:         kernel = build / 'tests/regression/tinystories_q8/kernel.vxbin'\n205:         inputs = sources + [binaries / name for name in ['cpu', 'reference', 'vortex']]\n206:         inputs += [kernel, model / 'stories260K.bin', model / 'stories260K-q8.bin', model / 'tok512.bin']\n207:         if args.sram_image is not None:\n208:             if sha(args.sram_image) != EXPECTED:\n209:                 raise ValueError('SRAM image differs from the qualified image')\n210:             inputs += [args.sram_image.resolve(), args.crc_checker.resolve(),\n211:                        root / 'hw/syn/xilinx/ypcb/program_sram.tcl']\n212:         inputs += list((build / 'sw/runtime').glob('libvortex*.so'))\n213:         state['input_sha256'] = {str(path): sha(path) for path in inputs}\n214:         state['git_revision'] = subprocess.check_output(['git', '-C', root, 'rev-parse', 'HEAD'], text=True).strip()\n215:         state['qwen3_revision'] = subprocess.check_output(['git', '-C', qwen, 'rev-parse', 'HEAD'], text=True).strip()\n216:         model_record = json.loads((model / 'model.json').read_text())\n217:         for name, item in model_record['files'].items():\n218:             if sha(model / name) != item['sha256']:\n219:                 raise ValueError('Model hash mismatch: ' + name)\n220:         state['model_provenance'] = model_record\n221:         environment.update(LD_LIBRARY_PATH=str(build / 'sw/runtime'),\n222:                            VORTEX_DRIVER='ypcb' if args.driver == 'jtag' else 'simx',\n223:                            QWEN3_VORTEX_KERNEL=str(kernel), VORTEX_YPCB_INTERFACE='jtag',\n224:                            VORTEX_YPCB_JTAG_PORT='3124')\n225:         for name, checkpoint in [('fp32', 'stories260K.bin'), ('cpu', 'stories260K-q8.bin')]:\n226:             run(name, [binaries / ('reference' if name == 'fp32' else 'cpu'), model / checkpoint,\n227:                        args.steps, out / (name + '.logits'), out / (name + '.tokens')])\n228:         reference_tokens = list(map(int, (out / 'cpu.tokens').read_text().split()))\n229:         original_tokens = list(map(int, (out / 'fp32.tokens').read_text().split()))\n230:         if reference_tokens != original_tokens or len(reference_tokens) != args.steps:\n231:             raise ValueError('Quantized CPU output differs from the original FP32 reference')\n232:         state['text'] = decode(model / 'tok512.bin', reference_tokens)\n233:         state['CPU_matches_original_FP32_token_ids'] = True"
+        },
+        {
+          "first_line": 238,
+          "last_line": 283,
+          "literal": "238:         if args.driver == 'jtag':\n239:             owner.enable_subreaper()\n240:             args.hardware_lease.parent.mkdir(parents=True, exist_ok=True)\n241:             lease = args.hardware_lease.open('a+')\n242:             fcntl.flock(lease, fcntl.LOCK_EX | fcntl.LOCK_NB)\n243:             with open('/tmp/vortex-ypcb-' + str(os.getuid()) + '.lock', 'a+') as runtime_lease:\n244:                 fcntl.flock(runtime_lease, fcntl.LOCK_EX | fcntl.LOCK_NB)\n245:             for name in ['hw_server', 'cs_server', 'openFPGALoader', 'xsdb']:\n246:                 if subprocess.run(['pgrep', '-x', name], stdout=subprocess.DEVNULL).returncode != 1:\n247:                     raise RuntimeError('Hardware is already owned: ' + name)\n248:             for port in [3122, 3124]:\n249:                 with socket.socket() as connection:\n250:                     if connection.connect_ex(('127.0.0.1', port)) == 0:\n251:                         raise RuntimeError('Hardware port is already owned')\n252:             state['hardware_accessed'] = True\n253:             server = launch('hw-server', [args.vivado_bin / 'hw_server', '-s', 'tcp::3122'])\n254:             wait_port(3122, server)\n255:             if args.sram_image is not None:\n256:                 state['programming_attempted'] = True\n257:                 run('program-sram', [args.vivado_bin / 'vivado', '-mode', 'batch', '-nojournal', '-nolog',\n258:                     '-source', root / 'hw/syn/xilinx/ypcb/program_sram.tcl', '-tclargs',\n259:                     args.sram_image.resolve(), out / 'sram-status.txt', 'localhost:3122', '3000000'], timeout=600)\n260:                 if (out / 'sram-status.txt').read_text().strip() != 'INIT=1 DONE=1 IDCODE=23751093':\n261:                     raise ValueError('SRAM status receipt is incomplete')\n262:                 state['FPGA_programmed'] = True\n263:             bridge = launch('bridge', [args.vivado_bin / 'vivado', '-mode', 'batch', '-nojournal', '-nolog',\n264:                             '-source', root / 'hw/syn/xilinx/ypcb/jtag_server.tcl',\n265:                             '-tclargs', 'localhost:3122', '3124', '3000000'])\n266:             wait_port(3124, bridge)\n267:             if read_registers([0x3000, 0x3004]) != [0x56595043, 5]:\n268:                 raise ValueError('Unexpected live FPGA identity')\n269:             state['identity'] = {'magic': '0x56595043', 'ABI': 5, 'TCK_Hz': 3000000}\n270:         runtime_started = True\n271:         text = run(args.driver, [binaries / 'vortex', model / 'stories260K-q8.bin', args.steps,\n272:                                out / 'vortex.logits', out / 'vortex.tokens'])\n273:         state['numerical'] = numerical_checks((out / 'cpu.logits').read_bytes(), reference_tokens,\n274:                             (out / 'vortex.logits').read_bytes(),\n275:                             list(map(int, (out / 'vortex.tokens').read_text().split())), text, args.steps)\n276:         if args.driver == 'jtag':\n277:             descriptor = json.loads((root / 'runtime/ypcb4g/runtime.json').read_text())\n278:             state['CH1_ECC'] = read_registers(descriptor['ecc_offsets'])\n279:             if state['CH1_ECC'] != [1, 0, 0]:\n280:                 raise ValueError('CH1 ECC is not enabled and clean')\n281:         if any(sha(path) != expected for path, expected in state['input_sha256'].items()):\n282:             raise ValueError('Inputs changed during qualification')\n283:         state['status'] = 'TINYSTORIES_QWEN3_' + args.driver.upper() + '_PASS'"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/vortex/ci/test_ypcb_tinystories.py",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex TinyStories result parser and rejection controls",
+      "exists": true,
+      "bytes": 2906,
+      "sha256": "dbe74f4b5df0b768c4f3bf44a97aabb51dc0f5662f364a5ca96cf210290a4e44",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 61,
+          "literal": "1: import struct\n2: import unittest\n3: \n4: from ypcb_tinystories import numerical_checks\n5: \n6: \n7: class NumericalChecksTests(unittest.TestCase):\n8:     def setUp(self):\n9:         self.logits = struct.pack('<1024f', *([1.0] * 1024))\n10:         self.tokens = [403, 407]\n11:         self.log = ('TOKEN position=0 input=1 next=403\\nTOKEN position=1 input=403 next=407\\n'\n12:                     'MATMUL accelerator=72 cpu=0\\nPERF: instrs=100, cycles=200, IPC=0.5\\n'\n13:                     'TIMING generation_steps=2 seconds=1.0 tokens_per_second=2.0\\n'\n14:                     'TINYSTORIES_COMPLETE steps=2 vocab=512 architecture=llama2 precision=group-q8\\n')\n15: \n16:     def verify(self, logits=None, tokens=None, log=None):\n17:         return numerical_checks(self.logits, self.tokens, self.logits if logits is None else logits,\n18:                                 self.tokens if tokens is None else tokens,\n19:                                 self.log if log is None else log, 2)\n20: \n21:     def test_complete_evidence(self):\n22:         result = self.verify()\n23:         self.assertEqual(result['verified_logits'], 1024)\n24:         self.assertEqual(result['accelerator_projections'], 72)\n25: \n26:     def test_incomplete_and_nonfinite_logits(self):\n27:         for data in [self.logits[:-4], struct.pack('<1024f', *([float('nan')] * 1024)),\n28:                      struct.pack('<1024f', *([float('inf')] * 1024))]:\n29:             with self.subTest(bytes=len(data)), self.assertRaises(ValueError):\n30:                 self.verify(logits=data)\n31: \n32:     def test_numerical_mismatch(self):\n33:         with self.assertRaisesRegex(ValueError, 'Logit comparison'):\n34:             self.verify(logits=struct.pack('<1024f', *([1.01] * 1024)))\n35: \n36:     def test_wrong_or_missing_tokens(self):\n37:         for tokens in [[], [403], [403, 408]]:\n38:             with self.subTest(tokens=tokens), self.assertRaises(ValueError):\n39:                 self.verify(tokens=tokens)\n40: \n41:     def test_missing_or_duplicated_trajectory(self):\n42:         for log in [self.log.replace('input=403', 'input=1'), self.log + 'TOKEN position=0 input=1 next=403\\n']:\n43:             with self.subTest(log=log), self.assertRaisesRegex(ValueError, 'trajectory'):\n44:                 self.verify(log=log)\n45: \n46:     def test_cpu_fallback_and_missing_gpu_retirement(self):\n47:         for log in [self.log.replace('accelerator=72 cpu=0', 'accelerator=71 cpu=1'),\n48:                     self.log.replace('instrs=100', 'instrs=0')]:\n49:             with self.subTest(log=log), self.assertRaises(ValueError):\n50:                 self.verify(log=log)\n51: \n52:     def test_missing_completion_and_invalid_timing(self):\n53:         for log in [self.log.replace('TINYSTORIES_COMPLETE', 'INCOMPLETE'),\n54:                     self.log.replace('seconds=1.0', 'seconds=nan'),\n55:                     self.log + 'TIMING generation_steps=2 seconds=1.0 tokens_per_second=2.0\\n']:\n56:             with self.subTest(log=log), self.assertRaises(ValueError):\n57:                 self.verify(log=log)\n58: \n59: \n60: if __name__ == '__main__':\n61:     unittest.main()"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/vortex/ci/test_ypcb_model_dependencies.py",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex model dependency discovery tests",
+      "exists": true,
+      "bytes": 3495,
+      "sha256": "c0f33001f83c4da65d963c2e22bb60e45ac473cf3cfc72a12f6e6b51ff9d3333",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 79,
+          "literal": "1: import os\n2: from pathlib import Path\n3: import shutil\n4: import subprocess\n5: import sys\n6: import time\n7: \n8: \n9: def fixture(tmp_path, finder='normal', empty=False):\n10:     root = Path((Path.cwd() / 'config.mk').read_text().split('VORTEX_HOME ?= ', 1)[1].splitlines()[0])\n11:     work = tmp_path / 'tests/ypcb/shell'\n12:     work.mkdir(parents=True)\n13:     rtl = tmp_path / 'rtl'\n14:     rtl.mkdir()\n15:     source = rtl / 'VX_dependency.sv'\n16:     if not empty:\n17:         source.write_text('module VX_dependency; endmodule\\n')\n18:     tmp_path.joinpath('config.mk').write_text(\n19:         f'VORTEX_HOME ?= {root}\\nSW_COMMON_DIR ?= {root / \"sw/common\"}\\nXLEN ?= 32\\nCONFIGS :=\\n')\n20:     tmp_path.joinpath('hw').mkdir()\n21:     tmp_path.joinpath('hw/VX_config.vh').write_text('')\n22:     tmp_path.joinpath('ci').mkdir()\n23:     tmp_path.joinpath('ci/gen_config.py').write_text('')\n24:     src = tmp_path / 'source'\n25:     src.mkdir()\n26:     src.joinpath('Makefile').write_text('')\n27:     fake = tmp_path / 'verilator.py'\n28:     fake.write_text('import pathlib,sys\\n'\n29:                     'pathlib.Path(sys.argv[sys.argv.index(\"-o\")+1]).write_text(\"model\")\\n'\n30:                     'with pathlib.Path(\"invocations\").open(\"a\") as output: output.write(\"built\\\\n\")\\n')\n31:     commands = tmp_path / 'commands'\n32:     commands.mkdir()\n33:     for name in ('find', 'cmp', 'mv', 'rm'):\n34:         commands.joinpath(name).symlink_to(shutil.which(name))\n35:     commands.joinpath('python3').symlink_to(sys.executable)\n36:     if finder == 'failure':\n37:         commands.joinpath('find').unlink()\n38:         commands.joinpath('find').write_text(f'#!/bin/sh\\nprintf \"%s\\\\n\" \"{source}\"\\nexit 1\\n')\n39:         commands.joinpath('find').chmod(0o755)\n40:     environment = dict(os.environ, PATH=str(commands))\n41:     command = [shutil.which('make'), '-f', str(root / 'tests/ypcb/shell/Makefile'), 'all',\n42:                f'RTL_DIR={rtl}', f'SRC_DIR={src}', 'SRCS=', 'HEADERS=', 'RTL_PKGS=',\n43:                'RTL_FLAGS=', 'CXXFLAGS=', 'BOARD_CONFIGS=', 'BOARD_XCONFIGS=',\n44:                f'VERILATOR={sys.executable} {fake}']\n45:     assert shutil.which('rg', path=environment['PATH']) is None\n46:     return command, work, source, environment\n47: \n48: \n49: def run(command, work, environment):\n50:     return subprocess.run(command, cwd=work, env=environment, text=True, capture_output=True)\n51: \n52: \n53: def test_rtl_change_rebuilds_model_without_ripgrep(tmp_path):\n54:     command, work, source, environment = fixture(tmp_path)\n55:     result = run(command, work, environment)\n56:     assert result.returncode == 0, result.stderr\n57:     assert work.joinpath('invocations').read_text().splitlines() == ['built']\n58:     result = run(command, work, environment)\n59:     assert result.returncode == 0, result.stderr\n60:     assert work.joinpath('invocations').read_text().splitlines() == ['built']\n61:     time.sleep(0.02)\n62:     source.write_text('module VX_dependency; wire changed; endmodule\\n')\n63:     result = run(command, work, environment)\n64:     assert result.returncode == 0, result.stderr\n65:     assert work.joinpath('invocations').read_text().splitlines() == ['built', 'built']\n66: \n67: \n68: def test_failed_rtl_discovery_stops_before_building(tmp_path):\n69:     command, work, _, environment = fixture(tmp_path, finder='failure')\n70:     result = run(command, work, environment)\n71:     assert result.returncode != 0\n72:     assert not work.joinpath('invocations').exists()\n73: \n74: \n75: def test_empty_rtl_discovery_stops_before_building(tmp_path):\n76:     command, work, _, environment = fixture(tmp_path, empty=True)\n77:     result = run(command, work, environment)\n78:     assert result.returncode != 0\n79:     assert not work.joinpath('invocations').exists()"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/vortex/tests/regression/tinystories_q8/kernel.cpp",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex quantized projection kernel arithmetic and memory layout",
+      "exists": true,
+      "bytes": 1035,
+      "sha256": "b53404257792b4087da2de7e8c37f3985f6ad77431a0ab2597dad6e0f8146424",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 24,
+          "literal": "1: #include <vx_spawn2.h>\n2: #include \"common.h\"\n3: \n4: __kernel void kernel_main(kernel_arg_t* __UNIFORM__ arg) {\n5:     const uint32_t row = blockIdx.x * blockDim.x + threadIdx.x;\n6:     if (row >= arg->rows)\n7:         return;\n8:     auto weights = reinterpret_cast<const int8_t*>(arg->weights);\n9:     auto scales = reinterpret_cast<const float*>(arg->scales);\n10:     auto input = reinterpret_cast<const int8_t*>(arg->input);\n11:     auto input_scales = reinterpret_cast<const float*>(arg->input_scales);\n12:     auto output = reinterpret_cast<float*>(arg->output);\n13:     const uint32_t groups = arg->columns / arg->group_size;\n14:     float sum = 0.0f;\n15:     for (uint32_t group = 0; group < groups; ++group) {\n16:         int32_t partial = 0;\n17:         for (uint32_t k = 0; k < arg->group_size; ++k) {\n18:             uint32_t column = group * arg->group_size + k;\n19:             partial += int32_t(input[column]) * int32_t(weights[row * arg->columns + column]);\n20:         }\n21:         sum += float(partial) * scales[row * groups + group] * input_scales[group];\n22:     }\n23:     output[row] = sum;\n24: }"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/vortex/tests/regression/tinystories_q8/common.h",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex projection kernel argument ABI/packing",
+      "exists": true,
+      "bytes": 236,
+      "sha256": "1bba526fe0b91d01a1cc69a019bbeeaabf7a41073bae75c9f3cbd87b3a5eae5a",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 13,
+          "literal": "1: #pragma once\n2: #include <stdint.h>\n3: \n4: struct kernel_arg_t {\n5:     uint64_t weights;\n6:     uint64_t scales;\n7:     uint64_t input;\n8:     uint64_t input_scales;\n9:     uint64_t output;\n10:     uint32_t columns;\n11:     uint32_t rows;\n12:     uint32_t group_size;\n13: };"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/vortex/tests/regression/tinystories_q8/Makefile",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex TinyStories Q8 kernel build recipe",
+      "exists": true,
+      "bytes": 305,
+      "sha256": "a673ad10ba27a7e8b65fffa8291a8c9c04738b1e632cca64d4e4ccf6d2cd4fa9",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 11,
+          "literal": "1: ROOT_DIR := $(realpath ../../..)\n2: include $(ROOT_DIR)/config.mk\n3: \n4: PROJECT := tinystories_q8\n5: SRC_DIR := $(VORTEX_HOME)/tests/regression/$(PROJECT)\n6: SRCS :=\n7: VX_SRCS := $(SRC_DIR)/kernel.cpp\n8: VX_HDRS := $(SRC_DIR)/common.h\n9: KERNEL_LIB := vortex2\n10: include ../common.mk\n11: VX_CFLAGS += -fno-fast-math -ffp-contract=off"
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/vortex/runtime/tinystories/README.md",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex TinyStories runtime artifact provenance notes",
+      "exists": true,
+      "bytes": 957,
+      "sha256": "3bc1e111606b839b04a16ccd189ff6e415e00ca62615f2e0f44279bafc2197e8",
+      "snippets": [
+        {
+          "first_line": 1,
+          "last_line": 17,
+          "literal": "1: # TinyStories projection kernel\n2: \n3: `kernel.vxbin` is the 32-bit RISC-V kernel for group-scaled INT8 GEMV used by\n4: the separate `qwen3.c` TinyStories frontend. It was built for the qualified\n5: `ypcb_blackwell_like_4gb` profile and the image identified in `kernel.json`.\n6: The metadata records its checksum, source hashes, generated configuration\n7: hashes and compiler/link flags. The kernel uses SIMT integer multiplication\n8: and FP32 scaling; it does not issue TCU instructions.\n9: \n10: Source is under `tests/regression/tinystories_q8/`. The model and tokenizer\n11: come from the pinned download in `qwen3.c/tinystories/prepare.py`; native host\n12: code is rebuilt from the two Git checkouts. Set `QWEN3_VORTEX_KERNEL` to this\n13: file when invoking the native frontend directly.\n14: \n15: See [the complete test and comparison guide](../../docs/tinystories.md).\n16: The existing Mac 54-case suite has its own frozen data under `runtime/ypcb4g`;\n17: this new inference test is a separate qualification."
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/vortex/runtime/tinystories/qualification.json",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex physical JTAG TinyStories completion audit",
+      "exists": true,
+      "bytes": 7166,
+      "sha256": "5db42264845e9c1abe70a6846a3d8625138b3edab10527feaf72a95687d1c278",
+      "selected_json_fields": {
+        "status": "TINYSTORIES_QWEN3_FPGA_JTAG_COMPLETION_AUDIT_PASS",
+        "passed_checks": 27,
+        "model": "TinyStories-260K",
+        "host_engine": "qwen3.c explicit Llama mode",
+        "generated_text": "Once upon a time, there was a",
+        "generated_token_ids": [
+          403,
+          407,
+          261,
+          378,
+          432,
+          383,
+          286,
+          261
+        ],
+        "application_elapsed_seconds": 3751.0546293689404,
+        "bitstream_sha256": "d6ad50f70469d6cf3d25f8ca0f8dee1875988b0ac07bec0fa88b8cd0ff06dfb3",
+        "kernel_sha256": "dbf4c98a95d90ab2bd4b92d5d64cd9832054704c8b7aee7bde17dbbedf5acbd3",
+        "FPGA_programmed_SRAM": true,
+        "flash_written": false,
+        "physical_PCIe_tested": false,
+        "CH1_ECC": [
+          1,
+          0,
+          0
+        ],
+        "AFU_drained_status": 4,
+        "leases_released": true,
+        "scope": "All projections use SIMT INT8 GEMV; attention, normalization, RoPE, activations and sampling on CPU; no TCU instructions",
+        "model_provenance": {
+          "architecture": "llama2",
+          "checkpoint": "TinyStories-260K",
+          "group_size": 4,
+          "converted_precision": "symmetric INT8 with FP32 group scales",
+          "source_revision": "0bd21da7698eaf29a0d7de3992de8a46ef624add",
+          "files": {
+            "stories260K.bin": {
+              "url": "https://huggingface.co/karpathy/tinyllamas/resolve/0bd21da7698eaf29a0d7de3992de8a46ef624add/stories260K/stories260K.bin",
+              "sha256": "b0a507e7ad0f626624f17112325e66691f9076d622e1d3274d103d00299f2696",
+              "bytes": 1056540
+            },
+            "tok512.bin": {
+              "url": "https://huggingface.co/karpathy/tinyllamas/resolve/0bd21da7698eaf29a0d7de3992de8a46ef624add/stories260K/tok512.bin",
+              "sha256": "037cb335abb25d1fa9e8ecae30ed2a3a8ace9302862ebcdc05d51a6bbb10c312",
+              "bytes": 6227
+            },
+            "stories260K-q8.bin": {
+              "sha256": "3a54f21eeb0e651e4eee11c98b10239b4d05bb2718608fbe0482b5f70090555d",
+              "bytes": 522048
+            }
+          }
+        },
+        "resident_weight_matrices": 36,
+        "resident_weight_bytes": 518656
+      }
+    },
+    {
+      "path": "/home/fedora/vortex/runtime/tinystories/kernel.json",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex compiled Q8 projection kernel provenance",
+      "exists": true,
+      "bytes": 9718,
+      "sha256": "1601c6875339ad01a705399c3ccdc0d5482d0fc284e5779494e134d4b0747915",
+      "selected_json_fields": {
+        "profile": "ypcb_blackwell_like_4gb",
+        "bitstream_sha256": "d6ad50f70469d6cf3d25f8ca0f8dee1875988b0ac07bec0fa88b8cd0ff06dfb3",
+        "kernel_sha256": "dbf4c98a95d90ab2bd4b92d5d64cd9832054704c8b7aee7bde17dbbedf5acbd3",
+        "kernel_bytes": 4464,
+        "kernel_start": 1073741824,
+        "kernel_end": 1073746240,
+        "scope": "Group-scaled INT8 SIMT GEMV; FP32 group scales/output; no TCU instructions",
+        "kernel_compile_flags": "-march=rv32imaf_zacas -mabi=ilp32f -Wall -Wextra -Wfatal-errors -Werror -Wno-unused-command-line-argument -O3 -mcmodel=medany -fno-rtti -fno-exceptions -nostartfiles -nostdlib -fdata-sections -ffunction-sections -I${VORTEX_HOME}/sw/kernel/include -I${VORTEX_BUILD}/sw -I${VORTEX_BUILD}/hw -I${VORTEX_HOME}/sw/common -DNDEBUG -D__VORTEX__ -DVX_PROFILE=ypcb_blackwell_like_4gb -DVX_CFG_EXT_A_ENABLE -DVX_CFG_EXT_DXA_ENABLE -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_EXT_ZACAS_ENABLE -DVX_CFG_FPU_TYPE=STD -DVX_CFG_ISSUE_WIDTH=1 -DVX_CFG_L2_ENABLE -DVX_CFG_MEM_ADDR_WIDTH=32 -DVX_CFG_NUM_CLUSTERS=1 -DVX_CFG_NUM_CORES=1 -DVX_CFG_NUM_THREADS=8 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_PLATFORM_CLOCK_RATE=125 -DVX_CFG_PLATFORM_MEMORY_ADDR_WIDTH=32 -DVX_CFG_PLATFORM_MEMORY_NUM_BANKS=1 -DVX_CFG_PLATFORM_MEMORY_PEAK_BW=6400 -DVX_CFG_TCU_FP16_ENABLE -DVX_CFG_TCU_FP4_ENABLE -DVX_CFG_TCU_FP8_ENABLE -DVX_CFG_TCU_INT8_ENABLE -DVX_CFG_TCU_LATENCY=5 -DVX_CFG_TCU_MXFP4_ENABLE -DVX_CFG_TCU_MX_ENABLE -DVX_CFG_TCU_NVFP4_ENABLE -DVX_CFG_TCU_SPARSE_ENABLE -DVX_CFG_TCU_TF32_ENABLE -DVX_CFG_TCU_TYPE=TFR -DVX_CFG_TCU_USE_DSP=1 -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_YPCB_DUAL_CHANNEL_ENABLE -DVX_CFG_XLEN=32 -DVX_CFG_XLEN_32 -DVX_CFG_FLEN=32 -DVX_CFG_FLEN_32 -DVX_CFG_FPU_TYPE=STD -DVX_CFG_FPU_TYPE_STD -DVX_CFG_TCU_TYPE=TFR -DVX_CFG_TCU_TYPE_TFR -DVX_CFG_PLATFORM_MEMORY_TYPE=HBM2 -DVX_CFG_PLATFORM_MEMORY_TYPE_HBM2 -DVX_CFG_NUM_CLUSTERS=1 -DVX_CFG_NUM_CORES=1 -DVX_CFG_SOCKET_SIZE=1 -DVX_CFG_YPCB_DUAL_CHANNEL_ENABLE -DVX_CFG_YPCB_DUAL_CHANNEL_ENABLED=1 -DVX_CFG_RESET_DELAY=8 -DVX_CFG_ICACHE_ENABLE -DVX_CFG_ICACHE_ENABLED=1 -DVX_CFG_DCACHE_ENABLE -DVX_CFG_DCACHE_ENABLED=1 -DVX_CFG_LMEM_ENABLE -DVX_CFG_LMEM_ENABLED=1 -DVX_CFG_L2_ENABLE -DVX_CFG_L2_ENABLED=1 -DVX_CFG_L3_ENABLED=0 -DVX_CFG_VM_ENABLED=0 -DVX_CFG_EXT_D_ENABLED=0 -DVX_CFG_FLEN=32 -DVX_CFG_EXT_M_ENABLE -DVX_CFG_EXT_M_ENABLED=1 -DVX_CFG_EXT_F_ENABLE -DVX_CFG_EXT_F_ENABLED=1 -DVX_CFG_EXT_C_ENABLED=0 -DVX_CFG_EXT_A_ENABLE -DVX_CFG_EXT_A_ENABLED=1 -DVX_CFG_EXT_ZACAS_ENABLE -DVX_CFG_EXT_ZACAS_ENABLED=1 -DVX_CFG_EXT_ZICOND_ENABLE -DVX_CFG_EXT_ZICOND_ENABLED=1 -DVX_CFG_EXT_TCU_ENABLE -DVX_CFG_EXT_TCU_ENABLED=1 -DVX_CFG_EXT_DMA_ENABLED=0 -DVX_CFG_EXT_DXA_ENABLE -DVX_CFG_EXT_DXA_ENABLED=1 -DVX_CFG_EXT_TEX_ENABLED=0 -DVX_CFG_EXT_RASTER_ENABLED=0 -DVX_CFG_EXT_OM_ENABLED=0 -DVX_CFG_EXT_RTU_ENABLED=0 -DVX_CFG_VLEN=128 -DVX_CFG_NUM_WARPS=8 -DVX_CFG_NUM_THREADS=8 -DVX_CFG_NUM_BARRIERS=8 -DVX_CFG_MAX_BAR_EVENTS=32 -DVX_CFG_IBUF_SIZE=4 -DVX_CFG_DISPATCH_QUEUE_SIZE=4 -DVX_CFG_ISSUE_WIDTH=1 -DVX_CFG_SIMD_WIDTH=8 -DVX_CFG_NUM_OPCS=2 -DVX_CFG_NUM_GPR_BANKS=4 -DVX_CFG_NUM_VGPR_BANKS=2 -DVX_CFG_MEM_BLOCK_SIZE=64 -DVX_CFG_MEM_ADDR_WIDTH=32 -DVX_CFG_L1_LINE_SIZE=64 -DVX_CFG_L2_LINE_SIZE=128 -DVX_CFG_L2_SECTOR_SIZE=64 -DVX_CFG_L3_LINE_SIZE=64 -DVX_CFG_L3_SECTOR_SIZE=64 -DVX_CFG_PLATFORM_MEMORY_NUM_BANKS=1 -DVX_CFG_PLATFORM_MEMORY_ADDR_WIDTH=32 -DVX_CFG_PLATFORM_MEMORY_DATA_SIZE=64 -DVX_CFG_PLATFORM_MEMORY_INTERLEAVE=1 -DVX_CFG_PLATFORM_MEMORY_PEAK_BW=6400 -DVX_CFG_PLATFORM_CLOCK_RATE=125 -DVX_CFG_PLATFORM_MEMORY_TYPE=HBM2 -DVX_CFG_PLATFORM_MEMORY_DATA_RATE=250 -DVX_CFG_PLATFORM_MEMORY_LATENCY=0 -DVX_CFG_PLATFORM_MEMORY_QUEUE_SIZE=0 -DVX_CFG_NUM_ALU_LANES=8 -DVX_CFG_NUM_ALU_BLOCKS=1 -DVX_CFG_NUM_SFU_LANES=8 -DVX_CFG_NUM_SFU_BLOCKS=1 -DVX_CFG_NUM_LSU_LANES=8 -DVX_CFG_NUM_LSU_BLOCKS=1 -DVX_CFG_LSU_STACK_INTERLEAVE_ENABLE -DVX_CFG_LSU_STACK_INTERLEAVE_ENABLED=1 -DVX_CFG_LSU_LINE_SIZE=32 -DVX_CFG_LSU_QUEUE_IN_SIZE=4 -DVX_CFG_LSU_PENDING_SIZE=16 -DVX_CFG_FPU_TYPE=STD -DVX_CFG_NUM_FPU_LANES=8 -DVX_CFG_NUM_FPU_BLOCKS=1 -DVX_CFG_FPU_QUEUE_SIZE=2 -DVX_CFG_FPU_USE_DSP=0 -DVX_CFG_FMA_LATENCY=8 -DVX_CFG_FDIV_LATENCY=17 -DVX_CFG_FSQRT_LATENCY=17 -DVX_CFG_FNCP_LATENCY=2 -DVX_CFG_FCVT_LATENCY=5 -DVX_CFG_FMA_PE_RATIO=1 -DVX_CFG_FDIV_PE_RATIO=1 -DVX_CFG_FSQRT_PE_RATIO=1 -DVX_CFG_FCVT_PE_RATIO=1 -DVX_CFG_FNCP_PE_RATIO=1 -DVX_CFG_AMO_RS_SIZE=8 -DVX_CFG_NUM_VPU_LANES=8 -DVX_CFG_NUM_VPU_BLOCKS=1 -DVX_CFG_TLB_SIZE=32 -DVX_CFG_DTLB_SIZE=16 -DVX_CFG_ITLB_SIZE=8 -DVX_CFG_L1_TLB_MSHR_SIZE=4 -DVX_CFG_L2_TLB_SIZE=512 -DVX_CFG_L2_TLB_NUM_WAYS=4 -DVX_CFG_L2_TLB_MEGA_SIZE=8 -DVX_CFG_L2_TLB_MSHR_SIZE=8 -DVX_CFG_L2_TLB_LATENCY=4 -DVX_CFG_PTW_NUM_WALKERS=2 -DVX_CFG_PTW_WALK_CACHE_SIZE=16 -DVX_CFG_VM_PINNED_REGION_SIZE=0x10000000 -DVX_CFG_ICACHE_SIZE=16384 -DVX_CFG_ICACHE_NUM_WAYS=4 -DVX_CFG_ICACHE_REPL_POLICY=1 -DVX_CFG_ICACHE_MSHR_SIZE=16 -DVX_CFG_ICACHE_MRSQ_SIZE=0 -DVX_CFG_ICACHE_MREQ_SIZE=0 -DVX_CFG_ICACHE_CRSQ_SIZE=0 -DVX_CFG_ICACHE_MEM_PORTS=1 -DVX_CFG_ICACHE_LATENCY=2 -DVX_CFG_DCACHE_SIZE=16384 -DVX_CFG_DCACHE_NUM_WAYS=4 -DVX_CFG_DCACHE_WORD_SIZE=16 -DVX_CFG_DCACHE_WRITEBACK=0 -DVX_CFG_DCACHE_DIRTYBYTES=0 -DVX_CFG_DCACHE_REPL_POLICY=1 -DVX_CFG_DCACHE_MSHR_SIZE=16 -DVX_CFG_DCACHE_LINE_SIZE=64 -DVX_CFG_DCACHE_SECTOR_SIZE=64 -DVX_CFG_DCACHE_LATENCY=2 -DVX_CFG_DCACHE_MRSQ_SIZE=4 -DVX_CFG_DCACHE_MREQ_SIZE=0 -DVX_CFG_DCACHE_CRSQ_SIZE=0 -DVX_CFG_NUM_ICACHES=1 -DVX_CFG_NUM_DCACHES=1 -DVX_CFG_DCACHE_NUM_BANKS=1 -DVX_CFG_L1_MEM_PORTS=1 -DVX_CFG_L2_SIZE=1048576 -DVX_CFG_L2_NUM_WAYS=8 -DVX_CFG_L2_WRITEBACK=1 -DVX_CFG_L2_DIRTYBYTES=0 -DVX_CFG_L2_REPL_POLICY=1 -DVX_CFG_L2_MSHR_SIZE=16 -DVX_CFG_L2_LATENCY=4 -DVX_CFG_L2_MRSQ_SIZE=4 -DVX_CFG_L2_MREQ_SIZE=0 -DVX_CFG_L2_CRSQ_SIZE=0 -DVX_CFG_L2_NUM_BANKS=1 -DVX_CFG_L2_MEM_PORTS=1 -DVX_CFG_L3_SIZE=2097152 -DVX_CFG_L3_NUM_WAYS=8 -DVX_CFG_L3_WRITEBACK=0 -DVX_CFG_L3_DIRTYBYTES=0 -DVX_CFG_L3_REPL_POLICY=1 -DVX_CFG_L3_MSHR_SIZE=16 -DVX_CFG_L3_LATENCY=4 -DVX_CFG_L3_MRSQ_SIZE=4 -DVX_CFG_L3_MREQ_SIZE=0 -DVX_CFG_L3_CRSQ_SIZE=0 -DVX_CFG_L3_NUM_BANKS=1 -DVX_CFG_L3_MEM_PORTS=0 -DVX_CFG_LMEM_NUM_BANKS=8 -DVX_CFG_LMEM_LOG_SIZE=14 -DVX_CFG_TCU_TYPE=TFR -DVX_CFG_NUM_TCU_LANES=8 -DVX_CFG_NUM_TCU_BLOCKS=1 -DVX_CFG_TCU_USE_DSP=1 -DVX_CFG_TCU_LATENCY=5 -DVX_CFG_TCU_TF32_ENABLE -DVX_CFG_TCU_TF32_ENABLED=1 -DVX_CFG_TCU_FP16_ENABLE -DVX_CFG_TCU_FP16_ENABLED=1 -DVX_CFG_TCU_FP8_ENABLE -DVX_CFG_TCU_FP8_ENABLED=1 -DVX_CFG_TCU_FP4_ENABLE -DVX_CFG_TCU_FP4_ENABLED=1 -DVX_CFG_TCU_INT8_ENABLE -DVX_CFG_TCU_INT8_ENABLED=1 -DVX_CFG_TCU_INT4_ENABLED=0 -DVX_CFG_TCU_MX_ENABLE -DVX_CFG_TCU_MX_ENABLED=1 -DVX_CFG_TCU_MXFP4_ENABLE -DVX_CFG_TCU_MXFP4_ENABLED=1 -DVX_CFG_TCU_NVFP4_ENABLE -DVX_CFG_TCU_NVFP4_ENABLED=1 -DVX_CFG_TCU_SPARSE_ENABLE -DVX_CFG_TCU_SPARSE_ENABLED=1 -DVX_CFG_TCU_DSM_ENABLED=0 -DVX_CFG_TCU_WGMMA_ENABLE -DVX_CFG_TCU_WGMMA_ENABLED=1 -DVX_CFG_NUM_DXA_CORES=1 -DVX_CFG_DXA_MEM_PORTS=1 -DVX_CFG_DXA_QUEUE_SIZE=16 -DVX_CFG_DXA_MAX_INFLIGHT=8 -DVX_CFG_NUM_RTU_CORES=1 -DVX_CFG_RTU_BVH_WIDTH=4 -DVX_CFG_RTU_TLAS_ENABLED=0 -DVX_CFG_RTU_STACK_DEPTH=16 -DVX_CFG_RTU_RECIP_DSP_SEED=0 -DVX_CFG_RTU_USE_DSP=0 -DVX_CFG_RTU_FDIV_LATENCY=17 -DVX_CFG_RTU_NUM_SLOTS=1 -DVX_CFG_RTU_NUM_CTX=8 -DVX_CFG_RTU_MERGE_DEPTH=0 -DVX_CFG_NUM_RTU_BLOCKS=2 -DVX_CFG_NUM_TEX_CORES=1 -DVX_CFG_TEX_REQ_QUEUE_SIZE=8 -DVX_CFG_TEX_MEM_QUEUE_SIZE=8 -DVX_CFG_NUM_RASTER_CORES=1 -DVX_CFG_RASTER_NUM_SLICES=1 -DVX_CFG_RASTER_TILE_LOG_SIZE=5 -DVX_CFG_RASTER_BIN_LOG_SIZE=7 -DVX_CFG_RASTER_BLOCK_LOG_SIZE=2 -DVX_CFG_RASTER_MEM_FIFO_DEPTH=8 -DVX_CFG_RASTER_QUAD_FIFO_DEPTH=32 -DVX_CFG_RASTER_MEM_QUEUE_SIZE=4 -DVX_CFG_RASTER_EARLYZ_ENABLED=0 -DVX_CFG_NUM_OM_CORES=1 -DVX_CFG_OM_MEM_QUEUE_SIZE=4 -DVX_CFG_TCACHE_SIZE=8192 -DVX_CFG_TCACHE_NUM_BANKS=1 -DVX_CFG_TCACHE_NUM_WAYS=2 -DVX_CFG_TCACHE_CRSQ_SIZE=0 -DVX_CFG_TCACHE_MSHR_SIZE=16 -DVX_CFG_TCACHE_MRSQ_SIZE=0 -DVX_CFG_TCACHE_MREQ_SIZE=0 -DVX_CFG_NUM_TCACHES=1 -DVX_CFG_RCACHE_SIZE=4096 -DVX_CFG_RCACHE_NUM_BANKS=1 -DVX_CFG_RCACHE_NUM_WAYS=2 -DVX_CFG_RCACHE_CRSQ_SIZE=0 -DVX_CFG_RCACHE_MSHR_SIZE=16 -DVX_CFG_RCACHE_MRSQ_SIZE=0 -DVX_CFG_RCACHE_MREQ_SIZE=0 -DVX_CFG_NUM_RCACHES=1 -DVX_CFG_RTCACHE_SIZE=8192 -DVX_CFG_RTCACHE_NUM_BANKS=1 -DVX_CFG_RTCACHE_NUM_WAYS=2 -DVX_CFG_RTCACHE_CRSQ_SIZE=2 -DVX_CFG_RTCACHE_MSHR_SIZE=16 -DVX_CFG_RTCACHE_MREQ_SIZE=4 -DVX_CFG_RTCACHE_MRSQ_SIZE=0 -DVX_CFG_NUM_RTCACHES=1 -DVX_CFG_OCACHE_SIZE=16384 -DVX_CFG_OCACHE_NUM_BANKS=1 -DVX_CFG_OCACHE_NUM_WAYS=2 -DVX_CFG_OCACHE_CRSQ_SIZE=0 -DVX_CFG_OCACHE_MSHR_SIZE=16 -DVX_CFG_OCACHE_MRSQ_SIZE=0 -DVX_CFG_OCACHE_MREQ_SIZE=0 -DVX_CFG_NUM_OCACHES=1 -DVX_CFG_MISA_STD=9441569 -DVX_CFG_MISA_EXT=1591 -DVX_DBG_STALL_TIMEOUT=200000 -DVX_DBG_DEBUG_LEVEL=3 -fno-fast-math -ffp-contract=off",
+        "kernel_link_flags": "-Wl,-Bstatic,--gc-sections,-T,${VORTEX_HOME}/sw/kernel/scripts/link32.ld,--defsym=STARTUP_ADDR=0x40000000 ${VORTEX_BUILD}/sw/kernel/libvortex2.a -L${TOOLDIR}/libc32/lib -lm -lc ${TOOLDIR}/libcrt32/lib/baremetal/libclang_rt.builtins-riscv32.a",
+        "compiler_version": "clang version 20.1.8 (https://github.com/vortexgpgpu/llvm.git cd5be82eb447c64a24ebc19b93453b8ba2ad7094)"
+      }
+    },
+    {
+      "path": "/home/fedora/vortex/build_ypcb_tinystories32/model-source/model.json",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex converted TinyStories model asset manifest",
+      "exists": true,
+      "bytes": 912,
+      "sha256": "4fc25d04da3f535ecf0b9ced938d9175fd5349d7675bc5b5ef00a4227c8369c7",
+      "selected_json_fields": {
+        "architecture": "llama2",
+        "checkpoint": "TinyStories-260K",
+        "group_size": 4,
+        "converted_precision": "symmetric INT8 with FP32 group scales",
+        "source_revision": "0bd21da7698eaf29a0d7de3992de8a46ef624add",
+        "files": {
+          "stories260K.bin": {
+            "url": "https://huggingface.co/karpathy/tinyllamas/resolve/0bd21da7698eaf29a0d7de3992de8a46ef624add/stories260K/stories260K.bin",
+            "sha256": "b0a507e7ad0f626624f17112325e66691f9076d622e1d3274d103d00299f2696",
+            "bytes": 1056540
+          },
+          "tok512.bin": {
+            "url": "https://huggingface.co/karpathy/tinyllamas/resolve/0bd21da7698eaf29a0d7de3992de8a46ef624add/stories260K/tok512.bin",
+            "sha256": "037cb335abb25d1fa9e8ecae30ed2a3a8ace9302862ebcdc05d51a6bbb10c312",
+            "bytes": 6227
+          },
+          "stories260K-q8.bin": {
+            "sha256": "3a54f21eeb0e651e4eee11c98b10239b4d05bb2718608fbe0482b5f70090555d",
+            "bytes": 522048
+          }
+        }
+      }
+    },
+    {
+      "path": "/home/fedora/vortex/build_ypcb_tinystories32/model-source/download.json",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex source checkpoint/tokenizer download provenance",
+      "exists": true,
+      "bytes": 615,
+      "sha256": "6262950a13d3f189652426ddc3c9ffc19bccb6f5077ff1e2ce2527eddaf196de",
+      "selected_json_fields": {
+        "source_revision": null,
+        "files": {
+          "stories260K.bin": {
+            "url": "https://huggingface.co/karpathy/tinyllamas/resolve/0bd21da7698eaf29a0d7de3992de8a46ef624add/stories260K/stories260K.bin",
+            "sha256": "b0a507e7ad0f626624f17112325e66691f9076d622e1d3274d103d00299f2696",
+            "bytes": 1056540
+          },
+          "tok512.bin": {
+            "url": "https://huggingface.co/karpathy/tinyllamas/resolve/0bd21da7698eaf29a0d7de3992de8a46ef624add/stories260K/tok512.bin",
+            "sha256": "037cb335abb25d1fa9e8ecae30ed2a3a8ace9302862ebcdc05d51a6bbb10c312",
+            "bytes": 6227
+          }
+        }
+      }
+    },
+    {
+      "path": "/home/fedora/vortex/build_ypcb_tinystories32/fpga-jtag-20261025-v2/manifest.json",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex JTAG result and source/kernel/model input hash manifest",
+      "exists": true,
+      "bytes": 12844,
+      "sha256": "3fd9b6edfac6e78edb7c1a7804e77cb9776eec154040749840e0b4ebf3c4c779",
+      "selected_json_fields": {
+        "status": "TINYSTORIES_QWEN3_JTAG_PASS",
+        "interface": "jtag",
+        "hardware_accessed": true,
+        "FPGA_programmed": true,
+        "flash_written": false,
+        "steps": 8,
+        "model": "TinyStories-260K",
+        "architecture": "llama2",
+        "host_engine": "qwen3.c/runq.c",
+        "gpu_scope": "all matrix projections; other operations on CPU",
+        "expected_bitstream_sha256": "d6ad50f70469d6cf3d25f8ca0f8dee1875988b0ac07bec0fa88b8cd0ff06dfb3",
+        "git_revision": "f313136435bbe4013b90fcd20cff13d3181605f9",
+        "qwen3_revision": "02caf9df0f7ab9e0c3ebacbec2aba2a9dd2c3331",
+        "model_provenance": {
+          "architecture": "llama2",
+          "checkpoint": "TinyStories-260K",
+          "group_size": 4,
+          "converted_precision": "symmetric INT8 with FP32 group scales",
+          "source_revision": "0bd21da7698eaf29a0d7de3992de8a46ef624add",
+          "files": {
+            "stories260K.bin": {
+              "url": "https://huggingface.co/karpathy/tinyllamas/resolve/0bd21da7698eaf29a0d7de3992de8a46ef624add/stories260K/stories260K.bin",
+              "sha256": "b0a507e7ad0f626624f17112325e66691f9076d622e1d3274d103d00299f2696",
+              "bytes": 1056540
+            },
+            "tok512.bin": {
+              "url": "https://huggingface.co/karpathy/tinyllamas/resolve/0bd21da7698eaf29a0d7de3992de8a46ef624add/stories260K/tok512.bin",
+              "sha256": "037cb335abb25d1fa9e8ecae30ed2a3a8ace9302862ebcdc05d51a6bbb10c312",
+              "bytes": 6227
+            },
+            "stories260K-q8.bin": {
+              "sha256": "3a54f21eeb0e651e4eee11c98b10239b4d05bb2718608fbe0482b5f70090555d",
+              "bytes": 522048
+            }
+          }
+        },
+        "text": "Once upon a time, there was a",
+        "CPU_matches_original_FP32_token_ids": true,
+        "numerical": {
+          "verified_logits": 4096,
+          "generated_token_ids": [
+            403,
+            407,
+            261,
+            378,
+            432,
+            383,
+            286,
+            261
+          ],
+          "max_absolute_logit_error": 0.0,
+          "relative_l2_logit_error": 0.0,
+          "accelerator_projections": 288,
+          "cpu_projections": 0,
+          "instructions": 4096256,
+          "cycles": 8478008,
+          "generation_seconds": 2382.645032043,
+          "generation_tokens_per_second": 0.003357613
+        },
+        "CH1_ECC": [
+          1,
+          0,
+          0
+        ],
+        "AFU_drained_status": 4,
+        "owned_process_cleanup": {
+          "status": "PASS",
+          "owned_processes": [
+            {
+              "pid": 157809,
+              "start_ticks": 129352668,
+              "uid": 1000
+            },
+            {
+              "pid": 158093,
+              "start_ticks": 129363776,
+              "uid": 1000
+            },
+            {
+              "pid": 157849,
+              "start_ticks": 129352671,
+              "uid": 1000
+            },
+            {
+              "pid": 157895,
+              "start_ticks": 129352675,
+              "uid": 1000
+            },
+            {
+              "pid": 158112,
+              "start_ticks": 129363778,
+              "uid": 1000
+            },
+            {
+              "pid": 158146,
+              "start_ticks": 129363782,
+              "uid": 1000
+            },
+            {
+              "pid": 158276,
+              "start_ticks": 129364464,
+              "uid": 1000
+            },
+            {
+              "pid": 158277,
+              "start_ticks": 129364494,
+              "uid": 1000
+            }
+          ],
+          "remaining": [],
+          "direct_children_alive": [],
+          "protected_preexisting_children": [],
+          "reaped_descendants": [
+            {
+              "pid": 158031,
+              "start_ticks": 129353361,
+              "uid": 1000,
+              "exit_code": 0
+            },
+            {
+              "pid": 157849,
+              "start_ticks": 129352671,
+              "uid": 1000,
+              "exit_code": -15
+            },
+            {
+              "pid": 157895,
+              "start_ticks": 129352675,
+              "uid": 1000,
+              "exit_code": 0
+            },
+            {
+              "pid": 158112,
+              "start_ticks": 129363778,
+              "uid": 1000,
+              "exit_code": -15
+            },
+            {
+              "pid": 158146,
+              "start_ticks": 129363782,
+              "uid": 1000,
+              "exit_code": -15
+            },
+            {
+              "pid": 158276,
+              "start_ticks": 129364464,
+              "uid": 1000,
+              "exit_code": -15
+            }
+          ],
+          "errors": [],
+          "signals_sent": [
+            {
+              "pid": 157809,
+              "start_ticks": 129352668,
+              "signal": 15
+            },
+            {
+              "pid": 157849,
+              "start_ticks": 129352671,
+              "signal": 15
+            },
+            {
+              "pid": 157895,
+              "start_ticks": 129352675,
+              "signal": 15
+            },
+            {
+              "pid": 158093,
+              "start_ticks": 129363776,
+              "signal": 15
+            },
+            {
+              "pid": 158112,
+              "start_ticks": 129363778,
+              "signal": 15
+            },
+            {
+              "pid": 158146,
+              "start_ticks": 129363782,
+              "signal": 15
+            },
+            {
+              "pid": 158276,
+              "start_ticks": 129364464,
+              "signal": 15
+            }
+          ],
+          "elapsed_seconds": 0.19481017580255866
+        },
+        "owned_children_exit_codes": [
+          -15,
+          -15
+        ]
+      }
+    },
+    {
+      "path": "/home/fedora/vortex/build_ypcb_tinystories32/simx-20261025-v1/manifest.json",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex SimX TinyStories result manifest",
+      "exists": true,
+      "bytes": 7321,
+      "sha256": "6b49c5e2c8474063a301132425208e55ab34e98c3ad73dc6a3da0dc6ab4e27cc",
+      "selected_json_fields": {
+        "status": "TINYSTORIES_QWEN3_SIMX_PASS",
+        "interface": "simx",
+        "hardware_accessed": false,
+        "model": "TinyStories-260K",
+        "architecture": "llama2",
+        "steps": 8,
+        "host_engine": "qwen3.c/runq.c",
+        "gpu_scope": "all matrix projections; other operations on CPU",
+        "numerical": {
+          "verified_logits": 4096,
+          "generated_token_ids": [
+            403,
+            407,
+            261,
+            378,
+            432,
+            383,
+            286,
+            261
+          ],
+          "max_absolute_logit_error": 0.0,
+          "relative_l2_logit_error": 0.0,
+          "accelerator_projections": 288,
+          "cpu_projections": 0,
+          "instructions": 4096256,
+          "cycles": 7955223,
+          "generation_seconds": 30.222980746,
+          "generation_tokens_per_second": 0.264699239
+        },
+        "text": "Once upon a time, there was a"
+      }
+    },
+    {
+      "path": "/home/fedora/vortex/build_ypcb_tinystories32/model-source/stories260K.bin",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex original FP32 TinyStories model asset",
+      "exists": true,
+      "bytes": 1056540,
+      "sha256": "b0a507e7ad0f626624f17112325e66691f9076d622e1d3274d103d00299f2696"
+    },
+    {
+      "path": "/home/fedora/vortex/build_ypcb_tinystories32/model-source/stories260K-q8.bin",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex converted group-Q8 TinyStories model asset",
+      "exists": true,
+      "bytes": 522048,
+      "sha256": "3a54f21eeb0e651e4eee11c98b10239b4d05bb2718608fbe0482b5f70090555d"
+    },
+    {
+      "path": "/home/fedora/vortex/build_ypcb_tinystories32/model-source/tok512.bin",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex 512-token TinyStories tokenizer asset",
+      "exists": true,
+      "bytes": 6227,
+      "sha256": "037cb335abb25d1fa9e8ecae30ed2a3a8ace9302862ebcdc05d51a6bbb10c312"
+    },
+    {
+      "path": "/home/fedora/vortex/build_ypcb_tinystories32/tests/regression/tinystories_q8/kernel.vxbin",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex compiled TinyStories Q8 kernel binary asset",
+      "exists": true,
+      "bytes": 4464,
+      "sha256": "dbf4c98a95d90ab2bd4b92d5d64cd9832054704c8b7aee7bde17dbbedf5acbd3"
+    },
+    {
+      "path": "/home/fedora/vortex/build_ypcb_4gb32/dual-4gib-image-20261025-v2/vortex_ypcb.bit",
+      "repository": "/home/fedora/vortex",
+      "role": "Vortex JTAG image binary named by TinyStories qualification",
+      "exists": true,
+      "bytes": 18735205,
+      "sha256": "d6ad50f70469d6cf3d25f8ca0f8dee1875988b0ac07bec0fa88b8cd0ff06dfb3"
+    },
+    {
+      "path": "/home/fedora/ypcb/README.md",
+      "repository": "/home/fedora/ypcb",
+      "role": "YPCB workspace project index",
+      "exists": true,
+      "bytes": 4472,
+      "sha256": "ddd033d55e3ce1847c3f10a6b028c1fda306497520cccc2e985c1dea9ef278ef",
+      "snippets": [
+        {
+          "first_line": 18,
+          "last_line": 21,
+          "literal": "18: | --- | --- | --- |\n19: | Full accelerator stacks | `~/openTPU`, `~/KohakuTPU` | OpenTPU fixed-clock releases retained; runtime-clock effort abandoned. Kohaku reset/CDC fixes prepared, native rebuild pending. |\n20: | GPGPU and Minion compute | `~/vortex`, `~/etsoc` | Exact older images have physical JTAG/DDR/compute evidence; newer images and physical PCIe have separate gates. |\n21: | Small compute demonstrations | `~/tiny-tpu`, `~/tiny-gpu`, `~/verigpu` | tiny-tpu has a 150 MHz XOR board test; tiny-gpu and VeriGPU have historical offline candidates. |"
+        },
+        {
+          "first_line": 31,
+          "last_line": 35,
+          "literal": "31: ```text\n32: ~/openTPU/                 independent accelerator checkout\n33: ~/bonetto-soc/             independent Bonetto checkout\n34: ~/KohakuTPU/, ~/vortex/\u2026   other independent project checkouts\n35: ~/ypcb/"
+        },
+        {
+          "first_line": 48,
+          "last_line": 53,
+          "literal": "48: \n49: The current workspace has no `~/ypcb_ref`, `projects/openTPU`, or\n50: `projects/bonetto-soc` compatibility entry. Use the real paths in the inventory.\n51: The registered `projects/openTPU-upstream-e15b4a44` linked worktree and separate\n52: `~/upstream_openTPU` reference clone are distinct from `~/openTPU`.\n53: "
+        },
+        {
+          "first_line": 68,
+          "last_line": 72,
+          "literal": "68: [local overrides](local-overrides/README.md) to reconstruct a clean checkout\n69: with the reviewed source overlays. Build artifacts, firmware, models, waveform\n70: captures and independent Git histories are not included. OpenTPU and the other\n71: home projects need their own source and artifact handoffs.\n72: "
+        }
+      ]
+    },
+    {
+      "path": "/home/fedora/ypcb/docs/PROJECTS.md",
+      "repository": "/home/fedora/ypcb",
+      "role": "YPCB cross-project TinyStories/Vortex/OpenTPU inventory references",
+      "exists": true,
+      "bytes": 14845,
+      "sha256": "418871761c6c76ee8ec06f5eb1cf71aea3c42118061c8bf3ac8f8381be28c69f",
+      "snippets": [
+        {
+          "first_line": 21,
+          "last_line": 24,
+          "literal": "21: | **OpenTPU** \u2014 `~/openTPU` | Full accelerator, compiler/runtime, dual DDR channels and JTAG/PCIe paths | Fixed-clock `c0182800`/`c0182863` artifacts and recorded local JTAG/TinyStories and Mac LFM/Qwen results remain preserved. The `c01848` runtime-clock effort was **abandoned on October 22**; latest `c0184812` passed source/synthesis/model checks but was never admitted to P&R and has no bitstream. Compiled `c0182863` retains later-discovered Gray-counter/pending-count reset corners despite its historical LFM/Qwen passes. Do not revive the abandoned effort from an old resume table. | `HANDOFF.md`, `docs/bitstreams.md`, `docs/mac_c0182800.md`, `docs/mac_c0182863.md`, `tools/ypcb.py` |\n22: | **KohakuTPU** \u2014 `~/KohakuTPU` | Full RV64/mesh/matrix/vector accelerator with DDR and both host paths | October 21 snapshot is `PREPARED_NO_VIVADO`: 165 frozen files and 69 board-tool tests. Previous reset-isolated routing failed with 41,092 overlaps. Earlier AltSpread image passed offline checks and SRAM configuration, but PCIe PERST held the memory/debug clock path in reset. New reset/CDC source needs fresh synthesis; DDR, compute and FPGA inference remain unqualified. Work is paused. | `progress.md`, `boards/ypcb-00338/README.md` |\n23: | **Vortex** \u2014 `~/vortex` | RISC-V GPGPU, CH1 DDR, JTAG/PCIe transport and Blackwell-like tensor profile | Preceding frozen image passed **53 physical command checks** and a **457-check completion audit**, including all five basic example scripts, 21 study cases and 22 format/shape cases. The newer reset/PIO/LR-SC work has separate qualification; its physical queue was unarmed in the inspected state. Physical PCIe, full-capacity DDR soak and complete external DDR I/O timing are not established by that audit. | `progress.md`, `hw/syn/xilinx/ypcb/`, `examples/README.md`, `build_ypcb_blackwell_fixed32/goal-state.json` |\n24: | **ET-SOC / CORE-ET** \u2014 `~/etsoc` | Single Minion/VPU FPGA integration with CH1 DDR and an external llama.cpp backend; separate SysEmu experiments | October 21 receipt records normal upstream `llama-cli`, eight TinyStories tokens matching CPU control and **279 physical JTAG matrix dispatches**. Other operations stay on CPU. Combined JTAG/PCIe image has offline and JTAG evidence; physical PCIe control/DMA remains unqualified. This is not a complete ET-SOC1 chip implementation. | `examples/fpga/README.md`, `docs/llama.md`, `docs/mac-etsoc-pcie-handoff.md` |"
+        },
+        {
+          "first_line": 42,
+          "last_line": 46,
+          "literal": "42: | --- | --- | --- |\n43: | OpenTPU | `HANDOFF.md`; `build/handoffs/runtime-clock-abandoned-by-user-20261022.json` | Final disposition takes precedence over earlier resume notes. |\n44: | KohakuTPU | `build/ypcb/offline-hardening-prepared-20261021T004321Z/offline-checks/report.json` | Source-only checks on the frozen preparation; no native qualification of the new reset/CDC source. |\n45: | Vortex | `build_ypcb_blackwell32/next-intmul-source/build_ypcb_blackwell32/completion-audit-20261023-v10-cleanup-recovery.json` | Physical JTAG/CH1/compute result for SHA256 `3c3ac665c8403cc9fa203a7c89e551cb74092c26dec83b53c076a772610f6cc2`; cleanup failure and its recovery are retained. |\n46: | ET-SOC | `docs/data/stock-et-normal-cli-combined-jtag-eight-reference-20261021.json` | Eight-token CPU comparison and physical JTAG execution for SHA256 `ef74b6be6b90f2fa01557b9811cf43471d6a7ac9c4aaa395ea824dd3c1cabf25`; PCIe false. |"
+        },
+        {
+          "first_line": 55,
+          "last_line": 56,
+          "literal": "55: | OpenTPU c0182800 | `bitstreams/spare-dual-host-4gb-c0182800/otpu.bit` | `df2521d80de1d69ea4ca758821dc67a814b95d67ac851b78727c9154a3104bf2` |\n56: | OpenTPU c0182863 | `bitstreams/spare-dual-host-4gb-c0182863/otpu.bit` | `03b513a44544009afff9dfb82515bf84c5df84ac6a63673a0882308ce8a323ae` |"
+        },
+        {
+          "first_line": 70,
+          "last_line": 84,
+          "literal": "70: | --- | --- |\n71: | `~/upstream_openTPU` | Separate clean upstream reference clone, `main` at `f237dab2f196` in this snapshot. Its published board-performance claims are not evidence from the user's local card. |\n72: | `~/ypcb/projects/openTPU-upstream-e15b4a44` | Clean detached linked worktree at `e15b4a442346`; keep its Git registration. It is an older reference, not the active OpenTPU checkout. |\n73: | `~/ypcb/projects/inspur-adventures` | Clean secondary clone at `998bb2569ad3`; board reverse-engineering material. |\n74: | `~/ypcb/ref/inspur-adventures` | Same base revision, with local DLC10 descriptor/stage2 changes. Independent reference/support clone. The shared initializer now uses the reviewed tracked helper copy in this repository. |\n75: | `~/ypcb/ref/ypcb_00338_1p1_hack` | Clean TiferKing board reference at `8b13ecf71b70`; distinct from the diagnostic project copy. |\n76: | `~/ypcb/ref/LC480T` | Board files, constraints/tutorials and an example image; a data directory, not an independent Git repository. |\n77: | `~/ypcb/ref/ZYNQ-NVDLA` | Zynq/NVDLA integration reference; not a completed XC7K480T port. |\n78: | `~/ypcb/openFPGALoader`, `ref/fxload`, `ref/xpcu-macos` | Loader, FX2 helper and cable reference code. They are transport/tool dependencies, not compute SoCs. |\n79: | `~/nvdla`, `~/tinynvdla`, `~/tinygrad_nvdla`, `~/tinytenstorrent` | Potential RTL/software/reference donors; no direct YPCB port was found in the scanned source/documentation. |\n80: | `~/rk3588`, `~/tinygrad` | Rockchip hardware/backend context for RK-NPU work; not additional YPCB FPGA implementations. |\n81: | `~/et-platform`, `~/et-sysemu`, `~/etsoc1-native-matmul-mat-engine-perf-visulization` | ET toolchain/simulation/performance support; separate from the physical Minion port in `~/etsoc`. |\n82: | `~/vortex-tools-v3.0.1` | Vortex compiler/simulator tool bundle, not another SoC checkout. |\n83: | `~/vortex-local-backup-20261017T182432Z` | Recovery archive with patch, file tar and manifest; not an active repository. |\n84: | `~/otpu-build` | Auxiliary build/staging directory, not the OpenTPU source checkout. |"
+        }
+      ]
+    }
+  ],
+  "missing_candidate_files": [],
+  "model_asset_hash_checks": [
+    {
+      "path": "/home/fedora/vortex/build_ypcb_tinystories32/model-source/stories260K.bin",
+      "exists": true,
+      "manifest_sha256": "b0a507e7ad0f626624f17112325e66691f9076d622e1d3274d103d00299f2696",
+      "actual_sha256": "b0a507e7ad0f626624f17112325e66691f9076d622e1d3274d103d00299f2696",
+      "manifest_bytes": 1056540,
+      "actual_bytes": 1056540,
+      "matches": true
+    },
+    {
+      "path": "/home/fedora/vortex/build_ypcb_tinystories32/model-source/tok512.bin",
+      "exists": true,
+      "manifest_sha256": "037cb335abb25d1fa9e8ecae30ed2a3a8ace9302862ebcdc05d51a6bbb10c312",
+      "actual_sha256": "037cb335abb25d1fa9e8ecae30ed2a3a8ace9302862ebcdc05d51a6bbb10c312",
+      "manifest_bytes": 6227,
+      "actual_bytes": 6227,
+      "matches": true
+    },
+    {
+      "path": "/home/fedora/vortex/build_ypcb_tinystories32/model-source/stories260K-q8.bin",
+      "exists": true,
+      "manifest_sha256": "3a54f21eeb0e651e4eee11c98b10239b4d05bb2718608fbe0482b5f70090555d",
+      "actual_sha256": "3a54f21eeb0e651e4eee11c98b10239b4d05bb2718608fbe0482b5f70090555d",
+      "manifest_bytes": 522048,
+      "actual_bytes": 522048,
+      "matches": true
+    }
+  ],
+  "bitstream_and_kernel_asset_checks": [
+    {
+      "path": "/home/fedora/vortex/build_ypcb_4gb32/dual-4gib-image-20261025-v2/vortex_ypcb.bit",
+      "label": "Vortex bitstream",
+      "exists": true,
+      "bytes": 18735205,
+      "expected_sha256": "d6ad50f70469d6cf3d25f8ca0f8dee1875988b0ac07bec0fa88b8cd0ff06dfb3",
+      "actual_sha256": "d6ad50f70469d6cf3d25f8ca0f8dee1875988b0ac07bec0fa88b8cd0ff06dfb3",
+      "matches_expected": true
+    },
+    {
+      "path": "/home/fedora/vortex/build_ypcb_tinystories32/tests/regression/tinystories_q8/kernel.vxbin",
+      "label": "Vortex TinyStories kernel",
+      "exists": true,
+      "bytes": 4464,
+      "expected_sha256": "dbf4c98a95d90ab2bd4b92d5d64cd9832054704c8b7aee7bde17dbbedf5acbd3",
+      "actual_sha256": "dbf4c98a95d90ab2bd4b92d5d64cd9832054704c8b7aee7bde17dbbedf5acbd3",
+      "matches_expected": true
+    },
+    {
+      "path": "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182800/otpu.bit",
+      "label": "OpenTPU c0182800 image",
+      "exists": true,
+      "bytes": 13337671,
+      "expected_sha256": "df2521d80de1d69ea4ca758821dc67a814b95d67ac851b78727c9154a3104bf2",
+      "actual_sha256": "df2521d80de1d69ea4ca758821dc67a814b95d67ac851b78727c9154a3104bf2",
+      "matches_expected": true
+    },
+    {
+      "path": "/home/fedora/openTPU/bitstreams/spare-dual-host-4gb-c0182863/otpu.bit",
+      "label": "OpenTPU c0182863 image",
+      "exists": true,
+      "bytes": 13163043,
+      "expected_sha256": "03b513a44544009afff9dfb82515bf84c5df84ac6a63673a0882308ce8a323ae",
+      "actual_sha256": "03b513a44544009afff9dfb82515bf84c5df84ac6a63673a0882308ce8a323ae",
+      "matches_expected": true
+    }
+  ],
+  "openTPU_tinystories_image_summary": {
+    "status": "PASS_PHYSICAL_JTAG_TINYSTORIES_INT8_EXACT_ISA_TOKENS",
+    "build_id": "c0182863",
+    "model_sha256": "9f74baf73f258f040f0994b9fb67da17eb92cf56b2214f309b5d037c82e1da8b",
+    "bitstream_sha256": "03b513a44544009afff9dfb82515bf84c5df84ac6a63673a0882308ce8a323ae",
+    "expected_upload_image_bytes": [
+      28909056
+    ],
+    "uploaded_bytes": 28909056,
+    "upload_expected_bytes": 28909056,
+    "uploaded_image_readback_sha256": "74facccd6c0e3f7e76676617a3b7a4074c1efb784d675ac1b5bdb08dca980950",
+    "expected_token_ids": [
+      29892,
+      727,
+      471,
+      263,
+      2217,
+      7826,
+      4257,
+      365
+    ],
+    "actual_token_ids": [
+      29892,
+      727,
+      471,
+      263,
+      2217,
+      7826,
+      4257,
+      365
+    ],
+    "hardware_accessed": true,
+    "flash_written": false,
+    "program_fetch": {
+      "status": "PASS_PHYSICAL_1371_INSTRUCTION_FETCH_AND_65_EXACT_WORDS",
+      "instructions": 1371,
+      "words_compared": 65,
+      "cycles": 1503,
+      "exact_match": true,
+      "limitation": "Synthetic program; original LFM230M/Mac acceptance remains separate"
+    },
+    "matmul": {
+      "physical": true,
+      "operation": "MM int8 weights with QACT",
+      "output_shape": [
+        2,
+        16
+      ],
+      "reduction": 256,
+      "bytes_compared": 128,
+      "expected_instructions": 5,
+      "actual_instructions": 5,
+      "cycles": 337,
+      "exact_match": true
+    }
+  },
+  "openTPU_local_tinystories_receipts": {
+    "/home/fedora/openTPU/runtime/c0182800/local-validation.json": {
+      "status": "PASS_LOCAL_JTAG_TINYSTORIES_INT8_EXACT_ISA",
+      "build_id": "c0182800",
+      "model": "sdobson/tinystories-llama-15m with verified tile padding",
+      "weight_format": "int8",
+      "model_bytes_verified": null,
+      "uploaded_and_verified_image_bytes": 28909056,
+      "uploaded_image_readback_sha256": "74facccd6c0e3f7e76676617a3b7a4074c1efb784d675ac1b5bdb08dca980950",
+      "model_readback_sha256": null,
+      "expected_token_ids": [
+        29892,
+        727,
+        471,
+        263,
+        2217,
+        7826,
+        4257,
+        365
+      ],
+      "actual_token_ids": [
+        29892,
+        727,
+        471,
+        263,
+        2217,
+        7826,
+        4257,
+        365
+      ],
+      "interfaces": [
+        "jtag",
+        "pcie"
+      ],
+      "physical_transport": "JTAG USER2 with PCIe absent",
+      "programs_readback_exact_and_loaded": 15,
+      "program_load_readbacks": null,
+      "permanent_flash_written": false,
+      "flash_written": null,
+      "physical_pcie_verified": false,
+      "pcie_bandwidth_verified": null,
+      "limitations": [
+        "One small trained-model prompt; original Mac LFM230M acceptance remains pending.",
+        "JTAG wall time does not qualify PCIe or device bandwidth.",
+        "Offline DDR pad timing and broad physical reliability remain unqualified."
+      ]
+    },
+    "/home/fedora/openTPU/runtime/c0182863/local-validation.json": {
+      "status": "PASS_C0182863_LOCAL_JTAG_TINYSTORIES_AND_NATIVE_READ_BENCHMARK_MAC_LFM_PENDING",
+      "build_id": "c0182863",
+      "model": null,
+      "weight_format": null,
+      "model_bytes_verified": 28909056,
+      "uploaded_and_verified_image_bytes": null,
+      "uploaded_image_readback_sha256": null,
+      "model_readback_sha256": "74facccd6c0e3f7e76676617a3b7a4074c1efb784d675ac1b5bdb08dca980950",
+      "expected_token_ids": null,
+      "actual_token_ids": [
+        29892,
+        727,
+        471,
+        263,
+        2217,
+        7826,
+        4257,
+        365
+      ],
+      "interfaces": [
+        "jtag",
+        "pcie"
+      ],
+      "physical_transport": "jtag",
+      "programs_readback_exact_and_loaded": null,
+      "program_load_readbacks": 15,
+      "permanent_flash_written": null,
+      "flash_written": false,
+      "physical_pcie_verified": null,
+      "pcie_bandwidth_verified": false,
+      "limitations": [
+        "Native benchmark is synthetic combined-channel read throughput with final-chunk comparisons; no PCIe bandwidth or LFM speedup claim.",
+        "Original LFM230M acceptance remains for the Mac."
+      ]
+    }
+  },
+  "vortex_external_qwen3_inputs_recorded_in_jtag_manifest": {
+    "/home/fedora/qwen3.c/runq.c": "d64ae87923f2cca25ae72b2c0dbcfae004c7861424f510e0d82af0c29181da7f",
+    "/home/fedora/qwen3.c/qwen3.h": "8ccdf1fc163ab2a4b7fdf5e20d1a654c76f5b2b91dc5af771a61800df8da8c7e",
+    "/home/fedora/qwen3.c/npu_matmul.h": "af7557304559f467744a50341553bc168d0e3285123a879373ddf3a32b06e0c4",
+    "/home/fedora/qwen3.c/npu_matmul.c": "95b3ac8a29a93a68af78b114f50eb390829dcb366c9d57bf2a217fbec208afd5",
+    "/home/fedora/qwen3.c/tinystories/run.c": "98006e1a8583431ef3db53c5a331241d14cae6ed9221974da8133853cea557a1",
+    "/home/fedora/qwen3.c/tinystories/reference.c": "5dd1fa326273986d68bb2fb8642ce837e5ec41c14cd5c9aeabdcb3ea1f06c9c5",
+    "/home/fedora/qwen3.c/tinystories/vortex_matmul.cpp": "30ca071810bf07d12d0fd787a3758fc148041e307f59fc0e6b89c9ea14bf7d20",
+    "/home/fedora/qwen3.c/tinystories/prepare.py": "0d67f1bf11f8d9a020a39660827d84dd3f3e4dadb486629675409bb4dbb34558",
+    "/home/fedora/qwen3.c/tinystories/vendor/llama2.c": "9c4f2d5c6ae01b71726d1cc37530d71e60bff0ec7cc012565f16a43c1ca658bd",
+    "/home/fedora/qwen3.c/build/tinystories/cpu": "779f26beb867cbeca1cf14a5fcc4e3a4e7d004e38f8b8c0fab2db8a81d6bd69b",
+    "/home/fedora/qwen3.c/build/tinystories/reference": "9096981bd0eca51fb0031e12c9ae31a1c47f80527592238b5d038489b840cc38",
+    "/home/fedora/qwen3.c/build/tinystories/vortex": "f85a129ff130a2057d23d8f51fae351adc93f984d2ae794aa90649dacde58c8d"
+  },
+  "ypcb_project_index_literal_hits": [
+    {
+      "line": 21,
+      "literal": "| **OpenTPU** \u2014 `~/openTPU` | Full accelerator, compiler/runtime, dual DDR channels and JTAG/PCIe paths | Fixed-clock `c0182800`/`c0182863` artifacts and recorded local JTAG/TinyStories and Mac LFM/Qwen results remain preserved. The `c01848` runtime-clock effort was **abandoned on October 22**; latest `c0184812` passed source/synthesis/model checks but was never admitted to P&R and has no bitstream. Compiled `c0182863` retains later-discovered Gray-counter/pending-count reset corners despite its historical LFM/Qwen passes. Do not revive the abandoned effort from an old resume table. | `HANDOFF.md`, `docs/bitstreams.md`, `docs/mac_c0182800.md`, `docs/mac_c0182863.md`, `tools/ypcb.py` |"
+    },
+    {
+      "line": 23,
+      "literal": "| **Vortex** \u2014 `~/vortex` | RISC-V GPGPU, CH1 DDR, JTAG/PCIe transport and Blackwell-like tensor profile | Preceding frozen image passed **53 physical command checks** and a **457-check completion audit**, including all five basic example scripts, 21 study cases and 22 format/shape cases. The newer reset/PIO/LR-SC work has separate qualification; its physical queue was unarmed in the inspected state. Physical PCIe, full-capacity DDR soak and complete external DDR I/O timing are not established by that audit. | `progress.md`, `hw/syn/xilinx/ypcb/`, `examples/README.md`, `build_ypcb_blackwell_fixed32/goal-state.json` |"
+    },
+    {
+      "line": 24,
+      "literal": "| **ET-SOC / CORE-ET** \u2014 `~/etsoc` | Single Minion/VPU FPGA integration with CH1 DDR and an external llama.cpp backend; separate SysEmu experiments | October 21 receipt records normal upstream `llama-cli`, eight TinyStories tokens matching CPU control and **279 physical JTAG matrix dispatches**. Other operations stay on CPU. Combined JTAG/PCIe image has offline and JTAG evidence; physical PCIe control/DMA remains unqualified. This is not a complete ET-SOC1 chip implementation. | `examples/fpga/README.md`, `docs/llama.md`, `docs/mac-etsoc-pcie-handoff.md` |"
+    },
+    {
+      "line": 28,
+      "literal": "| **RK-NPU FPGA** \u2014 `~/rknpu-fpga` | Strict FP16 EW register-stream slice and separate full C32/K16 512-product CMAC preparation | Source regressions and historical packing checks exist, but no accepted bitstream or physical result. October 23 direction is **Vivado preparation only**, using OpenTPU as a reference; openXC7 P&R was retired. Preserve the full CMAC target and do not launch either implementation flow from this survey. Git has an unborn `main`, so source is currently uncommitted. | `README.md`, `docs/REVIEW_AND_PLAN.md`, `docs/FPGA.md`, `verification/README.md` |"
+    },
+    {
+      "line": 43,
+      "literal": "| OpenTPU | `HANDOFF.md`; `build/handoffs/runtime-clock-abandoned-by-user-20261022.json` | Final disposition takes precedence over earlier resume notes. |"
+    },
+    {
+      "line": 45,
+      "literal": "| Vortex | `build_ypcb_blackwell32/next-intmul-source/build_ypcb_blackwell32/completion-audit-20261023-v10-cleanup-recovery.json` | Physical JTAG/CH1/compute result for SHA256 `3c3ac665c8403cc9fa203a7c89e551cb74092c26dec83b53c076a772610f6cc2`; cleanup failure and its recovery are retained. |"
+    },
+    {
+      "line": 55,
+      "literal": "| OpenTPU c0182800 | `bitstreams/spare-dual-host-4gb-c0182800/otpu.bit` | `df2521d80de1d69ea4ca758821dc67a814b95d67ac851b78727c9154a3104bf2` |"
+    },
+    {
+      "line": 56,
+      "literal": "| OpenTPU c0182863 | `bitstreams/spare-dual-host-4gb-c0182863/otpu.bit` | `03b513a44544009afff9dfb82515bf84c5df84ac6a63673a0882308ce8a323ae` |"
+    },
+    {
+      "line": 72,
+      "literal": "| `~/ypcb/projects/openTPU-upstream-e15b4a44` | Clean detached linked worktree at `e15b4a442346`; keep its Git registration. It is an older reference, not the active OpenTPU checkout. |"
+    },
+    {
+      "line": 82,
+      "literal": "| `~/vortex-tools-v3.0.1` | Vortex compiler/simulator tool bundle, not another SoC checkout. |"
+    },
+    {
+      "line": 84,
+      "literal": "| `~/otpu-build` | Auxiliary build/staging directory, not the OpenTPU source checkout. |"
+    }
+  ],
+  "literal_comparison_notes": [
+    "OpenTPU local JTAG receipts name sdobson/tinystories-llama-15m, INT8, 28,909,056 uploaded bytes and eight ISA-matching tokens; the profile separates JTAG USER2 from PCIe bandwidth qualification.",
+    "The selected OpenTPU physical receipts do not expose hidden/head/layer dimensions; the tile-preparation source consumes config.json and rounds hidden/head dimensions to 128-wide tiles.",
+    "Vortex documents TinyStories-260K as a 64-wide, 5-layer, 8-query/4-KV-head, vocab-512 Llama transformer; all matrix projections run on Vortex and attention/norm/RoPE/activation/greedy selection run on CPU.",
+    "Vortex Q8 kernel ABI uses separate 64-bit addresses for weights/scales/input/input scales/output and 32-bit columns/rows/group size; provenance records group size4, symmetric INT8 and FP32 scales.",
+    "YPCB is a project index rather than a separate TinyStories model/runtime checkout in the filename-filter result."
+  ]
+}

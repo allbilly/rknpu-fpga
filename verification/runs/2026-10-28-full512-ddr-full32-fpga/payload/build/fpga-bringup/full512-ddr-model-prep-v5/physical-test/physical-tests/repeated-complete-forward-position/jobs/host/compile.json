@@ -1,0 +1,20 @@
+{
+  "status": "COMPILED_C_HOST_ENGINE_ONLY",
+  "kind": "external-dense-only",
+  "original_c_sha256": "9c4f2d5c6ae01b71726d1cc37530d71e60bff0ec7cc012565f16a43c1ca658bd",
+  "derived_c_sha256": "b1a312bd020a9c016ac7aecfc4721dc20ca72c1835e81beaccbb969286a16efb",
+  "argv": [
+    "gcc",
+    "-O3",
+    "-fPIC",
+    "-shared",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v5/physical-test/physical-tests/repeated-complete-forward-position/jobs/host/engine.c",
+    "-lm",
+    "-o",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-ddr-model-prep-v5/physical-test/physical-tests/repeated-complete-forward-position/jobs/host/engine.so"
+  ],
+  "returncode": 0,
+  "binary_sha256": "f95e35a3d276e9feb64f944b0b3edf813a686c21823e2a82cc55aa1ec2b39803",
+  "compiler_version": "gcc (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)",
+  "hardware_accessed": false
+}

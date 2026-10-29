@@ -1,0 +1,245 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (lin64) Build 6511674 Tue Jun 16 11:01:26 MDT 2026
+| Date         : Tue Oct 27 16:30:44 2026
+| Host         : fedora running 64-bit unknown
+| Command      : report_utilization -hierarchical -file utilization.rpt
+| Design       : rk_original_mig_ew_platform
+| Device       : xc7k480tffg1156-2
+| Speed File   : -2
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------------------------------------------------+------------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+|                              Instance                             |                        Module                        | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------------------------------------------------+------------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+| rk_original_mig_ew_platform                                       |                                                (top) |      33355 |      28327 |    3924 | 1104 | 22028 |      0 |      0 |          1 |
+|   (rk_original_mig_ew_platform)                                   |                                                (top) |          0 |          0 |       0 |    0 |     0 |      0 |      0 |          0 |
+|   endpoint                                                        |                                 rk_jtag_ew_ddr_async |       7027 |       7027 |       0 |    0 |  3639 |      0 |      0 |          1 |
+|     (endpoint)                                                    |                                 rk_jtag_ew_ddr_async |        145 |        145 |       0 |    0 |    92 |      0 |      0 |          0 |
+|     backend                                                       |                                      rk_jtag_backend |       1740 |       1740 |       0 |    0 |  1228 |      0 |      0 |          0 |
+|     control                                                       |                                       rk_job_control |        242 |        242 |       0 |    0 |   279 |      0 |      0 |          0 |
+|     engine                                                        |                                   rk_ew_async_engine |       2938 |       2938 |       0 |    0 |  1140 |      0 |      0 |          1 |
+|       memory_crossing                                             |                                    rk_async_mem_port |         24 |         24 |       0 |    0 |   150 |      0 |      0 |          0 |
+|       engine                                                      |                                            rk_ew_dma |       2867 |       2867 |       0 |    0 |   729 |      0 |      0 |          1 |
+|         (engine)                                                  |                                            rk_ew_dma |        436 |        436 |       0 |    0 |   267 |      0 |      0 |          0 |
+|         engine                                                    |                                         rk_ew_engine |       1900 |       1900 |       0 |    0 |   222 |      0 |      0 |          1 |
+|           (engine)                                                |                                         rk_ew_engine |        217 |        217 |       0 |    0 |   205 |      0 |      0 |          0 |
+|           alu                                                     |                                          rk_fp16_alu |       1683 |       1683 |       0 |    0 |    17 |      0 |      0 |          1 |
+|         regs                                                      |                                           rk_ew_regs |        531 |        531 |       0 |    0 |   240 |      0 |      0 |          0 |
+|       job_crossing                                                |                                    rk_async_job_port |         36 |         36 |       0 |    0 |   220 |      0 |      0 |          0 |
+|     memory                                                        |                                 rk_ddr_memory_fabric |       1691 |       1691 |       0 |    0 |   516 |      0 |      0 |          0 |
+|       (memory)                                                    |                                 rk_ddr_memory_fabric |        871 |        871 |       0 |    0 |   369 |      0 |      0 |          0 |
+|       adapter                                                     |                                           rk_axi_mem |        697 |        697 |       0 |    0 |    93 |      0 |      0 |          0 |
+|       fence                                                       |                                   rk_mig_write_fence |        123 |        123 |       0 |    0 |    54 |      0 |      0 |          0 |
+|     monitor                                                       |                                   rk_mig_ecc_monitor |         75 |         75 |       0 |    0 |   195 |      0 |      0 |          0 |
+|     reset_owner                                                   |                             rk_mig_reset_coordinator |        196 |        196 |       0 |    0 |   189 |      0 |      0 |          0 |
+|   mig                                                             |                                  top_mig_7series_0_0 |      26328 |      21300 |    3924 | 1104 | 18389 |      0 |      0 |          0 |
+|     u_top_mig_7series_0_0_mig                                     |                              top_mig_7series_0_0_mig |      26328 |      21300 |    3924 | 1104 | 18389 |      0 |      0 |          0 |
+|       c1_u_memc_ui_top_axi                                        |     mig_7series_v4_2_memc_ui_top_axi__parameterized0 |      12145 |       9633 |    1960 |  552 |  7726 |      0 |      0 |          0 |
+|         u_ui_top                                                  |                              mig_7series_v4_2_ui_top |       1074 |        326 |     748 |    0 |  1158 |      0 |      0 |          0 |
+|           ui_wr_data0                                             |                          mig_7series_v4_2_ui_wr_data |        418 |         26 |     392 |    0 |   598 |      0 |      0 |          0 |
+|           ui_rd_data0                                             |                          mig_7series_v4_2_ui_rd_data |        652 |        296 |     356 |    0 |   558 |      0 |      0 |          0 |
+|         mem_intfc0                                                |           mig_7series_v4_2_mem_intfc__parameterized0 |      10512 |       9270 |    1212 |   30 |  6462 |      0 |      0 |          0 |
+|           mc0                                                     |                               mig_7series_v4_2_mc__1 |       2553 |       2196 |     356 |    1 |  1592 |      0 |      0 |          0 |
+|             rank_mach0                                            |                        mig_7series_v4_2_rank_mach__1 |         81 |         80 |       0 |    1 |    64 |      0 |      0 |          0 |
+|               rank_common0                                        |                      mig_7series_v4_2_rank_common__1 |         56 |         56 |       0 |    0 |    49 |      0 |      0 |          0 |
+|                 (rank_common0)                                    |                      mig_7series_v4_2_rank_common__1 |         54 |         54 |       0 |    0 |    46 |      0 |      0 |          0 |
+|             bank_mach0                                            |                        mig_7series_v4_2_bank_mach__1 |        473 |        473 |       0 |    0 |   288 |      0 |      0 |          0 |
+|               bank_cntrl[3].bank0                                 |       mig_7series_v4_2_bank_cntrl__parameterized2__1 |         84 |         84 |       0 |    0 |    55 |      0 |      0 |          0 |
+|               arb_mux0                                            |                          mig_7series_v4_2_arb_mux__1 |        101 |        101 |       0 |    0 |    46 |      0 |      0 |          0 |
+|                 arb_select0                                       |                       mig_7series_v4_2_arb_select__1 |         58 |         58 |       0 |    0 |    14 |      0 |      0 |          0 |
+|               bank_cntrl[0].bank0                                 |                       mig_7series_v4_2_bank_cntrl__1 |         81 |         81 |       0 |    0 |    55 |      0 |      0 |          0 |
+|               bank_cntrl[1].bank0                                 |       mig_7series_v4_2_bank_cntrl__parameterized0__1 |         84 |         84 |       0 |    0 |    55 |      0 |      0 |          0 |
+|               bank_cntrl[2].bank0                                 |       mig_7series_v4_2_bank_cntrl__parameterized1__1 |         83 |         83 |       0 |    0 |    55 |      0 |      0 |          0 |
+|             ecc_on.ecc_buf0                                       |                          mig_7series_v4_2_ecc_buf__1 |        344 |          0 |     344 |    0 |    12 |      0 |      0 |          0 |
+|             ecc_on.ecc_dec_fix0                                   |                      mig_7series_v4_2_ecc_dec_fix__1 |        952 |        952 |       0 |    0 |   576 |      0 |      0 |          0 |
+|             ecc_on.ecc_merge_enc0                                 |                    mig_7series_v4_2_ecc_merge_enc__1 |        672 |        672 |       0 |    0 |   576 |      0 |      0 |          0 |
+|           ddr_phy_top0                                            |         mig_7series_v4_2_ddr_phy_top__parameterized0 |       7959 |       7074 |     856 |   29 |  4870 |      0 |      0 |          0 |
+|             (ddr_phy_top0)                                        |         mig_7series_v4_2_ddr_phy_top__parameterized0 |        665 |        665 |       0 |    0 |     0 |      0 |      0 |          0 |
+|             u_ddr_calib_top                                       |       mig_7series_v4_2_ddr_calib_top__parameterized0 |       5168 |       5151 |       0 |   17 |  3606 |      0 |      0 |          0 |
+|               (u_ddr_calib_top)                                   |       mig_7series_v4_2_ddr_calib_top__parameterized0 |         52 |         51 |       0 |    1 |    29 |      0 |      0 |          0 |
+|               ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl         |                  mig_7series_v4_2_ddr_phy_prbs_rdlvl |        442 |        442 |       0 |    0 |   371 |      0 |      0 |          0 |
+|               ddr_phy_rdlvl_gen.u_ddr_phy_rdlvl                   |                       mig_7series_v4_2_ddr_phy_rdlvl |        867 |        867 |       0 |    0 |   971 |      0 |      0 |          0 |
+|               ddr_phy_tempmon_0                                   |                     mig_7series_v4_2_ddr_phy_tempmon |        256 |        256 |       0 |    0 |   231 |      0 |      0 |          0 |
+|               dqsfind_calib_left.u_ddr_phy_dqs_found_cal_hr       |            mig_7series_v4_2_ddr_phy_dqs_found_cal_hr |        168 |        167 |       0 |    1 |   171 |      0 |      0 |          0 |
+|               mb_wrlvl_inst.u_ddr_phy_wrlvl                       |                       mig_7series_v4_2_ddr_phy_wrlvl |        553 |        552 |       0 |    1 |   492 |      0 |      0 |          0 |
+|               oclk_calib.u_ddr_phy_oclkdelay_cal                  |               mig_7series_v4_2_ddr_phy_oclkdelay_cal |       1280 |       1278 |       0 |    2 |   574 |      0 |      0 |          0 |
+|                 u_poc                                             |                             mig_7series_v4_2_poc_top |        331 |        329 |       0 |    2 |   178 |      0 |      0 |          0 |
+|                   u_poc_tap_base                                  |                        mig_7series_v4_2_poc_tap_base |         89 |         89 |       0 |    0 |    65 |      0 |      0 |          0 |
+|                   u_poc_meta                                      |                            mig_7series_v4_2_poc_meta |        168 |        166 |       0 |    2 |    71 |      0 |      0 |          0 |
+|                 u_ocd_data                                        |                    mig_7series_v4_2_ddr_phy_ocd_data |        282 |        282 |       0 |    0 |    64 |      0 |      0 |          0 |
+|                 u_ocd_lim                                         |                     mig_7series_v4_2_ddr_phy_ocd_lim |        175 |        175 |       0 |    0 |   101 |      0 |      0 |          0 |
+|                 u_ocd_po_cntlr                                    |                mig_7series_v4_2_ddr_phy_ocd_po_cntlr |        326 |        326 |       0 |    0 |   123 |      0 |      0 |          0 |
+|                 u_ocd_samp                                        |                    mig_7series_v4_2_ddr_phy_ocd_samp |         77 |         77 |       0 |    0 |    48 |      0 |      0 |          0 |
+|               u_ddr_phy_init                                      |                        mig_7series_v4_2_ddr_phy_init |       1032 |       1027 |       0 |    5 |   394 |      0 |      0 |          0 |
+|               u_ddr_phy_wrcal                                     |                       mig_7series_v4_2_ddr_phy_wrcal |        377 |        371 |       0 |    6 |   315 |      0 |      0 |          0 |
+|               u_ddr_prbs_gen                                      |                        mig_7series_v4_2_ddr_prbs_gen |        112 |        112 |       0 |    0 |    33 |      0 |      0 |          0 |
+|             u_ddr_mc_phy_wrapper                                  |  mig_7series_v4_2_ddr_mc_phy_wrapper__parameterized0 |       2126 |       1258 |     856 |   12 |  1264 |      0 |      0 |          0 |
+|               u_ddr_mc_phy                                        |          mig_7series_v4_2_ddr_mc_phy__parameterized0 |       2072 |       1204 |     856 |   12 |  1129 |      0 |      0 |          0 |
+|                 ddr_phy_4lanes_2.u_ddr_phy_4lanes                 |      mig_7series_v4_2_ddr_phy_4lanes__parameterized4 |        830 |        473 |     352 |    5 |   462 |      0 |      0 |          0 |
+|                   (ddr_phy_4lanes_2.u_ddr_phy_4lanes)             |      mig_7series_v4_2_ddr_phy_4lanes__parameterized4 |         62 |         61 |       0 |    1 |    20 |      0 |      0 |          0 |
+|                   ddr_byte_lane_A.ddr_byte_lane_A                 |                       mig_7series_v4_2_ddr_byte_lane |        192 |        103 |      88 |    1 |   111 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_A.ddr_byte_lane_A)             |                       mig_7series_v4_2_ddr_byte_lane |          2 |          2 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                mig_7series_v4_2_ddr_if_post_fifo__14 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__20 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_B.ddr_byte_lane_B                 |    mig_7series_v4_2_ddr_byte_lane__parameterized8__2 |        192 |        103 |      88 |    1 |   109 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_B.ddr_byte_lane_B)             |    mig_7series_v4_2_ddr_byte_lane__parameterized8__2 |          2 |          2 |       0 |    0 |    69 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                mig_7series_v4_2_ddr_if_post_fifo__17 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__23 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_C.ddr_byte_lane_C                 |   mig_7series_v4_2_ddr_byte_lane__parameterized10__1 |        192 |        103 |      88 |    1 |   111 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_C.ddr_byte_lane_C)             |   mig_7series_v4_2_ddr_byte_lane__parameterized10__1 |          2 |          2 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                mig_7series_v4_2_ddr_if_post_fifo__16 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__22 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_D.ddr_byte_lane_D                 |    mig_7series_v4_2_ddr_byte_lane__parameterized2__3 |        192 |        103 |      88 |    1 |   111 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_D.ddr_byte_lane_D)             |    mig_7series_v4_2_ddr_byte_lane__parameterized2__3 |          2 |          2 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                mig_7series_v4_2_ddr_if_post_fifo__15 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__21 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                 ddr_phy_4lanes_0.u_ddr_phy_4lanes                 |      mig_7series_v4_2_ddr_phy_4lanes__parameterized2 |        830 |        473 |     352 |    5 |   460 |      0 |      0 |          0 |
+|                   (ddr_phy_4lanes_0.u_ddr_phy_4lanes)             |      mig_7series_v4_2_ddr_phy_4lanes__parameterized2 |         62 |         61 |       0 |    1 |    20 |      0 |      0 |          0 |
+|                   ddr_byte_lane_A.ddr_byte_lane_A                 |       mig_7series_v4_2_ddr_byte_lane__parameterized3 |        192 |        103 |      88 |    1 |   109 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_A.ddr_byte_lane_A)             |       mig_7series_v4_2_ddr_byte_lane__parameterized3 |          2 |          2 |       0 |    0 |    69 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                    mig_7series_v4_2_ddr_if_post_fifo |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             |     mig_7series_v4_2_ddr_of_pre_fifo__parameterized1 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_B.ddr_byte_lane_B                 |       mig_7series_v4_2_ddr_byte_lane__parameterized8 |        192 |        103 |      88 |    1 |   109 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_B.ddr_byte_lane_B)             |       mig_7series_v4_2_ddr_byte_lane__parameterized8 |          2 |          2 |       0 |    0 |    69 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                mig_7series_v4_2_ddr_if_post_fifo__13 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__19 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_C.ddr_byte_lane_C                 |      mig_7series_v4_2_ddr_byte_lane__parameterized10 |        192 |        103 |      88 |    1 |   111 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_C.ddr_byte_lane_C)             |      mig_7series_v4_2_ddr_byte_lane__parameterized10 |          2 |          2 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                mig_7series_v4_2_ddr_if_post_fifo__12 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__18 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_D.ddr_byte_lane_D                 |       mig_7series_v4_2_ddr_byte_lane__parameterized2 |        192 |        103 |      88 |    1 |   111 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_D.ddr_byte_lane_D)             |       mig_7series_v4_2_ddr_byte_lane__parameterized2 |          2 |          2 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                mig_7series_v4_2_ddr_if_post_fifo__11 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__17 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                 ddr_phy_4lanes_1.u_ddr_phy_4lanes                 |      mig_7series_v4_2_ddr_phy_4lanes__parameterized3 |        391 |        237 |     152 |    2 |   191 |      0 |      0 |          0 |
+|                   ddr_byte_lane_D.ddr_byte_lane_D                 |      mig_7series_v4_2_ddr_byte_lane__parameterized13 |         57 |         33 |      24 |    0 |    20 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__13 |         57 |         33 |      24 |    0 |    19 |      0 |      0 |          0 |
+|                   ddr_byte_lane_A.ddr_byte_lane_A                 |                    mig_7series_v4_2_ddr_byte_lane__2 |        192 |        103 |      88 |    1 |   111 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_A.ddr_byte_lane_A)             |                    mig_7series_v4_2_ddr_byte_lane__2 |          2 |          2 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                mig_7series_v4_2_ddr_if_post_fifo__10 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__16 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_C.ddr_byte_lane_C                 |       mig_7series_v4_2_ddr_byte_lane__parameterized5 |         71 |         39 |      32 |    0 |    20 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__14 |         71 |         39 |      32 |    0 |    19 |      0 |      0 |          0 |
+|         u_axi_mc                                                  |                              mig_7series_v4_2_axi_mc |        553 |         31 |       0 |  522 |   102 |      0 |      0 |          0 |
+|           axi_mc_r_channel_0                                      |                    mig_7series_v4_2_axi_mc_r_channel |        536 |         18 |       0 |  518 |    25 |      0 |      0 |          0 |
+|             rd_data_fifo_0                                        |         mig_7series_v4_2_axi_mc_fifo__parameterized0 |        518 |          5 |       0 |  513 |     6 |      0 |      0 |          0 |
+|       c0_temp_mon_enabled.u_tempmon                               |                             mig_7series_v4_2_tempmon |         24 |         24 |       0 |    0 |   122 |      0 |      0 |          0 |
+|       c0_u_ddr3_infrastructure                                    |                   mig_7series_v4_2_infrastructure__1 |         17 |         17 |       0 |    0 |    65 |      0 |      0 |          0 |
+|       c0_u_memc_ui_top_axi                                        |                     mig_7series_v4_2_memc_ui_top_axi |      14114 |      11598 |    1964 |  552 | 10319 |      0 |      0 |          0 |
+|         (c0_u_memc_ui_top_axi)                                    |                     mig_7series_v4_2_memc_ui_top_axi |          0 |          0 |       0 |    0 |   514 |      0 |      0 |          0 |
+|         gen_axi_ctrl_top.axi_ctrl_top_0                           |                     mig_7series_v4_2_axi_ctrl_top__1 |        364 |        364 |       0 |    0 |    86 |      0 |      0 |          0 |
+|           axi_ctrl_reg_bank_0                                     |                mig_7series_v4_2_axi_ctrl_reg_bank__1 |        314 |        314 |       0 |    0 |    77 |      0 |      0 |          0 |
+|             (axi_ctrl_reg_bank_0)                                 |                mig_7series_v4_2_axi_ctrl_reg_bank__1 |        273 |        273 |       0 |    0 |     2 |      0 |      0 |          0 |
+|         mem_intfc0                                                |                           mig_7series_v4_2_mem_intfc |      10665 |       9419 |    1216 |   30 |  6622 |      0 |      0 |          0 |
+|           mc0                                                     |                                  mig_7series_v4_2_mc |       2699 |       2342 |     356 |    1 |  1754 |      0 |      0 |          0 |
+|             (mc0)                                                 |                                  mig_7series_v4_2_mc |          1 |          1 |       0 |    0 |    89 |      0 |      0 |          0 |
+|             bank_mach0                                            |                           mig_7series_v4_2_bank_mach |        619 |        619 |       0 |    0 |   404 |      0 |      0 |          0 |
+|               bank_cntrl[3].bank0                                 |          mig_7series_v4_2_bank_cntrl__parameterized2 |         94 |         94 |       0 |    0 |    81 |      0 |      0 |          0 |
+|               arb_mux0                                            |                             mig_7series_v4_2_arb_mux |        206 |        206 |       0 |    0 |    57 |      0 |      0 |          0 |
+|                 arb_select0                                       |                          mig_7series_v4_2_arb_select |        163 |        163 |       0 |    0 |    25 |      0 |      0 |          0 |
+|               bank_cntrl[0].bank0                                 |                          mig_7series_v4_2_bank_cntrl |         91 |         91 |       0 |    0 |    81 |      0 |      0 |          0 |
+|               bank_cntrl[1].bank0                                 |          mig_7series_v4_2_bank_cntrl__parameterized0 |         94 |         94 |       0 |    0 |    81 |      0 |      0 |          0 |
+|               bank_cntrl[2].bank0                                 |          mig_7series_v4_2_bank_cntrl__parameterized1 |         93 |         93 |       0 |    0 |    81 |      0 |      0 |          0 |
+|             ecc_on.ecc_buf0                                       |                             mig_7series_v4_2_ecc_buf |        344 |          0 |     344 |    0 |    12 |      0 |      0 |          0 |
+|             ecc_on.ecc_dec_fix0                                   |                         mig_7series_v4_2_ecc_dec_fix |        952 |        952 |       0 |    0 |   576 |      0 |      0 |          0 |
+|             ecc_on.ecc_merge_enc0                                 |                       mig_7series_v4_2_ecc_merge_enc |        672 |        672 |       0 |    0 |   576 |      0 |      0 |          0 |
+|             rank_mach0                                            |                           mig_7series_v4_2_rank_mach |         81 |         80 |       0 |    1 |    64 |      0 |      0 |          0 |
+|               rank_common0                                        |                         mig_7series_v4_2_rank_common |         56 |         56 |       0 |    0 |    49 |      0 |      0 |          0 |
+|                 (rank_common0)                                    |                         mig_7series_v4_2_rank_common |         54 |         54 |       0 |    0 |    46 |      0 |      0 |          0 |
+|           ddr_phy_top0                                            |                         mig_7series_v4_2_ddr_phy_top |       7966 |       7077 |     860 |   29 |  4868 |      0 |      0 |          0 |
+|             (ddr_phy_top0)                                        |                         mig_7series_v4_2_ddr_phy_top |        670 |        670 |       0 |    0 |     0 |      0 |      0 |          0 |
+|             u_ddr_calib_top                                       |                       mig_7series_v4_2_ddr_calib_top |       5166 |       5149 |       0 |   17 |  3606 |      0 |      0 |          0 |
+|               (u_ddr_calib_top)                                   |                       mig_7series_v4_2_ddr_calib_top |         50 |         49 |       0 |    1 |    29 |      0 |      0 |          0 |
+|               ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl         |               mig_7series_v4_2_ddr_phy_prbs_rdlvl__1 |        442 |        442 |       0 |    0 |   371 |      0 |      0 |          0 |
+|               ddr_phy_rdlvl_gen.u_ddr_phy_rdlvl                   |                    mig_7series_v4_2_ddr_phy_rdlvl__1 |        867 |        867 |       0 |    0 |   971 |      0 |      0 |          0 |
+|               ddr_phy_tempmon_0                                   |                  mig_7series_v4_2_ddr_phy_tempmon__1 |        256 |        256 |       0 |    0 |   231 |      0 |      0 |          0 |
+|               dqsfind_calib_left.u_ddr_phy_dqs_found_cal_hr       |         mig_7series_v4_2_ddr_phy_dqs_found_cal_hr__1 |        168 |        167 |       0 |    1 |   171 |      0 |      0 |          0 |
+|               mb_wrlvl_inst.u_ddr_phy_wrlvl                       |                    mig_7series_v4_2_ddr_phy_wrlvl__1 |        553 |        552 |       0 |    1 |   492 |      0 |      0 |          0 |
+|               oclk_calib.u_ddr_phy_oclkdelay_cal                  |            mig_7series_v4_2_ddr_phy_oclkdelay_cal__1 |       1280 |       1278 |       0 |    2 |   574 |      0 |      0 |          0 |
+|                 u_poc                                             |                          mig_7series_v4_2_poc_top__1 |        331 |        329 |       0 |    2 |   178 |      0 |      0 |          0 |
+|                   u_poc_tap_base                                  |                     mig_7series_v4_2_poc_tap_base__1 |         89 |         89 |       0 |    0 |    65 |      0 |      0 |          0 |
+|                   u_poc_meta                                      |                         mig_7series_v4_2_poc_meta__1 |        168 |        166 |       0 |    2 |    71 |      0 |      0 |          0 |
+|                 u_ocd_data                                        |                 mig_7series_v4_2_ddr_phy_ocd_data__1 |        282 |        282 |       0 |    0 |    64 |      0 |      0 |          0 |
+|                 u_ocd_lim                                         |                  mig_7series_v4_2_ddr_phy_ocd_lim__1 |        175 |        175 |       0 |    0 |   101 |      0 |      0 |          0 |
+|                 u_ocd_po_cntlr                                    |             mig_7series_v4_2_ddr_phy_ocd_po_cntlr__1 |        326 |        326 |       0 |    0 |   123 |      0 |      0 |          0 |
+|                 u_ocd_samp                                        |                 mig_7series_v4_2_ddr_phy_ocd_samp__1 |         77 |         77 |       0 |    0 |    48 |      0 |      0 |          0 |
+|               u_ddr_phy_init                                      |                     mig_7series_v4_2_ddr_phy_init__1 |       1032 |       1027 |       0 |    5 |   394 |      0 |      0 |          0 |
+|               u_ddr_phy_wrcal                                     |                    mig_7series_v4_2_ddr_phy_wrcal__1 |        377 |        371 |       0 |    6 |   315 |      0 |      0 |          0 |
+|               u_ddr_prbs_gen                                      |                     mig_7series_v4_2_ddr_prbs_gen__1 |        112 |        112 |       0 |    0 |    33 |      0 |      0 |          0 |
+|             u_ddr_mc_phy_wrapper                                  |                  mig_7series_v4_2_ddr_mc_phy_wrapper |       2130 |       1258 |     860 |   12 |  1262 |      0 |      0 |          0 |
+|               u_ddr_mc_phy                                        |                          mig_7series_v4_2_ddr_mc_phy |       2076 |       1204 |     860 |   12 |  1127 |      0 |      0 |          0 |
+|                 ddr_phy_4lanes_2.u_ddr_phy_4lanes                 |      mig_7series_v4_2_ddr_phy_4lanes__parameterized1 |        830 |        473 |     352 |    5 |   460 |      0 |      0 |          0 |
+|                   (ddr_phy_4lanes_2.u_ddr_phy_4lanes)             |      mig_7series_v4_2_ddr_phy_4lanes__parameterized1 |         62 |         61 |       0 |    1 |    20 |      0 |      0 |          0 |
+|                   ddr_byte_lane_A.ddr_byte_lane_A                 |    mig_7series_v4_2_ddr_byte_lane__parameterized3__2 |        192 |        103 |      88 |    1 |   109 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_A.ddr_byte_lane_A)             |    mig_7series_v4_2_ddr_byte_lane__parameterized3__2 |          2 |          2 |       0 |    0 |    69 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                 mig_7series_v4_2_ddr_if_post_fifo__5 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             |  mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__8 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_B.ddr_byte_lane_B                 |    mig_7series_v4_2_ddr_byte_lane__parameterized8__1 |        192 |        103 |      88 |    1 |   109 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_B.ddr_byte_lane_B)             |    mig_7series_v4_2_ddr_byte_lane__parameterized8__1 |          2 |          2 |       0 |    0 |    69 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                 mig_7series_v4_2_ddr_if_post_fifo__4 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             |  mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__7 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_C.ddr_byte_lane_C                 |       mig_7series_v4_2_ddr_byte_lane__parameterized9 |        192 |        103 |      88 |    1 |   111 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_C.ddr_byte_lane_C)             |       mig_7series_v4_2_ddr_byte_lane__parameterized9 |          2 |          2 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                 mig_7series_v4_2_ddr_if_post_fifo__3 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             |  mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__6 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_D.ddr_byte_lane_D                 |    mig_7series_v4_2_ddr_byte_lane__parameterized2__1 |        192 |        103 |      88 |    1 |   111 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_D.ddr_byte_lane_D)             |    mig_7series_v4_2_ddr_byte_lane__parameterized2__1 |          2 |          2 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                 mig_7series_v4_2_ddr_if_post_fifo__8 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__11 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                 ddr_phy_4lanes_0.u_ddr_phy_4lanes                 |                      mig_7series_v4_2_ddr_phy_4lanes |        830 |        473 |     352 |    5 |   462 |      0 |      0 |          0 |
+|                   (ddr_phy_4lanes_0.u_ddr_phy_4lanes)             |                      mig_7series_v4_2_ddr_phy_4lanes |         62 |         61 |       0 |    1 |    20 |      0 |      0 |          0 |
+|                   ddr_byte_lane_A.ddr_byte_lane_A                 |                    mig_7series_v4_2_ddr_byte_lane__1 |        192 |        103 |      88 |    1 |   111 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_A.ddr_byte_lane_A)             |                    mig_7series_v4_2_ddr_byte_lane__1 |          2 |          2 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                 mig_7series_v4_2_ddr_if_post_fifo__9 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__12 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_B.ddr_byte_lane_B                 |       mig_7series_v4_2_ddr_byte_lane__parameterized0 |        192 |        103 |      88 |    1 |   109 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_B.ddr_byte_lane_B)             |       mig_7series_v4_2_ddr_byte_lane__parameterized0 |          2 |          2 |       0 |    0 |    69 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                 mig_7series_v4_2_ddr_if_post_fifo__7 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__10 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_C.ddr_byte_lane_C                 |       mig_7series_v4_2_ddr_byte_lane__parameterized1 |        192 |        103 |      88 |    1 |   111 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_C.ddr_byte_lane_C)             |       mig_7series_v4_2_ddr_byte_lane__parameterized1 |          2 |          2 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                 mig_7series_v4_2_ddr_if_post_fifo__6 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             |  mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__9 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_D.ddr_byte_lane_D                 |    mig_7series_v4_2_ddr_byte_lane__parameterized2__2 |        192 |        103 |      88 |    1 |   111 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_D.ddr_byte_lane_D)             |    mig_7series_v4_2_ddr_byte_lane__parameterized2__2 |          2 |          2 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                 mig_7series_v4_2_ddr_if_post_fifo__2 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             |  mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__5 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                 ddr_phy_4lanes_1.u_ddr_phy_4lanes                 |      mig_7series_v4_2_ddr_phy_4lanes__parameterized0 |        395 |        237 |     156 |    2 |   189 |      0 |      0 |          0 |
+|                   ddr_byte_lane_D.ddr_byte_lane_D                 |       mig_7series_v4_2_ddr_byte_lane__parameterized6 |         55 |         31 |      24 |    0 |    20 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             |  mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__1 |         55 |         31 |      24 |    0 |    19 |      0 |      0 |          0 |
+|                   ddr_byte_lane_A.ddr_byte_lane_A                 |    mig_7series_v4_2_ddr_byte_lane__parameterized3__1 |        192 |        103 |      88 |    1 |   109 |      0 |      0 |          0 |
+|                     (ddr_byte_lane_A.ddr_byte_lane_A)             |    mig_7series_v4_2_ddr_byte_lane__parameterized3__1 |          2 |          2 |       0 |    0 |    69 |      0 |      0 |          0 |
+|                     dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                 mig_7series_v4_2_ddr_if_post_fifo__1 |         91 |         47 |      44 |    0 |    14 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             |  mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__4 |         97 |         53 |      44 |    0 |    24 |      0 |      0 |          0 |
+|                   ddr_byte_lane_C.ddr_byte_lane_C                 |    mig_7series_v4_2_ddr_byte_lane__parameterized5__1 |         71 |         39 |      32 |    0 |    20 |      0 |      0 |          0 |
+|                     of_pre_fifo_gen.u_ddr_of_pre_fifo             |  mig_7series_v4_2_ddr_of_pre_fifo__parameterized1__2 |         71 |         39 |      32 |    0 |    19 |      0 |      0 |          0 |
+|         u_axi_mc                                                  |                           mig_7series_v4_2_axi_mc__1 |       1424 |        902 |       0 |  522 |  1312 |      0 |      0 |          0 |
+|           axi_mc_w_channel_0                                      |                 mig_7series_v4_2_axi_mc_w_channel__1 |        591 |        591 |       0 |    0 |  1091 |      0 |      0 |          0 |
+|           axi_mc_ar_channel_0                                     |                mig_7series_v4_2_axi_mc_ar_channel__1 |        103 |        103 |       0 |    0 |    68 |      0 |      0 |          0 |
+|             axi_mc_cmd_translator_0                               |            mig_7series_v4_2_axi_mc_cmd_translator__1 |         87 |         87 |       0 |    0 |    39 |      0 |      0 |          0 |
+|               axi_mc_incr_cmd_0                                   |                  mig_7series_v4_2_axi_mc_incr_cmd__1 |         86 |         86 |       0 |    0 |    39 |      0 |      0 |          0 |
+|           axi_mc_aw_channel_0                                     |                mig_7series_v4_2_axi_mc_aw_channel__1 |        103 |        103 |       0 |    0 |    66 |      0 |      0 |          0 |
+|             axi_mc_cmd_translator_0                               |            mig_7series_v4_2_axi_mc_cmd_translator__2 |         87 |         87 |       0 |    0 |    39 |      0 |      0 |          0 |
+|               axi_mc_incr_cmd_0                                   |                  mig_7series_v4_2_axi_mc_incr_cmd__2 |         86 |         86 |       0 |    0 |    39 |      0 |      0 |          0 |
+|           axi_mc_r_channel_0                                      |                 mig_7series_v4_2_axi_mc_r_channel__1 |        567 |         49 |       0 |  518 |    45 |      0 |      0 |          0 |
+|             rd_data_fifo_0                                        |      mig_7series_v4_2_axi_mc_fifo__parameterized0__1 |        543 |         30 |       0 |  513 |    26 |      0 |      0 |          0 |
+|         u_ui_top                                                  |                           mig_7series_v4_2_ui_top__1 |       1661 |        913 |     748 |    0 |  1785 |      0 |      0 |          0 |
+|           ui_wr_data0                                             |                       mig_7series_v4_2_ui_wr_data__1 |        984 |        592 |     392 |    0 |  1165 |      0 |      0 |          0 |
+|           ui_cmd0                                                 |                           mig_7series_v4_2_ui_cmd__1 |         22 |         22 |       0 |    0 |    57 |      0 |      0 |          0 |
+|           ui_rd_data0                                             |                       mig_7series_v4_2_ui_rd_data__1 |        655 |        299 |     356 |    0 |   563 |      0 |      0 |          0 |
+|       c1_temp_mon_enabled.u_tempmon                               |             mig_7series_v4_2_tempmon__parameterized0 |         10 |         10 |       0 |    0 |    77 |      0 |      0 |          0 |
+|       c1_u_ddr3_infrastructure                                    |                      mig_7series_v4_2_infrastructure |         17 |         17 |       0 |    0 |    65 |      0 |      0 |          0 |
++-------------------------------------------------------------------+------------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+
+

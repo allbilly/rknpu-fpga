@@ -1,0 +1,57 @@
+{
+  "name": "ecc_control_timeout",
+  "status": "PASS",
+  "spec": {
+    "name": "ecc_control_timeout",
+    "case": "capture_sub_9",
+    "address": 269352960,
+    "amount": 35,
+    "tasks": 2,
+    "lines": 1600,
+    "jobs": 1,
+    "negative": 7,
+    "reset_recovery": 0
+  },
+  "metrics": {
+    "lines": 1600,
+    "physical_bytes": 102400,
+    "uploaded_nonzero": 77,
+    "successful_jobs": 0,
+    "phy_user_returns": null,
+    "host_read64_packets": 2,
+    "host_read64_axi_reads": 2,
+    "uncached_phy_user_returns": null,
+    "phy_user_returns_minimum": 4995
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/obj/sim",
+      "+CASE=/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_sub_9",
+      "+OUTPUT=/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/snapshot-matrix-C-v3/ecc_control_timeout/observed.txt",
+      "+START=100e0000",
+      "+AMOUNT=35",
+      "+NTASKS=2",
+      "+NLINES=1600",
+      "+JOBS=1",
+      "+NEGATIVE=7",
+      "+RESET_RECOVERY=0"
+    ],
+    "timeout_seconds": 300,
+    "started_utc": "2026-10-27T14:37:39.767910+00:00",
+    "status": "EXITED",
+    "pid": 960433,
+    "returncode": 0,
+    "seconds": 183.17181698884815,
+    "finished_utc": "2026-10-27T14:40:42.939928+00:00",
+    "log_sha256": "c14e0b821cc6d7a838b4e314fd0f7f914c74a36b96144f0e34f571986703871e"
+  },
+  "marker": "PASS jtag_ew_ddr_read_snapshot jobs=1 negative=7 recovered=0 lines=1600 uploaded_nonzero=77 rawtasks=2 phy_user_returns=5320 read64_packets=2 read64_axi_reads=2 scope=actual_AXI_UI_MC_modeled_PHY",
+  "phy_user_returns": 5320,
+  "read64_packets": 2,
+  "read64_axi_reads": 2,
+  "readback_physical_bytes": 0,
+  "persisted_final_image_physical_bytes": 0,
+  "observed_text_bytes": 0,
+  "observed_sha256": null,
+  "successful_jobs": 0
+}

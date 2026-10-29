@@ -1,0 +1,129 @@
+{
+  "bitstream_sha256": "de982cd7e6c41d13de8e1f047c92fd515ab590e6958339a1dd37135642bef2a4",
+  "capacity_base": 0,
+  "capacity_bytes": 2147483648,
+  "complete_normal_BO_bytes_before_ACK": 245760,
+  "completed_reads": 67108864,
+  "completed_writes": 67108864,
+  "deliberate_volatile_loads": 2,
+  "device_status": "0x68",
+  "dna_port": "004E544714C705C",
+  "ecc_injection_qualified": false,
+  "fault_codes": 0,
+  "fault_sources": 0,
+  "flash_written": false,
+  "four_retirement_ECC_witnesses_required_by_qualified_mapped_BIST": true,
+  "frequency_hz": 3000000,
+  "frozen_inputs_rehashed": 234,
+  "full_TinyStories_on_this_image_qualified": false,
+  "full_capacity_qualified": true,
+  "independent_external_fence_event_counter": false,
+  "lines_per_trial": 33554432,
+  "live_joint_reset_tested": false,
+  "memory_payloads_of_entire_sweep_observed_on_jtag": false,
+  "normal_jobs": 4,
+  "normal_tasks": 6,
+  "owned_groups_absent_before_lease_release": true,
+  "pcie_tested": false,
+  "phase_reviews": [
+    {
+      "audit_sha256": "e679dd46486ada3433fb4ab21c126d8627f61325e6219c54fb5fc0818433d6c5",
+      "name": "scratch",
+      "scan_statistics": {
+        "commands": 81,
+        "idcodes": 1,
+        "initial_retained_sequence": 0,
+        "scans": 247,
+        "tap_resets": 1
+      },
+      "trace_sha256": "2534307ad5318b1af7f19a47e88b9f9e72e044430d690c50688d817daf971067"
+    },
+    {
+      "audit_sha256": "766e5c8a82a4b0e7b365d13623f24907fda97301e1a678591acf6773c4e4c2e7",
+      "name": "epoch-1-cmac",
+      "scan_statistics": {
+        "commands": 1623,
+        "idcodes": 1,
+        "initial_retained_sequence": 81,
+        "scans": 4873,
+        "tap_resets": 1
+      },
+      "trace_sha256": "35ba6ffdf8fb0628cad9df84e18c5c144be319f74b75fbb6935541d54e8bd49b"
+    },
+    {
+      "audit_sha256": "8bc37d933d446991bdb0d56eb3fb200ebb485fab477fb6876c5c368accfefc9b",
+      "name": "epoch-1-ew",
+      "scan_statistics": {
+        "commands": 8019,
+        "idcodes": 1,
+        "initial_retained_sequence": 1704,
+        "scans": 24061,
+        "tap_resets": 1
+      },
+      "trace_sha256": "e0423c8dd1403a47594bb8edf80775defc526617fc900003a19f90502baa830c"
+    },
+    {
+      "audit_sha256": "fb7f544603dc28a730f8d2f2a6dbfeb2bd19c8b8eaae86e92f339fa99e5accd8",
+      "name": "capacity",
+      "scan_statistics": {
+        "commands": 337,
+        "idcodes": 1,
+        "initial_retained_sequence": 9723,
+        "scans": 1015,
+        "tap_resets": 1
+      },
+      "trace_sha256": "bfb07b14b1ecf44ea93dd43f20da2c0fea8777d8523f9be1423e5b747f5597c5"
+    },
+    {
+      "audit_sha256": "5676336abe179bf50d912e02bea40b5049d587c8589c243ac092f7468e79f469",
+      "name": "epoch-2-cmac",
+      "scan_statistics": {
+        "commands": 1623,
+        "idcodes": 1,
+        "initial_retained_sequence": 0,
+        "scans": 4873,
+        "tap_resets": 1
+      },
+      "trace_sha256": "d1b0e280021ec4473a4c36338a05468de02379656e441b5518f5b506d5aae0d3"
+    },
+    {
+      "audit_sha256": "730bbd0a16f9648638f47a258033f5080d58e9f44c08097104638dc304063f5b",
+      "name": "epoch-2-ew",
+      "scan_statistics": {
+        "commands": 8019,
+        "idcodes": 1,
+        "initial_retained_sequence": 1623,
+        "scans": 24061,
+        "tap_resets": 1
+      },
+      "trace_sha256": "2db1dc857e47524433e12b3b220bfbba2d10726f4515e7af2829609c45b262cf"
+    }
+  ],
+  "physical_artifacts_rehashed": 60,
+  "physical_tool_versions": [
+    [
+      "****** Vivado Lab Edition v2026.1.1 (64-bit)",
+      "  **** SW Build 6605303 on Fri Sep 04 05:39:33 MDT 2026"
+    ],
+    [
+      "****** Vivado Lab Edition v2026.1.1 (64-bit)",
+      "  **** SW Build 6605303 on Fri Sep 04 05:39:33 MDT 2026"
+    ]
+  ],
+  "producer_sha256": "296a998a5b333997c7c2c04803947a5f92a3dcd0c7c376aa20f51f346a6fc3cb",
+  "raw_idcode": "23751093",
+  "recovery_path": "Audited volatile reconfiguration, full hardware initialization, original BO reload and raw K65/SUB9 execution",
+  "reviewer_sha256": "4d87f7c0a55370f7319f1c760aa317f6a29bb62e8852ebd62588f14c352c58ee",
+  "scope": "Exact retirement-capacity bitfile/target and six complete actual scan traces. Full two-trial 2GiB mapped BIST management witnesses plus pre/post-reconfiguration raw numerical execution. The BIST compares internally; USER2 does not dump all DDR payloads. No physical FI/PCIe/live-reset/full-model/RK-equivalence claim.",
+  "scratch_bytes": 768,
+  "source_manifest_sha256": "2c8f17ddfbd2b5da1ad2125af22be6a03418227a5a4aab5ce68352abde6a6667",
+  "source_tag": "2c8f17dd",
+  "status": "PASS_ROOT_PHYSICAL_FULL512_TWO_GIB_CAPACITY_AND_RECONFIGURED_RAW_JOBS",
+  "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+  "total_scan_statistics": {
+    "commands": 19702,
+    "scans": 59130
+  },
+  "trials": 2,
+  "utc": "2026-10-28T21:53:25.975956+00:00"
+}

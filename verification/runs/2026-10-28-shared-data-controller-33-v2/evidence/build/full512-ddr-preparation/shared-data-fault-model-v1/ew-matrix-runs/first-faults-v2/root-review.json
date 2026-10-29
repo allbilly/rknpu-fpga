@@ -1,0 +1,59 @@
+{
+  "status": "PASS_INDEPENDENT_SELECTED_EW_CANDIDATE_CONTROLLER_CASES_ONLY",
+  "utc": "2026-10-28T00:18:22.972436+00:00",
+  "producer_sha256": "4a3f99a98eab35424d1b8c63ee9ee2b354bb1166f1d6fcd5af7bce38d9e31804",
+  "source_inputs_rehashed": 524,
+  "vector_files_rehashed": 20,
+  "binary_sha256": "120a413d661c4bc03631142c3b2b70559cbdf9b2ba121b3c2ab3f5505f3af8bf",
+  "original_deadlines_preserved": true,
+  "original_specs_and_metric_contracts_preserved": true,
+  "cases": [
+    {
+      "name": "host_memory_timeout",
+      "negative": 9,
+      "reset_recovery": 0,
+      "raw_fixture_tasks": 2,
+      "phy_returns": 68,
+      "read64_packets": 2,
+      "complete_bo_bytes": 0,
+      "native_seconds": 64.98287130217068,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "unknown_command",
+      "negative": 1,
+      "reset_recovery": 0,
+      "raw_fixture_tasks": 2,
+      "phy_returns": 5064,
+      "read64_packets": 3,
+      "complete_bo_bytes": 0,
+      "native_seconds": 226.99206797615625,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "calibration_loss",
+      "negative": 5,
+      "reset_recovery": 0,
+      "raw_fixture_tasks": 2,
+      "phy_returns": 4995,
+      "read64_packets": 2,
+      "complete_bo_bytes": 0,
+      "native_seconds": 229.43267270782962,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "partial_task_fault",
+      "negative": 10,
+      "reset_recovery": 0,
+      "raw_fixture_tasks": 2,
+      "phy_returns": 5183,
+      "read64_packets": 2,
+      "complete_bo_bytes": 0,
+      "native_seconds": 244.77032676688395,
+      "timeout_seconds": 300
+    }
+  ],
+  "full21_union_qualified": false,
+  "physical_or_routed_qualified": false,
+  "hardware_accessed": false
+}

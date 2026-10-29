@@ -1,0 +1,40 @@
+{
+  "synthesis": [
+    "rtl/vendor/nvdla/NV_DW02_tree.v",
+    "rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+    "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+    "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+    "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+    "rtl/rk_cmac_profile.sv",
+    "rtl/cmac/rk_cmac_fp16_cell.sv",
+    "rtl/cmac/rk_cmac_fp16_array.sv",
+    "rtl/cmac/rk_nvdla_cacc.sv",
+    "rtl/cmac/rk_cacc_fp16_array.sv",
+    "rtl/cmac/rk_cmac_cacc_fp16_array.sv",
+    "rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+    "rtl/cmac/rk_cmac_writer.sv",
+    "rtl/cmac/rk_cmac_output_nvdla.sv",
+    "rtl/cmac/rk_cmac_frame_output.sv",
+    "rtl/cmac/rk_cmac_array_datapath.sv",
+    "rtl/cmac/rk_cmac_array_front.sv",
+    "rtl/cmac/rk_cmac_rw_arbiter.sv",
+    "rtl/cmac/rk_cmac_array_core.sv",
+    "rtl/cmac/rk_cmac_array_dma.sv",
+    "rtl/cmac/rk_cmac_demo_memory.sv",
+    "rtl/cmac/rk_cmac_array_demo_rom.sv",
+    "rtl/cmac/rk_cmac_array_bram_demo.sv",
+    "fpga/cmac/ypcb_cmac_array_top.sv"
+  ],
+  "simulation_helpers": [
+    "rtl/vendor/nvdla/compat/nv_assert_never.v",
+    "rtl/vendor/nvdla/compat/nv_assert_no_x.v"
+  ],
+  "include_dirs": ["rtl/vendor/nvdla"],
+  "rom": "tests/cmac/array_data/board_rom.hex",
+  "top": "ypcb_cmac_array_top",
+  "bench": "tests/cmac/tb_cmac_array_bram_demo.sv",
+  "part": "xc7k480tffg1156-2",
+  "clock_period_ns": 20,
+  "constraints": "fpga/ypcb.xdc",
+  "scope": "Separate C32/K16 native candidate. No mapped, physical, electrical, timing or board-programming claim."
+}

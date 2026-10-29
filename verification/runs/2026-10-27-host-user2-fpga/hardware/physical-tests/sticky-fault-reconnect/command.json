@@ -1,0 +1,32 @@
+{
+  "started_utc": "2026-10-26T17:37:36.418988+00:00",
+  "bridge_script_sha256": "2de9e3ba5d05d5e32fcf5eb3064576bfce3736e4ba4fa4d2cc3765c01b3a0eb4",
+  "mode": "sticky-fault",
+  "load_receipt_sha256": "a988227f53a3f8ed164b2f7c81332beb8bfab3fd50be3b20ef5cdf17f7d5d44d",
+  "bridge_argv": [
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/sticky-fault-reconnect/bridge.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/sticky-fault-reconnect/vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/sticky-fault-reconnect/vivado.jou"
+  ],
+  "bridge_pid": 523027,
+  "worker_argv": [
+    "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/run_jobs.py",
+    "--out",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-3mhz-20261026T172921Z/physical-tests/sticky-fault-reconnect/jobs",
+    "--mode",
+    "sticky-fault"
+  ],
+  "worker_pid": 523254,
+  "worker_returncode": 0,
+  "bridge_returncode": 0,
+  "status": "PASS",
+  "finished_utc": "2026-10-26T17:37:45.836452+00:00",
+  "worker_report_sha256": "e20d8bdf42efe8da2c4c3fc40cec3047f5342d4990da7ed255e915022969aa2d"
+}

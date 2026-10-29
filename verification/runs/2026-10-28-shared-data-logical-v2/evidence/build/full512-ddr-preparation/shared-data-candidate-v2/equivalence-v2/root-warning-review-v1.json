@@ -1,0 +1,24 @@
+{
+  "status": "REVIEWED_SIX_SPECIFIC_SHARED_CELL_EQUIVALENCE_WARNINGS",
+  "native_strict_rc": 1,
+  "native_strict_pass": false,
+  "warning_headers": [
+    "%Warning-PINCONNECTEMPTY: /home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv:19:34: Instance pin connected by name with empty reference: 'res_b'",
+    "%Warning-PINCONNECTEMPTY: /home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv:19:44: Instance pin connected by name with empty reference: 'res_tag'",
+    "%Warning-DECLFILENAME: /home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v:680:8: Filename 'NV_NVDLA_CMAC_CORE_MAC_mul' does not match MODULE name: 'NV_NVDLA_CMAC_CORE_MAC_booth'",
+    "%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/shared_cell_checker.sv:17:16: Bits of signal are not used: 'random_word'[30:16]",
+    "%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv:7:23: Bits of signal are not used: 'first_row'[31:28]",
+    "%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv:7:34: Bits of signal are not used: 'total'[31:28]"
+  ],
+  "known_original_donor_warnings": 5,
+  "testbench_rng_warning": "Temporary random_word intentionally uses bit31 sign and low16 raw bits; state itself remains full32-bit xorshift. Bits30:16 are not observed for a given draw.",
+  "DUT_has_no_new_warning": true,
+  "compile_with_Wno_fatal_permitted": true,
+  "warning_kind_suppressions_permitted": false,
+  "full10000_random_frames_per_C_retained": true,
+  "per_shard_runtime_limit_seconds": 300,
+  "sharding_scope": "Independent full-overwrite cell vectors; complete disjoint input ranges per C, original aggregate timeout preserved",
+  "stimulus_correction": "Fresh third RNG draw now supplies independent mask bits; initial v1 generator and failed attempt preserved",
+  "strict_stderr_sha256": "dc3fdaae767b48e258cb6dc4732546a675887c0316a41d78905a0f76612e8284",
+  "hardware_accessed": false
+}

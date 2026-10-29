@@ -1,0 +1,821 @@
+python3 tools/gen_regfile.py --check
+mkdir -p build
+g++ -O2 -std=c++17 -Wall -Wextra -Werror -shared -fPIC model/half_datapath.cpp -o build/half_datapath.so
+python3 tools/gen_demo.py --check
+python3 tools/gen_vectors.py
+Demo generated files match.
+Generated 140 RTL scenarios and 12963 ALU vectors (synthetic oracle).
+python3 tools/gen_cmac_vectors.py
+python3 tools/dma_fixtures.py
+Generated 7 unchanged command streams, 38912 reference operand pairs
+python3 tools/gen_fp16_product_vectors.py
+Generated 62 DMA cases, including nine verbatim production BO captures
+python3 tools/host/run_rtl.py --simulator verilator
+{
+  "count": 230400,
+  "categories": {
+    "finite_nonzero": 219687,
+    "zero": 94,
+    "infinity": 92,
+    "nan": 10527
+  }
+}
+python3 tools/host/run_rtl.py --simulator iverilog
+PASS jtag_backend 28 replies; independent AXIL channels, 32-word endian lines, rejection, stalls, timeout quarantine and joint reset
+PASS jtag_mailbox 8 asynchronous 604-bit requests and 568-bit responses; seed=3588c640, stalls, polls, sequence wrap, reset retention
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_add_8 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3060
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_add_9 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3076
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_add_33 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3124
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_sub_8 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3382
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_sub_9 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3414
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_sub_33 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3510
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_mul_8 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3060
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_mul_9 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3076
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_mul_33 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3124
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_sub_9 mailbox=0 jobs=2 negative=0 reset_partial=0 lines=1600 commands=5221
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_sub_9 mailbox=0 jobs=1 negative=1 reset_partial=0 lines=1600 commands=1624
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_sub_9 mailbox=0 jobs=1 negative=0 reset_partial=1 lines=1600 commands=5019
+PASS jtag_backend 28 replies; independent AXIL channels, 32-word endian lines, rejection, stalls, timeout quarantine and joint reset
+PASS jtag_mailbox 8 asynchronous 604-bit requests and 568-bit responses; seed=3588c640, stalls, polls, sequence wrap, reset retention
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_add_8 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3060
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_add_9 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3076
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_add_33 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3124
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_sub_8 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3382
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_sub_9 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3414
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_sub_33 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3510
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_mul_8 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3060
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_mul_9 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3076
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_mul_33 mailbox=0 jobs=1 negative=0 reset_partial=0 lines=1472 commands=3124
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_sub_9 mailbox=0 jobs=2 negative=0 reset_partial=0 lines=1600 commands=5221
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_sub_9 mailbox=0 jobs=1 negative=1 reset_partial=0 lines=1600 commands=1624
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_sub_9 mailbox=0 jobs=1 negative=0 reset_partial=1 lines=1600 commands=5019
+PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/vectors/capture_sub_9 mailbox=1 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3219
+/home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/verilator-1793039261313005055/report.json
+python3 -m unittest discover -s tests/host -v
+test_empty_or_malformed_hashes_reject (test_image_template.HostImageTemplateTests.test_empty_or_malformed_hashes_reject) ... ok
+test_every_failed_native_gate_blocks_emission (test_image_template.HostImageTemplateTests.test_every_failed_native_gate_blocks_emission) ... ok
+test_exact_profile_emits_only_synthetic_files (test_image_template.HostImageTemplateTests.test_exact_profile_emits_only_synthetic_files) ... ok
+test_no_hardware_route_or_severity_mutation_commands (test_image_template.HostImageTemplateTests.test_no_hardware_route_or_severity_mutation_commands) ... ok
+test_close_does_not_reset_fabric_or_send_commands (test_native_link.NativeLinkTests.test_close_does_not_reset_fabric_or_send_commands) ... ok
+test_error_poison_has_no_retry_or_reset (test_native_link.NativeLinkTests.test_error_poison_has_no_retry_or_reset) ... ok
+test_explicit_orderly_bridge_shutdown (test_native_link.NativeLinkTests.test_explicit_orderly_bridge_shutdown) ... ok
+test_fragmented_response_consumes_one_absolute_deadline (test_native_link.NativeLinkTests.test_fragmented_response_consumes_one_absolute_deadline) ... ok
+test_full_640bit_response_and_original_transport_byte_path (test_native_link.NativeLinkTests.test_full_640bit_response_and_original_transport_byte_path) ... ok
+test_native_clock_is_exact_and_slower_owner_cap_is_enforced (test_native_link.NativeLinkTests.test_native_clock_is_exact_and_slower_owner_cap_is_enforced) ... ok
+test_readiness_clock_busy_or_eof_rejects_and_closes (test_native_link.NativeLinkTests.test_readiness_clock_busy_or_eof_rejects_and_closes) ... ok
+test_unsafe_ir_and_widths_fail_before_any_rpc (test_native_link.NativeLinkTests.test_unsafe_ir_and_widths_fail_before_any_rpc) ... ok
+test_raw_native_widths_identity_and_orderly_exit (test_native_rpc_tcl.NativeRpcTclTests.test_raw_native_widths_identity_and_orderly_exit) ... ok
+test_renderer_rejects_unbound_target_and_malformed_source (test_native_rpc_tcl.NativeRpcTclTests.test_renderer_rejects_unbound_target_and_malformed_source) ... ok
+test_single_owner_and_server_instruction_whitelist (test_native_rpc_tcl.NativeRpcTclTests.test_single_owner_and_server_instruction_whitelist) ... ok
+test_wrong_loaded_image_refuses_before_rpc_ready (test_native_rpc_tcl.NativeRpcTclTests.test_wrong_loaded_image_refuses_before_rpc_ready) ... ok
+test_bound_copy_survives_original_artifact_removal_but_not_tampering (test_prepare.HostPreparationTests.test_bound_copy_survives_original_artifact_removal_but_not_tampering) ... ok
+test_existing_package_and_stale_qualification_are_rejected (test_prepare.HostPreparationTests.test_existing_package_and_stale_qualification_are_rejected) ... ok
+test_foreign_workspace_reports_copy_and_verify_without_origin (test_prepare.HostPreparationTests.test_foreign_workspace_reports_copy_and_verify_without_origin) ... ok
+test_invalid_report_origin_fails_before_package_creation (test_prepare.HostPreparationTests.test_invalid_report_origin_fails_before_package_creation) ... ok
+test_mocked_checkpoint_preserves_bounded_cdc_and_physical_gates (test_prepare.HostPreparationTests.test_mocked_checkpoint_preserves_bounded_cdc_and_physical_gates) ... ok
+test_native_picosecond_quantization_strengthens_nominal_budgets (test_prepare.HostPreparationTests.test_native_picosecond_quantization_strengthens_nominal_budgets) ... ok
+test_physical_wrapper_startup_with_explicit_primitive_stubs (test_prepare.HostPreparationTests.test_physical_wrapper_startup_with_explicit_primitive_stubs) ... ok
+test_preparation_is_file_only_and_unreviewed_command_is_rejected (test_prepare.HostPreparationTests.test_preparation_is_file_only_and_unreviewed_command_is_rejected) ... ok
+test_snapshot_tcl_and_physical_claim_tampering_are_rejected (test_prepare.HostPreparationTests.test_snapshot_tcl_and_physical_claim_tampering_are_rejected) ... ok
+test_changed_content_after_generation_is_rejected (test_qualification.StimulusIdentityTests.test_changed_content_after_generation_is_rejected) ... ok
+test_exact_inventory_is_nine_pairs_and_one_partial_image (test_qualification.StimulusIdentityTests.test_exact_inventory_is_nine_pairs_and_one_partial_image) ... ok
+test_missing_and_added_input_files_are_rejected (test_qualification.StimulusIdentityTests.test_missing_and_added_input_files_are_rejected) ... ok
+test_same_corpus_copies_verify_without_original_workspace (test_qualification.StimulusIdentityTests.test_same_corpus_copies_verify_without_original_workspace) ... ok
+test_summary_only_and_wrong_artifact_binding_are_rejected (test_qualification.StimulusIdentityTests.test_summary_only_and_wrong_artifact_binding_are_rejected) ... ok
+test_bulk_roundtrip_and_edge_only_read_modify_write (test_transport.TransportTests.test_bulk_roundtrip_and_edge_only_read_modify_write) ... ok
+test_concurrent_calls_remain_single_outstanding (test_transport.TransportTests.test_concurrent_calls_remain_single_outstanding) ... ok
+test_corrupt_response_timeout_and_disconnect_poison (test_transport.TransportTests.test_corrupt_response_timeout_and_disconnect_poison) ... ok
+test_descriptor_completion_output_read_and_explicit_ack (test_transport.TransportTests.test_descriptor_completion_output_read_and_explicit_ack) ... ok
+test_donor_lock_path_flock_and_release (test_transport.TransportTests.test_donor_lock_path_flock_and_release) ... ok
+test_exact_idcode_user2_frames_and_identity_before_writes (test_transport.TransportTests.test_exact_idcode_user2_frames_and_identity_before_writes) ... ok
+test_exact_xvc_clock_negotiation_and_frequency_cap (test_transport.TransportTests.test_exact_xvc_clock_negotiation_and_frequency_cap) ... ok
+test_flock_excludes_a_second_process (test_transport.TransportTests.test_flock_excludes_a_second_process) ... ok
+test_fragmented_reply_uses_one_deadline_and_poisons_owner (test_transport.TransportTests.test_fragmented_reply_uses_one_deadline_and_poisons_owner) ... ok
+test_getinfo_and_scan_lengths_fail_closed (test_transport.TransportTests.test_getinfo_and_scan_lengths_fail_closed) ... ok
+test_injected_link_must_honor_requested_slower_clock (test_transport.TransportTests.test_injected_link_must_honor_requested_slower_clock) ... ok
+test_invalid_ranges_values_and_buffers_do_not_send_commands (test_transport.TransportTests.test_invalid_ranges_values_and_buffers_do_not_send_commands) ... ok
+test_job_errors_stale_results_timeouts_and_busy_memory (test_transport.TransportTests.test_job_errors_stale_results_timeouts_and_busy_memory) ... ok
+test_late_matching_completion_is_not_accepted (test_transport.TransportTests.test_late_matching_completion_is_not_accepted) ... ok
+test_mailbox_errors_poison_and_never_retry (test_transport.TransportTests.test_mailbox_errors_poison_and_never_retry) ... ok
+test_negotiation_and_entire_identity_probe_have_global_deadlines (test_transport.TransportTests.test_negotiation_and_entire_identity_probe_have_global_deadlines) ... ok
+test_partial_upload_error_does_not_rollback_retry_or_continue (test_transport.TransportTests.test_partial_upload_error_does_not_rollback_retry_or_continue) ... ok
+test_poll_result_deadline_caps_blocking_scans (test_transport.TransportTests.test_poll_result_deadline_caps_blocking_scans) ... ok
+test_production_raw_command_bo_is_uploaded_without_rewriting (test_transport.TransportTests.test_production_raw_command_bo_is_uploaded_without_rewriting) ... ok
+test_sendall_and_each_receive_share_remaining_budget (test_transport.TransportTests.test_sendall_and_each_receive_share_remaining_budget) ... ok
+test_slow_tck_scan_can_exceed_five_seconds_within_user_budget (test_transport.TransportTests.test_slow_tck_scan_can_exceed_five_seconds_within_user_budget) ... ok
+test_wrong_tap_or_endpoint_identity_never_writes (test_transport.TransportTests.test_wrong_tap_or_endpoint_identity_never_writes) ... ok
+test_xvc_eof_is_fatal_and_padding_is_outside_scan (test_transport.TransportTests.test_xvc_eof_is_fatal_and_padding_is_outside_scan) ... ok
+
+----------------------------------------------------------------------
+Ran 53 tests in 3.151s
+
+OK
+python3 -m unittest discover -s tests/debug -v
+ILA Tcl controls: 9.0.3 ; all Vivado operations mocked
+test_both_profiles_connect_exact_order_and_keep_scope_honest (test_ila_tcl.IlaTclTests.test_both_profiles_connect_exact_order_and_keep_scope_honest) ... ok
+test_codebooks_and_probe_bit_order_match_unchanged_rtl (test_ila_tcl.IlaTclTests.test_codebooks_and_probe_bit_order_match_unchanged_rtl) ... ok
+test_host_user2_owner_must_survive_without_collision (test_ila_tcl.IlaTclTests.test_host_user2_owner_must_survive_without_collision) ... ok
+test_invalid_clocks_shapes_and_targets_are_rejected (test_ila_tcl.IlaTclTests.test_invalid_clocks_shapes_and_targets_are_rejected) ... ok
+test_missing_or_ambiguous_inputs_fail_before_design_mutation (test_ila_tcl.IlaTclTests.test_missing_or_ambiguous_inputs_fail_before_design_mutation) ... ok
+test_routed_object_drift_and_missing_artifacts_fail (test_ila_tcl.IlaTclTests.test_routed_object_drift_and_missing_artifacts_fail) ... ok
+test_startup_warning_cannot_pass_with_zero_exit_and_patchlevel (test_ila_tcl.IlaTclTests.test_startup_warning_cannot_pass_with_zero_exit_and_patchlevel) ... ok
+test_both_profiles_copy_only_qualified_evidence_and_start_unreviewed (test_prepare.DebugPreparationTests.test_both_profiles_copy_only_qualified_evidence_and_start_unreviewed) ... ok
+test_copied_evidence_is_independent_and_tampering_or_extras_fail (test_prepare.DebugPreparationTests.test_copied_evidence_is_independent_and_tampering_or_extras_fail) ... ok
+test_copied_validators_have_standalone_import_closure (test_prepare.DebugPreparationTests.test_copied_validators_have_standalone_import_closure) ... ok
+test_debug_render_preserves_default_sources_and_physical_checks (test_prepare.DebugPreparationTests.test_debug_render_preserves_default_sources_and_physical_checks) ... ok
+test_exact_state_codebook_roles_sources_and_signals_are_required (test_prepare.DebugPreparationTests.test_exact_state_codebook_roles_sources_and_signals_are_required) ... ok
+test_parent_type_simulation_and_current_host_validator_are_required (test_prepare.DebugPreparationTests.test_parent_type_simulation_and_current_host_validator_are_required) ... ok
+test_shared_import_dependency_cannot_overwrite_changed_parent_source (test_prepare.DebugPreparationTests.test_shared_import_dependency_cannot_overwrite_changed_parent_source) ... ok
+test_state_bits_and_clock_anchor_are_source_bound (test_prepare.DebugPreparationTests.test_state_bits_and_clock_anchor_are_source_bound) ... ok
+test_unmanifested_parent_file_or_symlink_is_rejected_without_following (test_prepare.DebugPreparationTests.test_unmanifested_parent_file_or_symlink_is_rejected_without_following) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 12.684s
+
+OK
+python3 -m unittest discover -s tests/cmac/startup -v
+test_actual_rendered_tcl_keeps_all_full512_and_physical_gates (test_prepare.StartupPreparationTests.test_actual_rendered_tcl_keeps_all_full512_and_physical_gates) ... ok
+test_external_parent_loss_blocks_ready_but_copied_integrity_remains_checkable (test_prepare.StartupPreparationTests.test_external_parent_loss_blocks_ready_but_copied_integrity_remains_checkable) ... ok
+test_missing_mismatched_or_legacy_native_evidence_is_rejected_before_output (test_prepare.StartupPreparationTests.test_missing_mismatched_or_legacy_native_evidence_is_rejected_before_output) ... ok
+test_native_evidence_copies_are_independent_and_closed (test_prepare.StartupPreparationTests.test_native_evidence_copies_are_independent_and_closed) ... ok
+test_only_top_reset_and_constraints_change_from_original_full_prefix (test_prepare.StartupPreparationTests.test_only_top_reset_and_constraints_change_from_original_full_prefix) ... ok
+test_optimized_python_and_build_actions_are_refused (test_prepare.StartupPreparationTests.test_optimized_python_and_build_actions_are_refused) ... ok
+test_prepare_and_verify_are_file_only_and_review_starts_incomplete (test_prepare.StartupPreparationTests.test_prepare_and_verify_are_file_only_and_review_starts_incomplete) ... ok
+test_snapshot_native_report_and_tcl_tampering_fail (test_prepare.StartupPreparationTests.test_snapshot_native_report_and_tcl_tampering_fail) ... ok
+test_copied_source_root_is_complete_and_helper_edits_change_identity (test_qualification.StartupQualificationTests.test_copied_source_root_is_complete_and_helper_edits_change_identity) ... ok
+test_every_selected_compile_source_is_hashed_including_assertion_helpers (test_qualification.StartupQualificationTests.test_every_selected_compile_source_is_hashed_including_assertion_helpers) ... ok
+test_fault_results_require_the_original_reached_phase_and_watchdog_bound (test_qualification.StartupQualificationTests.test_fault_results_require_the_original_reached_phase_and_watchdog_bound) ... ok
+test_full_workload_counts_and_startup_timing_remain_exact (test_qualification.StartupQualificationTests.test_full_workload_counts_and_startup_timing_remain_exact) ... ok
+test_old_r28_or_compile_only_reports_cannot_qualify_startup (test_qualification.StartupQualificationTests.test_old_r28_or_compile_only_reports_cannot_qualify_startup) ... ok
+test_parallel_entry_completion_cannot_mutate_during_serialization (test_qualification.StartupQualificationTests.test_parallel_entry_completion_cannot_mutate_during_serialization) ... ok
+test_reduced_geometry_cannot_reach_source_or_execution_admission (test_qualification.StartupQualificationTests.test_reduced_geometry_cannot_reach_source_or_execution_admission) ... ok
+test_warning_inventory_rejects_new_vendor_reset_and_count_changes (test_qualification.StartupQualificationTests.test_warning_inventory_rejects_new_vendor_reset_and_count_changes) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 13.640s
+
+OK
+python3 -m unittest discover -s tests/tinystories -v
+test_classic_file_offsets_and_tied_output (test_preparation.PreparationTests.test_classic_file_offsets_and_tied_output) ... ok
+test_constant_oc16_ic32_layout_and_zero_padding (test_preparation.PreparationTests.test_constant_oc16_ic32_layout_and_zero_padding) ... ok
+test_full_model_static_tile_budget (test_preparation.PreparationTests.test_full_model_static_tile_budget) ... ok
+test_invalid_tile_start_is_not_repaired (test_preparation.PreparationTests.test_invalid_tile_start_is_not_repaired) ... ok
+test_overflow_and_nonfinite_weights_are_explicit_failures (test_preparation.PreparationTests.test_overflow_and_nonfinite_weights_are_explicit_failures) ... ok
+test_unknown_or_truncated_assets_are_rejected (test_preparation.PreparationTests.test_unknown_or_truncated_assets_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.034s
+
+OK
+python3 -m unittest discover -s tests -v
+test_rom_workload_three_ops (test_demo_fixture.DemoFixtureTest.test_rom_workload_three_ops) ... ok
+test_entry_contract (test_dma.DMATests.test_entry_contract) ... ok
+test_production_capture_integrity_and_outputs (test_dma.DMATests.test_production_capture_integrity_and_outputs) ... ok
+test_protocol_and_partial_writes (test_dma.DMATests.test_protocol_and_partial_writes) ... ok
+test_aperture_bounds_and_nonaliasing (test_dma_demo.DMADemoTests.test_aperture_bounds_and_nonaliasing) ... ok
+test_fixture_and_verbatim_command_hashes (test_dma_demo.DMADemoTests.test_fixture_and_verbatim_command_hashes) ... ok
+test_limited_map_executes_complete_chain (test_dma_demo.DMADemoTests.test_limited_map_executes_complete_chain) ... ok
+Tcl control-flow tests: Tcl 9.0.3; Vivado commands are mocked
+test_all_legal_pairs_apply_before_checkpoint_and_drc (test_fpga_build.BuildControlFlowTest.test_all_legal_pairs_apply_before_checkpoint_and_drc) ... ok
+test_block_ram_is_required (test_fpga_build.BuildControlFlowTest.test_block_ram_is_required) ... ok
+test_blocking_or_unknown_drc_severity_never_emits (test_fpga_build.BuildControlFlowTest.test_blocking_or_unknown_drc_severity_never_emits) ... ok
+test_board_confirmation_required (test_fpga_build.BuildControlFlowTest.test_board_confirmation_required) ... ok
+test_boolean_settings_are_strict (test_fpga_build.BuildControlFlowTest.test_boolean_settings_are_strict) ... ok
+test_configured_non_emitting_build_still_uses_electrical_settings (test_fpga_build.BuildControlFlowTest.test_configured_non_emitting_build_still_uses_electrical_settings) ... ok
+test_default_stops_without_bitstream_or_guessed_voltage (test_fpga_build.BuildControlFlowTest.test_default_stops_without_bitstream_or_guessed_voltage) ... ok
+test_electrical_settings_must_be_complete_even_without_emission (test_fpga_build.BuildControlFlowTest.test_electrical_settings_must_be_complete_even_without_emission) ... ok
+test_internal_timing_gaps_block_emission_with_positive_slack (test_fpga_build.BuildControlFlowTest.test_internal_timing_gaps_block_emission_with_positive_slack) ... ok
+test_invalid_and_incompatible_electrical_settings (test_fpga_build.BuildControlFlowTest.test_invalid_and_incompatible_electrical_settings) ... ok
+test_missing_or_unknown_internal_timing_reports_fail_closed (test_fpga_build.BuildControlFlowTest.test_missing_or_unknown_internal_timing_reports_fail_closed) ... ok
+test_timing_paths_must_exist_and_slack_must_be_finite_nonnegative (test_fpga_build.BuildControlFlowTest.test_timing_paths_must_exist_and_slack_must_be_finite_nonnegative) ... ok
+test_complete_profiles (test_initialization.InitializationTests.test_complete_profiles) ... ok
+test_every_fixed_bit_rejected (test_initialization.InitializationTests.test_every_fixed_bit_rejected) ... ok
+test_every_initialization_field_required_if_any_present (test_initialization.InitializationTests.test_every_initialization_field_required_if_any_present) ... ok
+test_last_valid_write_and_sticky_invalid_write (test_initialization.InitializationTests.test_last_valid_write_and_sticky_invalid_write) ... ok
+test_nonzero_pc_tail_still_rejected (test_initialization.InitializationTests.test_nonzero_pc_tail_still_rejected) ... ok
+test_state_does_not_leak_between_tasks (test_initialization.InitializationTests.test_state_does_not_leak_between_tasks) ... ok
+test_wdma_dimension_and_reserved_bits (test_initialization.InitializationTests.test_wdma_dimension_and_reserved_bits) ... ok
+test_wrong_target_remains_unknown (test_initialization.InitializationTests.test_wrong_target_remains_unknown) ... ok
+Shared scoreboard runtime: Icarus Verilog version 13.0 (stable) (v13_0)
+Shared scoreboard runtime: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+test_all_parser_rejections_execute_in_both_simulators (test_memory_check.MemoryCheckParserTests.test_all_parser_rejections_execute_in_both_simulators) ... ok
+test_valid_records_and_explicit_empty_error_contract (test_memory_check.MemoryCheckParserTests.test_valid_records_and_explicit_empty_error_contract) ... ok
+Replay scoreboard controls: Icarus Verilog version 13.0 (stable) (v13_0)
+test_complete_oracle_passes_each_actual_replay_bench (test_memory_check.MemoryCheckTests.test_complete_oracle_passes_each_actual_replay_bench) ... ok
+test_empty_malformed_short_and_overwide_oracles_fail (test_memory_check.MemoryCheckTests.test_empty_malformed_short_and_overwide_oracles_fail) ... ok
+test_explicit_error_case_can_have_no_mapped_memory_checks (test_memory_check.MemoryCheckTests.test_explicit_error_case_can_have_no_mapped_memory_checks) ... ok
+test_success_requires_explicit_nonzero_count (test_memory_check.MemoryCheckTests.test_success_requires_explicit_nonzero_count) ... ok
+test_arithmetic_end_to_end (test_model.ExecutionTests.test_arithmetic_end_to_end) ... ok
+test_back_to_back_tasks (test_model.ExecutionTests.test_back_to_back_tasks) ... ok
+test_inplace (test_model.ExecutionTests.test_inplace) ... ok
+test_memory_fault (test_model.ExecutionTests.test_memory_fault) ... ok
+test_memory_mapping (test_model.ExecutionTests.test_memory_mapping) ... ok
+test_32bit_endpoint (test_model.ProfileTests.test_32bit_endpoint) ... ok
+test_address_errors (test_model.ProfileTests.test_address_errors) ... ok
+test_all_fixed_fields_reject_mutations (test_model.ProfileTests.test_all_fixed_fields_reject_mutations) ... ok
+test_all_profiles (test_model.ProfileTests.test_all_profiles) ... ok
+test_bad_enable (test_model.ProfileTests.test_bad_enable) ... ok
+test_dimension_errors (test_model.ProfileTests.test_dimension_errors) ... ok
+test_fault_sticky (test_model.ProfileTests.test_fault_sticky) ... ok
+test_framing (test_model.ProfileTests.test_framing) ... ok
+test_last_write_wins (test_model.ProfileTests.test_last_write_wins) ... ok
+test_missing_each_register (test_model.ProfileTests.test_missing_each_register) ... ok
+test_qword_format (test_model.ProfileTests.test_qword_format) ... ok
+test_unknown_register (test_model.ProfileTests.test_unknown_register) ... ok
+test_unsupported_precision_and_op (test_model.ProfileTests.test_unsupported_precision_and_op) ... ok
+test_wrong_target (test_model.ProfileTests.test_wrong_target) ... ok
+test_clock_result_must_be_finite_constrained_and_pass (test_openxc7.TestOpenXC7.test_clock_result_must_be_finite_constrained_and_pass) ... ok
+test_exact_board_constraints_expand_all_ports (test_openxc7.TestOpenXC7.test_exact_board_constraints_expand_all_ports) ... ok
+test_modified_missing_duplicate_or_unknown_constraints_fail (test_openxc7.TestOpenXC7.test_modified_missing_duplicate_or_unknown_constraints_fail) ... ok
+test_no_bitstream_command_line_option (test_openxc7.TestOpenXC7.test_no_bitstream_command_line_option) ... ok
+test_package_pin_sites_and_clock_capability (test_openxc7.TestOpenXC7.test_package_pin_sites_and_clock_capability) ... ok
+test_both_profiles_keep_exact_top_pins_and_clock (test_prepare_ew_fpga.EwPreparationTests.test_both_profiles_keep_exact_top_pins_and_clock) ... ok
+test_checkpoint_tcl_retains_physical_gates (test_prepare_ew_fpga.EwPreparationTests.test_checkpoint_tcl_retains_physical_gates) ... ok
+test_command_only_prints_future_invocation_after_bound_review (test_prepare_ew_fpga.EwPreparationTests.test_command_only_prints_future_invocation_after_bound_review) ... ok
+test_electrical_identity_and_explicit_review_required (test_prepare_ew_fpga.EwPreparationTests.test_electrical_identity_and_explicit_review_required) ... ok
+test_existing_output_is_preserved_and_invalid_profile_fails (test_prepare_ew_fpga.EwPreparationTests.test_existing_output_is_preserved_and_invalid_profile_fails) ... ok
+test_frozen_old_hardware_cannot_authorize_current_build (test_prepare_ew_fpga.EwPreparationTests.test_frozen_old_hardware_cannot_authorize_current_build) ... ok
+test_invalid_reset_parameters_fail_in_real_simulation (test_prepare_ew_fpga.EwPreparationTests.test_invalid_reset_parameters_fail_in_real_simulation) ... ok
+test_known_pass_marker_and_version_are_checked_against_bound_logs (test_prepare_ew_fpga.EwPreparationTests.test_known_pass_marker_and_version_are_checked_against_bound_logs) ... ok
+test_missing_or_corrupt_original_binary_log_and_stimulus_fail (test_prepare_ew_fpga.EwPreparationTests.test_missing_or_corrupt_original_binary_log_and_stimulus_fail) ... ok
+test_package_preserves_evidence_independent_of_producer_workspace (test_prepare_ew_fpga.EwPreparationTests.test_package_preserves_evidence_independent_of_producer_workspace) ... ok
+test_prepare_is_file_only_and_review_starts_incomplete (test_prepare_ew_fpga.EwPreparationTests.test_prepare_is_file_only_and_review_starts_incomplete) ... ok
+test_python_optimization_cannot_remove_integrity_checks (test_prepare_ew_fpga.EwPreparationTests.test_python_optimization_cannot_remove_integrity_checks) ... ok
+test_snapshot_tcl_and_report_tampering_fail (test_prepare_ew_fpga.EwPreparationTests.test_snapshot_tcl_and_report_tampering_fail) ... ok
+test_stale_incomplete_and_wrong_simulation_evidence_rejected (test_prepare_ew_fpga.EwPreparationTests.test_stale_incomplete_and_wrong_simulation_evidence_rejected) ... ok
+test_summary_only_and_wrong_execution_metadata_are_rejected (test_prepare_ew_fpga.EwPreparationTests.test_summary_only_and_wrong_execution_metadata_are_rejected) ... ok
+test_symlink_and_parent_path_snapshots_rejected (test_prepare_ew_fpga.EwPreparationTests.test_symlink_and_parent_path_snapshots_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 73 tests in 44.743s
+
+OK
+python3 tools/test_numeric.py
+PASS C++ numeric model: 1,087,299 comparisons, seed=0x3588, 7.646 seconds
+verilator --lint-only -Wall --top-module rk_ew_core rtl/rk_fp16_alu.sv rtl/rk_ew_regs.sv rtl/rk_ew_engine.sv rtl/rk_ew_core.sv
+- V e r i l a t i o n   R e p o r t: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+- Verilator: Built from 0.137 MB sources in 5 modules, into 0.151 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.053 s (elab=0.004, cvt=0.035, bld=0.000); cpu 0.041 s on 1 threads; allocated 22.660 MB
+verilator --lint-only -Wall --top-module rk_ew_dma rtl/rk_fp16_alu.sv rtl/rk_ew_regs.sv rtl/rk_ew_engine.sv rtl/rk_ew_dma.sv
+- V e r i l a t i o n   R e p o r t: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+- Verilator: Built from 0.143 MB sources in 5 modules, into 0.179 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.060 s (elab=0.008, cvt=0.033, bld=0.000); cpu 0.050 s on 1 threads; allocated 23.098 MB
+verilator --lint-only -Wall --top-module rk_axi_mem rtl/rk_axi_mem.sv
+- V e r i l a t i o n   R e p o r t: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+- Verilator: Built from 0.039 MB sources in 2 modules, into 0.026 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.024 s (elab=0.001, cvt=0.014, bld=0.000); cpu 0.012 s on 1 threads; allocated 18.891 MB
+verilator --lint-only -Wall --top-module rk_cmac_address rtl/rk_cmac_address.sv
+- V e r i l a t i o n   R e p o r t: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+- Verilator: Built from 0.040 MB sources in 2 modules, into 0.043 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.029 s (elab=0.002, cvt=0.011, bld=0.000); cpu 0.013 s on 1 threads; allocated 18.980 MB
+verilator --lint-only -Wall --top-module rk_cmac_product_front rtl/rk_cmac_profile.sv rtl/rk_cmac_address.sv rtl/rk_cmac_reader.sv rtl/rk_cmac_operand_front.sv rtl/rk_fp16_product.sv rtl/rk_cmac_product_front.sv
+- V e r i l a t i o n   R e p o r t: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+- Verilator: Built from 0.223 MB sources in 7 modules, into 0.203 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.156 s (elab=0.015, cvt=0.095, bld=0.000); cpu 0.058 s on 1 threads; allocated 21.887 MB
+verilator --lint-only -Wall --top-module rk_job_control rtl/rk_job_control.sv
+- V e r i l a t i o n   R e p o r t: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+- Verilator: Built from 0.040 MB sources in 2 modules, into 0.037 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.022 s (elab=0.002, cvt=0.012, bld=0.000); cpu 0.012 s on 1 threads; allocated 19.059 MB
+verilator --lint-only -Wall --top-module rk_ew_axi rtl/rk_fp16_alu.sv rtl/rk_ew_regs.sv rtl/rk_ew_engine.sv rtl/rk_ew_dma.sv rtl/rk_axi_mem.sv rtl/rk_job_control.sv rtl/rk_ew_axi.sv
+- V e r i l a t i o n   R e p o r t: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+- Verilator: Built from 0.295 MB sources in 8 modules, into 0.233 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.303 s (elab=0.027, cvt=0.213, bld=0.000); cpu 0.086 s on 1 threads; allocated 24.074 MB
+verilator --lint-only -Wall --top-module rk_jtag_ew_bram rtl/rk_fp16_alu.sv rtl/rk_ew_regs.sv rtl/rk_ew_engine.sv rtl/rk_ew_dma.sv rtl/rk_bram.sv rtl/rk_job_control.sv rtl/host/rk_jtag_backend.sv rtl/host/rk_jtag_ew_bram.sv
+- V e r i l a t i o n   R e p o r t: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+- Verilator: Built from 0.354 MB sources in 9 modules, into 0.267 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.210 s (elab=0.022, cvt=0.139, bld=0.000); cpu 0.092 s on 1 threads; allocated 24.918 MB
+verilator --lint-only -Wall --top-module ypcb_top rtl/rk_fp16_alu.sv rtl/rk_ew_regs.sv rtl/rk_ew_engine.sv rtl/rk_ew_dma.sv rtl/rk_bram.sv rtl/rk_demo_memory.sv rtl/rk_dma_demo_rom.sv rtl/rk_ew_dma_demo.sv fpga/ypcb_top.sv
+- V e r i l a t i o n   R e p o r t: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+- Verilator: Built from 0.475 MB sources in 10 modules, into 0.585 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.439 s (elab=0.034, cvt=0.336, bld=0.000); cpu 0.170 s on 1 threads; allocated 30.062 MB
+verilator --lint-only -Wall --top-module ypcb_ew_startup_top rtl/rk_fp16_alu.sv rtl/rk_ew_regs.sv rtl/rk_ew_engine.sv rtl/rk_ew_dma.sv rtl/rk_bram.sv rtl/rk_demo_memory.sv rtl/rk_dma_demo_rom.sv rtl/rk_ew_dma_demo.sv rtl/rk_startup_reset.sv fpga/ypcb_ew_startup_top.sv
+- V e r i l a t i o n   R e p o r t: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+- Verilator: Built from 0.558 MB sources in 11 modules, into 0.556 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.389 s (elab=0.053, cvt=0.268, bld=0.000); cpu 0.154 s on 1 threads; allocated 30.094 MB
+python3 tools/run_rtl.py
+PASS ALU: 12963 vectors, 17262 cycles
+PASS CMAC address-only leaf: 375895 transfers, 11 complete walks, 22 rejected configs; seed=3588ca01
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_1 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_7 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_8 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_9 cycles=408 transactions=48 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_33 cycles=922 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_257 cycles=5869 transactions=792 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_1024 cycles=22540 transactions=3072 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_inplace cycles=922 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_1 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_7 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_8 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_9 cycles=408 transactions=48 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_33 cycles=922 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_257 cycles=5869 transactions=792 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_1024 cycles=22540 transactions=3072 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_inplace cycles=922 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_1 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_7 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_8 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_9 cycles=408 transactions=48 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_33 cycles=922 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_257 cycles=5869 transactions=792 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_1024 cycles=22540 transactions=3072 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_inplace cycles=922 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/two_tasks cycles=453 transactions=48 completed=2 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_width cycles=11 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mismatched_width cycles=47 transactions=0 completed=0 expected_error=6
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_fp32 cycles=9 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_max cycles=19 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_chain cycles=41 transactions=0 completed=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_alignment cycles=47 transactions=0 completed=0 expected_error=4
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_overlap cycles=47 transactions=0 completed=0 expected_error=4
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_end cycles=47 transactions=0 completed=0 expected_error=4
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/unknown_register cycles=5 transactions=0 completed=0 expected_error=1
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_register cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/read_bus_error cycles=50 transactions=1 completed=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/write_bus_error cycles=61 transactions=3 completed=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/timeout cycles=176 transactions=1 completed=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/request_timeout cycles=175 transactions=0 completed=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/late_read_bus_error cycles=64 transactions=4 completed=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/final_write_bus_error cycles=220 transactions=24 completed=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_dpu_pointer cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_dpu_pointer cycles=5 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_dpu_mode cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_dpu_mode cycles=7 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_data_format cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_data_format cycles=9 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_width cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_height cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_height cycles=13 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_notch cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_notch cycles=15 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_channels cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_channels cycles=17 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_ew_config cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_out_convert cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_out_convert cycles=21 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_rdma_pointer cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_rdma_pointer cycles=23 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_rdma_width cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_rdma_height cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_rdma_height cycles=27 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_rdma_channels cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_rdma_channels cycles=29 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_erdma_config cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_erdma_config cycles=31 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_dst cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_src_a cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_src_b cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_rdma_mode cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_rdma_mode cycles=39 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_next_address cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_next_address cycles=41 transactions=0 completed=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_next_amount cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_next_amount cycles=43 transactions=0 completed=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_version_marker cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_version_marker cycles=45 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_add_7 cycles=254 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_add_8 cycles=254 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_add_9 cycles=429 transactions=48 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_add_33 cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_add_inplace cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_sub_7 cycles=254 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_sub_8 cycles=254 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_sub_9 cycles=429 transactions=48 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_sub_33 cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_sub_inplace cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_mul_7 cycles=254 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_mul_8 cycles=254 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_mul_9 cycles=429 transactions=48 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_mul_33 cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_mul_inplace cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4040 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4040_bit0 cycles=47 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4040_bit31 cycles=47 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4060 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4060_bit0 cycles=49 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4060_bit31 cycles=49 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4044 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4044_bit0 cycles=51 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4044_bit31 cycles=51 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4048 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4048_bit0 cycles=53 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4048_bit31 cycles=53 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4050 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4050_bit0 cycles=55 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4050_bit31 cycles=55 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4058 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4058_bit0 cycles=57 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4058_bit31 cycles=57 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_405c cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_405c_bit0 cycles=73 transactions=0 completed=0 expected_error=6
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_405c_bit31 cycles=59 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4068 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4068_bit0 cycles=61 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4068_bit31 cycles=61 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_406c cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_406c_bit0 cycles=63 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_406c_bit31 cycles=63 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4078 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4078_bit0 cycles=65 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4078_bit31 cycles=65 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4080 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4080_bit0 cycles=67 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4080_bit31 cycles=67 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4088 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4088_bit0 cycles=69 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4088_bit31 cycles=69 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_40c0 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_40c0_bit0 cycles=71 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_40c0_bit31 cycles=71 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_width_1f40 cycles=59 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_width_2000 cycles=59 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_width_10000 cycles=59 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_then_legacy cycles=1173 transactions=144 completed=2 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/legacy_then_initialized cycles=1149 transactions=144 completed=2 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_twice cycles=1393 transactions=168 completed=2 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_after_completed cycles=321 transactions=24 completed=1 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_then_valid cycles=47 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_width_last_write cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_8 cycles=1126 transactions=164 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_9 cycles=1312 transactions=188 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_33 cycles=1851 transactions=260 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_8 cycles=1902 transactions=276 tasks=2 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 cycles=2280 transactions=324 tasks=2 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_33 cycles=3377 transactions=468 tasks=2 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_8 cycles=1126 transactions=164 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_9 cycles=1312 transactions=188 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_33 cycles=1851 transactions=260 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_terminal cycles=772 transactions=112 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_unmapped_guard cycles=772 transactions=112 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_inplace cycles=772 transactions=112 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_restart cycles=1567 transactions=224 tasks=2 jobs=2 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_reset_during_fetch cycles=772 transactions=112 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_reset_during_data_read cycles=772 transactions=112 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_restart_after_partial_write_fault cycles=772 transactions=112 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_noncontiguous_chain cycles=1567 transactions=224 tasks=2 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_three_tasks cycles=2386 transactions=336 tasks=3 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_cycle_limit cycles=3228 transactions=448 tasks=4 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_misaligned_start cycles=13 transactions=0 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_zero_amount cycles=13 transactions=0 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_short_amount cycles=13 transactions=0 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_long_amount cycles=13 transactions=0 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_start_overflow cycles=13 transactions=0 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_unmapped_start cycles=21 transactions=1 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_next_overflow cycles=780 transactions=112 tasks=1 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_next_unmapped cycles=789 transactions=113 tasks=1 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_next_unaligned cycles=535 transactions=76 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_next_null cycles=611 transactions=88 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_next_amount_limit cycles=563 transactions=80 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_unknown cycles=48 transactions=4 tasks=0 jobs=0 expected_error=1
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_missing_register cycles=587 transactions=84 tasks=0 jobs=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_early_enable cycles=48 transactions=4 tasks=0 jobs=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_missing_enable cycles=611 transactions=88 tasks=0 jobs=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_swapped_tail cycles=535 transactions=76 tasks=0 jobs=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_body_tail cycles=48 transactions=4 tasks=0 jobs=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bad_enable cycles=611 transactions=88 tasks=0 jobs=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_1 cycles=21 transactions=1 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_2 cycles=30 transactions=2 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_3 cycles=38 transactions=3 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_4 cycles=47 transactions=4 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_5 cycles=58 transactions=5 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_85 cycles=595 transactions=85 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_88 cycles=610 transactions=88 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_89 cycles=621 transactions=89 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_90 cycles=624 transactions=90 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_91 cycles=631 transactions=91 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_92 cycles=634 transactions=92 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_112 cycles=778 transactions=112 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_drop_at_1 cycles=143 transactions=1 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_drop_at_4 cycles=167 transactions=4 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_drop_at_88 cycles=736 transactions=88 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_drop_at_89 cycles=741 transactions=89 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_drop_at_91 cycles=755 transactions=91 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_drop_at_112 cycles=898 transactions=112 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_stall_at_1 cycles=141 transactions=0 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_stall_at_4 cycles=166 transactions=3 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_stall_at_88 cycles=735 transactions=87 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_stall_at_89 cycles=740 transactions=88 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_stall_at_91 cycles=754 transactions=90 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_stall_at_112 cycles=897 transactions=111 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_second_fetch_error cycles=789 transactions=113 tasks=1 jobs=0 expected_error=5
+PASS axi_mem lanes, boundaries, strobes, independent channels, backpressure, faults and six reset phases
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_8 tasks=1 requests=164 writes=8 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_9 tasks=1 requests=188 writes=16 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_33 tasks=1 requests=260 writes=40 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_8 tasks=2 requests=276 writes=16 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 tasks=2 requests=324 writes=32 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_33 tasks=2 requests=468 writes=80 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_8 tasks=1 requests=164 writes=8 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_9 tasks=1 requests=188 writes=16 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_33 tasks=1 requests=260 writes=40 full-memory comparison
+PASS axi_dma fault=1 propagated and joint reset
+PASS axi_dma fault=2 propagated and joint reset
+PASS axi_dma fault=3 propagated and joint reset
+PASS axi_dma fault=4 propagated and joint reset
+PASS axi_dma fault=5 propagated and joint reset
+PASS axi_dma fault=6 propagated and joint reset
+PASS job_control independent channels, explicit access errors, descriptor ownership, sticky results/IRQ, launch stalls and seven reset phases
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_8 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_9 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_33 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_8 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_33 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_8 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_9 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_33 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=1 error=5 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=2 error=8 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=3 error=8 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=4 error=5 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=5 error=8 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=6 error=5 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=7 error=7 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=8 error=1 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=10 error=5 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=9 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=2 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS BRAM-only three-operation demo, cycles=360
+PASS BRAM demo restart
+PASS BRAM: 14 checked transfers, adjacent requests, dual-port reset
+PASS known readback corruption rejected
+PASS demo readback corruption, sticky mismatch and recovery
+PASS DMA board workload: verbatim SUB(9), two tasks, 324 requests, 336 memory checks
+PASS DMA demo reset during command fetch and restart
+PASS DMA demo reset during data execution and restart
+PASS DMA demo initialization bus error
+PASS DMA demo command bus error
+PASS DMA demo completion-count mismatch
+PASS DMA demo known readback corruption
+PASS DMA demo watchdog and fault recovery
+PASS sparse demo BRAM: 80 checked transfers, adjacent requests, dual-port reset
+PASS YPCB top: startup, asynchronous reset, synchronized release, both LED polarities
+PASS startup reset: initial hold, exact release, synchronous restart, held and repeated requests
+PASS YPCB startup profile: no external reset, 64-cycle hold, raw SUB(9), both LED polarities
+python3 tools/run_rtl.py --simulator iverilog
+PASS ALU: 12963 vectors, 17262 cycles
+PASS CMAC address-only leaf: 375895 transfers, 11 complete walks, 24 rejected configs; seed=3588ca01
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_1 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_7 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_8 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_9 cycles=408 transactions=48 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_33 cycles=922 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_257 cycles=5869 transactions=792 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_1024 cycles=22540 transactions=3072 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/add_inplace cycles=922 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_1 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_7 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_8 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_9 cycles=408 transactions=48 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_33 cycles=922 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_257 cycles=5869 transactions=792 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_1024 cycles=22540 transactions=3072 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/sub_inplace cycles=922 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_1 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_7 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_8 cycles=221 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_9 cycles=408 transactions=48 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_33 cycles=922 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_257 cycles=5869 transactions=792 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_1024 cycles=22540 transactions=3072 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mul_inplace cycles=922 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/two_tasks cycles=453 transactions=48 completed=2 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_width cycles=11 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/mismatched_width cycles=47 transactions=0 completed=0 expected_error=6
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_fp32 cycles=9 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_max cycles=19 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_chain cycles=41 transactions=0 completed=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_alignment cycles=47 transactions=0 completed=0 expected_error=4
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_overlap cycles=47 transactions=0 completed=0 expected_error=4
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/bad_end cycles=47 transactions=0 completed=0 expected_error=4
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/unknown_register cycles=5 transactions=0 completed=0 expected_error=1
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_register cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/read_bus_error cycles=50 transactions=1 completed=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/write_bus_error cycles=61 transactions=3 completed=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/timeout cycles=176 transactions=1 completed=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/request_timeout cycles=175 transactions=0 completed=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/late_read_bus_error cycles=64 transactions=4 completed=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/final_write_bus_error cycles=220 transactions=24 completed=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_dpu_pointer cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_dpu_pointer cycles=5 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_dpu_mode cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_dpu_mode cycles=7 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_data_format cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_data_format cycles=9 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_width cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_height cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_height cycles=13 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_notch cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_notch cycles=15 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_channels cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_channels cycles=17 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_ew_config cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_out_convert cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_out_convert cycles=21 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_rdma_pointer cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_rdma_pointer cycles=23 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_rdma_width cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_rdma_height cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_rdma_height cycles=27 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_rdma_channels cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_rdma_channels cycles=29 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_erdma_config cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_erdma_config cycles=31 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_dst cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_src_a cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_src_b cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_rdma_mode cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_rdma_mode cycles=39 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_next_address cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_next_address cycles=41 transactions=0 completed=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_next_amount cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_next_amount cycles=43 transactions=0 completed=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/missing_version_marker cycles=45 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/invalid_version_marker cycles=45 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_add_7 cycles=254 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_add_8 cycles=254 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_add_9 cycles=429 transactions=48 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_add_33 cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_add_inplace cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_sub_7 cycles=254 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_sub_8 cycles=254 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_sub_9 cycles=429 transactions=48 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_sub_33 cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_sub_inplace cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_mul_7 cycles=254 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_mul_8 cycles=254 transactions=24 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_mul_9 cycles=429 transactions=48 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_mul_33 cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_mul_inplace cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4040 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4040_bit0 cycles=47 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4040_bit31 cycles=47 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4060 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4060_bit0 cycles=49 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4060_bit31 cycles=49 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4044 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4044_bit0 cycles=51 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4044_bit31 cycles=51 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4048 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4048_bit0 cycles=53 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4048_bit31 cycles=53 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4050 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4050_bit0 cycles=55 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4050_bit31 cycles=55 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4058 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4058_bit0 cycles=57 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4058_bit31 cycles=57 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_405c cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_405c_bit0 cycles=73 transactions=0 completed=0 expected_error=6
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_405c_bit31 cycles=59 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4068 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4068_bit0 cycles=61 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4068_bit31 cycles=61 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_406c cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_406c_bit0 cycles=63 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_406c_bit31 cycles=63 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4078 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4078_bit0 cycles=65 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4078_bit31 cycles=65 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4080 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4080_bit0 cycles=67 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4080_bit31 cycles=67 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_4088 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4088_bit0 cycles=69 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_4088_bit31 cycles=69 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_40c0 cycles=71 transactions=0 completed=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_40c0_bit0 cycles=71 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_40c0_bit31 cycles=71 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_width_1f40 cycles=59 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_width_2000 cycles=59 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_width_10000 cycles=59 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_then_legacy cycles=1173 transactions=144 completed=2 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/legacy_then_initialized cycles=1149 transactions=144 completed=2 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/initialized_twice cycles=1393 transactions=168 completed=2 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_missing_after_completed cycles=321 transactions=24 completed=1 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_invalid_then_valid cycles=47 transactions=0 completed=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/vectors/init_width_last_write cycles=949 transactions=120 completed=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_8 cycles=1126 transactions=164 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_9 cycles=1312 transactions=188 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_33 cycles=1851 transactions=260 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_8 cycles=1902 transactions=276 tasks=2 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 cycles=2280 transactions=324 tasks=2 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_33 cycles=3377 transactions=468 tasks=2 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_8 cycles=1126 transactions=164 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_9 cycles=1312 transactions=188 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_33 cycles=1851 transactions=260 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_terminal cycles=772 transactions=112 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_unmapped_guard cycles=772 transactions=112 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_inplace cycles=772 transactions=112 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_restart cycles=1567 transactions=224 tasks=2 jobs=2 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_reset_during_fetch cycles=772 transactions=112 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_reset_during_data_read cycles=772 transactions=112 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_restart_after_partial_write_fault cycles=772 transactions=112 tasks=1 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_noncontiguous_chain cycles=1567 transactions=224 tasks=2 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_three_tasks cycles=2386 transactions=336 tasks=3 jobs=1 expected_error=0
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_cycle_limit cycles=3228 transactions=448 tasks=4 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_misaligned_start cycles=13 transactions=0 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_zero_amount cycles=13 transactions=0 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_short_amount cycles=13 transactions=0 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_long_amount cycles=13 transactions=0 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_start_overflow cycles=13 transactions=0 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_unmapped_start cycles=21 transactions=1 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_next_overflow cycles=780 transactions=112 tasks=1 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_next_unmapped cycles=789 transactions=113 tasks=1 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_next_unaligned cycles=535 transactions=76 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_next_null cycles=611 transactions=88 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_next_amount_limit cycles=563 transactions=80 tasks=0 jobs=0 expected_error=7
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_unknown cycles=48 transactions=4 tasks=0 jobs=0 expected_error=1
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_missing_register cycles=587 transactions=84 tasks=0 jobs=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_early_enable cycles=48 transactions=4 tasks=0 jobs=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_missing_enable cycles=611 transactions=88 tasks=0 jobs=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_swapped_tail cycles=535 transactions=76 tasks=0 jobs=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_body_tail cycles=48 transactions=4 tasks=0 jobs=0 expected_error=3
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bad_enable cycles=611 transactions=88 tasks=0 jobs=0 expected_error=2
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_1 cycles=21 transactions=1 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_2 cycles=30 transactions=2 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_3 cycles=38 transactions=3 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_4 cycles=47 transactions=4 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_5 cycles=58 transactions=5 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_85 cycles=595 transactions=85 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_88 cycles=610 transactions=88 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_89 cycles=621 transactions=89 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_90 cycles=624 transactions=90 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_91 cycles=631 transactions=91 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_92 cycles=634 transactions=92 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_bus_error_112 cycles=778 transactions=112 tasks=0 jobs=0 expected_error=5
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_drop_at_1 cycles=143 transactions=1 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_drop_at_4 cycles=167 transactions=4 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_drop_at_88 cycles=736 transactions=88 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_drop_at_89 cycles=741 transactions=89 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_drop_at_91 cycles=755 transactions=91 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_drop_at_112 cycles=898 transactions=112 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_stall_at_1 cycles=141 transactions=0 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_stall_at_4 cycles=166 transactions=3 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_stall_at_88 cycles=735 transactions=87 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_stall_at_89 cycles=740 transactions=88 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_stall_at_91 cycles=754 transactions=90 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_stall_at_112 cycles=897 transactions=111 tasks=0 jobs=0 expected_error=8
+PASS /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/dma_second_fetch_error cycles=789 transactions=113 tasks=1 jobs=0 expected_error=5
+PASS axi_mem lanes, boundaries, strobes, independent channels, backpressure, faults and six reset phases
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_8 tasks=1 requests=164 writes=8 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_9 tasks=1 requests=188 writes=16 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_33 tasks=1 requests=260 writes=40 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_8 tasks=2 requests=276 writes=16 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 tasks=2 requests=324 writes=32 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_33 tasks=2 requests=468 writes=80 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_8 tasks=1 requests=164 writes=8 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_9 tasks=1 requests=188 writes=16 full-memory comparison
+PASS axi_dma /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_33 tasks=1 requests=260 writes=40 full-memory comparison
+PASS axi_dma fault=1 propagated and joint reset
+PASS axi_dma fault=2 propagated and joint reset
+PASS axi_dma fault=3 propagated and joint reset
+PASS axi_dma fault=4 propagated and joint reset
+PASS axi_dma fault=5 propagated and joint reset
+PASS axi_dma fault=6 propagated and joint reset
+PASS job_control independent channels, explicit access errors, descriptor ownership, sticky results/IRQ, launch stalls and seven reset phases
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_8 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_9 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_add_33 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_8 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_33 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_8 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_9 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_mul_33 repeats=1 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=1 error=5 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=2 error=8 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=3 error=8 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=4 error=5 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=5 error=8 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=6 error=5 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=7 error=7 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=8 error=1 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=10 error=5 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=1 fault_mode=9 error=0 status/tag/task/IRQ and memory checks
+PASS host_axi /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/dma_vectors/capture_sub_9 repeats=2 fault_mode=0 error=0 status/tag/task/IRQ and memory checks
+PASS BRAM-only three-operation demo, cycles=360
+PASS BRAM demo restart
+PASS BRAM: 14 checked transfers, adjacent requests, dual-port reset
+PASS known readback corruption rejected
+PASS unknown readback rejected (four-state simulation)
+PASS demo readback corruption, sticky mismatch and recovery
+PASS DMA board workload: verbatim SUB(9), two tasks, 324 requests, 336 memory checks
+PASS DMA demo reset during command fetch and restart
+PASS DMA demo reset during data execution and restart
+PASS DMA demo initialization bus error
+PASS DMA demo command bus error
+PASS DMA demo completion-count mismatch
+PASS DMA demo known readback corruption
+PASS DMA demo unknown readback corruption
+PASS DMA demo watchdog and fault recovery
+PASS sparse demo BRAM: 80 checked transfers, adjacent requests, dual-port reset
+PASS YPCB top: startup, asynchronous reset, synchronized release, both LED polarities
+PASS startup reset: initial hold, exact release, synchronous restart, held and repeated requests
+PASS YPCB startup profile: no external reset, 64-cycle hold, raw SUB(9), both LED polarities
+python3 tools/run_cmac.py --simulator verilator
+PASS exact FP16 product vectors=230400 compared=230433 reset_cases=4 stalls=30466 cycles=278375 seed=3588ca04
+FAIL: Command '['/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp', '/home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/async_bram.vvp', '+CASE=/home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/vectors/capture_sub_9', '+OUTPUT=/home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/async_sub_9_observed.txt', '+START=100e0000', '+AMOUNT=35', '+NTASKS=2', '+NLINES=1600', '+JOBS=1', '+NEGATIVE=0', '+RESET_PARTIAL=0']' timed out after 600 seconds; report /home/fedora/rknpu-fpga/build/production-tinystories-controls/20261026T182707Z/workspace/build/host-jtag/iverilog-1793039261766557534/report.json
+make: *** [Makefile:80: host-jtag-four-state-test] Error 1
+make: *** Waiting for unfinished jobs....
+PASS raw CMAC operand front good_runs=13 fault_runs=7 reset_phases=5 x_runs=0 checked_operands=53297 seed=3588ca03; no numerical GEMM
+PASS raw CMAC product front good_runs=13 fault_runs=11 reset_cases=3 x_runs=0 checked_products=53247 blocked_cycles=80 seed=3588ca05; no accumulated GEMM

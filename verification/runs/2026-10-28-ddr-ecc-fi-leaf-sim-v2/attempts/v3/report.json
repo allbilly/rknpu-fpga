@@ -1,0 +1,120 @@
+{
+  "bench_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+  "cgroup": {
+    "cpu.max": "200000 100000",
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_mig_fi_xor",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v3/runs/iverilog/fi.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v3/source/mig_7series_v4_2_fi_xor.v",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v3/tests/tb_mig_fi_xor.sv"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "diagnostics": [
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v3/source/mig_7series_v4_2_fi_xor.v:106: warning: Anachronistic use of begin/end to surround generate schemes."
+      ],
+      "error": "iverilog_compile emitted unsuppressed warning/error diagnostics: ['/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v3/source/mig_7series_v4_2_fi_xor.v:106: warning: Anachronistic use of begin/end to surround generate schemes.']",
+      "finished_utc": "2026-10-28T06:44:04.064167+00:00",
+      "name": "iverilog_compile",
+      "owned_process_group_absent": true,
+      "pgid": 1155402,
+      "pid": 1155402,
+      "returncode": 0,
+      "seconds": 0.20109734102152288,
+      "started_utc": "2026-10-28T06:44:03.861748+00:00",
+      "status": "FAIL",
+      "stderr_log": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v3/iverilog_compile.stderr.log",
+      "stderr_sha256": "b7303237beacbcaf79a4da33c73cb4708e05e7674c0130d37bed172674018447",
+      "stdout_log": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v3/iverilog_compile.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 300
+    }
+  ],
+  "error": "ValueError(\"iverilog_compile emitted unsuppressed warning/error diagnostics: ['/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v3/source/mig_7series_v4_2_fi_xor.v:106: warning: Anachronistic use of begin/end to surround generate schemes.']\")",
+  "finished_utc": "2026-10-28T06:44:04.090215+00:00",
+  "hardware_accessed": false,
+  "memory_or_ecc_decoder_simulated": false,
+  "phy_simulated": false,
+  "physical_capacity_qualified": false,
+  "physical_ecc_injection_qualified": false,
+  "schema": "mig-fi-xor-leaf-validation-v1",
+  "scope": "Frozen MIG FI_XOR leaf contract only; no controller, ECC decoder, MIG memory, PHY, physical injection, or hardware qualification.",
+  "source_closure_count": 160,
+  "source_closure_manifest_sha256": "85ed4aed6a3761b2e12f86b21bc9a5adc79e60049148ac958290bcb30650ff69",
+  "source_inputs": {
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v3/run_validation.py": "f48349cd6847934fffc60007da3a1d351dbca7567c057c5846be586b0b3c2f25",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v3/source/mig_7series_v4_2_fi_xor.v": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v3/tests/tb_mig_fi_xor.sv": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/preparation.json": "71fe220dfe1ac59327ead8576f799edccd2af36dae493013f8e09ca3d102d96b",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+  },
+  "started_utc": "2026-10-28T06:44:03.788215+00:00",
+  "status": "FAIL",
+  "tool_versions": {
+    "cxx": {
+      "argv": [
+        "/usr/lib64/ccache/c++",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "c++ (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n"
+    },
+    "iverilog": {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-V"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n"
+    },
+    "verilator": {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426\n"
+    },
+    "vvp": {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "-V"
+      ],
+      "returncode": 0,
+      "stderr": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n",
+      "stdout": ""
+    }
+  },
+  "tools": {
+    "cxx": {
+      "path": "/usr/bin/ccache",
+      "sha256": "0eb8828d3c5975ed4b3ff6fa3b833de679380d84c752176feab6e2c4594552f2"
+    },
+    "iverilog": {
+      "path": "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/iverilog",
+      "sha256": "34ff9d8020f106bc3cc40d69a02f6c798be41193fdac187c35e7e4d703cade93"
+    },
+    "verilator": {
+      "path": "/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/bin/verilator",
+      "sha256": "7550862b9b1b41aa6aadb60b6c793f1e796a3ccb5ef18375d834b7a13f39efeb"
+    },
+    "vvp": {
+      "path": "/home/linuxbrew/.linuxbrew/Cellar/icarus-verilog/13.0/bin/vvp",
+      "sha256": "5876e595e35ef237d7f4fdaf831698a7dc7e91239aed5ec0d98599df0f8fc990"
+    }
+  },
+  "vivado_executed": false
+}

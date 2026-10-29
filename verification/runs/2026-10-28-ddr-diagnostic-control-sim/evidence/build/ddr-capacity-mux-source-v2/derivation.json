@@ -1,0 +1,14 @@
+{
+  "scope": "Port-range guard only; unchanged valid-profile widths and routing; invalid parameters stillfatal",
+  "parent_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_diagnostic_mux.sv",
+  "parent_sha256": "c771344eb0b09506763336905d739a29f3a26f226848267d5f6b201f4d1a8e57",
+  "derived_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-mux-source-v2/rk_ddr_diagnostic_mux.sv",
+  "derived_sha256": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+  "replacements": {
+    "[ADDR_WIDTH-1:0]": "[(ADDR_WIDTH>0 ? ADDR_WIDTH : 1)-1:0]",
+    "[ID_WIDTH-1:0]": "[(ID_WIDTH>0 ? ID_WIDTH : 1)-1:0]",
+    "[DATA_WIDTH-1:0]": "[(DATA_WIDTH>=8 ? DATA_WIDTH : 8)-1:0]",
+    "[DATA_WIDTH/8-1:0]": "[(DATA_WIDTH>=8 ? DATA_WIDTH/8 : 1)-1:0]"
+  },
+  "hardware_accessed": false
+}

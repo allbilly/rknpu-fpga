@@ -1,0 +1,53 @@
+{
+  "command_count": 15,
+  "expected_parameter_fatals": [
+    "bad_base",
+    "bad_span"
+  ],
+  "frozen_inputs": {
+    "run_validation.py": "aae7d217762b7a5841e5466f850a069948035260e4c45558e9c4e513c11337b9",
+    "source/rk_ddr_capacity_regs.sv": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+    "source/tb_capacity_regs.sv": "03864fc360f4c0eeb0aee596dc4372a9173cc46c364a5468cdc6f8680c8ee5b8",
+    "source/tb_capacity_regs_badparams.sv": "a8e2a93d2199a7660810176a5dbad4757590ec80d8e3cebd58c296b9468f42a3"
+  },
+  "frozen_manifest": "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v8/frozen-inputs.json",
+  "frozen_manifest_sha256": "e152f2dd477ebe5ccd53c654ca5ca0634ee863545c871c2c09a672b0580cb59a",
+  "git_head": "8b23d647d4a1c8cdaf7bdad2160f45b285ca6909",
+  "hardware_executed": false,
+  "issues": [],
+  "main_markers": {
+    "iverilog": "PASS capacity_regs checks=488",
+    "verilator": "PASS capacity_regs checks=433"
+  },
+  "native_main_checks": {
+    "iverilog": 488,
+    "verilator": 433
+  },
+  "original_private_rtl_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_capacity_regs.sv",
+  "original_private_rtl_sha256": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+  "physical_capacity_qualified": false,
+  "postrun_input_sha256": {
+    "run_validation.py": "aae7d217762b7a5841e5466f850a069948035260e4c45558e9c4e513c11337b9",
+    "source/rk_ddr_capacity_regs.sv": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+    "source/tb_capacity_regs.sv": "03864fc360f4c0eeb0aee596dc4372a9173cc46c364a5468cdc6f8680c8ee5b8",
+    "source/tb_capacity_regs_badparams.sv": "a8e2a93d2199a7660810176a5dbad4757590ec80d8e3cebd58c296b9468f42a3"
+  },
+  "runner_report": "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v8/report.json",
+  "runner_report_sha256": "38c3e23b537ed59420921677f923a8017fa3deaf7ed4ecd87255fdafab454b99",
+  "runner_sources_unchanged": true,
+  "runner_tool_version_note": "The raw runner tool_versions field retains Verilator only; the separate version commands and logs preserve Icarus and VVP versions, recorded here from those raw command outputs.",
+  "scope": "Standalone register bank protocol/CSR contract only; 4-state unknown controls run under Icarus only; no parent integration, MIG/PHY, physical DDR or board qualification.",
+  "status": "PASS_PRIVATE_SOURCE_BOUND_REGS_SIMULATION_AUDIT",
+  "strict_verilator_compile_stderr_bytes": {
+    "verilator_compile_bad_base": 0,
+    "verilator_compile_bad_span": 0,
+    "verilator_compile_main": 0
+  },
+  "tool_versions": {
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "verilator": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+    "vvp": "Icarus Verilog runtime version 13.0 (stable) (v13_0)"
+  },
+  "utc": "2026-10-28T07:31:45.560258+00:00",
+  "vivado_executed": false
+}

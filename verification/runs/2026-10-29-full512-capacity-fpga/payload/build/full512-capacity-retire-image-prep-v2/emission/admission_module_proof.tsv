@@ -1,0 +1,5 @@
+IMPORTED	rk_job_control_admission	/home/fedora/rknpu-fpga/build/full512-capacity-retire-vivado-prep-v1/source/hdl/161/rk_job_control_admission.sv	812417617c2eac21ead4f364ad9b280f15298edc613a506ab1a20ed889cee17d
+IMPORTED	rk_dual_job_control_admission	/home/fedora/rknpu-fpga/build/full512-capacity-retire-vivado-prep-v1/source/hdl/162/rk_dual_job_control_admission.sv	755415cfbde70ec657db213f498fc01763af264d0ded1eea463226092bed40a0
+POST_ROUTE	dual	platform/endpoint/control	rk_dual_job_control_admission	rk_dual_job_control_admission
+POST_ROUTE	job	platform/endpoint/control/bank[0].control	rk_job_control_admission	rk_job_control_admission
+POST_ROUTE	job	platform/endpoint/control/bank[1].control	rk_job_control_admission__parameterized0	rk_job_control_admission

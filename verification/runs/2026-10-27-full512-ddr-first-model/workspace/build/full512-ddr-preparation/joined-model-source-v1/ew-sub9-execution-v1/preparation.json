@@ -1,0 +1,48 @@
+{
+  "status": "PREPARED_SAME_ELF_EW_SUB9_ORIGINAL_BO_PAIR_ONLY",
+  "created_utc": "2026-10-27T20:53:22Z",
+  "scope": "same joined controller binary; original captured SUB9 raw BO pair, EW CSR namespace0 only; no numerical re-encoding/PHY or hardware claim",
+  "parent_snapshot_report": "/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/report.json",
+  "parent_snapshot_report_sha256": "4bf280a78a19aea94f147eee762881492f2f01e11fa704716cd952506750e794",
+  "parent_vector_dir": "/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_sub_9",
+  "ew_vector_dir": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/joined-model-source-v1/ew-sub9-execution-v1/vectors/capture_sub_9",
+  "vectors": {
+    "/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_sub_9/upload.txt": {
+      "source_sha256": "68cf7b0689343f22c979db0312eb718906a34d51c54e893699039f7630c885fb",
+      "source_bytes": 220800,
+      "copy": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/joined-model-source-v1/ew-sub9-execution-v1/vectors/capture_sub_9/upload.txt",
+      "copy_sha256": "68cf7b0689343f22c979db0312eb718906a34d51c54e893699039f7630c885fb",
+      "copy_bytes": 220800
+    },
+    "/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_sub_9/expected.txt": {
+      "source_sha256": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec",
+      "source_bytes": 220800,
+      "copy": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/joined-model-source-v1/ew-sub9-execution-v1/vectors/capture_sub_9/expected.txt",
+      "copy_sha256": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec",
+      "copy_bytes": 220800
+    }
+  },
+  "case": {
+    "csr_base": 0,
+    "start": "0x100e0000",
+    "amount": 35,
+    "ntasks": 2,
+    "nlines": 1600,
+    "jobs": 1,
+    "negative": 0,
+    "reset_recovery": 0,
+    "uploaded_nonzero": 77,
+    "complete_bo_bytes": 102400
+  },
+  "prospective_counts": {
+    "read64_packets": 1602,
+    "read64_axi_reads": 1602,
+    "phy_user_returns_formula": "65 + 1602 + 77*64 + 4*(35+22) + 3*16*2 + 1",
+    "phy_user_returns": 6920
+  },
+  "golden_or_command_bytes_modified": false,
+  "arithmetic_or_layout_repair": false,
+  "numerical_execution_performed": false,
+  "hardware_accessed": false,
+  "physical_phy_or_ddr_qualified": false
+}

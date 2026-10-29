@@ -1,0 +1,149 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 09-oct-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Tue Oct 27 00:25:14 2026
+# Process ID         : 510473
+# Current directory  : /home/fedora/rknpu-fpga/build/fpga-bringup/full512-regmem-20261026T160723Z/physical-tests/post-load-2
+# Command line       : vivado -mode batch -source /home/fedora/rknpu-fpga/build/fpga-bringup/full512-regmem-20261026T160723Z/physical-tests/post-load-2/capture.tcl -log /home/fedora/rknpu-fpga/build/fpga-bringup/full512-regmem-20261026T160723Z/physical-tests/post-load-2/vivado.log -journal /home/fedora/rknpu-fpga/build/fpga-bringup/full512-regmem-20261026T160723Z/physical-tests/post-load-2/vivado.jou
+# Log file           : /home/fedora/rknpu-fpga/build/fpga-bringup/full512-regmem-20261026T160723Z/physical-tests/post-load-2/vivado.log
+# Journal file       : /home/fedora/rknpu-fpga/build/fpga-bringup/full512-regmem-20261026T160723Z/physical-tests/post-load-2/vivado.jou
+# Running On         : fedora
+# Platform           : unknown
+# Operating System   : unknown
+# Processor Detail   : AMD Ryzen 7 4700U with Radeon Graphics
+# CPU Frequency      : 4076.965 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 8
+# Host memory        : 39639 MB
+# Swap memory        : 25769 MB
+# Total Virtual      : 65409 MB
+# Available Virtual  : 41029 MB
+#-----------------------------------------------------------
+source /home/fedora/rknpu-fpga/build/fpga-bringup/full512-regmem-20261026T160723Z/physical-tests/post-load-2/capture.tcl
+# set expected_target [encoding convertfrom utf-8 [binary format H* {6c6f63616c686f73743a333132352f78696c696e785f7463662f58696c696e782f3830383032303236613737613031}]]
+# set server_url [encoding convertfrom utf-8 [binary format H* {6c6f63616c686f73743a33313235}]]
+# set output_path [encoding convertfrom utf-8 [binary format H* {2f686f6d652f6665646f72612f726b6e70752d667067612f6275696c642f667067612d6272696e6775702f66756c6c3531322d7265676d656d2d3230323631303236543136303732335a2f706879736963616c2d74657374732f706f73742d6c6f61642d322f636170747572652e747376}]]
+# set binding_sha [encoding convertfrom utf-8 [binary format H* {34366433363666343334336565333634666635643364336535343035373630363535343164613762373534313338373630666466316630336336656232336335}]]
+# set sample_count 101
+# set interval_ms 50
+# set requested_tck 3000000
+# set out [open $output_path {WRONLY CREAT EXCL}]
+# fconfigure $out -translation lf -buffering line
+# puts $out "CMACSAMPLE1|BINDING|$binding_sha"
+# set manager_open 0
+# set connected 0
+# set target_open 0
+# set raw_mode 0
+# set rows 0
+# proc ew_hex {value bits} {
+#     if {![regexp {^[0-9a-fA-F]+$} $value]} {error "Non-binary JTAG capture"}
+#     set value [string tolower [string trimleft $value 0]]
+#     if {$value eq ""} {set value 0}
+#     set digits [expr {($bits+3)/4}]
+#     if {[string length $value]>$digits} {error "Oversize JTAG capture"}
+#     set value "[string repeat 0 [expr {$digits-[string length $value]}]]$value"
+#     if {$bits%4 != 0 && [scan [string index $value 0] %x] >= (1<<($bits%4))} {
+#         error "JTAG capture has nonzero padding"
+#     }
+#     return $value
+# }
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3125
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx cs_server v2026.1
+  **** Build Info : #60 | 2026-06-15 19:15 UTC | a9691a9
+    ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3125/xilinx_tcf/Xilinx/80802026a77a01
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3125/xilinx_tcf/Xilinx/80802026a77a01
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3125/xilinx_tcf/Xilinx/80802026a77a01
+INFO: [Labtoolstcl 44-467] Setting hw_target localhost:3125/xilinx_tcf/Xilinx/80802026a77a01 into jtag_mode
+# set main_failed [catch {
+#     open_hw_manager
+#     set manager_open 1
+#     connect_hw_server -url $server_url
+#     set connected 1
+#     set targets [get_hw_targets]
+#     if {[llength $targets]!=1 || [lindex $targets 0] ne $expected_target} {
+#         error "Expected one exact audited hardware target"
+#     }
+#     current_hw_target [lindex $targets 0]
+#     # This controls the debug cable's TCK, never the FPGA design SYS clock.
+#     set_property PARAM.FREQUENCY $requested_tck [current_hw_target]
+#     open_hw_target
+#     set target_open 1
+#     set devices [get_hw_devices]
+#     if {[llength $devices]!=1 || [get_property PART [lindex $devices 0]] ne "xc7k480t"} {
+#         error "Expected one XC7K480T device before entering raw TAP mode"
+#     }
+#     set actual_tck [get_property PARAM.FREQUENCY [current_hw_target]]
+#     if {![string is integer -strict $actual_tck] || $actual_tck!=$requested_tck} {
+#         error "Reported cable TCK differs from audited setting"
+#     }
+#     close_hw_target
+#     set target_open 0
+#     open_hw_target -jtag_mode 1
+#     set target_open 1
+#     set raw_mode 1
+#     run_state_hw_jtag RESET
+#     run_state_hw_jtag IDLE
+#     scan_ir_hw_jtag 6 -tdi 09
+#     set idcode [ew_hex [scan_dr_hw_jtag 32 -tdi 0] 32]
+#     if {$idcode ne "23751093"} {error "Unexpected raw IDCODE"}
+#     puts $out "CMACSAMPLE1|TOOL|[binary encode hex [encoding convertto utf-8 [version -short]]]"
+#     puts $out "CMACSAMPLE1|TARGET|[binary encode hex [encoding convertto utf-8 $expected_target]]"
+#     puts $out "CMACSAMPLE1|TCK|$actual_tck"
+#     puts $out "CMACSAMPLE1|IDCODE|$idcode"
+#     set started [clock clicks -microseconds]
+#     for {set i 0} {$i<$sample_count} {incr i} {
+#         # Re-selecting SAMPLE captures INIT/DONE without any design reset.
+#         set capture_ir [ew_hex [scan_ir_hw_jtag 6 -tdi 01] 6]
+#         set capture_dr [ew_hex [scan_dr_hw_jtag 1395 -tdi 0] 1395]
+#         set elapsed [expr {[clock clicks -microseconds]-$started}]
+#         puts $out "CMACSAMPLE1|ROW|$i|[clock microseconds]|$elapsed|$capture_ir|$capture_dr"
+#         incr rows
+#         if {$i+1<$sample_count} {after $interval_ms}
+#     }
+# } main_error]
+# if {$main_failed} {
+#     puts $out "CMACSAMPLE1|ERROR|[binary encode hex [encoding convertto utf-8 $main_error]]"
+# }
+# set cleanup_failed 0
+# if {$raw_mode && $target_open} {
+#     set bad [catch {scan_ir_hw_jtag 6 -tdi 3f} problem]
+#     puts $out "CMACSAMPLE1|CLEANUP|BYPASS|[expr {!$bad}]"
+#     if {$bad} {set cleanup_failed 1}
+# } else {
+#     puts $out "CMACSAMPLE1|CLEANUP|BYPASS|0"
+#     set cleanup_failed 1
+# }
+# if {$target_open} {
+#     set bad [catch {close_hw_target} problem]
+#     puts $out "CMACSAMPLE1|CLEANUP|TARGET|[expr {!$bad}]"
+#     if {$bad} {set cleanup_failed 1}
+# } else {puts $out "CMACSAMPLE1|CLEANUP|TARGET|1"}
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3125/xilinx_tcf/Xilinx/80802026a77a01
+# if {$connected} {
+#     set bad [catch {disconnect_hw_server} problem]
+#     puts $out "CMACSAMPLE1|CLEANUP|SERVER|[expr {!$bad}]"
+#     if {$bad} {set cleanup_failed 1}
+# } else {puts $out "CMACSAMPLE1|CLEANUP|SERVER|1"}
+# if {$manager_open} {
+#     set bad [catch {close_hw_manager} problem]
+#     puts $out "CMACSAMPLE1|CLEANUP|MANAGER|[expr {!$bad}]"
+#     if {$bad} {set cleanup_failed 1}
+# } else {puts $out "CMACSAMPLE1|CLEANUP|MANAGER|1"}
+# puts $out "CMACSAMPLE1|END|$rows|[expr {!$main_failed && !$cleanup_failed}]"
+# close $out
+# if {$main_failed || $cleanup_failed} {error "CMAC512 SAMPLE capture failed; preserve raw capture"}
+# puts "CMAC512_SAMPLE_CAPTURE_COMPLETE $output_path"
+CMAC512_SAMPLE_CAPTURE_COMPLETE /home/fedora/rknpu-fpga/build/fpga-bringup/full512-regmem-20261026T160723Z/physical-tests/post-load-2/capture.tsv
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 00:25:25 2026...

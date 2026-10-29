@@ -1,0 +1,241 @@
+{
+  "status": "PASS_FULL_C32K16_DSP_PREFIX_ARRAY_XC7_AREA_ONLY",
+  "stage": "complete",
+  "started_utc": "2026-10-25T16:53:21.846833+00:00",
+  "source": {
+    "sha256": "de820c14aa5f6f04151682aabd4d5f918cee33b57ddcffb61ed6d5130a7ade09",
+    "files": {
+      "build/rknpu-dsp-prefix-mapped-binary/1792947018073372362/report.json": "750f83eebd8d21c34dfa2238339243fd7e9515e5f0128bf5f1034d3531f40f1b",
+      "rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+      "rtl/cmac/experimental/rk_cmac_fp16_array_fixed.sv": "f224977011f01de1f9772221c7be3d1fe11e2e5e9f2358991941f076f293b1ec",
+      "rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+      "rtl/cmac/experimental/rk_cmac_fp16_cell_fixed.sv": "a5cd977ff063a50e0f77eabd087e5f71ba0101dc4914990c2c2e9c86e30034e7",
+      "rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+      "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp.sv": "302022caa244c9a9de311b6854894600cd8235e4f2afbb52b1845fe9d8339bdc",
+      "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+      "rtl/cmac/experimental/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+      "rtl/vendor/nvdla/LICENSE": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb",
+      "rtl/vendor/nvdla/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+      "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+      "tools/cmac/check_lane_dsp.py": "17e920716c0a18db515094c53b5c7ee9a41fb52301daf712db9d211b4ca5f95c",
+      "tools/cmac/dsp_array_contract.py": "49905e33d4af52c06ed3e74e68037b18fb05a2444046e10eb7ab22ad52d57368",
+      "tools/cmac/dsp_prefix_array_contract.py": "8bac0c7b674fbb5d21c3f97bc5340f27f416aac348917c21814ed436811c921f",
+      "tools/cmac/lane_dsp_library.py": "697237ed52458fb8dafad09f3c2b05615f1aa41a4a997a4a67930f315fcb3c03",
+      "tools/cmac/map_dsp_prefix_array.py": "ff44e73b6a4ef956627b302a383a688c7e8bb4500ac8b30d72dc58aa67d632d5",
+      "tools/cmac/map_fixed_board.py": "d798e497bcb436d61278944f477a6ca89d2588837abb80e400bfcf0690d9b439",
+      "tools/cmac/prepare_dsp_prefix_array.py": "6456da3f40d98e80de6f9d16b6577d3a2500ae6c695f7e36f97b7a4ac9a9bd35",
+      "tools/cmac/prove_lane_dsp_components.py": "c6ba910ec7aebf53cdb028b68a978071f03230ae2609fcb8edd6fed2949ab54b",
+      "tools/cmac/test_dsp_prefix_array_native.py": "1587a928863b5290a5161085ffad749d330665c6f11c6908d35529669e1dbbfe",
+      "tools/cmac/test_dsp_prefix_carry.py": "f85adeb697e540ebbd61515a29427d1c49ffa2ca3b202e9488f898cd2f8c253c",
+      "tools/cmac/test_fixed_array_board.py": "c1674b8a5c1eeedebbd96c5c7949371f1fa905ca8671491a39c8a70af0231928",
+      "tools/cmac/test_fixed_mapped_array.py": "6ccc0efff1b87cb7424a5ab39a85812c932ad9d6548eb26a26a56fdfb3639a25",
+      "tools/cmac/test_mapped_prefix_dsp.py": "2de4980c02d1478a2c8141f4678c71cb92e8ca5e7f91a364a56d271a44c07369",
+      "tools/cmac/vivado_array.py": "59e56a9dc53a924ae777f7ccf37d579d72cb641aa27afedb4010c1b9c25e652b",
+      "tools/cmac/xc7_primitive_counts.py": "708a3e6b88a8b1889262291cc7c0a909e2ef9ba88c569a6d69477b9e2f81b8d7",
+      "tools/evidence.py": "b660f509dd530516b77e45eedb6fd0d7430495dcc675a827971894cdc5cc2a54"
+    }
+  },
+  "supervisor_pid": 171125,
+  "python_version": "3.14.5 (main, May 10 2026, 10:21:34) [GCC 12.3.0]",
+  "commands": [
+    {
+      "argv": [
+        "yosys",
+        "-V"
+      ],
+      "log": "build/rknpu-dsp-prefix-array-area/1792947201846706713/version.log",
+      "status": "PASS",
+      "pid": 171128,
+      "returncode": 0,
+      "seconds": 0.009
+    },
+    {
+      "argv": [
+        "yosys",
+        "-Q",
+        "-T",
+        "-p",
+        "help flatten; help synth_xilinx"
+      ],
+      "log": "build/rknpu-dsp-prefix-array-area/1792947201846706713/help.log",
+      "status": "PASS",
+      "pid": 171129,
+      "returncode": 0,
+      "seconds": 0.009
+    },
+    {
+      "argv": [
+        "yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/fedora/rknpu-fpga/build/rknpu-dsp-prefix-array-area/1792947201846706713/mapping.ys"
+      ],
+      "log": "build/rknpu-dsp-prefix-array-area/1792947201846706713/mapping.log",
+      "status": "PASS",
+      "pid": 171130,
+      "returncode": 0,
+      "seconds": 74.706
+    }
+  ],
+  "channels": 32,
+  "kernels": 16,
+  "parallel_products": 512,
+  "intended_part": "xc7k480tffg1156-2",
+  "target_family": "xc7",
+  "parent_report": "build/rknpu-dsp-prefix-mapped-binary/1792947018073372362/report.json",
+  "parent_source_sha256": "a7e19ffff9a75340e0623ba3b171b2192b374894c73cfbbf4f274c64abed783f",
+  "numerical_acceptance": false,
+  "raw_board_numerical_acceptance": false,
+  "physical_fit_verified": false,
+  "bitstream_emitted": false,
+  "hardware_programmed": false,
+  "scope": "Full parallel C32/K16 experimental prefix DSP-array area/structure only. Original raw-command path unchanged. Synthesis hierarchy does not serialize or share physical products. Timing-only primitive declaration qualifiers audited solely in the counter view; unchanged actual circuit stored. No native/mapped numerical, raw-board, packed utilization, physical timing/electrical/DRC, bitstream, FPGA or RK acceptance.",
+  "tool_version": "Yosys 0.65 (git sha1 aec814bdf3071f7e0fd0fbe43f7f711e99d01e24, g++-12 12.3.0-1ubuntu1~22.04.3 -fPIC -O3)",
+  "original_coarse_stage": [
+    "techmap -map +/cmp2lut.v -map +/cmp2lcu.v -D LUT_WIDTH=[46]",
+    "alumacc",
+    "share",
+    "opt",
+    "memory -nomap",
+    "opt_clean"
+  ],
+  "executed_coarse_stage": [
+    "techmap -map +/cmp2lut.v -map +/cmp2lcu.v -D LUT_WIDTH=6",
+    "alumacc",
+    "opt",
+    "memory -nomap",
+    "opt_clean"
+  ],
+  "compile_inputs": {
+    "sha256": "c23d8242531e7a744be367f9885d799003b3ff829ff37f896909c37c1313585c",
+    "files": {
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/mapping.ys": "7c3b8a237d35dd6155a81a2b1b4622911f17fb4f40b2ca1715fbd24b5ee8e243",
+      "rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+      "rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+      "rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+      "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp.sv": "302022caa244c9a9de311b6854894600cd8235e4f2afbb52b1845fe9d8339bdc",
+      "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+      "rtl/cmac/experimental/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+      "rtl/vendor/nvdla/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+      "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6"
+    }
+  },
+  "source_bound_array_mapping_diagnostics": {
+    "native_lowering_notices": {
+      "Warning: Replacing memory \\temp_array with list of registers. See /home/fedora/rknpu-fpga/rtl/vendor/nvdla/NV_DW02_tree.v:41, /home/fedora/rknpu-fpga/rtl/vendor/nvdla/NV_DW02_tree.v:33": 3,
+      "Warning: Replacing memory \\input_array with list of registers. See /home/fedora/rknpu-fpga/rtl/vendor/nvdla/NV_DW02_tree.v:33, /home/fedora/rknpu-fpga/rtl/vendor/nvdla/NV_DW02_tree.v:28": 3
+    },
+    "abc_notice": "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").",
+    "abc_combinational_cuts": [
+      {
+        "module": "$paramod\\rk_cmac_fp16_cell_dsp_prefix\\ATOMIC_C=32'00000000000000000000000000100000",
+        "gates": 87955,
+        "wires": 91899,
+        "inputs": 3942,
+        "outputs": 3802
+      },
+      {
+        "module": "\\rk_cmac_fp16_array_dsp_prefix",
+        "gates": 769,
+        "wires": 791,
+        "inputs": 22,
+        "outputs": 746
+      }
+    ]
+  },
+  "finished_utc": "2026-10-25T16:54:42.615082+00:00",
+  "instantiated_lanes": 512,
+  "mapped_kernel_instances": 16,
+  "mapped_kernel_types": [
+    "$paramod\\rk_cmac_fp16_cell_dsp_prefix\\ATOMIC_C=32'00000000000000000000000000100000"
+  ],
+  "cells": {
+    "LUT3": 142641,
+    "LUT6": 44053,
+    "LUT2": 139841,
+    "LUT5": 57953,
+    "INV": 8422,
+    "FDCE": 742,
+    "LUT4": 13648,
+    "MUXF7": 2080,
+    "MUXF8": 688,
+    "LUT1": 32,
+    "CARRY4": 7328,
+    "DSP48E1": 512
+  },
+  "timing_qualifier_counter_audit": [
+    {
+      "cell": "$logic_and$/home/linuxbrew/.linuxbrew/Cellar/yosys/0.65/bin/../share/yosys/xilinx/cells_sim.v:3518$4676",
+      "output": 419,
+      "constant_enable": "1",
+      "sink": "genblk6.$specify$4060",
+      "timing_destination": "P"
+    },
+    {
+      "cell": "$logic_and$/home/linuxbrew/.linuxbrew/Cellar/yosys/0.65/bin/../share/yosys/xilinx/cells_sim.v:3519$4677",
+      "output": 420,
+      "constant_enable": "0",
+      "sink": "genblk6.$specify$4061",
+      "timing_destination": "P"
+    },
+    {
+      "cell": "$logic_and$/home/linuxbrew/.linuxbrew/Cellar/yosys/0.65/bin/../share/yosys/xilinx/cells_sim.v:3520$4678",
+      "output": 421,
+      "constant_enable": "1",
+      "sink": "genblk6.$specify$4062",
+      "timing_destination": "PCOUT"
+    },
+    {
+      "cell": "$logic_and$/home/linuxbrew/.linuxbrew/Cellar/yosys/0.65/bin/../share/yosys/xilinx/cells_sim.v:3521$4679",
+      "output": 422,
+      "constant_enable": "0",
+      "sink": "genblk6.$specify$4063",
+      "timing_destination": "PCOUT"
+    }
+  ],
+  "lut_count": 398168,
+  "ff_count": 742,
+  "dsp_count": 512,
+  "artifacts": {
+    "sha256": "d973e2dedf0d1ffb1f3ead0c72ae3b193caaf9730606549fbce6720c0e2dec13",
+    "files": {
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/help.log": "1f4ad3f1019b6e493ed0553dca8a5969aa0dcb9c18581832f2aec61bc98e6f15",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/hierarchy.json": "c78f4a13a566b92857e68804f55c5a3aa6308f48cbd83811f6d968cfd589624d",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/mapped.json": "d68d03e1491dc0247435dc5d8d1c3e7b834212fff5d2648b471172015ebca4eb",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/mapped.v": "3d2cc360f17ba19f67705449dc46c1b943ca3e716189b64716c9e1a4eb22a059",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/mapped_hierarchy.json": "a8993679ace1f23f71a68fc345e8d112853162e076e152cfe15bfb954451def0",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/mapping.log": "1b54082a72408c1e6af7380da2f6eb039cea49f64889fe0f1eeabd40450454ca",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/mapping.ys": "7c3b8a237d35dd6155a81a2b1b4622911f17fb4f40b2ca1715fbd24b5ee8e243",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/build/rknpu-dsp-prefix-mapped-binary/1792947018073372362/report.json": "750f83eebd8d21c34dfa2238339243fd7e9515e5f0128bf5f1034d3531f40f1b",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/rtl/cmac/experimental/rk_cmac_fp16_array_fixed.sv": "f224977011f01de1f9772221c7be3d1fe11e2e5e9f2358991941f076f293b1ec",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/rtl/cmac/experimental/rk_cmac_fp16_cell_fixed.sv": "a5cd977ff063a50e0f77eabd087e5f71ba0101dc4914990c2c2e9c86e30034e7",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp.sv": "302022caa244c9a9de311b6854894600cd8235e4f2afbb52b1845fe9d8339bdc",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/rtl/cmac/experimental/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/rtl/vendor/nvdla/LICENSE": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/rtl/vendor/nvdla/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/check_lane_dsp.py": "17e920716c0a18db515094c53b5c7ee9a41fb52301daf712db9d211b4ca5f95c",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/dsp_array_contract.py": "49905e33d4af52c06ed3e74e68037b18fb05a2444046e10eb7ab22ad52d57368",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/dsp_prefix_array_contract.py": "8bac0c7b674fbb5d21c3f97bc5340f27f416aac348917c21814ed436811c921f",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/lane_dsp_library.py": "697237ed52458fb8dafad09f3c2b05615f1aa41a4a997a4a67930f315fcb3c03",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/map_dsp_prefix_array.py": "ff44e73b6a4ef956627b302a383a688c7e8bb4500ac8b30d72dc58aa67d632d5",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/map_fixed_board.py": "d798e497bcb436d61278944f477a6ca89d2588837abb80e400bfcf0690d9b439",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/prepare_dsp_prefix_array.py": "6456da3f40d98e80de6f9d16b6577d3a2500ae6c695f7e36f97b7a4ac9a9bd35",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/prove_lane_dsp_components.py": "c6ba910ec7aebf53cdb028b68a978071f03230ae2609fcb8edd6fed2949ab54b",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/test_dsp_prefix_array_native.py": "1587a928863b5290a5161085ffad749d330665c6f11c6908d35529669e1dbbfe",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/test_dsp_prefix_carry.py": "f85adeb697e540ebbd61515a29427d1c49ffa2ca3b202e9488f898cd2f8c253c",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/test_fixed_array_board.py": "c1674b8a5c1eeedebbd96c5c7949371f1fa905ca8671491a39c8a70af0231928",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/test_fixed_mapped_array.py": "6ccc0efff1b87cb7424a5ab39a85812c932ad9d6548eb26a26a56fdfb3639a25",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/test_mapped_prefix_dsp.py": "2de4980c02d1478a2c8141f4678c71cb92e8ca5e7f91a364a56d271a44c07369",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/vivado_array.py": "59e56a9dc53a924ae777f7ccf37d579d72cb641aa27afedb4010c1b9c25e652b",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/cmac/xc7_primitive_counts.py": "708a3e6b88a8b1889262291cc7c0a909e2ef9ba88c569a6d69477b9e2f81b8d7",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/snapshot/tools/evidence.py": "b660f509dd530516b77e45eedb6fd0d7430495dcc675a827971894cdc5cc2a54",
+      "build/rknpu-dsp-prefix-array-area/1792947201846706713/version.log": "6d8fa3f8d89b89b3675462c487e5d2a3b60ad8f2acb2653047feee3a37f29b50"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "status": "PREPARED_UNCHANGED_ORIGINAL_MIG_GENERATION_RECIPE_ONLY",
+  "scope": "Prepare an unchanged RZQ/7 original MIG generation recipe; never execute it.\n\nThe two differential200MHz inputs and every pin/electrical/XML byte remain\nthe original project's values. This supplies no clock-delivery, generated\ncontroller, timing, PHY training, DDR contents or physical integration claim.\n",
+  "profile": {
+    "values": {
+      "module": "top_mig_7series_0_0",
+      "controllers": 2,
+      "target": "xc7k480t-ffg1156/-2",
+      "system_clock": "Differential",
+      "reference_clock": "Use System Clock",
+      "sys_reset": "ACTIVE LOW",
+      "interface": "AXI",
+      "ecc": "Enabled",
+      "phy_ratio": "4:1",
+      "physical_dq_width": 72,
+      "size_bytes": 2147483648,
+      "input_clock_mhz": 200,
+      "memory_period_ps": 1875,
+      "address_width": 31,
+      "data_width": 512,
+      "id_width": 4,
+      "narrow_bursts": 0
+    },
+    "channels": [
+      {
+        "channel": 0,
+        "pair": "AH27/AH28(CC_P/N)",
+        "bank": "12",
+        "source_pin_entries": 121,
+        "output_drive": "RZQ/7"
+      },
+      {
+        "channel": 1,
+        "pair": "G25/G26(CC_P/N)",
+        "bank": "17",
+        "source_pin_entries": 118,
+        "output_drive": "RZQ/7"
+      }
+    ],
+    "board_clock_delivery_verified": false,
+    "electrical_admission": false,
+    "physical_integration_ready": false
+  },
+  "original_sources": {
+    "project": {
+      "path": "/home/fedora/ypcb/ref/ypcb_00338_1p1_hack/examples/YPCB_00338_1P1_systest/YPCB_00338_1P1_systest.gen/sources_1/bd/top/ip/top_mig_7series_0_0_1/top_mig_7series_0_0/mig.prj",
+      "sha256": "adc1bcdb20b7aabb51f9359bf46eaea3c6e592819a9d88411ebf90e61e974d00"
+    },
+    "template": {
+      "path": "/home/fedora/ypcb/ref/ypcb_00338_1p1_hack/examples/YPCB_00338_1P1_systest/YPCB_00338_1P1_systest.gen/sources_1/bd/top/ip/top_mig_7series_0_0_1/top_mig_7series_0_0.veo",
+      "sha256": "65c7aa774e4fd8a9f5588b45b27a28ed40becd1e02965f306d56f6c44b101b66"
+    },
+    "component": {
+      "path": "/home/fedora/ypcb/ref/ypcb_00338_1p1_hack/examples/YPCB_00338_1P1_systest/YPCB_00338_1P1_systest.gen/sources_1/bd/top/ip/top_mig_7series_0_0_1/top_mig_7series_0_0.xml",
+      "sha256": "e14b00b19c613eabd11a1c57e16b18ba0db5b08f17189c394dba750b1d9228b3"
+    },
+    "example": {
+      "path": "/home/fedora/ypcb/ref/ypcb_00338_1p1_hack/examples/YPCB_00338_1P1_systest/YPCB_00338_1P1_systest.gen/sources_1/bd/top/ip/top_mig_7series_0_0_1/top_mig_7series_0_0/example_design/rtl/example_top.v",
+      "sha256": "2aa063a72be42f36fa9cd046c45d21bd84716f930e228285f9482316c9ac7d09"
+    },
+    "file_list": {
+      "path": "/home/fedora/ypcb/ref/ypcb_00338_1p1_hack/examples/YPCB_00338_1P1_systest/YPCB_00338_1P1_systest.gen/sources_1/bd/top/ip/top_mig_7series_0_0_1/top_mig_7series_0_0_xmdf.tcl",
+      "sha256": "f763905a7682d2421e6530f96b2b6a8cd97c88d5da17a45cd55a17efd42cca8b"
+    },
+    "block_design": {
+      "path": "/home/fedora/ypcb/ref/ypcb_00338_1p1_hack/examples/YPCB_00338_1P1_systest/YPCB_00338_1P1_systest.srcs/sources_1/bd/top/top.bd",
+      "sha256": "2a17a5028475bfdb27c6576e8ffbac0331949e45327d1a1a34652215e6cbc02a"
+    }
+  },
+  "frozen_inputs": {
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/original/project/mig.prj": "adc1bcdb20b7aabb51f9359bf46eaea3c6e592819a9d88411ebf90e61e974d00",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/original/template/top_mig_7series_0_0.veo": "65c7aa774e4fd8a9f5588b45b27a28ed40becd1e02965f306d56f6c44b101b66",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/original/component/top_mig_7series_0_0.xml": "e14b00b19c613eabd11a1c57e16b18ba0db5b08f17189c394dba750b1d9228b3",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/original/example/example_top.v": "2aa063a72be42f36fa9cd046c45d21bd84716f930e228285f9482316c9ac7d09",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/original/file_list/top_mig_7series_0_0_xmdf.tcl": "f763905a7682d2421e6530f96b2b6a8cd97c88d5da17a45cd55a17efd42cca8b",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/original/block_design/top.bd": "2a17a5028475bfdb27c6576e8ffbac0331949e45327d1a1a34652215e6cbc02a",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/tool/tools/ddr/prepare_original_mig.py": "945bb28dc87d4481a28b14b423bdaa98bff190352b63cd8b6a14445f05310aab",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/tool/tools/ddr/interface.py": "23f6567f69cf4a13eecb5897b3ed728c63e40bd162a6e55bc3914e21a910d612",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/tool/tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/tool/fpga/ddr/generate_original_mig.tcl.in": "02b32d36f8837417ee54542df1f46736b922d881f55a438a8697f01721a5a3d9",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/tool/fpga/ddr/mig_c0_reference.json": "b10c6d542d583ee486481b1811dbc71f4a6684849fd54b98a0eb2c952239fc2f",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/tool/tools/ddr/__init__.py": "2fa618901727a59f5d29c19d1e31fdf6a1177c3705413e26d3a486ac4b6a5580",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/tool/tests/ddr/original_mig/test_prepare.py": "a0adfd5ac106bac1c847983865ef224119e7ae5b114e524449866a8c09758845",
+    "/home/fedora/rknpu-fpga/build/original-mig-preparation/rzq7-v2/source/tool/fpga/ddr/original_mig.mk": "17bc4b260571fd7e1c946d80dc64c1725492b5b5b890e532fd5bb33ce10e970c"
+  },
+  "frozen_source_sha256": "76805332d3ca4c3068d41e37e7a90dbc533067bb65791af579f311bfe8184d78",
+  "generate_tcl_sha256": "8d4b92ba138b317df8b737ed78ee18cd53d6b4ef1e8e9cdd5076652b0800d29f",
+  "native_execution_required": true,
+  "vivado_executed": false,
+  "generated_controller_present": false,
+  "board_clock_delivery_verified": false,
+  "physical_integration_ready": false,
+  "hardware_accessed": false,
+  "flash_written": false,
+  "readonly_workflow_reference": {
+    "path": "/home/fedora/openTPU/tools/fedora_build_ramtest_mig.py",
+    "sha256": "51b7067faed2a87ae6a4b4a4005603064bead7e7a07908f5dfce8a9c188fbb23",
+    "scope": "Workflow syntax reference only; not executed, copied as RTL, or inherited electrical/physical evidence"
+  }
+}

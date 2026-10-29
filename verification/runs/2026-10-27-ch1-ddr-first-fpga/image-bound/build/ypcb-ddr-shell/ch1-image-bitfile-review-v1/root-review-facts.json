@@ -1,0 +1,178 @@
+{
+  "bit_bytes": 18735212,
+  "bit_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-image-v2/emission/ew-ddr-ch1-user2.bit",
+  "bit_sha256": "45bd540cfaf7327ad8db5ba4e3a7548a209db1aeba4423f37159a72287296339",
+  "checker_argv": [
+    "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+    "/home/fedora/ypcb/local-overrides/projects-bonetto-soc/files/scripts/fedora-check-vivado-bitstream.py",
+    "--bit",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-image-v2/emission/ew-ddr-ch1-user2.bit",
+    "--expected-sha256",
+    "45bd540cfaf7327ad8db5ba4e3a7548a209db1aeba4423f37159a72287296339",
+    "--out",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-image-bitfile-review-v1/bitstream_check.json"
+  ],
+  "checker_path": "/home/fedora/ypcb/local-overrides/projects-bonetto-soc/files/scripts/fedora-check-vivado-bitstream.py",
+  "checker_report_path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-image-bitfile-review-v1/bitstream_check.json",
+  "checker_report_sha256": "d0c16db021240fb69b97003116f5bd46fe26fcee3096e7e4a9738f9cb023984f",
+  "checker_returncode": 0,
+  "checker_scope": "Vivado .bit container, YPCB device/package header, IDCODE, packet bounds and configuration markers",
+  "checker_sha256": "480f6a4bd7ee7e5e7f6c9eee5750a3f1e223f52a4f87cb694afade7d0558f756",
+  "cmd15_iprog_seen": false,
+  "cmd_register_values": [
+    "0x00000000",
+    "0x00000007",
+    "0x00000009",
+    "0x00000001",
+    "0x0000000a",
+    "0x00000003",
+    "0x00000005",
+    "0x0000000d"
+  ],
+  "container_part": "7k480tffg1156",
+  "crc_software_validation": "NOT_PERFORMED",
+  "crc_validation": "NOT_CHECKED",
+  "drc": {
+    "bitstream_checks": {
+      "checks_found": 6,
+      "critical_warnings": 0,
+      "errors": 0,
+      "path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-image-v2/emission/bitstream_drc.rpt",
+      "rule_counts": [
+        {
+          "checks": 2,
+          "description": "Input pipelining",
+          "rule": "DPIP-1",
+          "severity": "Warning"
+        },
+        {
+          "checks": 1,
+          "description": "PREG Output pipelining",
+          "rule": "DPOP-1",
+          "severity": "Warning"
+        },
+        {
+          "checks": 1,
+          "description": "MREG Output pipelining",
+          "rule": "DPOP-2",
+          "severity": "Warning"
+        },
+        {
+          "checks": 2,
+          "description": "Clock output buffering",
+          "rule": "REQP-1709",
+          "severity": "Warning"
+        }
+      ],
+      "sha256": "cbe1ef2895de9af6813837ec8b10d76b835738a181daece903b239a26b5e9dfb",
+      "warnings": 6
+    },
+    "critical_warning_event_count": 0,
+    "critical_warning_events": [],
+    "critical_warning_summary_lines": [
+      {
+        "line_no": 1179,
+        "path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-image-v2/stdout.log",
+        "text": "8 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered."
+      },
+      {
+        "line_no": 1193,
+        "path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-image-v2/vivado.log",
+        "text": "8 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered."
+      }
+    ],
+    "default": {
+      "checks_found": 6,
+      "critical_warnings": 0,
+      "errors": 0,
+      "path": "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-image-v2/emission/default_drc.rpt",
+      "rule_counts": [
+        {
+          "checks": 2,
+          "description": "Input pipelining",
+          "rule": "DPIP-1",
+          "severity": "Warning"
+        },
+        {
+          "checks": 1,
+          "description": "PREG Output pipelining",
+          "rule": "DPOP-1",
+          "severity": "Warning"
+        },
+        {
+          "checks": 1,
+          "description": "MREG Output pipelining",
+          "rule": "DPOP-2",
+          "severity": "Warning"
+        },
+        {
+          "checks": 2,
+          "description": "Clock output buffering",
+          "rule": "REQP-1709",
+          "severity": "Warning"
+        }
+      ],
+      "sha256": "e17b01375fa72d7d5be2d53e7b11c3a7fd706a63a404481bad57470294a6a2d3",
+      "warnings": 6
+    },
+    "native_drc_critical_warning_count": {
+      "bitstream_checks": 0,
+      "default": 0
+    },
+    "native_drc_error_count": {
+      "bitstream_checks": 0,
+      "default": 0
+    },
+    "ordinary_warning_event_count": 202
+  },
+  "electrical_signoff": "NOT_REVIEWED_HERE",
+  "emitter_artifacts_count": 35,
+  "emitter_artifacts_unchanged_after": true,
+  "emitter_inputs_count": 455,
+  "emitter_inputs_unchanged_after": true,
+  "emitter_report_status": "PASS_NATIVE_CH1_IMAGE_EMISSION_REQUIRES_INDEPENDENT_BITSTREAM_REVIEW",
+  "emitter_returncode": 0,
+  "fdri_words": 4683168,
+  "flash_written": false,
+  "hardware_accessed": false,
+  "idcode": "0x03751093",
+  "idcode_observed_checker_string": "0x3751093",
+  "independent_input_artifact_rehash": {
+    "emitter_artifact_count": 35,
+    "emitter_artifacts_unchanged": true,
+    "emitter_input_count": 455,
+    "emitter_inputs_unchanged": true,
+    "preparation_input_count": 454,
+    "preparation_inputs_unchanged": true
+  },
+  "native_emitter_scope": "Bounded offline CH1 image emission. No hardware manager, programming or flash.",
+  "package_device_match": true,
+  "packet_count": 545,
+  "physical_hardware": "NOT_TESTED",
+  "preparation_inputs_count": 454,
+  "preparation_inputs_unchanged_after": true,
+  "programming": false,
+  "reg0_encoded_crc_words": [
+    {
+      "encoded_word": "0x4e986c63",
+      "packet_offset": 18733124,
+      "word_index": 0
+    },
+    {
+      "encoded_word": "0xe3ad7ea5",
+      "packet_offset": 18733596,
+      "word_index": 0
+    }
+  ],
+  "reg13_axss_values": [
+    "0xa2dfec21"
+  ],
+  "routed_checkpoint_sha256": "394d58fb8ef02187fb25a3c6f99df4d9874bbd558c6f0fd7861b83ae0ae2262e",
+  "schema": "independent-ch1-bitfile-root-review-facts-v1",
+  "scope_note": "No software CRC validation was performed. This is bitfile structure/container evidence only; no DRC/timing/physical/electrical/DDR/hardware pass is inferred.",
+  "source_sha256": "a2dfec2162c2df789e3510bd547429592341d8bebd59c835eb4cec1f5af451b7",
+  "source_tag": "a2dfec21",
+  "speed_grade_evidence": "NOT_ENCODED_IN_BIT_HEADER",
+  "status": "PASS_READONLY_BITFILE_STRUCTURE_REVIEW_ONLY",
+  "sync_offset": 48
+}

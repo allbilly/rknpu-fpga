@@ -1,0 +1,146 @@
+{
+  "status": "PASS_FULL512_TWO_STAGE_NATIVE_ONLY",
+  "started_utc": "2026-10-26T09:28:59.415463+00:00",
+  "simulator": "verilator",
+  "source": {
+    "sha256": "929f5960a0711851c21af3154e9d54e62a36fc872d899411dce35708549b2852",
+    "files": {
+      "build/pipeline-native/verilator-payload-init-20261026-1/negative.hex": "eeda5b1277e87dae87c61dc57dd25570d86155d6bf331315e85cbe962d6d14f4",
+      "build/pipeline-native/verilator-payload-init-20261026-1/tb_cmac_fp16_array.sv": "65036e0d591b345a2ab13a2b1ad615442d46b7ed3cd003a1e4489fbd61bf3379",
+      "build/rknpu-cmac-array/c32k16/vectors.hex": "a5be0591c6262c9e6292d6a02166b435a459056810425ecc220d74341a0e15f3",
+      "build/rknpu-cmac-array/c32k16/vectors_report.json": "830fb4cfb7481e3aa679a2e63b262a2aa3d7d6a7b4e7c5934bd0a4a6a9227a7e",
+      "rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+      "rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+      "rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+      "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+      "rtl/cmac/experimental/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+      "rtl/vendor/nvdla/LICENSE": "0f232029d97359752ac8a67f20e5fd6a703bb3af80f812ebff927a059a84cccb",
+      "rtl/vendor/nvdla/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+      "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+      "rtl/vendor/nvdla/assertion_header.h": "433144e681c5823d1e886c9872a8e6b2bd0b2d7e7f221f2dc8620ba04c2585e9",
+      "rtl/vendor/nvdla/assertion_task.h": "1bff44cbd43cead87f9357c8ba25e1b7a1a639fabfc081082470655b69e25cbd",
+      "rtl/vendor/nvdla/compat/nv_assert_never.v": "28a3ff37142647e9499cc0dd88095313c029acffe1bf7806160eb9fbbd288732",
+      "rtl/vendor/nvdla/compat/nv_assert_no_x.v": "6eb56dc9ea269a4b071d3c00de3a23f5b75782b72403bcc72a7acc9e625a6e97",
+      "rtl/vendor/nvdla/nv_assert_never.vlib": "d5b31a424e4518cdf58ef9fe303a749cd514bc1d134a9ac8198b454adc12c2ad",
+      "rtl/vendor/nvdla/nv_assert_no_x.vlib": "64ae1b6d9735257b681d3ad42ee0e05f425fc0ec11308c845cb7f668ce117a02",
+      "tests/cmac/tb_cmac_fp16_array.sv": "c717ae8c38386ca4fd5a2cc4656294bee02ac3ba314681f35b60257564ce5d96",
+      "tools/cmac/balanced_max/run.py": "1c5fba5f2a68b1e01fbf011f51b5d89d8ea4d07bff5ad9ad65cf810ec0664feb",
+      "tools/cmac/pipeline/run.py": "2327f49ce80cb38b2965174a1be32bf49a77eb851dd8fa482bcc927a4ae63bd8",
+      "tools/evidence.py": "b660f509dd530516b77e45eedb6fd0d7430495dcc675a827971894cdc5cc2a54"
+    }
+  },
+  "channels": 32,
+  "kernels": 16,
+  "parallel_products": 512,
+  "pipeline_stages": 2,
+  "frames": 208,
+  "outputs": 3328,
+  "original_numeric_assertions_preserved": true,
+  "commands": [
+    {
+      "name": "version",
+      "argv": [
+        "verilator",
+        "--version"
+      ],
+      "status": "PASS",
+      "pid": 377865,
+      "returncode": 0,
+      "seconds": 0.11793113593012094,
+      "log_sha256": "9d8d19bf7d16f490e1b9d701dc1438bf9ec2d7f4a41ca4f0ec8ee3d1a3df8253"
+    },
+    {
+      "name": "compile",
+      "argv": [
+        "verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-Wno-fatal",
+        "-DDESIGNWARE_NOEXIST",
+        "-DASSERT_ON",
+        "-I/home/fedora/rknpu-fpga/rtl/vendor/nvdla",
+        "--top-module",
+        "tb_cmac_fp16_array",
+        "-j",
+        "1",
+        "-MAKEFLAGS",
+        "OPT_FAST=-O0 OPT_SLOW=-O0",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/pipeline-native/verilator-payload-init-20261026-1/obj",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/rtl/vendor/nvdla/compat/nv_assert_never.v",
+        "/home/fedora/rknpu-fpga/rtl/vendor/nvdla/compat/nv_assert_no_x.v",
+        "/home/fedora/rknpu-fpga/rtl/vendor/nvdla/NV_DW02_tree.v",
+        "/home/fedora/rknpu-fpga/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+        "/home/fedora/rknpu-fpga/rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+        "/home/fedora/rknpu-fpga/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+        "/home/fedora/rknpu-fpga/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+        "/home/fedora/rknpu-fpga/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+        "/home/fedora/rknpu-fpga/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+        "/home/fedora/rknpu-fpga/build/pipeline-native/verilator-payload-init-20261026-1/tb_cmac_fp16_array.sv"
+      ],
+      "status": "PASS",
+      "pid": 377869,
+      "returncode": 0,
+      "reviewed_messages": [
+        "%Warning-DECLFILENAME: /home/fedora/rknpu-fpga/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v:680:8: Filename 'NV_NVDLA_CMAC_CORE_MAC_mul' does not match MODULE name: 'NV_NVDLA_CMAC_CORE_MAC_booth'",
+        "%Warning-PINCONNECTEMPTY: /home/fedora/rknpu-fpga/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv:19:34: Instance pin connected by name with empty reference: 'res_b'",
+        "%Warning-PINCONNECTEMPTY: /home/fedora/rknpu-fpga/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv:19:44: Instance pin connected by name with empty reference: 'res_tag'",
+        "%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv:7:23: Bits of signal are not used: 'first_row'[31:28]",
+        "%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv:7:34: Bits of signal are not used: 'total'[31:28]"
+      ],
+      "seconds": 178.73560616909526,
+      "log_sha256": "2238f93d2750c6fe36b08c2421fa462fad9b968e80e91821a5b210e00cf8ea2f"
+    },
+    {
+      "name": "negative",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/pipeline-native/verilator-payload-init-20261026-1/obj/sim",
+        "+VECTORS=/home/fedora/rknpu-fpga/build/pipeline-native/verilator-payload-init-20261026-1/negative.hex",
+        "+COUNT=208"
+      ],
+      "status": "PASS",
+      "pid": 378137,
+      "returncode": 1,
+      "seconds": 0.2215845249593258,
+      "log_sha256": "41f4b1da84c30b2826de0b1534f927cb08a6a8ca0698a38c7e9518a853a8c2cc"
+    },
+    {
+      "name": "actual",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/pipeline-native/verilator-payload-init-20261026-1/obj/sim",
+        "+VECTORS=/home/fedora/rknpu-fpga/build/rknpu-cmac-array/c32k16/vectors.hex",
+        "+COUNT=208"
+      ],
+      "status": "PASS",
+      "pid": 378138,
+      "returncode": 0,
+      "seconds": 6.070540020940825,
+      "log_sha256": "8d1af3a955e97a4c0a264a396979118c49207cd3df3626d3f0ff6339d8d39b8a"
+    }
+  ],
+  "hardware_programmed": false,
+  "vivado_executed": false,
+  "scope": "Separate two-stage CMAC native corpus/burst/reset/X contract; no mapped/FPGA/RK acceptance",
+  "tool_version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+  "compiled_image": {
+    "path": "/home/fedora/rknpu-fpga/build/pipeline-native/verilator-payload-init-20261026-1/obj/sim",
+    "sha256": "3b9efcf524948434899ec68faca5bb3503104241ce83a0c5ebebe2940e7d82b4"
+  },
+  "result": "PASS sized FP16 CMAC C=32 K=16 frames=208 checked_outputs=3328 retired_outputs=3312 reset_canceled=16 held_cycles=520 faults=0",
+  "finished_utc": "2026-10-26T09:32:04.636264+00:00",
+  "artifacts": {
+    "sha256": "d4913f3b015c77f81a686d3f8a180f434416955e38c93ced0cbb5b79c3c51c18",
+    "files": {
+      "build/pipeline-native/verilator-payload-init-20261026-1/actual.log": "8d1af3a955e97a4c0a264a396979118c49207cd3df3626d3f0ff6339d8d39b8a",
+      "build/pipeline-native/verilator-payload-init-20261026-1/compile.log": "2238f93d2750c6fe36b08c2421fa462fad9b968e80e91821a5b210e00cf8ea2f",
+      "build/pipeline-native/verilator-payload-init-20261026-1/negative.hex": "eeda5b1277e87dae87c61dc57dd25570d86155d6bf331315e85cbe962d6d14f4",
+      "build/pipeline-native/verilator-payload-init-20261026-1/negative.log": "41f4b1da84c30b2826de0b1534f927cb08a6a8ca0698a38c7e9518a853a8c2cc",
+      "build/pipeline-native/verilator-payload-init-20261026-1/tb_cmac_fp16_array.sv": "65036e0d591b345a2ab13a2b1ad615442d46b7ed3cd003a1e4489fbd61bf3379",
+      "build/pipeline-native/verilator-payload-init-20261026-1/version.log": "9d8d19bf7d16f490e1b9d701dc1438bf9ec2d7f4a41ca4f0ec8ee3d1a3df8253"
+    }
+  }
+}

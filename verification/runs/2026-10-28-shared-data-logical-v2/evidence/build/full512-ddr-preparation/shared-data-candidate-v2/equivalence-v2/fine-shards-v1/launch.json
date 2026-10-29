@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-shared-data-eq-fine-shards-v1",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=128",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=20",
+    "8000s",
+    "python3",
+    "build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/fine-shards-v1/run_shards.py"
+  ],
+  "finished_utc": "2026-10-27T23:31:32.591543+00:00",
+  "progress_sha256": "544053014f718a19eada673f1533bbd650056234c1040cb948c0d9cc900d2d55",
+  "report_sha256": "7ec24a0c8544aa10cc4d362f59a682c95b66e1de1dcdb3a0d1fda1e391bcdcf9",
+  "returncode": 0,
+  "started_utc": "2026-10-27T23:31:27.053032+00:00",
+  "status": "RUNNER_RETURNED"
+}

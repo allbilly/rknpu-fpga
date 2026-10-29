@@ -1,0 +1,169 @@
+{
+  "all_inputs_unchanged": true,
+  "bad_parameter_results": [
+    {
+      "case": "bad_addr",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_ADDR_WIDTH",
+      "simulator": "iverilog",
+      "value": 0
+    },
+    {
+      "case": "bad_data_small",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_DATA_WIDTH",
+      "simulator": "iverilog",
+      "value": 7
+    },
+    {
+      "case": "bad_data_granularity",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_DATA_WIDTH",
+      "simulator": "iverilog",
+      "value": 10
+    },
+    {
+      "case": "bad_data_odd",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_DATA_WIDTH",
+      "simulator": "iverilog",
+      "value": 9
+    },
+    {
+      "case": "bad_id",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_ID_WIDTH",
+      "simulator": "iverilog",
+      "value": 0
+    },
+    {
+      "case": "bad_addr",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_ADDR_WIDTH",
+      "simulator": "verilator",
+      "value": 0
+    },
+    {
+      "case": "bad_data_small",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_DATA_WIDTH",
+      "simulator": "verilator",
+      "value": 7
+    },
+    {
+      "case": "bad_data_granularity",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_DATA_WIDTH",
+      "simulator": "verilator",
+      "value": 10
+    },
+    {
+      "case": "bad_data_odd",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_DATA_WIDTH",
+      "simulator": "verilator",
+      "value": 9
+    },
+    {
+      "case": "bad_id",
+      "compile_returncode": 0,
+      "expected_fatal_returncode": 1,
+      "parameter": "BAD_ID_WIDTH",
+      "simulator": "verilator",
+      "value": 0
+    }
+  ],
+  "command_count": 31,
+  "frozen_inputs": {
+    "run_validation.py": "8072f99f1adfb8b713998443a35589f790f33cb141ea1eaebd65e0c5dfdb2f67",
+    "source/derivation.json": "03b79852d491f6bd7e62331ef0e717cd33f1dde37e23fb9aa6af618f8dbc50eb",
+    "source/rk_ddr_diagnostic_mux.sv": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+    "source/tb_ddr_diagnostic_mux.sv": "6705833596b40e1710973a8d202bdf91c18f73e2b638fb6e032ecf41389401fe",
+    "source/tb_ddr_diagnostic_mux_badparams.sv": "608e87ddf6835a3eb889e21a915401997699a6efb581d8d8d2ee0efeffa18469"
+  },
+  "frozen_inputs_manifest": "/home/fedora/rknpu-fpga/build/ddr-diagnostic-mux-validation-v9/frozen-inputs.json",
+  "frozen_inputs_sha256": "c43668d80049087e9f6a44847453c3645bf5f8cabb2076c4d270dfd72eeabacc",
+  "git_head": "8b23d647d4a1c8cdaf7bdad2160f45b285ca6909",
+  "hardware_executed": false,
+  "issues": [],
+  "main_results": [
+    {
+      "addr_width": 31,
+      "configuration": "memory",
+      "data_width": 512,
+      "id_width": 4,
+      "marker": "PASS diagnostic_mux checks=25282 addr=31 data=512 id=4 seed=3588",
+      "simulator": "iverilog"
+    },
+    {
+      "addr_width": 32,
+      "configuration": "control",
+      "data_width": 32,
+      "id_width": 1,
+      "marker": "PASS diagnostic_mux checks=25282 addr=32 data=32 id=1 seed=3588",
+      "simulator": "iverilog"
+    },
+    {
+      "addr_width": 31,
+      "configuration": "memory",
+      "data_width": 512,
+      "id_width": 4,
+      "marker": "PASS diagnostic_mux checks=25282 addr=31 data=512 id=4 seed=3588",
+      "simulator": "verilator"
+    },
+    {
+      "addr_width": 32,
+      "configuration": "control",
+      "data_width": 32,
+      "id_width": 1,
+      "marker": "PASS diagnostic_mux checks=25282 addr=32 data=32 id=1 seed=3588",
+      "simulator": "verilator"
+    }
+  ],
+  "physical_capacity_qualified": false,
+  "postrun_input_sha256": {
+    "run_validation.py": "8072f99f1adfb8b713998443a35589f790f33cb141ea1eaebd65e0c5dfdb2f67",
+    "source/derivation.json": "03b79852d491f6bd7e62331ef0e717cd33f1dde37e23fb9aa6af618f8dbc50eb",
+    "source/rk_ddr_diagnostic_mux.sv": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+    "source/tb_ddr_diagnostic_mux.sv": "6705833596b40e1710973a8d202bdf91c18f73e2b638fb6e032ecf41389401fe",
+    "source/tb_ddr_diagnostic_mux_badparams.sv": "608e87ddf6835a3eb889e21a915401997699a6efb581d8d8d2ee0efeffa18469"
+  },
+  "prior_attempts_preserved": [
+    "v1 runner log directory missing",
+    "v2 Icarus dynamic variable part-select elaboration abort",
+    "v3-v4 Icarus zero-range ADDR_WIDTH compile abort",
+    "v5 warning-cleanup failure",
+    "v6 high-bit unused warning",
+    "v7 badparam m_axi_arqos pin missing",
+    "v8 zero-range ADDR_WIDTH frontend blocker"
+  ],
+  "runner_report": "/home/fedora/rknpu-fpga/build/ddr-diagnostic-mux-validation-v9/report.json",
+  "runner_report_sha256": "3bf5eed96014f1923a47dc2552daa5d370be17cc584e018fc651065c5e63310b",
+  "scope": "Standalone mux leaf: combinational field/handshake routing only; selector ownership is external.",
+  "status": "PASS_PRIVATE_SOURCE_BOUND_MUX_SIMULATION_AUDIT",
+  "strict_verilator_compile_stderr_bytes": {
+    "verilator_bad_addr_compile": 0,
+    "verilator_bad_data_granularity_compile": 0,
+    "verilator_bad_data_odd_compile": 0,
+    "verilator_bad_data_small_compile": 0,
+    "verilator_bad_id_compile": 0,
+    "verilator_control_compile": 0,
+    "verilator_memory_compile": 0
+  },
+  "tool_versions": {
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "verilator": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+    "vvp": "Icarus Verilog runtime version 13.0 (stable) (v13_0)"
+  },
+  "utc": "2026-10-28T07:47:41.563087+00:00",
+  "vivado_executed": false
+}

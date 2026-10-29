@@ -1,0 +1,35 @@
+{
+  "started_utc": "2026-10-26T22:02:57.160786+00:00",
+  "bridge_script_sha256": "1fdcee70e2e8ada04b232796efae2910d853c3d965db9cd0870a9ed00653c03b",
+  "mode": "projection",
+  "load_receipt_sha256": "0ddd225786e9d45851b4c447c06a5060a80f953aa71fb8fc235ffa9ac23b1a70",
+  "bridge_argv": [
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/bridge.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/vivado.jou"
+  ],
+  "bridge_pid": 654428,
+  "worker_argv": [
+    "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+    "/home/fedora/rknpu-fpga/tools/tinystories/run_projection.py",
+    "--vectors",
+    "/home/fedora/rknpu-fpga/build/tinystories-joined-vectors/v2",
+    "--vectors-sha256",
+    "ad69a7caf1e1be5757c477df80fb09301f00efbf03143560472eca11efb7fa49",
+    "--quit-bridge",
+    "--out",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs"
+  ],
+  "worker_pid": 654598,
+  "worker_returncode": 0,
+  "bridge_returncode": 0,
+  "status": "PASS",
+  "finished_utc": "2026-10-26T22:04:28.779384+00:00",
+  "worker_report_sha256": "417ef6aecd4d522304b6f2a3b3a081a87e1e045c35eb6e90ee511e3b09a19cde"
+}

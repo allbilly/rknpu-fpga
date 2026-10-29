@@ -1,0 +1,734 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "cwd": "/home/fedora/rknpu-fpga",
+  "started_utc": "2026-10-26T16:12:22.528191+00:00",
+  "argv": [
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/audit.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/vivado.jou"
+  ],
+  "vivado_executable": "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+  "audit_tcl": "/home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/audit.tcl",
+  "audit_tcl_sha256": "61ee112a42e048ee1ed0bc9218de4c3fc339521f2d94e2c3f9900fc1a520e725",
+  "context_json": "/home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/context.json",
+  "context_sha256": "fec64eaaaadb6bdcbee969c80ed0d442af711fedbd2c6f30d83fd3910abb2876",
+  "context_scope": "Auditor-only change; exact RTL/XDC and constraint-definition prologue match original routed package. Original implementation-wrapper FAIL remains unchanged.",
+  "input_count": 45,
+  "inputs_before": {
+    "/home/fedora/rknpu-fpga/fpga/host/mailbox_cdc.tcl": {
+      "expected_sha256": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804",
+      "actual_sha256": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804",
+      "exists": true,
+      "matches": true,
+      "bytes": 7704
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/implementation/routed.dcp": {
+      "expected_sha256": "08d08574fd0ee089a28a701b7330252ea3872d2ff286a5708e35592f2340694a",
+      "actual_sha256": "08d08574fd0ee089a28a701b7330252ea3872d2ff286a5708e35592f2340694a",
+      "exists": true,
+      "matches": true,
+      "bytes": 5311300
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/report.json": {
+      "expected_sha256": "e4898e31e6b7dd9d5787e5080b353b42faabc372250a550e1b7dafffd918d83f",
+      "actual_sha256": "e4898e31e6b7dd9d5787e5080b353b42faabc372250a550e1b7dafffd918d83f",
+      "exists": true,
+      "matches": true,
+      "bytes": 8237
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/ew_checkpoint.tcl.in": {
+      "expected_sha256": "e598156491a55bdd5fd00f33a0b72bbfb978b487eda327267bba85e1b271a61b",
+      "actual_sha256": "e598156491a55bdd5fd00f33a0b72bbfb978b487eda327267bba85e1b271a61b",
+      "exists": true,
+      "matches": true,
+      "bytes": 4277
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/mailbox_cdc.tcl": {
+      "expected_sha256": "6f22260415c966bdcf67b8ad074890407fdeeddb579a8edcbaf9a17e1054264f",
+      "actual_sha256": "6f22260415c966bdcf67b8ad074890407fdeeddb579a8edcbaf9a17e1054264f",
+      "exists": true,
+      "matches": true,
+      "bytes": 7007
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/reference.json": {
+      "expected_sha256": "5e5da5c265f37cce18de06bde72be2d9cd213cca1877435f35c5e5c6801ea39e",
+      "actual_sha256": "5e5da5c265f37cce18de06bde72be2d9cd213cca1877435f35c5e5c6801ea39e",
+      "exists": true,
+      "matches": true,
+      "bytes": 773
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/sources.json": {
+      "expected_sha256": "c0f5128163d28637453d669da0b0f1bb1f7e69d8a68cce9a41ddc75d06e750c4",
+      "actual_sha256": "c0f5128163d28637453d669da0b0f1bb1f7e69d8a68cce9a41ddc75d06e750c4",
+      "exists": true,
+      "matches": true,
+      "bytes": 826
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/ypcb_jtag_ew.xdc": {
+      "expected_sha256": "ccc99d7317675f9f62c5f2909f3de74aa3dc42ec918a60b8da719761f613db1a",
+      "actual_sha256": "ccc99d7317675f9f62c5f2909f3de74aa3dc42ec918a60b8da719761f613db1a",
+      "exists": true,
+      "matches": true,
+      "bytes": 649
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/ypcb_jtag_ew_top.sv": {
+      "expected_sha256": "e2e65afd7c5ad8c43b81b80ee75fef717ed19c7ec2559ad588f6a8b4f804713b",
+      "actual_sha256": "e2e65afd7c5ad8c43b81b80ee75fef717ed19c7ec2559ad588f6a8b4f804713b",
+      "exists": true,
+      "matches": true,
+      "bytes": 1745
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/__init__.py": {
+      "expected_sha256": "ee209ca74eeeddd062b447c39eaf9a13d49afbce88a2989b1466dec81e4a61a0",
+      "actual_sha256": "ee209ca74eeeddd062b447c39eaf9a13d49afbce88a2989b1466dec81e4a61a0",
+      "exists": true,
+      "matches": true,
+      "bytes": 71
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/dma.py": {
+      "expected_sha256": "693383b2c08bc5e9081e978c3b0b82a60d7b08a713e428343a60b69d021f5b88",
+      "actual_sha256": "693383b2c08bc5e9081e978c3b0b82a60d7b08a713e428343a60b69d021f5b88",
+      "exists": true,
+      "matches": true,
+      "bytes": 2198
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/half.py": {
+      "expected_sha256": "61e0609848174bced70f730fa7de6f39bd0187161d21064a2dae5d9da65a59dd",
+      "actual_sha256": "61e0609848174bced70f730fa7de6f39bd0187161d21064a2dae5d9da65a59dd",
+      "exists": true,
+      "matches": true,
+      "bytes": 1154
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/profile.py": {
+      "expected_sha256": "5551ef4adbb1fb2a965ea01ec13442738e3986846638e4cf42fdd74461d31510",
+      "actual_sha256": "5551ef4adbb1fb2a965ea01ec13442738e3986846638e4cf42fdd74461d31510",
+      "exists": true,
+      "matches": true,
+      "bytes": 7243
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/sim.py": {
+      "expected_sha256": "fc36adc8c316af7f602bdbafbf344dcab75ae372d11cbe1b57091af7ed597de4",
+      "actual_sha256": "fc36adc8c316af7f602bdbafbf344dcab75ae372d11cbe1b57091af7ed597de4",
+      "exists": true,
+      "matches": true,
+      "bytes": 2754
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/host/rk_jtag_backend.sv": {
+      "expected_sha256": "9f298914314b09e42c9bf4d62db1c3de05b241f1c6ca3fd169a95e5df9d2995e",
+      "actual_sha256": "9f298914314b09e42c9bf4d62db1c3de05b241f1c6ca3fd169a95e5df9d2995e",
+      "exists": true,
+      "matches": true,
+      "bytes": 8546
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/host/rk_jtag_ew_bram.sv": {
+      "expected_sha256": "224aa317817aecd3fd24134ffefdb7360344ba70d304ba9dfd1d99630d8801d3",
+      "actual_sha256": "224aa317817aecd3fd24134ffefdb7360344ba70d304ba9dfd1d99630d8801d3",
+      "exists": true,
+      "matches": true,
+      "bytes": 3068
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_bram.sv": {
+      "expected_sha256": "ffb9db11b442a47d7f3f82a5ef78f5de00fc999732aa5cdf670b9c6da98e963c",
+      "actual_sha256": "ffb9db11b442a47d7f3f82a5ef78f5de00fc999732aa5cdf670b9c6da98e963c",
+      "exists": true,
+      "matches": true,
+      "bytes": 2963
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_ew_dma.sv": {
+      "expected_sha256": "55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046",
+      "actual_sha256": "55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046",
+      "exists": true,
+      "matches": true,
+      "bytes": 7716
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_ew_engine.sv": {
+      "expected_sha256": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e",
+      "actual_sha256": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e",
+      "exists": true,
+      "matches": true,
+      "bytes": 5138
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_ew_regs.sv": {
+      "expected_sha256": "592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73",
+      "actual_sha256": "592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73",
+      "exists": true,
+      "matches": true,
+      "bytes": 10660
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_fp16_alu.sv": {
+      "expected_sha256": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+      "actual_sha256": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+      "exists": true,
+      "matches": true,
+      "bytes": 4913
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_job_control.sv": {
+      "expected_sha256": "ff1466965b75d5d3c11aca7ab032d82fbaaf57146ffd03ae20a04c950d41e902",
+      "actual_sha256": "ff1466965b75d5d3c11aca7ab032d82fbaaf57146ffd03ae20a04c950d41e902",
+      "exists": true,
+      "matches": true,
+      "bytes": 6415
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_startup_reset.sv": {
+      "expected_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+      "actual_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+      "exists": true,
+      "matches": true,
+      "bytes": 1158
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/vendor/opentpu/LICENSE": {
+      "expected_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+      "actual_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+      "exists": true,
+      "matches": true,
+      "bytes": 11358
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/vendor/opentpu/PROVENANCE.json": {
+      "expected_sha256": "638687f84ab47a71bd813520102ede951be82d78b31ce874062fd9c15f956375",
+      "actual_sha256": "638687f84ab47a71bd813520102ede951be82d78b31ce874062fd9c15f956375",
+      "exists": true,
+      "matches": true,
+      "bytes": 362
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/vendor/opentpu/otpu_jtag_mailbox.sv": {
+      "expected_sha256": "46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9",
+      "actual_sha256": "46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9",
+      "exists": true,
+      "matches": true,
+      "bytes": 2322
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/backend_ew_captures.json": {
+      "expected_sha256": "5c98369169d95dc14471dc7d7c7a61f50e75565167fad2156c8be40de0b80251",
+      "actual_sha256": "5c98369169d95dc14471dc7d7c7a61f50e75565167fad2156c8be40de0b80251",
+      "exists": true,
+      "matches": true,
+      "bytes": 23316
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/mailbox_scan.svh": {
+      "expected_sha256": "c3cdff9268a78079210c43faf2fcfbaac34e688b6a935c2900b41f852ca63291",
+      "actual_sha256": "c3cdff9268a78079210c43faf2fcfbaac34e688b6a935c2900b41f852ca63291",
+      "exists": true,
+      "matches": true,
+      "bytes": 630
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/tb_jtag_backend.sv": {
+      "expected_sha256": "d55f6bada7065f7a82a44ae43913149603c207f266ef1ce2d41872393b824fc6",
+      "actual_sha256": "d55f6bada7065f7a82a44ae43913149603c207f266ef1ce2d41872393b824fc6",
+      "exists": true,
+      "matches": true,
+      "bytes": 9911
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/tb_jtag_ew_bram.sv": {
+      "expected_sha256": "d1045dae24ad9fa0844b278edc6938e710d308b6b8e81c1ad5f5d6e6c0102a73",
+      "actual_sha256": "d1045dae24ad9fa0844b278edc6938e710d308b6b8e81c1ad5f5d6e6c0102a73",
+      "exists": true,
+      "matches": true,
+      "bytes": 8679
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/tb_jtag_mailbox.sv": {
+      "expected_sha256": "27859e6c480a5e454be26a8ec520b45b2837297ec128b3161eb4b027735dd006",
+      "actual_sha256": "27859e6c480a5e454be26a8ec520b45b2837297ec128b3161eb4b027735dd006",
+      "exists": true,
+      "matches": true,
+      "bytes": 3131
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/test_prepare.py": {
+      "expected_sha256": "91a38f96cbc1f0cb1f0416f5fa0569db80cce70d3272e9852bee6132d02817b9",
+      "actual_sha256": "91a38f96cbc1f0cb1f0416f5fa0569db80cce70d3272e9852bee6132d02817b9",
+      "exists": true,
+      "matches": true,
+      "bytes": 18802
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/test_qualification.py": {
+      "expected_sha256": "105b6b79e4ec61f4f695b506c149451344103bc5dc14e07e7771b08cc6b08fd5",
+      "actual_sha256": "105b6b79e4ec61f4f695b506c149451344103bc5dc14e07e7771b08cc6b08fd5",
+      "exists": true,
+      "matches": true,
+      "bytes": 3554
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/test_transport.py": {
+      "expected_sha256": "a612f8d2c875a4ac1b6fc20c42afc1058f2f5e2737faed77d1f19f74f766caf7",
+      "actual_sha256": "a612f8d2c875a4ac1b6fc20c42afc1058f2f5e2737faed77d1f19f74f766caf7",
+      "exists": true,
+      "matches": true,
+      "bytes": 27587
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/vendor.vlt": {
+      "expected_sha256": "80a259d488dee931d87cacbe9a5c10045ffbb18e2c3cdf70e4ecf0219e68997a",
+      "actual_sha256": "80a259d488dee931d87cacbe9a5c10045ffbb18e2c3cdf70e4ecf0219e68997a",
+      "exists": true,
+      "matches": true,
+      "bytes": 420
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/dma_fixtures.py": {
+      "expected_sha256": "9bd9d1ee00e3e96d31006577f52890e095b56f1f1e60b9d84d59f277aa9e3b00",
+      "actual_sha256": "9bd9d1ee00e3e96d31006577f52890e095b56f1f1e60b9d84d59f277aa9e3b00",
+      "exists": true,
+      "matches": true,
+      "bytes": 8268
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/evidence.py": {
+      "expected_sha256": "b660f509dd530516b77e45eedb6fd0d7430495dcc675a827971894cdc5cc2a54",
+      "actual_sha256": "b660f509dd530516b77e45eedb6fd0d7430495dcc675a827971894cdc5cc2a54",
+      "exists": true,
+      "matches": true,
+      "bytes": 1530
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/__init__.py": {
+      "expected_sha256": "98bcb034c2129e1cc979aef878358e800a2b092eeaaeda71356a44ca975af09b",
+      "actual_sha256": "98bcb034c2129e1cc979aef878358e800a2b092eeaaeda71356a44ca975af09b",
+      "exists": true,
+      "matches": true,
+      "bytes": 84
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/prepare.py": {
+      "expected_sha256": "b0727b34133eb216acf3d2701c05a328a07d24062fbb3bbf1339af86a427def1",
+      "actual_sha256": "b0727b34133eb216acf3d2701c05a328a07d24062fbb3bbf1339af86a427def1",
+      "exists": true,
+      "matches": true,
+      "bytes": 13282
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/qualification.py": {
+      "expected_sha256": "9756eb990ea0c00061f1f9a6037bb2dc4a1f38f9ef8a52360d6b5f81262f3c83",
+      "actual_sha256": "9756eb990ea0c00061f1f9a6037bb2dc4a1f38f9ef8a52360d6b5f81262f3c83",
+      "exists": true,
+      "matches": true,
+      "bytes": 13662
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/run_rtl.py": {
+      "expected_sha256": "5e4861ad5aaa958994ae0e220e67c46db214c9aee25ef9304f91f7dfa0fc841f",
+      "actual_sha256": "5e4861ad5aaa958994ae0e220e67c46db214c9aee25ef9304f91f7dfa0fc841f",
+      "exists": true,
+      "matches": true,
+      "bytes": 8418
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/transport.py": {
+      "expected_sha256": "ad65b88676f21b751348cb7e0de051f88c3a50bcb41444bb15e28ba3eb15103d",
+      "actual_sha256": "ad65b88676f21b751348cb7e0de051f88c3a50bcb41444bb15e28ba3eb15103d",
+      "exists": true,
+      "matches": true,
+      "bytes": 20251
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/prepare_ew_fpga.py": {
+      "expected_sha256": "ac566b94c343baee21253f5389e624863d80bbf6f55cc755d2c40e18ba015dc6",
+      "actual_sha256": "ac566b94c343baee21253f5389e624863d80bbf6f55cc755d2c40e18ba015dc6",
+      "exists": true,
+      "matches": true,
+      "bytes": 26020
+    },
+    "/home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/audit.tcl": {
+      "expected_sha256": "61ee112a42e048ee1ed0bc9218de4c3fc339521f2d94e2c3f9900fc1a520e725",
+      "actual_sha256": "61ee112a42e048ee1ed0bc9218de4c3fc339521f2d94e2c3f9900fc1a520e725",
+      "exists": true,
+      "matches": true,
+      "bytes": 8805
+    },
+    "/home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/context.json": {
+      "expected_sha256": "fec64eaaaadb6bdcbee969c80ed0d442af711fedbd2c6f30d83fd3910abb2876",
+      "actual_sha256": "fec64eaaaadb6bdcbee969c80ed0d442af711fedbd2c6f30d83fd3910abb2876",
+      "exists": true,
+      "matches": true,
+      "bytes": 8080
+    }
+  },
+  "outputs_directory": "build/host-cdc-readonly-review/20261026T160942Z/outputs",
+  "outputs_directory_initially_empty": true,
+  "stdout": "build/host-cdc-readonly-review/20261026T160942Z/stdout.log",
+  "stderr": "build/host-cdc-readonly-review/20261026T160942Z/stderr.log",
+  "vivado_log": "build/host-cdc-readonly-review/20261026T160942Z/vivado.log",
+  "journal": "build/host-cdc-readonly-review/20261026T160942Z/vivado.jou",
+  "expected_marker": "PASS_READONLY_HOST_ROUTED_CDC_GATES_NO_IMAGE_OR_HARDWARE",
+  "vivado_invocations": 1,
+  "hardware_accessed": false,
+  "bitstream_emitted": false,
+  "pid": 508157,
+  "returncode": 0,
+  "finished_utc": "2026-10-26T16:13:23.957443+00:00",
+  "elapsed_seconds": 61.429,
+  "tool_version": "Vivado v2026.1 (64-bit)",
+  "inputs_after": {
+    "/home/fedora/rknpu-fpga/fpga/host/mailbox_cdc.tcl": {
+      "expected_sha256": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804",
+      "actual_sha256": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804",
+      "exists": true,
+      "matches": true,
+      "bytes": 7704
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/implementation/routed.dcp": {
+      "expected_sha256": "08d08574fd0ee089a28a701b7330252ea3872d2ff286a5708e35592f2340694a",
+      "actual_sha256": "08d08574fd0ee089a28a701b7330252ea3872d2ff286a5708e35592f2340694a",
+      "exists": true,
+      "matches": true,
+      "bytes": 5311300
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/report.json": {
+      "expected_sha256": "e4898e31e6b7dd9d5787e5080b353b42faabc372250a550e1b7dafffd918d83f",
+      "actual_sha256": "e4898e31e6b7dd9d5787e5080b353b42faabc372250a550e1b7dafffd918d83f",
+      "exists": true,
+      "matches": true,
+      "bytes": 8237
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/ew_checkpoint.tcl.in": {
+      "expected_sha256": "e598156491a55bdd5fd00f33a0b72bbfb978b487eda327267bba85e1b271a61b",
+      "actual_sha256": "e598156491a55bdd5fd00f33a0b72bbfb978b487eda327267bba85e1b271a61b",
+      "exists": true,
+      "matches": true,
+      "bytes": 4277
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/mailbox_cdc.tcl": {
+      "expected_sha256": "6f22260415c966bdcf67b8ad074890407fdeeddb579a8edcbaf9a17e1054264f",
+      "actual_sha256": "6f22260415c966bdcf67b8ad074890407fdeeddb579a8edcbaf9a17e1054264f",
+      "exists": true,
+      "matches": true,
+      "bytes": 7007
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/reference.json": {
+      "expected_sha256": "5e5da5c265f37cce18de06bde72be2d9cd213cca1877435f35c5e5c6801ea39e",
+      "actual_sha256": "5e5da5c265f37cce18de06bde72be2d9cd213cca1877435f35c5e5c6801ea39e",
+      "exists": true,
+      "matches": true,
+      "bytes": 773
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/sources.json": {
+      "expected_sha256": "c0f5128163d28637453d669da0b0f1bb1f7e69d8a68cce9a41ddc75d06e750c4",
+      "actual_sha256": "c0f5128163d28637453d669da0b0f1bb1f7e69d8a68cce9a41ddc75d06e750c4",
+      "exists": true,
+      "matches": true,
+      "bytes": 826
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/ypcb_jtag_ew.xdc": {
+      "expected_sha256": "ccc99d7317675f9f62c5f2909f3de74aa3dc42ec918a60b8da719761f613db1a",
+      "actual_sha256": "ccc99d7317675f9f62c5f2909f3de74aa3dc42ec918a60b8da719761f613db1a",
+      "exists": true,
+      "matches": true,
+      "bytes": 649
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/fpga/host/ypcb_jtag_ew_top.sv": {
+      "expected_sha256": "e2e65afd7c5ad8c43b81b80ee75fef717ed19c7ec2559ad588f6a8b4f804713b",
+      "actual_sha256": "e2e65afd7c5ad8c43b81b80ee75fef717ed19c7ec2559ad588f6a8b4f804713b",
+      "exists": true,
+      "matches": true,
+      "bytes": 1745
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/__init__.py": {
+      "expected_sha256": "ee209ca74eeeddd062b447c39eaf9a13d49afbce88a2989b1466dec81e4a61a0",
+      "actual_sha256": "ee209ca74eeeddd062b447c39eaf9a13d49afbce88a2989b1466dec81e4a61a0",
+      "exists": true,
+      "matches": true,
+      "bytes": 71
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/dma.py": {
+      "expected_sha256": "693383b2c08bc5e9081e978c3b0b82a60d7b08a713e428343a60b69d021f5b88",
+      "actual_sha256": "693383b2c08bc5e9081e978c3b0b82a60d7b08a713e428343a60b69d021f5b88",
+      "exists": true,
+      "matches": true,
+      "bytes": 2198
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/half.py": {
+      "expected_sha256": "61e0609848174bced70f730fa7de6f39bd0187161d21064a2dae5d9da65a59dd",
+      "actual_sha256": "61e0609848174bced70f730fa7de6f39bd0187161d21064a2dae5d9da65a59dd",
+      "exists": true,
+      "matches": true,
+      "bytes": 1154
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/profile.py": {
+      "expected_sha256": "5551ef4adbb1fb2a965ea01ec13442738e3986846638e4cf42fdd74461d31510",
+      "actual_sha256": "5551ef4adbb1fb2a965ea01ec13442738e3986846638e4cf42fdd74461d31510",
+      "exists": true,
+      "matches": true,
+      "bytes": 7243
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/model/sim.py": {
+      "expected_sha256": "fc36adc8c316af7f602bdbafbf344dcab75ae372d11cbe1b57091af7ed597de4",
+      "actual_sha256": "fc36adc8c316af7f602bdbafbf344dcab75ae372d11cbe1b57091af7ed597de4",
+      "exists": true,
+      "matches": true,
+      "bytes": 2754
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/host/rk_jtag_backend.sv": {
+      "expected_sha256": "9f298914314b09e42c9bf4d62db1c3de05b241f1c6ca3fd169a95e5df9d2995e",
+      "actual_sha256": "9f298914314b09e42c9bf4d62db1c3de05b241f1c6ca3fd169a95e5df9d2995e",
+      "exists": true,
+      "matches": true,
+      "bytes": 8546
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/host/rk_jtag_ew_bram.sv": {
+      "expected_sha256": "224aa317817aecd3fd24134ffefdb7360344ba70d304ba9dfd1d99630d8801d3",
+      "actual_sha256": "224aa317817aecd3fd24134ffefdb7360344ba70d304ba9dfd1d99630d8801d3",
+      "exists": true,
+      "matches": true,
+      "bytes": 3068
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_bram.sv": {
+      "expected_sha256": "ffb9db11b442a47d7f3f82a5ef78f5de00fc999732aa5cdf670b9c6da98e963c",
+      "actual_sha256": "ffb9db11b442a47d7f3f82a5ef78f5de00fc999732aa5cdf670b9c6da98e963c",
+      "exists": true,
+      "matches": true,
+      "bytes": 2963
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_ew_dma.sv": {
+      "expected_sha256": "55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046",
+      "actual_sha256": "55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046",
+      "exists": true,
+      "matches": true,
+      "bytes": 7716
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_ew_engine.sv": {
+      "expected_sha256": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e",
+      "actual_sha256": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e",
+      "exists": true,
+      "matches": true,
+      "bytes": 5138
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_ew_regs.sv": {
+      "expected_sha256": "592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73",
+      "actual_sha256": "592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73",
+      "exists": true,
+      "matches": true,
+      "bytes": 10660
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_fp16_alu.sv": {
+      "expected_sha256": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+      "actual_sha256": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+      "exists": true,
+      "matches": true,
+      "bytes": 4913
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_job_control.sv": {
+      "expected_sha256": "ff1466965b75d5d3c11aca7ab032d82fbaaf57146ffd03ae20a04c950d41e902",
+      "actual_sha256": "ff1466965b75d5d3c11aca7ab032d82fbaaf57146ffd03ae20a04c950d41e902",
+      "exists": true,
+      "matches": true,
+      "bytes": 6415
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/rk_startup_reset.sv": {
+      "expected_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+      "actual_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+      "exists": true,
+      "matches": true,
+      "bytes": 1158
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/vendor/opentpu/LICENSE": {
+      "expected_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+      "actual_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+      "exists": true,
+      "matches": true,
+      "bytes": 11358
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/vendor/opentpu/PROVENANCE.json": {
+      "expected_sha256": "638687f84ab47a71bd813520102ede951be82d78b31ce874062fd9c15f956375",
+      "actual_sha256": "638687f84ab47a71bd813520102ede951be82d78b31ce874062fd9c15f956375",
+      "exists": true,
+      "matches": true,
+      "bytes": 362
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/rtl/vendor/opentpu/otpu_jtag_mailbox.sv": {
+      "expected_sha256": "46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9",
+      "actual_sha256": "46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9",
+      "exists": true,
+      "matches": true,
+      "bytes": 2322
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/backend_ew_captures.json": {
+      "expected_sha256": "5c98369169d95dc14471dc7d7c7a61f50e75565167fad2156c8be40de0b80251",
+      "actual_sha256": "5c98369169d95dc14471dc7d7c7a61f50e75565167fad2156c8be40de0b80251",
+      "exists": true,
+      "matches": true,
+      "bytes": 23316
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/mailbox_scan.svh": {
+      "expected_sha256": "c3cdff9268a78079210c43faf2fcfbaac34e688b6a935c2900b41f852ca63291",
+      "actual_sha256": "c3cdff9268a78079210c43faf2fcfbaac34e688b6a935c2900b41f852ca63291",
+      "exists": true,
+      "matches": true,
+      "bytes": 630
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/tb_jtag_backend.sv": {
+      "expected_sha256": "d55f6bada7065f7a82a44ae43913149603c207f266ef1ce2d41872393b824fc6",
+      "actual_sha256": "d55f6bada7065f7a82a44ae43913149603c207f266ef1ce2d41872393b824fc6",
+      "exists": true,
+      "matches": true,
+      "bytes": 9911
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/tb_jtag_ew_bram.sv": {
+      "expected_sha256": "d1045dae24ad9fa0844b278edc6938e710d308b6b8e81c1ad5f5d6e6c0102a73",
+      "actual_sha256": "d1045dae24ad9fa0844b278edc6938e710d308b6b8e81c1ad5f5d6e6c0102a73",
+      "exists": true,
+      "matches": true,
+      "bytes": 8679
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/tb_jtag_mailbox.sv": {
+      "expected_sha256": "27859e6c480a5e454be26a8ec520b45b2837297ec128b3161eb4b027735dd006",
+      "actual_sha256": "27859e6c480a5e454be26a8ec520b45b2837297ec128b3161eb4b027735dd006",
+      "exists": true,
+      "matches": true,
+      "bytes": 3131
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/test_prepare.py": {
+      "expected_sha256": "91a38f96cbc1f0cb1f0416f5fa0569db80cce70d3272e9852bee6132d02817b9",
+      "actual_sha256": "91a38f96cbc1f0cb1f0416f5fa0569db80cce70d3272e9852bee6132d02817b9",
+      "exists": true,
+      "matches": true,
+      "bytes": 18802
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/test_qualification.py": {
+      "expected_sha256": "105b6b79e4ec61f4f695b506c149451344103bc5dc14e07e7771b08cc6b08fd5",
+      "actual_sha256": "105b6b79e4ec61f4f695b506c149451344103bc5dc14e07e7771b08cc6b08fd5",
+      "exists": true,
+      "matches": true,
+      "bytes": 3554
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/test_transport.py": {
+      "expected_sha256": "a612f8d2c875a4ac1b6fc20c42afc1058f2f5e2737faed77d1f19f74f766caf7",
+      "actual_sha256": "a612f8d2c875a4ac1b6fc20c42afc1058f2f5e2737faed77d1f19f74f766caf7",
+      "exists": true,
+      "matches": true,
+      "bytes": 27587
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tests/host/vendor.vlt": {
+      "expected_sha256": "80a259d488dee931d87cacbe9a5c10045ffbb18e2c3cdf70e4ecf0219e68997a",
+      "actual_sha256": "80a259d488dee931d87cacbe9a5c10045ffbb18e2c3cdf70e4ecf0219e68997a",
+      "exists": true,
+      "matches": true,
+      "bytes": 420
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/dma_fixtures.py": {
+      "expected_sha256": "9bd9d1ee00e3e96d31006577f52890e095b56f1f1e60b9d84d59f277aa9e3b00",
+      "actual_sha256": "9bd9d1ee00e3e96d31006577f52890e095b56f1f1e60b9d84d59f277aa9e3b00",
+      "exists": true,
+      "matches": true,
+      "bytes": 8268
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/evidence.py": {
+      "expected_sha256": "b660f509dd530516b77e45eedb6fd0d7430495dcc675a827971894cdc5cc2a54",
+      "actual_sha256": "b660f509dd530516b77e45eedb6fd0d7430495dcc675a827971894cdc5cc2a54",
+      "exists": true,
+      "matches": true,
+      "bytes": 1530
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/__init__.py": {
+      "expected_sha256": "98bcb034c2129e1cc979aef878358e800a2b092eeaaeda71356a44ca975af09b",
+      "actual_sha256": "98bcb034c2129e1cc979aef878358e800a2b092eeaaeda71356a44ca975af09b",
+      "exists": true,
+      "matches": true,
+      "bytes": 84
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/prepare.py": {
+      "expected_sha256": "b0727b34133eb216acf3d2701c05a328a07d24062fbb3bbf1339af86a427def1",
+      "actual_sha256": "b0727b34133eb216acf3d2701c05a328a07d24062fbb3bbf1339af86a427def1",
+      "exists": true,
+      "matches": true,
+      "bytes": 13282
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/qualification.py": {
+      "expected_sha256": "9756eb990ea0c00061f1f9a6037bb2dc4a1f38f9ef8a52360d6b5f81262f3c83",
+      "actual_sha256": "9756eb990ea0c00061f1f9a6037bb2dc4a1f38f9ef8a52360d6b5f81262f3c83",
+      "exists": true,
+      "matches": true,
+      "bytes": 13662
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/run_rtl.py": {
+      "expected_sha256": "5e4861ad5aaa958994ae0e220e67c46db214c9aee25ef9304f91f7dfa0fc841f",
+      "actual_sha256": "5e4861ad5aaa958994ae0e220e67c46db214c9aee25ef9304f91f7dfa0fc841f",
+      "exists": true,
+      "matches": true,
+      "bytes": 8418
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/host/transport.py": {
+      "expected_sha256": "ad65b88676f21b751348cb7e0de051f88c3a50bcb41444bb15e28ba3eb15103d",
+      "actual_sha256": "ad65b88676f21b751348cb7e0de051f88c3a50bcb41444bb15e28ba3eb15103d",
+      "exists": true,
+      "matches": true,
+      "bytes": 20251
+    },
+    "/home/fedora/rknpu-fpga/build/host-jtag-preparation/1793029573705453757/source/tools/prepare_ew_fpga.py": {
+      "expected_sha256": "ac566b94c343baee21253f5389e624863d80bbf6f55cc755d2c40e18ba015dc6",
+      "actual_sha256": "ac566b94c343baee21253f5389e624863d80bbf6f55cc755d2c40e18ba015dc6",
+      "exists": true,
+      "matches": true,
+      "bytes": 26020
+    },
+    "/home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/audit.tcl": {
+      "expected_sha256": "61ee112a42e048ee1ed0bc9218de4c3fc339521f2d94e2c3f9900fc1a520e725",
+      "actual_sha256": "61ee112a42e048ee1ed0bc9218de4c3fc339521f2d94e2c3f9900fc1a520e725",
+      "exists": true,
+      "matches": true,
+      "bytes": 8805
+    },
+    "/home/fedora/rknpu-fpga/build/host-cdc-readonly-review/20261026T160942Z/context.json": {
+      "expected_sha256": "fec64eaaaadb6bdcbee969c80ed0d442af711fedbd2c6f30d83fd3910abb2876",
+      "actual_sha256": "fec64eaaaadb6bdcbee969c80ed0d442af711fedbd2c6f30d83fd3910abb2876",
+      "exists": true,
+      "matches": true,
+      "bytes": 8080
+    }
+  },
+  "inputs_unchanged": true,
+  "stdout_bytes": 22040,
+  "stdout_sha256": "fe9eadcdc8b997c1e49230b7e93b3927badc144299d7b7ea905d812768247419",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "vivado_log_sha256": "6d8bcebba3534496c5e22fa492fc48443b6c0e251331a2e11cd935b2ca0127dd",
+  "vivado_journal_sha256": "a8bbb1107341e9ed5bda86a17c0dce8597740db64faeaf72f8af0f770ba92003",
+  "outputs": {
+    "outputs/check_timing.rpt": {
+      "sha256": "684333b5e347bc1b8b3037a7dbb77ccd1d017ffd68e631f96904f0657e7c2c52",
+      "bytes": 3240
+    },
+    "outputs/drc.rpt": {
+      "sha256": "6726b5d875729a3ee0948513f4673623acb1b1c2303824e443d336cde76cbbe1",
+      "bytes": 3296
+    },
+    "outputs/mailbox_bus_skew.rpt": {
+      "sha256": "8f628f181350fa1296e7153a11e458a04beab6acb734dc492d3d4136976238c8",
+      "bytes": 15402
+    },
+    "outputs/mailbox_cdc.rpt": {
+      "sha256": "7efe41b7e1c9a62fa1974c49ffc3fed640e4223db8e27eadde138749c0b96604",
+      "bytes": 186289
+    },
+    "outputs/mailbox_cdc.tsv": {
+      "sha256": "9060bf114e34acdf78f8d7d251f226ca649410519da20528801ee036eeba4f4d",
+      "bytes": 494
+    },
+    "outputs/mailbox_exceptions.rpt": {
+      "sha256": "5dffbfbc1d95e1dfcaaf239cc324bb4c51a0e35409999895633f92933b1d6595",
+      "bytes": 2724
+    },
+    "outputs/mailbox_held_timing.rpt": {
+      "sha256": "ab20594b35a97d5c55ab6fe271279d7b6ee1c159b878f4e10ab43e80ded731a1",
+      "bytes": 65180
+    },
+    "outputs/mailbox_response_timing.rpt": {
+      "sha256": "b35890902061a979119d5a837a480b478ff6235507bc2601aef003d558baf6e7",
+      "bytes": 67076
+    },
+    "outputs/pulse_width.rpt": {
+      "sha256": "81df5b5744b37baa09ea2f114306ece0d6cd4d2cc2b46fce1a84c2edd9cc3d09",
+      "bytes": 2170
+    },
+    "outputs/result.txt": {
+      "sha256": "d78b506861e5009f11f8c88fe28d355ec1b3663c22104f7010786d9d0f461512",
+      "bytes": 57
+    },
+    "outputs/route_status.rpt": {
+      "sha256": "9b1bf1e67a9435d446f515e7dfd26515fbd4cd39207d7728728b1341c2c847d1",
+      "bytes": 588
+    },
+    "outputs/timing.rpt": {
+      "sha256": "cf19ed9cd9ed8d653d5a201a636af0e6bcdeee6c1cd2a9eb8789142f9486ee4d",
+      "bytes": 71071
+    }
+  },
+  "output_count": 12,
+  "expected_marker_in_stdout": true,
+  "result_file_exists": true,
+  "expected_marker_in_result": true
+}

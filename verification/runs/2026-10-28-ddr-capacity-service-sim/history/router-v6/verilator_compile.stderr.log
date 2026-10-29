@@ -1,0 +1,15 @@
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/tb_axil_diagnostic_router.sv:14:42: Signal is not driven, nor used: 'child_wlast_bus'
+                                                                                                                            : ... note: In instance 'tb_axil_diagnostic_router'
+   14 |   logic [1:0] child_awvalid,child_wvalid,child_wlast_bus,child_bready;
+      |                                          ^~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.048
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/tb_axil_diagnostic_router.sv:30:58: Bits of function variable are not used: 'address'[7:0]
+                                                                                                                            : ... note: In instance 'tb_axil_diagnostic_router'
+   30 |   function automatic logic route_diag(input logic [31:0] address);
+      |                                                          ^~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/axil-diagnostic-router-validation-v6/tb_axil_diagnostic_router.sv:56:13: Function variable is not driven, nor used: 'i'
+                                                                                                                            : ... note: In instance 'tb_axil_diagnostic_router'
+   56 |     integer i,sel;
+      |             ^
+%Error: Exiting due to 3 warning(s)

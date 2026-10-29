@@ -1,0 +1,26 @@
+{
+  "profile": "host-jtag-ew-bram",
+  "top": "ypcb_jtag_ew_top",
+  "part": "xc7k480tffg1156-2",
+  "clock_period_ns": 20.0,
+  "tck_period_ns": 166.666,
+  "jtag_chain": 2,
+  "memory_bytes": 1048576,
+  "memory_base": "10000000",
+  "constraints": "fpga/host/ypcb_jtag_ew.xdc",
+  "cdc": "fpga/host/mailbox_cdc.tcl",
+  "synthesis": [
+    "rtl/rk_fp16_alu.sv",
+    "rtl/rk_ew_regs.sv",
+    "rtl/rk_ew_engine.sv",
+    "rtl/rk_ew_dma.sv",
+    "rtl/rk_bram.sv",
+    "rtl/rk_job_control.sv",
+    "rtl/rk_startup_reset.sv",
+    "rtl/host/rk_jtag_backend.sv",
+    "rtl/host/rk_jtag_ew_bram.sv",
+    "rtl/vendor/opentpu/otpu_jtag_mailbox.sv",
+    "fpga/host/ypcb_jtag_ew_top.sv"
+  ],
+  "scope": "Separate host-controlled strict FP16 EW BRAM milestone. Not the full C32/K16 target, DDR, PCIe, DRM compatibility or physical qualification."
+}

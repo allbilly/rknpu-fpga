@@ -1,0 +1,455 @@
+{
+  "status": "PASS_REGISTERED_BRAM_FULL512_STARTUP_NATIVE_ONLY",
+  "started_utc": "2026-10-26T11:06:19.964219+00:00",
+  "profile": "full512-registered-bram-startup-native",
+  "simulator": "iverilog",
+  "polarity": 0,
+  "package": "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000",
+  "package_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+  "channels": 32,
+  "kernels": 16,
+  "parallel_products": 512,
+  "inputs": {
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/NV_DW_lsd.v": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/rk_cmac_profile.sv": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_cacc.sv": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cacc_fp16_array.sv": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/generated/rk_cmac_cacc_fp16_array.sv": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_fp32_to_fp16.sv": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_writer.sv": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_output_nvdla.sv": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_frame_output.sv": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_datapath.sv": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_front.sv": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_rw_arbiter.sv": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_core.sv": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_dma.sv": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_demo_rom.sv": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/rk_startup_reset.sv": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/nv_assert_never.v": "28a3ff37142647e9499cc0dd88095313c029acffe1bf7806160eb9fbbd288732",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/nv_assert_no_x.v": "6eb56dc9ea269a4b071d3c00de3a23f5b75782b72403bcc72a7acc9e625a6e97",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/startup/tb_array_startup.sv": "b861e0913aad677326a580880a167277e2218502ad52eed867848ff66842d3c0",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/board_rom.hex": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/commands.hex": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/fixture.json": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/fp32.hex": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/groups.hex": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/input.hex": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/reads.hex": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/source_report.json": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/weight.hex": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/array_data/writes.hex": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+    "/home/fedora/rknpu-fpga/tools/cmac/startup/qualification.py": "b1ea244ce5e980387a7fbf3a2f05fbe10a8e76be03de0f88fb9ac8c5d44cd5af",
+    "/home/fedora/rknpu-fpga/tools/cmac/regmem/warnings.py": "70fe95e0c6c95ac759a71426d74d90147cde400f5bb4a764b05f13dfcb7f6e5a",
+    "/home/fedora/rknpu-fpga/tools/cmac/regmem/run_board.py": "411f17d14164dfc52c9eeb60d7d20aaa7f3812d1809de515fda9020155a7143c"
+  },
+  "scope": "Original raw K65/whole4096-halfword startup/fault/abort bench on frozen registered-BRAM-control source; configuration model only",
+  "commands": [
+    {
+      "name": "version",
+      "argv": [
+        "iverilog",
+        "-V"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:06:19.965573+00:00",
+      "pid": 407473,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:06:19.992374+00:00",
+      "seconds": 0.02650422789156437,
+      "log_sha256": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d"
+    },
+    {
+      "name": "runtime_version",
+      "argv": [
+        "vvp",
+        "-V"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:06:19.994719+00:00",
+      "pid": 407476,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:06:20.008087+00:00",
+      "seconds": 0.01164800301194191,
+      "log_sha256": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6"
+    },
+    {
+      "name": "compile",
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-DDESIGNWARE_NOEXIST",
+        "-DASSERT_ON",
+        "-I/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla",
+        "-s",
+        "tb_array_startup",
+        "-Ptb_array_startup.LED_ACTIVE_LOW=0",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_DW02_tree.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/rk_cmac_profile.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_cacc.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cacc_fp16_array.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/generated/rk_cmac_cacc_fp16_array.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_writer.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_output_nvdla.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_frame_output.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_datapath.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_front.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_rw_arbiter.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_core.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_dma.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_cmac_array_demo_rom.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/rk_startup_reset.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/nv_assert_never.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/compat/nv_assert_no_x.v",
+        "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/startup/tb_array_startup.sv"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:06:20.012157+00:00",
+      "pid": 407477,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:06:24.253476+00:00",
+      "seconds": 4.237360758008435,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "led0_mode0",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+        "+MODE=0"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:06:24.721308+00:00",
+      "pid": 407562,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:06:56.272311+00:00",
+      "seconds": 31.550446822075173,
+      "log_sha256": "be6971a3d8717b6b8686a8f0e7d05ae17b49a0cb54a11dd211e6a6800e5b95ef"
+    },
+    {
+      "name": "led0_mode1",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+        "+MODE=1"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:06:56.419765+00:00",
+      "pid": 407603,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:07:04.660184+00:00",
+      "seconds": 8.239956127945334,
+      "log_sha256": "7111128585d0d359e65e0d314093fb281fb581c70148b44b164b30bbd6ef8e79"
+    },
+    {
+      "name": "led0_mode2",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+        "+MODE=2"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:07:04.803937+00:00",
+      "pid": 407617,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:07:31.423191+00:00",
+      "seconds": 26.618754690047354,
+      "log_sha256": "a51efa5b8a8a1350033931c39f15a0b77c4d35f0b67b616717297447542ee0ea"
+    },
+    {
+      "name": "led0_mode3",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+        "+MODE=3"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:07:31.573395+00:00",
+      "pid": 407660,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:07:39.859829+00:00",
+      "seconds": 8.285957749001682,
+      "log_sha256": "85505f125556f35e3f764725a4cb088852f36344dbd6e8d63acbc127947b3150"
+    },
+    {
+      "name": "led0_mode4",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+        "+MODE=4"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:07:40.009605+00:00",
+      "pid": 407676,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:08:07.435266+00:00",
+      "seconds": 27.425161028048024,
+      "log_sha256": "94195694240890819a65fb3f2d67905adf545c88ffcbffb949895c2b95bfd615"
+    },
+    {
+      "name": "led0_mode10",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+        "+MODE=10"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:08:07.582566+00:00",
+      "pid": 407718,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:08:15.775678+00:00",
+      "seconds": 8.192667939001694,
+      "log_sha256": "33335688361aad73145106f39a3fb5d7c2199cdd6519314932e0a429fc4846f1"
+    },
+    {
+      "name": "led0_fresh_after10",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+        "+MODE=0"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:08:15.919732+00:00",
+      "pid": 407726,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:08:46.950783+00:00",
+      "seconds": 31.03056544996798,
+      "log_sha256": "be6971a3d8717b6b8686a8f0e7d05ae17b49a0cb54a11dd211e6a6800e5b95ef"
+    },
+    {
+      "name": "led0_mode11",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+        "+MODE=11"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:08:47.098531+00:00",
+      "pid": 407757,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:08:56.937806+00:00",
+      "seconds": 9.83871880103834,
+      "log_sha256": "97eecad337fc961f03aea87a3d74fe075b07c04be1f5c458447266a663a6dd5b"
+    },
+    {
+      "name": "led0_fresh_after11",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+        "+MODE=0"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:08:57.085550+00:00",
+      "pid": 407768,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:09:28.264057+00:00",
+      "seconds": 31.17798227397725,
+      "log_sha256": "be6971a3d8717b6b8686a8f0e7d05ae17b49a0cb54a11dd211e6a6800e5b95ef"
+    },
+    {
+      "name": "led0_mode12",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+        "+MODE=12"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:09:28.415440+00:00",
+      "pid": 407808,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:09:55.545137+00:00",
+      "seconds": 27.129161438904703,
+      "log_sha256": "a053bd7605ee4be9a8b96c03a1e4844baf28f69769625d1f19b1fb7aa9fb0914"
+    },
+    {
+      "name": "led0_fresh_after12",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+        "+MODE=0"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T11:09:55.690025+00:00",
+      "pid": 407870,
+      "returncode": 0,
+      "finished_utc": "2026-10-26T11:10:28.537894+00:00",
+      "seconds": 32.847221869044006,
+      "log_sha256": "be6971a3d8717b6b8686a8f0e7d05ae17b49a0cb54a11dd211e6a6800e5b95ef"
+    }
+  ],
+  "tests": [
+    {
+      "spec": {
+        "name": "led0_mode0",
+        "polarity": 0,
+        "mode": 0,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=0 polarity=0 outcome=success error=00 hold=64 release=65 init=4096 checks=4096 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=59896; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode1",
+        "polarity": 0,
+        "mode": 1,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=1 polarity=0 outcome=fault error=05 hold=64 release=65 init=4096 checks=0 cmd_reads=1 operand_reads=0 writes=0 acks=0 frames=0 cycles=16410; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode2",
+        "polarity": 0,
+        "mode": 2,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=2 polarity=0 outcome=fault error=fd hold=64 release=65 init=4096 checks=1 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=43516; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode3",
+        "polarity": 0,
+        "mode": 3,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=3 polarity=0 outcome=fault error=fe hold=64 release=65 init=4096 checks=0 cmd_reads=196 operand_reads=20 writes=0 acks=0 frames=0 cycles=17123; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode4",
+        "polarity": 0,
+        "mode": 4,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=4 polarity=0 outcome=fault error=fd hold=64 release=65 init=4096 checks=1 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=43516; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode10",
+        "polarity": 0,
+        "mode": 10,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=10 polarity=0 outcome=abort error=00 hold=64 release=65 init=4096 checks=0 cmd_reads=20 operand_reads=0 writes=0 acks=0 frames=0 cycles=16448; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_fresh_after10",
+        "polarity": 0,
+        "mode": 0,
+        "fresh_after": 10
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=0 polarity=0 outcome=success error=00 hold=64 release=65 init=4096 checks=4096 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=59896; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode11",
+        "polarity": 0,
+        "mode": 11,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=11 polarity=0 outcome=abort error=00 hold=64 release=65 init=4096 checks=0 cmd_reads=196 operand_reads=544 writes=0 acks=0 frames=1 cycles=19201; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_fresh_after11",
+        "polarity": 0,
+        "mode": 0,
+        "fresh_after": 11
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=0 polarity=0 outcome=success error=00 hold=64 release=65 init=4096 checks=4096 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=59896; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_mode12",
+        "polarity": 0,
+        "mode": 12,
+        "fresh_after": null
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=12 polarity=0 outcome=abort error=00 hold=64 release=65 init=4096 checks=20 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=43570; configuration model only"
+    },
+    {
+      "spec": {
+        "name": "led0_fresh_after12",
+        "polarity": 0,
+        "mode": 0,
+        "fresh_after": 12
+      },
+      "status": "PASS",
+      "result": "PASS full512_startup mode=0 polarity=0 outcome=success error=00 hold=64 release=65 init=4096 checks=4096 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=59896; configuration model only"
+    }
+  ],
+  "hardware_programmed": false,
+  "mapped_startup_verified": false,
+  "tool_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "runtime_version": "Icarus Verilog runtime version 13.0 (stable) (v13_0)",
+  "hierarchy": {
+    "rk_cmac_fp16_array_dsp_prefix_pipe": 1,
+    "rk_cmac_fp16_cell_dsp_prefix_pipe": 16,
+    "rk_cmac_fp16_lane_dsp_prefix": 512,
+    "rk_cmac_fp16_discarded_carry": 512
+  },
+  "compiled_image": {
+    "path": "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/sim.vvp",
+    "sha256": "1c293ef20bcff4b42fd70ba647b75c64f31676b9429a83471d4d34d59f125e75"
+  },
+  "finished_utc": "2026-10-26T11:10:28.619535+00:00",
+  "artifacts": {
+    "version.log": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d",
+    "runtime_version.log": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+    "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sim.vvp": "1c293ef20bcff4b42fd70ba647b75c64f31676b9429a83471d4d34d59f125e75",
+    "led0_mode0.log": "be6971a3d8717b6b8686a8f0e7d05ae17b49a0cb54a11dd211e6a6800e5b95ef",
+    "led0_mode1.log": "7111128585d0d359e65e0d314093fb281fb581c70148b44b164b30bbd6ef8e79",
+    "led0_mode2.log": "a51efa5b8a8a1350033931c39f15a0b77c4d35f0b67b616717297447542ee0ea",
+    "led0_mode3.log": "85505f125556f35e3f764725a4cb088852f36344dbd6e8d63acbc127947b3150",
+    "led0_mode4.log": "94195694240890819a65fb3f2d67905adf545c88ffcbffb949895c2b95bfd615",
+    "led0_mode10.log": "33335688361aad73145106f39a3fb5d7c2199cdd6519314932e0a429fc4846f1",
+    "led0_fresh_after10.log": "be6971a3d8717b6b8686a8f0e7d05ae17b49a0cb54a11dd211e6a6800e5b95ef",
+    "led0_mode11.log": "97eecad337fc961f03aea87a3d74fe075b07c04be1f5c458447266a663a6dd5b",
+    "led0_fresh_after11.log": "be6971a3d8717b6b8686a8f0e7d05ae17b49a0cb54a11dd211e6a6800e5b95ef",
+    "led0_mode12.log": "a053bd7605ee4be9a8b96c03a1e4844baf28f69769625d1f19b1fb7aa9fb0914",
+    "led0_fresh_after12.log": "be6971a3d8717b6b8686a8f0e7d05ae17b49a0cb54a11dd211e6a6800e5b95ef"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "status": "REVIEWED_SPECIFIC_NUMERICAL_BENCH_WARNINGS_FOR_FRESH_COMPILE_ONLY",
+  "warning_count": 56,
+  "known_unchanged_numeric_source_warnings": 54,
+  "reset_warnings": {
+    "rk_nvdla_cacc.sv": "Same selected numerical-child reset enters donor sync/async reset consumers; qualified parent behavior retained",
+    "tb_cmac_async_engine.ui_rst_n": "New test-only synchronous observer guards the existing asynchronous reset bench; not a new RTL reset consumer"
+  },
+  "native_strict_rc": 1,
+  "native_strict_pass": false,
+  "fresh_compile_permitted_with_Wno_fatal": true,
+  "warning_kind_suppressions_permitted": false,
+  "scope": "Specific unchanged source inventory only; requires exact complete diagnostics in next compile; does not qualify native execution, CDC, FPGA or DDR",
+  "stderr_sha256": "bc317aafd066c6b2a90859cca0e1319df1ab6037482ce0781f7ce142413ff157",
+  "frontend_review_sha256": "86a6c5033fcfefbe239b4e3be91de65a2bf592861cbfbffbc6aead989ada1cf9",
+  "hardware_accessed": false
+}

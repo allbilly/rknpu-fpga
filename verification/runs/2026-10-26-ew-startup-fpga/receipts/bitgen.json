@@ -1,0 +1,35 @@
+{
+  "status": "PASS_BITSTREAM_EMISSION",
+  "started_utc": "2026-10-26T05:04:05.812355+00:00",
+  "argv": [
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/emit-bitstream.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitgen-vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitgen-vivado.jou"
+  ],
+  "review_sha256": "02005d23e5ba6a3c24765fd1750cfd0e69de2bc52d1e37d280dd3611729bf66c",
+  "routed_dcp_sha256": "6ff196db78e0dcf4eba8c903a3646d46da9d61c4ee9d2199cc3800341e79b725",
+  "emit_tcl_sha256": "69d16e049d4fccf78c56fc478a656a2d83dc6776eed73028e3a3b3a50a7b468d",
+  "source_report_sha256": "6773dbecca5e849c9992fe1e444186ad9b456dd50024b5cae73c66031d379634",
+  "hardware_accessed": false,
+  "flash_written": false,
+  "pid": 260336,
+  "returncode": 0,
+  "finished_utc": "2026-10-26T05:05:09.555610+00:00",
+  "elapsed_seconds": 63.74294982710853,
+  "outputs": {
+    "bitstream/ew-startup.bit": "7250ad2e9a7c009b0fd8fa5a265dc089073f220e5c4355096453afa88bf7ef67",
+    "bitstream/image.dcp": "7bf1da7ae2ccf544a27fda3711cbc972afd7386189ab55765dc919a5f325f0b2",
+    "bitstream/pre_bitstream_drc.rpt": "25a97c1c0b17455b1d254008173460be915e2b16cb733c63f9b9ead9067e656b"
+  },
+  "bitstream": {
+    "path": "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitstream/ew-startup.bit",
+    "sha256": "7250ad2e9a7c009b0fd8fa5a265dc089073f220e5c4355096453afa88bf7ef67",
+    "bytes": 18735216
+  }
+}

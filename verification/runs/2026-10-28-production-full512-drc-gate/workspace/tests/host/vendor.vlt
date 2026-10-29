@@ -1,0 +1,6 @@
+`verilator_config
+// The pinned, byte-identical Apache-2.0 mailbox intentionally uses FPGA INIT
+// values at declarations (including TCK state with no external reset). Verilator
+// 5.048 calls these PROCASSINIT. Keep every other warning fatal. The qualification
+// checker independently pins this exact donor source; Icarus checks startup too.
+lint_off -rule PROCASSINIT -file "*rtl/vendor/opentpu/otpu_jtag_mailbox.sv"

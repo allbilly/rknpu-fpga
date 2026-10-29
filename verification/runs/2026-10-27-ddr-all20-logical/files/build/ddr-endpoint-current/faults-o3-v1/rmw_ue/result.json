@@ -1,0 +1,50 @@
+{
+  "name": "rmw_ue",
+  "status": "PASS",
+  "spec": {
+    "name": "rmw_ue",
+    "case": "capture_sub_9",
+    "address": 269352960,
+    "amount": 35,
+    "tasks": 2,
+    "lines": 1600,
+    "jobs": 1,
+    "negative": 2,
+    "reset_recovery": 0
+  },
+  "metrics": {
+    "lines": 1600,
+    "physical_bytes": 102400,
+    "uploaded_nonzero": 77,
+    "successful_jobs": 0,
+    "phy_user_returns": null
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/rknpu-fpga/build/ddr-endpoint-current/native-o3-v1/obj/sim",
+      "+CASE=/home/fedora/rknpu-fpga/build/ddr-endpoint-current/native-o3-v1/vectors/capture_sub_9",
+      "+OUTPUT=/home/fedora/rknpu-fpga/build/ddr-endpoint-current/faults-o3-v1/rmw_ue/observed.txt",
+      "+START=100e0000",
+      "+AMOUNT=35",
+      "+NTASKS=2",
+      "+NLINES=1600",
+      "+JOBS=1",
+      "+NEGATIVE=2",
+      "+RESET_RECOVERY=0"
+    ],
+    "timeout_seconds": 300,
+    "started_utc": "2026-10-27T00:40:46.745392+00:00",
+    "status": "EXITED",
+    "pid": 722948,
+    "returncode": 0,
+    "seconds": 122.39079140708782,
+    "finished_utc": "2026-10-27T00:42:49.136417+00:00",
+    "log_sha256": "56c6c9afce403b4c078150496dfdae1a15b80db681d8410bd4392c8684a49d92"
+  },
+  "marker": "PASS jtag_ew_ddr jobs=1 negative=2 recovered=0 lines=1600 uploaded_nonzero=77 rawtasks=2 phy_user_returns=5201 scope=actual_AXI_UI_MC_modeled_PHY",
+  "phy_user_returns": 5201,
+  "readback_physical_bytes": 0,
+  "observed_text_bytes": 0,
+  "observed_sha256": null,
+  "successful_jobs": 0
+}

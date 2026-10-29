@@ -1,0 +1,11 @@
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v2/tb_capacity_pattern.sv:10:13: Bits of signal are not used: 'trial_i'[31:1]
+                                                                                                                      : ... note: In instance 'tb_capacity_pattern'
+   10 |     integer trial_i, valid_i;
+      |             ^~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.048
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v2/tb_capacity_pattern.sv:10:22: Bits of signal are not used: 'valid_i'[31:1]
+                                                                                                                      : ... note: In instance 'tb_capacity_pattern'
+   10 |     integer trial_i, valid_i;
+      |                      ^~~~~~~
+%Error: Exiting due to 2 warning(s)

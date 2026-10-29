@@ -1,0 +1,130 @@
+{
+  "status": "PASS_ALL_CONFIGURED_LUTS_EXHAUSTIVE_4STATE",
+  "started_utc": "2026-10-26T12:18:48.154677+00:00",
+  "scope": "Prove smaller simulation-only LUT bodies against the actual AMD models.\n\nOnly LUT4/5/6 behavioral bodies change in a derived simulation file. All gate\ninstances, INITs, clocks, DSP/RAM/FF models and FPGA sources remain byte-identical.\nEvery configured binary INIT is tested with every 0/1/X/Z input combination,\nincluding initialization before the first input event. No hardware is invoked.\n",
+  "original_netlist": "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-preparation/closed.v",
+  "original_netlist_sha256": "91d13f62ee3f9260d8c99f831ca1ccb239fc60f9c6dabd9c918f4728c7d6768b",
+  "derived_netlist": "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/closed_fast_lut.v",
+  "derived_netlist_sha256": "2e65d2a2412536357b35cffed150b73bfc70f017176474bf8cc3494fc291c969",
+  "inputs": {
+    "/home/fedora/rknpu-fpga/build/regmem-closed-mapped-preparation/closed.v": "91d13f62ee3f9260d8c99f831ca1ccb239fc60f9c6dabd9c918f4728c7d6768b",
+    "/home/fedora/rknpu-fpga/tools/cmac/regmem/prove_fast_lut.py": "aa7bfd5385d37ebc0214a8cd50d15816a8f1cabb4f917d8b3c85b84416ddf6a6",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/original_lut_models.v": "1b7f7db2016a33cdb04e9e27d71ce9aa78d74d9fcf4fe646c2b72d592b138773",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/fast_lut_models.v": "ccdc01e17e62e432ac3638e5cceb259836dbcc7daccab4c74889edf2a6c96bc8",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/tb_lut.sv": "318655b19e4202a97f6cc8f3a8ca462831e7db2f2c2ec5f98cb7d5b58c0b734d",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/inventory.json": "13624bdba31f5fd7abf93ca385f586943ccf590bcf50c7955a1a6062dd4a1b8a",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/closed_fast_lut.v": "2e65d2a2412536357b35cffed150b73bfc70f017176474bf8cc3494fc291c969",
+    "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/proof.vvp": "40864a240f01b9cc420869e6ef473272fbbdfac30233a613e82543bc4cce36b9"
+  },
+  "configurations": {
+    "4": 183,
+    "5": 290,
+    "6": 751
+  },
+  "comparisons": 3419904,
+  "commands": [
+    {
+      "name": "iverilog_version",
+      "argv": [
+        "iverilog",
+        "-V"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T12:18:48.381399+00:00",
+      "pid": 440012,
+      "returncode": 0,
+      "seconds": 0.17803211603313684,
+      "finished_utc": "2026-10-26T12:18:48.559468+00:00",
+      "log_sha256": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d"
+    },
+    {
+      "name": "vvp_version",
+      "argv": [
+        "vvp",
+        "-V"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T12:18:48.710658+00:00",
+      "pid": 440015,
+      "returncode": 0,
+      "seconds": 0.1733497711829841,
+      "finished_utc": "2026-10-26T12:18:48.884048+00:00",
+      "log_sha256": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6"
+    },
+    {
+      "name": "compile",
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-Ttyp",
+        "-s",
+        "tb_lut",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/proof.vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/original_lut_models.v",
+        "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/fast_lut_models.v",
+        "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/tb_lut.sv"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T12:18:49.035824+00:00",
+      "pid": 440016,
+      "returncode": 0,
+      "seconds": 3.5416384891141206,
+      "finished_utc": "2026-10-26T12:18:52.577497+00:00",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "wrong_output_control",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/proof.vvp",
+        "+CORRUPT=1"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T12:18:52.814778+00:00",
+      "pid": 440021,
+      "returncode": 1,
+      "seconds": 1.5669735840056092,
+      "finished_utc": "2026-10-26T12:18:54.381801+00:00",
+      "log_sha256": "2905d34c48430310fecb2478c2b75d27fc7d900abf18a47ec0e4e65da5146e9c"
+    },
+    {
+      "name": "actual",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/proof.vvp",
+        "+CORRUPT=0"
+      ],
+      "status": "PASS",
+      "started_utc": "2026-10-26T12:18:54.561999+00:00",
+      "pid": 440022,
+      "returncode": 0,
+      "seconds": 174.5717252958566,
+      "finished_utc": "2026-10-26T12:21:49.133763+00:00",
+      "log_sha256": "88263cbaeb7abbf811d450ccefe6bd1b60e91f05568550246c92e2098c7b261b"
+    }
+  ],
+  "hardware_accessed": false,
+  "image_admission": false,
+  "iverilog_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "vvp_version": "Icarus Verilog runtime version 13.0 (stable) (v13_0)",
+  "compiled_image": {
+    "path": "/home/fedora/rknpu-fpga/build/regmem-fast-lut-proof/20261026T121838Z/proof.vvp",
+    "sha256": "40864a240f01b9cc420869e6ef473272fbbdfac30233a613e82543bc4cce36b9"
+  },
+  "result": "PASS exact_configured_LUT_4state configs=1224 comparisons=3419904 initial_event=1",
+  "finished_utc": "2026-10-26T12:21:57.314788+00:00",
+  "artifacts": {
+    "closed_fast_lut.v": "2e65d2a2412536357b35cffed150b73bfc70f017176474bf8cc3494fc291c969",
+    "original_lut_models.v": "1b7f7db2016a33cdb04e9e27d71ce9aa78d74d9fcf4fe646c2b72d592b138773",
+    "fast_lut_models.v": "ccdc01e17e62e432ac3638e5cceb259836dbcc7daccab4c74889edf2a6c96bc8",
+    "tb_lut.sv": "318655b19e4202a97f6cc8f3a8ca462831e7db2f2c2ec5f98cb7d5b58c0b734d",
+    "inventory.json": "13624bdba31f5fd7abf93ca385f586943ccf590bcf50c7955a1a6062dd4a1b8a",
+    "iverilog_version.log": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d",
+    "vvp_version.log": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+    "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "proof.vvp": "40864a240f01b9cc420869e6ef473272fbbdfac30233a613e82543bc4cce36b9",
+    "wrong_output_control.log": "2905d34c48430310fecb2478c2b75d27fc7d900abf18a47ec0e4e65da5146e9c",
+    "actual.log": "88263cbaeb7abbf811d450ccefe6bd1b60e91f05568550246c92e2098c7b261b"
+  }
+}

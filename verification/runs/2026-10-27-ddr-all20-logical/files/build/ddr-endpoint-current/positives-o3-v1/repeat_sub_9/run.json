@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "/home/fedora/rknpu-fpga/build/ddr-endpoint-current/native-o3-v1/obj/sim",
+    "+CASE=/home/fedora/rknpu-fpga/build/ddr-endpoint-current/native-o3-v1/vectors/capture_sub_9",
+    "+OUTPUT=/home/fedora/rknpu-fpga/build/ddr-endpoint-current/positives-o3-v1/repeat_sub_9/observed.txt",
+    "+START=100e0000",
+    "+AMOUNT=35",
+    "+NTASKS=2",
+    "+NLINES=1600",
+    "+JOBS=2",
+    "+NEGATIVE=0",
+    "+RESET_RECOVERY=0"
+  ],
+  "timeout_seconds": 1800,
+  "started_utc": "2026-10-27T02:53:22.844408+00:00",
+  "status": "FAIL",
+  "pid": 776182,
+  "error": "TimeoutExpired(['/home/fedora/rknpu-fpga/build/ddr-endpoint-current/native-o3-v1/obj/sim', '+CASE=/home/fedora/rknpu-fpga/build/ddr-endpoint-current/native-o3-v1/vectors/capture_sub_9', '+OUTPUT=/home/fedora/rknpu-fpga/build/ddr-endpoint-current/positives-o3-v1/repeat_sub_9/observed.txt', '+START=100e0000', '+AMOUNT=35', '+NTASKS=2', '+NLINES=1600', '+JOBS=2', '+NEGATIVE=0', '+RESET_RECOVERY=0'], 1800)",
+  "seconds": 1804.879522133153,
+  "finished_utc": "2026-10-27T03:23:27.842545+00:00",
+  "log_sha256": "c336a52efad5b39c389efe883d3ce9e5cd6603d45bccc8f2908a93e292faa01b"
+}

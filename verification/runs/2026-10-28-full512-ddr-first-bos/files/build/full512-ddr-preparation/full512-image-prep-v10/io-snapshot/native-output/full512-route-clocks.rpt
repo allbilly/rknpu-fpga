@@ -1,0 +1,746 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (lin64) Build 6511674 Tue Jun 16 11:01:26 MDT 2026
+| Date         : Wed Oct 28 11:44:40 2026
+| Host         : fedora running 64-bit unknown
+| Command      : report_clocks -file full512-route-clocks.rpt
+| Design       : ypcb_ddr_dual_top
+| Device       : 7k480t-ffg1156
+| Speed File   : -2  PRODUCTION 1.12 2017-02-17
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Clock Report
+
+
+Attributes
+  P: Propagated
+  G: Generated
+  A: Auto-derived
+  R: Renamed
+  V: Virtual
+  I: Inverted
+  S: Pin phase-shifted with Latency mode
+
+Clock                  Period(ns)  Waveform(ns)    Attributes  Sources
+c0_sys_clk_p           5.000       {0.000 2.500}   P           {c0_sys_clk_p}
+c1_sys_clk_p           5.000       {0.000 2.500}   P           {c1_sys_clk_p}
+jtag_tck               166.666     {0.000 83.333}  P           {u_bscan/TCK}
+sys_clock              20.000      {0.000 10.000}  P           {SYS_CLK}
+c0_freq_refclk         1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKOUT0}
+c0_mem_refclk          1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKOUT1}
+c0_sync_pulse          30.000      {0.820 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKOUT2}
+c1_freq_refclk         1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKOUT0}
+c1_mem_refclk          1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKOUT1}
+c1_sync_pulse          30.000      {0.820 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKOUT2}
+clk_pll_i              7.500       {0.000 3.750}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT}
+clk_pll_i_1            7.500       {0.000 3.750}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT}
+iserdes_clk            1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_1          1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_10         1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_11         1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_12         1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_13         1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_14         1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_15         1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_16         1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_17         1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_2          1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_3          1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_4          1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_5          1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_6          1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_7          1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_8          1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK}
+iserdes_clk_9          1.875       {1.758 2.695}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK}
+iserdes_clkdiv         3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_1       3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_10      3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_11      3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_12      3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_13      3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_14      3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_15      3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_16      3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_17      3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_2       3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_3       3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_4       3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_5       3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_6       3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_7       3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_8       3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLKDIV}
+iserdes_clkdiv_9       3.750       {1.758 3.633}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV}
+mmcm_ps_clk_bufg_in    15.000      {0.000 7.500}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKOUT0}
+mmcm_ps_clk_bufg_in_1  15.000      {0.000 7.500}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKOUT0}
+oserdes_clk            1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK}
+oserdes_clk_1          1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK}
+oserdes_clk_10         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK}
+oserdes_clk_11         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK}
+oserdes_clk_12         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK}
+oserdes_clk_13         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK}
+oserdes_clk_14         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK}
+oserdes_clk_15         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK}
+oserdes_clk_16         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK}
+oserdes_clk_17         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK}
+oserdes_clk_18         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK}
+oserdes_clk_19         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK}
+oserdes_clk_2          1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK}
+oserdes_clk_20         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK}
+oserdes_clk_21         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK}
+oserdes_clk_22         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK}
+oserdes_clk_23         1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK}
+oserdes_clk_3          1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK}
+oserdes_clk_4          1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK}
+oserdes_clk_5          1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK}
+oserdes_clk_6          1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK}
+oserdes_clk_7          1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK}
+oserdes_clk_8          1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK}
+oserdes_clk_9          1.875       {0.000 0.937}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK}
+oserdes_clkdiv         3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV}
+oserdes_clkdiv_1       3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV}
+oserdes_clkdiv_10      3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV}
+oserdes_clkdiv_11      3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV}
+oserdes_clkdiv_12      3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV}
+oserdes_clkdiv_13      3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV}
+oserdes_clkdiv_14      3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV}
+oserdes_clkdiv_15      3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV}
+oserdes_clkdiv_16      3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV}
+oserdes_clkdiv_17      7.500       {0.000 3.750}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV}
+oserdes_clkdiv_18      7.500       {0.000 3.750}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV}
+oserdes_clkdiv_19      7.500       {0.000 3.750}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV}
+oserdes_clkdiv_2       3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV}
+oserdes_clkdiv_20      3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV}
+oserdes_clkdiv_21      3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV}
+oserdes_clkdiv_22      3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV}
+oserdes_clkdiv_23      3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV}
+oserdes_clkdiv_3       3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV}
+oserdes_clkdiv_4       3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV}
+oserdes_clkdiv_5       7.500       {0.000 3.750}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV}
+oserdes_clkdiv_6       7.500       {0.000 3.750}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV}
+oserdes_clkdiv_7       7.500       {0.000 3.750}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV}
+oserdes_clkdiv_8       3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV}
+oserdes_clkdiv_9       3.750       {0.000 1.875}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV}
+pll_clk3_out           7.500       {0.000 3.750}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKOUT3}
+pll_clk3_out_1         7.500       {0.000 3.750}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKOUT3}
+pll_clkfbout           15.000      {0.000 7.500}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKFBOUT}
+pll_clkfbout_1         15.000      {0.000 7.500}   P,G,A       {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKFBOUT}
+
+
+====================================================
+Generated Clocks
+====================================================
+
+Generated Clock     : c0_freq_refclk
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKIN1
+Master Clock        : c0_sys_clk_p
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {1.758 0.195 -1.367}
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKOUT0}
+
+Generated Clock     : c0_mem_refclk
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKIN1
+Master Clock        : c0_sys_clk_p
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 -1.562 -3.125}
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKOUT1}
+
+Generated Clock     : c0_sync_pulse
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKIN1
+Master Clock        : c0_sys_clk_p
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.820 0.195 25.820}
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKOUT2}
+
+Generated Clock     : c1_freq_refclk
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKIN1
+Master Clock        : c1_sys_clk_p
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {1.758 0.195 -1.367}
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKOUT0}
+
+Generated Clock     : c1_mem_refclk
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKIN1
+Master Clock        : c1_sys_clk_p
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 -1.562 -3.125}
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKOUT1}
+
+Generated Clock     : c1_sync_pulse
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKIN1
+Master Clock        : c1_sys_clk_p
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.820 0.195 25.820}
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKOUT2}
+
+Generated Clock     : clk_pll_i
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKIN1
+Master Clock        : pll_clk3_out
+Multiply By         : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT}
+
+Generated Clock     : clk_pll_i_1
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKIN1
+Master Clock        : pll_clk3_out_1
+Multiply By         : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT}
+
+Generated Clock     : iserdes_clk
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c0_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_1
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c0_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_10
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c1_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_11
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c1_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_12
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c1_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_13
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c1_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_14
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c1_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_15
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c1_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_16
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c1_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_17
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c1_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_2
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c0_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_3
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c0_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_4
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c0_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_5
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c0_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_6
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c0_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_7
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c0_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_8
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c0_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clk_9
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/FREQREFCLK
+Master Clock        : c1_freq_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK}
+
+Generated Clock     : iserdes_clkdiv
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_1
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_1
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_10
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_10
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_11
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_11
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_12
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_12
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_13
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_13
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_14
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_14
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_15
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_15
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_16
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_16
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_17
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_17
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_2
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_2
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_3
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_3
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_4
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_4
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_5
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_5
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_6
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_6
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_7
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_7
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_8
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_8
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : iserdes_clkdiv_9
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLK
+Master Clock        : iserdes_clk_9
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in/ICLKDIV}
+
+Generated Clock     : mmcm_ps_clk_bufg_in
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKIN1
+Master Clock        : pll_clk3_out
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 3.750 7.500}
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKOUT0}
+
+Generated Clock     : mmcm_ps_clk_bufg_in_1
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKIN1
+Master Clock        : pll_clk3_out_1
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 3.750 7.500}
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKOUT0}
+
+Generated Clock     : oserdes_clk
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/MEMREFCLK
+Master Clock        : c0_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_1
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/MEMREFCLK
+Master Clock        : c0_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_10
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/MEMREFCLK
+Master Clock        : c0_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_11
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/MEMREFCLK
+Master Clock        : c0_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_12
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/MEMREFCLK
+Master Clock        : c1_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_13
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/MEMREFCLK
+Master Clock        : c1_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_14
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/MEMREFCLK
+Master Clock        : c1_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_15
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/MEMREFCLK
+Master Clock        : c1_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_16
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/MEMREFCLK
+Master Clock        : c1_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_17
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/MEMREFCLK
+Master Clock        : c1_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_18
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/MEMREFCLK
+Master Clock        : c1_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_19
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/MEMREFCLK
+Master Clock        : c1_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_2
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/MEMREFCLK
+Master Clock        : c0_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_20
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/MEMREFCLK
+Master Clock        : c1_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_21
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/MEMREFCLK
+Master Clock        : c1_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_22
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/MEMREFCLK
+Master Clock        : c1_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_23
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/MEMREFCLK
+Master Clock        : c1_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_3
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/MEMREFCLK
+Master Clock        : c0_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_4
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/MEMREFCLK
+Master Clock        : c0_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_5
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/MEMREFCLK
+Master Clock        : c0_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_6
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/MEMREFCLK
+Master Clock        : c0_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_7
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/MEMREFCLK
+Master Clock        : c0_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_8
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/MEMREFCLK
+Master Clock        : c0_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clk_9
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/MEMREFCLK
+Master Clock        : c0_mem_refclk
+Divide By           : 1
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK}
+
+Generated Clock     : oserdes_clkdiv
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK
+Master Clock        : oserdes_clk
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_1
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK
+Master Clock        : oserdes_clk_1
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_10
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK
+Master Clock        : oserdes_clk_10
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_11
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK
+Master Clock        : oserdes_clk_11
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_12
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK
+Master Clock        : oserdes_clk_12
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_13
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK
+Master Clock        : oserdes_clk_13
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_14
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK
+Master Clock        : oserdes_clk_14
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_15
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK
+Master Clock        : oserdes_clk_15
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_16
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK
+Master Clock        : oserdes_clk_16
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_17
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK
+Master Clock        : oserdes_clk_17
+Divide By           : 4
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_18
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK
+Master Clock        : oserdes_clk_18
+Divide By           : 4
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_19
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK
+Master Clock        : oserdes_clk_19
+Divide By           : 4
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_2
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK
+Master Clock        : oserdes_clk_2
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_20
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK
+Master Clock        : oserdes_clk_20
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_21
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK
+Master Clock        : oserdes_clk_21
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_22
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK
+Master Clock        : oserdes_clk_22
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_23
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK
+Master Clock        : oserdes_clk_23
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_3
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK
+Master Clock        : oserdes_clk_3
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_4
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK
+Master Clock        : oserdes_clk_4
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_5
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK
+Master Clock        : oserdes_clk_5
+Divide By           : 4
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_6
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLK
+Master Clock        : oserdes_clk_6
+Divide By           : 4
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_7
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLK
+Master Clock        : oserdes_clk_7
+Divide By           : 4
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_8
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLK
+Master Clock        : oserdes_clk_8
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_out/OCLKDIV}
+
+Generated Clock     : oserdes_clkdiv_9
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLK
+Master Clock        : oserdes_clk_9
+Divide By           : 2
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_2.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_out/OCLKDIV}
+
+Generated Clock     : pll_clk3_out
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKIN1
+Master Clock        : c0_sys_clk_p
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 1.250 2.500}
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKOUT3}
+
+Generated Clock     : pll_clk3_out_1
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKIN1
+Master Clock        : c1_sys_clk_p
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 1.250 2.500}
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKOUT3}
+
+Generated Clock     : pll_clkfbout
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKIN1
+Master Clock        : c0_sys_clk_p
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 5.000 10.000}
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c0_u_ddr3_infrastructure/plle2_i/CLKFBOUT}
+
+Generated Clock     : pll_clkfbout_1
+Master Source       : platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKIN1
+Master Clock        : c1_sys_clk_p
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 5.000 10.000}
+Generated Sources   : {platform/mig/u_top_mig_7series_0_0_mig/c1_u_ddr3_infrastructure/plle2_i/CLKFBOUT}
+
+
+
+====================================================
+User Uncertainty
+====================================================
+
+
+
+====================================================
+User Jitter
+====================================================
+
+

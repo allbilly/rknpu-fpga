@@ -1,0 +1,21 @@
+TRAINED_DDR phase=-1 stage=initialized time=386378000 uploaded_lines=0 engine_writes=0 phy_returns=1
+TRAINED_DDR phase=0 stage=uploaded time=3708795000 uploaded_lines=265 engine_writes=0 phy_returns=17027
+TRAINED_DDR phase=0 stage=submitted time=3708975000 uploaded_lines=265 engine_writes=0 phy_returns=17027
+TRAINED_DDR phase=0 stage=retired time=4523483000 uploaded_lines=265 engine_writes=32 phy_returns=19432
+TRAINED_DDR phase=0 stage=readback_before_ack time=6128565000 uploaded_lines=265 engine_writes=32 phy_returns=20840
+TRAINED_DDR phase=0 stage=acknowledged time=6128610000 uploaded_lines=265 engine_writes=32 phy_returns=20840
+TRAINED_DDR phase=1 stage=uploaded time=6240998000 uploaded_lines=274 engine_writes=32 phy_returns=21416
+TRAINED_DDR phase=1 stage=submitted time=6241178000 uploaded_lines=274 engine_writes=32 phy_returns=21416
+TRAINED_DDR phase=1 stage=retired time=6327660000 uploaded_lines=274 engine_writes=64 phy_returns=21689
+TRAINED_DDR phase=1 stage=readback_before_ack time=7932675000 uploaded_lines=274 engine_writes=64 phy_returns=23097
+TRAINED_DDR phase=1 stage=acknowledged time=7932720000 uploaded_lines=274 engine_writes=64 phy_returns=23097
+TRAINED_DDR phase=2 stage=uploaded time=8070098000 uploaded_lines=285 engine_writes=64 phy_returns=23801
+TRAINED_DDR phase=2 stage=submitted time=8070278000 uploaded_lines=285 engine_writes=64 phy_returns=23801
+TRAINED_DDR phase=2 stage=retired time=8884823000 uploaded_lines=285 engine_writes=96 phy_returns=26206
+TRAINED_DDR phase=2 stage=readback_before_ack time=10489620000 uploaded_lines=285 engine_writes=96 phy_returns=27614
+TRAINED_DDR phase=2 stage=acknowledged time=10489665000 uploaded_lines=285 engine_writes=96 phy_returns=27614
+PASS trained_tile_dual_ddr cmac_jobs=2 ew_tasks=2 engine_writes=96 rearm=2 checked_bo_lines=4224 phy_user_returns=27614 read64_packets=4226 read64_axi_reads=4226 scope=actual_AXI_UI_MC_modeled_PHY
+- /home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-trained-model-v1/tb_jtag_dual_ddr_async.sv:307: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.048 2026-04-26
+- Verilator: $finish at 10ms; walltime 2125.051 s; speed 5.032 us/s
+- Verilator: cpu 2084.583 s on 1 threads; allocated 20 MB

@@ -1,0 +1,112 @@
+{
+  "status": "FAIL_READ_ONLY_POST_ROUTE_AUDIT",
+  "started_utc": "2026-10-26T11:58:34.699258+00:00",
+  "scope": "Read-only exact routed timing/IO/waiver/DSP-warning/startup facts; no image or programming admission",
+  "cwd": "/home/fedora/rknpu-fpga",
+  "argv": [
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-implementation/20261026T111740Z/post-route-audit.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-implementation/20261026T111740Z/post-route-audit-launch-20261026T115834Z/vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-implementation/20261026T111740Z/post-route-audit-launch-20261026T115834Z/vivado.jou",
+    "-tclargs",
+    "/home/fedora/rknpu-fpga/build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z"
+  ],
+  "vivado_binary": "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+  "launch_dir": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-launch-20261026T115834Z",
+  "audit_output_dir": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z",
+  "context_path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-context.json",
+  "context_sha256": "5389693f931db2e66be4ec88f4e6b679119cb4ea4bc6b87f0a4a62d86884df9a",
+  "audit_tcl_path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit.tcl",
+  "audit_tcl_sha256": "81ce519a1d37c1396308506cd2b1ef418867f7d54ba567d4d97c744adbe7d7de",
+  "context_input_count": 131,
+  "package_source_count": 125,
+  "context_input_manifest_sha256": "5389693f931db2e66be4ec88f4e6b679119cb4ea4bc6b87f0a4a62d86884df9a",
+  "package_report_path": "build/full512-regmem-preparation/1793013000/report.json",
+  "package_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+  "main_run_report_path": "build/full512-regmem-implementation/20261026T111740Z/run.json",
+  "main_run_report_sha256": "549a7c637bdaa1a49e7ec13f5f70ad89cdef784c658e4ee181ae6d8789ba5c59",
+  "main_vivado_log_sha256": "ac66f1eca95bc4590a9245543c943f9f2ab17d4c6f5e8e4e50b00d0de9082cce",
+  "routed_dcp_path": "build/full512-regmem-preparation/1793013000/implementation/routed.dcp",
+  "routed_dcp_sha256": "9e3166635b11da4f44877991ee8c15fb9bc11d98727ce20038dba810819bba9f",
+  "routed_dcp_bytes": 108919968,
+  "input_recheck": "PASS",
+  "exit_code": 0,
+  "vivado_version": "Vivado v2026.1 (64-bit)",
+  "result_marker": null,
+  "outputs": [
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/check_timing.rpt",
+      "bytes": 3161,
+      "sha256": "dab4971f1a5fee9dad26c2513d69c454ed95c1790575ad5cfecab4437df55aa6"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/drc.rpt",
+      "bytes": 1137133,
+      "sha256": "0ba5824db1637f4259d78a7e669716a88ec045fcc7b2b33e84c40ff7531dbde5"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/exceptions.rpt",
+      "bytes": 1330,
+      "sha256": "62fe38b877ae0f0e0b913ed78fd1c4f73eb8d1d4dc0b008fe9b6dca44a0741f6"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/facts.tsv",
+      "bytes": 47928,
+      "sha256": "d3d495596cf93158439daf18d0b133e868e92c113a9092c4add6a1d727973d46"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/function-cones.tsv",
+      "bytes": 726746,
+      "sha256": "57c1a347e18bfe4a6f5ed940e752352d23a6cc0ff875529eaa794676efdd0684"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/implemented.xdc",
+      "bytes": 1623,
+      "sha256": "fe5c24d090a3a275d8265c229d39e8a76b3abad9d9ff4d29e953b24cda3398bc"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/pulse_width.rpt",
+      "bytes": 1459,
+      "sha256": "bbdc853f444e851c746a2e9a495cdb126b471be84723e34b7490d7121acd6bb3"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/result.txt",
+      "bytes": 152,
+      "sha256": "cd4a5f336cead51d946771f61ebaefe483a9cfc86f3d7b7a7f6d68ed0d18e806"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/route_status.rpt",
+      "bytes": 588,
+      "sha256": "13b13e157a2492a684221eecb0572b449f1103d28cc123914aa81e4ca6c58a0f"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/startup-and-control-facts.tsv",
+      "bytes": 2275454,
+      "sha256": "a05e2146d5226277008b6bc85c5c6afdda33a7e22e97bce65a8a1d15ca4f1f2d"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/timing.rpt",
+      "bytes": 43528,
+      "sha256": "d68a9453e2280bd47222a85902532d1c7e00d567e338bb70aa5ea221441314f4"
+    },
+    {
+      "path": "build/full512-regmem-implementation/20261026T111740Z/post-route-audit-20261026T115834Z/utilization_hierarchical.rpt",
+      "bytes": 471336,
+      "sha256": "d4d0f72576ca3c86ad275bd2f95e8db13c4a2b765aac2940de20adb324c1315a"
+    }
+  ],
+  "error": null,
+  "finished_utc": "2026-10-26T12:05:19.152118+00:00",
+  "pid": 437584,
+  "process_group": 437584,
+  "outputs_count": 12,
+  "stdout_sha256": "3a41c829c5591bf784fcf70fe85c994e60df11d99ba77c17cfdd712539324258",
+  "vivado_log_sha256": "f7345b87bee1eb2dc1f00d3ef9cf40fc32a22bb19b6de0679b0847c864a5cf2f",
+  "journal_sha256": "a3c5ea38c0985692da7bf011efeeb8bb13d12958a5409beb6b1d46f76244b67a",
+  "diagnostic_line_count": 0
+}

@@ -1,0 +1,18 @@
+%Warning-PROCASSINIT: /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v3/tb_capacity_sweep_full_elab.sv:3:13: Procedural assignment to declaration with initial value: 'clk'
+                                                                                                                        : ... note: In instance 'tb_capacity_sweep_full_elab'
+                                                                                                                        : ... Location of variable initialization
+    3 |   logic clk=0;always #5 clk=~clk;
+      |             ^
+                      /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v3/tb_capacity_sweep_full_elab.sv:3:25: ... Location of variable process write
+                                                                                                                        : ... Perhaps should initialize instead using a reset in this process
+    3 |   logic clk=0;always #5 clk=~clk;
+      |                         ^~~
+                      ... For warning description see https://verilator.org/warn/PROCASSINIT?v=5.048
+                      ... Use "/* verilator lint_off PROCASSINIT */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v3/tb_capacity_sweep_full_elab.sv:16:51: Bits of signal are not used: 'line_wdata'[511:32]
+                                                                                                                          : ... note: In instance 'tb_capacity_sweep_full_elab'
+   16 |   logic [511:0] mismatch_expected,mismatch_actual,line_wdata;
+      |                                                   ^~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.048
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Error: Exiting due to 2 warning(s)

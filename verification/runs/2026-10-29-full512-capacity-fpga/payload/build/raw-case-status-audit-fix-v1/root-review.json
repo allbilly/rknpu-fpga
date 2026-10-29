@@ -1,0 +1,18 @@
+{
+  "RTL_or_bitstream_changed": false,
+  "actual_trace_audit_sha256": "05b53aa7cd327a2916de1f8c1c0fcee4ae9a788b92c40efc0bd87d6b73474159",
+  "actual_unchanged_trace_reaudit": "/home/fedora/rknpu-fpga/build/raw-case-status-audit-fix-v1/replayed-first-cmac-strict-v2.json",
+  "focused_stderr_sha256": "9bd0430ea10333c656663ec88894e2754a494d8ebd163f9b0ce5b164c5cc96d1",
+  "focused_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "full_default_regression_pending": "current-v20",
+  "hardware_capacity_qualified": false,
+  "public_changed_files": {
+    "/home/fedora/rknpu-fpga/tests/ddr/capacity_parent/test_raw_case_wire.py": "ba06b592572b1b4028f89cce2234a2a3c8a62d66fae09aac7ceb5dfbdc6613a7",
+    "/home/fedora/rknpu-fpga/tools/ddr/audit_raw_case.py": "e5b929f9714b847fbf8e171adfe1227f19de82d0bc25f7bc991bbe43c84e5432",
+    "/home/fedora/rknpu-fpga/tools/ddr/run_capacity_parent.py": "8e6cf06f569807fd584d432faecdb50790c6fb25e760565e41bb6f0f84d14c14"
+  },
+  "raw_wire_control_tests": 16,
+  "source_status_contract": "fields_valid bits10:8; exact masks0,1,3,7 follow observed writes untilACK; precompletion active bit1 required and submit bit0 forbidden",
+  "status": "PASS_ROOT_RAW_AUDIT_STATUS_CONTRACT_FIX_ONLY",
+  "utc": "2026-10-28T21:39:56.094944+00:00"
+}

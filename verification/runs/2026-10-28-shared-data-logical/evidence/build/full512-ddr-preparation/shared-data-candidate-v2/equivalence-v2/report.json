@@ -1,0 +1,147 @@
+{
+  "binary_executed": false,
+  "candidate_preparation_sha256": "f84c470707e488770e7e1a3f72106bbc4291a8b506fff1fdd5789b1cc6274426",
+  "command": {
+    "argv": [
+      "verilator",
+      "--binary",
+      "--timing",
+      "--assert",
+      "-Wall",
+      "-j",
+      "2",
+      "--top-module",
+      "tb_shared_cell_equivalence",
+      "--Mdir",
+      "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/verilator_obj",
+      "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/ref_cell.sv",
+      "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+      "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/rk_cmac_fp16_shared_data.sv",
+      "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+      "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+      "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+      "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+      "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/vendor/nvdla/NV_DW02_tree.v",
+      "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/shared_cell_checker.sv",
+      "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/tb_shared_cell_equivalence.sv"
+    ],
+    "cwd": "/home/fedora/rknpu-fpga",
+    "finished_utc": "2026-10-27T22:11:49.774338+00:00",
+    "owned_pid": 1052759,
+    "process_group": 1052759,
+    "returncode": 1,
+    "seconds": 21.48844740795903,
+    "started_utc": "2026-10-27T22:11:28.285899+00:00",
+    "stderr_bytes": 3283,
+    "stderr_path": "compile.stderr.log",
+    "stderr_sha256": "dc3fdaae767b48e258cb6dc4732546a675887c0316a41d78905a0f76612e8284",
+    "stdout_bytes": 0,
+    "stdout_path": "compile.stdout.log",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "timed_out": false,
+    "timeout_seconds": 600
+  },
+  "error_lines": [
+    "%Error: Exiting due to 6 warning(s)"
+  ],
+  "finished_report_utc": "2026-10-27T22:11:49.775801+00:00",
+  "hardware_accessed": false,
+  "previous_v1_report_sha256": "235e7e328ba04314aa5aa4135c0c070d2aec6e3a4fd1e5618ab5807af99d43e9",
+  "reference_rename_only": true,
+  "resource_scope_actual_after": {
+    "proc_cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/rknpu-shared-data-eq-v2-vlt-strict.scope\n"
+  },
+  "resource_scope_actual_before": {
+    "proc_cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/rknpu-shared-data-eq-v2-vlt-strict.scope\n"
+  },
+  "scope": "Strict Verilator compile only for shared-data cell equivalence v2; no simulator execution, no warning suppression, no DUT or expected-result edits.",
+  "source_hashes_after": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/prepare_shared_data_candidate_v1.py": "b0e33dd66f2c303e43543ba4fbadfcee49e23f5c4132b1c2ce5f7eefb805a159",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v1/report.json": "235e7e328ba04314aa5aa4135c0c070d2aec6e3a4fd1e5618ab5807af99d43e9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/ref_cell.sv": "93ae06c2f4b309aed355df9c855b06f54fdf87a77c3d56c6436a7d3badb6eeac",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/shared_cell_checker.sv": "50c2796454f319f319b7de12596ccb268b5d08b7afaae632f4ae74e5521f2e84",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/tb_shared_cell_equivalence.sv": "7984cbadfc0c77300e0ea7c86e75eb6228a556838e9b4a6daff00901d3746631",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/preparation.json": "f84c470707e488770e7e1a3f72106bbc4291a8b506fff1fdd5789b1cc6274426",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/rk_cmac_fp16_array_dsp_prefix_pipe.sv": "27908a593196c654e5be4df94b168751789d10bd3a442980217564f1c5edeb82",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": "32862d4d14fefa4f5ffed5d8457a334d5ee691e58ab5986684ab267e7a1716e9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/rk_cmac_fp16_shared_data.sv": "7434af380e4f8f07ff60a96269d6727186478099989eb855c16427f60283cecc",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/report.json": "28caabf9e8e1147a891d685af5157f0aaf16bf96b95b2279caafca7a16d9faed",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/vendor/nvdla/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6"
+  },
+  "source_hashes_before": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/prepare_shared_data_candidate_v1.py": "b0e33dd66f2c303e43543ba4fbadfcee49e23f5c4132b1c2ce5f7eefb805a159",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v1/report.json": "235e7e328ba04314aa5aa4135c0c070d2aec6e3a4fd1e5618ab5807af99d43e9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/ref_cell.sv": "93ae06c2f4b309aed355df9c855b06f54fdf87a77c3d56c6436a7d3badb6eeac",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/shared_cell_checker.sv": "50c2796454f319f319b7de12596ccb268b5d08b7afaae632f4ae74e5521f2e84",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/tb_shared_cell_equivalence.sv": "7984cbadfc0c77300e0ea7c86e75eb6228a556838e9b4a6daff00901d3746631",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/preparation.json": "f84c470707e488770e7e1a3f72106bbc4291a8b506fff1fdd5789b1cc6274426",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/rk_cmac_fp16_array_dsp_prefix_pipe.sv": "27908a593196c654e5be4df94b168751789d10bd3a442980217564f1c5edeb82",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": "32862d4d14fefa4f5ffed5d8457a334d5ee691e58ab5986684ab267e7a1716e9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/rk_cmac_fp16_shared_data.sv": "7434af380e4f8f07ff60a96269d6727186478099989eb855c16427f60283cecc",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/report.json": "28caabf9e8e1147a891d685af5157f0aaf16bf96b95b2279caafca7a16d9faed",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/vendor/nvdla/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+    "/home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6"
+  },
+  "sources_unchanged": true,
+  "status": "FAIL_STRICT_VERILATOR_COMPILE",
+  "tool_versions": [
+    {
+      "argv": [
+        "verilator",
+        "--version"
+      ],
+      "name": "verilator",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426\n"
+    },
+    {
+      "argv": [
+        "make",
+        "--version"
+      ],
+      "name": "make",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "GNU Make 4.4.1\nBuilt for x86_64-redhat-linux-gnu\nCopyright (C) 1988-2023 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/c++",
+        "--version"
+      ],
+      "name": "cxx",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "c++ (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n"
+    }
+  ],
+  "warning_count": 6,
+  "warning_headers": [
+    "%Warning-PINCONNECTEMPTY",
+    "%Warning-PINCONNECTEMPTY",
+    "%Warning-DECLFILENAME",
+    "%Warning-UNUSEDSIGNAL",
+    "%Warning-UNUSEDSIGNAL",
+    "%Warning-UNUSEDSIGNAL"
+  ],
+  "warning_lines": [
+    "%Warning-PINCONNECTEMPTY: /home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv:19:34: Instance pin connected by name with empty reference: 'res_b'",
+    "%Warning-PINCONNECTEMPTY: /home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv:19:44: Instance pin connected by name with empty reference: 'res_tag'",
+    "%Warning-DECLFILENAME: /home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v:680:8: Filename 'NV_NVDLA_CMAC_CORE_MAC_mul' does not match MODULE name: 'NV_NVDLA_CMAC_CORE_MAC_booth'",
+    "%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-candidate-v2/equivalence-v2/shared_cell_checker.sv:17:16: Bits of signal are not used: 'random_word'[30:16]",
+    "%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv:7:23: Bits of signal are not used: 'first_row'[31:28]",
+    "%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/tinystories-fpga-preparation/dual-v1/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv:7:34: Bits of signal are not used: 'total'[31:28]"
+  ]
+}

@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+# COPYRIGHT NOTICE
+# Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+#
+
+##
+# Setup default environmental variables
+##
+# RDI_BINROOT - Directory *this* script exists in
+#  E.x. 
+#    /usr/Test/Install/bin/example
+#    RDI_BINROOT=/usr/Test/Install/bin
+#
+# RDI_APPROOT - One directory above RDI_BINROOT
+#  E.x. 
+#    /usr/Test/Install/bin/example
+#    RDI_APPROOT=/usr/Test/Install
+#
+# RDI_BASEROOT - One directory above RDI_APPROOT
+#  E.x. 
+#    /usr/Test/Install/bin/example
+#    RDI_BINROOT=/usr/Test
+##
+. "`dirname \"$0\"`/setupEnv.sh"
+
+# Set XILINX_VIVADO
+XILINX_VIVADO=`dirname "$RDI_BINROOT"`
+export XILINX_VIVADO
+
+export RDI_DEPENDENCY="XILINX_VIVADO_HLS:XILINX_HLS"
+export _RDI_NEEDS_PYTHON=True
+export RDI_USE_JDK24=True
+
+# CR-1074520: Disable bmalloc memory allocator and use the system default one 
+#   instead. This prevents WebKit from overindulging in virtual memory on high
+#   memory machines. https://trac.webkit.org/wiki/EnvironmentVariables
+export Malloc=1
+
+# JDK 24 compatibility: Enable native access for System.loadLibrary calls
+# Moved to JVM options in HCJJavaVM.cxx to avoid "Picked up JAVA_TOOL_OPTIONS" message
+# export JAVA_TOOL_OPTIONS="--enable-native-access=ALL-UNNAMED"
+
+##
+# Launch the loader and specify the executable to launch
+##
+#
+# Loader arguments:
+#   -exec   -- Name of executable to launch
+##
+RDI_PROG=`basename "$0"`
+"$RDI_BINROOT"/loader -exec $RDI_PROG "$@"

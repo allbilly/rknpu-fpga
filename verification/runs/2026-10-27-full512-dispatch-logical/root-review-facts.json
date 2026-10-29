@@ -1,0 +1,114 @@
+{
+  "ddr_composition_qualified": false,
+  "ew_numerical_composition_qualified": false,
+  "full512_product_lanes": 512,
+  "hardware_accessed": false,
+  "iverilog_mode_status": "PASS_ALL_NINE_SHARED_DISPATCH_CMAC_NUMERICAL_MODES_ONLY",
+  "mapped_or_timing_qualified": false,
+  "mode_count": 9,
+  "modes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "numerical_counts": {
+    "0": [
+      2,
+      2,
+      98,
+      13056,
+      128,
+      13576,
+      2
+    ],
+    "1": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "2": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "3": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      4,
+      0
+    ],
+    "4": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "5": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "6": [
+      1,
+      1,
+      49,
+      6528,
+      64,
+      6788,
+      0
+    ],
+    "7": [
+      1,
+      1,
+      49,
+      6528,
+      64,
+      6788,
+      1
+    ],
+    "8": [
+      1,
+      1,
+      49,
+      6528,
+      64,
+      6788,
+      1
+    ]
+  },
+  "repeat_memory_responses": 13576,
+  "repeat_operand_reads": 13056,
+  "repeat_raw_jobs": 2,
+  "repeat_safe_rearms": 2,
+  "repeat_writes": 128,
+  "scope": "Logical CMAC/shared dispatch only; 16 C32 kernels/512 products and nine modes in both simulators. Does not establish EW numerical alternation, DDR, physical, PCIe, RK, CDC or timing.",
+  "seed": "0x3588ad16",
+  "status": "PASS_INDEPENDENT_ALL_NINE_FULL512_CMAC_DISPATCH_MODES_BOTH_SIMULATORS_ONLY",
+  "strict_verilator_compile_v1_status": "FAIL_STRICT_COMPILE_ONLY",
+  "strict_verilator_compile_v2_status": "PASS_COMPILE_ONLY_REVIEWED_WARNINGS",
+  "verilator_mode_status": "PASS_ALL_NINE_SHARED_DISPATCH_CMAC_NUMERICAL_MODES_ONLY"
+}

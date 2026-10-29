@@ -1,0 +1,249 @@
+%Warning-DECLFILENAME: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v:680:8: Filename 'NV_NVDLA_CMAC_CORE_MAC_mul' does not match MODULE name: 'NV_NVDLA_CMAC_CORE_MAC_booth'
+  680 | module NV_NVDLA_CMAC_CORE_MAC_booth (
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/DECLFILENAME?v=5.048
+                       ... Use "/* verilator lint_off DECLFILENAME */" and lint_on around source to disable this message.
+%Warning-PINCONNECTEMPTY: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:327:76: Instance pin connected by name with empty reference: 'dec'
+  327 | NV_DW_lsd #(.a_width(36 )) u0_dw_lsd(.a(di_mant), .enc(di_lead_num[5:0]), .dec());
+      |                                                                            ^~~
+                          ... For warning description see https://verilator.org/warn/PINCONNECTEMPTY?v=5.048
+                          ... Use "/* verilator lint_off PINCONNECTEMPTY */" and lint_on around source to disable this message.
+%Warning-PINCONNECTEMPTY: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:409:87: Instance pin connected by name with empty reference: 'dec'
+  409 | NV_DW_lsd #(.a_width(40 +4)) u1_dw_lsd(.a(mant_sum_total), .enc(msum_lead_num[5:0]), .dec());
+      |                                                                                       ^~~
+%Warning-DECLFILENAME: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:11:8: Filename 'HLS_fp32_to_fp16' does not match MODULE name: 'FP32_TO_FP16_mgc_in_wire_wait_v1'
+   11 | module FP32_TO_FP16_mgc_in_wire_wait_v1 (ld, vd, d, lz, vz, z);
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv:19:34: Instance pin connected by name with empty reference: 'res_b'
+   19 |         .res_a(original_row_a), .res_b(), .res_tag()
+      |                                  ^~~~~
+%Warning-PINCONNECTEMPTY: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv:19:44: Instance pin connected by name with empty reference: 'res_tag'
+   19 |         .res_a(original_row_a), .res_b(), .res_tag()
+      |                                            ^~~~~~~
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:89:6: Logical operator GENIF expects 1 bit on the If, but If's VARREF 'signd_a' generates 32 bits.
+                                                                                                                                        : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst.FpMantDecShiftRight_23U_8U_10U_i_mant_s_rshift_rg'
+   89 |      if (signd_a)
+      |      ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.048
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:105:32: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'signd_a' generates 32 bits.
+                                                                                                                                          : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst.FpMantDecShiftRight_23U_8U_10U_i_mant_s_rshift_rg'
+  105 |       parameter ilen = signd_a ? width_a : width_a+1;
+      |                                ^
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:131:4: Logical operator GENIF expects 1 bit on the If, but If's VARREF 'signd_a' generates 32 bits.
+                                                                                                                                         : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst.FpMantDecShiftRight_23U_8U_10U_least_mask_lshift_rg'
+  131 |    if (signd_a)
+      |    ^~
+%Warning-WIDTHEXPAND: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:1287:10: Operator NOT expects 4 bits on the LHS, but LHS's SEL generates 3 bits.
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+ 1287 |       = (~ (chn_a_rsci_d_mxwt[26:24])) + 3'b1;
+      |          ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.048
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHXZEXPAND: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:367:24: Unsized constant being X/Z extended to 40 bits: ?32?bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                                                                                                                                      : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  367 |     di_aligned_mant <= 'bx;   
+      |                        ^~~
+                        ... For warning description see https://verilator.org/warn/WIDTHXZEXPAND?v=5.048
+                        ... Use "/* verilator lint_off WIDTHXZEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHXZEXPAND: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:377:24: Unsized constant being X/Z extended to 40 bits: ?32?bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                                                                                                                                      : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  377 |     oi_aligned_mant <= 'bx;   
+      |                        ^~~
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:387:17: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's CONST '?32?bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' generates 32 bits.
+                                                                                                                                                   : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  387 |     in_mant_cut <= 'bx;   
+      |                 ^~
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:397:21: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's CONST '?32?bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' generates 32 bits.
+                                                                                                                                                   : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  397 |     in_aligned_expo <= 'bx;   
+      |                     ^~
+%Warning-WIDTHEXPAND: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:414:63: Operator SUB expects 32 or 9 bits on the RHS, but RHS's VARREF 'msum_lead_num' generates 6 bits.
+                                                                                                                                                    : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  414 | assign {mon_expo_nrml_c,expo_nrml[7:0]} = in_aligned_expo + 1 - msum_lead_num;
+      |                                                               ^
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:426:16: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's CONST '?32?bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' generates 32 bits.
+                                                                                                                                                   : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  426 |     expo_trans <= 'bx;   
+      |                ^~
+%Warning-WIDTHXZEXPAND: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:436:23: Unsized constant being X/Z extended to 42 bits: ?32?bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                                                                                                                                      : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  436 |     mant_sum_trans <= 'bx;   
+      |                       ^~~
+%Warning-WIDTHEXPAND: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:498:56: Operator ADD expects 41 bits on the RHS, but RHS's SIGNED generates 2 bits.
+                                                                                                                                                    : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  498 | assign mant_sum_round[40:0] = $signed(mant_sum_effect) + $signed({1'b0,mant_sum_point5});
+      |                                                        ^
+%Warning-WIDTHTRUNC: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:519:25: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's CONST '?32?bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' generates 32 bits.
+                                                                                                                                                   : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  519 |     partial_result_expo <= 'bx;   
+      |                         ^~
+%Warning-WIDTHXZEXPAND: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:529:28: Unsized constant being X/Z extended to 40 bits: ?32?bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                                                                                                                                      : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  529 |     partial_result_mant <= 'bx;   
+      |                            ^~~
+%Warning-WIDTHEXPAND: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:656:69: Operator ADD expects 9 bits on the RHS, but RHS's CONST '7'h40' generates 7 bits.
+                                                                                                                                                    : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  656 | assign {mon_fp32_expo_round_c,fp32_expo_round[7:0]} = fp32_expo_raw + 7'd64 + (fp32_mant_carry | partial_neg2);
+      |                                                                     ^
+%Warning-WIDTHEXPAND: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:656:96: Operator OR expects 9 bits on the LHS, but LHS's VARREF 'fp32_mant_carry' generates 1 bits.
+                                                                                                                                                    : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  656 | assign {mon_fp32_expo_round_c,fp32_expo_round[7:0]} = fp32_expo_raw + 7'd64 + (fp32_mant_carry | partial_neg2);
+      |                                                                                                ^
+%Warning-WIDTHEXPAND: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:656:96: Operator OR expects 9 bits on the RHS, but RHS's VARREF 'partial_neg2' generates 1 bits.
+                                                                                                                                                    : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  656 | assign {mon_fp32_expo_round_c,fp32_expo_round[7:0]} = fp32_expo_raw + 7'd64 + (fp32_mant_carry | partial_neg2);
+      |                                                                                                ^
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:79:15: Bits of signal are not used: 'fp32_mant_cut'[13:0]
+                                                                                                                                                    : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+   79 | wire   [14:0] fp32_mant_cut;
+      |               ^~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.048
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:82:15: Bits of signal are not used: 'fp32_mant_nmlz_tmp'[24:23]
+                                                                                                                                                    : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+   82 | wire   [24:0] fp32_mant_nmlz_tmp;
+      |               ^~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:98:15: Bits of signal are not used: 'mant_sum_scmp'[44]
+                                                                                                                                                    : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+   98 | wire   [44:0] mant_sum_scmp;
+      |               ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:103:15: Signal is not used: 'mon_di_expo_shift_c'
+                                                                                                                                                     : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  103 | wire          mon_di_expo_shift_c;
+      |               ^~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:104:15: Signal is not used: 'mon_expo_nrml_c'
+                                                                                                                                                     : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  104 | wire          mon_expo_nrml_c;
+      |               ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:105:15: Signal is not used: 'mon_fp32_expo_round_c'
+                                                                                                                                                     : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  105 | wire          mon_fp32_expo_round_c;
+      |               ^~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:106:15: Signal is not used: 'mon_oi_expo_shift_c'
+                                                                                                                                                     : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  106 | wire          mon_oi_expo_shift_c;
+      |               ^~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:107:15: Signal is not used: 'mon_partial_expo_nmlz_nc'
+                                                                                                                                                     : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  107 | wire          mon_partial_expo_nmlz_nc;
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:108:15: Signal is not used: 'mon_partial_expo_nmlz_pc'
+                                                                                                                                                     : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  108 | wire          mon_partial_expo_nmlz_pc;
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v:132:15: Bits of signal are not used: 'partial_mant_nmlz_tmp'[40]
+                                                                                                                                                     : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[15].accumulator.donor'
+  132 | wire   [40:0] partial_mant_nmlz_tmp;
+      |               ^~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:687:14: Bits of signal are not used: 'nl_FpWidthDec_8U_23U_5U_10U_1U_1U_else_else_if_i_shift_acc_psp_1_sva_2'[3]
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  687 |   wire [3:0] nl_FpWidthDec_8U_23U_5U_10U_1U_1U_else_else_if_i_shift_acc_psp_1_sva_2;
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:712:14: Bits of signal are not used: 'nl_FpWidthDec_8U_23U_5U_10U_1U_1U_o_expo_sva_4'[5]
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  712 |   wire [5:0] nl_FpWidthDec_8U_23U_5U_10U_1U_1U_o_expo_sva_4;
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:723:15: Bits of signal are not used: 'FpMantDecShiftRight_23U_8U_10U_i_mant_s_rshift_itm'[12:0]
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  723 |   wire [23:0] FpMantDecShiftRight_23U_8U_10U_i_mant_s_rshift_itm;
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:726:15: Bits of signal are not used: 'nl_z_out'[23]
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  726 |   wire [23:0] nl_z_out;
+      |               ^~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:734:15: Bits of signal are not used: 'nl_FpMantDecShiftRight_23U_8U_10U_o_mant_sum_sva'[11]
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  734 |   wire [11:0] nl_FpMantDecShiftRight_23U_8U_10U_o_mant_sum_sva;
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:742:14: Bits of signal are not used: 'nl_FpMantDecShiftRight_23U_8U_10U_guard_mask_acc_1_psp_sva'[5]
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  742 |   wire [5:0] nl_FpMantDecShiftRight_23U_8U_10U_guard_mask_acc_1_psp_sva;
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:751:13: Signal is not used: 'iMantWidth_oMantWidth_prb'
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  751 |   wire[0:0] iMantWidth_oMantWidth_prb;
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:752:13: Signal is not used: 'iExpoWidth_oExpoWidth_prb'
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  752 |   wire[0:0] iExpoWidth_oExpoWidth_prb;
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:753:13: Signal is not used: 'shift_0_prb'
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  753 |   wire[0:0] shift_0_prb;
+      |             ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:802:13: Bits of signal are not used: 'nl_FpWidthDec_8U_23U_5U_10U_1U_1U_else_else_acc_nl'[9]
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  802 |   wire[9:0] nl_FpWidthDec_8U_23U_5U_10U_1U_1U_else_else_acc_nl;
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:804:13: Bits of signal are not used: 'nl_FpWidthDec_8U_23U_5U_10U_1U_1U_else_if_acc_nl'[8]
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  804 |   wire[8:0] nl_FpWidthDec_8U_23U_5U_10U_1U_1U_else_if_acc_nl;
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:806:13: Bits of signal are not used: 'nl_FpWidthDec_8U_23U_5U_10U_1U_1U_acc_nl'[9]
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  806 |   wire[9:0] nl_FpWidthDec_8U_23U_5U_10U_1U_1U_acc_nl;
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:820:14: Bits of signal are not used: 'nl_FpMantDecShiftRight_23U_8U_10U_guard_mask_lshift_rg_s'[5]
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+  820 |   wire [5:0] nl_FpMantDecShiftRight_23U_8U_10U_guard_mask_lshift_rg_s;
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:1465:15: Bits of function variable are not used: 'tmp'[4:1]
+                                                                                                                                             : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+ 1465 |     reg [4:0] tmp;
+      |               ^~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:1485:15: Bits of function variable are not used: 'tmp'[8:1]
+                                                                                                                                             : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+ 1485 |     reg [8:0] tmp;
+      |               ^~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:1475:15: Bits of function variable are not used: 'tmp'[7:1]
+                                                                                                                                             : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst'
+ 1475 |     reg [7:0] tmp;
+      |               ^~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv:7:23: Bits of signal are not used: 'first_row'[31:28]
+                                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cmac.kernels[15].cell_core.lanes[31].donor.prefix'
+    7 |     input wire [31:0] first_row, total,
+      |                       ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv:7:34: Bits of signal are not used: 'total'[31:28]
+                                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cmac.kernels[15].cell_core.lanes[31].donor.prefix'
+    7 |     input wire [31:0] first_row, total,
+      |                                  ^~~~~
+%Warning-UNUSEDSIGNAL: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:107:28: Bits of function variable are not used: 'result'[24]
+                                                                                                                                            : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst.FpMantDecShiftRight_23U_8U_10U_i_mant_s_rshift_rg'
+  107 |       reg signed [len-1:0] result;
+      |                            ^~~~~~
+%Warning-UNUSEDPARAM: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:13:21: Parameter is not used: 'rscid'
+                                                                                                                                          : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst.HLS_fp32_to_fp16_core_chn_a_rsci_inst.chn_a_rsci'
+   13 |   parameter integer rscid = 1;
+      |                     ^~~~~
+                      ... For warning description see https://verilator.org/warn/UNUSEDPARAM?v=5.048
+                      ... Use "/* verilator lint_off UNUSEDPARAM */" and lint_on around source to disable this message.
+%Warning-UNUSEDPARAM: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/vendor/nvdla/HLS_fp32_to_fp16.v:55:21: Parameter is not used: 'rscid'
+                                                                                                                                          : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.writer.tail.converter.donor.HLS_fp32_to_fp16_core_inst.HLS_fp32_to_fp16_core_chn_o_rsci_inst.chn_o_rsci'
+   55 |   parameter integer rscid = 1;
+      |                     ^~~~~
+%Warning-SYNCASYNCNET: /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_cacc.sv:6:21: Signal flopped as both synchronous and async: 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[0].accumulator.rst_n'
+                                                                                                                                : ... note: In instance 'tb_jtag_dual_bram.dut.cm_engine.engine.core.datapath.arithmetic.cacc.kernels[0].accumulator'
+                       /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_cacc.sv:6:21: ... Location of async usage
+    6 |     input logic clk,rst_n,in_valid,
+      |                     ^~~~~
+                       /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/rtl/cmac/rk_nvdla_cacc.sv:6:21: ... Location of sync usage
+    6 |     input logic clk,rst_n,in_valid,
+      |                     ^~~~~
+                       ... For warning description see https://verilator.org/warn/SYNCASYNCNET?v=5.048
+                       ... Use "/* verilator lint_off SYNCASYNCNET */" and lint_on around source to disable this message.
+make: Entering directory '/home/fedora/rknpu-fpga/build/tinystories-joined-native/verilator-v2/obj'
+c++ -Os  -I.  -MMD -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o /home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include/verilated.cpp
+c++ -Os  -I.  -MMD -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o /home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include/verilated_timing.cpp
+c++ -Os  -I.  -MMD -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o /home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include/verilated_threads.cpp
+c++ -Os  -I.  -MMD -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -x c++-header Vtb_jtag_dual_bram__pch.h -o Vtb_jtag_dual_bram__pch.h.fast.gch
+c++ -Os  -I.  -MMD -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_jtag_dual_bram__pch.h.fast -c Vtb_jtag_dual_bram_vm_classes_0.cpp
+c++   -I.  -MMD -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -x c++-header Vtb_jtag_dual_bram__pch.h -o Vtb_jtag_dual_bram__pch.h.slow.gch
+c++   -I.  -MMD -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_jtag_dual_bram__pch.h.slow -c Vtb_jtag_dual_bram_vm_classes_Slow_0.cpp
+c++   -I.  -MMD -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include -I/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_jtag_dual_bram__pch.h.slow -c Vtb_jtag_dual_bram__Syms__Slow.cpp
+c++    verilated.o verilated_timing.o verilated_threads.o Vtb_jtag_dual_bram__ALL.a    -pthread -lpthread -latomic   -o sim
+rm Vtb_jtag_dual_bram__ALL.verilator_deplist.tmp
+make: Leaving directory '/home/fedora/rknpu-fpga/build/tinystories-joined-native/verilator-v2/obj'
+- V e r i l a t i o n   R e p o r t: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+- Verilator: Built from 8.199 MB sources in 64 modules, into 127.985 MB in 215 C++ files needing 0.305 MB
+- Verilator: Walltime 487.705 s (elab=0.275, cvt=86.101, bld=395.225); cpu 72.990 s on 1 threads; allocated 1780.734 MB

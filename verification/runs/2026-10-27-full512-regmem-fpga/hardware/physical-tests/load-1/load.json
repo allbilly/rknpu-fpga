@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "action": "program-sram",
+  "started_utc": "2026-10-26T16:21:00.343672+00:00",
+  "hardware_programmed": true,
+  "flash_written": false,
+  "bitstream_sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227",
+  "image_review_sha256": "e6044476a86fb6133f06b94b9b0e1d129665c9c96e73a5ae9ef831e98227abe5",
+  "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+  "expected_dna_port": "004E544714C705C",
+  "source_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+  "profile": "full512-regmem-startup",
+  "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+  "compiled_led_active_low": 0,
+  "program_tcl_sha256": "ff020ac7505f80813b7dcc75beb897b2a48147492e6b89648ca7b1cab74ced87",
+  "idcode": "0x23751093",
+  "finished_utc": "2026-10-26T16:22:51.739912+00:00",
+  "native": {
+    "TARGET": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+    "DNA_PORT": "004E544714C705C",
+    "TCK_HZ": "3000000",
+    "IDCODE_BEFORE": "23751093",
+    "PROGRAM_FILE": "/home/fedora/rknpu-fpga/build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/bitstream/cmac512-startup.bit",
+    "PROGRAM_RETURNED": "1",
+    "INIT_COMPLETE": "1",
+    "DONE": "1",
+    "USR_ACCESS": "ac6fee7e",
+    "IDCODE_AFTER": "23751093",
+    "PROGRAMMED": "1",
+    "CLEANUP": "1",
+    "PASS": "1"
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+      "-mode",
+      "batch",
+      "-source",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-regmem-20261026T160723Z/physical-tests/load-1/program.tcl",
+      "-log",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-regmem-20261026T160723Z/physical-tests/load-1/vivado.log",
+      "-journal",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/full512-regmem-20261026T160723Z/physical-tests/load-1/vivado.jou"
+    ],
+    "started_utc": "2026-10-26T16:21:00.355492+00:00",
+    "script_sha256": "ff020ac7505f80813b7dcc75beb897b2a48147492e6b89648ca7b1cab74ced87",
+    "pid": 509714,
+    "returncode": 0,
+    "finished_utc": "2026-10-26T16:22:51.739173+00:00",
+    "status": "PASS"
+  }
+}

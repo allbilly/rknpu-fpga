@@ -1,0 +1,4 @@
+Full512 dual-dispatch nine-mode logical CMAC evidence archive.
+Source: frozen combined-source-v6 and 48 selected private frontend source bodies plus assertion compatibility modules. 16 C32 kernels / 512 product lanes; both Icarus and Verilator passed all nine modes with original mode counts and seed 0x3588ad16.
+This is selected logical CMAC/shared-dispatch numerical and control evidence only. It does not qualify EW numerical alternation, DDR/MIG modeling, physical DDR, PCIe, RK silicon, CDC, or timing. Strict Verilator compile v1 remains FAIL and is retained; v2 is compile-only under reviewed warnings. Controller/dispatch controls remain separate from CMAC numeric qualification.
+Compiled VVP/ELF/object outputs and native tool binaries are excluded; their source hashes/bytes/reasons are in the index. Mode reports retain native binary hashes. No hardware was accessed.

@@ -1,0 +1,8 @@
+SYNC	u_mailbox/rq_sync_reg[0]	sys_clk	u_mailbox/req_toggle_reg/C
+SYNC	u_mailbox/rq_sync_reg[1]	sys_clk	{u_mailbox/rq_sync_reg[0]/C}
+SYNC	u_mailbox/rq_sync_reg[2]	sys_clk	{u_mailbox/rq_sync_reg[1]/C}
+SYNC	u_mailbox/rs_sync_reg[0]	jtag_tck	u_mailbox/rsp_toggle_reg/C
+SYNC	u_mailbox/rs_sync_reg[1]	jtag_tck	{u_mailbox/rs_sync_reg[0]/C}
+SYNC	u_mailbox/rs_sync_reg[2]	jtag_tck	{u_mailbox/rs_sync_reg[1]/C}
+PAYLOAD	held	req	604	604	40.000	39.058
+PAYLOAD	response	response_tck	536	536	333.332	332.344

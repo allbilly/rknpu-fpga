@@ -1,0 +1,2339 @@
+{
+  "schema": 2,
+  "status": "PASS_OFFLINE_PRODUCER_ARTIFACT_AUDIT_ONLY",
+  "audited_utc": "2026-10-26T16:34:32.513859+00:00",
+  "scope": "Read-only offline re-decode/hash/source/time audit; no hardware/service/lease/process interaction",
+  "producer_report": "build/fpga-bringup/full512-regmem-20261026T160723Z/physical-tests/report.json",
+  "producer_report_status": "PASS_CMAC512_PHYSICAL_STARTUP_AND_RECONFIGURATION",
+  "v1_audit": {
+    "path": "build/full512-regmem-physical-offline-audit-20261026T163042Z.json",
+    "status": "FAIL_OFFLINE_PRODUCER_ARTIFACT_AUDIT",
+    "check_count": 128,
+    "failed_checks": [
+      "post-load-2_redecoded_result_matches_stored_observation",
+      "post-load-3_redecoded_result_matches_stored_observation"
+    ]
+  },
+  "v2_correction": {
+    "stored_kind_field_used": true,
+    "load_receipt_selected_by_stored_sha256": true,
+    "check_names_preserved_from_v1": true,
+    "kind_differences_from_v1": [
+      {
+        "capture": "post-load-2",
+        "v1_assumed_kind": "post-load",
+        "stored_kind": "reconfiguration",
+        "stored_load_receipt_sha256": "2e76b90030c8926eb5322eae0634addfd424557601c5a81336d55d002be2fdf2",
+        "resolved_load": "load-2",
+        "load_match_count": 1
+      },
+      {
+        "capture": "post-load-3",
+        "v1_assumed_kind": "post-load",
+        "stored_kind": "reconfiguration",
+        "stored_load_receipt_sha256": "363f48c1d11919807d637ef821eb6d0cf291235db32788e426b118d4264e93be",
+        "resolved_load": "load-3",
+        "load_match_count": 1
+      }
+    ],
+    "root_cause_from_receipt_fields": "V1 hard-coded kind=post-load for post-load-2 and post-load-3, while the preserved observation receipts record kind=reconfiguration. V2 used those stored kinds and selected each matching load by the observation load_receipt_sha256. No capture, source, row, threshold, or status expectation changed."
+  },
+  "run_bindings": {
+    "profile": "full512-regmem-startup",
+    "part": "xc7k480tffg1156-2",
+    "idcode": "0x23751093",
+    "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+    "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+    "source_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+    "bitstream_sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227",
+    "image_review_sha256": "e6044476a86fb6133f06b94b9b0e1d129665c9c96e73a5ae9ef831e98227abe5",
+    "lease_acquired_recorded": true,
+    "hardware_programmed_recorded": true,
+    "flash_written_recorded": false,
+    "owned_hw_server_exit_recorded": -15,
+    "run_started_utc": "2026-10-26T16:20:43.857430+00:00",
+    "run_finished_utc": "2026-10-26T16:27:33.566360+00:00"
+  },
+  "external_bound_files": {
+    "source_report": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/report.json",
+      "expected_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+      "exists": true,
+      "actual_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0"
+    },
+    "bitstream": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/bitstream/cmac512-startup.bit",
+      "expected_sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227",
+      "exists": true,
+      "actual_sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227"
+    }
+  },
+  "file_hash_audit": {
+    "recorded_count": 292,
+    "matched_count": 292,
+    "all_recorded_hashes": [
+      {
+        "path": "baseline/capture.tcl",
+        "expected_sha256": "abbc0a3d9c124ef3218ddcd8408f6b1559befcc0e814785a420bcb34b4464199",
+        "actual_sha256": "abbc0a3d9c124ef3218ddcd8408f6b1559befcc0e814785a420bcb34b4464199",
+        "match": true
+      },
+      {
+        "path": "baseline/capture.tsv",
+        "expected_sha256": "4c790fea3f864fcae76991b192d570fa59c9096a24070278c63e1b3e1fff0938",
+        "actual_sha256": "4c790fea3f864fcae76991b192d570fa59c9096a24070278c63e1b3e1fff0938",
+        "match": true
+      },
+      {
+        "path": "baseline/command.json",
+        "expected_sha256": "764cacad1d0cbb7edec7f730e9fda023ccb4186b1722445b417e7823a7a68067",
+        "actual_sha256": "764cacad1d0cbb7edec7f730e9fda023ccb4186b1722445b417e7823a7a68067",
+        "match": true
+      },
+      {
+        "path": "baseline/observation.json",
+        "expected_sha256": "1527942bc4af78930c7ac8c0f5f90c3b74b970e774132bb56f12b1d90cf89f0e",
+        "actual_sha256": "1527942bc4af78930c7ac8c0f5f90c3b74b970e774132bb56f12b1d90cf89f0e",
+        "match": true
+      },
+      {
+        "path": "baseline/plan.json",
+        "expected_sha256": "5cae93e495574c20a064e86ff8ff78e7628d41b65466e60ae525592ee93d62fe",
+        "actual_sha256": "5cae93e495574c20a064e86ff8ff78e7628d41b65466e60ae525592ee93d62fe",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv",
+        "expected_sha256": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+        "actual_sha256": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/fpga/cmac/startup/ypcb_cmac_array_startup.xdc",
+        "expected_sha256": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+        "actual_sha256": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/generated/rk_cmac_cacc_fp16_array.sv",
+        "expected_sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+        "actual_sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv",
+        "expected_sha256": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+        "actual_sha256": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv",
+        "expected_sha256": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+        "actual_sha256": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv",
+        "expected_sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+        "actual_sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+        "expected_sha256": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+        "actual_sha256": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv",
+        "expected_sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+        "actual_sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+        "expected_sha256": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+        "actual_sha256": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+        "expected_sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+        "actual_sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+        "expected_sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+        "actual_sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+        "expected_sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+        "actual_sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/rk_cacc_fp16_array.sv",
+        "expected_sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+        "actual_sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/rk_cmac_array_core.sv",
+        "expected_sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+        "actual_sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/rk_cmac_array_datapath.sv",
+        "expected_sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+        "actual_sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/rk_cmac_array_demo_rom.sv",
+        "expected_sha256": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+        "actual_sha256": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/rk_cmac_array_dma.sv",
+        "expected_sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+        "actual_sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/rk_cmac_array_front.sv",
+        "expected_sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+        "actual_sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/rk_cmac_frame_output.sv",
+        "expected_sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+        "actual_sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/rk_cmac_output_nvdla.sv",
+        "expected_sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+        "actual_sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/rk_cmac_rw_arbiter.sv",
+        "expected_sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+        "actual_sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/rk_cmac_writer.sv",
+        "expected_sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+        "actual_sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/rk_nvdla_cacc.sv",
+        "expected_sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+        "actual_sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+        "expected_sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+        "actual_sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/rk_cmac_profile.sv",
+        "expected_sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+        "actual_sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/rk_startup_reset.sv",
+        "expected_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+        "actual_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+        "expected_sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+        "actual_sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/vendor/nvdla/NV_DW02_tree.v",
+        "expected_sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+        "actual_sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+        "expected_sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+        "actual_sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+        "expected_sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+        "actual_sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+        "expected_sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+        "actual_sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/tests/cmac/array_data/board_rom.hex",
+        "expected_sha256": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+        "actual_sha256": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/tests/cmac/array_data/commands.hex",
+        "expected_sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+        "actual_sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/tests/cmac/array_data/fixture.json",
+        "expected_sha256": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+        "actual_sha256": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/tests/cmac/array_data/fp32.hex",
+        "expected_sha256": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+        "actual_sha256": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/tests/cmac/array_data/groups.hex",
+        "expected_sha256": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+        "actual_sha256": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/tests/cmac/array_data/input.hex",
+        "expected_sha256": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+        "actual_sha256": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/tests/cmac/array_data/reads.hex",
+        "expected_sha256": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+        "actual_sha256": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/tests/cmac/array_data/source_report.json",
+        "expected_sha256": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+        "actual_sha256": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/tests/cmac/array_data/weight.hex",
+        "expected_sha256": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+        "actual_sha256": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+        "match": true
+      },
+      {
+        "path": "baseline/source/hardware/tests/cmac/array_data/writes.hex",
+        "expected_sha256": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+        "actual_sha256": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+        "match": true
+      },
+      {
+        "path": "baseline/source/sample_cmac512.py",
+        "expected_sha256": "7ab67fa521686bed327012489629ce6fd73103779400733fb652b03d2a3fd2ee",
+        "actual_sha256": "7ab67fa521686bed327012489629ce6fd73103779400733fb652b03d2a3fd2ee",
+        "match": true
+      },
+      {
+        "path": "baseline/source/sample_cmac512.tcl.in",
+        "expected_sha256": "fb7db6e88d798401e9d611b9f5536855071c4a20d2d19bce890f0421baa0e8e8",
+        "actual_sha256": "fb7db6e88d798401e9d611b9f5536855071c4a20d2d19bce890f0421baa0e8e8",
+        "match": true
+      },
+      {
+        "path": "baseline/source/sample_ew.py",
+        "expected_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "actual_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "match": true
+      },
+      {
+        "path": "baseline/source/source-report.json",
+        "expected_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+        "actual_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+        "match": true
+      },
+      {
+        "path": "baseline/source/xc7k480t_ffg1156.bsd",
+        "expected_sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+        "actual_sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+        "match": true
+      },
+      {
+        "path": "baseline/stdout.log",
+        "expected_sha256": "a6d1583e444f49fe421079ce383c8e7973e5692d34cc5afb0591813675c638fb",
+        "actual_sha256": "a6d1583e444f49fe421079ce383c8e7973e5692d34cc5afb0591813675c638fb",
+        "match": true
+      },
+      {
+        "path": "baseline/vivado.jou",
+        "expected_sha256": "50082de4b098dfecff7a23b211a717a196afe87577e6b8d84005916d5fd6c2da",
+        "actual_sha256": "50082de4b098dfecff7a23b211a717a196afe87577e6b8d84005916d5fd6c2da",
+        "match": true
+      },
+      {
+        "path": "baseline/vivado.log",
+        "expected_sha256": "448994e7cbda135ca64d056400927a2db819cd15e618ed52b7aef08f7e9ba9a3",
+        "actual_sha256": "448994e7cbda135ca64d056400927a2db819cd15e618ed52b7aef08f7e9ba9a3",
+        "match": true
+      },
+      {
+        "path": "hw-server.log",
+        "expected_sha256": "6a9c0ef23b7ed2afcef59ac9143005758bd3a8872ac17b4ca61fae48d499dae4",
+        "actual_sha256": "6a9c0ef23b7ed2afcef59ac9143005758bd3a8872ac17b4ca61fae48d499dae4",
+        "match": true
+      },
+      {
+        "path": "load-1/command.json",
+        "expected_sha256": "b4df94267b0b1871b0f976fd643cc48c2c0f28f024c2f43905ce623502060516",
+        "actual_sha256": "b4df94267b0b1871b0f976fd643cc48c2c0f28f024c2f43905ce623502060516",
+        "match": true
+      },
+      {
+        "path": "load-1/load.json",
+        "expected_sha256": "a7aa5763d4aa392aa8068e15468058f7b613837852499cb1867240844d220e07",
+        "actual_sha256": "a7aa5763d4aa392aa8068e15468058f7b613837852499cb1867240844d220e07",
+        "match": true
+      },
+      {
+        "path": "load-1/program.tcl",
+        "expected_sha256": "ff020ac7505f80813b7dcc75beb897b2a48147492e6b89648ca7b1cab74ced87",
+        "actual_sha256": "ff020ac7505f80813b7dcc75beb897b2a48147492e6b89648ca7b1cab74ced87",
+        "match": true
+      },
+      {
+        "path": "load-1/program.tsv",
+        "expected_sha256": "5b0fb9f08af1b3b8c60979817db01fd9f950cf03548e87c1173855de0a597817",
+        "actual_sha256": "5b0fb9f08af1b3b8c60979817db01fd9f950cf03548e87c1173855de0a597817",
+        "match": true
+      },
+      {
+        "path": "load-1/stdout.log",
+        "expected_sha256": "94ad01717ad29d9cc808ba4e53b4b0f5bf08dfc85b7916db457a609cac4af341",
+        "actual_sha256": "94ad01717ad29d9cc808ba4e53b4b0f5bf08dfc85b7916db457a609cac4af341",
+        "match": true
+      },
+      {
+        "path": "load-1/vivado.jou",
+        "expected_sha256": "b01c5822d33a60b4ffdcabb3e2dfa4c2d31817ac6b039a8cd6c369e2070693a7",
+        "actual_sha256": "b01c5822d33a60b4ffdcabb3e2dfa4c2d31817ac6b039a8cd6c369e2070693a7",
+        "match": true
+      },
+      {
+        "path": "load-1/vivado.log",
+        "expected_sha256": "56b1ad1dbf385b50da748982282ccc8ebbc99441cab92254092457240606fa90",
+        "actual_sha256": "56b1ad1dbf385b50da748982282ccc8ebbc99441cab92254092457240606fa90",
+        "match": true
+      },
+      {
+        "path": "load-2/command.json",
+        "expected_sha256": "fc9519b99a4345cd38ba434ff7aeb80e023983aa0e13a549acd4a625bd9ff6c2",
+        "actual_sha256": "fc9519b99a4345cd38ba434ff7aeb80e023983aa0e13a549acd4a625bd9ff6c2",
+        "match": true
+      },
+      {
+        "path": "load-2/load.json",
+        "expected_sha256": "2e76b90030c8926eb5322eae0634addfd424557601c5a81336d55d002be2fdf2",
+        "actual_sha256": "2e76b90030c8926eb5322eae0634addfd424557601c5a81336d55d002be2fdf2",
+        "match": true
+      },
+      {
+        "path": "load-2/program.tcl",
+        "expected_sha256": "beca2812bde29c3f59bdf3aec1cd2a4eba5d9a8b01d3827a7d47194dc0e4418c",
+        "actual_sha256": "beca2812bde29c3f59bdf3aec1cd2a4eba5d9a8b01d3827a7d47194dc0e4418c",
+        "match": true
+      },
+      {
+        "path": "load-2/program.tsv",
+        "expected_sha256": "5b0fb9f08af1b3b8c60979817db01fd9f950cf03548e87c1173855de0a597817",
+        "actual_sha256": "5b0fb9f08af1b3b8c60979817db01fd9f950cf03548e87c1173855de0a597817",
+        "match": true
+      },
+      {
+        "path": "load-2/stdout.log",
+        "expected_sha256": "29b5e15731808981ce5ba5ac7f8fd8af0eb06c42b0504a7bee18e5ce01b7c718",
+        "actual_sha256": "29b5e15731808981ce5ba5ac7f8fd8af0eb06c42b0504a7bee18e5ce01b7c718",
+        "match": true
+      },
+      {
+        "path": "load-2/vivado.jou",
+        "expected_sha256": "bdca2b5b5fddcdbc89039fbd80282be202596058e1b617a3ebad8e3732269fc4",
+        "actual_sha256": "bdca2b5b5fddcdbc89039fbd80282be202596058e1b617a3ebad8e3732269fc4",
+        "match": true
+      },
+      {
+        "path": "load-2/vivado.log",
+        "expected_sha256": "a4fda24455a16189135efb26be2d0d1e570e01317d51b5eacbb65e448f6af524",
+        "actual_sha256": "a4fda24455a16189135efb26be2d0d1e570e01317d51b5eacbb65e448f6af524",
+        "match": true
+      },
+      {
+        "path": "load-3/command.json",
+        "expected_sha256": "9e45afa2a221266c7483feb79f2b6c722eedb17a561c2aede6ec55d337953a41",
+        "actual_sha256": "9e45afa2a221266c7483feb79f2b6c722eedb17a561c2aede6ec55d337953a41",
+        "match": true
+      },
+      {
+        "path": "load-3/load.json",
+        "expected_sha256": "363f48c1d11919807d637ef821eb6d0cf291235db32788e426b118d4264e93be",
+        "actual_sha256": "363f48c1d11919807d637ef821eb6d0cf291235db32788e426b118d4264e93be",
+        "match": true
+      },
+      {
+        "path": "load-3/program.tcl",
+        "expected_sha256": "7791a40c6d562e3ca0e4b05823e26b647a05dd821171aa7c62b47bdc1a01275f",
+        "actual_sha256": "7791a40c6d562e3ca0e4b05823e26b647a05dd821171aa7c62b47bdc1a01275f",
+        "match": true
+      },
+      {
+        "path": "load-3/program.tsv",
+        "expected_sha256": "5b0fb9f08af1b3b8c60979817db01fd9f950cf03548e87c1173855de0a597817",
+        "actual_sha256": "5b0fb9f08af1b3b8c60979817db01fd9f950cf03548e87c1173855de0a597817",
+        "match": true
+      },
+      {
+        "path": "load-3/stdout.log",
+        "expected_sha256": "0c51a48e20b47148655961c45982d1ba5b6436efa8d03192bd14ab40eff8c714",
+        "actual_sha256": "0c51a48e20b47148655961c45982d1ba5b6436efa8d03192bd14ab40eff8c714",
+        "match": true
+      },
+      {
+        "path": "load-3/vivado.jou",
+        "expected_sha256": "77df14a10451261c00aaf45dfb4d8a8c2c785df9a53ea0cd62d8692bac973c83",
+        "actual_sha256": "77df14a10451261c00aaf45dfb4d8a8c2c785df9a53ea0cd62d8692bac973c83",
+        "match": true
+      },
+      {
+        "path": "load-3/vivado.log",
+        "expected_sha256": "7bc40cf6c4df147efee96c18f2a093dc179a12346da4d263586ce50a6e940ced",
+        "actual_sha256": "7bc40cf6c4df147efee96c18f2a093dc179a12346da4d263586ce50a6e940ced",
+        "match": true
+      },
+      {
+        "path": "post-load-1/capture.tcl",
+        "expected_sha256": "5b1616f04429bee2730965717d8ada5d972402b31ed68d69d5d4ddb331ebd063",
+        "actual_sha256": "5b1616f04429bee2730965717d8ada5d972402b31ed68d69d5d4ddb331ebd063",
+        "match": true
+      },
+      {
+        "path": "post-load-1/capture.tsv",
+        "expected_sha256": "1d5883d399a3a94ec8f4ead2d15746143b682b4f18e1b04491321609e87d0d82",
+        "actual_sha256": "1d5883d399a3a94ec8f4ead2d15746143b682b4f18e1b04491321609e87d0d82",
+        "match": true
+      },
+      {
+        "path": "post-load-1/command.json",
+        "expected_sha256": "dd84ec9dfc3e7461d774883105f107cc16fb09ec5dbf72060259f77822f0371a",
+        "actual_sha256": "dd84ec9dfc3e7461d774883105f107cc16fb09ec5dbf72060259f77822f0371a",
+        "match": true
+      },
+      {
+        "path": "post-load-1/observation.json",
+        "expected_sha256": "238bc67504e9fad8b04375b60a342000074f99de6c7de1bf5b9b4350c5c2cf50",
+        "actual_sha256": "238bc67504e9fad8b04375b60a342000074f99de6c7de1bf5b9b4350c5c2cf50",
+        "match": true
+      },
+      {
+        "path": "post-load-1/plan.json",
+        "expected_sha256": "ff76420ddc7145146d739ed8426bcdd15e64e832e1620583c494f3287e278155",
+        "actual_sha256": "ff76420ddc7145146d739ed8426bcdd15e64e832e1620583c494f3287e278155",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv",
+        "expected_sha256": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+        "actual_sha256": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/fpga/cmac/startup/ypcb_cmac_array_startup.xdc",
+        "expected_sha256": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+        "actual_sha256": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/generated/rk_cmac_cacc_fp16_array.sv",
+        "expected_sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+        "actual_sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv",
+        "expected_sha256": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+        "actual_sha256": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv",
+        "expected_sha256": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+        "actual_sha256": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv",
+        "expected_sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+        "actual_sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+        "expected_sha256": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+        "actual_sha256": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv",
+        "expected_sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+        "actual_sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+        "expected_sha256": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+        "actual_sha256": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+        "expected_sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+        "actual_sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+        "expected_sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+        "actual_sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+        "expected_sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+        "actual_sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/rk_cacc_fp16_array.sv",
+        "expected_sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+        "actual_sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/rk_cmac_array_core.sv",
+        "expected_sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+        "actual_sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/rk_cmac_array_datapath.sv",
+        "expected_sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+        "actual_sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/rk_cmac_array_demo_rom.sv",
+        "expected_sha256": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+        "actual_sha256": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/rk_cmac_array_dma.sv",
+        "expected_sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+        "actual_sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/rk_cmac_array_front.sv",
+        "expected_sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+        "actual_sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/rk_cmac_frame_output.sv",
+        "expected_sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+        "actual_sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/rk_cmac_output_nvdla.sv",
+        "expected_sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+        "actual_sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/rk_cmac_rw_arbiter.sv",
+        "expected_sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+        "actual_sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/rk_cmac_writer.sv",
+        "expected_sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+        "actual_sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/rk_nvdla_cacc.sv",
+        "expected_sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+        "actual_sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+        "expected_sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+        "actual_sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/rk_cmac_profile.sv",
+        "expected_sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+        "actual_sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/rk_startup_reset.sv",
+        "expected_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+        "actual_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+        "expected_sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+        "actual_sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/vendor/nvdla/NV_DW02_tree.v",
+        "expected_sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+        "actual_sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+        "expected_sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+        "actual_sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+        "expected_sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+        "actual_sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+        "expected_sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+        "actual_sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/tests/cmac/array_data/board_rom.hex",
+        "expected_sha256": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+        "actual_sha256": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/tests/cmac/array_data/commands.hex",
+        "expected_sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+        "actual_sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/tests/cmac/array_data/fixture.json",
+        "expected_sha256": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+        "actual_sha256": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/tests/cmac/array_data/fp32.hex",
+        "expected_sha256": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+        "actual_sha256": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/tests/cmac/array_data/groups.hex",
+        "expected_sha256": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+        "actual_sha256": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/tests/cmac/array_data/input.hex",
+        "expected_sha256": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+        "actual_sha256": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/tests/cmac/array_data/reads.hex",
+        "expected_sha256": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+        "actual_sha256": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/tests/cmac/array_data/source_report.json",
+        "expected_sha256": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+        "actual_sha256": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/tests/cmac/array_data/weight.hex",
+        "expected_sha256": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+        "actual_sha256": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/hardware/tests/cmac/array_data/writes.hex",
+        "expected_sha256": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+        "actual_sha256": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/sample_cmac512.py",
+        "expected_sha256": "7ab67fa521686bed327012489629ce6fd73103779400733fb652b03d2a3fd2ee",
+        "actual_sha256": "7ab67fa521686bed327012489629ce6fd73103779400733fb652b03d2a3fd2ee",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/sample_cmac512.tcl.in",
+        "expected_sha256": "fb7db6e88d798401e9d611b9f5536855071c4a20d2d19bce890f0421baa0e8e8",
+        "actual_sha256": "fb7db6e88d798401e9d611b9f5536855071c4a20d2d19bce890f0421baa0e8e8",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/sample_ew.py",
+        "expected_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "actual_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/source-report.json",
+        "expected_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+        "actual_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+        "match": true
+      },
+      {
+        "path": "post-load-1/source/xc7k480t_ffg1156.bsd",
+        "expected_sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+        "actual_sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+        "match": true
+      },
+      {
+        "path": "post-load-1/stdout.log",
+        "expected_sha256": "d348f44d6e00e122122e37b06d3e2f3996ee9490591d3fe10415acbb57c14313",
+        "actual_sha256": "d348f44d6e00e122122e37b06d3e2f3996ee9490591d3fe10415acbb57c14313",
+        "match": true
+      },
+      {
+        "path": "post-load-1/vivado.jou",
+        "expected_sha256": "020c5e7e3bda7a63c541ab1d0b685dba86c30730fc7f6acc98e7d6aa29c76569",
+        "actual_sha256": "020c5e7e3bda7a63c541ab1d0b685dba86c30730fc7f6acc98e7d6aa29c76569",
+        "match": true
+      },
+      {
+        "path": "post-load-1/vivado.log",
+        "expected_sha256": "52c33a6c486fec84459419d8ff8275f2f2c64231355b2329ee57bb88af667b70",
+        "actual_sha256": "52c33a6c486fec84459419d8ff8275f2f2c64231355b2329ee57bb88af667b70",
+        "match": true
+      },
+      {
+        "path": "post-load-2/capture.tcl",
+        "expected_sha256": "a32b65915a258d96677e31100dd4352ff07ec12d3eb4b996c14a12facc9a02ba",
+        "actual_sha256": "a32b65915a258d96677e31100dd4352ff07ec12d3eb4b996c14a12facc9a02ba",
+        "match": true
+      },
+      {
+        "path": "post-load-2/capture.tsv",
+        "expected_sha256": "c1188a8c2a1a84d3db4cc7ee5885a60ae37919af5b54bb33a72cf5ee8f9429ac",
+        "actual_sha256": "c1188a8c2a1a84d3db4cc7ee5885a60ae37919af5b54bb33a72cf5ee8f9429ac",
+        "match": true
+      },
+      {
+        "path": "post-load-2/command.json",
+        "expected_sha256": "780669a6e33f872b07bd8090a15f1690f7b5d40a609169e814499642371489f1",
+        "actual_sha256": "780669a6e33f872b07bd8090a15f1690f7b5d40a609169e814499642371489f1",
+        "match": true
+      },
+      {
+        "path": "post-load-2/observation.json",
+        "expected_sha256": "1f682daf441d263205a4b04663d3f07a08daa636c3488253fc37c958614c2531",
+        "actual_sha256": "1f682daf441d263205a4b04663d3f07a08daa636c3488253fc37c958614c2531",
+        "match": true
+      },
+      {
+        "path": "post-load-2/plan.json",
+        "expected_sha256": "501d412be9dcdb0eb16651b373d1d71b680750868fdf5a0c23c6c6609efc6b66",
+        "actual_sha256": "501d412be9dcdb0eb16651b373d1d71b680750868fdf5a0c23c6c6609efc6b66",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv",
+        "expected_sha256": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+        "actual_sha256": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/fpga/cmac/startup/ypcb_cmac_array_startup.xdc",
+        "expected_sha256": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+        "actual_sha256": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/generated/rk_cmac_cacc_fp16_array.sv",
+        "expected_sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+        "actual_sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv",
+        "expected_sha256": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+        "actual_sha256": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv",
+        "expected_sha256": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+        "actual_sha256": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv",
+        "expected_sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+        "actual_sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+        "expected_sha256": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+        "actual_sha256": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv",
+        "expected_sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+        "actual_sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+        "expected_sha256": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+        "actual_sha256": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+        "expected_sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+        "actual_sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+        "expected_sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+        "actual_sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+        "expected_sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+        "actual_sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/rk_cacc_fp16_array.sv",
+        "expected_sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+        "actual_sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/rk_cmac_array_core.sv",
+        "expected_sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+        "actual_sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/rk_cmac_array_datapath.sv",
+        "expected_sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+        "actual_sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/rk_cmac_array_demo_rom.sv",
+        "expected_sha256": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+        "actual_sha256": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/rk_cmac_array_dma.sv",
+        "expected_sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+        "actual_sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/rk_cmac_array_front.sv",
+        "expected_sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+        "actual_sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/rk_cmac_frame_output.sv",
+        "expected_sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+        "actual_sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/rk_cmac_output_nvdla.sv",
+        "expected_sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+        "actual_sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/rk_cmac_rw_arbiter.sv",
+        "expected_sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+        "actual_sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/rk_cmac_writer.sv",
+        "expected_sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+        "actual_sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/rk_nvdla_cacc.sv",
+        "expected_sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+        "actual_sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+        "expected_sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+        "actual_sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/rk_cmac_profile.sv",
+        "expected_sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+        "actual_sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/rk_startup_reset.sv",
+        "expected_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+        "actual_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+        "expected_sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+        "actual_sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/vendor/nvdla/NV_DW02_tree.v",
+        "expected_sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+        "actual_sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+        "expected_sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+        "actual_sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+        "expected_sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+        "actual_sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+        "expected_sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+        "actual_sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/tests/cmac/array_data/board_rom.hex",
+        "expected_sha256": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+        "actual_sha256": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/tests/cmac/array_data/commands.hex",
+        "expected_sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+        "actual_sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/tests/cmac/array_data/fixture.json",
+        "expected_sha256": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+        "actual_sha256": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/tests/cmac/array_data/fp32.hex",
+        "expected_sha256": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+        "actual_sha256": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/tests/cmac/array_data/groups.hex",
+        "expected_sha256": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+        "actual_sha256": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/tests/cmac/array_data/input.hex",
+        "expected_sha256": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+        "actual_sha256": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/tests/cmac/array_data/reads.hex",
+        "expected_sha256": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+        "actual_sha256": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/tests/cmac/array_data/source_report.json",
+        "expected_sha256": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+        "actual_sha256": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/tests/cmac/array_data/weight.hex",
+        "expected_sha256": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+        "actual_sha256": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/hardware/tests/cmac/array_data/writes.hex",
+        "expected_sha256": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+        "actual_sha256": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/sample_cmac512.py",
+        "expected_sha256": "7ab67fa521686bed327012489629ce6fd73103779400733fb652b03d2a3fd2ee",
+        "actual_sha256": "7ab67fa521686bed327012489629ce6fd73103779400733fb652b03d2a3fd2ee",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/sample_cmac512.tcl.in",
+        "expected_sha256": "fb7db6e88d798401e9d611b9f5536855071c4a20d2d19bce890f0421baa0e8e8",
+        "actual_sha256": "fb7db6e88d798401e9d611b9f5536855071c4a20d2d19bce890f0421baa0e8e8",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/sample_ew.py",
+        "expected_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "actual_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/source-report.json",
+        "expected_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+        "actual_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+        "match": true
+      },
+      {
+        "path": "post-load-2/source/xc7k480t_ffg1156.bsd",
+        "expected_sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+        "actual_sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+        "match": true
+      },
+      {
+        "path": "post-load-2/stdout.log",
+        "expected_sha256": "cd12f907a28616f296d65e785174ad417aa9df8350391b4202eb9912840b6798",
+        "actual_sha256": "cd12f907a28616f296d65e785174ad417aa9df8350391b4202eb9912840b6798",
+        "match": true
+      },
+      {
+        "path": "post-load-2/vivado.jou",
+        "expected_sha256": "e129723548d3f34be4e999f183c2808a1fa58b52b75e899b41a6cde285c6209a",
+        "actual_sha256": "e129723548d3f34be4e999f183c2808a1fa58b52b75e899b41a6cde285c6209a",
+        "match": true
+      },
+      {
+        "path": "post-load-2/vivado.log",
+        "expected_sha256": "99cff96d88adfe5beb8644713a26ae4d0bb4f9bee183704616a47c4658c71d17",
+        "actual_sha256": "99cff96d88adfe5beb8644713a26ae4d0bb4f9bee183704616a47c4658c71d17",
+        "match": true
+      },
+      {
+        "path": "post-load-3/capture.tcl",
+        "expected_sha256": "1b974093f1969fbb6151a926bf0376bf90a8c1fc65dc7610e91d55d542d1038f",
+        "actual_sha256": "1b974093f1969fbb6151a926bf0376bf90a8c1fc65dc7610e91d55d542d1038f",
+        "match": true
+      },
+      {
+        "path": "post-load-3/capture.tsv",
+        "expected_sha256": "645021533ebffb4257cf25e072c29205d251bfa0555587682e1a21667be0ba73",
+        "actual_sha256": "645021533ebffb4257cf25e072c29205d251bfa0555587682e1a21667be0ba73",
+        "match": true
+      },
+      {
+        "path": "post-load-3/command.json",
+        "expected_sha256": "b1a1b4db2d87c022b30aae8d9a36dacb9d496b687e0ad50636fd2aba4579f778",
+        "actual_sha256": "b1a1b4db2d87c022b30aae8d9a36dacb9d496b687e0ad50636fd2aba4579f778",
+        "match": true
+      },
+      {
+        "path": "post-load-3/observation.json",
+        "expected_sha256": "4f93cb552ab576282c6343067cb05184e87e60e3333574e9e0774940447ed571",
+        "actual_sha256": "4f93cb552ab576282c6343067cb05184e87e60e3333574e9e0774940447ed571",
+        "match": true
+      },
+      {
+        "path": "post-load-3/plan.json",
+        "expected_sha256": "b0098b833e08a432146497b0ee31f7b02422442993d41cd72deef3332f06bc97",
+        "actual_sha256": "b0098b833e08a432146497b0ee31f7b02422442993d41cd72deef3332f06bc97",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv",
+        "expected_sha256": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+        "actual_sha256": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/fpga/cmac/startup/ypcb_cmac_array_startup.xdc",
+        "expected_sha256": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+        "actual_sha256": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/generated/rk_cmac_cacc_fp16_array.sv",
+        "expected_sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+        "actual_sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv",
+        "expected_sha256": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+        "actual_sha256": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv",
+        "expected_sha256": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+        "actual_sha256": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv",
+        "expected_sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+        "actual_sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+        "expected_sha256": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+        "actual_sha256": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv",
+        "expected_sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+        "actual_sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+        "expected_sha256": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+        "actual_sha256": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+        "expected_sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+        "actual_sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+        "expected_sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+        "actual_sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+        "expected_sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+        "actual_sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/rk_cacc_fp16_array.sv",
+        "expected_sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+        "actual_sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/rk_cmac_array_core.sv",
+        "expected_sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+        "actual_sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/rk_cmac_array_datapath.sv",
+        "expected_sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+        "actual_sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/rk_cmac_array_demo_rom.sv",
+        "expected_sha256": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+        "actual_sha256": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/rk_cmac_array_dma.sv",
+        "expected_sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+        "actual_sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/rk_cmac_array_front.sv",
+        "expected_sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+        "actual_sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/rk_cmac_frame_output.sv",
+        "expected_sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+        "actual_sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/rk_cmac_output_nvdla.sv",
+        "expected_sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+        "actual_sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/rk_cmac_rw_arbiter.sv",
+        "expected_sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+        "actual_sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/rk_cmac_writer.sv",
+        "expected_sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+        "actual_sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/rk_nvdla_cacc.sv",
+        "expected_sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+        "actual_sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+        "expected_sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+        "actual_sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/rk_cmac_profile.sv",
+        "expected_sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+        "actual_sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/rk_startup_reset.sv",
+        "expected_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+        "actual_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+        "expected_sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+        "actual_sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/vendor/nvdla/NV_DW02_tree.v",
+        "expected_sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+        "actual_sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+        "expected_sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+        "actual_sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+        "expected_sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+        "actual_sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+        "expected_sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+        "actual_sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/tests/cmac/array_data/board_rom.hex",
+        "expected_sha256": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+        "actual_sha256": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/tests/cmac/array_data/commands.hex",
+        "expected_sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+        "actual_sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/tests/cmac/array_data/fixture.json",
+        "expected_sha256": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+        "actual_sha256": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/tests/cmac/array_data/fp32.hex",
+        "expected_sha256": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+        "actual_sha256": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/tests/cmac/array_data/groups.hex",
+        "expected_sha256": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+        "actual_sha256": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/tests/cmac/array_data/input.hex",
+        "expected_sha256": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+        "actual_sha256": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/tests/cmac/array_data/reads.hex",
+        "expected_sha256": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+        "actual_sha256": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/tests/cmac/array_data/source_report.json",
+        "expected_sha256": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+        "actual_sha256": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/tests/cmac/array_data/weight.hex",
+        "expected_sha256": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+        "actual_sha256": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/hardware/tests/cmac/array_data/writes.hex",
+        "expected_sha256": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+        "actual_sha256": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/sample_cmac512.py",
+        "expected_sha256": "7ab67fa521686bed327012489629ce6fd73103779400733fb652b03d2a3fd2ee",
+        "actual_sha256": "7ab67fa521686bed327012489629ce6fd73103779400733fb652b03d2a3fd2ee",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/sample_cmac512.tcl.in",
+        "expected_sha256": "fb7db6e88d798401e9d611b9f5536855071c4a20d2d19bce890f0421baa0e8e8",
+        "actual_sha256": "fb7db6e88d798401e9d611b9f5536855071c4a20d2d19bce890f0421baa0e8e8",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/sample_ew.py",
+        "expected_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "actual_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/source-report.json",
+        "expected_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+        "actual_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+        "match": true
+      },
+      {
+        "path": "post-load-3/source/xc7k480t_ffg1156.bsd",
+        "expected_sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+        "actual_sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+        "match": true
+      },
+      {
+        "path": "post-load-3/stdout.log",
+        "expected_sha256": "fdb5af9c3a3a920d83f891aaed79984ef9c33498ed95309a7416c42d8b42bd7a",
+        "actual_sha256": "fdb5af9c3a3a920d83f891aaed79984ef9c33498ed95309a7416c42d8b42bd7a",
+        "match": true
+      },
+      {
+        "path": "post-load-3/vivado.jou",
+        "expected_sha256": "043e608eff3f511b99ee6f803fe0713c29bf802c88d300f788fe5ea8c5da5cba",
+        "actual_sha256": "043e608eff3f511b99ee6f803fe0713c29bf802c88d300f788fe5ea8c5da5cba",
+        "match": true
+      },
+      {
+        "path": "post-load-3/vivado.log",
+        "expected_sha256": "3f6de995c3266c0529cd38281dd7fecbcd6dbf65e3c60b81a2e6b61b5501db67",
+        "actual_sha256": "3f6de995c3266c0529cd38281dd7fecbcd6dbf65e3c60b81a2e6b61b5501db67",
+        "match": true
+      },
+      {
+        "path": "repeat-1/capture.tcl",
+        "expected_sha256": "4f533e87fe865d7a79b4b39fceaa08b70d75841beeee108b1ad4f83306921942",
+        "actual_sha256": "4f533e87fe865d7a79b4b39fceaa08b70d75841beeee108b1ad4f83306921942",
+        "match": true
+      },
+      {
+        "path": "repeat-1/capture.tsv",
+        "expected_sha256": "2db66b3768db4283553a9d2e97d9725f013fd2e3f66b084925136c96d94b5a1b",
+        "actual_sha256": "2db66b3768db4283553a9d2e97d9725f013fd2e3f66b084925136c96d94b5a1b",
+        "match": true
+      },
+      {
+        "path": "repeat-1/command.json",
+        "expected_sha256": "9b974b06f177dd3aa062aac0032f4b2e7ab5fa63187dda065c8a1f784da845f7",
+        "actual_sha256": "9b974b06f177dd3aa062aac0032f4b2e7ab5fa63187dda065c8a1f784da845f7",
+        "match": true
+      },
+      {
+        "path": "repeat-1/observation.json",
+        "expected_sha256": "c46bb596aaba7eb57f1a8ede7cbf03e0358d3e8d88855f48b3f762092a752cf5",
+        "actual_sha256": "c46bb596aaba7eb57f1a8ede7cbf03e0358d3e8d88855f48b3f762092a752cf5",
+        "match": true
+      },
+      {
+        "path": "repeat-1/plan.json",
+        "expected_sha256": "5bbfdec00fc088dd725881b1be14b0eab4f54cbc87319e90f276225774588ed7",
+        "actual_sha256": "5bbfdec00fc088dd725881b1be14b0eab4f54cbc87319e90f276225774588ed7",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv",
+        "expected_sha256": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+        "actual_sha256": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/fpga/cmac/startup/ypcb_cmac_array_startup.xdc",
+        "expected_sha256": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+        "actual_sha256": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/generated/rk_cmac_cacc_fp16_array.sv",
+        "expected_sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+        "actual_sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv",
+        "expected_sha256": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+        "actual_sha256": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv",
+        "expected_sha256": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+        "actual_sha256": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv",
+        "expected_sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+        "actual_sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+        "expected_sha256": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+        "actual_sha256": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv",
+        "expected_sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+        "actual_sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+        "expected_sha256": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+        "actual_sha256": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+        "expected_sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+        "actual_sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+        "expected_sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+        "actual_sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+        "expected_sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+        "actual_sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/rk_cacc_fp16_array.sv",
+        "expected_sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+        "actual_sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/rk_cmac_array_core.sv",
+        "expected_sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+        "actual_sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/rk_cmac_array_datapath.sv",
+        "expected_sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+        "actual_sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/rk_cmac_array_demo_rom.sv",
+        "expected_sha256": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+        "actual_sha256": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/rk_cmac_array_dma.sv",
+        "expected_sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+        "actual_sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/rk_cmac_array_front.sv",
+        "expected_sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+        "actual_sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/rk_cmac_frame_output.sv",
+        "expected_sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+        "actual_sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/rk_cmac_output_nvdla.sv",
+        "expected_sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+        "actual_sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/rk_cmac_rw_arbiter.sv",
+        "expected_sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+        "actual_sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/rk_cmac_writer.sv",
+        "expected_sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+        "actual_sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/rk_nvdla_cacc.sv",
+        "expected_sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+        "actual_sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+        "expected_sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+        "actual_sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/rk_cmac_profile.sv",
+        "expected_sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+        "actual_sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/rk_startup_reset.sv",
+        "expected_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+        "actual_sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+        "expected_sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+        "actual_sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/vendor/nvdla/NV_DW02_tree.v",
+        "expected_sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+        "actual_sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+        "expected_sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+        "actual_sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+        "expected_sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+        "actual_sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+        "expected_sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+        "actual_sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/tests/cmac/array_data/board_rom.hex",
+        "expected_sha256": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+        "actual_sha256": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/tests/cmac/array_data/commands.hex",
+        "expected_sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+        "actual_sha256": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/tests/cmac/array_data/fixture.json",
+        "expected_sha256": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+        "actual_sha256": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/tests/cmac/array_data/fp32.hex",
+        "expected_sha256": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+        "actual_sha256": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/tests/cmac/array_data/groups.hex",
+        "expected_sha256": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+        "actual_sha256": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/tests/cmac/array_data/input.hex",
+        "expected_sha256": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+        "actual_sha256": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/tests/cmac/array_data/reads.hex",
+        "expected_sha256": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+        "actual_sha256": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/tests/cmac/array_data/source_report.json",
+        "expected_sha256": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+        "actual_sha256": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/tests/cmac/array_data/weight.hex",
+        "expected_sha256": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+        "actual_sha256": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/hardware/tests/cmac/array_data/writes.hex",
+        "expected_sha256": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+        "actual_sha256": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/sample_cmac512.py",
+        "expected_sha256": "7ab67fa521686bed327012489629ce6fd73103779400733fb652b03d2a3fd2ee",
+        "actual_sha256": "7ab67fa521686bed327012489629ce6fd73103779400733fb652b03d2a3fd2ee",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/sample_cmac512.tcl.in",
+        "expected_sha256": "fb7db6e88d798401e9d611b9f5536855071c4a20d2d19bce890f0421baa0e8e8",
+        "actual_sha256": "fb7db6e88d798401e9d611b9f5536855071c4a20d2d19bce890f0421baa0e8e8",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/sample_ew.py",
+        "expected_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "actual_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/source-report.json",
+        "expected_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+        "actual_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+        "match": true
+      },
+      {
+        "path": "repeat-1/source/xc7k480t_ffg1156.bsd",
+        "expected_sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+        "actual_sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+        "match": true
+      },
+      {
+        "path": "repeat-1/stdout.log",
+        "expected_sha256": "1bec5bfcfe548e40ea960e4a475da8fb51d4294e6fdfcede74471397ee082e29",
+        "actual_sha256": "1bec5bfcfe548e40ea960e4a475da8fb51d4294e6fdfcede74471397ee082e29",
+        "match": true
+      },
+      {
+        "path": "repeat-1/vivado.jou",
+        "expected_sha256": "4e5171ef4fa3bf2a57de58ac794b4a39ac95078fff5beb60bcd4722e214aa686",
+        "actual_sha256": "4e5171ef4fa3bf2a57de58ac794b4a39ac95078fff5beb60bcd4722e214aa686",
+        "match": true
+      },
+      {
+        "path": "repeat-1/vivado.log",
+        "expected_sha256": "af46154f8ee02828c430cb5d1f8c86da50231534aa859ef889c552b2febb1bc4",
+        "actual_sha256": "af46154f8ee02828c430cb5d1f8c86da50231534aa859ef889c552b2febb1bc4",
+        "match": true
+      }
+    ],
+    "missing": [],
+    "mismatches": [],
+    "unrecorded_files": [],
+    "inventory_missing": [],
+    "all_match": true
+  },
+  "load_receipts": [
+    {
+      "name": "load-1",
+      "receipt_sha256": "a7aa5763d4aa392aa8068e15468058f7b613837852499cb1867240844d220e07",
+      "status": "PASS",
+      "action": "program-sram",
+      "started_utc": "2026-10-26T16:21:00.343672+00:00",
+      "finished_utc": "2026-10-26T16:22:51.739912+00:00",
+      "profile": "full512-regmem-startup",
+      "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+      "source_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+      "bitstream_sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227",
+      "image_review_sha256": "e6044476a86fb6133f06b94b9b0e1d129665c9c96e73a5ae9ef831e98227abe5",
+      "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+      "tap_idcode": "0x23751093",
+      "dna_port": "004E544714C705C",
+      "usr_access_tag": "ac6fee7e",
+      "tck_hz": "3000000",
+      "native_init_done_cleanup_pass": {
+        "INIT_COMPLETE": "1",
+        "DONE": "1",
+        "CLEANUP": "1",
+        "PASS": "1"
+      },
+      "command_returncode": 0,
+      "command_status": "PASS",
+      "program_tcl_sha256": "ff020ac7505f80813b7dcc75beb897b2a48147492e6b89648ca7b1cab74ced87"
+    },
+    {
+      "name": "load-2",
+      "receipt_sha256": "2e76b90030c8926eb5322eae0634addfd424557601c5a81336d55d002be2fdf2",
+      "status": "PASS",
+      "action": "program-sram",
+      "started_utc": "2026-10-26T16:23:21.197373+00:00",
+      "finished_utc": "2026-10-26T16:25:12.630827+00:00",
+      "profile": "full512-regmem-startup",
+      "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+      "source_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+      "bitstream_sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227",
+      "image_review_sha256": "e6044476a86fb6133f06b94b9b0e1d129665c9c96e73a5ae9ef831e98227abe5",
+      "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+      "tap_idcode": "0x23751093",
+      "dna_port": "004E544714C705C",
+      "usr_access_tag": "ac6fee7e",
+      "tck_hz": "3000000",
+      "native_init_done_cleanup_pass": {
+        "INIT_COMPLETE": "1",
+        "DONE": "1",
+        "CLEANUP": "1",
+        "PASS": "1"
+      },
+      "command_returncode": 0,
+      "command_status": "PASS",
+      "program_tcl_sha256": "beca2812bde29c3f59bdf3aec1cd2a4eba5d9a8b01d3827a7d47194dc0e4418c"
+    },
+    {
+      "name": "load-3",
+      "receipt_sha256": "363f48c1d11919807d637ef821eb6d0cf291235db32788e426b118d4264e93be",
+      "status": "PASS",
+      "action": "program-sram",
+      "started_utc": "2026-10-26T16:25:28.741417+00:00",
+      "finished_utc": "2026-10-26T16:27:20.171213+00:00",
+      "profile": "full512-regmem-startup",
+      "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+      "source_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+      "bitstream_sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227",
+      "image_review_sha256": "e6044476a86fb6133f06b94b9b0e1d129665c9c96e73a5ae9ef831e98227abe5",
+      "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+      "tap_idcode": "0x23751093",
+      "dna_port": "004E544714C705C",
+      "usr_access_tag": "ac6fee7e",
+      "tck_hz": "3000000",
+      "native_init_done_cleanup_pass": {
+        "INIT_COMPLETE": "1",
+        "DONE": "1",
+        "CLEANUP": "1",
+        "PASS": "1"
+      },
+      "command_returncode": 0,
+      "command_status": "PASS",
+      "program_tcl_sha256": "7791a40c6d562e3ca0e4b05823e26b647a05dd821171aa7c62b47bdc1a01275f"
+    }
+  ],
+  "captures": [
+    {
+      "name": "baseline",
+      "kind": "baseline",
+      "load_receipt": null,
+      "load_receipt_sha256": null,
+      "load_match_count": 0,
+      "status": "CAPTURED_BASELINE_APPLICATION_UNKNOWN",
+      "raw_capture_sha256": "4c790fea3f864fcae76991b192d570fa59c9096a24070278c63e1b3e1fff0938",
+      "plan_sha256": "5cae93e495574c20a064e86ff8ff78e7628d41b65466e60ae525592ee93d62fe",
+      "observation_sha256": "1527942bc4af78930c7ac8c0f5f90c3b74b970e774132bb56f12b1d90cf89f0e",
+      "decoded_matches_stored": true,
+      "raw_rows": 101,
+      "decoded_rows": 101,
+      "heartbeat_transitions": 0,
+      "first_epoch_us": 1793031652001006,
+      "last_epoch_us": 1793031657424455,
+      "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+      "reported_tck_hz": 3000000,
+      "bitstream_sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227",
+      "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+      "source_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+      "cleanup": {
+        "BYPASS": true,
+        "TARGET": true,
+        "SERVER": true,
+        "MANAGER": true
+      },
+      "positive_row_counts": null,
+      "baseline_excluded": true
+    },
+    {
+      "name": "post-load-1",
+      "kind": "post-load",
+      "load_receipt": "load-1",
+      "load_receipt_sha256": "a7aa5763d4aa392aa8068e15468058f7b613837852499cb1867240844d220e07",
+      "load_match_count": 1,
+      "status": "PASS_OBSERVED_FULL512_STARTUP_SCOREBOARD_OUTPUTS",
+      "raw_capture_sha256": "1d5883d399a3a94ec8f4ead2d15746143b682b4f18e1b04491321609e87d0d82",
+      "plan_sha256": "ff76420ddc7145146d739ed8426bcdd15e64e832e1620583c494f3287e278155",
+      "observation_sha256": "238bc67504e9fad8b04375b60a342000074f99de6c7de1bf5b9b4350c5c2cf50",
+      "decoded_matches_stored": true,
+      "raw_rows": 101,
+      "decoded_rows": 101,
+      "heartbeat_transitions": 8,
+      "first_epoch_us": 1793031779544871,
+      "last_epoch_us": 1793031784964920,
+      "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+      "reported_tck_hz": 3000000,
+      "bitstream_sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227",
+      "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+      "source_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+      "cleanup": {
+        "BYPASS": true,
+        "TARGET": true,
+        "SERVER": true,
+        "MANAGER": true
+      },
+      "positive_row_counts": {
+        "rows": 101,
+        "pass_flag_1_rows": 101,
+        "fail_flag_0_rows": 101,
+        "all_outputs_enabled_rows": 101,
+        "init_done_instruction_rows": 101,
+        "heartbeat_transitions": 8,
+        "status": "PASS_OBSERVED_FULL512_STARTUP_SCOREBOARD_OUTPUTS"
+      },
+      "baseline_excluded": false
+    },
+    {
+      "name": "repeat-1",
+      "kind": "repeat",
+      "load_receipt": "load-1",
+      "load_receipt_sha256": "a7aa5763d4aa392aa8068e15468058f7b613837852499cb1867240844d220e07",
+      "load_match_count": 1,
+      "status": "PASS_OBSERVED_FULL512_STARTUP_SCOREBOARD_OUTPUTS",
+      "raw_capture_sha256": "2db66b3768db4283553a9d2e97d9725f013fd2e3f66b084925136c96d94b5a1b",
+      "plan_sha256": "5bbfdec00fc088dd725881b1be14b0eab4f54cbc87319e90f276225774588ed7",
+      "observation_sha256": "c46bb596aaba7eb57f1a8ede7cbf03e0358d3e8d88855f48b3f762092a752cf5",
+      "decoded_matches_stored": true,
+      "raw_rows": 101,
+      "decoded_rows": 101,
+      "heartbeat_transitions": 8,
+      "first_epoch_us": 1793031792867209,
+      "last_epoch_us": 1793031798302043,
+      "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+      "reported_tck_hz": 3000000,
+      "bitstream_sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227",
+      "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+      "source_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+      "cleanup": {
+        "BYPASS": true,
+        "TARGET": true,
+        "SERVER": true,
+        "MANAGER": true
+      },
+      "positive_row_counts": {
+        "rows": 101,
+        "pass_flag_1_rows": 101,
+        "fail_flag_0_rows": 101,
+        "all_outputs_enabled_rows": 101,
+        "init_done_instruction_rows": 101,
+        "heartbeat_transitions": 8,
+        "status": "PASS_OBSERVED_FULL512_STARTUP_SCOREBOARD_OUTPUTS"
+      },
+      "baseline_excluded": false
+    },
+    {
+      "name": "post-load-2",
+      "kind": "reconfiguration",
+      "load_receipt": "load-2",
+      "load_receipt_sha256": "2e76b90030c8926eb5322eae0634addfd424557601c5a81336d55d002be2fdf2",
+      "load_match_count": 1,
+      "status": "PASS_OBSERVED_FULL512_STARTUP_SCOREBOARD_OUTPUTS",
+      "raw_capture_sha256": "c1188a8c2a1a84d3db4cc7ee5885a60ae37919af5b54bb33a72cf5ee8f9429ac",
+      "plan_sha256": "501d412be9dcdb0eb16651b373d1d71b680750868fdf5a0c23c6c6609efc6b66",
+      "observation_sha256": "1f682daf441d263205a4b04663d3f07a08daa636c3488253fc37c958614c2531",
+      "decoded_matches_stored": true,
+      "raw_rows": 101,
+      "decoded_rows": 101,
+      "heartbeat_transitions": 8,
+      "first_epoch_us": 1793031920419182,
+      "last_epoch_us": 1793031925824453,
+      "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+      "reported_tck_hz": 3000000,
+      "bitstream_sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227",
+      "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+      "source_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+      "cleanup": {
+        "BYPASS": true,
+        "TARGET": true,
+        "SERVER": true,
+        "MANAGER": true
+      },
+      "positive_row_counts": {
+        "rows": 101,
+        "pass_flag_1_rows": 101,
+        "fail_flag_0_rows": 101,
+        "all_outputs_enabled_rows": 101,
+        "init_done_instruction_rows": 101,
+        "heartbeat_transitions": 8,
+        "status": "PASS_OBSERVED_FULL512_STARTUP_SCOREBOARD_OUTPUTS"
+      },
+      "baseline_excluded": false
+    },
+    {
+      "name": "post-load-3",
+      "kind": "reconfiguration",
+      "load_receipt": "load-3",
+      "load_receipt_sha256": "363f48c1d11919807d637ef821eb6d0cf291235db32788e426b118d4264e93be",
+      "load_match_count": 1,
+      "status": "PASS_OBSERVED_FULL512_STARTUP_SCOREBOARD_OUTPUTS",
+      "raw_capture_sha256": "645021533ebffb4257cf25e072c29205d251bfa0555587682e1a21667be0ba73",
+      "plan_sha256": "b0098b833e08a432146497b0ee31f7b02422442993d41cd72deef3332f06bc97",
+      "observation_sha256": "4f93cb552ab576282c6343067cb05184e87e60e3333574e9e0774940447ed571",
+      "decoded_matches_stored": true,
+      "raw_rows": 101,
+      "decoded_rows": 101,
+      "heartbeat_transitions": 8,
+      "first_epoch_us": 1793032047971004,
+      "last_epoch_us": 1793032053375594,
+      "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+      "reported_tck_hz": 3000000,
+      "bitstream_sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227",
+      "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+      "source_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+      "cleanup": {
+        "BYPASS": true,
+        "TARGET": true,
+        "SERVER": true,
+        "MANAGER": true
+      },
+      "positive_row_counts": {
+        "rows": 101,
+        "pass_flag_1_rows": 101,
+        "fail_flag_0_rows": 101,
+        "all_outputs_enabled_rows": 101,
+        "init_done_instruction_rows": 101,
+        "heartbeat_transitions": 8,
+        "status": "PASS_OBSERVED_FULL512_STARTUP_SCOREBOARD_OUTPUTS"
+      },
+      "baseline_excluded": false
+    }
+  ],
+  "event_order": [
+    {
+      "name": "baseline",
+      "started_utc": "2026-10-26T16:20:44.207962+00:00",
+      "finished_utc": "2026-10-26T16:20:57.574695+00:00"
+    },
+    {
+      "name": "load-1",
+      "started_utc": "2026-10-26T16:21:00.355492+00:00",
+      "finished_utc": "2026-10-26T16:22:51.739173+00:00"
+    },
+    {
+      "name": "post-load-1",
+      "started_utc": "2026-10-26T16:22:51.775279+00:00",
+      "finished_utc": "2026-10-26T16:23:05.097767+00:00"
+    },
+    {
+      "name": "repeat-1",
+      "started_utc": "2026-10-26T16:23:05.148251+00:00",
+      "finished_utc": "2026-10-26T16:23:18.418785+00:00"
+    },
+    {
+      "name": "load-2",
+      "started_utc": "2026-10-26T16:23:21.209197+00:00",
+      "finished_utc": "2026-10-26T16:25:12.630250+00:00"
+    },
+    {
+      "name": "post-load-2",
+      "started_utc": "2026-10-26T16:25:12.663585+00:00",
+      "finished_utc": "2026-10-26T16:25:25.977903+00:00"
+    },
+    {
+      "name": "load-3",
+      "started_utc": "2026-10-26T16:25:28.753299+00:00",
+      "finished_utc": "2026-10-26T16:27:20.170637+00:00"
+    },
+    {
+      "name": "post-load-3",
+      "started_utc": "2026-10-26T16:27:20.206068+00:00",
+      "finished_utc": "2026-10-26T16:27:33.526868+00:00"
+    }
+  ],
+  "counts": {
+    "capture_files_redecoded": 5,
+    "baseline_unknown_excluded": 1,
+    "positive_capture_count": 4,
+    "positive_raw_rows": 404,
+    "baseline_raw_rows": 101,
+    "positive_heartbeat_transitions": {
+      "post-load-1": 8,
+      "repeat-1": 8,
+      "post-load-2": 8,
+      "post-load-3": 8
+    }
+  },
+  "cleanup_provenance": {
+    "load_receipt_native_cleanup_markers": {
+      "load-1": "1",
+      "load-2": "1",
+      "load-3": "1"
+    },
+    "capture_cleanup_markers": {
+      "baseline": {
+        "BYPASS": true,
+        "TARGET": true,
+        "SERVER": true,
+        "MANAGER": true
+      },
+      "post-load-1": {
+        "BYPASS": true,
+        "TARGET": true,
+        "SERVER": true,
+        "MANAGER": true
+      },
+      "repeat-1": {
+        "BYPASS": true,
+        "TARGET": true,
+        "SERVER": true,
+        "MANAGER": true
+      },
+      "post-load-2": {
+        "BYPASS": true,
+        "TARGET": true,
+        "SERVER": true,
+        "MANAGER": true
+      },
+      "post-load-3": {
+        "BYPASS": true,
+        "TARGET": true,
+        "SERVER": true,
+        "MANAGER": true
+      }
+    },
+    "lease_acquired_recorded": true,
+    "owned_hw_server_exit_recorded": -15,
+    "hw_server_log_sha256": "6a9c0ef23b7ed2afcef59ac9143005758bd3a8872ac17b4ca61fae48d499dae4"
+  },
+  "checks": {
+    "top_report_terminal_pass": true,
+    "report_hardware_scope": true,
+    "lease_acquired_recorded": true,
+    "report_started_finished_timezone": true,
+    "all_recorded_artifact_hashes_match": true,
+    "artifact_inventory_complete": true,
+    "external_source_report_hash_matches": true,
+    "external_bitstream_hash_matches": true,
+    "baseline_plan_identity_matches_run": true,
+    "load-1_status_pass": true,
+    "load-1_program_sram_action": true,
+    "load-1_hardware_programmed": true,
+    "load-1_flash_unchanged": true,
+    "load-1_profile": true,
+    "load-1_source_sha256": true,
+    "load-1_source_report_sha256": true,
+    "load-1_bitstream_sha256": true,
+    "load-1_image_review_sha256": true,
+    "load-1_target": true,
+    "load-1_tap_idcode": true,
+    "load-1_dna_port": true,
+    "load-1_usr_access_source_tag": true,
+    "load-1_native_program_file": true,
+    "load-1_native_init_done_programmed_cleanup_pass": true,
+    "load-1_native_tck": true,
+    "load-1_command_pass": true,
+    "load-1_program_script_hash": true,
+    "load-1_receipt_command_time_order": true,
+    "load-1_dna_expected_nonempty": true,
+    "load-2_status_pass": true,
+    "load-2_program_sram_action": true,
+    "load-2_hardware_programmed": true,
+    "load-2_flash_unchanged": true,
+    "load-2_profile": true,
+    "load-2_source_sha256": true,
+    "load-2_source_report_sha256": true,
+    "load-2_bitstream_sha256": true,
+    "load-2_image_review_sha256": true,
+    "load-2_target": true,
+    "load-2_tap_idcode": true,
+    "load-2_dna_port": true,
+    "load-2_usr_access_source_tag": true,
+    "load-2_native_program_file": true,
+    "load-2_native_init_done_programmed_cleanup_pass": true,
+    "load-2_native_tck": true,
+    "load-2_command_pass": true,
+    "load-2_program_script_hash": true,
+    "load-2_receipt_command_time_order": true,
+    "load-2_dna_expected_nonempty": true,
+    "load-3_status_pass": true,
+    "load-3_program_sram_action": true,
+    "load-3_hardware_programmed": true,
+    "load-3_flash_unchanged": true,
+    "load-3_profile": true,
+    "load-3_source_sha256": true,
+    "load-3_source_report_sha256": true,
+    "load-3_bitstream_sha256": true,
+    "load-3_image_review_sha256": true,
+    "load-3_target": true,
+    "load-3_tap_idcode": true,
+    "load-3_dna_port": true,
+    "load-3_usr_access_source_tag": true,
+    "load-3_native_program_file": true,
+    "load-3_native_init_done_programmed_cleanup_pass": true,
+    "load-3_native_tck": true,
+    "load-3_command_pass": true,
+    "load-3_program_script_hash": true,
+    "load-3_receipt_command_time_order": true,
+    "load-3_dna_expected_nonempty": true,
+    "three_load_receipts_share_bound_image_source_tag_tap_and_dna": true,
+    "baseline_offline_redecode_succeeds": true,
+    "baseline_redecoded_result_matches_stored_observation": true,
+    "baseline_101_raw_capture_rows": true,
+    "baseline_capture_command_pass_and_time_order": true,
+    "baseline_report_summary_binds_observation": true,
+    "baseline_plan_profile_source_bitstream_tap_binding": true,
+    "baseline_capture_cleanup_receipt": true,
+    "baseline_capture_epoch_within_command_window": true,
+    "baseline_stays_unknown_and_excluded": true,
+    "post-load-1_offline_redecode_succeeds": true,
+    "post-load-1_redecoded_result_matches_stored_observation": true,
+    "post-load-1_101_raw_capture_rows": true,
+    "post-load-1_capture_command_pass_and_time_order": true,
+    "post-load-1_report_summary_binds_observation": true,
+    "post-load-1_plan_profile_source_bitstream_tap_binding": true,
+    "post-load-1_capture_cleanup_receipt": true,
+    "post-load-1_capture_epoch_within_command_window": true,
+    "post-load-1_capture_starts_after_matching_load": true,
+    "post-load-1_positive_pass_fail_enable_init_done_rows": true,
+    "post-load-1_heartbeat_transition_count": true,
+    "repeat-1_offline_redecode_succeeds": true,
+    "repeat-1_redecoded_result_matches_stored_observation": true,
+    "repeat-1_101_raw_capture_rows": true,
+    "repeat-1_capture_command_pass_and_time_order": true,
+    "repeat-1_report_summary_binds_observation": true,
+    "repeat-1_plan_profile_source_bitstream_tap_binding": true,
+    "repeat-1_capture_cleanup_receipt": true,
+    "repeat-1_capture_epoch_within_command_window": true,
+    "repeat-1_capture_starts_after_matching_load": true,
+    "repeat-1_positive_pass_fail_enable_init_done_rows": true,
+    "repeat-1_heartbeat_transition_count": true,
+    "post-load-2_offline_redecode_succeeds": true,
+    "post-load-2_redecoded_result_matches_stored_observation": true,
+    "post-load-2_101_raw_capture_rows": true,
+    "post-load-2_capture_command_pass_and_time_order": true,
+    "post-load-2_report_summary_binds_observation": true,
+    "post-load-2_plan_profile_source_bitstream_tap_binding": true,
+    "post-load-2_capture_cleanup_receipt": true,
+    "post-load-2_capture_epoch_within_command_window": true,
+    "post-load-2_capture_starts_after_matching_load": true,
+    "post-load-2_positive_pass_fail_enable_init_done_rows": true,
+    "post-load-2_heartbeat_transition_count": true,
+    "post-load-3_offline_redecode_succeeds": true,
+    "post-load-3_redecoded_result_matches_stored_observation": true,
+    "post-load-3_101_raw_capture_rows": true,
+    "post-load-3_capture_command_pass_and_time_order": true,
+    "post-load-3_report_summary_binds_observation": true,
+    "post-load-3_plan_profile_source_bitstream_tap_binding": true,
+    "post-load-3_capture_cleanup_receipt": true,
+    "post-load-3_capture_epoch_within_command_window": true,
+    "post-load-3_capture_starts_after_matching_load": true,
+    "post-load-3_positive_pass_fail_enable_init_done_rows": true,
+    "post-load-3_heartbeat_transition_count": true,
+    "exact_five_capture_test_inventory": true,
+    "load_capture_event_order_and_timezone": true,
+    "top_report_summaries_match_observations": true,
+    "three_load_native_cleanup_markers": true,
+    "five_capture_cleanup_markers": true
+  },
+  "failures": [],
+  "v1_diff_receipt": {
+    "v1_failed_checks": [
+      "post-load-2_redecoded_result_matches_stored_observation",
+      "post-load-3_redecoded_result_matches_stored_observation"
+    ],
+    "v2_postload2_exact_match": true,
+    "v2_postload3_exact_match": true,
+    "v1_root_cause": "Wrong stored capture kind supplied to offline decoder for post-load-2 and post-load-3; both stored as reconfiguration."
+  },
+  "audit_note": "Producer report and raw captures remain unchanged; baseline remains UNKNOWN/excluded; this artifact is not hardware acceptance."
+}

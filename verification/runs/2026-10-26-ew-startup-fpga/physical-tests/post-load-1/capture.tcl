@@ -1,0 +1,108 @@
+# Generated SAMPLE-only capture for one audited XC7K480T TAP.
+# Root owns execution, cable ownership and the prior volatile SRAM load.
+# Only IDCODE, SAMPLE and BYPASS are selected. SYS_CLK and I/O drive stay functional.
+set expected_target [encoding convertfrom utf-8 [binary format H* {6c6f63616c686f73743a333132352f78696c696e785f7463662f58696c696e782f3830383032303236613737613031}]]
+set server_url [encoding convertfrom utf-8 [binary format H* {6c6f63616c686f73743a33313235}]]
+set output_path [encoding convertfrom utf-8 [binary format H* {2f686f6d652f6665646f72612f726b6e70752d667067612f6275696c642f667067612d6272696e6775702f65772d737461727475702d313739323938383838313736333038393431372f706879736963616c2d74657374732f706f73742d6c6f61642d312f636170747572652e747376}]]
+set binding_sha [encoding convertfrom utf-8 [binary format H* {61323765633530666534646165373930353330356537343962343864356638653362613335663365366233336637613433323461393661343863386566396365}]]
+set sample_count 101
+set interval_ms 50
+set requested_tck 3000000
+set out [open $output_path {WRONLY CREAT EXCL}]
+fconfigure $out -translation lf -buffering line
+puts $out "EWSAMPLE1|BINDING|$binding_sha"
+set manager_open 0
+set connected 0
+set target_open 0
+set raw_mode 0
+set rows 0
+proc ew_hex {value bits} {
+    if {![regexp {^[0-9a-fA-F]+$} $value]} {error "Non-binary JTAG capture"}
+    set value [string tolower [string trimleft $value 0]]
+    if {$value eq ""} {set value 0}
+    set digits [expr {($bits+3)/4}]
+    if {[string length $value]>$digits} {error "Oversize JTAG capture"}
+    set value "[string repeat 0 [expr {$digits-[string length $value]}]]$value"
+    if {$bits%4 != 0 && [scan [string index $value 0] %x] >= (1<<($bits%4))} {
+        error "JTAG capture has nonzero padding"
+    }
+    return $value
+}
+set main_failed [catch {
+    open_hw_manager
+    set manager_open 1
+    connect_hw_server -url $server_url
+    set connected 1
+    set targets [get_hw_targets]
+    if {[llength $targets]!=1 || [lindex $targets 0] ne $expected_target} {
+        error "Expected one exact audited hardware target"
+    }
+    current_hw_target [lindex $targets 0]
+    # This controls the debug cable's TCK, never the FPGA design SYS clock.
+    set_property PARAM.FREQUENCY $requested_tck [current_hw_target]
+    open_hw_target
+    set target_open 1
+    set devices [get_hw_devices]
+    if {[llength $devices]!=1 || [get_property PART [lindex $devices 0]] ne "xc7k480t"} {
+        error "Expected one XC7K480T device before entering raw TAP mode"
+    }
+    set actual_tck [get_property PARAM.FREQUENCY [current_hw_target]]
+    if {![string is integer -strict $actual_tck] || $actual_tck!=$requested_tck} {
+        error "Reported cable TCK differs from audited setting"
+    }
+    close_hw_target
+    set target_open 0
+    open_hw_target -jtag_mode 1
+    set target_open 1
+    set raw_mode 1
+    run_state_hw_jtag RESET
+    run_state_hw_jtag IDLE
+    scan_ir_hw_jtag 6 -tdi 09
+    set idcode [ew_hex [scan_dr_hw_jtag 32 -tdi 0] 32]
+    if {$idcode ne "23751093"} {error "Unexpected raw IDCODE"}
+    puts $out "EWSAMPLE1|TOOL|[binary encode hex [encoding convertto utf-8 [version -short]]]"
+    puts $out "EWSAMPLE1|TARGET|[binary encode hex [encoding convertto utf-8 $expected_target]]"
+    puts $out "EWSAMPLE1|TCK|$actual_tck"
+    puts $out "EWSAMPLE1|IDCODE|$idcode"
+    set started [clock clicks -microseconds]
+    for {set i 0} {$i<$sample_count} {incr i} {
+        # Re-selecting SAMPLE captures INIT/DONE without any design reset.
+        set capture_ir [ew_hex [scan_ir_hw_jtag 6 -tdi 01] 6]
+        set capture_dr [ew_hex [scan_dr_hw_jtag 1395 -tdi 0] 1395]
+        set elapsed [expr {[clock clicks -microseconds]-$started}]
+        puts $out "EWSAMPLE1|ROW|$i|[clock microseconds]|$elapsed|$capture_ir|$capture_dr"
+        incr rows
+        if {$i+1<$sample_count} {after $interval_ms}
+    }
+} main_error]
+if {$main_failed} {
+    puts $out "EWSAMPLE1|ERROR|[binary encode hex [encoding convertto utf-8 $main_error]]"
+}
+set cleanup_failed 0
+if {$raw_mode && $target_open} {
+    set bad [catch {scan_ir_hw_jtag 6 -tdi 3f} problem]
+    puts $out "EWSAMPLE1|CLEANUP|BYPASS|[expr {!$bad}]"
+    if {$bad} {set cleanup_failed 1}
+} else {
+    puts $out "EWSAMPLE1|CLEANUP|BYPASS|0"
+    set cleanup_failed 1
+}
+if {$target_open} {
+    set bad [catch {close_hw_target} problem]
+    puts $out "EWSAMPLE1|CLEANUP|TARGET|[expr {!$bad}]"
+    if {$bad} {set cleanup_failed 1}
+} else {puts $out "EWSAMPLE1|CLEANUP|TARGET|1"}
+if {$connected} {
+    set bad [catch {disconnect_hw_server} problem]
+    puts $out "EWSAMPLE1|CLEANUP|SERVER|[expr {!$bad}]"
+    if {$bad} {set cleanup_failed 1}
+} else {puts $out "EWSAMPLE1|CLEANUP|SERVER|1"}
+if {$manager_open} {
+    set bad [catch {close_hw_manager} problem]
+    puts $out "EWSAMPLE1|CLEANUP|MANAGER|[expr {!$bad}]"
+    if {$bad} {set cleanup_failed 1}
+} else {puts $out "EWSAMPLE1|CLEANUP|MANAGER|1"}
+puts $out "EWSAMPLE1|END|$rows|[expr {!$main_failed && !$cleanup_failed}]"
+close $out
+if {$main_failed || $cleanup_failed} {error "EW SAMPLE capture failed; preserve raw capture"}
+puts "EW_SAMPLE_CAPTURE_COMPLETE $output_path"

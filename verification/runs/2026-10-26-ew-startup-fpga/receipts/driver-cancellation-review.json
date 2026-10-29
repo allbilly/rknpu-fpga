@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "scope": "Dummy subprocesses and temporary lease only; no hardware/vendor execution",
+  "driver": "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/run_sram_tests.py",
+  "driver_sha256": "339715050e87387881a38ebcd102cc94c4f6929ba746cdacc017c8afb589168b",
+  "driver_unchanged": true,
+  "checks": [
+    {
+      "case": "sigterm",
+      "status": "PASS",
+      "command_status": "FAIL",
+      "returncode": -15,
+      "all_children_absent": true,
+      "child_then_server_then_unlock": true
+    },
+    {
+      "case": "sigint",
+      "status": "PASS",
+      "command_status": "FAIL",
+      "returncode": -15,
+      "all_children_absent": true,
+      "child_then_server_then_unlock": true
+    },
+    {
+      "case": "metadata_failure",
+      "status": "PASS",
+      "command_status": "FAIL",
+      "returncode": -15,
+      "all_children_absent": true,
+      "child_then_server_then_unlock": true
+    },
+    {
+      "case": "launch_signal",
+      "status": "PASS",
+      "command_status": "FAIL",
+      "returncode": -15,
+      "all_children_absent": true,
+      "child_then_server_then_unlock": true
+    }
+  ]
+}

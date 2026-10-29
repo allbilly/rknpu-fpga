@@ -1,0 +1,57 @@
+{
+  "name": "calibration_loss",
+  "status": "PASS",
+  "spec": {
+    "name": "calibration_loss",
+    "case": "capture_sub_9",
+    "address": 269352960,
+    "amount": 35,
+    "tasks": 2,
+    "lines": 1600,
+    "jobs": 1,
+    "negative": 5,
+    "reset_recovery": 0
+  },
+  "metrics": {
+    "lines": 1600,
+    "physical_bytes": 102400,
+    "uploaded_nonzero": 77,
+    "successful_jobs": 0,
+    "phy_user_returns": null,
+    "host_read64_packets": 2,
+    "host_read64_axi_reads": 2,
+    "uncached_phy_user_returns": null,
+    "phy_user_returns_minimum": 4995
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/obj/sim",
+      "+CASE=/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_sub_9",
+      "+OUTPUT=/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/snapshot-matrix-C-v3/calibration_loss/observed.txt",
+      "+START=100e0000",
+      "+AMOUNT=35",
+      "+NTASKS=2",
+      "+NLINES=1600",
+      "+JOBS=1",
+      "+NEGATIVE=5",
+      "+RESET_RECOVERY=0"
+    ],
+    "timeout_seconds": 300,
+    "started_utc": "2026-10-27T14:26:31.472517+00:00",
+    "status": "EXITED",
+    "pid": 958985,
+    "returncode": 0,
+    "seconds": 196.5261928041,
+    "finished_utc": "2026-10-27T14:29:47.998922+00:00",
+    "log_sha256": "1e15d666a92f2e43b5df21005a3b1f3d7a1320cdeaa049126fef8ff9e8c4d918"
+  },
+  "marker": "PASS jtag_ew_ddr_read_snapshot jobs=1 negative=5 recovered=0 lines=1600 uploaded_nonzero=77 rawtasks=2 phy_user_returns=4995 read64_packets=2 read64_axi_reads=2 scope=actual_AXI_UI_MC_modeled_PHY",
+  "phy_user_returns": 4995,
+  "read64_packets": 2,
+  "read64_axi_reads": 2,
+  "readback_physical_bytes": 0,
+  "persisted_final_image_physical_bytes": 0,
+  "observed_text_bytes": 0,
+  "observed_sha256": null,
+  "successful_jobs": 0
+}

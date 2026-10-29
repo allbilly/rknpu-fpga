@@ -1,0 +1,254 @@
+{
+  "status": "PREPARED_FIRST_TINYSTORIES_RAW_PROJECTION_AND_COMPACTION_COMMANDS",
+  "scope": "Actual trained BOS first-query data, original emitters/final writer, donor arithmetic TEST expectations; native RTL, mixed-engine memory/rearm and physical execution remain separate gates",
+  "hardware_accessed": false,
+  "runtime_cpu_layout_fixups": false,
+  "backend": {
+    "root": "/home/fedora/tinygrad",
+    "commit": "078eee94d8f1912bb63ce786c250d2c24984844a",
+    "clean": true,
+    "pinned_files": {
+      "tinygrad/runtime/ops_rockchip.py": "73cddbdebaf52c33a9d3cef33bbc016b78357da35a588403c23e35069e223daa",
+      "tinygrad/renderer/rockchip.py": "c84b70e73449a721319981334b746f79aadd095bd39cc2f576c84bd397fbcc1d",
+      "tinygrad/runtime/autogen/rockchip.py": "6d6c11176fd78201fa013b5b4485d9a1a67158ba749eca0d892a12e22c8f1f56",
+      "tinygrad/device.py": "614fcb30f274dc78d03c2a32ab2a11a9cb579cd663ec3b2f010a707b3a58cb9d",
+      "tinygrad/runtime/support/hcq.py": "e5d045156acb1f207e4568b2610c0e731d709454f2ef203f6cf90d2995b15184",
+      "tinygrad/helpers.py": "ef89394f072e053dee45585dfdc606a2f9e4aafed61ddbe18bd72118a858e7e9",
+      "tinygrad/dtype.py": "e0f604bc1a4dee838f83fd1703aae17e3a5a7c8ca495acc6e97259a32a4faaea",
+      "tinygrad/engine/realize.py": "4a1572fe9e8e55b0d4b51400498e25a45403362fb3b0c6b1df6fe9928f69c613",
+      "tinygrad/codegen/__init__.py": "182eb030bf673c2b5d342a005e0f9bbe5fa0f0dd0e802194e316e8cfba289e75",
+      "tinygrad/codegen/opt/heuristic.py": "7eb9e32cc7346502a8747ce9b9d7bd709e797694ba02ba2034b92d1eb6904a28",
+      "tinygrad/codegen/opt/postrange.py": "8dc2169f12e9b34508f6d32dd8f086e3adf73bb3757159b394d28822ba82a443",
+      "tinygrad/renderer/__init__.py": "17f51edb6ae81e4c1eee1a30872e9790c92cd8713a1429fb6c66393b084a7a4c",
+      "tinygrad/__init__.py": "fc24d5d0df1b1a14bbee0bd2641a61ca5f34ec7d83f1b0b755adf6eb83d5c0be"
+    },
+    "imported_files": {}
+  },
+  "model_package_sha256": "ed6dc3b8164056b571246454448e8649e8ccea65051565f98271c952f7307331",
+  "files": {
+    "reference_probe_compile.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cmac/command_bo.bin": {
+      "sha256": "41bc58108e337378e3f3c7dd42c3713c36fba7e1092ad2595e026dde2ee6eb35",
+      "bytes": 65536
+    },
+    "cmac/task_bo.bin": {
+      "sha256": "5d59bc5defa22b86be84434a053edd3c6c6bf9bbad71c57b6a59a82b8c4c7b80",
+      "bytes": 4096
+    },
+    "cmac/submit.bin": {
+      "sha256": "ed6b476f3c087bf43800397c9a20a444350a1764ab39e0eba2c1d9b03e49ebae",
+      "bytes": 104
+    },
+    "compaction/command_bo.bin": {
+      "sha256": "ae7707a349e8667980702f71d8f8b2113373f889e25edeeee8a1af783dfacf8d",
+      "bytes": 65536
+    },
+    "compaction/task_bo.bin": {
+      "sha256": "528b2f5e752401d2897c3446a9a2693475f0110b321f4a9e27547be18e7e84cf",
+      "bytes": 4096
+    },
+    "compaction/submit.bin": {
+      "sha256": "d61505bdcb4e81b193663c1d1ceae78e213b64f526b2b672e875749c6eaaa9de",
+      "bytes": 104
+    },
+    "donor_compile.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "donor_requests.txt": {
+      "sha256": "4a8bf584f4621b5643909e90adbd92e94b42ce1836602cbdd9b44fe4f7d8c9d4",
+      "bytes": 29563
+    },
+    "donor_results.txt": {
+      "sha256": "3a2ab7a45374c707dbadc432de5511c41b0fd1742270d5764efb803021a14569",
+      "bytes": 15825
+    },
+    "donor_stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "fixture/commands.hex": {
+      "sha256": "e269def021d5cb4fea881c144d2b53ec9d3f561e4c506486f8259984667e8692",
+      "bytes": 833
+    },
+    "fixture/input.hex": {
+      "sha256": "dcfca4fbb8ba7e6fb46e3b1b46756287dec90cc94378312671de72d20b922faf",
+      "bytes": 320
+    },
+    "fixture/weight.hex": {
+      "sha256": "6a3fab57391cf5a63c207446e30c1690e11d12bd30a6da1cb4261c48ec23bb94",
+      "bytes": 10240
+    },
+    "fixture/reads.hex": {
+      "sha256": "c354c813cb2c0ab21fefce76a0ac97034225590ae170be936f2b82630fa083ed",
+      "bytes": 28288
+    },
+    "fixture/writes.hex": {
+      "sha256": "e8721a56ac9517609015f7a6f32048a51de837235db1fd5515cd0606b92e8f96",
+      "bytes": 416
+    },
+    "fixture/groups.hex": {
+      "sha256": "77e109e97d8df7bb5243a15e66cf24fe8c4a3360830365416ce4a2123c468614",
+      "bytes": 768
+    },
+    "fixture/fp32.hex": {
+      "sha256": "a31ba2931afb6d7faf0496a42c91191f6a610251359bdec839022aba5eaaa658",
+      "bytes": 288
+    },
+    "reference_input_fp32.bin": {
+      "sha256": "55319a9497e8c17d54f7868cabd89756018f1049ad126e6c830d2e5cee430ad0",
+      "bytes": 256
+    },
+    "reference_probe.c": {
+      "sha256": "115f34aacea9d9d35b6b993f06f17a4e87c5d68fb546d99f79e538c016652dec",
+      "bytes": 375
+    },
+    "donor_helper.cpp": {
+      "sha256": "f7c53e8e4d0d12db0c9d62e2c0b2fac3fe95458b3af85328b6f0b3bf9036d2f0",
+      "bytes": 6259
+    },
+    "source/first_projection.py": {
+      "sha256": "c5ed704285865873f96a473beb7d70d167746c49f38dcfa9300d2131b252a42a",
+      "bytes": 15501
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "gcc",
+        "-O3",
+        "-I/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v1/reference",
+        "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/reference_probe.c",
+        "-lm",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/reference_probe"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/reference_probe",
+        "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v1/assets/stories260K.bin"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "c++",
+        "-std=c++17",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "/home/fedora/rknpu-fpga/build/cmac_group_candidate/donor_booth_helper.cpp",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/donor_helper"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/tinystories-first-projection/bos-wq-v3/donor_helper"
+      ],
+      "returncode": 0,
+      "binary_sha256": "eae32c1d10008bfb293ff8ee345882607150213c7b27ee21f6e16b3064d18ecf"
+    }
+  ],
+  "reference_probe_binary_sha256": "c95eb6fefd5d241cf930828ccc5a40a580d1e2231e4f4dd4fc5e16dd5cfb801a",
+  "donor_helper_binary_sha256": "eae32c1d10008bfb293ff8ee345882607150213c7b27ee21f6e16b3064d18ecf",
+  "model_input": {
+    "token_id": 1,
+    "layer": 0,
+    "operator": "wq",
+    "selected_outputs": [
+      0,
+      32
+    ],
+    "input_precision": "FP32 RMSNorm then binary16 RNE"
+  },
+  "fixture": {
+    "rows": 1,
+    "ai": 64,
+    "ao": 32,
+    "frames": 4,
+    "reads": 2176,
+    "writes": 32,
+    "commands_sha256": "6f3e6a968a9ab9986e54e9c2d7590315359700228f49d8b4b109f01dfb0fb944"
+  },
+  "cmac_descriptor": {
+    "flags": 0,
+    "op_idx": 0,
+    "enable_mask": 13,
+    "int_mask": 768,
+    "int_clear": 131071,
+    "int_status": 0,
+    "regcfg_amount": 45,
+    "regcfg_offset": 0,
+    "regcmd_addr": 269352960
+  },
+  "compaction_descriptors": [
+    {
+      "flags": 0,
+      "op_idx": 4,
+      "enable_mask": 24,
+      "int_mask": 768,
+      "int_clear": 131071,
+      "int_status": 0,
+      "regcfg_amount": 22,
+      "regcfg_offset": 0,
+      "regcmd_addr": 269352960
+    },
+    {
+      "flags": 0,
+      "op_idx": 4,
+      "enable_mask": 24,
+      "int_mask": 768,
+      "int_clear": 131071,
+      "int_status": 0,
+      "regcfg_amount": 22,
+      "regcfg_offset": 0,
+      "regcmd_addr": 269353136
+    }
+  ],
+  "successful_cmac_reset_callbacks_recorded": 1,
+  "live_reset_protocol_implemented": false,
+  "backend_final_writer_unchanged": true,
+  "tensor_framework_integration_performed": false,
+  "expected_fp16": [
+    "baea",
+    "2347",
+    "3f38",
+    "b45e",
+    "3f64",
+    "bf70",
+    "b9a2",
+    "4271",
+    "379e",
+    "b5e0",
+    "291b",
+    "2cbf",
+    "c0a3",
+    "b9ae",
+    "3552",
+    "4109",
+    "ba62",
+    "bbbf",
+    "419b",
+    "bc18",
+    "c4a7",
+    "42e6",
+    "4039",
+    "4236",
+    "bbb5",
+    "30b1",
+    "be13",
+    "3632",
+    "c0e9",
+    "3aae",
+    "449c",
+    "3d3b"
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "all_original_and_copied_inputs_unchanged": true,
+  "cell_inventory_file_sha256": "b5ad93c7124ec1e6ab14108e9115f946351bbbb3d51b0becf8e9d62210067d61",
+  "fit_or_timing_claim": false,
+  "hardware_accessed": false,
+  "mapped_cell_inventory": {
+    "cell_type_counts_including_scopeinfo": {
+      "$scopeinfo": 5,
+      "BUFG": 1,
+      "CARRY4": 102,
+      "FDRE": 1957,
+      "FDSE": 1,
+      "IBUF": 610,
+      "INV": 1341,
+      "LUT1": 3,
+      "LUT2": 203,
+      "LUT3": 124,
+      "LUT4": 231,
+      "LUT5": 117,
+      "LUT6": 964,
+      "MUXF7": 108,
+      "MUXF8": 16,
+      "OBUF": 2082
+    },
+    "core_dsp": 0,
+    "core_ff": 1958,
+    "core_lut": 1642,
+    "core_other_physical": 1568,
+    "core_physical_total": 5168,
+    "core_ram": 0,
+    "io_cells": 2692,
+    "json_cell_objects_total_including_scopeinfo": 7865,
+    "mapped_primitive_cells_excluding_scopeinfo": 7860,
+    "nonphysical_scopeinfo_metadata_cells": 5,
+    "physical_cell_type_counts": {
+      "BUFG": 1,
+      "CARRY4": 102,
+      "FDRE": 1957,
+      "FDSE": 1,
+      "IBUF": 610,
+      "INV": 1341,
+      "LUT1": 3,
+      "LUT2": 203,
+      "LUT3": 124,
+      "LUT4": 231,
+      "LUT5": 117,
+      "LUT6": 964,
+      "MUXF7": 108,
+      "MUXF8": 16,
+      "OBUF": 2082
+    }
+  },
+  "mapped_netlist_json_sha256": "16520bb5e313bf2438bcb2c180328fecba16d0ce6bfe3bb3176ecc07b8750f47",
+  "mapped_netlist_verilog_sha256": "3600bce65357d1b00dc0ed1bd31bc1fc3da407c3d71ead6e367a0c58c31b84d1",
+  "memory_peak_bytes": "204718080",
+  "native_mapping_report_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-composition-mapping-v1/report.json",
+  "native_mapping_report_sha256": "f164c12b3d333ea761be21f17cd9c49f8fee913efd8c44100b5dc53e1cdbcca8",
+  "resource_caps": {
+    "cpu.max": "200000 100000",
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "scope": "Six-module rk_ddr_capacity_bist subsystem only; no whole-design fit, timing, MIG integration, or physical qualification",
+  "source_manifest_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-composition-mapping-v1/source-manifest.json",
+  "source_manifest_sha256": "f3f8bfe8cd18affbef35d2370ca80a66762f8638a96134ea1d76e17abb3cbf25",
+  "source_rows": [
+    {
+      "bytes": 13125,
+      "copied_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-composition-mapping-v1/source/000-rk_ddr_capacity_axi.sv",
+      "copied_sha256_after": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+      "copied_sha256_before": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+      "original_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_axi.sv",
+      "original_sha256_after": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+      "original_sha256_before": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+      "unchanged": true
+    },
+    {
+      "bytes": 5047,
+      "copied_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-composition-mapping-v1/source/001-rk_ddr_capacity_bist.sv",
+      "copied_sha256_after": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+      "copied_sha256_before": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+      "original_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_bist.sv",
+      "original_sha256_after": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+      "original_sha256_before": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+      "unchanged": true
+    },
+    {
+      "bytes": 864,
+      "copied_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-composition-mapping-v1/source/002-rk_ddr_capacity_pattern.sv",
+      "copied_sha256_after": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+      "copied_sha256_before": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+      "original_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv",
+      "original_sha256_after": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+      "original_sha256_before": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+      "unchanged": true
+    },
+    {
+      "bytes": 9174,
+      "copied_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-composition-mapping-v1/source/003-rk_ddr_capacity_sweep.sv",
+      "copied_sha256_after": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+      "copied_sha256_before": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+      "original_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv",
+      "original_sha256_after": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+      "original_sha256_before": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+      "unchanged": true
+    },
+    {
+      "bytes": 7651,
+      "copied_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-composition-mapping-v1/source/004-rk_mig_ecc_monitor.sv",
+      "copied_sha256_after": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+      "copied_sha256_before": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+      "original_path": "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv",
+      "original_sha256_after": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+      "original_sha256_before": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+      "unchanged": true
+    },
+    {
+      "bytes": 8120,
+      "copied_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-composition-mapping-v1/source/005-rk_mig_write_fence.sv",
+      "copied_sha256_after": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+      "copied_sha256_before": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+      "original_path": "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv",
+      "original_sha256_after": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+      "original_sha256_before": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+      "unchanged": true
+    }
+  ],
+  "status": "PASS_POSTMAPPING_PROVENANCE_AND_INVENTORY_REVIEW_ONLY",
+  "vivado_executed": false,
+  "wall_seconds": 9.572714183945209,
+  "yosys": {
+    "argv": [
+      "/home/linuxbrew/.linuxbrew/bin/yosys",
+      "-Q",
+      "-s",
+      "/home/fedora/rknpu-fpga/build/ddr-capacity-composition-mapping-v1/mapping.ys"
+    ],
+    "binary_sha256": "c3908b1f72e10f657eb48c76f72d8bc5c060d78205d60a1ce2c8c4b3377de84c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "a1c1d729c7bacc2f500025686655cddd5527737cf8acfb0bc4872630b3ddcc78",
+    "version": "Yosys 0.65 (git sha1 aec814bdf3071f7e0fd0fbe43f7f711e99d01e24, g++-12 12.3.0-1ubuntu1~22.04.3 -fPIC -O3)",
+    "warning_count": 1,
+    "warnings": [
+      "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\")."
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "ddr-capacity-service-native-tool-manifest-v1",
+  "status": "HASH_BOUND_VERSION_NOT_QUERIED_PENDING_ROOT_REVIEW",
+  "systemd_run_resource_limits": {
+    "CPUQuota": "200%",
+    "MemoryMax": "8G",
+    "MemorySwapMax": "0",
+    "TasksMax": 256,
+    "timeout_seconds": 600
+  },
+  "tools": [
+    {
+      "bytes": 1422,
+      "name": "vivado",
+      "path": "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+      "sha256": "121b8c468f96f7ee750fc8f7d2386c54d047b204a5b8b7a5dada85f04997302d",
+      "version_argv": [
+        "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+        "-version"
+      ],
+      "version_status": "NOT_RUN"
+    }
+  ]
+}

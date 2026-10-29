@@ -1,0 +1,42 @@
+{
+  "status": "APPROVED_REGISTERED_BRAM_FULL512_CHECKPOINT_BUILD_ONLY",
+  "reviewer": "Root RTL/topology/contract review with exact mechanical-native gates",
+  "reviewed_utc": "2026-10-26T11:18:31.398539+00:00",
+  "authorization": "User: fix the failed timing; u can build vivado",
+  "scope": "Fresh full512 registered-BRAM checkpoint only; mapped/startup/image review incomplete; no bitstream or programming",
+  "prepared_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+  "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+  "build_tcl_sha256": "ecda4325c745ae04dc19fbeb9a2fe7669f83c6605b8eb272639bffdc2570c880",
+  "part": "xc7k480tffg1156-2",
+  "parallel_products": 512,
+  "clock_period_ns": 20,
+  "pipeline_stages": 2,
+  "electrical": {
+    "config_voltage": "1.8",
+    "cfgbvs": "GND",
+    "led_active_low": 0,
+    "optical_polarity_unknown": true,
+    "rail_or_strap_new_measurement": false
+  },
+  "native_reports": {
+    "iverilog": {
+      "path": "/home/fedora/rknpu-fpga/build/regmem-board/iverilog-reviewed-20261026T110614Z/report.json",
+      "sha256": "b593852d4ef55e8c31f5ed00b56b60c813981ea2c4f826b41f7724f8387fde74"
+    },
+    "verilator": {
+      "path": "/home/fedora/rknpu-fpga/build/regmem-board/verilator-20261026T105744Z/native/report.json",
+      "sha256": "7b2f7fda50aaa11d72b3822729710d7dc9ab3a8ea704eabe0c413015ba14e651"
+    }
+  },
+  "reviewed_changes": [
+    "RAM address/data/enable/write controls use initialized no-async-reset registers; accepted writes may commit across reset, ownership flushes",
+    "ROM index/startup-only controller/heartbeat sample reset on continuously running clock; held64/release65 unchanged",
+    "Both original raw K65 suites retain all numerical/error/abort/restart assertions and all512products",
+    "Exact source-bound mixed-reset Verilator warning reviewed; original donor/prefix warning inventory intact; no simulator suppressions or physical DRC waiver",
+    "Same20ns, GPIO/config profile,512DSP retention checks, timing/unconstrained/DRC gates; bitstream emission disabled"
+  ],
+  "build_admission": true,
+  "bitstream_emission_approved": false,
+  "programming_approved": false,
+  "mapped_qualification_complete": false
+}

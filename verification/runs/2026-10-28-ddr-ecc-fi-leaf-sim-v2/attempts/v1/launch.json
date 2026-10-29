@@ -1,0 +1,49 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-ddr-ecc-fi-leaf-20261028t0643",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "python3",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v1/run_validation.py"
+  ],
+  "cwd": "/home/fedora/rknpu-fpga",
+  "flash_written": false,
+  "hardware_accessed": false,
+  "launch_performed": false,
+  "native_deadline_seconds_per_command": 300,
+  "prepared_utc": "2026-10-28T06:42:40.168336+00:00",
+  "required_cgroup": {
+    "cpu.max": "200000 100000",
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "schema": "ddr-ecc-fi-leaf-launch-v1",
+  "scope": "FI_XOR 72-bit data-path leaf only; no MIG controller/memory/ECC decode/PHY or physical qualification.",
+  "source_manifest": {
+    "private_leaf_path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v1/source/mig_7series_v4_2_fi_xor.v",
+    "private_leaf_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+    "runner_path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v1/run_validation.py",
+    "runner_sha256": "e0e13c7f44cc0770c1fddcdd4ce77b3f1ca8e14fa7652a5d6db16443ea3ab911",
+    "selected_leaf_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+    "selected_leaf_source_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v",
+    "strict_route_file_count": 160,
+    "strict_route_prep_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/preparation.json",
+    "strict_route_prep_sha256": "71fe220dfe1ac59327ead8576f799edccd2af36dae493013f8e09ca3d102d96b",
+    "strict_route_source_manifest_sha256": "85ed4aed6a3761b2e12f86b21bc9a5adc79e60049148ac958290bcb30650ff69",
+    "testbench_path": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v1/tests/tb_mig_fi_xor.sv",
+    "testbench_sha256": "bb52997eb213152842a9d65667fb7e82ea14cac963c415a8f57de8b8d421f9bb"
+  },
+  "status": "PREPARED_TO_LAUNCH",
+  "strict_no_diagnostic_suppression": true,
+  "vivado_executed": false
+}

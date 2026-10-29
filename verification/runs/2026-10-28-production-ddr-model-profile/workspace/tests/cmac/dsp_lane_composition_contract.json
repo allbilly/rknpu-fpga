@@ -1,0 +1,30 @@
+{
+  "schema": "SOURCE_BOUND_BINARY_LANE_COMPOSITION_CONTRACT_V1",
+  "scope": "Audited whole-module glue statements for mathematical composition only. Raw pre-shifted magnitudes, all 37 binary miter inputs and 40 compensated sum/tag bits; no X/reset, whole array, mapped, physical or RK acceptance.",
+  "modules": [
+    {
+      "source": "rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+      "module": "rk_cmac_fp16_rows",
+      "exclusive": true,
+      "canonical_module": "module rk_cmac_fp16_rows ( input wire [15:0] op_a, op_b, input wire [3:0] exp_sft, input wire pair_nz, output wire [31:0] res_a, res_b, output wire [7:0] res_tag ); wire [16:0] codes = {1'b0, op_a[14:0], 1'b0}; wire [16:0] selected [8]; wire [7:0] inverted; wire [23:0] low_a, low_b, high_a, high_b; wire [31:0] row_a, row_b; wire [119:0] inputs_low, inputs_high; for (genvar i=0; i<8; i=i+1) begin: booth NV_NVDLA_CMAC_CORE_MAC_booth recode ( .code(codes[2*i+:3]), .is_8bit(1'b0), .sign(op_a[15]^op_b[15]), .src_data({1'b0,op_b[14:0]}), .out_data(selected[i]), .out_inv(inverted[i])); end assign inputs_low = { {17'b0,inverted[3],6'b0}, {1'b0,selected[3],1'b0,inverted[2],4'b0}, {3'b0,selected[2],1'b0,inverted[1],2'b0}, {5'b0,selected[1],1'b0,inverted[0]}, {7'b0,selected[0]}}; assign inputs_high = { {17'b0,inverted[7],6'b0}, {1'b0,selected[7],1'b0,inverted[6],4'b0}, {3'b0,selected[6],1'b0,inverted[5],2'b0}, {5'b0,selected[5],1'b0,inverted[4]}, {7'b0,selected[4]}}; NV_DW02_tree #(5,24) low_tree (.INPUT(inputs_low),.OUT0(low_a),.OUT1(low_b)); NV_DW02_tree #(5,24) high_tree (.INPUT(inputs_high),.OUT0(high_a),.OUT1(high_b)); NV_DW02_tree #(4,32) final_tree ( .INPUT({{high_b,8'b0},{high_a,8'b0},{8'b0,low_b},{8'b0,low_a}}), .OUT0(row_a),.OUT1(row_b)); assign res_a = (!pair_nz || exp_sft[3]) ? 32'b0 : row_a >> {exp_sft[2:0],2'b0}; assign res_b = (!pair_nz || exp_sft[3]) ? 32'b0 : row_b >> {exp_sft[2:0],2'b0}; assign res_tag = (!pair_nz || exp_sft[3]) ? 8'b0 : 8'hf0 >> exp_sft[2:0]; endmodule"
+    },
+    {
+      "source": "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp.sv",
+      "module": "rk_cmac_fp16_lane_dsp",
+      "exclusive": true,
+      "canonical_module": "module rk_cmac_fp16_lane_dsp ( input wire [15:0] op_a, op_b, input wire [3:0] exp_sft, input wire pair_nz, output wire [31:0] lane_sum, output wire [7:0] res_tag ); wire [31:0] original_row_a; rk_cmac_fp16_rows original ( .op_a(op_a), .op_b(op_b), .exp_sft(4'd0), .pair_nz(1'b1), .res_a(original_row_a), .res_b(), .res_tag() ); wire signed [15:0] magnitude_a = $signed({1'b0, op_a[14:0]}); wire signed [15:0] magnitude_b = $signed({1'b0, op_b[14:0]}); wire signed [15:0] signed_a = (op_a[15] ^ op_b[15]) ? -magnitude_a : magnitude_a; (* use_dsp = \"yes\" *) wire signed [31:0] product = signed_a * magnitude_b; wire [31:0] biased_sum = $unsigned(product) + 32'h55550000; wire [4:0] shift_amount = {exp_sft[2:0], 2'b00}; wire [31:0] low_mask = (32'h00000001 << shift_amount) - 32'd1; wire discarded_carry = (original_row_a & low_mask) > (biased_sum & low_mask); wire [31:0] compensation = -(32'h55550000 >> shift_amount); wire [31:0] corrected = (biased_sum >> shift_amount) - {31'd0, discarded_carry} + compensation; assign lane_sum = (!pair_nz || exp_sft[3]) ? 32'd0 : corrected; assign res_tag = (!pair_nz || exp_sft[3]) ? 8'd0 : 8'hf0 >> exp_sft[2:0]; endmodule"
+    },
+    {
+      "source": "tests/cmac/cmac_lane_dsp_miter.sv",
+      "module": "cmac_lane_dsp_miter",
+      "exclusive": true,
+      "canonical_module": "module cmac_lane_dsp_miter ( input wire [15:0] op_a, op_b, input wire [3:0] exp_sft, input wire pair_nz, output wire [31:0] reference_lane, actual_lane, output wire [7:0] reference_tag, actual_tag, output wire [39:0] difference, output wire mismatch ); wire [31:0] row_a, row_b; reg [31:0] compensation; rk_cmac_fp16_rows reference_rows ( .op_a(op_a), .op_b(op_b), .exp_sft(exp_sft), .pair_nz(pair_nz), .res_a(row_a), .res_b(row_b), .res_tag(reference_tag) ); always @* begin case(reference_tag) 8'hf0: compensation = 32'haaab0000; 8'h78: compensation = 32'hfaaab000; 8'h3c: compensation = 32'hffaaab00; 8'h1e: compensation = 32'hfffaaab0; 8'h0f: compensation = 32'hffffaaab; 8'h07: compensation = 32'hfffffaab; 8'h03: compensation = 32'hffffffab; 8'h01: compensation = 32'hfffffffb; default: compensation = 32'd0; endcase end assign reference_lane = row_a + row_b + compensation; rk_cmac_fp16_lane_dsp candidate ( .op_a(op_a), .op_b(op_b), .exp_sft(exp_sft), .pair_nz(pair_nz), .lane_sum(actual_lane), .res_tag(actual_tag) ); assign difference = {reference_lane ^ actual_lane, reference_tag ^ actual_tag}; assign mismatch = |difference; endmodule"
+    },
+    {
+      "source": "tests/cmac/cmac_lane_dsp_component_miters.sv",
+      "module": "cmac_discarded_carry_lemma",
+      "exclusive": false,
+      "canonical_module": "module cmac_discarded_carry_lemma ( input wire [31:0] row_a,row_b, input wire [2:0] shift, output wire [31:0] difference, output wire mismatch, output wire sum_overflow ); wire [32:0] full_sum = {1'b0,row_a}+{1'b0,row_b}; wire [31:0] sum = full_sum[31:0]; wire [4:0] amount = {shift,2'b00}; wire [31:0] mask = (32'd1 << amount)-32'd1; wire carry = (row_a & mask) > (sum & mask); wire [31:0] separately_shifted = (row_a >> amount)+(row_b >> amount); wire [31:0] corrected = (sum >> amount)-{31'd0,carry}; assign sum_overflow = full_sum[32]; assign difference = separately_shifted ^ corrected ^ `RK_COMPONENT_FLIP; assign mismatch = !sum_overflow && (|difference); endmodule"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "status": "FAIL_TEST_STIMULUS_WAS_NOP_INSTEAD_OF_WRITE_OVERRUN",
+  "failure": "Expected overruns, observed Malformed NOP packet/count",
+  "resolution": "Keep expected overrun rejection; mutate actual Type1 write packet for the overrun case. Dedicated NOP rejection control remains."
+}

@@ -1,0 +1,5 @@
+PASS full512_startup mode=0 polarity=0 outcome=success error=00 hold=64 release=65 init=4096 checks=4096 cmd_reads=196 operand_reads=6528 writes=64 acks=64 frames=12 cycles=59896; configuration model only
+- /home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/source/tests/cmac/startup/tb_array_startup.sv:175: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.048 2026-04-26
+- Verilator: $finish at 1ms; walltime 171.774 s; speed 7.099 us/s
+- Verilator: cpu 168.930 s on 1 threads; allocated 28 MB

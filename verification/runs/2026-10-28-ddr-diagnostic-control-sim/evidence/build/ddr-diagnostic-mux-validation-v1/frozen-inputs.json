@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-10-28T07:40:17.356172+00:00",
+  "inputs": {
+    "run_validation.py": "101f5d49fdc02d670a64b15fbc248c0f44f1261110475db4e10e0754ddf00bf9",
+    "source/rk_ddr_diagnostic_mux.sv": "c771344eb0b09506763336905d739a29f3a26f226848267d5f6b201f4d1a8e57",
+    "source/tb_ddr_diagnostic_mux.sv": "528554b931c436c526177483b0f143c9da866fce78d6d5566aff1101995ac24d",
+    "source/tb_ddr_diagnostic_mux_badparams.sv": "bf374ca468816b762c2176b85fdcdd77b32ed028ed1712a79d8e056ff7358673"
+  },
+  "schema": "ddr-diagnostic-mux-frozen-inputs-v1",
+  "scope": "Private two-master AXI routing mux, memory config31/512/4 and control config32/32/1. No ownership/arbitration, parent integration, MIG/PHY, or physical qualification.",
+  "source_inputs": {
+    "bad_parameter_bench": {
+      "path": "source/tb_ddr_diagnostic_mux_badparams.sv",
+      "sha256": "bf374ca468816b762c2176b85fdcdd77b32ed028ed1712a79d8e056ff7358673"
+    },
+    "rtl/ddr/rk_ddr_diagnostic_mux.sv": {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_diagnostic_mux.sv",
+      "sha256": "c771344eb0b09506763336905d739a29f3a26f226848267d5f6b201f4d1a8e57"
+    },
+    "runner": {
+      "path": "run_validation.py",
+      "sha256": "101f5d49fdc02d670a64b15fbc248c0f44f1261110475db4e10e0754ddf00bf9"
+    },
+    "testbench": {
+      "path": "source/tb_ddr_diagnostic_mux.sv",
+      "sha256": "528554b931c436c526177483b0f143c9da866fce78d6d5566aff1101995ac24d"
+    }
+  }
+}

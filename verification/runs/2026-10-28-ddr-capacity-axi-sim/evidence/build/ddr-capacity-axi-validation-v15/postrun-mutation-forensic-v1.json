@@ -1,0 +1,144 @@
+{
+  "current_v15_modified_by_this_agent": true,
+  "expanded_run": {
+    "bench_sha256": "517fa75de111012db4ae75c38706bfec4a6d8b2981cbe6c60d2a1e6a161808f4",
+    "commands": [
+      [
+        "public_software_golden_check",
+        0
+      ],
+      [
+        "small256_base0_icarus_compile",
+        0
+      ],
+      [
+        "small256_base0_icarus_sim",
+        0
+      ],
+      [
+        "small256_base0_verilator_compile",
+        0
+      ],
+      [
+        "small256_base0_verilator_sim",
+        0
+      ],
+      [
+        "span512_base0_icarus_compile",
+        0
+      ],
+      [
+        "span512_base0_icarus_sim",
+        0
+      ],
+      [
+        "span512_base0_verilator_compile",
+        0
+      ],
+      [
+        "span512_base0_verilator_sim",
+        0
+      ],
+      [
+        "small256_base1000_icarus_compile",
+        0
+      ],
+      [
+        "small256_base1000_icarus_sim",
+        0
+      ],
+      [
+        "small256_base1000_verilator_compile",
+        0
+      ],
+      [
+        "small256_base1000_verilator_sim",
+        0
+      ],
+      [
+        "last512_base7ffffe00_icarus_compile",
+        0
+      ],
+      [
+        "last512_base7ffffe00_icarus_sim",
+        0
+      ],
+      [
+        "last512_base7ffffe00_verilator_compile",
+        0
+      ],
+      [
+        "last512_base7ffffe00_verilator_sim",
+        0
+      ],
+      [
+        "joined_icarus_compile",
+        0
+      ],
+      [
+        "joined_icarus_sim",
+        0
+      ],
+      [
+        "joined_verilator_compile",
+        0
+      ],
+      [
+        "joined_verilator_sim",
+        0
+      ]
+    ],
+    "directory": "build/ddr-capacity-axi-validation-v16",
+    "finished_utc": "2026-10-28T06:57:51.587060+00:00",
+    "launch_argv": [
+      "systemd-run",
+      "--user",
+      "--scope",
+      "--quiet",
+      "-p",
+      "MemoryMax=4G",
+      "-p",
+      "MemorySwapMax=0",
+      "-p",
+      "CPUQuota=200%",
+      "-p",
+      "TasksMax=256",
+      "python3",
+      "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v16/run_validation.py"
+    ],
+    "report_path": "build/ddr-capacity-axi-validation-v16/report.json",
+    "report_sha256": "cafed80c35a409393f21664b63a377be14c5ad9a2225c36416bf2d7b1e1fb7d7",
+    "started_utc": "2026-10-28T06:56:52.455604+00:00",
+    "status": "PASS_AXI_ADAPTER_AND_JOINED_BIST_SIMULATION_ONLY"
+  },
+  "hardware_executed": false,
+  "model_run_executed": false,
+  "mutation_author": "/root/luna_ddr_boot agent",
+  "mutation_summary": "Added exactly 16 lines testing premature B and R responses directly into private v15 tb_capacity_axi.sv after the v15 producer run; copied that expanded bench into fresh v16 and ran it there. No RTL was changed.",
+  "postrun_files": {
+    "diff_bytes": 2171,
+    "diff_path": "build/ddr-capacity-axi-validation-v15/postrun-mutation.diff",
+    "diff_sha256": "ca6960e9be9b595956ee15dea16b6e86056e6235e7152badc3a14596c04a2043",
+    "private_v15_testbench_mtime_utc": "2026-10-28T06:56:45.553736+00:00",
+    "private_v15_testbench_path": "build/ddr-capacity-axi-validation-v15/tb_capacity_axi.sv",
+    "private_v15_testbench_sha256": "517fa75de111012db4ae75c38706bfec4a6d8b2981cbe6c60d2a1e6a161808f4",
+    "public_testbench_mtime_utc": "2026-10-28T06:56:42.924913+00:00",
+    "public_testbench_path": "tests/ddr/capacity/tb_capacity_axi.sv",
+    "public_testbench_sha256": "adff6440671556222324ace6d2df1fbd3e0ce0529fcadfff613284faebe390ed"
+  },
+  "remaining_matching_processes": [],
+  "root_public_snapshot_still_matches_v15_producer_hash": true,
+  "schema": "ddr-capacity-axi-postrun-mutation-forensic-v1",
+  "shared_lease_used": false,
+  "status": "RECORDED_POSTRUN_PRIVATE_TESTBENCH_MUTATION",
+  "v15_producer": {
+    "finished_utc": "2026-10-28T06:56:07.155245+00:00",
+    "producer_after_bench_sha256": "adff6440671556222324ace6d2df1fbd3e0ce0529fcadfff613284faebe390ed",
+    "producer_input_bench_sha256": "adff6440671556222324ace6d2df1fbd3e0ce0529fcadfff613284faebe390ed",
+    "report_path": "build/ddr-capacity-axi-validation-v15/report.json",
+    "report_sha256": "dee9811c547c8fdf8c38f9171881683007bb8ca395f94e104d0fc93edf1da230",
+    "started_utc": "2026-10-28T06:55:21.454681+00:00",
+    "status": "PASS_AXI_ADAPTER_AND_JOINED_BIST_SIMULATION_ONLY"
+  },
+  "vivado_executed": false
+}

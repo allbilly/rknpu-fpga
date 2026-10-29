@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "variant_id": "rknpu-mig42-round-robin-width-one-v1",
+  "archive_sha256": "09050b7ca090b3f8206d7735f9de919788f2a35d868311b7911f8d6c7812a84a",
+  "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/controller/mig_7series_v4_2_round_robin_arb.v",
+  "original_sha256": "a4b107a17899ee17b42c76e91f8789737d74b65d37c1be6f895bbe24b8b614ef",
+  "patched_sha256": "ae6be8a3f77170c867bf076a4291bd6b0755c1250ab32215a8b679274b88368f",
+  "replace_once": {
+    "old": "      wire [WIDTH-1:1] inh_group;\n",
+    "new": "      // WIDTH=1 has no competing requester: its inhibit group is zero.\n      // Keep the original vector and logic unchanged for WIDTH>=2.\n      wire [((WIDTH > 1) ? WIDTH-1 : 1):1] inh_group;\n      if (WIDTH == 1) begin : single_requester\n        assign inh_group[1] = 1'b0;\n      end\n"
+  },
+  "scope": "Only define the missing WIDTH=1 inhibit input. No periodic-read disable, physical/electrical profile change or original archive mutation.",
+  "preserved": "License header, module interface, inhibit initialization, grant_ns expression, grant_r timing and all prefix/suffix bytes are retained.",
+  "multi_requestor_equivalence": "For WIDTH>=2 the bound expression evaluates to the original WIDTH-1:1 range; the new WIDTH==1 branch is absent. The original inner loop and inhibit/grant logic are byte-identical.",
+  "physical_qualification": false
+}

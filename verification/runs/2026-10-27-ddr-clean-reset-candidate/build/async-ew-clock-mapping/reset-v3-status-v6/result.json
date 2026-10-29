@@ -1,0 +1,177 @@
+{
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 133.78070267499425,
+  "started_utc": "2026-10-27T08:55:51.866093+00:00",
+  "finished_utc": "2026-10-27T08:58:05.673098+00:00",
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-async-ew-clock-resetstatus-20261027-v6",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/audit.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/async-ew-clock-mapping/reset-v3-status-v6/vivado.jou"
+  ],
+  "pid": 842122,
+  "dcp_hashes": {
+    "old_v2": "4f78c3a889ca23ad1c28b0fe39f36852242409227feac59b59fa8f1f4e447fa4",
+    "new_reset_v3": "e28ae1dc57360f50f58bb96e0188b1c27b71c3f466ac773a9f8b4b66ff8b4fc1"
+  },
+  "helper_hashes_before": {
+    "fpga/ddr/async_job_cdc.tcl": "3e775ddef64a52896ff8ffc1a9e1a2f9c24669b5bc89dd6398715478dafc4df5",
+    "fpga/ddr/async_mem_cdc.tcl": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+    "build/ddr-reset-candidate/v1/workspace/fpga/ddr/reset_status_cdc.tcl": "dc34a33077b444f1934d46267b10b436453ec486b458548a819bb24338715a62"
+  },
+  "helper_hashes_after": {
+    "fpga/ddr/async_job_cdc.tcl": "3e775ddef64a52896ff8ffc1a9e1a2f9c24669b5bc89dd6398715478dafc4df5",
+    "fpga/ddr/async_mem_cdc.tcl": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+    "build/ddr-reset-candidate/v1/workspace/fpga/ddr/reset_status_cdc.tcl": "dc34a33077b444f1934d46267b10b436453ec486b458548a819bb24338715a62"
+  },
+  "helpers_unchanged": true,
+  "frozen_helpers": {
+    "build/async-ew-clock-mapping/reset-v3-status-v6/frozen/async_job_cdc.tcl": "3e775ddef64a52896ff8ffc1a9e1a2f9c24669b5bc89dd6398715478dafc4df5",
+    "build/async-ew-clock-mapping/reset-v3-status-v6/frozen/async_mem_cdc.tcl": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+    "build/async-ew-clock-mapping/reset-v3-status-v6/frozen/reset_status_cdc.tcl": "dc34a33077b444f1934d46267b10b436453ec486b458548a819bb24338715a62"
+  },
+  "vivado_version_lines": [
+    "****** Vivado v2026.1 (64-bit)",
+    "  **** SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026",
+    "  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026",
+    "INFO: [Project 1-604] Checkpoint was created with Vivado v2026.1 (64-bit) build 6511674",
+    "INFO: [Project 1-604] Checkpoint was created with Vivado v2026.1 (64-bit) build 6511674"
+  ],
+  "native_errors": [],
+  "native_warnings": [
+    "WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met."
+  ],
+  "old_dcp_structural_negative": "EXPECTED_REJECTION\tStatus chain contains restart logic, a bus or another source",
+  "clock_negative": "EXPECTED_REJECTION\tChanged status clock period",
+  "hardware_accessed": false,
+  "implementation_executed": false,
+  "bitstream_emitted": false,
+  "artifacts": {
+    "audit.tcl": {
+      "sha256": "f5d0aec35e84758360f1a7b174d90f72bf405b6f16be210b0c40bc7f88acc4f0",
+      "bytes": 2178
+    },
+    "frozen/async_job_cdc.tcl": {
+      "sha256": "3e775ddef64a52896ff8ffc1a9e1a2f9c24669b5bc89dd6398715478dafc4df5",
+      "bytes": 13923
+    },
+    "frozen/async_mem_cdc.tcl": {
+      "sha256": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+      "bytes": 9181
+    },
+    "frozen/reset_status_cdc.tcl": {
+      "sha256": "dc34a33077b444f1934d46267b10b436453ec486b458548a819bb24338715a62",
+      "bytes": 8012
+    },
+    "job/async_job_bus_skew.rpt": {
+      "sha256": "1288c065264aa8a06e911cc9ae7be2e4a08110f9d22332b321d8c0ab510bc182",
+      "bytes": 47826
+    },
+    "job/async_job_cdc.rpt": {
+      "sha256": "4f152037685b4d0a34c0f76e83f4143f149e9f6933b8cdd75785c8ee2ae4920d",
+      "bytes": 61695
+    },
+    "job/async_job_cdc.tsv": {
+      "sha256": "e0c8b7354dac62c95614b420a8d4338562e7fffeea827461bdf02d1d68ccbe1d",
+      "bytes": 1676
+    },
+    "job/async_job_descriptor_payload_timing.rpt": {
+      "sha256": "bc774b49a3f63c3f637683955f9841e3a4418069117890350bce9b2e20188808",
+      "bytes": 142977
+    },
+    "job/async_job_exceptions.rpt": {
+      "sha256": "4b107fa496f2483e7f9da9690f8bb4161e973f30360ff9c04d15843f121815be",
+      "bytes": 202190
+    },
+    "job/async_job_result_payload_timing.rpt": {
+      "sha256": "c4e9c9725264da64ea174be55db74423ba00fcb26c9779b003393d850d25b48b",
+      "bytes": 82388
+    },
+    "launch.json": {
+      "sha256": "c0bf6e9267330ba9329f78603e6fa1d4b498cb6f2e547a2d5c5f2167fdca2bb0",
+      "bytes": 2147
+    },
+    "launcher.log": {
+      "sha256": "c96fff6ebc65e54d0bfa06d648f8da0f64dd6106959871fa48d7a9edb6607161",
+      "bytes": 45840
+    },
+    "memory/async_memory_bus_skew.rpt": {
+      "sha256": "7c3f6091d247124d988f940cf09e059d5f7793af26348052b6d3bc5f4fec3493",
+      "bytes": 39252
+    },
+    "memory/async_memory_cdc.rpt": {
+      "sha256": "7e7b76a11cdf5b16c99f94dda2de19761750d4bb82beae765529b0fa20bd8901",
+      "bytes": 61705
+    },
+    "memory/async_memory_cdc.tsv": {
+      "sha256": "c8b8fb072714e3b3755fdb8c74ab7833771422b93d04efcd0580409ceaa9e638",
+      "bytes": 1149
+    },
+    "memory/async_memory_exceptions.rpt": {
+      "sha256": "94559e0f8320ea94f749ddee3a8d3550f3574bcbea29d62d6ef0b3a2c7d7974d",
+      "bytes": 202208
+    },
+    "memory/request_payload_timing.rpt": {
+      "sha256": "49da2f7ca0614f84e4540c1e68a09988f156e97770ab5a625ab2ec2f0ed0b0d0",
+      "bytes": 109737
+    },
+    "memory/response_payload_timing.rpt": {
+      "sha256": "05aa56ec404d812e12ac6cf4be154d93e0f7484cfa7dc0892ed42a2d7da63a89",
+      "bytes": 39322
+    },
+    "negative/clock-name-negative.tsv": {
+      "sha256": "3bd816c98b6bf92c704f8f7dd3f2f92b2978832ee79e3a2c7d8886a6372a4c98",
+      "bytes": 47
+    },
+    "negative/old-v2-structural-negative.tsv": {
+      "sha256": "e49600549e6eaadbf7679c55794cb68e2e832173ede4f61e1a5befe8e3ae0ff6",
+      "bytes": 80
+    },
+    "process.json": {
+      "sha256": "c2d868b3e50ccfebb2a35f08d3f41bd2dcbd7a835fcabdacc7af424d12ac94d0",
+      "bytes": 38
+    },
+    "status/reset_status_cdc.rpt": {
+      "sha256": "deefc9d5929a96fba28f1a4fc94aef7374aa33138f1591a954910a89499f8d90",
+      "bytes": 61705
+    },
+    "status/reset_status_cdc.tsv": {
+      "sha256": "21cfc7f2016aae09ddab78a7092e51e3c42992af8f11b65f40b8c2b035b34f0e",
+      "bytes": 1840
+    },
+    "status/reset_status_exceptions.rpt": {
+      "sha256": "1640962f418d3f200cf9babd2387b8c87dd5f473272ed201c0357e437ea2fb4d",
+      "bytes": 202208
+    },
+    "status/unplaced_platform_timing.rpt": {
+      "sha256": "d8be6c9cd00400db6a3c06601928edb6d84afbc5f91d32e1c8bfb5e95ad2e59e",
+      "bytes": 2257815
+    },
+    "vivado.jou": {
+      "sha256": "5ca4dea1d7b62f5dd0a6bdd14ebc55765d83940c772ba3cea8fc82e1a9657518",
+      "bytes": 1415
+    },
+    "vivado.log": {
+      "sha256": "0f7375f6923a1e872a1f5746e867bae94923d9c5ee4b17142c425a7c3855d257",
+      "bytes": 46649
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "all_copied_inputs_unchanged": true,
+  "all_source_inputs_unchanged": true,
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-production-model-auditors-current-v9",
+    "-p",
+    "MemoryMax=6G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=30",
+    "3600s",
+    "python3",
+    "build/production-model-auditors/current-v9/run.py"
+  ],
+  "bitstream_emitted": false,
+  "cgroup": {
+    "cpu.max": "200000 100000",
+    "memory.max": "6442450944",
+    "memory.swap.max": "0",
+    "path": "user.slice/user-1000.slice/user@1000.service/app.slice/rknpu-production-model-auditors-current-v9.scope",
+    "pids.max": "256"
+  },
+  "copied_input_count": 1090,
+  "cwd": "/home/fedora/rknpu-fpga",
+  "ddr_dual_controls_report": "workspace/build/ddr-dual-controls/20261027T233137191972Z/report.json",
+  "ddr_dual_controls_status": "PASS_DUAL_CONTROL_BENCHES_ONLY",
+  "ddr_host_control_groups": [
+    {
+      "command": "python3 -m unittest discover -s tests/ddr/transport -v",
+      "tests": 10
+    },
+    {
+      "command": "python3 -m unittest discover -s tests/ddr/dual_transport -v",
+      "tests": 10
+    },
+    {
+      "command": "python3 -m unittest discover -s tests/ddr/raw_test -v",
+      "tests": 8
+    },
+    {
+      "command": "python3 -m unittest discover -s tests/ddr/image -v",
+      "tests": 7
+    },
+    {
+      "command": "python3 -m unittest discover -s tests/ddr/channel_profile -v",
+      "tests": 6
+    },
+    {
+      "command": "python3 -m unittest discover -s tests/ddr/physical_audit -v",
+      "tests": 6
+    },
+    {
+      "command": "python3 -m unittest discover -s tests/ddr/trained_audit -v",
+      "tests": 11
+    }
+  ],
+  "ddr_host_control_test_count": 58,
+  "final_command_statuses": [
+    [
+      "generated_check",
+      "PASS",
+      0,
+      2.0097395349293947
+    ],
+    [
+      "production_test",
+      "PASS",
+      0,
+      978.1482039859984
+    ]
+  ],
+  "finished_utc": "2026-10-27T23:31:51.043942+00:00",
+  "flash_written": false,
+  "full_recursive_source_file_count": 1090,
+  "full_recursive_source_manifest_sha256": "c38ef489c2902b0bbf2314feced8367ad2ac38aa9e73e948fc60c79d112879c5",
+  "generated_check_log_sha256": {
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "b3381e2f4577fb00b88ccdb768c91d043d54433d20a7fd60cadfa29a8b28cfec"
+  },
+  "generated_check_pid": 1074410,
+  "generated_check_status": "PASS",
+  "hardware_accessed": false,
+  "host_accessed": false,
+  "host_admission_samples": [
+    {
+      "cpu_psi_some_avg10": 0.37,
+      "memavailable_bytes": 28743077888,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-27T23:14:26.454370+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.08,
+      "memavailable_bytes": 28881420288,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-27T23:14:56.455132+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.1,
+      "memavailable_bytes": 28739141632,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-27T23:15:26.455791+00:00"
+    }
+  ],
+  "make_test_log_sha256": {
+    "stderr": "db7f9fe41dd1740ec5ba047c80530c47b0dccc09be78eb5f2d6b6b5e466875a4",
+    "stdout": "b69541f0c7c6ae8af88c171e028aaf0820c05b93e471142abc9b4615451cd1e9"
+  },
+  "make_test_pid": 1074425,
+  "make_test_status": "PASS",
+  "private_copy_manifest_sha256": "c38ef489c2902b0bbf2314feced8367ad2ac38aa9e73e948fc60c79d112879c5",
+  "recorded_utc": "2026-10-27T23:32:17.700293+00:00",
+  "resource_admission_file": "admission.json",
+  "run_py_pid": 1074345,
+  "run_py_sha256": "3a366b460d25afc084d121d3295714a779551082eeccf52d27e03bbc3a60293f",
+  "source_count": 1090,
+  "source_revision_manifest_sha256": "cd190c4674287e2626fd881a66c81ee41a7a27b6efde388287162827fad9d1bc",
+  "started_utc": "2026-10-27T23:15:29.770149+00:00",
+  "status": "PASS_PRIVATE_COMPLETE_PRODUCTION_MAKE_TEST_V9_ONLY",
+  "systemd_invocation_id": "2481fef9c60a491baa986c40047a57b9",
+  "systemd_scope_show": [
+    "ActiveState=inactive",
+    "Result=success"
+  ],
+  "systemd_unit": "rknpu-production-model-auditors-current-v9.scope",
+  "timeout_pid": 1074344,
+  "tiny_stories_discovery_test_count": 61,
+  "unified_exec_session_id": 76326,
+  "vivado_executed": false,
+  "worker_report_sha256": "64f8c06e22ee12e32a7c6543d20d0c4e3fb03863e1da4085fe4adc1b373be86a"
+}

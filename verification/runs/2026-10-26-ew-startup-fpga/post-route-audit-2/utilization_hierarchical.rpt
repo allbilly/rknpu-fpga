@@ -1,0 +1,41 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (lin64) Build 6511674 Tue Jun 16 11:01:26 MDT 2026
+| Date         : Mon Oct 26 12:57:40 2026
+| Host         : fedora running 64-bit unknown
+| Command      : report_utilization -hierarchical -file /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/post-route-audit-2/utilization_hierarchical.rpt
+| Design       : ypcb_ew_startup_top
+| Device       : xc7k480tffg1156-2
+| Speed File   : -2
+| Design State : Routed
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------+------------------+------------+------------+---------+------+-----+--------+--------+------------+
+|         Instance        |      Module      | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------+------------------+------------+------------+---------+------+-----+--------+--------+------------+
+| ypcb_ew_startup_top     |            (top) |       3168 |       3168 |       0 |    0 | 895 |      1 |      0 |          1 |
+|   (ypcb_ew_startup_top) |            (top) |          1 |          1 |       0 |    0 |  26 |      0 |      0 |          0 |
+|   demo                  |   rk_ew_dma_demo |       3166 |       3166 |       0 |    0 | 804 |      1 |      0 |          1 |
+|     (demo)              |   rk_ew_dma_demo |         14 |         14 |       0 |    0 |  82 |      0 |      0 |          0 |
+|     core                |        rk_ew_dma |       2853 |       2853 |       0 |    0 | 718 |      0 |      0 |          1 |
+|       (core)            |        rk_ew_dma |        175 |        175 |       0 |    0 | 263 |      0 |      0 |          0 |
+|       engine            |     rk_ew_engine |       2153 |       2153 |       0 |    0 | 218 |      0 |      0 |          1 |
+|         (engine)        |     rk_ew_engine |        630 |        630 |       0 |    0 | 201 |      0 |      0 |          0 |
+|         alu             |      rk_fp16_alu |       1523 |       1523 |       0 |    0 |  17 |      0 |      0 |          1 |
+|       regs              |       rk_ew_regs |        527 |        527 |       0 |    0 | 237 |      0 |      0 |          0 |
+|     memory              |   rk_demo_memory |        300 |        300 |       0 |    0 |   4 |      1 |      0 |          0 |
+|       ram               |          rk_bram |        270 |        270 |       0 |    0 |   4 |      1 |      0 |          0 |
+|   startup               | rk_startup_reset |          1 |          1 |       0 |    0 |  65 |      0 |      0 |          0 |
++-------------------------+------------------+------------+------------+---------+------+-----+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

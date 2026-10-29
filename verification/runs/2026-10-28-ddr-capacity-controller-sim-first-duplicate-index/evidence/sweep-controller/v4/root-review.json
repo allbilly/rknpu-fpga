@@ -1,0 +1,21 @@
+{
+  "expected_parameter_rejections": 6,
+  "facts_sha256": "a1ea39fe616bb9b4b853410beebfac6fe862c36813776944a6e134cf87f2a63b",
+  "hardware_accessed": false,
+  "native_commands_reconciled": 20,
+  "physical_capacity_qualified": false,
+  "real_mig_integration_qualified": false,
+  "report_sha256": "2b5877a62c6cee4e9f45d0a9fde882f60cf98aaebc730fc494a838197bb2c6c5",
+  "reviewer_sha256": "7718c75af3dff0a9ccc3fc221806d94908a79ce775ab77804aef84dc8683990a",
+  "scope": "256-byte behavioral contract plus default 2 GiB boundary elaboration only",
+  "source_files_rehashed": 5,
+  "source_review": [
+    "Both global write/read trials use the captured seed and exact final successful write address",
+    "Four retirement/ECC witnesses separate the four passes",
+    "Full 512-bit mismatch capture; health failure takes precedence over final done",
+    "Pending request payloads survive quarantine; joint reset is the only recovery",
+    "32-bit counters hold two full-window passes without overflow"
+  ],
+  "status": "PASS_ROOT_SWEEP_SOURCE_AND_NATIVE_RECEIPT_REVIEW_ONLY",
+  "utc": "2026-10-28T06:31:48.338208+00:00"
+}

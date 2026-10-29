@@ -1,0 +1,691 @@
+{
+  "status": "PRESERVED_EXACT_IMAGE_AND_PHYSICAL_TRAINED_TILE_ONLY",
+  "scope": "Exact image emission and actual trained tile/compaction/rearm raw-wire proof only, no full-model proof; FPGA images/checkpoints excluded",
+  "full_model_inference": false,
+  "flash_written": false,
+  "files": {
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/audit_physical.py": {
+      "source_sha256": "6712cab09ce506b20a661c45b72ce28928718a102767faf6f96df0d2bf1ae0dd",
+      "source_bytes": 7135,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/audit_physical.py",
+      "archive_sha256": "6712cab09ce506b20a661c45b72ce28928718a102767faf6f96df0d2bf1ae0dd",
+      "archive_bytes": 7135,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/harness-controls.json": {
+      "source_sha256": "de14abfdba326d53470ffa22edf2ca2ad5c84109d24dbffa565075aef70563e8",
+      "source_bytes": 604,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/harness-controls.json",
+      "archive_sha256": "de14abfdba326d53470ffa22edf2ca2ad5c84109d24dbffa565075aef70563e8",
+      "archive_bytes": 604,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/harness_controls.py": {
+      "source_sha256": "e2301acceee43cfa229b38c0ac10fccea0b6b325a664b4d5fb52d4f001ad6f26",
+      "source_bytes": 2626,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/harness_controls.py",
+      "archive_sha256": "e2301acceee43cfa229b38c0ac10fccea0b6b325a664b4d5fb52d4f001ad6f26",
+      "archive_bytes": 2626,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/image-review.json": {
+      "source_sha256": "7569cc73dfd9da5ea82cc0ac63a51affa5911ac6142f200e502a63d13f9bd717",
+      "source_bytes": 26280,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/image-review.json",
+      "archive_sha256": "7569cc73dfd9da5ea82cc0ac63a51affa5911ac6142f200e502a63d13f9bd717",
+      "archive_bytes": 26280,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/independent-physical-audit.json": {
+      "source_sha256": "466c35dc51bdf75f29c3e9848c177d1de8cef09663455be01d47ec0b2358d02c",
+      "source_bytes": 730,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/independent-physical-audit.json",
+      "archive_sha256": "466c35dc51bdf75f29c3e9848c177d1de8cef09663455be01d47ec0b2358d02c",
+      "archive_bytes": 730,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/hw-server.log": {
+      "source_sha256": "6a9c0ef23b7ed2afcef59ac9143005758bd3a8872ac17b4ca61fae48d499dae4",
+      "source_bytes": 370,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/hw-server.log",
+      "archive_sha256": "6a9c0ef23b7ed2afcef59ac9143005758bd3a8872ac17b4ca61fae48d499dae4",
+      "archive_bytes": 370,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/command.json": {
+      "source_sha256": "b55bfb2e3e663f913c7f3339b9f0a690063e8c0ca4148ce654921b89919c7630",
+      "source_bytes": 742,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/command.json",
+      "archive_sha256": "b55bfb2e3e663f913c7f3339b9f0a690063e8c0ca4148ce654921b89919c7630",
+      "archive_bytes": 742,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/load.json": {
+      "source_sha256": "0ddd225786e9d45851b4c447c06a5060a80f953aa71fb8fc235ffa9ac23b1a70",
+      "source_bytes": 1970,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/load.json",
+      "archive_sha256": "0ddd225786e9d45851b4c447c06a5060a80f953aa71fb8fc235ffa9ac23b1a70",
+      "archive_bytes": 1970,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/program.tcl": {
+      "source_sha256": "837715f6eb5090a2c791e6ec88aba0944734f00f901117643ca401f3f11f7186",
+      "source_bytes": 4197,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/program.tcl",
+      "archive_sha256": "837715f6eb5090a2c791e6ec88aba0944734f00f901117643ca401f3f11f7186",
+      "archive_bytes": 4197,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/program.tsv": {
+      "source_sha256": "9a30364a082fa5b4431092004d8b80a145efc7ef043e2e41a451bceed51caac6",
+      "source_bytes": 348,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/program.tsv",
+      "archive_sha256": "9a30364a082fa5b4431092004d8b80a145efc7ef043e2e41a451bceed51caac6",
+      "archive_bytes": 348,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/stdout.log": {
+      "source_sha256": "d60b735ecefc918b322360ee1679705f3ccd0d85f050e7a2977eb63a0e2b60f0",
+      "source_bytes": 7096,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/stdout.log",
+      "archive_sha256": "d60b735ecefc918b322360ee1679705f3ccd0d85f050e7a2977eb63a0e2b60f0",
+      "archive_bytes": 7096,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/vivado.jou": {
+      "source_sha256": "5d0314140f3e8597d0d2708d70391230299aa8b4c60c68c3e448ea132c8f36d0",
+      "source_bytes": 1656,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/vivado.jou",
+      "archive_sha256": "5d0314140f3e8597d0d2708d70391230299aa8b4c60c68c3e448ea132c8f36d0",
+      "archive_bytes": 1656,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/vivado.log": {
+      "source_sha256": "2ebf25b4d49a8d1c9b2b24a11c4a79d854866e6b2a5610279933512aa07d8b73",
+      "source_bytes": 8234,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/load-1/vivado.log",
+      "archive_sha256": "2ebf25b4d49a8d1c9b2b24a11c4a79d854866e6b2a5610279933512aa07d8b73",
+      "archive_bytes": 8234,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/report.json": {
+      "source_sha256": "40b595a8b730a89d3f10a06c98919d5bbc485c55d201576d893b54368f7a5838",
+      "source_bytes": 12910,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/report.json",
+      "archive_sha256": "40b595a8b730a89d3f10a06c98919d5bbc485c55d201576d893b54368f7a5838",
+      "archive_bytes": 12910,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/bridge-stdout.log": {
+      "source_sha256": "24aecd312a71839c3d71934a6a48c821a135ad685ad3b55c4ff82a2530743d64",
+      "source_bytes": 8118,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/bridge-stdout.log",
+      "archive_sha256": "24aecd312a71839c3d71934a6a48c821a135ad685ad3b55c4ff82a2530743d64",
+      "archive_bytes": 8118,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/bridge.tcl": {
+      "source_sha256": "1fdcee70e2e8ada04b232796efae2910d853c3d965db9cd0870a9ed00653c03b",
+      "source_bytes": 6258,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/bridge.tcl",
+      "archive_sha256": "1fdcee70e2e8ada04b232796efae2910d853c3d965db9cd0870a9ed00653c03b",
+      "archive_bytes": 6258,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/command.json": {
+      "source_sha256": "94730210ae0ba40603cbb51844c4dc2ac5e4c5c92ac8b02149eb6874f7be3e4f",
+      "source_bytes": 1630,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/command.json",
+      "archive_sha256": "94730210ae0ba40603cbb51844c4dc2ac5e4c5c92ac8b02149eb6874f7be3e4f",
+      "archive_bytes": 1630,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs/job0-readback.bin": {
+      "source_sha256": "7961bb66c5fe6ff38f05e724f87f8187e1bb523b1861d4795e3d98cde0285137",
+      "source_bytes": 90112,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs/job0-readback.bin",
+      "archive_sha256": "7961bb66c5fe6ff38f05e724f87f8187e1bb523b1861d4795e3d98cde0285137",
+      "archive_bytes": 90112,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs/job1-readback.bin": {
+      "source_sha256": "c8bda26fb21e69a76b93b6f14b071cacf1068f6d36a0b2fb76bd80ebf1f2b467",
+      "source_bytes": 90112,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs/job1-readback.bin",
+      "archive_sha256": "c8bda26fb21e69a76b93b6f14b071cacf1068f6d36a0b2fb76bd80ebf1f2b467",
+      "archive_bytes": 90112,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs/job2-readback.bin": {
+      "source_sha256": "2f379907843ebb3a26076b3593806b59b92140c6b1ce6d96ddb9eccaf295eaa1",
+      "source_bytes": 90112,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs/job2-readback.bin",
+      "archive_sha256": "2f379907843ebb3a26076b3593806b59b92140c6b1ce6d96ddb9eccaf295eaa1",
+      "archive_bytes": 90112,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs/job3-readback.bin": {
+      "source_sha256": "c8bda26fb21e69a76b93b6f14b071cacf1068f6d36a0b2fb76bd80ebf1f2b467",
+      "source_bytes": 90112,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs/job3-readback.bin",
+      "archive_sha256": "c8bda26fb21e69a76b93b6f14b071cacf1068f6d36a0b2fb76bd80ebf1f2b467",
+      "archive_bytes": 90112,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs/native-scans.jsonl": {
+      "source_sha256": "3634403de9513c24634c5cedac99dc1c04d97b266443364b16cc8b6ae884ba31",
+      "source_bytes": 7497612,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs/native-scans.jsonl.gz",
+      "archive_sha256": "014531f330a379f83bed019667221feb0cd6ffe2eae9f7ef0edeab65abfa7c3d",
+      "archive_bytes": 350541,
+      "compression": "gzip"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs/report.json": {
+      "source_sha256": "417ef6aecd4d522304b6f2a3b3a081a87e1e045c35eb6e90ee511e3b09a19cde",
+      "source_bytes": 9593,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/jobs/report.json",
+      "archive_sha256": "417ef6aecd4d522304b6f2a3b3a081a87e1e045c35eb6e90ee511e3b09a19cde",
+      "archive_bytes": 9593,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/ready.txt": {
+      "source_sha256": "54b0df6f5e96563c0609c8e10cfa66bc39ddc732b30d18295961a64ab47e34b7",
+      "source_bytes": 39,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/ready.txt",
+      "archive_sha256": "54b0df6f5e96563c0609c8e10cfa66bc39ddc732b30d18295961a64ab47e34b7",
+      "archive_bytes": 39,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/vivado.jou": {
+      "source_sha256": "d7859ef8e16debfba2f4bb8af696f14b949cc9ddd81c32f60cec4e88cc37e17f",
+      "source_bytes": 1864,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/vivado.jou",
+      "archive_sha256": "d7859ef8e16debfba2f4bb8af696f14b949cc9ddd81c32f60cec4e88cc37e17f",
+      "archive_bytes": 1864,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/vivado.log": {
+      "source_sha256": "8cbe8e7b40ea39d854cfffca385c495dc83461a4b544972b1105ee8aa680ee82",
+      "source_bytes": 9435,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/vivado.log",
+      "archive_sha256": "8cbe8e7b40ea39d854cfffca385c495dc83461a4b544972b1105ee8aa680ee82",
+      "archive_bytes": 9435,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/worker-stdout.log": {
+      "source_sha256": "6678ce037e04077373fd7d13972246d756b435bab0c75f8c854171764caebbdd",
+      "source_bytes": 341,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/physical-tests/trained-projection-compaction-repeat/worker-stdout.log",
+      "archive_sha256": "6678ce037e04077373fd7d13972246d756b435bab0c75f8c854171764caebbdd",
+      "archive_bytes": 341,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/program-template.tcl.in": {
+      "source_sha256": "d7ebf86450c55de4378692f0aae20f6af20fffe7366b329a29b3972e6429a96d",
+      "source_bytes": 3962,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/program-template.tcl.in",
+      "archive_sha256": "d7ebf86450c55de4378692f0aae20f6af20fffe7366b329a29b3972e6429a96d",
+      "archive_bytes": 3962,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/review_image.py": {
+      "source_sha256": "68ba1b8105bd9febd4af214a1198a749c6f58dfe61e53bfa6474f92eb33d041b",
+      "source_bytes": 5324,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/review_image.py",
+      "archive_sha256": "68ba1b8105bd9febd4af214a1198a749c6f58dfe61e53bfa6474f92eb33d041b",
+      "archive_bytes": 5324,
+      "compression": "none"
+    },
+    "build/fpga-bringup/tinystories-dual-20261026T221500Z/run_sram_tests.py": {
+      "source_sha256": "0156dcdefb09d754a9491e9413ae7ab2f30ec8079f11e5feca818eb421e05665",
+      "source_bytes": 11718,
+      "archive_path": "build/fpga-bringup/tinystories-dual-20261026T221500Z/run_sram_tests.py",
+      "archive_sha256": "0156dcdefb09d754a9491e9413ae7ab2f30ec8079f11e5feca818eb421e05665",
+      "archive_bytes": 11718,
+      "compression": "none"
+    },
+    "build/tinystories-dual-route-archive-plan.json": {
+      "source_sha256": "cbf707fe5bcc4ebb4371f4f98d323cdb9b5e24f37ef3f00e01635442a13c3a77",
+      "source_bytes": 27362,
+      "archive_path": "build/tinystories-dual-route-archive-plan.json",
+      "archive_sha256": "cbf707fe5bcc4ebb4371f4f98d323cdb9b5e24f37ef3f00e01635442a13c3a77",
+      "archive_bytes": 27362,
+      "compression": "none"
+    },
+    "build/tinystories-image/20261026T220800Z/emission/bitstream_drc.rpt": {
+      "source_sha256": "181ed0f20d3523c40d07a5272f5793a84f09555113380584b3155f3cc40cd3e8",
+      "source_bytes": 1196564,
+      "archive_path": "build/tinystories-image/20261026T220800Z/emission/bitstream_drc.rpt.gz",
+      "archive_sha256": "7befbae6d6f5424d1b8885faeef9ebec1ece01dfe0e1d37a3938fea5e6a1dbfa",
+      "archive_bytes": 20921,
+      "compression": "gzip"
+    },
+    "build/tinystories-image/20261026T220800Z/emission/default_drc.rpt": {
+      "source_sha256": "20ca38d7f95a3599f29e565d6c99669f9d8411b1af9624de727b7b147233487b",
+      "source_bytes": 1196522,
+      "archive_path": "build/tinystories-image/20261026T220800Z/emission/default_drc.rpt.gz",
+      "archive_sha256": "f1dbe774d80c83ba0f77a4ace530f878f543398c100fe5748b1c1026c2dd20bb",
+      "archive_bytes": 20916,
+      "compression": "gzip"
+    },
+    "build/tinystories-image/20261026T220800Z/emission/mailbox_bus_skew.rpt": {
+      "source_sha256": "1ed311f8fe5fb135e2f08b7a6a0b21404c0b6041f17b58852f23dc0eaf4d4a92",
+      "source_bytes": 15371,
+      "archive_path": "build/tinystories-image/20261026T220800Z/emission/mailbox_bus_skew.rpt.gz",
+      "archive_sha256": "feac8c4f3a820e0542721a0bf433a5ca8131fd0338888c481bb543dbcf4e4230",
+      "archive_bytes": 2079,
+      "compression": "gzip"
+    },
+    "build/tinystories-image/20261026T220800Z/emission/mailbox_cdc.rpt": {
+      "source_sha256": "39ab9ec3a778fccdd7649e5d93202342d75973ce4e1a126279cf37f7715a169b",
+      "source_bytes": 186287,
+      "archive_path": "build/tinystories-image/20261026T220800Z/emission/mailbox_cdc.rpt.gz",
+      "archive_sha256": "a7f6380b8a9503ba8b1313b6a319cd929f56114c3229fe856832cae1b3e03f5a",
+      "archive_bytes": 11081,
+      "compression": "gzip"
+    },
+    "build/tinystories-image/20261026T220800Z/emission/mailbox_cdc.tsv": {
+      "source_sha256": "fcdc0365e33b61d324ef13f425003a3a79e93ba0ef932b80acab7ca8f803f975",
+      "source_bytes": 494,
+      "archive_path": "build/tinystories-image/20261026T220800Z/emission/mailbox_cdc.tsv",
+      "archive_sha256": "fcdc0365e33b61d324ef13f425003a3a79e93ba0ef932b80acab7ca8f803f975",
+      "archive_bytes": 494,
+      "compression": "none"
+    },
+    "build/tinystories-image/20261026T220800Z/emission/mailbox_exceptions.rpt": {
+      "source_sha256": "5abafd7eb2b1aa5619ea523c7871afc7a61df9f2e72235ca40194604bf8b6ce1",
+      "source_bytes": 2716,
+      "archive_path": "build/tinystories-image/20261026T220800Z/emission/mailbox_exceptions.rpt.gz",
+      "archive_sha256": "00dd7dbabda253dea3eb3eebdc22acebbbec9df7601f9035c0b5da6e4449680e",
+      "archive_bytes": 661,
+      "compression": "gzip"
+    },
+    "build/tinystories-image/20261026T220800Z/emission/mailbox_held_timing.rpt": {
+      "source_sha256": "44fb8b114b7d911469d82860025a3b48ead91d7bbfaf8d564a5212443a8e62fa",
+      "source_bytes": 65243,
+      "archive_path": "build/tinystories-image/20261026T220800Z/emission/mailbox_held_timing.rpt.gz",
+      "archive_sha256": "8ae5a315013012dbb3c7cc2a11910ebdd0db78de7e1cfe0d216db65478c552c3",
+      "archive_bytes": 3865,
+      "compression": "gzip"
+    },
+    "build/tinystories-image/20261026T220800Z/emission/mailbox_response_timing.rpt": {
+      "source_sha256": "bdc4ad9d9e66a4094e6825504b0f2155e265e1458e8b76d22467b7a4351ec06f",
+      "source_bytes": 67090,
+      "archive_path": "build/tinystories-image/20261026T220800Z/emission/mailbox_response_timing.rpt.gz",
+      "archive_sha256": "7ed6ccc526407fe09f5b43ec90508e49722fd1c268627fdc1a4cbab7b2d3fb7b",
+      "archive_bytes": 4073,
+      "compression": "gzip"
+    },
+    "build/tinystories-image/20261026T220800Z/emission/reset_image.tsv": {
+      "source_sha256": "7f07d0fd6c90e2e1f12b23b3be2c99c0f9b7bea5a2fea46d7e32432173fb845a",
+      "source_bytes": 3115,
+      "archive_path": "build/tinystories-image/20261026T220800Z/emission/reset_image.tsv",
+      "archive_sha256": "7f07d0fd6c90e2e1f12b23b3be2c99c0f9b7bea5a2fea46d7e32432173fb845a",
+      "archive_bytes": 3115,
+      "compression": "none"
+    },
+    "build/tinystories-image/20261026T220800Z/emission/startup_facts.tsv": {
+      "source_sha256": "b02e30028e92c67ecb356d6d2f23128a52b6f4a21889f04d6892c25a4ff74ecd",
+      "source_bytes": 466206,
+      "archive_path": "build/tinystories-image/20261026T220800Z/emission/startup_facts.tsv",
+      "archive_sha256": "b02e30028e92c67ecb356d6d2f23128a52b6f4a21889f04d6892c25a4ff74ecd",
+      "archive_bytes": 466206,
+      "compression": "none"
+    },
+    "build/tinystories-image/20261026T220800Z/emit.tcl": {
+      "source_sha256": "0ab53a97c6907a3fbf81338f55cc5d08101754f3f1e5aad79fcb40e603ec2d84",
+      "source_bytes": 34457,
+      "archive_path": "build/tinystories-image/20261026T220800Z/emit.tcl",
+      "archive_sha256": "0ab53a97c6907a3fbf81338f55cc5d08101754f3f1e5aad79fcb40e603ec2d84",
+      "archive_bytes": 34457,
+      "compression": "none"
+    },
+    "build/tinystories-image/20261026T220800Z/report.json": {
+      "source_sha256": "e20581ecacfb406dbcfad023fa832642a003ae9ea3d47f80f19e454c046ef665",
+      "source_bytes": 18200,
+      "archive_path": "build/tinystories-image/20261026T220800Z/report.json",
+      "archive_sha256": "e20581ecacfb406dbcfad023fa832642a003ae9ea3d47f80f19e454c046ef665",
+      "archive_bytes": 18200,
+      "compression": "none"
+    },
+    "build/tinystories-image/20261026T220800Z/run.py": {
+      "source_sha256": "c3f3f24516ee6c24a9e46a46c50b1438920e87735fe961ebb6ae410c46b6bf9c",
+      "source_bytes": 4330,
+      "archive_path": "build/tinystories-image/20261026T220800Z/run.py",
+      "archive_sha256": "c3f3f24516ee6c24a9e46a46c50b1438920e87735fe961ebb6ae410c46b6bf9c",
+      "archive_bytes": 4330,
+      "compression": "none"
+    },
+    "build/tinystories-image/20261026T220800Z/stdout.log": {
+      "source_sha256": "0c7e9042287a2236216a6f532a0ccb3dbf670b2364a159994665c937f72f936c",
+      "source_bytes": 56880,
+      "archive_path": "build/tinystories-image/20261026T220800Z/stdout.log",
+      "archive_sha256": "0c7e9042287a2236216a6f532a0ccb3dbf670b2364a159994665c937f72f936c",
+      "archive_bytes": 56880,
+      "compression": "none"
+    },
+    "build/tinystories-image/20261026T220800Z/vivado.jou": {
+      "source_sha256": "8d1b124cd7e088e5748e163cd81449eda4b80e12b79f2901c16ca5c9d3f44f7f",
+      "source_bytes": 1412,
+      "archive_path": "build/tinystories-image/20261026T220800Z/vivado.jou",
+      "archive_sha256": "8d1b124cd7e088e5748e163cd81449eda4b80e12b79f2901c16ca5c9d3f44f7f",
+      "archive_bytes": 1412,
+      "compression": "none"
+    },
+    "build/tinystories-image/20261026T220800Z/vivado.log": {
+      "source_sha256": "885ab4a553949b0d990ce6c18d207ebfe933edeaf80dcc9e108267519b6dd7db",
+      "source_bytes": 57811,
+      "archive_path": "build/tinystories-image/20261026T220800Z/vivado.log",
+      "archive_sha256": "885ab4a553949b0d990ce6c18d207ebfe933edeaf80dcc9e108267519b6dd7db",
+      "archive_bytes": 57811,
+      "compression": "none"
+    },
+    "build/tinystories-joined-vectors/v2/cmac_expected.txt": {
+      "source_sha256": "814c3511b247c52ff28e456690f1693198a4baa8d088f71d6164b783c6a4fe13",
+      "source_bytes": 194304,
+      "archive_path": "build/tinystories-joined-vectors/v2/cmac_expected.txt",
+      "archive_sha256": "814c3511b247c52ff28e456690f1693198a4baa8d088f71d6164b783c6a4fe13",
+      "archive_bytes": 194304,
+      "compression": "none"
+    },
+    "build/tinystories-joined-vectors/v2/ew_delta.txt": {
+      "source_sha256": "dafc8050f34e8e25883d3de554e80cad8205430cd3037478fd6b3ceffdb2c447",
+      "source_bytes": 1242,
+      "archive_path": "build/tinystories-joined-vectors/v2/ew_delta.txt",
+      "archive_sha256": "dafc8050f34e8e25883d3de554e80cad8205430cd3037478fd6b3ceffdb2c447",
+      "archive_bytes": 1242,
+      "compression": "none"
+    },
+    "build/tinystories-joined-vectors/v2/ew_expected.txt": {
+      "source_sha256": "4818833be5ac95e9f84fc89177323e1a9ef22701b87c0851defb4296181f6765",
+      "source_bytes": 194304,
+      "archive_path": "build/tinystories-joined-vectors/v2/ew_expected.txt",
+      "archive_sha256": "4818833be5ac95e9f84fc89177323e1a9ef22701b87c0851defb4296181f6765",
+      "archive_bytes": 194304,
+      "compression": "none"
+    },
+    "build/tinystories-joined-vectors/v2/initial.txt": {
+      "source_sha256": "959e95ccf31d69b29ba2cf53d67055556672fbfc22b25e301e4544909f434e36",
+      "source_bytes": 194304,
+      "archive_path": "build/tinystories-joined-vectors/v2/initial.txt",
+      "archive_sha256": "959e95ccf31d69b29ba2cf53d67055556672fbfc22b25e301e4544909f434e36",
+      "archive_bytes": 194304,
+      "compression": "none"
+    },
+    "build/tinystories-joined-vectors/v2/repeat_delta.txt": {
+      "source_sha256": "9be1e961c009fa789d77fb17d0cd80be78117a64a5444a5ea679e0be16465960",
+      "source_bytes": 1518,
+      "archive_path": "build/tinystories-joined-vectors/v2/repeat_delta.txt",
+      "archive_sha256": "9be1e961c009fa789d77fb17d0cd80be78117a64a5444a5ea679e0be16465960",
+      "archive_bytes": 1518,
+      "compression": "none"
+    },
+    "build/tinystories-joined-vectors/v2/repeat_expected.txt": {
+      "source_sha256": "2c41b4327c1b37cf8424f856d67f369e743ff676b90f8043c98b6dbbebf832e3",
+      "source_bytes": 194304,
+      "archive_path": "build/tinystories-joined-vectors/v2/repeat_expected.txt",
+      "archive_sha256": "2c41b4327c1b37cf8424f856d67f369e743ff676b90f8043c98b6dbbebf832e3",
+      "archive_bytes": 194304,
+      "compression": "none"
+    },
+    "build/tinystories-joined-vectors/v2/report.json": {
+      "source_sha256": "ad69a7caf1e1be5757c477df80fb09301f00efbf03143560472eca11efb7fa49",
+      "source_bytes": 1148,
+      "archive_path": "build/tinystories-joined-vectors/v2/report.json",
+      "archive_sha256": "ad69a7caf1e1be5757c477df80fb09301f00efbf03143560472eca11efb7fa49",
+      "archive_bytes": 1148,
+      "compression": "none"
+    },
+    "fpga/host/native_rpc.tcl.in": {
+      "source_sha256": "389138ea03ee56ca432bc9a1372f3b76b355074d21ac42ba3ed4a38f62887931",
+      "source_bytes": 5681,
+      "archive_path": "fpga/host/native_rpc.tcl.in",
+      "archive_sha256": "389138ea03ee56ca432bc9a1372f3b76b355074d21ac42ba3ed4a38f62887931",
+      "archive_bytes": 5681,
+      "compression": "none"
+    },
+    "fpga/tinystories/emit.tcl.in": {
+      "source_sha256": "cd5e91895bed7d12d83d713d922bef3d74cee92de967c68f30a320619118b4ca",
+      "source_bytes": 6609,
+      "archive_path": "fpga/tinystories/emit.tcl.in",
+      "archive_sha256": "cd5e91895bed7d12d83d713d922bef3d74cee92de967c68f30a320619118b4ca",
+      "archive_bytes": 6609,
+      "compression": "none"
+    },
+    "tools/hardware/sample_ew.py": {
+      "source_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+      "source_bytes": 15835,
+      "archive_path": "tools/hardware/sample_ew.py",
+      "archive_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+      "archive_bytes": 15835,
+      "compression": "none"
+    },
+    "tools/host/__init__.py": {
+      "source_sha256": "98bcb034c2129e1cc979aef878358e800a2b092eeaaeda71356a44ca975af09b",
+      "source_bytes": 84,
+      "archive_path": "tools/host/__init__.py",
+      "archive_sha256": "98bcb034c2129e1cc979aef878358e800a2b092eeaaeda71356a44ca975af09b",
+      "archive_bytes": 84,
+      "compression": "none"
+    },
+    "tools/host/image_template.py": {
+      "source_sha256": "27a1f5c543969510c23c4a8166fba39769c5012ebe09dcc8d5c0ceae813de147",
+      "source_bytes": 1254,
+      "archive_path": "tools/host/image_template.py",
+      "archive_sha256": "27a1f5c543969510c23c4a8166fba39769c5012ebe09dcc8d5c0ceae813de147",
+      "archive_bytes": 1254,
+      "compression": "none"
+    },
+    "tools/host/native_link.py": {
+      "source_sha256": "cf8ee174bc2fad844ccbd7478ea8e370618284a8e24f867035c412f47a0f0173",
+      "source_bytes": 6213,
+      "archive_path": "tools/host/native_link.py",
+      "archive_sha256": "cf8ee174bc2fad844ccbd7478ea8e370618284a8e24f867035c412f47a0f0173",
+      "archive_bytes": 6213,
+      "compression": "none"
+    },
+    "tools/host/prepare.py": {
+      "source_sha256": "b0727b34133eb216acf3d2701c05a328a07d24062fbb3bbf1339af86a427def1",
+      "source_bytes": 13282,
+      "archive_path": "tools/host/prepare.py",
+      "archive_sha256": "b0727b34133eb216acf3d2701c05a328a07d24062fbb3bbf1339af86a427def1",
+      "archive_bytes": 13282,
+      "compression": "none"
+    },
+    "tools/host/qualification.py": {
+      "source_sha256": "9756eb990ea0c00061f1f9a6037bb2dc4a1f38f9ef8a52360d6b5f81262f3c83",
+      "source_bytes": 13662,
+      "archive_path": "tools/host/qualification.py",
+      "archive_sha256": "9756eb990ea0c00061f1f9a6037bb2dc4a1f38f9ef8a52360d6b5f81262f3c83",
+      "archive_bytes": 13662,
+      "compression": "none"
+    },
+    "tools/host/run_rtl.py": {
+      "source_sha256": "5e4861ad5aaa958994ae0e220e67c46db214c9aee25ef9304f91f7dfa0fc841f",
+      "source_bytes": 8418,
+      "archive_path": "tools/host/run_rtl.py",
+      "archive_sha256": "5e4861ad5aaa958994ae0e220e67c46db214c9aee25ef9304f91f7dfa0fc841f",
+      "archive_bytes": 8418,
+      "compression": "none"
+    },
+    "tools/host/transport.py": {
+      "source_sha256": "ad65b88676f21b751348cb7e0de051f88c3a50bcb41444bb15e28ba3eb15103d",
+      "source_bytes": 20251,
+      "archive_path": "tools/host/transport.py",
+      "archive_sha256": "ad65b88676f21b751348cb7e0de051f88c3a50bcb41444bb15e28ba3eb15103d",
+      "archive_bytes": 20251,
+      "compression": "none"
+    },
+    "tools/tinystories/__init__.py": {
+      "source_sha256": "9bb7c4aa0b697053cf6681e9f345cdc86bf498e86c14f0133753b42dee3338f6",
+      "source_bytes": 80,
+      "archive_path": "tools/tinystories/__init__.py",
+      "archive_sha256": "9bb7c4aa0b697053cf6681e9f345cdc86bf498e86c14f0133753b42dee3338f6",
+      "archive_bytes": 80,
+      "compression": "none"
+    },
+    "tools/tinystories/c_engine.py": {
+      "source_sha256": "9a9a591d176422ccc5fc11bf2e88363d124b36713bb3680781965b42b6555db6",
+      "source_bytes": 9942,
+      "archive_path": "tools/tinystories/c_engine.py",
+      "archive_sha256": "9a9a591d176422ccc5fc11bf2e88363d124b36713bb3680781965b42b6555db6",
+      "archive_bytes": 9942,
+      "compression": "none"
+    },
+    "tools/tinystories/check_package.py": {
+      "source_sha256": "ad4d3a839aa87e2443c9a01a67e8ed0799f0f3592b678f8ca7907a1998d91d9d",
+      "source_bytes": 3398,
+      "archive_path": "tools/tinystories/check_package.py",
+      "archive_sha256": "ad4d3a839aa87e2443c9a01a67e8ed0799f0f3592b678f8ca7907a1998d91d9d",
+      "archive_bytes": 3398,
+      "compression": "none"
+    },
+    "tools/tinystories/check_unity.py": {
+      "source_sha256": "f882cfe0e3f63c15c76f612f111ff8a18ba9426f1a85708333b9e2b96870d0c6",
+      "source_bytes": 5813,
+      "archive_path": "tools/tinystories/check_unity.py",
+      "archive_sha256": "f882cfe0e3f63c15c76f612f111ff8a18ba9426f1a85708333b9e2b96870d0c6",
+      "archive_bytes": 5813,
+      "compression": "none"
+    },
+    "tools/tinystories/device.py": {
+      "source_sha256": "63a86f32f353fd7c7810c149d6c3597dd5849686756752703863136c0a3a100e",
+      "source_bytes": 9539,
+      "archive_path": "tools/tinystories/device.py",
+      "archive_sha256": "63a86f32f353fd7c7810c149d6c3597dd5849686756752703863136c0a3a100e",
+      "archive_bytes": 9539,
+      "compression": "none"
+    },
+    "tools/tinystories/first_projection.py": {
+      "source_sha256": "c5ed704285865873f96a473beb7d70d167746c49f38dcfa9300d2131b252a42a",
+      "source_bytes": 15501,
+      "archive_path": "tools/tinystories/first_projection.py",
+      "archive_sha256": "c5ed704285865873f96a473beb7d70d167746c49f38dcfa9300d2131b252a42a",
+      "archive_bytes": 15501,
+      "compression": "none"
+    },
+    "tools/tinystories/image_template.py": {
+      "source_sha256": "340b77c5ab6b99a555cfb2ec854e4f4f19aea459c64ff0c5873d1c06880d18e9",
+      "source_bytes": 1270,
+      "archive_path": "tools/tinystories/image_template.py",
+      "archive_sha256": "340b77c5ab6b99a555cfb2ec854e4f4f19aea459c64ff0c5873d1c06880d18e9",
+      "archive_bytes": 1270,
+      "compression": "none"
+    },
+    "tools/tinystories/joined_hierarchy.py": {
+      "source_sha256": "1c5e34c6768528cafdee225a686be2931051a2e554a3230412e3a74c84926797",
+      "source_bytes": 3182,
+      "archive_path": "tools/tinystories/joined_hierarchy.py",
+      "archive_sha256": "1c5e34c6768528cafdee225a686be2931051a2e554a3230412e3a74c84926797",
+      "archive_bytes": 3182,
+      "compression": "none"
+    },
+    "tools/tinystories/joined_vectors.py": {
+      "source_sha256": "15923d81d5103c8ab9eac361ca31d326e0dca492554b7e6453b6cd3d7fef3eb1",
+      "source_bytes": 5115,
+      "archive_path": "tools/tinystories/joined_vectors.py",
+      "archive_sha256": "15923d81d5103c8ab9eac361ca31d326e0dca492554b7e6453b6cd3d7fef3eb1",
+      "archive_bytes": 5115,
+      "compression": "none"
+    },
+    "tools/tinystories/joined_warnings.py": {
+      "source_sha256": "191d159977846a247861beaa471b5d9ca470c32507defdf0f7db50dce9c429fb",
+      "source_bytes": 3281,
+      "archive_path": "tools/tinystories/joined_warnings.py",
+      "archive_sha256": "191d159977846a247861beaa471b5d9ca470c32507defdf0f7db50dce9c429fb",
+      "archive_bytes": 3281,
+      "compression": "none"
+    },
+    "tools/tinystories/native_trace.py": {
+      "source_sha256": "ada565c6defd03ee02c271dfba766cb0a0826cdad37770e301bffa83d92c5224",
+      "source_bytes": 1136,
+      "archive_path": "tools/tinystories/native_trace.py",
+      "archive_sha256": "ada565c6defd03ee02c271dfba766cb0a0826cdad37770e301bffa83d92c5224",
+      "archive_bytes": 1136,
+      "compression": "none"
+    },
+    "tools/tinystories/oracle.py": {
+      "source_sha256": "0a4af27ce5b99f69c5e783f332bf5c62805e5fabfb4b895c27e9870e39b475be",
+      "source_bytes": 7566,
+      "archive_path": "tools/tinystories/oracle.py",
+      "archive_sha256": "0a4af27ce5b99f69c5e783f332bf5c62805e5fabfb4b895c27e9870e39b475be",
+      "archive_bytes": 7566,
+      "compression": "none"
+    },
+    "tools/tinystories/prepare.py": {
+      "source_sha256": "75f357f82e3b80b3f84dc61f46c28deb774f8ce19e3ff430be592fe19b44e45d",
+      "source_bytes": 14742,
+      "archive_path": "tools/tinystories/prepare.py",
+      "archive_sha256": "75f357f82e3b80b3f84dc61f46c28deb774f8ce19e3ff430be592fe19b44e45d",
+      "archive_bytes": 14742,
+      "compression": "none"
+    },
+    "tools/tinystories/prepare_fpga.py": {
+      "source_sha256": "a0ab29a0130ca0e4ce7f3908a8286b3cfe04035b53b5afee32422d88e411cc3e",
+      "source_bytes": 10217,
+      "archive_path": "tools/tinystories/prepare_fpga.py",
+      "archive_sha256": "a0ab29a0130ca0e4ce7f3908a8286b3cfe04035b53b5afee32422d88e411cc3e",
+      "archive_bytes": 10217,
+      "compression": "none"
+    },
+    "tools/tinystories/programs.py": {
+      "source_sha256": "c777a185a8a38ae4e727688e1093867caedb2415feb34a6f433ac9864d0fd4da",
+      "source_bytes": 8291,
+      "archive_path": "tools/tinystories/programs.py",
+      "archive_sha256": "c777a185a8a38ae4e727688e1093867caedb2415feb34a6f433ac9864d0fd4da",
+      "archive_bytes": 8291,
+      "compression": "none"
+    },
+    "tools/tinystories/replay_projection.py": {
+      "source_sha256": "4f0c0e3784ed4c644066ff3939c30f57a1bd9abdfcc895ad9079371baaa732cd",
+      "source_bytes": 6179,
+      "archive_path": "tools/tinystories/replay_projection.py",
+      "archive_sha256": "4f0c0e3784ed4c644066ff3939c30f57a1bd9abdfcc895ad9079371baaa732cd",
+      "archive_bytes": 6179,
+      "compression": "none"
+    },
+    "tools/tinystories/run_joined.py": {
+      "source_sha256": "a803c1daa6d693040436d552be6096d39afd1ac71a00044305714af996c5bc63",
+      "source_bytes": 9209,
+      "archive_path": "tools/tinystories/run_joined.py",
+      "archive_sha256": "a803c1daa6d693040436d552be6096d39afd1ac71a00044305714af996c5bc63",
+      "archive_bytes": 9209,
+      "compression": "none"
+    },
+    "tools/tinystories/run_memory.py": {
+      "source_sha256": "9e945b173aaafe6971a0f5160cc8c2225f392d13f300c6d272070cc1463833a9",
+      "source_bytes": 3011,
+      "archive_path": "tools/tinystories/run_memory.py",
+      "archive_sha256": "9e945b173aaafe6971a0f5160cc8c2225f392d13f300c6d272070cc1463833a9",
+      "archive_bytes": 3011,
+      "compression": "none"
+    },
+    "tools/tinystories/run_model.py": {
+      "source_sha256": "e22a4b42c2e1af02e0224ef4388e4b5920d09bfce7d28d1ea095a5180ec6d1ef",
+      "source_bytes": 7114,
+      "archive_path": "tools/tinystories/run_model.py",
+      "archive_sha256": "e22a4b42c2e1af02e0224ef4388e4b5920d09bfce7d28d1ea095a5180ec6d1ef",
+      "archive_bytes": 7114,
+      "compression": "none"
+    },
+    "tools/tinystories/run_projection.py": {
+      "source_sha256": "eb292735b1d619476eb68d853bebba5fd12083b0aeaae49b2e25a409b99202d4",
+      "source_bytes": 7994,
+      "archive_path": "tools/tinystories/run_projection.py",
+      "archive_sha256": "eb292735b1d619476eb68d853bebba5fd12083b0aeaae49b2e25a409b99202d4",
+      "archive_bytes": 7994,
+      "compression": "none"
+    },
+    "tools/tinystories/transport.py": {
+      "source_sha256": "ffbc6bf41dc6b078ee8b231759ab377ef8bdbbedb05e8551b3631568ec9b17f3",
+      "source_bytes": 3304,
+      "archive_path": "tools/tinystories/transport.py",
+      "archive_sha256": "ffbc6bf41dc6b078ee8b231759ab377ef8bdbbedb05e8551b3631568ec9b17f3",
+      "archive_bytes": 3304,
+      "compression": "none"
+    }
+  },
+  "total_files": 85,
+  "total_source_bytes": 12399597,
+  "total_archive_bytes": 2586329
+}

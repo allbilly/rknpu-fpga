@@ -1,0 +1,102 @@
+{
+  "status": "PASS_SHARED_REGISTERED_MEMORY_BOTH_SIMULATORS",
+  "scope": "Registered shared RAM source/native only; no FPGA, timing or whole application claim",
+  "inputs": {
+    "/home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/rtl/tinystories/rk_shared_bram_regport.sv": "2a62a55bb6cc4ea6946f361726f6c53d347b5ed5b3fea337cad2082c3d8bffc1",
+    "/home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/tests/tinystories/tb_shared_bram_regport.sv": "4028b4c8d9fc27915b72b5a3a8bf5ec3e538632f1610df41f62f16dfabdce495",
+    "/home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/tools/tinystories/run_memory.py": "9e945b173aaafe6971a0f5160cc8c2225f392d13f300c6d272070cc1463833a9"
+  },
+  "commands": [
+    {
+      "name": "iverilog_version",
+      "argv": [
+        "iverilog",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.019301054067909718,
+      "log_sha256": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d"
+    },
+    {
+      "name": "vvp_version",
+      "argv": [
+        "vvp",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.004908427130430937,
+      "log_sha256": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6"
+    },
+    {
+      "name": "verilator_version",
+      "argv": [
+        "verilator",
+        "--version"
+      ],
+      "returncode": 0,
+      "seconds": 0.11701585305854678,
+      "log_sha256": "9d8d19bf7d16f490e1b9d701dc1438bf9ec2d7f4a41ca4f0ec8ee3d1a3df8253"
+    },
+    {
+      "name": "iverilog_compile",
+      "argv": [
+        "iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_shared_bram_regport",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/build/tinystories-registered-memory/20261026T225741Z/sim.vvp",
+        "/home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/rtl/tinystories/rk_shared_bram_regport.sv",
+        "/home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/tests/tinystories/tb_shared_bram_regport.sv"
+      ],
+      "returncode": 0,
+      "seconds": 0.03622570214793086,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "iverilog_run",
+      "argv": [
+        "vvp",
+        "/home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/build/tinystories-registered-memory/20261026T225741Z/sim.vvp"
+      ],
+      "returncode": 0,
+      "seconds": 0.02258108090609312,
+      "log_sha256": "2e9c9c6b888cd27306d65d348eb9324908f89685ab6fe4fbcef8438c790c16fc"
+    },
+    {
+      "name": "verilator_compile",
+      "argv": [
+        "verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "-j",
+        "2",
+        "--top-module",
+        "tb_shared_bram_regport",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/build/tinystories-registered-memory/20261026T225741Z/obj",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/rtl/tinystories/rk_shared_bram_regport.sv",
+        "/home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/tests/tinystories/tb_shared_bram_regport.sv"
+      ],
+      "returncode": 0,
+      "seconds": 6.547340174904093,
+      "log_sha256": "cf9dc98ed9fec5f36c0435fba984aefd5bc3b452873fef64defde40c58c7736e"
+    },
+    {
+      "name": "verilator_run",
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/build/tinystories-registered-memory/20261026T225741Z/obj/sim"
+      ],
+      "returncode": 0,
+      "seconds": 0.011777000036090612,
+      "log_sha256": "6a3f3d0874de6e140717f7a6faf3898e3ab93cd6e70f5668896b936795147b5d"
+    }
+  ],
+  "hardware_accessed": false,
+  "finished_utc": "2026-10-26T22:57:48.563868+00:00"
+}

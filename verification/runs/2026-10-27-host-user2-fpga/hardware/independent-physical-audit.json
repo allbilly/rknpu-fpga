@@ -1,0 +1,33 @@
+{
+  "status": "PASS_INDEPENDENT_USER2_PHYSICAL_RAW_SCAN_AND_BO_REPLAY",
+  "started_utc": "2026-10-26T17:41:24.979569+00:00",
+  "checks": [],
+  "scope": "Independent raw numeric scan/complete BO/load/source hash replay; no new hardware access",
+  "positive_jobs": 11,
+  "complete_bytes_checked": 1077248,
+  "raw_scan_inventory": {
+    "captured-jobs-and-negative": {
+      "scans": 96943,
+      "commands": 32313,
+      "idcodes": 1,
+      "tap_resets": 1
+    },
+    "sticky-fault-reconnect": {
+      "scans": 28,
+      "commands": 8,
+      "idcodes": 1,
+      "tap_resets": 1
+    },
+    "reconfiguration-recovery": {
+      "scans": 9691,
+      "commands": 3229,
+      "idcodes": 1,
+      "tap_resets": 1
+    }
+  },
+  "source_inputs_rechecked": 210,
+  "physical_artifacts_rechecked": 51,
+  "flash_written": false,
+  "finished_utc": "2026-10-26T17:41:26.018006+00:00",
+  "auditor_sha256": "faa18c80f822c3b6b848222b5f8aca810827fd417000855283d20187f12b2ec0"
+}

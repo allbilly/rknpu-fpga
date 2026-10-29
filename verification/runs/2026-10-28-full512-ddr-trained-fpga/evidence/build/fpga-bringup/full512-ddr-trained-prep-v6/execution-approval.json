@@ -1,0 +1,22 @@
+{
+  "schema": "root-full512-ddr-trained-volatile-approval-v1",
+  "status": "ROOT_APPROVED_FULL512_CH1_DDR_TRAINED_VOLATILE_TRIAL",
+  "approved": true,
+  "utc": "2026-10-28T04:57:47.391117+00:00",
+  "authorization": "User: u can start fpga test if needed",
+  "scope": "Single reviewed volatile load and unchanged scratch + CMAC/EW/CMAC/EW trained workload",
+  "image_review_sha256": "04ee9140232ebc4c2a263c66eb934c10b9b1ec83fa240a83278b244daf1efb18",
+  "bitstream_sha256": "d627b7155c4a4ad6b948424fbd28240a666ea6071bfe8c5d5b19f7da051b0031",
+  "flash_authorized": false,
+  "source_manifest_sha256": "5e99f881eea21ff01bdf02f02435c7722a5ef78b820308727ac84f39edf0981f",
+  "source_tag": "5e99f881",
+  "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+  "expected_dna_port": "004E544714C705C",
+  "expected_raw_idcode": "23751093",
+  "programming_scope": "volatile-sram",
+  "memory_profile": "ddr",
+  "selected_physical_channel": 1,
+  "product_dsps": 512,
+  "total_dsps": 516,
+  "bram_blocks": 0
+}

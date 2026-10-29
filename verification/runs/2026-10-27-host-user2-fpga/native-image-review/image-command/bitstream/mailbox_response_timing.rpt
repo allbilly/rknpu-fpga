@@ -1,0 +1,913 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (lin64) Build 6511674 Tue Jun 16 11:01:26 MDT 2026
+| Date         : Tue Oct 27 01:19:19 2026
+| Host         : fedora running 64-bit unknown
+| Command      : report_timing -from [get_cells -quiet -hier -filter {NAME =~ u_mailbox/response_reg*}] -to [get_cells -quiet -hier -filter {NAME =~ u_mailbox/response_tck_reg*}] -delay_type max -max_paths 32 -file /home/fedora/rknpu-fpga/build/host-image-review/20261026T171408Z/image-command/bitstream/mailbox_response_timing.rpt
+| Design       : ypcb_jtag_ew_top
+| Device       : 7k480t-ffg1156
+| Speed File   : -2  PRODUCTION 1.12 2017-02-17
+| Design State : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             332.344ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[387]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[387]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.975ns  (logic 0.259ns (26.561%)  route 0.716ns (73.439%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X54Y184                                     0.000     0.000 r  u_mailbox/response_reg[387]/C
+    SLICE_X54Y184        FDRE (Prop_fdre_C_Q)         0.259     0.259 r  u_mailbox/response_reg[387]/Q
+                         net (fo=1, routed)           0.716     0.975    u_mailbox/response_reg_n_0_[387]
+    SLICE_X55Y184        FDRE                                         r  u_mailbox/response_tck_reg[387]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X55Y184        FDRE (Setup_fdre_C_D)       -0.013   333.319    u_mailbox/response_tck_reg[387]
+  -------------------------------------------------------------------
+                         required time                        333.319    <hidden>
+                         arrival time                          -0.975    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.344    <hidden>
+
+Slack (MET) :             332.356ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[77]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[77]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.971ns  (logic 0.259ns (26.667%)  route 0.712ns (73.333%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X58Y163                                     0.000     0.000 r  u_mailbox/response_reg[77]/C
+    SLICE_X58Y163        FDRE (Prop_fdre_C_Q)         0.259     0.259 r  u_mailbox/response_reg[77]/Q
+                         net (fo=1, routed)           0.712     0.971    u_mailbox/response_reg_n_0_[77]
+    SLICE_X59Y163        FDRE                                         r  u_mailbox/response_tck_reg[77]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X59Y163        FDRE (Setup_fdre_C_D)       -0.005   333.327    u_mailbox/response_tck_reg[77]
+  -------------------------------------------------------------------
+                         required time                        333.327    <hidden>
+                         arrival time                          -0.971    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.356    <hidden>
+
+Slack (MET) :             332.359ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[39]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[39]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.968ns  (logic 0.259ns (26.756%)  route 0.709ns (73.244%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X58Y158                                     0.000     0.000 r  u_mailbox/response_reg[39]/C
+    SLICE_X58Y158        FDRE (Prop_fdre_C_Q)         0.259     0.259 r  u_mailbox/response_reg[39]/Q
+                         net (fo=1, routed)           0.709     0.968    u_mailbox/response_reg_n_0_[39]
+    SLICE_X59Y157        FDRE                                         r  u_mailbox/response_tck_reg[39]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X59Y157        FDRE (Setup_fdre_C_D)       -0.005   333.327    u_mailbox/response_tck_reg[39]
+  -------------------------------------------------------------------
+                         required time                        333.327    <hidden>
+                         arrival time                          -0.968    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.359    <hidden>
+
+Slack (MET) :             332.436ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[240]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[240]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.803ns  (logic 0.236ns (29.387%)  route 0.567ns (70.613%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X66Y172                                     0.000     0.000 r  u_mailbox/response_reg[240]/C
+    SLICE_X66Y172        FDRE (Prop_fdre_C_Q)         0.236     0.236 r  u_mailbox/response_reg[240]/Q
+                         net (fo=1, routed)           0.567     0.803    u_mailbox/response_reg_n_0_[240]
+    SLICE_X67Y172        FDRE                                         r  u_mailbox/response_tck_reg[240]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X67Y172        FDRE (Setup_fdre_C_D)       -0.093   333.239    u_mailbox/response_tck_reg[240]
+  -------------------------------------------------------------------
+                         required time                        333.239    <hidden>
+                         arrival time                          -0.803    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.436    <hidden>
+
+Slack (MET) :             332.456ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[243]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[243]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.857ns  (logic 0.223ns (26.030%)  route 0.634ns (73.970%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X60Y173                                     0.000     0.000 r  u_mailbox/response_reg[243]/C
+    SLICE_X60Y173        FDRE (Prop_fdre_C_Q)         0.223     0.223 r  u_mailbox/response_reg[243]/Q
+                         net (fo=1, routed)           0.634     0.857    u_mailbox/response_reg_n_0_[243]
+    SLICE_X61Y173        FDRE                                         r  u_mailbox/response_tck_reg[243]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X61Y173        FDRE (Setup_fdre_C_D)       -0.019   333.313    u_mailbox/response_tck_reg[243]
+  -------------------------------------------------------------------
+                         required time                        333.313    <hidden>
+                         arrival time                          -0.857    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.456    <hidden>
+
+Slack (MET) :             332.467ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[69]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[69]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.846ns  (logic 0.259ns (30.625%)  route 0.587ns (69.375%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X46Y160                                     0.000     0.000 r  u_mailbox/response_reg[69]/C
+    SLICE_X46Y160        FDRE (Prop_fdre_C_Q)         0.259     0.259 r  u_mailbox/response_reg[69]/Q
+                         net (fo=1, routed)           0.587     0.846    u_mailbox/response_reg_n_0_[69]
+    SLICE_X47Y160        FDRE                                         r  u_mailbox/response_tck_reg[69]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X47Y160        FDRE (Setup_fdre_C_D)       -0.019   333.313    u_mailbox/response_tck_reg[69]
+  -------------------------------------------------------------------
+                         required time                        333.313    <hidden>
+                         arrival time                          -0.846    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.467    <hidden>
+
+Slack (MET) :             332.468ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[504]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[504]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.775ns  (logic 0.236ns (30.445%)  route 0.539ns (69.555%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X70Y190                                     0.000     0.000 r  u_mailbox/response_reg[504]/C
+    SLICE_X70Y190        FDRE (Prop_fdre_C_Q)         0.236     0.236 r  u_mailbox/response_reg[504]/Q
+                         net (fo=1, routed)           0.539     0.775    u_mailbox/response_reg_n_0_[504]
+    SLICE_X71Y192        FDRE                                         r  u_mailbox/response_tck_reg[504]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X71Y192        FDRE (Setup_fdre_C_D)       -0.089   333.243    u_mailbox/response_tck_reg[504]
+  -------------------------------------------------------------------
+                         required time                        333.243    <hidden>
+                         arrival time                          -0.775    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.468    <hidden>
+
+Slack (MET) :             332.482ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[383]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[383]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.750ns  (logic 0.236ns (31.450%)  route 0.514ns (68.550%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X62Y181                                     0.000     0.000 r  u_mailbox/response_reg[383]/C
+    SLICE_X62Y181        FDRE (Prop_fdre_C_Q)         0.236     0.236 r  u_mailbox/response_reg[383]/Q
+                         net (fo=1, routed)           0.514     0.750    u_mailbox/response_reg_n_0_[383]
+    SLICE_X63Y182        FDRE                                         r  u_mailbox/response_tck_reg[383]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X63Y182        FDRE (Setup_fdre_C_D)       -0.100   333.232    u_mailbox/response_tck_reg[383]
+  -------------------------------------------------------------------
+                         required time                        333.232    <hidden>
+                         arrival time                          -0.750    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.482    <hidden>
+
+Slack (MET) :             332.504ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.736ns  (logic 0.204ns (27.717%)  route 0.532ns (72.283%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X57Y153                                     0.000     0.000 r  u_mailbox/response_reg[3]/C
+    SLICE_X57Y153        FDRE (Prop_fdre_C_Q)         0.204     0.204 r  u_mailbox/response_reg[3]/Q
+                         net (fo=1, routed)           0.532     0.736    u_mailbox/response_reg_n_0_[3]
+    SLICE_X57Y152        FDRE                                         r  u_mailbox/response_tck_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X57Y152        FDRE (Setup_fdre_C_D)       -0.092   333.240    u_mailbox/response_tck_reg[3]
+  -------------------------------------------------------------------
+                         required time                        333.240    <hidden>
+                         arrival time                          -0.736    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.504    <hidden>
+
+Slack (MET) :             332.505ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[340]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[340]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.759ns  (logic 0.204ns (26.888%)  route 0.555ns (73.112%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X45Y177                                     0.000     0.000 r  u_mailbox/response_reg[340]/C
+    SLICE_X45Y177        FDRE (Prop_fdre_C_Q)         0.204     0.204 r  u_mailbox/response_reg[340]/Q
+                         net (fo=1, routed)           0.555     0.759    u_mailbox/response_reg_n_0_[340]
+    SLICE_X42Y176        FDRE                                         r  u_mailbox/response_tck_reg[340]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X42Y176        FDRE (Setup_fdre_C_D)       -0.068   333.264    u_mailbox/response_tck_reg[340]
+  -------------------------------------------------------------------
+                         required time                        333.264    <hidden>
+                         arrival time                          -0.759    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.505    <hidden>
+
+Slack (MET) :             332.510ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[76]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[76]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.809ns  (logic 0.259ns (32.018%)  route 0.550ns (67.982%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X58Y163                                     0.000     0.000 r  u_mailbox/response_reg[76]/C
+    SLICE_X58Y163        FDRE (Prop_fdre_C_Q)         0.259     0.259 r  u_mailbox/response_reg[76]/Q
+                         net (fo=1, routed)           0.550     0.809    u_mailbox/response_reg_n_0_[76]
+    SLICE_X59Y163        FDRE                                         r  u_mailbox/response_tck_reg[76]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X59Y163        FDRE (Setup_fdre_C_D)       -0.013   333.319    u_mailbox/response_tck_reg[76]
+  -------------------------------------------------------------------
+                         required time                        333.319    <hidden>
+                         arrival time                          -0.809    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.510    <hidden>
+
+Slack (MET) :             332.516ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[312]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[312]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.794ns  (logic 0.259ns (32.625%)  route 0.535ns (67.375%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y180                                     0.000     0.000 r  u_mailbox/response_reg[312]/C
+    SLICE_X44Y180        FDRE (Prop_fdre_C_Q)         0.259     0.259 r  u_mailbox/response_reg[312]/Q
+                         net (fo=1, routed)           0.535     0.794    u_mailbox/response_reg_n_0_[312]
+    SLICE_X45Y180        FDRE                                         r  u_mailbox/response_tck_reg[312]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X45Y180        FDRE (Setup_fdre_C_D)       -0.022   333.310    u_mailbox/response_tck_reg[312]
+  -------------------------------------------------------------------
+                         required time                        333.310    <hidden>
+                         arrival time                          -0.794    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.516    <hidden>
+
+Slack (MET) :             332.519ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[78]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[78]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.800ns  (logic 0.259ns (32.378%)  route 0.541ns (67.622%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X58Y160                                     0.000     0.000 r  u_mailbox/response_reg[78]/C
+    SLICE_X58Y160        FDRE (Prop_fdre_C_Q)         0.259     0.259 r  u_mailbox/response_reg[78]/Q
+                         net (fo=1, routed)           0.541     0.800    u_mailbox/response_reg_n_0_[78]
+    SLICE_X59Y160        FDRE                                         r  u_mailbox/response_tck_reg[78]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X59Y160        FDRE (Setup_fdre_C_D)       -0.013   333.319    u_mailbox/response_tck_reg[78]
+  -------------------------------------------------------------------
+                         required time                        333.319    <hidden>
+                         arrival time                          -0.800    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.519    <hidden>
+
+Slack (MET) :             332.520ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[345]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[345]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.790ns  (logic 0.259ns (32.778%)  route 0.531ns (67.222%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y182                                     0.000     0.000 r  u_mailbox/response_reg[345]/C
+    SLICE_X44Y182        FDRE (Prop_fdre_C_Q)         0.259     0.259 r  u_mailbox/response_reg[345]/Q
+                         net (fo=1, routed)           0.531     0.790    u_mailbox/response_reg_n_0_[345]
+    SLICE_X45Y182        FDRE                                         r  u_mailbox/response_tck_reg[345]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X45Y182        FDRE (Setup_fdre_C_D)       -0.022   333.310    u_mailbox/response_tck_reg[345]
+  -------------------------------------------------------------------
+                         required time                        333.310    <hidden>
+                         arrival time                          -0.790    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.520    <hidden>
+
+Slack (MET) :             332.523ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[202]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[202]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.800ns  (logic 0.259ns (32.383%)  route 0.541ns (67.617%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X66Y172                                     0.000     0.000 r  u_mailbox/response_reg[202]/C
+    SLICE_X66Y172        FDRE (Prop_fdre_C_Q)         0.259     0.259 r  u_mailbox/response_reg[202]/Q
+                         net (fo=1, routed)           0.541     0.800    u_mailbox/response_reg_n_0_[202]
+    SLICE_X67Y172        FDRE                                         r  u_mailbox/response_tck_reg[202]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X67Y172        FDRE (Setup_fdre_C_D)       -0.009   333.323    u_mailbox/response_tck_reg[202]
+  -------------------------------------------------------------------
+                         required time                        333.323    <hidden>
+                         arrival time                          -0.800    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.523    <hidden>
+
+Slack (MET) :             332.528ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[311]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[311]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.702ns  (logic 0.236ns (33.617%)  route 0.466ns (66.383%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X46Y178                                     0.000     0.000 r  u_mailbox/response_reg[311]/C
+    SLICE_X46Y178        FDRE (Prop_fdre_C_Q)         0.236     0.236 r  u_mailbox/response_reg[311]/Q
+                         net (fo=1, routed)           0.466     0.702    u_mailbox/response_reg_n_0_[311]
+    SLICE_X47Y178        FDRE                                         r  u_mailbox/response_tck_reg[311]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X47Y178        FDRE (Setup_fdre_C_D)       -0.102   333.230    u_mailbox/response_tck_reg[311]
+  -------------------------------------------------------------------
+                         required time                        333.230    <hidden>
+                         arrival time                          -0.702    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.528    <hidden>
+
+Slack (MET) :             332.535ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[391]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[391]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.788ns  (logic 0.223ns (28.288%)  route 0.565ns (71.712%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X61Y184                                     0.000     0.000 r  u_mailbox/response_reg[391]/C
+    SLICE_X61Y184        FDRE (Prop_fdre_C_Q)         0.223     0.223 r  u_mailbox/response_reg[391]/Q
+                         net (fo=1, routed)           0.565     0.788    u_mailbox/response_reg_n_0_[391]
+    SLICE_X60Y184        FDRE                                         r  u_mailbox/response_tck_reg[391]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X60Y184        FDRE (Setup_fdre_C_D)       -0.009   333.323    u_mailbox/response_tck_reg[391]
+  -------------------------------------------------------------------
+                         required time                        333.323    <hidden>
+                         arrival time                          -0.788    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.535    <hidden>
+
+Slack (MET) :             332.537ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[429]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[429]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.773ns  (logic 0.259ns (33.502%)  route 0.514ns (66.498%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X58Y192                                     0.000     0.000 r  u_mailbox/response_reg[429]/C
+    SLICE_X58Y192        FDRE (Prop_fdre_C_Q)         0.259     0.259 r  u_mailbox/response_reg[429]/Q
+                         net (fo=1, routed)           0.514     0.773    u_mailbox/response_reg_n_0_[429]
+    SLICE_X59Y192        FDRE                                         r  u_mailbox/response_tck_reg[429]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X59Y192        FDRE (Setup_fdre_C_D)       -0.022   333.310    u_mailbox/response_tck_reg[429]
+  -------------------------------------------------------------------
+                         required time                        333.310    <hidden>
+                         arrival time                          -0.773    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.537    <hidden>
+
+Slack (MET) :             332.537ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[62]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[62]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.773ns  (logic 0.259ns (33.502%)  route 0.514ns (66.498%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X46Y160                                     0.000     0.000 r  u_mailbox/response_reg[62]/C
+    SLICE_X46Y160        FDRE (Prop_fdre_C_Q)         0.259     0.259 r  u_mailbox/response_reg[62]/Q
+                         net (fo=1, routed)           0.514     0.773    u_mailbox/response_reg_n_0_[62]
+    SLICE_X47Y160        FDRE                                         r  u_mailbox/response_tck_reg[62]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X47Y160        FDRE (Setup_fdre_C_D)       -0.022   333.310    u_mailbox/response_tck_reg[62]
+  -------------------------------------------------------------------
+                         required time                        333.310    <hidden>
+                         arrival time                          -0.773    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.537    <hidden>
+
+Slack (MET) :             332.543ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[147]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[147]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.766ns  (logic 0.223ns (29.093%)  route 0.543ns (70.907%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X53Y167                                     0.000     0.000 r  u_mailbox/response_reg[147]/C
+    SLICE_X53Y167        FDRE (Prop_fdre_C_Q)         0.223     0.223 r  u_mailbox/response_reg[147]/Q
+                         net (fo=1, routed)           0.543     0.766    u_mailbox/response_reg_n_0_[147]
+    SLICE_X53Y168        FDRE                                         r  u_mailbox/response_tck_reg[147]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X53Y168        FDRE (Setup_fdre_C_D)       -0.022   333.310    u_mailbox/response_tck_reg[147]
+  -------------------------------------------------------------------
+                         required time                        333.310    <hidden>
+                         arrival time                          -0.766    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.543    <hidden>
+
+Slack (MET) :             332.545ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[528]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[528]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.685ns  (logic 0.236ns (34.433%)  route 0.449ns (65.567%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y146                                     0.000     0.000 r  u_mailbox/response_reg[528]/C
+    SLICE_X44Y146        FDRE (Prop_fdre_C_Q)         0.236     0.236 r  u_mailbox/response_reg[528]/Q
+                         net (fo=1, routed)           0.449     0.685    u_mailbox/response_reg_n_0_[528]
+    SLICE_X45Y146        FDRE                                         r  u_mailbox/response_tck_reg[528]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X45Y146        FDRE (Setup_fdre_C_D)       -0.102   333.230    u_mailbox/response_tck_reg[528]
+  -------------------------------------------------------------------
+                         required time                        333.230    <hidden>
+                         arrival time                          -0.685    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.545    <hidden>
+
+Slack (MET) :             332.545ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[403]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[403]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.673ns  (logic 0.236ns (35.087%)  route 0.437ns (64.913%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X50Y185                                     0.000     0.000 r  u_mailbox/response_reg[403]/C
+    SLICE_X50Y185        FDRE (Prop_fdre_C_Q)         0.236     0.236 r  u_mailbox/response_reg[403]/Q
+                         net (fo=1, routed)           0.437     0.673    u_mailbox/response_reg_n_0_[403]
+    SLICE_X51Y185        FDRE                                         r  u_mailbox/response_tck_reg[403]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X51Y185        FDRE (Setup_fdre_C_D)       -0.114   333.218    u_mailbox/response_tck_reg[403]
+  -------------------------------------------------------------------
+                         required time                        333.218    <hidden>
+                         arrival time                          -0.673    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.545    <hidden>
+
+Slack (MET) :             332.554ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[146]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[146]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.765ns  (logic 0.223ns (29.144%)  route 0.542ns (70.856%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X56Y169                                     0.000     0.000 r  u_mailbox/response_reg[146]/C
+    SLICE_X56Y169        FDRE (Prop_fdre_C_Q)         0.223     0.223 r  u_mailbox/response_reg[146]/Q
+                         net (fo=1, routed)           0.542     0.765    u_mailbox/response_reg_n_0_[146]
+    SLICE_X57Y169        FDRE                                         r  u_mailbox/response_tck_reg[146]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X57Y169        FDRE (Setup_fdre_C_D)       -0.013   333.319    u_mailbox/response_tck_reg[146]
+  -------------------------------------------------------------------
+                         required time                        333.319    <hidden>
+                         arrival time                          -0.765    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.554    <hidden>
+
+Slack (MET) :             332.555ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[63]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[63]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.688ns  (logic 0.236ns (34.285%)  route 0.452ns (65.715%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X50Y158                                     0.000     0.000 r  u_mailbox/response_reg[63]/C
+    SLICE_X50Y158        FDRE (Prop_fdre_C_Q)         0.236     0.236 r  u_mailbox/response_reg[63]/Q
+                         net (fo=1, routed)           0.452     0.688    u_mailbox/response_reg_n_0_[63]
+    SLICE_X51Y158        FDRE                                         r  u_mailbox/response_tck_reg[63]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X51Y158        FDRE (Setup_fdre_C_D)       -0.089   333.243    u_mailbox/response_tck_reg[63]
+  -------------------------------------------------------------------
+                         required time                        333.243    <hidden>
+                         arrival time                          -0.688    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.555    <hidden>
+
+Slack (MET) :             332.555ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[14]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[14]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.777ns  (logic 0.223ns (28.709%)  route 0.554ns (71.291%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X57Y153                                     0.000     0.000 r  u_mailbox/response_reg[14]/C
+    SLICE_X57Y153        FDRE (Prop_fdre_C_Q)         0.223     0.223 r  u_mailbox/response_reg[14]/Q
+                         net (fo=1, routed)           0.554     0.777    u_mailbox/response_reg_n_0_[14]
+    SLICE_X54Y155        FDRE                                         r  u_mailbox/response_tck_reg[14]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X54Y155        FDRE (Setup_fdre_C_D)        0.000   333.332    u_mailbox/response_tck_reg[14]
+  -------------------------------------------------------------------
+                         required time                        333.332    <hidden>
+                         arrival time                          -0.777    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.555    <hidden>
+
+Slack (MET) :             332.557ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[256]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[256]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.765ns  (logic 0.223ns (29.156%)  route 0.542ns (70.844%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X68Y177                                     0.000     0.000 r  u_mailbox/response_reg[256]/C
+    SLICE_X68Y177        FDRE (Prop_fdre_C_Q)         0.223     0.223 r  u_mailbox/response_reg[256]/Q
+                         net (fo=1, routed)           0.542     0.765    u_mailbox/response_reg_n_0_[256]
+    SLICE_X69Y177        FDRE                                         r  u_mailbox/response_tck_reg[256]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X69Y177        FDRE (Setup_fdre_C_D)       -0.010   333.322    u_mailbox/response_tck_reg[256]
+  -------------------------------------------------------------------
+                         required time                        333.322    <hidden>
+                         arrival time                          -0.765    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.557    <hidden>
+
+Slack (MET) :             332.559ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[327]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[327]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.692ns  (logic 0.236ns (34.109%)  route 0.456ns (65.891%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X50Y172                                     0.000     0.000 r  u_mailbox/response_reg[327]/C
+    SLICE_X50Y172        FDRE (Prop_fdre_C_Q)         0.236     0.236 r  u_mailbox/response_reg[327]/Q
+                         net (fo=1, routed)           0.456     0.692    u_mailbox/response_reg_n_0_[327]
+    SLICE_X48Y172        FDRE                                         r  u_mailbox/response_tck_reg[327]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X48Y172        FDRE (Setup_fdre_C_D)       -0.081   333.251    u_mailbox/response_tck_reg[327]
+  -------------------------------------------------------------------
+                         required time                        333.251    <hidden>
+                         arrival time                          -0.692    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.559    <hidden>
+
+Slack (MET) :             332.562ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[26]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[26]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.668ns  (logic 0.204ns (30.528%)  route 0.464ns (69.472%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X63Y157                                     0.000     0.000 r  u_mailbox/response_reg[26]/C
+    SLICE_X63Y157        FDRE (Prop_fdre_C_Q)         0.204     0.204 r  u_mailbox/response_reg[26]/Q
+                         net (fo=1, routed)           0.464     0.668    u_mailbox/response_reg_n_0_[26]
+    SLICE_X65Y157        FDRE                                         r  u_mailbox/response_tck_reg[26]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X65Y157        FDRE (Setup_fdre_C_D)       -0.102   333.230    u_mailbox/response_tck_reg[26]
+  -------------------------------------------------------------------
+                         required time                        333.230    <hidden>
+                         arrival time                          -0.668    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.562    <hidden>
+
+Slack (MET) :             332.565ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[266]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[266]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.665ns  (logic 0.204ns (30.670%)  route 0.461ns (69.330%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X68Y177                                     0.000     0.000 r  u_mailbox/response_reg[266]/C
+    SLICE_X68Y177        FDRE (Prop_fdre_C_Q)         0.204     0.204 r  u_mailbox/response_reg[266]/Q
+                         net (fo=1, routed)           0.461     0.665    u_mailbox/response_reg_n_0_[266]
+    SLICE_X69Y177        FDRE                                         r  u_mailbox/response_tck_reg[266]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X69Y177        FDRE (Setup_fdre_C_D)       -0.102   333.230    u_mailbox/response_tck_reg[266]
+  -------------------------------------------------------------------
+                         required time                        333.230    <hidden>
+                         arrival time                          -0.665    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.565    <hidden>
+
+Slack (MET) :             332.572ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[287]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[287]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.747ns  (logic 0.223ns (29.866%)  route 0.524ns (70.134%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X56Y179                                     0.000     0.000 r  u_mailbox/response_reg[287]/C
+    SLICE_X56Y179        FDRE (Prop_fdre_C_Q)         0.223     0.223 r  u_mailbox/response_reg[287]/Q
+                         net (fo=1, routed)           0.524     0.747    u_mailbox/response_reg_n_0_[287]
+    SLICE_X55Y179        FDRE                                         r  u_mailbox/response_tck_reg[287]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X55Y179        FDRE (Setup_fdre_C_D)       -0.013   333.319    u_mailbox/response_tck_reg[287]
+  -------------------------------------------------------------------
+                         required time                        333.319    <hidden>
+                         arrival time                          -0.747    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.572    <hidden>
+
+Slack (MET) :             332.574ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[224]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[224]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.753ns  (logic 0.223ns (29.631%)  route 0.530ns (70.369%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X57Y175                                     0.000     0.000 r  u_mailbox/response_reg[224]/C
+    SLICE_X57Y175        FDRE (Prop_fdre_C_Q)         0.223     0.223 r  u_mailbox/response_reg[224]/Q
+                         net (fo=1, routed)           0.530     0.753    u_mailbox/response_reg_n_0_[224]
+    SLICE_X56Y175        FDRE                                         r  u_mailbox/response_tck_reg[224]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X56Y175        FDRE (Setup_fdre_C_D)       -0.005   333.327    u_mailbox/response_tck_reg[224]
+  -------------------------------------------------------------------
+                         required time                        333.327    <hidden>
+                         arrival time                          -0.753    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.574    <hidden>
+
+Slack (MET) :             332.577ns  (required time - arrival time)
+  Source:                 u_mailbox/response_reg[468]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            u_mailbox/response_tck_reg[468]/D
+                            (rising edge-triggered cell FDRE clocked by jtag_tck  {rise@0.000ns fall@83.333ns period=166.666ns})
+  Path Group:             jtag_tck
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            333.332ns  (MaxDelay Path 333.332ns)
+  Data Path Delay:        0.653ns  (logic 0.204ns (31.229%)  route 0.449ns (68.771%))
+  Logic Levels:           0  
+  Timing Exception:       MaxDelay Path 333.332ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X67Y184                                     0.000     0.000 r  u_mailbox/response_reg[468]/C
+    SLICE_X67Y184        FDRE (Prop_fdre_C_Q)         0.204     0.204 r  u_mailbox/response_reg[468]/Q
+                         net (fo=1, routed)           0.449     0.653    u_mailbox/response_reg_n_0_[468]
+    SLICE_X68Y184        FDRE                                         r  u_mailbox/response_tck_reg[468]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                  333.332   333.332    <hidden>
+    SLICE_X68Y184        FDRE (Setup_fdre_C_D)       -0.102   333.230    u_mailbox/response_tck_reg[468]
+  -------------------------------------------------------------------
+                         required time                        333.230    <hidden>
+                         arrival time                          -0.653    <hidden>
+  -------------------------------------------------------------------
+                         slack                                332.577    <hidden>
+
+
+
+

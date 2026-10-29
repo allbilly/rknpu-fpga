@@ -1,0 +1,116 @@
+{
+  "status": "PREPARED_CMAC512_SAMPLE_OBSERVER_ONLY",
+  "binding": {
+    "schema_version": 2,
+    "profile": "full512-regmem-startup",
+    "trial_id": "00229cef9d674a9985cd81ae26f7ca30",
+    "part": "xc7k480tffg1156-2",
+    "idcode": "0x23751093",
+    "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+    "server": "localhost:3125",
+    "bitstream": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-regmem-implementation/20261026T111740Z/image-command-qualified/bitstream/cmac512-startup.bit",
+      "sha256": "205c4c058861b18e9c6d7a292cb5bb9f566571625e5a88a21743256e5e677227",
+      "bytes": 18735223
+    },
+    "source_report": {
+      "path": "/home/fedora/rknpu-fpga/build/full512-regmem-preparation/1793013000/report.json",
+      "sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+      "binding": {
+        "preparation_report_sha256": "454a4a8125414f26c6559238ef2f140b28c76765614fad4a6b01bf1a893b13c0",
+        "source_sha256": "ac6fee7e5ebd29b85c727349c5b2def80ba8f7876ceae76ff0bc0b47750ce25d",
+        "hardware_inputs": {
+          "files": {
+            "rtl/vendor/nvdla/NV_DW02_tree.v": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+            "rtl/vendor/nvdla/compat/NV_DW_lsd.v": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+            "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+            "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+            "rtl/vendor/nvdla/HLS_fp32_to_fp16.v": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+            "rtl/rk_cmac_profile.sv": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+            "rtl/cmac/experimental/rk_cmac_fp16_rows.sv": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+            "rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+            "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+            "rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+            "rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+            "rtl/cmac/rk_nvdla_cacc.sv": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+            "rtl/cmac/rk_cacc_fp16_array.sv": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500",
+            "generated/rk_cmac_cacc_fp16_array.sv": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+            "rtl/cmac/rk_nvdla_fp32_to_fp16.sv": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+            "rtl/cmac/rk_cmac_writer.sv": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+            "rtl/cmac/rk_cmac_output_nvdla.sv": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+            "rtl/cmac/rk_cmac_frame_output.sv": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+            "rtl/cmac/rk_cmac_array_datapath.sv": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+            "rtl/cmac/rk_cmac_array_front.sv": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7",
+            "rtl/cmac/rk_cmac_rw_arbiter.sv": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+            "rtl/cmac/rk_cmac_array_core.sv": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+            "rtl/cmac/rk_cmac_array_dma.sv": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+            "rtl/cmac/experimental/rk_cmac_demo_memory_regport.sv": "c4ce96aa41db8616bfec1403886420ad27d0e524ccedd1f7fb191620eee03cb5",
+            "rtl/cmac/rk_cmac_array_demo_rom.sv": "18a3abdd30c1c39ae22db5dcf9843b72dc20a26e528995a3943f25eb46c120ba",
+            "rtl/cmac/experimental/rk_cmac_array_bram_demo_regmem.sv": "6ebd923159eb1bb746b48052cf907b33cb6f78a54b7877eff0a3c2c86b281f13",
+            "fpga/cmac/startup/ypcb_cmac_array_regmem_top.sv": "0a76b3e1362f85e20deaa7894ee3d92d039d4096b00ada28f46b3828d26ce775",
+            "rtl/rk_startup_reset.sv": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+            "rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix_pipe.sv": "977961dcf3c0491d4c98e77d8bff14e97b367f4a569a285932ad6ef5b80b3924",
+            "rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix_pipe.sv": "1cf644cd2c0cfc29c2b50ae53520520b3e2152a593733d333ee74d0ab741453c",
+            "fpga/cmac/startup/ypcb_cmac_array_startup.xdc": "113ca200e9c86f967c16b6077f03d8e0882d4b5d4d858f65966016810f1a4647",
+            "tests/cmac/array_data/board_rom.hex": "7a56cabe51da7125e7259c3f423abaf69fde633a82269aa4ffce6238f47a1950",
+            "tests/cmac/array_data/commands.hex": "4cbea40abde962107af9f438a69d7b94fd78839212d0116b11ecd3bc987f41c4",
+            "tests/cmac/array_data/fixture.json": "98497400fd1ecc0c7cd94f2801ac42597a1d4a30f055c953c72ec1b5f2cc5a85",
+            "tests/cmac/array_data/fp32.hex": "0725a51167e8a20b71350a12ab146cf43997812356cb2c495566aa6d094033ce",
+            "tests/cmac/array_data/groups.hex": "fa427a46de9528ad0122f7304cc5f2d137e60a0bdcc118fa751802ada18d0416",
+            "tests/cmac/array_data/input.hex": "3b68d117d69190b2100d5af71802a419ae31de587236654c4e04d76bfe0fec69",
+            "tests/cmac/array_data/reads.hex": "975ef067253785dce6f9c60807bb92cf997d6ed044ea5276ac3c2491f4e5cdd6",
+            "tests/cmac/array_data/source_report.json": "ce300a8a7349caf061e608a856d75e41eda1deb4433fcf576c43b0fac4af8248",
+            "tests/cmac/array_data/weight.hex": "97279b0ffdeac95bc9c5d3548c21e70f83f40d90bf7f6e5882b2e53dd58100e1",
+            "tests/cmac/array_data/writes.hex": "8ed44735a1c9271cf0b83c24d20d317ba517497b5c59b07bb0a0f43cbeae4dbf"
+          }
+        },
+        "profile": "full512-regmem-startup"
+      }
+    },
+    "bsdl": {
+      "entity": "XC7K480T_FFG1156",
+      "sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+      "boundary_length": 1395,
+      "instruction_length": 6,
+      "opcodes": {
+        "IDCODE": "09",
+        "SAMPLE": "01",
+        "BYPASS": "3f"
+      },
+      "pins": {
+        "pass_flag": {
+          "pin": "P30",
+          "output_cell": 852,
+          "disable_cell": 851,
+          "input_cell": 853
+        },
+        "fail_flag": {
+          "pin": "M30",
+          "output_cell": 846,
+          "disable_cell": 845,
+          "input_cell": 847
+        },
+        "heartbeat": {
+          "pin": "N30",
+          "output_cell": 849,
+          "disable_cell": 848,
+          "input_cell": 850
+        }
+      }
+    },
+    "led_active_low": 0,
+    "samples": 101,
+    "interval_ms": 50,
+    "requested_tck_hz": 3000000,
+    "source_scope": "Full C32/K16=512-product autonomous raw K65 scoreboard; 49 command QWORDs,12 frames,64 numerical writes/acks and4096 checked halfwords inferred from bound source; no direct RAM readback, host/DDR/PCIe or RK3588 equivalence"
+  },
+  "binding_sha256": "bf10aad061573401bddbce939e6b9e00cc0e85e9c6514e92838372e73a2bfc70",
+  "tcl_sha256": "5b1616f04429bee2730965717d8ada5d972402b31ed68d69d5d4ddb331ebd063",
+  "observer_sha256": "7ab67fa521686bed327012489629ce6fd73103779400733fb652b03d2a3fd2ee",
+  "pad_helper_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+  "template_sha256": "fb7db6e88d798401e9d611b9f5536855071c4a20d2d19bce890f0421baa0e8e8",
+  "hardware_accessed": false,
+  "programming_performed": false,
+  "flash_written": false,
+  "image_admission": false
+}

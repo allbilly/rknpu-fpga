@@ -1,0 +1,31 @@
+{
+  "earlier_v15_postrun_mutation_forensic_sha256": "9fa8de27ef7064d64df2ea60084adb2b10a924e31992a7d21c35f70c25986a28",
+  "earlier_v15_source_bytes_preserved_at": "build/ddr-capacity-public-prior-candidate-v1/tb_capacity_axi.sv",
+  "exact_promoted_benches": 2,
+  "exact_promoted_rtl_sources": 4,
+  "hardware_accessed": false,
+  "physical_capacity_qualified": false,
+  "private_adapter_v16_native_commands": 21,
+  "private_adapter_v16_report_sha256": "cafed80c35a409393f21664b63a377be14c5ad9a2225c36416bf2d7b1e1fb7d7",
+  "private_facts_sha256": "55a036936ca35d8096296d1b7279b21a5e8ec6624b3f80ad3f8fa742b8b529b3",
+  "public_native_runs": [
+    {
+      "cases": 6,
+      "complete_native_commands": 14,
+      "report_path": "/home/fedora/rknpu-fpga/build/ddr-capacity/iverilog-1793170986428659104/report.json",
+      "report_sha256": "3f615c5837353cf5ff792b7305f4872ac57463959d0e04a902b5e7280e537c71",
+      "simulator": "iverilog"
+    },
+    {
+      "cases": 6,
+      "complete_native_commands": 13,
+      "report_path": "/home/fedora/rknpu-fpga/build/ddr-capacity/verilator-1793170987016890863/report.json",
+      "report_sha256": "44a355b299a0970974645654433e787fcd1afa8a5e323e7501c2062a9a80a170",
+      "simulator": "verilator"
+    }
+  ],
+  "reviewer_sha256": "b0a89f0a465da628b025d757025e4cf9a1a3f1c8550499d1a71bd4f6cb9c9077",
+  "scope": "Bounded AXI/control models and software pattern goldens; no real MIG/PHY/full capacity",
+  "status": "PASS_ROOT_PUBLIC_CAPACITY_SOURCE_AND_BOUNDED_NATIVE_CONTROLS_ONLY",
+  "utc": "2026-10-28T07:05:11.154693+00:00"
+}

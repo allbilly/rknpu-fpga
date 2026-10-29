@@ -1,0 +1,114 @@
+{
+  "status": "PASS_OFFLINE_POSTPROCESSING_OF_V10_NATIVE_CAPTURE",
+  "scope": "offline parsing/comparison only; no Vivado rerun, no hardware access",
+  "created_utc": "2026-10-28T03:48:59.471994+00:00",
+  "started_utc": "2026-10-28T03:48:59.033771+00:00",
+  "preserved_v10_outer_status": "FAIL_READ_ONLY_FULL512_IO_QUERY",
+  "preserved_v10_outer_error": "SnapshotError('wrong routed design/top/part/config properties')",
+  "v10_native_returncode": 0,
+  "v10_native_status": "PASS_NATIVE_READ_ONLY_FULL512_ROUTE_IO_QUERY",
+  "v10_native_stdout_marker_count": 1,
+  "v10_outer_report_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/query-report.json",
+  "v10_outer_report_sha256": "1ea290b0d808f8ed7baabfc852ba66a7f54ac8fb1d3401fb9aa914589bd43734",
+  "native_artifact_paths_and_hashes": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/query-report.json": {
+      "sha256": "e58fabc586326b78d74a042d7cb4bf39de81bb1384b061d7e984187fae28f353",
+      "bytes": 769
+    },
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-io-facts.tsv": {
+      "sha256": "7e5700df36a756c22713f0e2b7aeced05b299fbd3cc09aded3a111fae4f346aa",
+      "bytes": 73592
+    },
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-properties.txt": {
+      "sha256": "e8608e8b797b18f137a041546763711591237d1d91555b5a3f718e45ff481516",
+      "bytes": 1002012
+    },
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-ports.tcl": {
+      "sha256": "2a4618922ecb704107b01fac2998004fd97760781770577614524a0341f269e9",
+      "bytes": 38278
+    },
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-route-report-io.rpt": {
+      "sha256": "a48bc77fc30097af4e93b7304d976489a5e517f02488e0290148abc412004c9f",
+      "bytes": 362034
+    },
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/stdout.log": {
+      "sha256": "eb25ebd7d03e910e05a1c6636e84c6bc486eebecd6f4e2d75fd28c20fd675990",
+      "bytes": 8374
+    },
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/vivado.log": {
+      "sha256": "ff6a2826be30d06db161f12740d4f3a3fa43a4748b2381a1a9fd70f3ad1eb2d7",
+      "bytes": 9512
+    },
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/vivado.jou": {
+      "sha256": "cea1a9f7dbd82222ff16958bd1772306569f23d0692ba16dc94b9fe58a4e6de6",
+      "bytes": 1635
+    },
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-route-clocks.rpt": {
+      "sha256": "065534a45a5f55a390d5c4f850120c5d818adde750d539d464130a553c56c626",
+      "bytes": 78593
+    }
+  },
+  "old_parser_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io_snapshot.py",
+  "old_parser_sha256": "7b6ebc1387f061e0edb3df31b915419c5f6055705e54dde550efec623253623c",
+  "new_parser_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v11/io_snapshot.py",
+  "new_parser_sha256": "fbe53a0f706cfdfb9108e956e3ff05717d5ad38acb09d470139531088e8d1791",
+  "input_hashes_before": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/query-report.json": "1ea290b0d808f8ed7baabfc852ba66a7f54ac8fb1d3401fb9aa914589bd43734",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/query-report.json": "e58fabc586326b78d74a042d7cb4bf39de81bb1384b061d7e984187fae28f353",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-io-facts.tsv": "7e5700df36a756c22713f0e2b7aeced05b299fbd3cc09aded3a111fae4f346aa",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-properties.txt": "e8608e8b797b18f137a041546763711591237d1d91555b5a3f718e45ff481516",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-ports.tcl": "2a4618922ecb704107b01fac2998004fd97760781770577614524a0341f269e9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-route-report-io.rpt": "a48bc77fc30097af4e93b7304d976489a5e517f02488e0290148abc412004c9f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/stdout.log": "eb25ebd7d03e910e05a1c6636e84c6bc486eebecd6f4e2d75fd28c20fd675990",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/vivado.log": "ff6a2826be30d06db161f12740d4f3a3fa43a4748b2381a1a9fd70f3ad1eb2d7",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/vivado.jou": "cea1a9f7dbd82222ff16958bd1772306569f23d0692ba16dc94b9fe58a4e6de6",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-route-clocks.rpt": "065534a45a5f55a390d5c4f850120c5d818adde750d539d464130a553c56c626",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/run_io_query.py": "342ee0fdc562eb556130c844a6d1a4eeaf20ff165e4f16de49f42a7d5a2fafec",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io_query.tcl": "3a6576d73ff295b0bf7a10252b7d659f83ad9810c360d5dfbf5e97ba81751149",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io_snapshot.py": "7b6ebc1387f061e0edb3df31b915419c5f6055705e54dde550efec623253623c",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v11/io_snapshot.py": "fbe53a0f706cfdfb9108e956e3ff05717d5ad38acb09d470139531088e8d1791",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/strict-route-requalification-v1/root-route-review.json": "86f8075fdd25da073b19bad5afe36fa49aa17d28e172f8fdb20fdb85494a84fc",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/strict-route-requalification-v1/output/post_route.dcp": "55a9a311a14227a89550e39f182deed2ca8885d39653c5c478b9bc4c51ffee89",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/facts.tsv": "d43cf886762bdbcf2ff12fcebe9db6d744fbf7afd0b840e63231728adae34183",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/comparison.json": "f1cbc43f5e2759964c6cd26182ab31465ae9d1754fcf731f81e97886b07617b6",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/board.xdc": "18f8b2bdd853c991df4395a40ca184b7ee4618f035b19f9e073423f071d11a15",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/mig-original.xdc": "5ea42669bed59d09cfad5c25a08aec20e0824d48895071ecd2acfbff8261b6fc"
+  },
+  "input_hashes_after": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/query-report.json": "1ea290b0d808f8ed7baabfc852ba66a7f54ac8fb1d3401fb9aa914589bd43734",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/query-report.json": "e58fabc586326b78d74a042d7cb4bf39de81bb1384b061d7e984187fae28f353",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-io-facts.tsv": "7e5700df36a756c22713f0e2b7aeced05b299fbd3cc09aded3a111fae4f346aa",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-properties.txt": "e8608e8b797b18f137a041546763711591237d1d91555b5a3f718e45ff481516",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-ports.tcl": "2a4618922ecb704107b01fac2998004fd97760781770577614524a0341f269e9",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-route-report-io.rpt": "a48bc77fc30097af4e93b7304d976489a5e517f02488e0290148abc412004c9f",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/stdout.log": "eb25ebd7d03e910e05a1c6636e84c6bc486eebecd6f4e2d75fd28c20fd675990",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/vivado.log": "ff6a2826be30d06db161f12740d4f3a3fa43a4748b2381a1a9fd70f3ad1eb2d7",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/vivado.jou": "cea1a9f7dbd82222ff16958bd1772306569f23d0692ba16dc94b9fe58a4e6de6",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io-snapshot/native-output/full512-route-clocks.rpt": "065534a45a5f55a390d5c4f850120c5d818adde750d539d464130a553c56c626",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/run_io_query.py": "342ee0fdc562eb556130c844a6d1a4eeaf20ff165e4f16de49f42a7d5a2fafec",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io_query.tcl": "3a6576d73ff295b0bf7a10252b7d659f83ad9810c360d5dfbf5e97ba81751149",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v10/io_snapshot.py": "7b6ebc1387f061e0edb3df31b915419c5f6055705e54dde550efec623253623c",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v11/io_snapshot.py": "fbe53a0f706cfdfb9108e956e3ff05717d5ad38acb09d470139531088e8d1791",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/strict-route-requalification-v1/root-route-review.json": "86f8075fdd25da073b19bad5afe36fa49aa17d28e172f8fdb20fdb85494a84fc",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/strict-route-requalification-v1/output/post_route.dcp": "55a9a311a14227a89550e39f182deed2ca8885d39653c5c478b9bc4c51ffee89",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/facts.tsv": "d43cf886762bdbcf2ff12fcebe9db6d744fbf7afd0b840e63231728adae34183",
+    "/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-routed-io-review-v1/comparison.json": "f1cbc43f5e2759964c6cd26182ab31465ae9d1754fcf731f81e97886b07617b6",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/board.xdc": "18f8b2bdd853c991df4395a40ca184b7ee4618f035b19f9e073423f071d11a15",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/mig-original.xdc": "5ea42669bed59d09cfad5c25a08aec20e0824d48895071ecd2acfbff8261b6fc"
+  },
+  "all_inputs_unchanged": true,
+  "snapshot_path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/full512-image-prep-v11/io-snapshot/full512-io-snapshot.json",
+  "snapshot_sha256": "fa4732aa5fcd2cbcd5982eb3242fdd1a3ec76980f7adacf0541372906ec3d854",
+  "ports": 242,
+  "properties": 1936,
+  "mismatch_count": 0,
+  "native_execution_reused": true,
+  "vivado_executed": false,
+  "hardware_accessed": false
+}

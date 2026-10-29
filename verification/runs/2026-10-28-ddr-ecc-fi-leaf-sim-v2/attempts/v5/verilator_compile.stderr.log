@@ -1,0 +1,12 @@
+%Warning-PROCASSINIT: /home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v5/tests/tb_mig_fi_xor.sv:6:17: Procedural assignment to declaration with initial value: 'clk'
+                                                                                                             : ... note: In instance 'tb_mig_fi_xor'
+                                                                                                             : ... Location of variable initialization
+    6 |     logic clk = 1'b0;
+      |                 ^~~~
+                      /home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v5/tests/tb_mig_fi_xor.sv:7:15: ... Location of variable process write
+                                                                                                             : ... Perhaps should initialize instead using a reset in this process
+    7 |     always #5 clk = ~clk;
+      |               ^~~
+                      ... For warning description see https://verilator.org/warn/PROCASSINIT?v=5.048
+                      ... Use "/* verilator lint_off PROCASSINIT */" and lint_on around source to disable this message.
+%Error: Exiting due to 1 warning(s)

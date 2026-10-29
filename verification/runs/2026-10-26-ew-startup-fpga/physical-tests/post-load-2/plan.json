@@ -1,0 +1,83 @@
+{
+  "status": "PREPARED_SAMPLE_OBSERVER_ONLY",
+  "binding": {
+    "schema_version": 1,
+    "trial_id": "3636b566186d4aa9bcbf7c717199f3a3",
+    "part": "xc7k480tffg1156-2",
+    "idcode": "0x23751093",
+    "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+    "server": "localhost:3125",
+    "bitstream": {
+      "path": "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitstream/ew-startup.bit",
+      "sha256": "7250ad2e9a7c009b0fd8fa5a265dc089073f220e5c4355096453afa88bf7ef67",
+      "bytes": 18735216
+    },
+    "source_report": {
+      "path": "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/report.json",
+      "sha256": "6773dbecca5e849c9992fe1e444186ad9b456dd50024b5cae73c66031d379634",
+      "binding": {
+        "preparation_report_sha256": "6773dbecca5e849c9992fe1e444186ad9b456dd50024b5cae73c66031d379634",
+        "hardware_inputs": {
+          "files": {
+            "fpga/ypcb_ew_startup.xdc": "289802614193de8ddd4a799ab0440e8f408003749292e9a0baf36aba7f18364e",
+            "fpga/ypcb_ew_startup_top.sv": "b55c794212a1b3b3b13696df4541751e29094b679e4390fe01ffe5827c9c1a55",
+            "rtl/rk_bram.sv": "ffb9db11b442a47d7f3f82a5ef78f5de00fc999732aa5cdf670b9c6da98e963c",
+            "rtl/rk_demo_memory.sv": "5ed0b1200be238f93ccc7c39d3e079f790a445a7be4d1e76e294b51541bef515",
+            "rtl/rk_dma_demo_rom.sv": "5818805ff1ab6d76ff75ab4043e370f00cd47f14eda090e0aa8c1c4bf806a591",
+            "rtl/rk_ew_dma.sv": "55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046",
+            "rtl/rk_ew_dma_demo.sv": "ed96a22d9801b2b862da8e31b5833ac38d0dc27a05f3f3e220c092cfeb57e64c",
+            "rtl/rk_ew_engine.sv": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e",
+            "rtl/rk_ew_regs.sv": "592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73",
+            "rtl/rk_fp16_alu.sv": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+            "rtl/rk_startup_reset.sv": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09"
+          },
+          "sha256": "fb74bff4056fff1b61aa0d75ce2d4b175e454d9a63a0c5a4d06b1e90299c493d"
+        },
+        "production_source_sha256": "d1d0e3d0bffd0ffadee9e9eb4b14020c985d772ce716ad2936894f2b4003f59a"
+      }
+    },
+    "bsdl": {
+      "entity": "XC7K480T_FFG1156",
+      "sha256": "7e4e7a5947e08df05b016a7add9743585348848494bbbd4882880a5df8e81de1",
+      "boundary_length": 1395,
+      "instruction_length": 6,
+      "opcodes": {
+        "IDCODE": "09",
+        "SAMPLE": "01",
+        "BYPASS": "3f"
+      },
+      "pins": {
+        "pass_flag": {
+          "pin": "P30",
+          "output_cell": 852,
+          "disable_cell": 851,
+          "input_cell": 853
+        },
+        "fail_flag": {
+          "pin": "M30",
+          "output_cell": 846,
+          "disable_cell": 845,
+          "input_cell": 847
+        },
+        "heartbeat": {
+          "pin": "N30",
+          "output_cell": 849,
+          "disable_cell": 848,
+          "input_cell": 850
+        }
+      }
+    },
+    "led_active_low": 0,
+    "samples": 101,
+    "interval_ms": 50,
+    "requested_tck_hz": 3000000,
+    "source_scope": "EWstartup SUB9; two completed tasks and336checked halfwords inferred from bound built-in scoreboard; no direct memory readback"
+  },
+  "binding_sha256": "36c988d36a4047ac74917a3b2e1f84ea4f58b2471e1ebe480e560316cef16049",
+  "tcl_sha256": "c0c40d9b6123102ac766c5d472a955cd307af51239bb967810ce7e129c2697d1",
+  "observer_sha256": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+  "template_sha256": "2f46cad5d5335df5bbf9b7b6bba5c8a3d3732c3903bb78b163388e2022d5cf32",
+  "hardware_accessed": false,
+  "programming_performed": false,
+  "flash_written": false
+}

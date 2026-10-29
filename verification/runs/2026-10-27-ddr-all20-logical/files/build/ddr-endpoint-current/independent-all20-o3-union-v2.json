@@ -1,0 +1,174 @@
+{
+  "status": "PASS_INDEPENDENT_ALL20_LOGICAL_CASES_SAME_BINARY_ACROSS_RUNS_ONLY",
+  "hardware_accessed": false,
+  "physical_ddr_verified": false,
+  "original_positive_shard_remains_failed": true,
+  "scope": "Read-only twenty-case union; original failed positive shard remains failed.",
+  "cases": 20,
+  "positive_captures": 9,
+  "successful_jobs": 13,
+  "physical_bo_bytes_compared_by_bench": 1282048,
+  "physical_bytes_in_persisted_images": 1179648,
+  "binary_sha256": "0ad597d18a1a89106e22f55b239eb1d3c7d5b70e2e5ea980025e1a24f3bf6d73",
+  "build_report_sha256": "d82e4398f4a2538ddf1dce760140672a3d29624fdbcdf2dabdfe5c7fd6a7265a",
+  "frozen_input_count": 173,
+  "modeled_window_bytes": 1048576,
+  "default_full2GiB_contents_verified": false,
+  "source_reports": {
+    "/home/fedora/rknpu-fpga/build/ddr-endpoint-current/positives-o3-v1/report.json": "bdf1e4d937293a34f37037a788eafe4ba96de2cb1126fa84d78e53619b13fe4f",
+    "/home/fedora/rknpu-fpga/build/ddr-endpoint-current/faults-o3-v1/report.json": "715e2f949edc1919e30fc8ba2a204324605f5327fa6c395787ac9b470d081699",
+    "/home/fedora/rknpu-fpga/build/ddr-endpoint-current/repeat-o3-v2/report.json": "7d0154a68a1ec89634dea8db13491808b0e04aeb579414738c74e466fba1495e"
+  },
+  "preserved_timeout": {
+    "case": "repeat_sub_9",
+    "seconds": 1804.879522133153,
+    "partial_output_sha256": "aae599536522682b386fde7ad354684686b9a4db42a73c20ea1dbd27b7d23714",
+    "partial_output_bytes": 61440,
+    "accepted": false
+  },
+  "results": [
+    {
+      "name": "capture_add_8",
+      "jobs": 1,
+      "phy_user_returns": 52006,
+      "seconds": 1090.4024718960281,
+      "observed_sha256": "17754d19eb3baf3667dfeda9598b67b9f29fd4d570a6e4be928230fb1925ab70"
+    },
+    {
+      "name": "capture_add_9",
+      "jobs": 1,
+      "phy_user_returns": 52030,
+      "seconds": 878.4208219540305,
+      "observed_sha256": "ccf0e41812711d408fadb59f8e2ab70bb18db5009b6bd3a4a2a724a61dfbdb38"
+    },
+    {
+      "name": "capture_add_33",
+      "jobs": 1,
+      "phy_user_returns": 52166,
+      "seconds": 896.4043869110756,
+      "observed_sha256": "86a4530bb6c5fb32b737a806af6c84391bd844cab86e236f64389d22aa654e42"
+    },
+    {
+      "name": "capture_sub_8",
+      "jobs": 1,
+      "phy_user_returns": 56534,
+      "seconds": 1087.3657006130088,
+      "observed_sha256": "285db071c9a3a4deb9983b6c66ee31f5d806664d4318bf3c7c3ea050a3579de6"
+    },
+    {
+      "name": "capture_sub_9",
+      "jobs": 1,
+      "phy_user_returns": 56582,
+      "seconds": 939.9681611061096,
+      "observed_sha256": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec"
+    },
+    {
+      "name": "capture_sub_33",
+      "jobs": 1,
+      "phy_user_returns": 56854,
+      "seconds": 976.0559620689601,
+      "observed_sha256": "6717b53c8b0cdf2a3662c92d66ad3e85c16ebd349548647af5313149c8e5426b"
+    },
+    {
+      "name": "capture_mul_8",
+      "jobs": 1,
+      "phy_user_returns": 52006,
+      "seconds": 1196.6694719318766,
+      "observed_sha256": "9bf75c73aeb684144e8f14e894dbf7f0799e9474e08c947d055f5e7ac8d905c6"
+    },
+    {
+      "name": "capture_mul_9",
+      "jobs": 1,
+      "phy_user_returns": 52030,
+      "seconds": 1103.9605014640838,
+      "observed_sha256": "0ce8c55a0344de44e5a4be1a418b9d49d032809eb4b2f937e7d393658b8e8427"
+    },
+    {
+      "name": "capture_mul_33",
+      "jobs": 1,
+      "phy_user_returns": 52166,
+      "seconds": 1265.9390866628382,
+      "observed_sha256": "85181ba1efeae48e2de903fa41beffc1d62b877ab7c71d1cc87ec817b06f6e1d"
+    },
+    {
+      "name": "ecc_control_timeout",
+      "jobs": 0,
+      "phy_user_returns": 5382,
+      "seconds": 151.8262936170213,
+      "observed_sha256": null
+    },
+    {
+      "name": "joint_reset_recovery",
+      "jobs": 1,
+      "phy_user_returns": 56486,
+      "seconds": 1325.8437474588864,
+      "observed_sha256": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec"
+    },
+    {
+      "name": "host_memory_timeout",
+      "jobs": 0,
+      "phy_user_returns": 130,
+      "seconds": 36.7972537339665,
+      "observed_sha256": null
+    },
+    {
+      "name": "unknown_command",
+      "jobs": 0,
+      "phy_user_returns": 5157,
+      "seconds": 123.21686795097776,
+      "observed_sha256": null
+    },
+    {
+      "name": "rmw_ue",
+      "jobs": 0,
+      "phy_user_returns": 5201,
+      "seconds": 122.39079140708782,
+      "observed_sha256": null
+    },
+    {
+      "name": "dropped_return",
+      "jobs": 0,
+      "phy_user_returns": 5058,
+      "seconds": 120.81084246002138,
+      "observed_sha256": null
+    },
+    {
+      "name": "phy_write_stall",
+      "jobs": 0,
+      "phy_user_returns": 5201,
+      "seconds": 120.22237271699123,
+      "observed_sha256": null
+    },
+    {
+      "name": "calibration_loss",
+      "jobs": 0,
+      "phy_user_returns": 5057,
+      "seconds": 119.13902883394621,
+      "observed_sha256": null
+    },
+    {
+      "name": "queued_fault_after_success",
+      "jobs": 1,
+      "phy_user_returns": 56582,
+      "seconds": 961.3065337969456,
+      "observed_sha256": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec"
+    },
+    {
+      "name": "late_pending_result_fault",
+      "jobs": 0,
+      "phy_user_returns": 5382,
+      "seconds": 153.24716016906314,
+      "observed_sha256": null
+    },
+    {
+      "name": "repeat_sub_9",
+      "jobs": 2,
+      "phy_user_returns": 108107,
+      "seconds": 1697.8734909901395,
+      "observed_sha256": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec"
+    }
+  ],
+  "limitation": "Twenty source-identical logical cases from validated executions, not a passing original whole shard; encoded PHY model only, no pads/training/board DDR/PCIe/RK acceptance",
+  "utc": "2026-10-27T04:05:34.239647+00:00",
+  "auditor_sha256": "2492ccf84b62e3e0180495fde1e684a65bdb0c3048c0c0562491be9297915571"
+}

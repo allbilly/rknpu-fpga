@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-ddr-ecc-fi-verilator-v6-20261028t0647",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "python3",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/run_verilator.py"
+  ],
+  "bench_delta_from_v5": "only clock declaration initialized in an initial block to avoid Verilator PROCASSINIT; no assertions/vectors/source changed",
+  "bench_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+  "cwd": "/home/fedora/rknpu-fpga",
+  "flash_written": false,
+  "hardware_accessed": false,
+  "launch_performed": false,
+  "per_command_timeout_seconds": 300,
+  "prepared_utc": "2026-10-28T06:46:01.484622+00:00",
+  "preserved_history": [
+    "v1/v2 version-command failures",
+    "v3 Icarus strict actual vendor warning",
+    "v4 private runner initialization failure",
+    "v5 strict Verilator testbench PROCASSINIT warning"
+  ],
+  "private_leaf_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+  "resource_limits": {
+    "cpu.max": "200000 100000",
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "runner_sha256": "39e0e4b132c6f76c4fad123d7d2bffca6ea1877c0ed8796d3b5cd4534f2cb386",
+  "schema": "ddr-ecc-fi-verilator-launch-v6",
+  "scope": "Strict Verilator FI_XOR leaf only; no controller/memory/ECC decoder/PHY/physical qualification.",
+  "selected_leaf_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+  "status": "PREPARED_TO_LAUNCH",
+  "vivado_executed": false,
+  "warning_suppressions": []
+}

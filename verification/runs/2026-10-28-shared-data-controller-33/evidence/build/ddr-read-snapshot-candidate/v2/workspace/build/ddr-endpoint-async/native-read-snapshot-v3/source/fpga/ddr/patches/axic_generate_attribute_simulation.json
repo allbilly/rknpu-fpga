@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "variant_id": "rknpu-mig42-axic-generate-attribute-simulation-v1",
+  "simulation_only": true,
+  "archive_sha256": "09050b7ca090b3f8206d7735f9de919788f2a35d868311b7911f8d6c7812a84a",
+  "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_ddr_axic_register_slice.v",
+  "original_sha256": "c21552fb3bd001886a800ebd4ca6240952da81923f3bb5e97f73b091e591e84f",
+  "patched_sha256": "b90c26e1d63612bf38c45c37fb8978008a8a149f2f3060593e5ac373060f4c12",
+  "replace_once": {
+    "old": "  (* use_clock_enable = \"yes\" *)\n\n  generate\n",
+    "new": "  // Simulation-only compatibility: omit the synthesis attribute on generate.\n\n  generate\n"
+  },
+  "scope": "Only replace the synthesis-only use_clock_enable annotation on a generate region with a comment so Icarus can parse it. No HDL expression, branch, port, clock/reset or state logic changes.",
+  "hardware_preparation_allowed": false,
+  "physical_qualification": false,
+  "selected_configuration": "Both AXI register-slice stages use C_REG_CONFIG=0 on all channels; their bypass assignments are byte-identical."
+}

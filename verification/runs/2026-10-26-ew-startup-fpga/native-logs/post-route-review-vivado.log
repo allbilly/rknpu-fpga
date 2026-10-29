@@ -1,0 +1,121 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 09-oct-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:01:26 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Mon Oct 26 12:54:36 2026
+# Process ID         : 259567
+# Current directory  : /home/fedora/rknpu-fpga
+# Command line       : vivado -mode batch -source build/fpga-bringup/ew-startup-1792988881763089417/post-route-review.tcl -log build/fpga-bringup/ew-startup-1792988881763089417/post-route-review-vivado.log -journal build/fpga-bringup/ew-startup-1792988881763089417/post-route-review-vivado.jou -tclargs /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/post-route-audit-1
+# Log file           : /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/post-route-review-vivado.log
+# Journal file       : /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/post-route-review-vivado.jou
+# Running On         : fedora
+# Platform           : unknown
+# Operating System   : unknown
+# Processor Detail   : AMD Ryzen 7 4700U with Radeon Graphics
+# CPU Frequency      : 4151.548 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 8
+# Host memory        : 39639 MB
+# Swap memory        : 25769 MB
+# Total Virtual      : 65409 MB
+# Available Virtual  : 45195 MB
+#-----------------------------------------------------------
+source build/fpga-bringup/ew-startup-1792988881763089417/post-route-review.tcl
+# set expected_hashes [dict create \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/fpga/ypcb_ew_startup.xdc} {289802614193de8ddd4a799ab0440e8f408003749292e9a0baf36aba7f18364e} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/fpga/ypcb_ew_startup_top.sv} {b55c794212a1b3b3b13696df4541751e29094b679e4390fe01ffe5827c9c1a55} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_bram.sv} {ffb9db11b442a47d7f3f82a5ef78f5de00fc999732aa5cdf670b9c6da98e963c} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_demo_memory.sv} {5ed0b1200be238f93ccc7c39d3e079f790a445a7be4d1e76e294b51541bef515} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_dma_demo_rom.sv} {5818805ff1ab6d76ff75ab4043e370f00cd47f14eda090e0aa8c1c4bf806a591} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_ew_dma.sv} {55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_ew_dma_demo.sv} {ed96a22d9801b2b862da8e31b5833ac38d0dc27a05f3f3e220c092cfeb57e64c} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_ew_engine.sv} {aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_ew_regs.sv} {592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_fp16_alu.sv} {f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/source/rtl/rk_startup_reset.sv} {884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/build.tcl} {5c43a56808fabb53eea43a613f78bb7a116583336e53364f69e0db03531b0d7b} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/report.json} {6773dbecca5e849c9992fe1e444186ad9b456dd50024b5cae73c66031d379634} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/checkpoint-build.json} {3ffda03909f54727e440a6658d66d699033617f7ba5291cb38aa197d86334544} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/pad-observation-board-review.json} {56849ea5683f482c8afc492bd5fbf4f318de408ad418e4ce98ace28e4587e73e} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/implementation/routed.dcp} {6ff196db78e0dcf4eba8c903a3646d46da9d61c4ee9d2199cc3800341e79b725} \
+#     {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/checkpoint-vivado.log} {83ff26b9b1edf793624f282b4a546f58dbab35bf1544bd43917b4fae14b54754}]
+# proc require {condition message} {if {!$condition} {error $message}}
+# proc finite {value} {
+#     return [expr {[string is double -strict $value] &&
+#         ![catch {expr {abs(double($value)) < Inf}} result] && $result}]
+# }
+# proc pin_hashes {} {
+#     global expected_hashes
+#     dict for {path expected} $expected_hashes {
+#         require [file isfile $path] "Missing bound input: $path"
+#         set actual [lindex [exec sha256sum -- $path] 0]
+#         require [expr {$actual eq $expected}] "Changed bound input: $path"
+#     }
+# }
+# proc one {items label} {
+#     require [expr {[llength $items] == 1}] "Expected one $label; got $items"
+#     return [lindex $items 0]
+# }
+# proc save_text {path text} {
+#     set fd [open $path w]; puts $fd $text; close $fd
+# }
+# proc prop {object key} {
+#     if {[lsearch -exact [list_property $object] $key] < 0} {return "-"}
+#     return [get_property $key $object]
+# }
+# require [expr {$argc == 1}] "Usage: post-route-review.tcl <fresh-output-directory>"
+# set work {/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417}
+# set out [file normalize [lindex $argv 0]]
+# require [expr {[string first "$work/" "$out/"] == 0 && ![file exists $out]}] "Use a fresh output under the hardware work directory"
+# pin_hashes
+# file mkdir $out
+# open_checkpoint [file join $work prepared implementation routed.dcp]
+Command: open_checkpoint /home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/prepared/implementation/routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1673.969 ; gain = 8.906 ; free physical = 2061 ; free virtual = 42849
+INFO: [Device 21-403] Loading part xc7k480tffg1156-2
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2157.676 ; gain = 0.000 ; free physical = 1667 ; free virtual = 42455
+INFO: [Netlist 29-17] Analyzing 466 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2245.395 ; gain = 1.000 ; free physical = 1555 ; free virtual = 42343
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2827.363 ; gain = 0.000 ; free physical = 1020 ; free virtual = 41813
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2827.363 ; gain = 0.000 ; free physical = 1020 ; free virtual = 41813
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2827.363 ; gain = 0.000 ; free physical = 1020 ; free virtual = 41813
+Read placeStorage: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.12 . Memory (MB): peak = 2846.441 ; gain = 19.078 ; free physical = 1012 ; free virtual = 41805
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2846.441 ; gain = 0.000 ; free physical = 1012 ; free virtual = 41805
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2846.441 ; gain = 0.000 ; free physical = 1012 ; free virtual = 41805
+Read Physdb Files: Time (s): cpu = 00:00:00.24 ; elapsed = 00:00:00.18 . Memory (MB): peak = 2846.441 ; gain = 19.078 ; free physical = 1012 ; free virtual = 41805
+Restored from archive | CPU: 0.290000 secs | Memory: 5.757408 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.28 ; elapsed = 00:00:00.22 . Memory (MB): peak = 2846.441 ; gain = 25.016 ; free physical = 1012 ; free virtual = 41805
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2846.441 ; gain = 0.000 ; free physical = 1012 ; free virtual = 41805
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2026.1 (64-bit) build 6511674
+open_checkpoint: Time (s): cpu = 00:00:24 ; elapsed = 00:00:15 . Memory (MB): peak = 2846.477 ; gain = 1183.414 ; free physical = 1012 ; free virtual = 41805
+# require [expr {[get_property PART [current_design]] eq "xc7k480tffg1156-2"}] "Wrong routed part"
+# require [expr {[get_property NAME [current_design]] eq "ypcb_ew_startup_top"}] "Wrong routed top"
+Wrong routed top
+    while executing
+"error $message"
+    invoked from within
+"if {!$condition} {error $message}"
+    (procedure "require" line 1)
+    invoked from within
+"require [expr {[get_property NAME [current_design]] eq "ypcb_ew_startup_top"}] "Wrong routed top""
+    (file "build/fpga-bringup/ew-startup-1792988881763089417/post-route-review.tcl" line 54)
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 26 12:54:53 2026...

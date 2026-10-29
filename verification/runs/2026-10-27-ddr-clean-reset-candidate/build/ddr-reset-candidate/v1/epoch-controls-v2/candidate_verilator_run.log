@@ -1,0 +1,5 @@
+PASS mig_reset_epoch_samples cases=5 hold=1 sync=5 timeout_sync8=2 scope=public_status_only
+- /home/fedora/rknpu-fpga/build/ddr-reset-candidate/v1/epoch-controls-v2/source/candidate/tests/ddr/tb_mig_reset_epoch_samples.sv:94: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.048 2026-04-26
+- Verilator: $finish at 6us; walltime 0.001 s; speed 5.756 ms/s
+- Verilator: cpu 0.001 s on 1 threads; allocated 7 MB

@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "mode": "recovery",
+  "started_utc": "2026-10-26T17:39:46.312532+00:00",
+  "scope": "Actual USER2 physical raw captured EW BO execution; separate from full512, DDR, PCIe and RK equivalence",
+  "tests": [
+    {
+      "name": "sub9_after_reconfiguration",
+      "status": "PASS",
+      "bytes_checked": 102400,
+      "report_sha256": "2ea890264e969a7b3469f47545927fb9ef37e364f560746eb3ea946e69c8b3b4"
+    }
+  ],
+  "identity": {
+    "id": 1380664663,
+    "abi": 65536,
+    "status": 16,
+    "actual_tck_frequency_hz": 3000000,
+    "actual_tck_period_ns": {
+      "numerator": 1000,
+      "denominator": 3
+    }
+  },
+  "finished_utc": "2026-10-26T17:40:11.333853+00:00",
+  "scans": 9691,
+  "bridge_clean_quit": true
+}

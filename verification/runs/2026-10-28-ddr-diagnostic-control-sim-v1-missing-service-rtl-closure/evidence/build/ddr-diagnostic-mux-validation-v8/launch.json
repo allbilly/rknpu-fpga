@@ -1,0 +1,32 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-ddr-diagnostic-mux-validation-v8",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/home/linuxbrew/.linuxbrew/bin/python3",
+    "/home/fedora/rknpu-fpga/build/ddr-diagnostic-mux-validation-v8/run_validation.py"
+  ],
+  "bad_parameter_bench_sha256": "542ed52df12c622b25f968cb80e3f5c8148d2b2765697ae677d38c15f47281c3",
+  "cgroup_requested": {
+    "CPUQuota": "200%",
+    "MemoryMax": "4G",
+    "MemorySwapMax": 0,
+    "TasksMax": 256
+  },
+  "cwd": "/home/fedora/rknpu-fpga",
+  "frozen_inputs_sha256": "a60b077dadd3decec62fba84ea4a8a311ac241ba9314ddf610021ff22afa7398",
+  "launch_status": "PREPARED",
+  "main_bench_sha256": "6705833596b40e1710973a8d202bdf91c18f73e2b638fb6e032ecf41389401fe",
+  "rtl_sha256": "c771344eb0b09506763336905d739a29f3a26f226848267d5f6b201f4d1a8e57",
+  "runner_sha256": "d71c53f95ef731db22bb23e3047e4582cbd774e86d5320b0d5d2cb3966e2eede",
+  "utc": "2026-10-28T07:57:20Z"
+}

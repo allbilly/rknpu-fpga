@@ -1,0 +1,158 @@
+{
+  "audit": "independent_rehash",
+  "command_logs": [
+    {
+      "actual_sha256": "b3381e2f4577fb00b88ccdb768c91d043d54433d20a7fd60cadfa29a8b28cfec",
+      "expected_sha256": "b3381e2f4577fb00b88ccdb768c91d043d54433d20a7fd60cadfa29a8b28cfec",
+      "match": true,
+      "name": "generated_check",
+      "path": "build/production-ddr-endpoint-controls/current-v1/generated_check.log",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "actual_sha256": "a52fa0e9a1ef081d27d875008062571a2a512cd2e276416e85d18ad6234cf79b",
+      "expected_sha256": "a52fa0e9a1ef081d27d875008062571a2a512cd2e276416e85d18ad6234cf79b",
+      "match": true,
+      "name": "production_test",
+      "path": "build/production-ddr-endpoint-controls/current-v1/production_test.log",
+      "returncode": 0,
+      "status": "PASS"
+    }
+  ],
+  "copied_workspace_rehash": {
+    "checked": 1002,
+    "count": 1002,
+    "mismatches": [],
+    "missing": []
+  },
+  "host_15_case_suites": [
+    {
+      "all_scenarios_pass": true,
+      "async_command_seconds": [
+        66.083
+      ],
+      "async_command_statuses": [
+        "PASS"
+      ],
+      "async_result_lines": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/build/host-jtag/verilator-1793054725386201626/vectors/capture_sub_9 mailbox=1 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3219"
+      ],
+      "async_spec": [
+        {
+          "address": 269352960,
+          "amount": 35,
+          "build": "async_bram",
+          "case": "capture_sub_9",
+          "jobs": 1,
+          "lines": 1600,
+          "name": "async_sub_9",
+          "negative": 0,
+          "reset_partial": 0,
+          "tasks": 2
+        }
+      ],
+      "async_test_statuses": [
+        "PASS"
+      ],
+      "report": "build/production-ddr-endpoint-controls/current-v1/workspace/build/host-jtag/verilator-1793054725386201626/report.json",
+      "scenario_count": 15,
+      "seeds": {
+        "mailbox": "0x3588c640"
+      },
+      "simulator": "verilator",
+      "status": "PASS",
+      "tool_version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+    },
+    {
+      "all_scenarios_pass": true,
+      "async_command_seconds": [
+        542.709
+      ],
+      "async_command_statuses": [
+        "PASS"
+      ],
+      "async_result_lines": [
+        "PASS jtag_ew_bram /home/fedora/rknpu-fpga/build/production-ddr-endpoint-controls/current-v1/workspace/build/host-jtag/iverilog-1793054851976962913/vectors/capture_sub_9 mailbox=1 jobs=1 negative=0 reset_partial=0 lines=1600 commands=3219"
+      ],
+      "async_spec": [
+        {
+          "address": 269352960,
+          "amount": 35,
+          "build": "async_bram",
+          "case": "capture_sub_9",
+          "jobs": 1,
+          "lines": 1600,
+          "name": "async_sub_9",
+          "negative": 0,
+          "reset_partial": 0,
+          "tasks": 2
+        }
+      ],
+      "async_test_statuses": [
+        "PASS"
+      ],
+      "report": "build/production-ddr-endpoint-controls/current-v1/workspace/build/host-jtag/iverilog-1793054851976962913/report.json",
+      "scenario_count": 15,
+      "seeds": {
+        "mailbox": "0x3588c640"
+      },
+      "simulator": "iverilog",
+      "status": "PASS",
+      "tool_version": "Icarus Verilog version 13.0 (stable) (v13_0)"
+    }
+  ],
+  "producer_report": "build/production-ddr-endpoint-controls/current-v1/report.json",
+  "production_reports": [
+    {
+      "actual_sha256": "c91e9f85bcb1ae85ad7a90b61ebe3c11819b948e5f5d9d0277bb6f7aff4c1a6b",
+      "expected_sha256": "c91e9f85bcb1ae85ad7a90b61ebe3c11819b948e5f5d9d0277bb6f7aff4c1a6b",
+      "match": true,
+      "path": "build/production-ddr-endpoint-controls/current-v1/workspace/build/numeric_report.json",
+      "status": "PASS",
+      "tests": 0
+    },
+    {
+      "actual_sha256": "92dc2a584d7502bffa925f585c72acdf533dcd9d78fffa379053f5bfa02649e9",
+      "expected_sha256": "92dc2a584d7502bffa925f585c72acdf533dcd9d78fffa379053f5bfa02649e9",
+      "match": true,
+      "path": "build/production-ddr-endpoint-controls/current-v1/workspace/build/rtl/report.json",
+      "status": "PASS",
+      "tests": 249
+    },
+    {
+      "actual_sha256": "ca4ca06aa24f09c86c7668aa3fd524038c2750a224e86572e3c6647fb27aa596",
+      "expected_sha256": "ca4ca06aa24f09c86c7668aa3fd524038c2750a224e86572e3c6647fb27aa596",
+      "match": true,
+      "path": "build/production-ddr-endpoint-controls/current-v1/workspace/build/iverilog/report.json",
+      "status": "PASS",
+      "tests": 249
+    },
+    {
+      "actual_sha256": "5e0191c6a7ba33c3d2a42253a74f3c76c7052b22d39180938a29417438f8062f",
+      "expected_sha256": "5e0191c6a7ba33c3d2a42253a74f3c76c7052b22d39180938a29417438f8062f",
+      "match": true,
+      "path": "build/production-ddr-endpoint-controls/current-v1/workspace/build/cmac_verilator/report.json",
+      "status": "PASS_RAW_PRODUCT_PATH_ONLY",
+      "tests": 3
+    },
+    {
+      "actual_sha256": "b7ff353cebd36a85c5f3cbb0583e13b93ec904c13cc341f8fe737e23e8981f9a",
+      "expected_sha256": "b7ff353cebd36a85c5f3cbb0583e13b93ec904c13cc341f8fe737e23e8981f9a",
+      "match": true,
+      "path": "build/production-ddr-endpoint-controls/current-v1/workspace/build/cmac_iverilog/report.json",
+      "status": "PASS_RAW_PRODUCT_PATH_ONLY",
+      "tests": 3
+    }
+  ],
+  "source_after": "2a3d4a7b195ba1995bc6bc547926cb9005b8f7d2ee6a78d9ddeb197cde869b15",
+  "source_and_copy_hash_maps_equal": true,
+  "source_before": "2a3d4a7b195ba1995bc6bc547926cb9005b8f7d2ee6a78d9ddeb197cde869b15",
+  "source_identity_expected": "2a3d4a7b195ba1995bc6bc547926cb9005b8f7d2ee6a78d9ddeb197cde869b15",
+  "source_root_rehash": {
+    "checked": 1002,
+    "count": 1002,
+    "mismatches": [],
+    "missing": []
+  }
+}

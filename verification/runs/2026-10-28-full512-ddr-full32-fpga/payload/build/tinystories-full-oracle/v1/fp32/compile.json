@@ -1,0 +1,20 @@
+{
+  "status": "COMPILED_C_HOST_ENGINE_ONLY",
+  "kind": "separate-fp32-reference",
+  "original_c_sha256": "9c4f2d5c6ae01b71726d1cc37530d71e60bff0ec7cc012565f16a43c1ca658bd",
+  "derived_c_sha256": "df817eb34c179453611e4d1c30bc1430072a3c8d8924ccdaa3071387ef3952cc",
+  "argv": [
+    "gcc",
+    "-O3",
+    "-fPIC",
+    "-shared",
+    "/home/fedora/rknpu-fpga/build/tinystories-full-oracle/v1/fp32/engine.c",
+    "-lm",
+    "-o",
+    "/home/fedora/rknpu-fpga/build/tinystories-full-oracle/v1/fp32/engine.so"
+  ],
+  "returncode": 0,
+  "binary_sha256": "7e46c42e9737fb8fefa0fec40b6b1f456f61ca4d17fe124ff623913d874b3449",
+  "compiler_version": "gcc (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)",
+  "hardware_accessed": false
+}

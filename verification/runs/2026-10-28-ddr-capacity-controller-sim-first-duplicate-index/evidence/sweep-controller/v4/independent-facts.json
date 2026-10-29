@@ -1,0 +1,375 @@
+{
+  "behavior_markers": {
+    "full_window": "PASS_SWEEP_FULL_WINDOW_ELAB_ONLY last=7fffffc0 no_span_iteration=1",
+    "icarus_four_state": "PASS_SWEEP_UNKNOWN_SEED_FOUR_STATE",
+    "verilator_four_state": "NOT_APPLICABLE_TWO_STATE"
+  },
+  "diagnostic_counts_and_excerpts": {
+    "beyond_31bit_window_compile": {
+      "diagnostic_count": 1,
+      "diagnostics": [
+        {
+          "line": 1,
+          "stream": "stderr",
+          "text": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'address[30:0]')."
+        }
+      ],
+      "returncode": 0,
+      "stderr_sha256": "494fd09f2255cebcf72166527f4d49aa357d4005a2b2a077345bd521ea78a92e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "beyond_31bit_window_reject": {
+      "diagnostic_count": 0,
+      "diagnostics": [],
+      "returncode": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4d5f2e962f823f63e00370699caae57d7fede46a39678757459a86b8c417df84"
+    },
+    "empty_span_compile": {
+      "diagnostic_count": 1,
+      "diagnostics": [
+        {
+          "line": 1,
+          "stream": "stderr",
+          "text": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'address[30:0]')."
+        }
+      ],
+      "returncode": 0,
+      "stderr_sha256": "494fd09f2255cebcf72166527f4d49aa357d4005a2b2a077345bd521ea78a92e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "empty_span_reject": {
+      "diagnostic_count": 0,
+      "diagnostics": [],
+      "returncode": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4d5f2e962f823f63e00370699caae57d7fede46a39678757459a86b8c417df84"
+    },
+    "icarus_behavior_compile": {
+      "diagnostic_count": 1,
+      "diagnostics": [
+        {
+          "line": 1,
+          "stream": "stderr",
+          "text": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'address[30:0]')."
+        }
+      ],
+      "returncode": 0,
+      "stderr_sha256": "494fd09f2255cebcf72166527f4d49aa357d4005a2b2a077345bd521ea78a92e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "icarus_behavior_sim": {
+      "diagnostic_count": 0,
+      "diagnostics": [],
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c30ee04b080b206ee98062d42b18f1d170b191b7e4d45093540fd00e57be0754"
+    },
+    "icarus_full_window_elab_compile": {
+      "diagnostic_count": 1,
+      "diagnostics": [
+        {
+          "line": 1,
+          "stream": "stderr",
+          "text": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'address[30:0]')."
+        }
+      ],
+      "returncode": 0,
+      "stderr_sha256": "494fd09f2255cebcf72166527f4d49aa357d4005a2b2a077345bd521ea78a92e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "icarus_full_window_elab_sim": {
+      "diagnostic_count": 0,
+      "diagnostics": [],
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "375a8712d7df9c6963e64fa8cd3573ef27c9b96d7e6478f9a9b98cb17af24942"
+    },
+    "short_span_compile": {
+      "diagnostic_count": 1,
+      "diagnostics": [
+        {
+          "line": 1,
+          "stream": "stderr",
+          "text": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'address[30:0]')."
+        }
+      ],
+      "returncode": 0,
+      "stderr_sha256": "494fd09f2255cebcf72166527f4d49aa357d4005a2b2a077345bd521ea78a92e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "short_span_reject": {
+      "diagnostic_count": 0,
+      "diagnostics": [],
+      "returncode": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4d5f2e962f823f63e00370699caae57d7fede46a39678757459a86b8c417df84"
+    },
+    "unaligned_base_compile": {
+      "diagnostic_count": 1,
+      "diagnostics": [
+        {
+          "line": 1,
+          "stream": "stderr",
+          "text": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'address[30:0]')."
+        }
+      ],
+      "returncode": 0,
+      "stderr_sha256": "494fd09f2255cebcf72166527f4d49aa357d4005a2b2a077345bd521ea78a92e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "unaligned_base_reject": {
+      "diagnostic_count": 0,
+      "diagnostics": [],
+      "returncode": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4d5f2e962f823f63e00370699caae57d7fede46a39678757459a86b8c417df84"
+    },
+    "unaligned_span_compile": {
+      "diagnostic_count": 1,
+      "diagnostics": [
+        {
+          "line": 1,
+          "stream": "stderr",
+          "text": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'address[30:0]')."
+        }
+      ],
+      "returncode": 0,
+      "stderr_sha256": "494fd09f2255cebcf72166527f4d49aa357d4005a2b2a077345bd521ea78a92e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "unaligned_span_reject": {
+      "diagnostic_count": 0,
+      "diagnostics": [],
+      "returncode": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4d5f2e962f823f63e00370699caae57d7fede46a39678757459a86b8c417df84"
+    },
+    "verilator_behavior_compile": {
+      "diagnostic_count": 0,
+      "diagnostics": [],
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "93230ac7792645ccde152b657f0740db0512de4eb27f73af2589b7622f463469"
+    },
+    "verilator_behavior_sim": {
+      "diagnostic_count": 0,
+      "diagnostics": [],
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "d2618edb862547e8d822becd7743edb29f8e1a49cd4428262459a23f7160cee1"
+    },
+    "verilator_full_window_elab_compile": {
+      "diagnostic_count": 0,
+      "diagnostics": [],
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "90e3d17eec28d3c962a68f24d9b07a7ac229071342930f71bdd2f377c8132b9b"
+    },
+    "verilator_full_window_elab_sim": {
+      "diagnostic_count": 0,
+      "diagnostics": [],
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "afced8b924745218350dd3e5c6e2ec71b947047693c0e5848991ed30cc076c5d"
+    },
+    "zero_timeout_compile": {
+      "diagnostic_count": 1,
+      "diagnostics": [
+        {
+          "line": 1,
+          "stream": "stderr",
+          "text": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'address[30:0]')."
+        }
+      ],
+      "returncode": 0,
+      "stderr_sha256": "494fd09f2255cebcf72166527f4d49aa357d4005a2b2a077345bd521ea78a92e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "zero_timeout_reject": {
+      "diagnostic_count": 0,
+      "diagnostics": [],
+      "returncode": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4d5f2e962f823f63e00370699caae57d7fede46a39678757459a86b8c417df84"
+    }
+  },
+  "full_capacity_qualified": false,
+  "hardware_executed": false,
+  "model_run_executed": false,
+  "negative_parameter_cases": [
+    {
+      "case": "unaligned_base",
+      "compile_rc": 0,
+      "expected_fatal_observed": true,
+      "parameters": {
+        "TEST_BASE": 1,
+        "TEST_SPAN": 256,
+        "TEST_TIMEOUT": 20
+      },
+      "simulation_rc": 1,
+      "simulation_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "simulation_stdout_sha256": "4d5f2e962f823f63e00370699caae57d7fede46a39678757459a86b8c417df84"
+    },
+    {
+      "case": "short_span",
+      "compile_rc": 0,
+      "expected_fatal_observed": true,
+      "parameters": {
+        "TEST_BASE": 0,
+        "TEST_SPAN": 32,
+        "TEST_TIMEOUT": 20
+      },
+      "simulation_rc": 1,
+      "simulation_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "simulation_stdout_sha256": "4d5f2e962f823f63e00370699caae57d7fede46a39678757459a86b8c417df84"
+    },
+    {
+      "case": "unaligned_span",
+      "compile_rc": 0,
+      "expected_fatal_observed": true,
+      "parameters": {
+        "TEST_BASE": 0,
+        "TEST_SPAN": 65,
+        "TEST_TIMEOUT": 20
+      },
+      "simulation_rc": 1,
+      "simulation_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "simulation_stdout_sha256": "4d5f2e962f823f63e00370699caae57d7fede46a39678757459a86b8c417df84"
+    },
+    {
+      "case": "beyond_31bit_window",
+      "compile_rc": 0,
+      "expected_fatal_observed": true,
+      "parameters": {
+        "TEST_BASE": 2147483584,
+        "TEST_SPAN": 128,
+        "TEST_TIMEOUT": 20
+      },
+      "simulation_rc": 1,
+      "simulation_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "simulation_stdout_sha256": "4d5f2e962f823f63e00370699caae57d7fede46a39678757459a86b8c417df84"
+    },
+    {
+      "case": "zero_timeout",
+      "compile_rc": 0,
+      "expected_fatal_observed": true,
+      "parameters": {
+        "TEST_BASE": 0,
+        "TEST_SPAN": 256,
+        "TEST_TIMEOUT": 0
+      },
+      "simulation_rc": 1,
+      "simulation_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "simulation_stdout_sha256": "4d5f2e962f823f63e00370699caae57d7fede46a39678757459a86b8c417df84"
+    },
+    {
+      "case": "empty_span",
+      "compile_rc": 0,
+      "expected_fatal_observed": true,
+      "parameters": {
+        "TEST_BASE": 0,
+        "TEST_SPAN": 0,
+        "TEST_TIMEOUT": 20
+      },
+      "simulation_rc": 1,
+      "simulation_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "simulation_stdout_sha256": "4d5f2e962f823f63e00370699caae57d7fede46a39678757459a86b8c417df84"
+    }
+  ],
+  "outer_launcher_argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--quiet",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "python3",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v4/run_validation.py"
+  ],
+  "physical_ddr_qualified": false,
+  "prior_attempts": [
+    {
+      "failure": "RuntimeError('Icarus behavior compile failed')",
+      "first_failing_command": "icarus_behavior_compile",
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v1/report.json",
+      "sha256": "9ec11a7a7783722c28bbb017f25a2b414345263d41685b78a49486ffdccee49a",
+      "status": "FAIL"
+    },
+    {
+      "failure": "RuntimeError('strict Verilator behavior compile failed')",
+      "first_failing_command": "verilator_behavior_compile",
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v2/report.json",
+      "sha256": "082d010153df68d23d6cd2a0dfd75fc0e6c89ba41f82bece6cf62256db23d4b2",
+      "status": "FAIL"
+    },
+    {
+      "failure": "RuntimeError('strict Verilator full-window elaboration compile failed')",
+      "first_failing_command": "verilator_full_window_elab_compile",
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v3/report.json",
+      "sha256": "750dbc9b8ac0df954ed0a5994585a86414fdb6521ea627663aeb806d0b5033d3",
+      "status": "FAIL"
+    }
+  ],
+  "producer_report_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v4/report.json",
+  "producer_report_sha256": "2b5877a62c6cee4e9f45d0a9fde882f60cf98aaebc730fc494a838197bb2c6c5",
+  "resource_scope": {
+    "admission_memavailable_kib": 26430464,
+    "cgroup_path": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1153446-i5339501.scope",
+    "cpu_psi_some_avg10": 0.05,
+    "memory_psi_full_avg10": 0.0,
+    "requested": {
+      "CPUQuota": "200%",
+      "MemoryMax": "4GiB",
+      "MemorySwapMax": 0,
+      "TasksMax": 256
+    }
+  },
+  "schema": "ddr-capacity-sweep-validation-independent-facts-v1",
+  "scope_limits": [
+    "Test-only controller/fence protocol; not a real MIG adapter or ECC retirement witness",
+    "Small 256-byte behavioral span only",
+    "Default 2 GiB full-window parameter elaboration did not iterate memory operations",
+    "No physical DDR, capacity, application, or timing qualification"
+  ],
+  "seeds": [
+    "0x00000000",
+    "0x3588c350",
+    "0xffffffff"
+  ],
+  "source_hashes": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v4/tb_capacity_sweep.sv": "34e03874c0286a339a356566194c9d2b8994955f43573b81076c04bec37c99aa",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v4/tb_capacity_sweep_full_elab.sv": "c7d55977fc385ff9078d4b7968aacd5c44fcfbd66588521bbffe53634c20b6c4",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-sweep-validation-v4/tb_capacity_sweep_invalid.sv": "9066a21d77d45690961eb089ae3ed85fa7bbf9d5c76d2b2bdab8d732715ee042"
+  },
+  "span_bytes": 256,
+  "status": "PASS_CONTROLLER_ADAPTER_CONTRACT_SIMULATION_ONLY",
+  "tool_binary_hashes": {
+    "iverilog": {
+      "bytes": 79144,
+      "path": "/home/linuxbrew/.linuxbrew/bin/iverilog",
+      "sha256": "34ff9d8020f106bc3cc40d69a02f6c798be41193fdac187c35e7e4d703cade93",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)"
+    },
+    "verilator": {
+      "bytes": 30045,
+      "path": "/home/linuxbrew/.linuxbrew/bin/verilator",
+      "sha256": "7550862b9b1b41aa6aadb60b6c793f1e796a3ccb5ef18375d834b7a13f39efeb",
+      "version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+    },
+    "vvp": {
+      "bytes": 1978952,
+      "path": "/home/linuxbrew/.linuxbrew/bin/vvp",
+      "sha256": "5876e595e35ef237d7f4fdaf831698a7dc7e91239aed5ec0d98599df0f8fc990",
+      "version": "Icarus Verilog runtime version 13.0 (stable) (v13_0)"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-ddr-ecc-fi-icarus-v8-20261028t0649",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "python3",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v8/run_icarus_behavior.py"
+  ],
+  "bench_sha256": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+  "cwd": "/home/fedora/rknpu-fpga",
+  "flash_written": false,
+  "hardware_accessed": false,
+  "launch_performed": false,
+  "per_command_timeout_seconds": 300,
+  "prepared_utc": "2026-10-28T06:47:34.467569+00:00",
+  "preserved_prior": "Strict Verilator v7 is separate; Icarus v3 compile RC0 warning is preserved; no source warning suppressed.",
+  "private_leaf_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+  "resource_limits": {
+    "cpu.max": "200000 100000",
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "runner_sha256": "c3243e8728cb63f2d4a4a9485716b7ed3bc9cbde1ffc43183b2f75ac927aa4e8",
+  "schema": "ddr-ecc-fi-icarus-behavior-launch-v8",
+  "scope": "Icarus13 behavior only on unchanged vendor FI_XOR leaf/bench; records the exact source-line106 vendor warning, no physical qualification.",
+  "selected_leaf_sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+  "status": "PREPARED_TO_LAUNCH",
+  "vivado_executed": false,
+  "warning_suppression_flags": []
+}

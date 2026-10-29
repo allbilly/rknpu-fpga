@@ -1,0 +1,66 @@
+{
+  "status": "CONFIRMED_SOURCE_FIX_REMOVES_SIX_UNKNOWN_LEVEL_CDC_AND_ONE_COMBINATIONAL_BARRIER_FINDING",
+  "utc": "2026-10-27T08:53:36.348600+00:00",
+  "compared_native_reports": {
+    "v2": {
+      "report_sha256": "ce9e96c6a5dd898456fb9791131e3619aa3bfb2e6e8ff9d623b02db73c53470f",
+      "summary": {
+        "CDC-1": {
+          "severity": "Critical",
+          "count": 6
+        },
+        "CDC-3": {
+          "severity": "Info",
+          "count": 27
+        },
+        "CDC-6": {
+          "severity": "Warning",
+          "count": 1
+        },
+        "CDC-8": {
+          "severity": "Warning",
+          "count": 1
+        },
+        "CDC-10": {
+          "severity": "Critical",
+          "count": 13
+        },
+        "CDC-15": {
+          "severity": "Warning",
+          "count": 167
+        }
+      }
+    },
+    "reset-v3": {
+      "report_sha256": "69c7ac8d876aa75154af3116a2960bf598ded642f2005953d68721340cbb0b37",
+      "summary": {
+        "CDC-3": {
+          "severity": "Info",
+          "count": 34
+        },
+        "CDC-6": {
+          "severity": "Warning",
+          "count": 1
+        },
+        "CDC-8": {
+          "severity": "Warning",
+          "count": 1
+        },
+        "CDC-10": {
+          "severity": "Critical",
+          "count": 12
+        },
+        "CDC-15": {
+          "severity": "Warning",
+          "count": 167
+        }
+      }
+    }
+  },
+  "source": {
+    "coordinator": "b8d2a7c2e2f1084d5be481d76f26bf1e4998470fb75d74468ceacf6873027490",
+    "endpoint": "8c708314825c6e403c9b60fb5e2530d30bf05ddd6795984db57e3044d92aad9d"
+  },
+  "scope": "Actual118-source synthesisCDC comparison only;12critical reset/vendorfindings remain, no wholeplatform/physicalsignoff",
+  "hardware_accessed": false
+}

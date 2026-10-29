@@ -1,0 +1,92 @@
+{
+  "status": "PASS_INDEPENDENT_SELECTED_EW_CANDIDATE_CONTROLLER_CASES_ONLY",
+  "utc": "2026-10-28T01:15:57.594315+00:00",
+  "producer_sha256": "2522a1c31fbab6c45f050555ec24a694014a9ab6de71818a230ef33f4a435841",
+  "source_inputs_rehashed": 524,
+  "vector_files_rehashed": 20,
+  "binary_sha256": "120a413d661c4bc03631142c3b2b70559cbdf9b2ba121b3c2ab3f5505f3af8bf",
+  "original_deadlines_preserved": true,
+  "original_specs_and_metric_contracts_preserved": true,
+  "cases": [
+    {
+      "name": "rmw_ue",
+      "negative": 2,
+      "reset_recovery": 0,
+      "raw_fixture_tasks": 2,
+      "phy_returns": 5139,
+      "read64_packets": 2,
+      "complete_bo_bytes": 0,
+      "native_seconds": 281.2822937879246,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "dropped_return",
+      "negative": 3,
+      "reset_recovery": 0,
+      "raw_fixture_tasks": 2,
+      "phy_returns": 4996,
+      "read64_packets": 2,
+      "complete_bo_bytes": 0,
+      "native_seconds": 271.9311791639775,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "phy_write_stall",
+      "negative": 4,
+      "reset_recovery": 0,
+      "raw_fixture_tasks": 2,
+      "phy_returns": 5139,
+      "read64_packets": 2,
+      "complete_bo_bytes": 0,
+      "native_seconds": 255.2803403181024,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "ecc_control_timeout",
+      "negative": 7,
+      "reset_recovery": 0,
+      "raw_fixture_tasks": 2,
+      "phy_returns": 5320,
+      "read64_packets": 2,
+      "complete_bo_bytes": 0,
+      "native_seconds": 272.2123221321963,
+      "timeout_seconds": 300
+    },
+    {
+      "name": "queued_fault_after_success",
+      "negative": 6,
+      "reset_recovery": 0,
+      "raw_fixture_tasks": 2,
+      "phy_returns": 6920,
+      "read64_packets": 1602,
+      "complete_bo_bytes": 102400,
+      "native_seconds": 602.7126477081329,
+      "timeout_seconds": 1800
+    },
+    {
+      "name": "late_pending_result_fault",
+      "negative": 8,
+      "reset_recovery": 0,
+      "raw_fixture_tasks": 2,
+      "phy_returns": 5320,
+      "read64_packets": 2,
+      "complete_bo_bytes": 0,
+      "native_seconds": 278.1296454600524,
+      "timeout_seconds": 1800
+    },
+    {
+      "name": "joint_reset_recovery",
+      "negative": 2,
+      "reset_recovery": 1,
+      "raw_fixture_tasks": 2,
+      "phy_returns": 6855,
+      "read64_packets": 1601,
+      "complete_bo_bytes": 102400,
+      "native_seconds": 890.3238088011276,
+      "timeout_seconds": 1800
+    }
+  ],
+  "full21_union_qualified": false,
+  "physical_or_routed_qualified": false,
+  "hardware_accessed": false
+}

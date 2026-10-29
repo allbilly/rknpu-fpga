@@ -1,0 +1,25 @@
+--- tests/ddr/capacity/tb_capacity_axi.sv	2026-10-28 14:56:42.924912929 +0800
++++ build/ddr-capacity-axi-validation-v15/tb_capacity_axi.sv	2026-10-28 14:56:45.553736319 +0800
+@@ -443,6 +443,22 @@
+       @(posedge clk);#1;@(negedge clk);inject_b=0;wait_adapter_fault(2);
+       reset_system();wait_monitor_ready();direct_mode=1;@(negedge clk);inject_r=1;
+       @(posedge clk);#1;@(negedge clk);inject_r=0;wait_adapter_fault(2);
++      // Responses offered while their address/data request is still pending are premature, not completions.
++      reset_system();wait_monitor_ready();direct_mode=1;stall_aw_forever=1;stall_w_forever=1;
++      @(negedge clk);manual_line_valid=1;manual_line_write=1;manual_line_address=BASE_ADDR;manual_line_wdata=payload;
++      while(!manual_line_ready)@(posedge clk);@(posedge clk);#1;@(negedge clk);manual_line_valid=0;inject_b=1;
++      @(posedge clk);#1;@(negedge clk);inject_b=0;wait_adapter_fault(2);
++      if(!awvalid||!wvalid)$fatal(1,"premature B cancelled pending AW/W");stall_aw_forever=0;stall_w_forever=0;
++      k=0;while(model_b_completions<1&&k<100)begin @(posedge clk);#1;k=k+1;end
++      if(model_b_completions<1||adapter_line_rsp_valid||!adapter_fault)$fatal(1,"premature B quarantine failed to drain");
++      reset_system();wait_monitor_ready();direct_mode=1;stall_ar_forever=1;
++      @(negedge clk);manual_line_valid=1;manual_line_write=0;manual_line_address=BASE_ADDR;manual_line_wdata='0;
++      while(!manual_line_ready)@(posedge clk);@(posedge clk);#1;@(negedge clk);manual_line_valid=0;inject_r=1;
++      @(posedge clk);#1;@(negedge clk);inject_r=0;wait_adapter_fault(2);
++      if(!arvalid)$fatal(1,"premature R cancelled pending AR");stall_ar_forever=0;
++      k=0;while(model_r_completions<1&&k<100)begin @(posedge clk);#1;k=k+1;end
++      if(model_r_completions<1||adapter_line_rsp_valid||!adapter_fault)$fatal(1,"premature R quarantine failed to drain");
++      $display("PASS_AXI_PREMATURE_RESPONSES");
+ 
+       // The actual control monitor owns ECC initialization/status; platform health gates the producer.
+       reset_system();bad_ctrl_mask=1;wait_monitor_fault(6);pulse_sweep_start_expect_fault(1);

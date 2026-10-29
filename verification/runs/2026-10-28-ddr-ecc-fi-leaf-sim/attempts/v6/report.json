@@ -1,0 +1,123 @@
+{
+  "binary_sha256": "916c54e89a70501b5fd06c85ec947b5cd15e0a0ae7b6f2b8794882135177ef9a",
+  "cgroup": {
+    "cpu.max": "200000 100000",
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-Wall",
+        "--top-module",
+        "tb_mig_fi_xor",
+        "-j",
+        "2",
+        "-MAKEFLAGS",
+        "CXX=/usr/lib64/ccache/c++",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/runs/obj",
+        "-o",
+        "sim",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/source/mig_7series_v4_2_fi_xor.v",
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/tests/tb_mig_fi_xor.sv"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "diagnostics": [],
+      "finished_utc": "2026-10-28T06:46:12.209089+00:00",
+      "name": "verilator_compile",
+      "owned_process_group_absent": true,
+      "pgid": 1155965,
+      "pid": 1155965,
+      "returncode": 0,
+      "seconds": 8.206722421105951,
+      "started_utc": "2026-10-28T06:46:04.002141+00:00",
+      "status": "PASS",
+      "stderr_log": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/verilator_compile.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_log": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/verilator_compile.stdout.log",
+      "stdout_sha256": "e2ce09e6e90759b80eee58135617f3e33ccfb721558d6e15bee0a7c399e3aeba",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/runs/obj/sim"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "diagnostics": [],
+      "error": "verilator_run unexpected runtime output: ['PASS fi_xor_leaf seed=00003588 scenarios=38 byte_lanes=9 low72_only=1 write_clear=1', '- /home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/tests/tb_mig_fi_xor.sv:163: Verilog $finish', '- S i m u l a t i o n   R e p o r t: Verilator 5.048 2026-04-26', '- Verilator: $finish at 457ps; walltime 0.000 s; speed 4.668 us/s', '- Verilator: cpu 0.000 s on 1 threads; allocated 7 MB']",
+      "finished_utc": "2026-10-28T06:46:12.425420+00:00",
+      "name": "verilator_run",
+      "owned_process_group_absent": true,
+      "pgid": 1156074,
+      "pid": 1156074,
+      "returncode": 0,
+      "seconds": 0.2011199640110135,
+      "started_utc": "2026-10-28T06:46:12.223023+00:00",
+      "status": "FAIL",
+      "stderr_log": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/verilator_run.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_log": "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/verilator_run.stdout.log",
+      "stdout_sha256": "edd6a1e05a097a7ebf7bab9f027af46417c9b3b769c10f94108d7713330db57b",
+      "timeout_seconds": 300
+    }
+  ],
+  "error": "ValueError(\"verilator_run unexpected runtime output: ['PASS fi_xor_leaf seed=00003588 scenarios=38 byte_lanes=9 low72_only=1 write_clear=1', '- /home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/tests/tb_mig_fi_xor.sv:163: Verilog $finish', '- S i m u l a t i o n   R e p o r t: Verilator 5.048 2026-04-26', '- Verilator: $finish at 457ps; walltime 0.000 s; speed 4.668 us/s', '- Verilator: cpu 0.000 s on 1 threads; allocated 7 MB']\")",
+  "finished_utc": "2026-10-28T06:46:12.438761+00:00",
+  "flash_written": false,
+  "hardware_accessed": false,
+  "memory_or_ecc_decoder_simulated": false,
+  "native_timeout_seconds": 300,
+  "phy_simulated": false,
+  "physical_capacity_qualified": false,
+  "physical_ecc_injection_qualified": false,
+  "previous_iverilog_failure": "v3 rejected the actual source warning and did not launch this Verilator run",
+  "schema": "mig-fi-xor-verilator-validation-v1",
+  "scope": "Strict Verilator simulation of actual vendor FI_XOR leaf only; no controller, memory, ECC decoder, PHY, physical injection, or hardware qualification.",
+  "source_inputs": {
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/run_verilator.py": "39e0e4b132c6f76c4fad123d7d2bffca6ea1877c0ed8796d3b5cd4534f2cb386",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/source/mig_7series_v4_2_fi_xor.v": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+    "/home/fedora/rknpu-fpga/build/ddr-ecc-fi-leaf-validation-v6/tests/tb_mig_fi_xor.sv": "fac070c2af73db164edf1bdbbe1833d9502973967d2226b06eab6806513d0a15",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/preparation.json": "71fe220dfe1ac59327ead8576f799edccd2af36dae493013f8e09ca3d102d96b",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/056/mig_7series_v4_2_fi_xor.v": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1"
+  },
+  "started_utc": "2026-10-28T06:46:04.000423+00:00",
+  "status": "FAIL",
+  "tool_paths": {
+    "cxx": {
+      "path": "/usr/bin/ccache",
+      "sha256": "0eb8828d3c5975ed4b3ff6fa3b833de679380d84c752176feab6e2c4594552f2"
+    },
+    "verilator": {
+      "path": "/home/linuxbrew/.linuxbrew/Cellar/verilator/5.048/bin/verilator",
+      "sha256": "7550862b9b1b41aa6aadb60b6c793f1e796a3ccb5ef18375d834b7a13f39efeb"
+    }
+  },
+  "tool_versions": {
+    "cxx": {
+      "argv": [
+        "/usr/lib64/ccache/c++",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "c++ (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n"
+    },
+    "verilator": {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426\n"
+    }
+  },
+  "vivado_executed": false,
+  "warning_suppression_flags": []
+}

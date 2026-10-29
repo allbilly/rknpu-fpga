@@ -1,0 +1,220 @@
+{
+  "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1156237-i5343976.scope",
+  "cgroup_limits_requested": {
+    "CPUQuota": "200%",
+    "MemoryMax": "4GiB",
+    "MemorySwapMax": 0,
+    "TasksMax": 256
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_capacity_axi",
+        "-Ptb_capacity_axi.BASE_ADDR=0",
+        "-Ptb_capacity_axi.SPAN_BYTES=256",
+        "-Ptb_capacity_axi.TIMEOUT_CYCLES=32",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/small256_base0-icarus.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_axi.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_bist.sv",
+        "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv",
+        "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/tb_capacity_axi.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/tb_capacity_bist_joined.sv"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5",
+      "finished_utc": "2026-10-28T06:47:06.417203+00:00",
+      "name": "small256_base0_icarus_compile",
+      "returncode": 0,
+      "started_utc": "2026-10-28T06:47:06.385234+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/small256_base0_icarus_compile.stderr.log",
+      "stderr_sha256": "8d8616e87d37073ae2ffced315a1f8f3033a19a8abb40ebd7f53bc2c0ee8a1f0",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/small256_base0_icarus_compile.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.031972
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/small256_base0-icarus.vvp",
+        "+FAULTS"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5",
+      "finished_utc": "2026-10-28T06:47:06.481626+00:00",
+      "name": "small256_base0_icarus_sim",
+      "returncode": 0,
+      "started_utc": "2026-10-28T06:47:06.417486+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/small256_base0_icarus_sim.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/small256_base0_icarus_sim.stdout.log",
+      "stdout_sha256": "19246226963679a51d2922487dda3afe177648565da30c9d7f8e4b163376f754",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.064143
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "--Wall",
+        "--top-module",
+        "tb_capacity_axi",
+        "-j",
+        "2",
+        "--Mdir",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/small256_base0-verilator-obj",
+        "-GBASE_ADDR=0",
+        "-GSPAN_BYTES=256",
+        "-GTIMEOUT_CYCLES=32",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_axi.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_bist.sv",
+        "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv",
+        "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/tb_capacity_axi.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/tb_capacity_bist_joined.sv"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5",
+      "finished_utc": "2026-10-28T06:47:06.596185+00:00",
+      "name": "small256_base0_verilator_compile",
+      "returncode": 1,
+      "started_utc": "2026-10-28T06:47:06.482106+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/small256_base0_verilator_compile.stderr.log",
+      "stderr_sha256": "d2b667d77efc55d22253e756ab6d024ae48ab94630deab25d09d5aa947a02d20",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/small256_base0_verilator_compile.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.114081
+    }
+  ],
+  "failure": "RuntimeError('small256_base0 strict Verilator compile failed')",
+  "finished_utc": "2026-10-28T06:47:06.596867+00:00",
+  "hardware_executed": false,
+  "host_admission": {
+    "MemAvailable_kib": 26353084,
+    "SwapFree_kib": 22651712,
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1156237-i5343976.scope",
+    "cpu_psi_some_avg10": 0.0,
+    "memory_psi_full_avg10": 0.0,
+    "utc": "2026-10-28T06:47:06.320344+00:00"
+  },
+  "host_final": {
+    "MemAvailable_kib": 26344196,
+    "SwapFree_kib": 22651712,
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1156237-i5343976.scope",
+    "cpu_psi_some_avg10": 0.0,
+    "memory_psi_full_avg10": 0.0,
+    "utc": "2026-10-28T06:47:06.597019+00:00"
+  },
+  "model_run_executed": false,
+  "physical_capacity_qualified": false,
+  "prior_failed_attempts": [
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v1/compile-attempt.json",
+      "sha256": "34523365b9ad74a7a20e4d48426287969255e496c401005c92a9c1663aa0c783",
+      "status": "PRESERVED_PRIOR_FAILURE"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v2/compile-attempt.json",
+      "sha256": "a57dae314563c4c8106aa33a6c8e495a904571dfc91800496bc0ecadf71e030f",
+      "status": "PRESERVED_PRIOR_FAILURE"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v3/attempt.json",
+      "sha256": "f3a5e652fd8d99781fa444dfb5ac9894726423122fcdb5869bea978ba3e55e51",
+      "status": "PRESERVED_PRIOR_FAILURE"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v4/report.json",
+      "sha256": "093fa104c016ef1cb82e6241440f31cd0dcfe2d5e96376e3e2347b8973d8c1a3",
+      "status": "PRESERVED_PRIOR_FAILURE"
+    }
+  ],
+  "real_mig_integration_qualified": false,
+  "schema": "ddr-capacity-axi-adapter-validation-v1",
+  "shared_lease_used": false,
+  "source_hashes_after": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/tb_capacity_axi.sv": "91629de26bf8a1683bdda89dc8c05684e492a53d258fbe6b4ac46b6dd3247b7a",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/tb_capacity_bist_joined.sv": "7953db5d832d62d9ffc77090a6f1f2fbd30e7b7fbda94322951476151af4dc09",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+  },
+  "source_hashes_before": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/tb_capacity_axi.sv": "91629de26bf8a1683bdda89dc8c05684e492a53d258fbe6b4ac46b6dd3247b7a",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v5/tb_capacity_bist_joined.sv": "7953db5d832d62d9ffc77090a6f1f2fbd30e7b7fbda94322951476151af4dc09",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+  },
+  "sources_unchanged": true,
+  "span_configs": [
+    {
+      "base": "0x00000000",
+      "fault_matrix": true,
+      "lines": 4,
+      "span_bytes": 256
+    },
+    {
+      "base": "0x00000000",
+      "fault_matrix": false,
+      "lines": 8,
+      "span_bytes": 512
+    },
+    {
+      "base": "0x00001000",
+      "fault_matrix": false,
+      "lines": 4,
+      "span_bytes": 256
+    }
+  ],
+  "started_utc": "2026-10-28T06:47:06.385234+00:00",
+  "status": "FAIL",
+  "timeout_seconds_per_command": 300,
+  "tool_versions": {
+    "iverilog": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/iverilog",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "verilator": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/verilator",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+    },
+    "vvp": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/vvp",
+      "returncode": 0,
+      "stderr": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.",
+      "stdout": ""
+    }
+  },
+  "unknown_fields_scope": {
+    "icarus_four_state": "expected in FAULTS run",
+    "verilator": "NOT_APPLICABLE_TWO_STATE"
+  },
+  "vivado_executed": false
+}

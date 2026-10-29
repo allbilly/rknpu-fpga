@@ -1,0 +1,94 @@
+{
+  "status": "PREPARATION_STATIC_AND_PROCESS_CONTROLS_PASS_UNLAUNCHABLE",
+  "scope": "Tcl info completeness, frozen helper/source hashes, static stage census, and four offline process/preflight controls only; no Vivado launched",
+  "tcl_info_complete": "TCL_INFO_COMPLETE",
+  "tcl_paths": [
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v5/route.tcl",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v5/helpers/board_reset.tcl",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v5/helpers/job_cdc.tcl",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v5/helpers/mailbox_ui.tcl",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v5/helpers/memory_crossing.tcl",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v5/helpers/permit_cdc.tcl",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v5/helpers/status_cdc.tcl"
+  ],
+  "python_version": "3.14.5",
+  "focused_test_command": "python3 -m unittest discover -s build/full512-ddr-preparation/shared-data-route-prep-v5/tests -v",
+  "focused_test_result": "4 tests passed",
+  "test_sources": {
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v5/tests/test_preflight.py": "8deaae0ae5bab78652341ccfae959e72514f680bfc9a717cdde5a0b163d190d5",
+    "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-route-prep-v5/tests/test_process_ownership.py": "f3aee2a681b72297fb2cd10dfd34d6a3e18fcfa06b3c4820641ae8fbe61b70a4"
+  },
+  "source_copy_count": 160,
+  "source_copies_match": true,
+  "helpers": [
+    {
+      "name": "board_reset.tcl",
+      "route_sha256": "52fd4505d707565aea742ffa876b21dc639e434ba31cb721e74e1d5b52f5a46d",
+      "prep_sha256": "52fd4505d707565aea742ffa876b21dc639e434ba31cb721e74e1d5b52f5a46d",
+      "equal": true
+    },
+    {
+      "name": "job_cdc.tcl",
+      "route_sha256": "b5a155ec9229ecc012e5ed077838873c762d4e620e90f3dfa36a70c1f5cdfdb3",
+      "prep_sha256": "b5a155ec9229ecc012e5ed077838873c762d4e620e90f3dfa36a70c1f5cdfdb3",
+      "equal": true
+    },
+    {
+      "name": "mailbox_ui.tcl",
+      "route_sha256": "37317bab81796bf22bae04e83586450160a3297b8cbca6cecee4c52ed513ecf0",
+      "prep_sha256": "37317bab81796bf22bae04e83586450160a3297b8cbca6cecee4c52ed513ecf0",
+      "equal": true
+    },
+    {
+      "name": "memory_crossing.tcl",
+      "route_sha256": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+      "prep_sha256": "1a614ffe16c9e7720f174be5cfe43d0a0a55f11f0f39938e3c46298bb674d9ca",
+      "equal": true
+    },
+    {
+      "name": "permit_cdc.tcl",
+      "route_sha256": "d8ae90ce8f2589783d3fba9f790c91761052058004f12ca8de47558f523adc25",
+      "prep_sha256": "d8ae90ce8f2589783d3fba9f790c91761052058004f12ca8de47558f523adc25",
+      "equal": true
+    },
+    {
+      "name": "status_cdc.tcl",
+      "route_sha256": "1d368380ad134e4ebcd2277d2843455e5b0657ef76783a1ea7e720ea19e34ab9",
+      "prep_sha256": "1d368380ad134e4ebcd2277d2843455e5b0657ef76783a1ea7e720ea19e34ab9",
+      "equal": true
+    }
+  ],
+  "stage_counts": {
+    "open_checkpoint": 1,
+    "place_design": 1,
+    "phys_opt_design": 1,
+    "route_design": 1,
+    "route_mig_census": 2,
+    "route_census": 2,
+    "rk_status_cdc_audit": 1,
+    "rk_cmac_permit_audit": 1,
+    "rk_job_cdc_audit": 2,
+    "rk_mem_cdc_audit": 2,
+    "rk_ddr_host_cdc_audit": 1,
+    "rk_board_reset_audit": 1
+  },
+  "MIG_postopt_binding_reference": {
+    "path": "/home/fedora/rknpu-fpga/build/full512-ddr-preparation/shared-data-mapped-facts-v1/dual-cdc-inventory-v4/output/inventory-facts.txt",
+    "sha256": "0982630f8b13dea33be6ab31b7d990af60a5b0d37e3a3e0736d3c6326c7951e1",
+    "actual_ORIG_REF_name_facts": [
+      "top_mig_7series_0_0",
+      "top_mig_7series_0_0_mig",
+      "mig_7series_v4_2_infrastructure",
+      "mig_7series_v4_2_memc_ui_top_axi"
+    ],
+    "actual_C0_C1_controllers_present": true
+  },
+  "route_mig_census": "Before and after route requires exact dual wrapper/core, two controller cells, two infrastructure cells; all six must be hierarchical nonprimitive nonblackboxes with exact observed ORIG_REF_NAMEs; logs actual REF_NAMEs",
+  "route_adds_no_exceptions_or_image_commands": true,
+  "launch_approved": false,
+  "root_route_approval": false,
+  "hardware_accessed": false,
+  "vivado_executed": false,
+  "route_tcl_sha256": "c816e6b73fbb8e0ce7c458423858328f341241f460252b5f077ba5e27680bb0d",
+  "runner_sha256": "f6a0e4de3ddedeb229ce238c331e04a31454d8031cfa0efd8ffc1380cbd95ef9"
+}

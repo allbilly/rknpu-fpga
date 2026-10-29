@@ -1,0 +1,46 @@
+{
+  "status": "PASS_FIVE_ACTUAL_WIRE_MUTATION_REJECTIONS_OFFLINE_ONLY",
+  "commands": {
+    "scans": 24238,
+    "commands": 8078,
+    "idcodes": 1,
+    "tap_resets": 1,
+    "initial_retained_sequence": 0
+  },
+  "results": [
+    {
+      "case": "early_ack",
+      "status": "PASS_EXPECTED_REJECTION",
+      "actual_error": "ACK precedes complete output validation"
+    },
+    {
+      "case": "missing_last_readback",
+      "status": "PASS_EXPECTED_REJECTION",
+      "actual_error": "ACK precedes complete output validation"
+    },
+    {
+      "case": "altered_output",
+      "status": "PASS_EXPECTED_REJECTION",
+      "actual_error": "Actual complete output differs or was read before completion"
+    },
+    {
+      "case": "altered_upload",
+      "status": "PASS_EXPECTED_REJECTION",
+      "actual_error": "Actual raw upload changed or outside idle ownership"
+    },
+    {
+      "case": "unknown_csr",
+      "status": "PASS_EXPECTED_REJECTION",
+      "actual_error": "Unmodeled CSR write or reset attempt"
+    }
+  ],
+  "hardware_accessed": false,
+  "scope": "Mutations of completed actual wire; no new physical execution",
+  "inputs": {
+    "/home/fedora/rknpu-fpga/tools/ddr/audit_physical.py": "549ed94fa108ad54c20e1c3ef316e390ec81134b74e3b45884c44cbd57002ff4",
+    "/home/fedora/rknpu-fpga/tools/tinystories/audit_scans.py": "dfce0e407ed74df93e20d52b3ab4c764e4f514e0c4e82ff6c7a4cf0ca3cca3bc",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/ddr-ch1-first-v1/physical-test/raw-jobs/native-scans.jsonl": "264fbaf74d4e14828cc57e1bb997c106b159b979bbc0f99bfa3b96dcfb3486f8",
+    "/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_sub_9/upload.txt": "68cf7b0689343f22c979db0312eb718906a34d51c54e893699039f7630c885fb",
+    "/home/fedora/rknpu-fpga/build/ddr-read-snapshot-candidate/v2/workspace/build/ddr-endpoint-async/native-read-snapshot-v3/vectors/capture_sub_9/expected.txt": "aca0f96badf878e82a9358eb2e5405f1ff97db706220e25e712555c38f10efec"
+  }
+}

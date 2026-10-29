@@ -1,0 +1,53 @@
+{
+  "status": "PASS_TINYSTORIES_STATIC_PACKAGE_CONTROLS",
+  "tests": [
+    {
+      "name": "isolated_copied_source",
+      "status": "PASS"
+    },
+    {
+      "name": "ai",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "compaction",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "address",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "missing_tile",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "duplicate_tile",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "classifier_alias",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "host_cache",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "overlap_buffer",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "execution_claim",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "weight_data",
+      "status": "PASS_REJECTED"
+    }
+  ],
+  "source_package": "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v2",
+  "source_report_sha256": "5229ead1933dc9fd4f7c364f1bfa42f2f43a5e2621900e37e072c78993c161d0",
+  "scope": "Static integrity/shape/packing admission only; no model execution, RTL or hardware",
+  "hardware_accessed": false
+}

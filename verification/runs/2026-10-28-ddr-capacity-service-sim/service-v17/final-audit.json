@@ -1,0 +1,143 @@
+{
+  "command_count": 11,
+  "coverage": {
+    "bist_counts_and_four_fences_checked": true,
+    "host_busy_assertion_present_in_frozen_bench": true,
+    "joint_reset_recovery_and_seed_rearm_checked": true,
+    "late_unrouted_normal_AW_fault4_no_forwarding_checked": true,
+    "memory_pattern_full_512_bit_per_line": true,
+    "memory_read_corruption_owner5_sweep4_and_all_mismatch_words_checked": true,
+    "normal_host_busy_only_start_rejected": true,
+    "normal_job_owned_start_rejected": true,
+    "physical_memory_B_and_independent_CTRL_R_held_before_owner_grant": true,
+    "same_edge_final_platform_health_loss_owner1_checked": true,
+    "successful_status_0x68_checked": true
+  },
+  "frozen_manifest_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-validation-v17/frozen-inputs.json",
+  "frozen_manifest_sha256": "be5ccedb8562ef341fea9b9284d8251ad8eb8406363688b974c941ff45e48401",
+  "git_head": "8b23d647d4a1c8cdaf7bdad2160f45b285ca6909",
+  "hardware_executed": false,
+  "issues": [],
+  "physical_capacity_qualified": false,
+  "postrun_hashes": {
+    "run_validation.py": "99b6a5801fa64d66736deb54dd1fd795a2517ff2c344847fd6b50bbac4f234eb",
+    "source/compose_service.py": "334af48562b84e7fd55a9ab50c17cb622431564752782ac01be287875ac81e7c",
+    "source/port-names.json": "8a4d967d9dd8c433ff806289985bed52562561b600842a553c0800b3ecf61487",
+    "source/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "source/rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "source/rk_ddr_capacity_owner.sv": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+    "source/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "source/rk_ddr_capacity_regs.sv": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+    "source/rk_ddr_capacity_service.sv": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc",
+    "source/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "source/rk_ddr_diagnostic_mux.sv": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+    "source/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "source/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+    "source/tb_ddr_capacity_service.sv": "a84fb20915464f3fc70119c2e6cc00f95f95e562dad994b59c3a77ab1c1e46d3"
+  },
+  "profiles": [
+    {
+      "base_addr": 0,
+      "marker": "PASS capacity_service base=00000000 span=00000100 lines=4 diagnostic_writes=8 diagnostic_reads=8 fences=4",
+      "profile": "base0_256",
+      "simulator": "iverilog",
+      "span_bytes": 256
+    },
+    {
+      "base_addr": 4096,
+      "marker": "PASS capacity_service base=00001000 span=00000200 lines=8 diagnostic_writes=16 diagnostic_reads=16 fences=4",
+      "profile": "base1000_512",
+      "simulator": "iverilog",
+      "span_bytes": 512
+    },
+    {
+      "base_addr": 0,
+      "marker": "PASS capacity_service base=00000000 span=00000100 lines=4 diagnostic_writes=8 diagnostic_reads=8 fences=4",
+      "profile": "base0_256",
+      "simulator": "verilator",
+      "span_bytes": 256
+    },
+    {
+      "base_addr": 4096,
+      "marker": "PASS capacity_service base=00001000 span=00000200 lines=8 diagnostic_writes=16 diagnostic_reads=16 fences=4",
+      "profile": "base1000_512",
+      "simulator": "verilator",
+      "span_bytes": 512
+    }
+  ],
+  "rtl_origins": {
+    "source/rk_ddr_capacity_axi.sv": {
+      "path": "rtl/ddr/rk_ddr_capacity_axi.sv",
+      "sha256": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8"
+    },
+    "source/rk_ddr_capacity_bist.sv": {
+      "path": "rtl/ddr/rk_ddr_capacity_bist.sv",
+      "sha256": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae"
+    },
+    "source/rk_ddr_capacity_owner.sv": {
+      "path": "build/ddr-capacity-owner-source-v1/rk_ddr_capacity_owner.sv",
+      "sha256": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e"
+    },
+    "source/rk_ddr_capacity_pattern.sv": {
+      "path": "rtl/ddr/rk_ddr_capacity_pattern.sv",
+      "sha256": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8"
+    },
+    "source/rk_ddr_capacity_regs.sv": {
+      "path": "build/ddr-capacity-owner-source-v1/rk_ddr_capacity_regs.sv",
+      "sha256": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7"
+    },
+    "source/rk_ddr_capacity_service.sv": {
+      "path": "build/ddr-capacity-service-source-v3/rk_ddr_capacity_service.sv",
+      "sha256": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc"
+    },
+    "source/rk_ddr_capacity_sweep.sv": {
+      "path": "rtl/ddr/rk_ddr_capacity_sweep.sv",
+      "sha256": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af"
+    },
+    "source/rk_ddr_diagnostic_mux.sv": {
+      "path": "build/ddr-capacity-mux-source-v2/rk_ddr_diagnostic_mux.sv",
+      "sha256": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd"
+    },
+    "source/rk_mig_ecc_monitor.sv": {
+      "path": "rtl/ddr/rk_mig_ecc_monitor.sv",
+      "sha256": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5"
+    },
+    "source/rk_mig_write_fence.sv": {
+      "path": "rtl/ddr/rk_mig_write_fence.sv",
+      "sha256": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+    }
+  },
+  "runner_report_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-service-validation-v17/report.json",
+  "runner_report_sha256": "ea525f526da51f4debcc93514a6f67896428837cd02e6ade6a20688a435218a7",
+  "scope": "Composed private service against behavioral memory/ECC control slaves only; no actual MIG/PHY/board qualification.",
+  "service_default_timeout": 65536,
+  "service_timeout_override": 256,
+  "source_hashes": {
+    "run_validation.py": "99b6a5801fa64d66736deb54dd1fd795a2517ff2c344847fd6b50bbac4f234eb",
+    "source/compose_service.py": "334af48562b84e7fd55a9ab50c17cb622431564752782ac01be287875ac81e7c",
+    "source/port-names.json": "8a4d967d9dd8c433ff806289985bed52562561b600842a553c0800b3ecf61487",
+    "source/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "source/rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "source/rk_ddr_capacity_owner.sv": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+    "source/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "source/rk_ddr_capacity_regs.sv": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+    "source/rk_ddr_capacity_service.sv": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc",
+    "source/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "source/rk_ddr_diagnostic_mux.sv": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+    "source/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "source/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+    "source/tb_ddr_capacity_service.sv": "a84fb20915464f3fc70119c2e6cc00f95f95e562dad994b59c3a77ab1c1e46d3"
+  },
+  "status": "PASS_PRIVATE_CAPACITY_SERVICE_MODELED_INTEGRATION_V17",
+  "strict_verilator_compile_stderr_bytes": {
+    "verilator_base0_256_compile": 0,
+    "verilator_base1000_512_compile": 0
+  },
+  "tool_versions": {
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "verilator": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+    "vvp": "Icarus Verilog runtime version 13.0 (stable) (v13_0)"
+  },
+  "utc": "2026-10-28T08:45:21.942372+00:00",
+  "vivado_executed": false
+}

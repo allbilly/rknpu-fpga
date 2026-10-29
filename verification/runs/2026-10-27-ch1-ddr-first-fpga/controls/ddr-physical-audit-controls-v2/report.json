@@ -1,0 +1,65 @@
+{
+  "status": "PASS_SYNTHETIC_PHYSICAL_AUDITOR_CONTROLS_ONLY",
+  "scope": "synthetic wire-stream auditor controls only; not hardware evidence",
+  "created_utc": "2026-10-27T19:04:26Z",
+  "expected_auditor_sha256": "549ed94fa108ad54c20e1c3ef316e390ec81134b74e3b45884c44cbd57002ff4",
+  "source_hashes_before": {
+    "tools/ddr/audit_physical.py": "549ed94fa108ad54c20e1c3ef316e390ec81134b74e3b45884c44cbd57002ff4",
+    "tests/ddr/physical_audit/test_audit.py": "35a69461016065f69d52147a638d6726be1e1ec632d3fbfa00f6c6b667890f6b"
+  },
+  "versions": {
+    "python_version": {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "--version"
+      ],
+      "rc": 0,
+      "stdout": "Python 3.14.5\n",
+      "stderr": ""
+    },
+    "make_version": {
+      "argv": [
+        "make",
+        "--version"
+      ],
+      "rc": 0,
+      "stdout": "GNU Make 4.4.1\nBuilt for x86_64-redhat-linux-gnu\nCopyright (C) 1988-2023 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n",
+      "stderr": ""
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ddr/physical_audit",
+        "-v"
+      ],
+      "start_utc": "2026-10-27T19:04:26Z",
+      "elapsed_seconds": 0.217,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_changed_input_upload_rejects (test_audit.PhysicalAuditTests.test_changed_input_upload_rejects) ... ok\ntest_changed_result_byte_rejects (test_audit.PhysicalAuditTests.test_changed_result_byte_rejects) ... ok\ntest_early_ack_and_omitted_tail_readback_reject (test_audit.PhysicalAuditTests.test_early_ack_and_omitted_tail_readback_reject) ... ok\ntest_missing_identity_and_unmodeled_csr_or_reset_reject (test_audit.PhysicalAuditTests.test_missing_identity_and_unmodeled_csr_or_reset_reject) ... ok\ntest_positive_complete_synthetic_trial_is_only_a_wire_replay_control (test_audit.PhysicalAuditTests.test_positive_complete_synthetic_trial_is_only_a_wire_replay_control) ... ok\ntest_wrong_completion_tag_or_task_count_rejects (test_audit.PhysicalAuditTests.test_wrong_completion_tag_or_task_count_rejects) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.136s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "make",
+        "generated-check"
+      ],
+      "start_utc": "2026-10-27T19:04:27Z",
+      "elapsed_seconds": 0.128,
+      "returncode": 0,
+      "stdout": "python3 tools/gen_regfile.py --check\npython3 tools/gen_demo.py --check\nDemo generated files match.\n",
+      "stderr": ""
+    }
+  ],
+  "source_hashes_after": {
+    "tools/ddr/audit_physical.py": "549ed94fa108ad54c20e1c3ef316e390ec81134b74e3b45884c44cbd57002ff4",
+    "tests/ddr/physical_audit/test_audit.py": "35a69461016065f69d52147a638d6726be1e1ec632d3fbfa00f6c6b667890f6b"
+  },
+  "source_hashes_unchanged": true,
+  "finished_utc": "2026-10-27T19:04:27Z"
+}

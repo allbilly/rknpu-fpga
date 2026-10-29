@@ -1,0 +1,92 @@
+{
+  "capacity_native_cases": 12,
+  "capacity_receipts": [
+    {
+      "cases": 6,
+      "path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/build/ddr-capacity/iverilog-1793171971216776103/report.json",
+      "sha256": "a6e803e2fd6cdd1944379a5d8cc0eddb920785d71f9299151fb42c591be71508",
+      "simulator": "iverilog"
+    },
+    {
+      "cases": 6,
+      "path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/build/ddr-capacity/verilator-1793171971855585661/report.json",
+      "sha256": "e211b70311b75427bdd14fdf0a069298a252112ceb390aee22f5a46c19abc933",
+      "simulator": "verilator"
+    }
+  ],
+  "capacity_software_controls": 7,
+  "complete_host_receipts": [
+    {
+      "path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/build/host-jtag/iverilog-1793171495937143205/report.json",
+      "seeds": {
+        "mailbox": "0x3588c640"
+      },
+      "sha256": "f94521c12525fdc0115059fea0ee3a06f2201ae22d83287fa0840a87cf1483a0",
+      "simulator": "iverilog",
+      "tests": 15,
+      "tool_version": "Icarus Verilog version 13.0 (stable) (v13_0)"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v16/workspace/build/host-jtag/verilator-1793171435010367845/report.json",
+      "seeds": {
+        "mailbox": "0x3588c640"
+      },
+      "sha256": "f15d7bf925bf7b9a08a9e42f6cd79300f72d4bca8a5482fc52b7f4156b807c82",
+      "simulator": "verilator",
+      "tests": 15,
+      "tool_version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+    }
+  ],
+  "complete_source_files": 1105,
+  "ddr_software_controls": 89,
+  "dual_control_commands": 6,
+  "hardware_accessed": false,
+  "make_test_seconds": 876.0480639240704,
+  "native_reports": {
+    "cmac_iverilog/report.json": {
+      "cases": 3,
+      "sha256": "d6829232e3abbbda3c3a6cee9305a5a01d53c784eccda58ce1793b8f8298f8f7",
+      "status": "PASS_RAW_PRODUCT_PATH_ONLY"
+    },
+    "cmac_verilator/report.json": {
+      "cases": 3,
+      "sha256": "50d9a5ab26caced6e7a4dc9e615299a1954e03426dedb6abefc33cf8f8a695af",
+      "status": "PASS_RAW_PRODUCT_PATH_ONLY"
+    },
+    "iverilog/report.json": {
+      "cases": 249,
+      "sha256": "ea6afaa199c1edd8b7628032c14e0b73dcd1e5fd59bc4cefd3fb2299c766f059",
+      "status": "PASS"
+    },
+    "numeric_report.json": {
+      "cases": 0,
+      "sha256": "ad7474ec2da964ac1dffcf3e3dccba81277539ac3e527bce7d4cbe9f37b6547d",
+      "status": "PASS"
+    },
+    "rtl/report.json": {
+      "cases": 249,
+      "sha256": "659c1db8e301e1ac245317209c3145134b5c6a9436253f66737761eebefa7235",
+      "status": "PASS"
+    }
+  },
+  "physical_capacity_qualified": false,
+  "producer_sha256": "acd687f69299a5d7245e2fea0c53d853e7f68e2880368d6f77f1c1330dd64922",
+  "recursive_source_sha256": "7c4d4cdc91c0ce4471f47a12081d7fbde512763e6773ed92ba69df659837bcbd",
+  "reviewer_sha256": "5b855e90cebb1bc393b4646dada41605a6c6a56345ddde5e8dbfaf8b071263f7",
+  "source_sha256": "4aa534123ec7b57c8652e2a4e3ce66240e805bb749add0a7e40ec4a20840aba3",
+  "status": "PASS_ROOT_V16_SOURCE_NATIVE_AND_COMPLETE_HOST_RECEIPT_REVIEW_ONLY",
+  "tinystories_software_controls": 61,
+  "utc": "2026-10-28T07:24:07.072826+00:00",
+  "v15_to_v16_added": [
+    "rtl/ddr/rk_ddr_capacity_axi.sv",
+    "rtl/ddr/rk_ddr_capacity_bist.sv",
+    "rtl/ddr/rk_ddr_capacity_pattern.sv",
+    "rtl/ddr/rk_ddr_capacity_sweep.sv",
+    "tests/ddr/capacity/tb_capacity_axi.sv",
+    "tests/ddr/capacity/tb_capacity_bist_joined.sv",
+    "tools/ddr/run_capacity.py"
+  ],
+  "v15_to_v16_changed": [
+    "Makefile"
+  ]
+}

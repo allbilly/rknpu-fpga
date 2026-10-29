@@ -1,0 +1,108 @@
+{
+  "admission_json_sha256": "262dc049c64f564e1369b93214daa468c372761a5a3faeff5381752975a47b01",
+  "admission_samples": [
+    {
+      "cpu_psi_some_avg10": 0.44,
+      "memavailable_bytes": 27050803200,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T00:32:07.964149+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.3,
+      "memavailable_bytes": 26994102272,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T00:32:54.562544+00:00"
+    },
+    {
+      "cpu_psi_some_avg10": 0.55,
+      "memavailable_bytes": 26949423104,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true,
+      "utc": "2026-10-28T00:33:38.386700+00:00"
+    }
+  ],
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-production-model-auditors-current-v10",
+    "-p",
+    "MemoryMax=6G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=30",
+    "3600s",
+    "python3",
+    "build/production-model-auditors/current-v10/run.py"
+  ],
+  "bitstream_emitted": false,
+  "copy_unchanged": true,
+  "cwd": "/home/fedora/rknpu-fpga",
+  "expected_cgroup": {
+    "cpu.max": "200000 100000",
+    "memory.max": "6442450944",
+    "memory.swap.max": "0",
+    "pids.max": "256"
+  },
+  "finished_utc": "2026-10-28T00:50:58.609942+00:00",
+  "full_recursive_source_file_count": 1093,
+  "full_recursive_source_manifest_sha256": "44179764b84b41a5e93d7ddcfa1d3f55ef3d23a2273391a9dc4f08b26be8cb2a",
+  "generated_check_pid": 1091578,
+  "generated_check_status": "PASS",
+  "hardware_accessed": false,
+  "logs": {
+    "generated_check.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "generated_check.stdout.log": {
+      "bytes": 99,
+      "sha256": "b3381e2f4577fb00b88ccdb768c91d043d54433d20a7fd60cadfa29a8b28cfec"
+    },
+    "production_test.stderr.log": {
+      "bytes": 46623,
+      "sha256": "b48f70648cd56e78a2250a070037d864e087fb9aed8e38c0d4e5c3148081ef61"
+    },
+    "production_test.stdout.log": {
+      "bytes": 98625,
+      "sha256": "de85c64f2aaeef3f0aaa2fdb2cca8c6c9b3e4305b834e0a7c32a14d323042b4f"
+    }
+  },
+  "make_test_pid": 1091594,
+  "no_owned_processes_remaining": true,
+  "observed_owned_process_rows": [
+    "1091566 1035527 1091566 /usr/bin/timeout --signal=TERM --kill-after=30 3600s python3 build/production-model-auditors/current-v10/run.py",
+    "1091567 1091566 1091566 python3 build/production-model-auditors/current-v10/run.py"
+  ],
+  "observed_utc": "2026-10-28T00:51:29.291675+00:00",
+  "parent_v9_report_sha256": "64f8c06e22ee12e32a7c6543d20d0c4e3fb03863e1da4085fe4adc1b373be86a",
+  "private_copy_file_count": 1093,
+  "private_copy_manifest_sha256": "44179764b84b41a5e93d7ddcfa1d3f55ef3d23a2273391a9dc4f08b26be8cb2a",
+  "production_test_seconds": 1024.2289222788531,
+  "production_test_status": "PASS",
+  "run_py_pid": 1091567,
+  "run_py_sha256": "2dd4f7c0de214c860af811e74684d0ae818990681634e0f58b855da3cf4e98b5",
+  "run_report_path": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v10/report.json",
+  "run_report_sha256": "999f410527281c6bf50f965091f6268059892b3ab98f3940b7fe6252d79f5884",
+  "source_revision_manifest_sha256": "22acfca257f933321b95eb336ae97a7f9de9d4698fbc3ba3e2695bbfbe0cd921",
+  "source_unchanged": true,
+  "started_utc": "2026-10-28T00:33:49.356552+00:00",
+  "status": "PASS_PRIVATE_COMPLETE_PRODUCTION_MAKE_TEST_V10_ONLY",
+  "systemd_active_state": "inactive",
+  "systemd_control_group": "/user.slice/user-1000.slice/user@1000.service/app.slice/rknpu-production-model-auditors-current-v10.scope",
+  "systemd_invocation_id": "ed6ddc5e5fe945c588370d3c8f753b8d",
+  "systemd_result": "success",
+  "timeout_pid": 1091566,
+  "unified_exec_session_id": 33128,
+  "unit": "rknpu-production-model-auditors-current-v10.scope",
+  "vivado_executed": false,
+  "workspace_prelaunch_exists": false
+}

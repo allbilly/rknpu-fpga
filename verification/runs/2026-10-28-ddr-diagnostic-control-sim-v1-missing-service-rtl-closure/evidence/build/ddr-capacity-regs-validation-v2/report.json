@@ -1,0 +1,82 @@
+{
+  "case_summary": [],
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-V"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2",
+      "expected_returncode": 0,
+      "finished_utc": "2026-10-28T07:27:45.519726+00:00",
+      "name": "iverilog_version",
+      "returncode": 0,
+      "started_utc": "2026-10-28T07:27:45.512903+00:00",
+      "stderr": "",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/results/iverilog_version.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/results/iverilog_version.stdout.log",
+      "stdout_sha256": "ca23091099109d3237b10e6336dbb5b325dda94c3c52cd4111d924bd60227f5d",
+      "wall_seconds": 0.006578288972377777
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "-V"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2",
+      "expected_returncode": 0,
+      "finished_utc": "2026-10-28T07:27:45.522332+00:00",
+      "name": "vvp_version",
+      "returncode": 0,
+      "started_utc": "2026-10-28T07:27:45.519826+00:00",
+      "stderr": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/results/vvp_version.stderr.log",
+      "stderr_sha256": "60359f21f36fe47d30e34fd6e00eb24640751c19101c3cc107d31be3e56d46d6",
+      "stdout": "",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/results/vvp_version.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "wall_seconds": 0.002293913858011365
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_capacity_regs",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/results/capacity_regs.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/source/rk_ddr_capacity_regs.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/source/tb_capacity_regs.sv"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2",
+      "expected_returncode": 0,
+      "finished_utc": "2026-10-28T07:27:45.532677+00:00",
+      "name": "iverilog_compile_main",
+      "returncode": 0,
+      "started_utc": "2026-10-28T07:27:45.522438+00:00",
+      "stderr": "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/source/rk_ddr_capacity_regs.sv:73: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'saved_awaddr[31:0]').\n/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/source/rk_ddr_capacity_regs.sv:86: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 's_axil_araddr[31:0]').\n/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/source/rk_ddr_capacity_regs.sv:105: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 's_axil_araddr[31:0]').\n/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/source/rk_ddr_capacity_regs.sv:107: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 's_axil_araddr[31:0]').\n",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/results/iverilog_compile_main.stderr.log",
+      "stderr_sha256": "3253489f42163a5abdc90c06c3faab7a2e1129854a13da5bf33d2ba046aa6a22",
+      "stdout": "",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/results/iverilog_compile_main.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "wall_seconds": 0.010037434985861182
+    }
+  ],
+  "failure": "RuntimeError('iverilog_main: return code 1, expected 0; stdout=/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/results/iverilog_main.stdout.log stderr=/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v2/results/iverilog_main.stderr.log')",
+  "finished_utc": "2026-10-28T07:27:45.541428+00:00",
+  "frozen_inputs_sha256": "b52ff111c0a1423d46ee41da2520538dbe762fe4d682616a2894e8fdd9342ff6",
+  "hardware_executed": false,
+  "physical_capacity_qualified": false,
+  "schema": "capacity-regs-private-validation-v1",
+  "started_utc": "2026-10-28T07:27:45.512701+00:00",
+  "status": "FAIL_PRIVATE_AXI_LITE_REGISTER_CONTRACT_SIMULATION",
+  "timeout_seconds_per_command": 300,
+  "tool_versions": {
+    "iverilog": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n"
+  },
+  "vivado_executed": false
+}

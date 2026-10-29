@@ -1,0 +1,110 @@
+{
+  "actual_diagnostic_summary": {
+    "iverilog_compile": {
+      "diagnostics": [
+        {
+          "line": 1,
+          "stream": "stderr",
+          "text": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv:13: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in 'address[30:0]')."
+        }
+      ],
+      "returncode": 0,
+      "stderr_sha256": "494fd09f2255cebcf72166527f4d49aa357d4005a2b2a077345bd521ea78a92e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "warnings_errors_sorry_count": 1
+    },
+    "iverilog_sim": {
+      "diagnostics": [],
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ef81957c60803961b5d10ac9032135c253f5f69744f3d86f9bfaa027d0376745",
+      "warnings_errors_sorry_count": 0
+    },
+    "verilator_compile": {
+      "diagnostics": [],
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "832f062d2fc4e098a89d116aefcf39ce6dc64aa99db5a28bd14c491fa55867a2",
+      "warnings_errors_sorry_count": 0
+    },
+    "verilator_sim": {
+      "diagnostics": [],
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a2ba4d6e3ab70f36f63557475159f70a4f23e6da02e782ac1e4904c6f39abfd3",
+      "warnings_errors_sorry_count": 0
+    },
+    "yosys_xc7_synth": {
+      "diagnostics": [
+        {
+          "line": 1010,
+          "stream": "stdout",
+          "text": "ABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\")."
+        }
+      ],
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "67966917c2cd84e4786fefce8d3d3ec0f3a41d5e3848f53b2eebd6943720e6f7",
+      "warnings_errors_sorry_count": 1
+    }
+  },
+  "hardware_executed": false,
+  "limitations": [
+    "Private combinational pattern leaf only",
+    "No memory controller or physical DDR execution",
+    "No full-span memory write/read run",
+    "No controller retirement/ECC witness",
+    "No physical capacity qualification"
+  ],
+  "mapped_netlist_paths": {
+    "bytes": 10264698,
+    "bytes_verilog": 40825,
+    "json": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v5/mapped.json",
+    "json_sha256": "e4c4a5cc153a2e54db231063bac0763d6d9c87dff7b58a7b0f606558f8c20464",
+    "verilog": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v5/mapped.v",
+    "verilog_sha256": "0507b09cdb981aeb01cefb6a3d2df6d9eb8f6aaed3fb131ae6d93052aa6264a7"
+  },
+  "physical_capacity_qualified": false,
+  "schema": "ddr-capacity-pattern-leaf-independent-facts-v1",
+  "source_artifact_hashes": {
+    "build/ddr-capacity-bist-leaf-validation-v5/make_vectors.py": "32e0e8c089ff66fcd5ac0c1f5e467839b11c8c1ffa48a7949127e803211f0e7e",
+    "build/ddr-capacity-bist-leaf-validation-v5/mapped.json": "e4c4a5cc153a2e54db231063bac0763d6d9c87dff7b58a7b0f606558f8c20464",
+    "build/ddr-capacity-bist-leaf-validation-v5/mapped.v": "0507b09cdb981aeb01cefb6a3d2df6d9eb8f6aaed3fb131ae6d93052aa6264a7",
+    "build/ddr-capacity-bist-leaf-validation-v5/report.json": "38f7d15c9a7998542cf3e1c3d0a3d0892c4fc971b255bf5d34f4c20ecaefa160",
+    "build/ddr-capacity-bist-leaf-validation-v5/run_validation.py": "cd9bbe927e4da335f81a67ac7affde3c4b182116fcd0dd518a6922a624aa129b",
+    "build/ddr-capacity-bist-leaf-validation-v5/tb_capacity_pattern.sv": "e92c0d64334c40b7ef750986c7dab42c899d9d0c618d5b78ff3640d09035484e",
+    "build/ddr-capacity-bist-leaf-validation-v5/vectors-manifest.json": "f12ac07e302957c380d13eedbda906a7fdbf365089d3d5ad607ed1c8b23eda59",
+    "build/ddr-capacity-bist-leaf-validation-v5/vectors.txt": "234ef1bf547c6fdb0ee5eb0d027199192e495ae639442bd62ab2604358b3114c",
+    "build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8"
+  },
+  "status": "PASS_SYNTHESIZABLE_PATTERN_LEAF_ONLY",
+  "strict_verilator_policy": "--Wall with default fatal warnings; no -Wno-fatal or warning suppression used",
+  "synthesis_and_simulation_report_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-leaf-validation-v5/report.json",
+  "synthesis_and_simulation_report_sha256": "38f7d15c9a7998542cf3e1c3d0a3d0892c4fc971b255bf5d34f4c20ecaefa160",
+  "tool_binary_hashes": {
+    "iverilog": {
+      "bytes": 79144,
+      "path": "/home/linuxbrew/.linuxbrew/bin/iverilog",
+      "sha256": "34ff9d8020f106bc3cc40d69a02f6c798be41193fdac187c35e7e4d703cade93",
+      "version": "Icarus Verilog version 13.0 (stable) (v13_0)"
+    },
+    "verilator": {
+      "bytes": 30045,
+      "path": "/home/linuxbrew/.linuxbrew/bin/verilator",
+      "sha256": "7550862b9b1b41aa6aadb60b6c793f1e796a3ccb5ef18375d834b7a13f39efeb",
+      "version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+    },
+    "vvp": {
+      "bytes": 1978952,
+      "path": "/home/linuxbrew/.linuxbrew/bin/vvp",
+      "sha256": "5876e595e35ef237d7f4fdaf831698a7dc7e91239aed5ec0d98599df0f8fc990",
+      "version": "Icarus Verilog runtime version 13.0 (stable) (v13_0)"
+    },
+    "yosys": {
+      "bytes": 27301632,
+      "path": "/home/linuxbrew/.linuxbrew/bin/yosys",
+      "sha256": "c3908b1f72e10f657eb48c76f72d8bc5c060d78205d60a1ce2c8c4b3377de84c",
+      "version": "Yosys 0.65 (git sha1 aec814bdf3071f7e0fd0fbe43f7f711e99d01e24, g++-12 12.3.0-1ubuntu1~22.04.3 -fPIC -O3)"
+    }
+  }
+}

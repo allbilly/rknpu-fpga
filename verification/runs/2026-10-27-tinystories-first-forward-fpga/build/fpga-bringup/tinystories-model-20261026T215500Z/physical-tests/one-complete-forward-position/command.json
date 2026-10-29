@@ -1,0 +1,43 @@
+{
+  "started_utc": "2026-10-26T22:06:46.677583+00:00",
+  "bridge_script_sha256": "d50dae4082a080629f7e1f4cd010216cb5aeee1adc3f8d4f73bbdb4f9e4ff053",
+  "mode": "1",
+  "load_receipt_sha256": "0762cd4a41301f4de4813b8f63ed9ba569a68d64f06e3ea269783e09a392ad8c",
+  "bridge_argv": [
+    "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+    "-mode",
+    "batch",
+    "-source",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/bridge.tcl",
+    "-log",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/vivado.log",
+    "-journal",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/vivado.jou"
+  ],
+  "bridge_pid": 655272,
+  "worker_argv": [
+    "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+    "/home/fedora/rknpu-fpga/tools/tinystories/run_model.py",
+    "--package",
+    "/home/fedora/rknpu-fpga/build/tinystories-preparation/260k-first-v2",
+    "--backend",
+    "jtag",
+    "--catalog",
+    "/home/fedora/rknpu-fpga/build/tinystories-programs/all-v1/report.json",
+    "--catalog-sha256",
+    "eaf4555a59a4e98770f93f773a39487df3d180c28d59d3b51f9bc589ae3948c1",
+    "--steps",
+    "1",
+    "--prompt",
+    "",
+    "--quit-bridge",
+    "--out",
+    "/home/fedora/rknpu-fpga/build/fpga-bringup/tinystories-model-20261026T215500Z/physical-tests/one-complete-forward-position/jobs"
+  ],
+  "worker_pid": 655412,
+  "worker_returncode": 0,
+  "bridge_returncode": 0,
+  "status": "PASS",
+  "finished_utc": "2026-10-26T22:14:41.146087+00:00",
+  "worker_report_sha256": "b1c56573476a3bf09f38f921351367d670dcb31f5a2a4609385bd53d9a7e751d"
+}

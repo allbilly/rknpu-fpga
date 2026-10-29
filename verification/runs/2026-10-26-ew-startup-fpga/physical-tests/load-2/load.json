@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "action": "program-sram",
+  "started_utc": "2026-10-26T05:12:47.449705+00:00",
+  "hardware_programmed": true,
+  "flash_written": false,
+  "bitstream_sha256": "7250ad2e9a7c009b0fd8fa5a265dc089073f220e5c4355096453afa88bf7ef67",
+  "image_review_sha256": "afa74dde99e3345e03a431ac953572491e6c5ade416a5e1a27252174e96e746e",
+  "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+  "expected_dna_port": "004E544714C705C",
+  "source_report_sha256": "6773dbecca5e849c9992fe1e444186ad9b456dd50024b5cae73c66031d379634",
+  "compiled_led_active_low": 0,
+  "program_tcl_sha256": "e2fcb610080c026af963dc9085b1dafdd5ccead7526f9733c8136955b5f9f25b",
+  "idcode": "0x23751093",
+  "finished_utc": "2026-10-26T05:14:39.072965+00:00",
+  "native": {
+    "TARGET": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+    "DNA_PORT": "004E544714C705C",
+    "TCK_HZ": "3000000",
+    "IDCODE_BEFORE": "23751093",
+    "PROGRAM_FILE": "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/bitstream/ew-startup.bit",
+    "PROGRAM_RETURNED": "1",
+    "INIT_COMPLETE": "1",
+    "DONE": "1",
+    "USR_ACCESS": "d1d0e3d0",
+    "IDCODE_AFTER": "23751093",
+    "PROGRAMMED": "1",
+    "CLEANUP": "1",
+    "PASS": "1"
+  },
+  "command": {
+    "argv": [
+      "/home/fedora/vivado/2026.1/Vivado/bin/vivado",
+      "-mode",
+      "batch",
+      "-source",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/physical-tests/load-2/program.tcl",
+      "-log",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/physical-tests/load-2/vivado.log",
+      "-journal",
+      "/home/fedora/rknpu-fpga/build/fpga-bringup/ew-startup-1792988881763089417/physical-tests/load-2/vivado.jou"
+    ],
+    "started_utc": "2026-10-26T05:12:47.463589+00:00",
+    "script_sha256": "e2fcb610080c026af963dc9085b1dafdd5ccead7526f9733c8136955b5f9f25b",
+    "pid": 262479,
+    "returncode": 0,
+    "finished_utc": "2026-10-26T05:14:39.072375+00:00",
+    "status": "PASS"
+  }
+}

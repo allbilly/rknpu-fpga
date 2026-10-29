@@ -1,0 +1,36 @@
+{
+  "argv": [
+    "/home/linuxbrew/.linuxbrew/bin/iverilog",
+    "-g2012",
+    "-Wall",
+    "-s",
+    "tb_capacity_axi",
+    "-Ptb_capacity_axi.BASE_ADDR=0",
+    "-Ptb_capacity_axi.SPAN_BYTES=256",
+    "-Ptb_capacity_axi.TIMEOUT_CYCLES=32",
+    "-o",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v1/test.vvp",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_axi.sv",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_bist.sv",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v1/tb_capacity_axi.sv"
+  ],
+  "log_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v1/icarus-compile.log",
+  "log_sha256": "51f173d26892c180923b105c1a32c0a9451aa83339cc3cf908149a33a5bbdfe4",
+  "returncode": 21,
+  "schema": "capacity-axi-v1-preserved-first-compile-attempt",
+  "scope": "Testbench compile/elaboration only; no source-level RTL error observed; no simulator run.",
+  "sources": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-axi-validation-v1/tb_capacity_axi.sv": "df7eb2e1277659cf6053f32b730ef4aaa3d6a8b4e81401087c45f47eb22a0954",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_axi.sv": "5cb9e802ad457e924730b75a777a2c85e65ed790e520471972ba6e74e51af5d8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_bist.sv": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_pattern.sv": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-bist-source-v1/rk_ddr_capacity_sweep.sv": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_ecc_monitor.sv": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5",
+    "/home/fedora/rknpu-fpga/rtl/ddr/rk_mig_write_fence.sv": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+  },
+  "status": "FAIL_BENCH_ELABORATION_MISSING_TESTBENCH_DECLARATIONS"
+}

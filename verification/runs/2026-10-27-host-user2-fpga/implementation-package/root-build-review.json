@@ -1,0 +1,41 @@
+{
+  "status": "APPROVED_SOURCE_BOUND_HOST_CHECKPOINT_ONLY",
+  "reviewer": "Root source/board-profile/CDC review",
+  "reviewed_utc": "2026-10-26T15:47:34.843385+00:00",
+  "authorization": "User: implement REVIEW_AND_PLAN.md; u can build vivado",
+  "scope": "Separate USER2-controlled HALF EW BRAM transport milestone; no full512 fit/computation substitute, image or programming admission",
+  "package_report_sha256": "e4898e31e6b7dd9d5787e5080b353b42faabc372250a550e1b7dafffd918d83f",
+  "source_sha256": "3a0ef75f961f58fdb3469a48eb3e5320a458c42e29b6445d246ebbcb08e4d8ce",
+  "build_tcl_sha256": "e0cd3b0e7aba81a4b22a22814d4dd9a6650a697b395df9dfa2b6883955417368",
+  "protocol_source_sha256": "980adc4825924530625d9e270f727fd9a91e10b901e76ef244bb276b72aed9f7",
+  "part": "xc7k480tffg1156-2",
+  "system_clock_ns": 20,
+  "tck_clock_ns": 166.666,
+  "jtag_chain": 2,
+  "electrical": {
+    "config_voltage": "1.8",
+    "cfgbvs": "GND",
+    "logical_led_generic": 0,
+    "optical_polarity_unknown": true,
+    "rail_or_strap_new_measurement": false,
+    "basis": "Unchanged SYS_CLK/LED pins and LVCMOS18/profile used in qualified EW SRAM tests; source-only implementation, not a new rail measurement"
+  },
+  "legacy_board_review_untouched": true,
+  "legacy_form_limitation": "Combines LED-pin mapping/encoding with unmeasured optical polarity; independent logical-pad review used, as in EW/full512 profiles",
+  "reviewed_contracts": [
+    "Same continuously running50MHz clock,64-edge startup delay/registered release; no R28 input",
+    "USER2 mailbox copied unchanged from frozenOpenTPU reference; chain2 only, no USER1 debug core",
+    "Three-stage toggle syncs; only first-stageD async exceptions, later stages timed in their own domains",
+    "Held request/response payloads retain40ns/333.332ns max-delay and skew budgets with hold-only cuts, no blanketclock cut",
+    "Native source unchanged; both fresh15-case suites and copied evidence verify",
+    "LED0=completionIRQ,LED1=fault,LED2=heartbeat; these are not autonomousPASS indicators",
+    "Fault/timeout transaction ownership remains quarantined, no reset opcode or CPU fallback; restart through reconfiguration",
+    "Full route/pulse/clock/CDC/skew/DRC checks preserved; native outputs require independent review"
+  ],
+  "image_admission": false,
+  "programming_admission": false,
+  "response_bound_ns": 333.332,
+  "quantization": "Native1ps floor: faster model than6MHz and tighter2*TCK response max-delay/skew; exact audits retained",
+  "quantization_controls_sha256": "a4bd04028f6ebf046482e0a6ca7d33c01dc55528bd2caece35fc859992145072",
+  "original_failed_run": "build/host-jtag-implementation/20261026T153451Z/run.json"
+}

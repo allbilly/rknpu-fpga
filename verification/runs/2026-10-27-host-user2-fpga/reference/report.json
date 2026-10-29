@@ -1,0 +1,24 @@
+{
+  "status": "READ_ONLY_REFERENCE_PATTERN",
+  "utc": "2026-10-26T17:31:40.354443+00:00",
+  "reference_root": "OPENTPU_ROOT defaults to ~/openTPU",
+  "files": {
+    "tools/fedora_run_vivado_native_jtag.py": {
+      "sha256": "fdfe1256d10b759e0839f94723e6a857bb2cf78423cb01d44440615435f3bf12",
+      "bytes": 18571,
+      "copy": "build/opentpu-native-rpc-reference/source/tools/fedora_run_vivado_native_jtag.py"
+    },
+    "tools/fedora_benchmark_ch1_jtag_rpc.py": {
+      "sha256": "97b52efc7a52b076fc2e869e6114215e389daaca9f27b57110fb14fd10f8c450",
+      "bytes": 7086,
+      "copy": "build/opentpu-native-rpc-reference/source/tools/fedora_benchmark_ch1_jtag_rpc.py"
+    }
+  },
+  "executed": false,
+  "modified_donor": false,
+  "application": "Numeric loopback Vivado scan RPC pattern only; no DDR/reset/bitstream/timing evidence inherited",
+  "local_implementation": [
+    "tools/host/native_link.py",
+    "fpga/host/native_rpc.tcl.in"
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1166020-i5356379.scope",
+  "cgroup_limits_requested": {
+    "CPUQuota": "200%",
+    "MemoryMax": "4GiB",
+    "MemorySwapMax": 0,
+    "TasksMax": 256
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/iverilog",
+        "-g2012",
+        "-Wall",
+        "-s",
+        "tb_capacity_owner",
+        "-Ptb_capacity_owner.QUIET_CYCLES=2",
+        "-Ptb_capacity_owner.TIMEOUT_CYCLES=8",
+        "-o",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/owner_behavior.vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_capacity_owner.sv",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/tb_capacity_owner.sv"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5",
+      "finished_utc": "2026-10-28T07:21:04.886620+00:00",
+      "name": "icarus_behavior_compile",
+      "returncode": 0,
+      "started_utc": "2026-10-28T07:21:04.870794+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/icarus_behavior_compile.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/icarus_behavior_compile.stdout.log",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.015817
+    },
+    {
+      "argv": [
+        "/home/linuxbrew/.linuxbrew/bin/vvp",
+        "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/owner_behavior.vvp"
+      ],
+      "cleanup": null,
+      "cwd": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5",
+      "finished_utc": "2026-10-28T07:21:04.894485+00:00",
+      "name": "icarus_behavior_sim",
+      "returncode": 1,
+      "started_utc": "2026-10-28T07:21:04.886834+00:00",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/icarus_behavior_sim.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/icarus_behavior_sim.stdout.log",
+      "stdout_sha256": "a8fbe46d24b843677607c8cb6a226bc0463a0cb8c79950a7dc15b64026e42464",
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "wall_seconds": 0.007663
+    }
+  ],
+  "failure": "RuntimeError('Icarus owner behavioral/four-state run failed')",
+  "finished_utc": "2026-10-28T07:21:04.894796+00:00",
+  "hardware_executed": false,
+  "host_admission": {
+    "MemAvailable_kib": 26355668,
+    "SwapFree_kib": 22652504,
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1166020-i5356379.scope",
+    "cpu_psi_some_avg10": 0.01,
+    "memory_psi_full_avg10": 0.0,
+    "utc": "2026-10-28T07:21:04.805756+00:00"
+  },
+  "host_final": {
+    "MemAvailable_kib": 26355348,
+    "SwapFree_kib": 22652504,
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/run-p1166020-i5356379.scope",
+    "cpu_psi_some_avg10": 0.01,
+    "memory_psi_full_avg10": 0.0,
+    "utc": "2026-10-28T07:21:04.894960+00:00"
+  },
+  "invalid_parameter_cases": [],
+  "lease_used": false,
+  "model_run_executed": false,
+  "physical_capacity_qualified": false,
+  "prior_failed_attempts": [
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v1/report.json",
+      "sha256": "1faa53d2ff19f7013b096953ff6d5e54a08635616737de6aa83a6ef6b1d2897f",
+      "status": "FAIL"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v2/report.json",
+      "sha256": "444064f0ad85481c15c4d4dd2e32dcef7d0e45de1097609d560e93871e21bc28",
+      "status": "FAIL"
+    },
+    {
+      "path": "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v3/report.json",
+      "sha256": "e989fd2a894528a8e3c059bc685bfd278733f9ce97cd107ea9f7d2cf0fa56bdb",
+      "status": "FAIL"
+    }
+  ],
+  "schema": "ddr-capacity-owner-validation-v1",
+  "scope": "Private ownership observer control only; no mux/MIG/PCIe/physical qualification.",
+  "source_hashes_after": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_capacity_owner.sv": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/run_validation.py": "7b23dabc03c5a7c7031387c79813fd3f29cf42f0243503d61b22e7a2d182ddf3",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/tb_capacity_owner.sv": "895b2cedd5ce2133eca94de9e927558a0a44805458f0922c2870b8e05c764c0f",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/tb_capacity_owner_invalid.sv": "ce556542020eff47ca35bed36c8f29fa745b58178017c7b4372ab369e61f0756"
+  },
+  "source_hashes_before": {
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-source-v1/rk_ddr_capacity_owner.sv": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/run_validation.py": "7b23dabc03c5a7c7031387c79813fd3f29cf42f0243503d61b22e7a2d182ddf3",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/tb_capacity_owner.sv": "895b2cedd5ce2133eca94de9e927558a0a44805458f0922c2870b8e05c764c0f",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-owner-validation-v5/tb_capacity_owner_invalid.sv": "ce556542020eff47ca35bed36c8f29fa745b58178017c7b4372ab369e61f0756"
+  },
+  "sources_unchanged": true,
+  "started_utc": "2026-10-28T07:21:04.870794+00:00",
+  "status": "FAIL",
+  "timeouts_seconds_per_command": 300,
+  "tool_versions": {
+    "iverilog": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/iverilog",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    },
+    "verilator": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/verilator",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+    },
+    "vvp": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/vvp",
+      "returncode": 0,
+      "stderr": "Icarus Verilog runtime version 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.",
+      "stdout": ""
+    }
+  },
+  "unknown_inputs_scope": {
+    "icarus": "four-state X seed/VALID cases",
+    "verilator": "NOT_APPLICABLE_TWO_STATE"
+  },
+  "vivado_executed": false
+}

@@ -1,0 +1,277 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "Synthetic image-template tests with mocked Tcl, generated-source check and whitespace check only; no Vivado/hardware/native image action.",
+  "cwd": "/home/fedora/rknpu-fpga",
+  "started_utc": "2026-10-26T17:14:21.379285+00:00",
+  "python3_path": "/home/linuxbrew/.linuxbrew/bin/python3",
+  "python_version": "3.14.5 (main, May 10 2026, 10:21:34) [GCC 12.3.0]",
+  "tool_versions": {
+    "normal_tclsh": {
+      "path": "/home/linuxbrew/.linuxbrew/bin/tclsh",
+      "returncode": 0,
+      "stdout": "9.0.3\n",
+      "stderr": "",
+      "patchlevel": "9.0.3",
+      "stderr_empty": true
+    },
+    "vendor_tclsh": {
+      "path": "/home/fedora/rknpu-fpga/build/vendor-tcl86-test-shim/tclsh",
+      "returncode": 0,
+      "stdout": "8.6.13\n",
+      "stderr": "",
+      "patchlevel": "8.6.13",
+      "stderr_empty": true
+    },
+    "vendor_tcl_shim": "/home/fedora/rknpu-fpga/build/vendor-tcl86-test-shim/tclsh",
+    "vendor_tcl_shim_sha256": "c6735e124c38d3cb2a2c50ed005fbe83fc0b77fd87f8efa123a6773384bb2bcc",
+    "normal_PATH": "/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.codex/tmp/arg0-linux/codex-arg07kbBXc:/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg0AQeMYz:/home/fedora/.codex/packages/app-server-daemon/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg03jYN2x:/home/fedora/.codex/packages/standalone/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/lib64/ccache:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.local/bin:/home/fedora/bin:/usr/local/bin:/usr/bin",
+    "vendor_PATH": "/home/fedora/rknpu-fpga/build/vendor-tcl86-test-shim:/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.codex/tmp/arg0-linux/codex-arg07kbBXc:/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg0AQeMYz:/home/fedora/.codex/packages/app-server-daemon/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg03jYN2x:/home/fedora/.codex/packages/standalone/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/lib64/ccache:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.local/bin:/home/fedora/bin:/usr/local/bin:/usr/bin",
+    "vendor_PATH_preserves_rest": true,
+    "sha256sum_path": "/usr/bin/sha256sum",
+    "sha256sum_version": "sha256sum (GNU coreutils) 9.10",
+    "sha256sum_stdout": "sha256sum (GNU coreutils) 9.10\nCopyright (C) 2026 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n\nWritten by Ulrich Drepper, Scott Miller, and David Madore.\n",
+    "sha256sum_stderr": "",
+    "make_path": "/usr/bin/make",
+    "make_version": "GNU Make 4.4.1",
+    "make_stdout": "GNU Make 4.4.1\nBuilt for x86_64-redhat-linux-gnu\nCopyright (C) 1988-2023 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n",
+    "make_stderr": "",
+    "git_path": "/usr/bin/git",
+    "git_version": "git version 2.56.0"
+  },
+  "source_hashes_before": {
+    "tests/host/test_image_template.py": "06226c06dd105b464bc5db7ac84c6fcd8105d5ea4e38a5d4d542110557741a2c",
+    "tools/host/image_template.py": "27a1f5c543969510c23c4a8166fba39769c5012ebe09dcc8d5c0ceae813de147",
+    "tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+    "fpga/host/emit.tcl.in": "6bd16ecb36b1308aacbbf00daee93657c58b8edfecdd8cd58c403241c414705b",
+    "fpga/host/mailbox_cdc.tcl": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804"
+  },
+  "source_manifest_sha256_before": "57c3bfa5b63408c4d068e3022ea8b4403f03cca72e552327dbbd2c34eed502b3",
+  "source_paths": [
+    "tests/host/test_image_template.py",
+    "tools/host/image_template.py",
+    "tools/hardware/sample_ew.py",
+    "fpga/host/emit.tcl.in",
+    "fpga/host/mailbox_cdc.tcl"
+  ],
+  "commands": [
+    {
+      "name": "normal_tcl_tests",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/host",
+        "-p",
+        "test_image_template.py",
+        "-v"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "PATH": "/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.codex/tmp/arg0-linux/codex-arg07kbBXc:/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg0AQeMYz:/home/fedora/.codex/packages/app-server-daemon/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg03jYN2x:/home/fedora/.codex/packages/standalone/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/lib64/ccache:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.local/bin:/home/fedora/bin:/usr/local/bin:/usr/bin",
+      "environment_override": {},
+      "started_utc": "2026-10-26T17:14:21.379640+00:00",
+      "finished_utc": "2026-10-26T17:14:21.739999+00:00",
+      "elapsed_seconds": 0.36,
+      "returncode": 0,
+      "status": "PASS",
+      "test_count_from_summary": 4,
+      "source_hashes_before": {
+        "tests/host/test_image_template.py": "06226c06dd105b464bc5db7ac84c6fcd8105d5ea4e38a5d4d542110557741a2c",
+        "tools/host/image_template.py": "27a1f5c543969510c23c4a8166fba39769c5012ebe09dcc8d5c0ceae813de147",
+        "tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "fpga/host/emit.tcl.in": "6bd16ecb36b1308aacbbf00daee93657c58b8edfecdd8cd58c403241c414705b",
+        "fpga/host/mailbox_cdc.tcl": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804"
+      },
+      "source_hashes_after": {
+        "tests/host/test_image_template.py": "06226c06dd105b464bc5db7ac84c6fcd8105d5ea4e38a5d4d542110557741a2c",
+        "tools/host/image_template.py": "27a1f5c543969510c23c4a8166fba39769c5012ebe09dcc8d5c0ceae813de147",
+        "tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "fpga/host/emit.tcl.in": "6bd16ecb36b1308aacbbf00daee93657c58b8edfecdd8cd58c403241c414705b",
+        "fpga/host/mailbox_cdc.tcl": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804"
+      },
+      "source_hashes_unchanged": true,
+      "source_manifest_sha256_before": "57c3bfa5b63408c4d068e3022ea8b4403f03cca72e552327dbbd2c34eed502b3",
+      "source_manifest_sha256_after": "57c3bfa5b63408c4d068e3022ea8b4403f03cca72e552327dbbd2c34eed502b3",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/host-image-template-controls/normal_tcl_tests.stdout.log",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/host-image-template-controls/normal_tcl_tests.stderr.log",
+      "stderr_bytes": 672,
+      "stderr_sha256": "7a9a772ff4cd9d7570f831e3dd355d8fbddc6254d7e75d4519b8fb72908b9708",
+      "stdout_tail": [],
+      "stderr_tail": [
+        "test_empty_or_malformed_hashes_reject (test_image_template.HostImageTemplateTests.test_empty_or_malformed_hashes_reject) ... ok",
+        "test_every_failed_native_gate_blocks_emission (test_image_template.HostImageTemplateTests.test_every_failed_native_gate_blocks_emission) ... ok",
+        "test_exact_profile_emits_only_synthetic_files (test_image_template.HostImageTemplateTests.test_exact_profile_emits_only_synthetic_files) ... ok",
+        "test_no_hardware_route_or_severity_mutation_commands (test_image_template.HostImageTemplateTests.test_no_hardware_route_or_severity_mutation_commands) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 4 tests in 0.290s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "name": "vendor_tcl_tests",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/host",
+        "-p",
+        "test_image_template.py",
+        "-v"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "PATH": "/home/fedora/rknpu-fpga/build/vendor-tcl86-test-shim:/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.codex/tmp/arg0-linux/codex-arg07kbBXc:/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg0AQeMYz:/home/fedora/.codex/packages/app-server-daemon/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg03jYN2x:/home/fedora/.codex/packages/standalone/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/lib64/ccache:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.local/bin:/home/fedora/bin:/usr/local/bin:/usr/bin",
+      "environment_override": {
+        "PATH": "/home/fedora/rknpu-fpga/build/vendor-tcl86-test-shim:/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.codex/tmp/arg0-linux/codex-arg07kbBXc:/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg0AQeMYz:/home/fedora/.codex/packages/app-server-daemon/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg03jYN2x:/home/fedora/.codex/packages/standalone/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/lib64/ccache:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.local/bin:/home/fedora/bin:/usr/local/bin:/usr/bin"
+      },
+      "started_utc": "2026-10-26T17:14:21.741735+00:00",
+      "finished_utc": "2026-10-26T17:14:22.103646+00:00",
+      "elapsed_seconds": 0.362,
+      "returncode": 0,
+      "status": "PASS",
+      "test_count_from_summary": 4,
+      "source_hashes_before": {
+        "tests/host/test_image_template.py": "06226c06dd105b464bc5db7ac84c6fcd8105d5ea4e38a5d4d542110557741a2c",
+        "tools/host/image_template.py": "27a1f5c543969510c23c4a8166fba39769c5012ebe09dcc8d5c0ceae813de147",
+        "tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "fpga/host/emit.tcl.in": "6bd16ecb36b1308aacbbf00daee93657c58b8edfecdd8cd58c403241c414705b",
+        "fpga/host/mailbox_cdc.tcl": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804"
+      },
+      "source_hashes_after": {
+        "tests/host/test_image_template.py": "06226c06dd105b464bc5db7ac84c6fcd8105d5ea4e38a5d4d542110557741a2c",
+        "tools/host/image_template.py": "27a1f5c543969510c23c4a8166fba39769c5012ebe09dcc8d5c0ceae813de147",
+        "tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "fpga/host/emit.tcl.in": "6bd16ecb36b1308aacbbf00daee93657c58b8edfecdd8cd58c403241c414705b",
+        "fpga/host/mailbox_cdc.tcl": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804"
+      },
+      "source_hashes_unchanged": true,
+      "source_manifest_sha256_before": "57c3bfa5b63408c4d068e3022ea8b4403f03cca72e552327dbbd2c34eed502b3",
+      "source_manifest_sha256_after": "57c3bfa5b63408c4d068e3022ea8b4403f03cca72e552327dbbd2c34eed502b3",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/host-image-template-controls/vendor_tcl_tests.stdout.log",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/host-image-template-controls/vendor_tcl_tests.stderr.log",
+      "stderr_bytes": 672,
+      "stderr_sha256": "7a38cda27b3235f76a575b6e41f9957b66d97c5eaab8b42e594e98e2811ea86c",
+      "stdout_tail": [],
+      "stderr_tail": [
+        "test_empty_or_malformed_hashes_reject (test_image_template.HostImageTemplateTests.test_empty_or_malformed_hashes_reject) ... ok",
+        "test_every_failed_native_gate_blocks_emission (test_image_template.HostImageTemplateTests.test_every_failed_native_gate_blocks_emission) ... ok",
+        "test_exact_profile_emits_only_synthetic_files (test_image_template.HostImageTemplateTests.test_exact_profile_emits_only_synthetic_files) ... ok",
+        "test_no_hardware_route_or_severity_mutation_commands (test_image_template.HostImageTemplateTests.test_no_hardware_route_or_severity_mutation_commands) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 4 tests in 0.292s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "name": "generated_check",
+      "argv": [
+        "make",
+        "generated-check"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "PATH": "/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.codex/tmp/arg0-linux/codex-arg07kbBXc:/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg0AQeMYz:/home/fedora/.codex/packages/app-server-daemon/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg03jYN2x:/home/fedora/.codex/packages/standalone/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/lib64/ccache:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.local/bin:/home/fedora/bin:/usr/local/bin:/usr/bin",
+      "environment_override": {},
+      "started_utc": "2026-10-26T17:14:22.104869+00:00",
+      "finished_utc": "2026-10-26T17:14:22.220735+00:00",
+      "elapsed_seconds": 0.116,
+      "returncode": 0,
+      "status": "PASS",
+      "test_count_from_summary": null,
+      "source_hashes_before": {
+        "tests/host/test_image_template.py": "06226c06dd105b464bc5db7ac84c6fcd8105d5ea4e38a5d4d542110557741a2c",
+        "tools/host/image_template.py": "27a1f5c543969510c23c4a8166fba39769c5012ebe09dcc8d5c0ceae813de147",
+        "tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "fpga/host/emit.tcl.in": "6bd16ecb36b1308aacbbf00daee93657c58b8edfecdd8cd58c403241c414705b",
+        "fpga/host/mailbox_cdc.tcl": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804"
+      },
+      "source_hashes_after": {
+        "tests/host/test_image_template.py": "06226c06dd105b464bc5db7ac84c6fcd8105d5ea4e38a5d4d542110557741a2c",
+        "tools/host/image_template.py": "27a1f5c543969510c23c4a8166fba39769c5012ebe09dcc8d5c0ceae813de147",
+        "tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "fpga/host/emit.tcl.in": "6bd16ecb36b1308aacbbf00daee93657c58b8edfecdd8cd58c403241c414705b",
+        "fpga/host/mailbox_cdc.tcl": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804"
+      },
+      "source_hashes_unchanged": true,
+      "source_manifest_sha256_before": "57c3bfa5b63408c4d068e3022ea8b4403f03cca72e552327dbbd2c34eed502b3",
+      "source_manifest_sha256_after": "57c3bfa5b63408c4d068e3022ea8b4403f03cca72e552327dbbd2c34eed502b3",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/host-image-template-controls/generated_check.stdout.log",
+      "stdout_bytes": 99,
+      "stdout_sha256": "b3381e2f4577fb00b88ccdb768c91d043d54433d20a7fd60cadfa29a8b28cfec",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/host-image-template-controls/generated_check.stderr.log",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [
+        "python3 tools/gen_regfile.py --check",
+        "python3 tools/gen_demo.py --check",
+        "Demo generated files match."
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "diff_check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "PATH": "/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.codex/tmp/arg0-linux/codex-arg07kbBXc:/home/fedora/.codex/packages/app-server-daemon/releases/0.164.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg0AQeMYz:/home/fedora/.codex/packages/app-server-daemon/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/.codex/tmp/arg0-linux/codex-arg03jYN2x:/home/fedora/.codex/packages/standalone/releases/0.163.0-x86_64-unknown-linux-musl/codex-path:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/lib64/ccache:/home/fedora/vivado/2026.1/Vitis/bin:/home/fedora/vivado/2026.1/Vivado/bin:/home/fedora/vivado/2026.1/Model_Composer/bin:/home/fedora/vivado/DocNav:/home/fedora/vivado/2026.1.1/Vivado_Lab/bin:/home/fedora/.local/bin:/home/fedora/.local/share/pi-node/node-v22.22.3-linux-x64/bin:/home/fedora/.opencode/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/fedora/.local/bin:/home/fedora/bin:/usr/local/bin:/usr/bin",
+      "environment_override": {},
+      "started_utc": "2026-10-26T17:14:22.221876+00:00",
+      "finished_utc": "2026-10-26T17:14:22.229136+00:00",
+      "elapsed_seconds": 0.007,
+      "returncode": 0,
+      "status": "PASS",
+      "test_count_from_summary": null,
+      "source_hashes_before": {
+        "tests/host/test_image_template.py": "06226c06dd105b464bc5db7ac84c6fcd8105d5ea4e38a5d4d542110557741a2c",
+        "tools/host/image_template.py": "27a1f5c543969510c23c4a8166fba39769c5012ebe09dcc8d5c0ceae813de147",
+        "tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "fpga/host/emit.tcl.in": "6bd16ecb36b1308aacbbf00daee93657c58b8edfecdd8cd58c403241c414705b",
+        "fpga/host/mailbox_cdc.tcl": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804"
+      },
+      "source_hashes_after": {
+        "tests/host/test_image_template.py": "06226c06dd105b464bc5db7ac84c6fcd8105d5ea4e38a5d4d542110557741a2c",
+        "tools/host/image_template.py": "27a1f5c543969510c23c4a8166fba39769c5012ebe09dcc8d5c0ceae813de147",
+        "tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+        "fpga/host/emit.tcl.in": "6bd16ecb36b1308aacbbf00daee93657c58b8edfecdd8cd58c403241c414705b",
+        "fpga/host/mailbox_cdc.tcl": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804"
+      },
+      "source_hashes_unchanged": true,
+      "source_manifest_sha256_before": "57c3bfa5b63408c4d068e3022ea8b4403f03cca72e552327dbbd2c34eed502b3",
+      "source_manifest_sha256_after": "57c3bfa5b63408c4d068e3022ea8b4403f03cca72e552327dbbd2c34eed502b3",
+      "stdout_path": "/home/fedora/rknpu-fpga/build/host-image-template-controls/diff_check.stdout.log",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "/home/fedora/rknpu-fpga/build/host-image-template-controls/diff_check.stderr.log",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [],
+      "stderr_tail": []
+    }
+  ],
+  "vivado_executed": false,
+  "hardware_accessed": false,
+  "programming_performed": false,
+  "finished_utc": "2026-10-26T17:14:22.230474+00:00",
+  "source_hashes_after": {
+    "tests/host/test_image_template.py": "06226c06dd105b464bc5db7ac84c6fcd8105d5ea4e38a5d4d542110557741a2c",
+    "tools/host/image_template.py": "27a1f5c543969510c23c4a8166fba39769c5012ebe09dcc8d5c0ceae813de147",
+    "tools/hardware/sample_ew.py": "d4ec7166c5cb02053f1f0a80f45904b9cc403adccfbaaac60d4971a463b23952",
+    "fpga/host/emit.tcl.in": "6bd16ecb36b1308aacbbf00daee93657c58b8edfecdd8cd58c403241c414705b",
+    "fpga/host/mailbox_cdc.tcl": "b548b3be4ba4134f7d82cb40c598093fabc9d2a9a28dee012e149cdbeb116804"
+  },
+  "source_hashes_unchanged": true,
+  "version_probe_stderr_empty": true
+}

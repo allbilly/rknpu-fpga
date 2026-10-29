@@ -1,0 +1,12 @@
+PASS DMA board workload: verbatim SUB(9), two tasks, 324 requests, 336 memory checks
+PASS DMA demo reset during command fetch and restart
+PASS DMA demo reset during data execution and restart
+PASS DMA demo initialization bus error
+PASS DMA demo command bus error
+PASS DMA demo completion-count mismatch
+PASS DMA demo known readback corruption
+PASS DMA demo watchdog and fault recovery
+- /home/fedora/rknpu-fpga/build/production-model-auditors/current-v12/workspace/tests/tb_dma_demo.sv:92: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.048 2026-04-26
+- Verilator: $finish at 276us; walltime 0.015 s; speed 18.762 ms/s
+- Verilator: cpu 0.015 s on 1 threads; allocated 7 MB

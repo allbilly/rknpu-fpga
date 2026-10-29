@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "Synthetic mocked-host controls and Python syntax compilation only; no native hardware runner or hardware access.",
+  "workdir": "/home/fedora/rknpu-fpga/build/fpga-bringup/host-user2-20261026T171832Z",
+  "python_path": "/home/linuxbrew/.linuxbrew/opt/python@3.14/bin/python3.14",
+  "python_version": "3.14.5 (main, May 10 2026, 10:21:34) [GCC 12.3.0]",
+  "source_files_before": {
+    "build/fpga-bringup/host-user2-20261026T171832Z/harness_controls.py": "0c67dec33822ebfaf4ef3ccdc750c17ae2f365f990867dbf6b42d45273c01490",
+    "build/fpga-bringup/host-user2-20261026T171832Z/run_jobs.py": "4eefbdc7ad22ce4515f23f1c8769853590dc8311743c284c30b8121ed897e887",
+    "build/fpga-bringup/host-user2-20261026T171832Z/run_sram_tests.py": "fb6a0c8fb66dcb060216f0e8768e583609f3f2a29cef54816434a2658a41dbe1",
+    "build/fpga-bringup/host-user2-20261026T171832Z/program-template.tcl.in": "d7ebf86450c55de4378692f0aae20f6af20fffe7366b329a29b3972e6429a96d"
+  },
+  "source_manifest_sha256_before": "92eb884caa96173cc660ca7a5a5f8cd60f6f122bf822b134094e7e9d29f7e3f8",
+  "preexisting_bytecode_before": {
+    "build/fpga-bringup/host-user2-20261026T171832Z/__pycache__/run_jobs.cpython-314.pyc": "3edb99b2bf9c2f342c389e78c88d875ebcda77008b7917f18a4ab935693dead7",
+    "build/fpga-bringup/host-user2-20261026T171832Z/__pycache__/run_sram_tests.cpython-314.pyc": "33301a11af7722712675b828816659ed98768b5ed0272c97c5aafa4f8a2488b4"
+  },
+  "commands": [
+    {
+      "name": "harness_controls",
+      "argv": [
+        "python3",
+        "build/fpga-bringup/host-user2-20261026T171832Z/harness_controls.py",
+        "-v"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "environment_override": {},
+      "started_utc": "2026-10-26T17:23:33.031139+00:00",
+      "finished_utc": "2026-10-26T17:23:33.118222+00:00",
+      "elapsed_seconds": 0.087,
+      "returncode": 0,
+      "status": "PASS",
+      "source_files_before": {
+        "build/fpga-bringup/host-user2-20261026T171832Z/harness_controls.py": "0c67dec33822ebfaf4ef3ccdc750c17ae2f365f990867dbf6b42d45273c01490",
+        "build/fpga-bringup/host-user2-20261026T171832Z/run_jobs.py": "4eefbdc7ad22ce4515f23f1c8769853590dc8311743c284c30b8121ed897e887",
+        "build/fpga-bringup/host-user2-20261026T171832Z/run_sram_tests.py": "fb6a0c8fb66dcb060216f0e8768e583609f3f2a29cef54816434a2658a41dbe1",
+        "build/fpga-bringup/host-user2-20261026T171832Z/program-template.tcl.in": "d7ebf86450c55de4378692f0aae20f6af20fffe7366b329a29b3972e6429a96d"
+      },
+      "source_files_after": {
+        "build/fpga-bringup/host-user2-20261026T171832Z/harness_controls.py": "0c67dec33822ebfaf4ef3ccdc750c17ae2f365f990867dbf6b42d45273c01490",
+        "build/fpga-bringup/host-user2-20261026T171832Z/run_jobs.py": "4eefbdc7ad22ce4515f23f1c8769853590dc8311743c284c30b8121ed897e887",
+        "build/fpga-bringup/host-user2-20261026T171832Z/run_sram_tests.py": "fb6a0c8fb66dcb060216f0e8768e583609f3f2a29cef54816434a2658a41dbe1",
+        "build/fpga-bringup/host-user2-20261026T171832Z/program-template.tcl.in": "d7ebf86450c55de4378692f0aae20f6af20fffe7366b329a29b3972e6429a96d"
+      },
+      "source_hashes_unchanged": true,
+      "source_manifest_sha256_before": "92eb884caa96173cc660ca7a5a5f8cd60f6f122bf822b134094e7e9d29f7e3f8",
+      "source_manifest_sha256_after": "92eb884caa96173cc660ca7a5a5f8cd60f6f122bf822b134094e7e9d29f7e3f8",
+      "preexisting_bytecode_before": {
+        "build/fpga-bringup/host-user2-20261026T171832Z/__pycache__/run_jobs.cpython-314.pyc": "3edb99b2bf9c2f342c389e78c88d875ebcda77008b7917f18a4ab935693dead7",
+        "build/fpga-bringup/host-user2-20261026T171832Z/__pycache__/run_sram_tests.cpython-314.pyc": "33301a11af7722712675b828816659ed98768b5ed0272c97c5aafa4f8a2488b4"
+      },
+      "preexisting_bytecode_after": {
+        "build/fpga-bringup/host-user2-20261026T171832Z/__pycache__/run_jobs.cpython-314.pyc": "3edb99b2bf9c2f342c389e78c88d875ebcda77008b7917f18a4ab935693dead7",
+        "build/fpga-bringup/host-user2-20261026T171832Z/__pycache__/run_sram_tests.cpython-314.pyc": "33301a11af7722712675b828816659ed98768b5ed0272c97c5aafa4f8a2488b4"
+      },
+      "preexisting_bytecode_unchanged": true,
+      "stdout_path": "build/fpga-bringup/host-user2-20261026T171832Z/harness_controls.stdout.log",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "build/fpga-bringup/host-user2-20261026T171832Z/harness_controls.stderr.log",
+      "stderr_bytes": 431,
+      "stderr_sha256": "71215ed0196d778e0a629c47308ca38d69008d3de08d79ca45df6f5f350a531b",
+      "stdout_tail": [],
+      "stderr_tail": [
+        "test_good_full_captured_bos_ack_after_all_bytes (__main__.Controls.test_good_full_captured_bos_ack_after_all_bytes) ... ok",
+        "test_mismatch_preserves_failure_without_ack (__main__.Controls.test_mismatch_preserves_failure_without_ack) ... ok",
+        "test_wrong_fault_code_cannot_pass (__main__.Controls.test_wrong_fault_code_cannot_pass) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 3 tests in 0.009s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "name": "py_compile",
+      "argv": [
+        "python3",
+        "-m",
+        "py_compile",
+        "build/fpga-bringup/host-user2-20261026T171832Z/run_jobs.py",
+        "build/fpga-bringup/host-user2-20261026T171832Z/run_sram_tests.py"
+      ],
+      "cwd": "/home/fedora/rknpu-fpga",
+      "environment_override": {
+        "PYTHONPYCACHEPREFIX": "build/fpga-bringup/host-user2-20261026T171832Z/pycompile-cache"
+      },
+      "started_utc": "2026-10-26T17:23:33.119346+00:00",
+      "finished_utc": "2026-10-26T17:23:33.456903+00:00",
+      "elapsed_seconds": 0.338,
+      "returncode": 0,
+      "status": "PASS",
+      "source_files_before": {
+        "build/fpga-bringup/host-user2-20261026T171832Z/harness_controls.py": "0c67dec33822ebfaf4ef3ccdc750c17ae2f365f990867dbf6b42d45273c01490",
+        "build/fpga-bringup/host-user2-20261026T171832Z/run_jobs.py": "4eefbdc7ad22ce4515f23f1c8769853590dc8311743c284c30b8121ed897e887",
+        "build/fpga-bringup/host-user2-20261026T171832Z/run_sram_tests.py": "fb6a0c8fb66dcb060216f0e8768e583609f3f2a29cef54816434a2658a41dbe1",
+        "build/fpga-bringup/host-user2-20261026T171832Z/program-template.tcl.in": "d7ebf86450c55de4378692f0aae20f6af20fffe7366b329a29b3972e6429a96d"
+      },
+      "source_files_after": {
+        "build/fpga-bringup/host-user2-20261026T171832Z/harness_controls.py": "0c67dec33822ebfaf4ef3ccdc750c17ae2f365f990867dbf6b42d45273c01490",
+        "build/fpga-bringup/host-user2-20261026T171832Z/run_jobs.py": "4eefbdc7ad22ce4515f23f1c8769853590dc8311743c284c30b8121ed897e887",
+        "build/fpga-bringup/host-user2-20261026T171832Z/run_sram_tests.py": "fb6a0c8fb66dcb060216f0e8768e583609f3f2a29cef54816434a2658a41dbe1",
+        "build/fpga-bringup/host-user2-20261026T171832Z/program-template.tcl.in": "d7ebf86450c55de4378692f0aae20f6af20fffe7366b329a29b3972e6429a96d"
+      },
+      "source_hashes_unchanged": true,
+      "source_manifest_sha256_before": "92eb884caa96173cc660ca7a5a5f8cd60f6f122bf822b134094e7e9d29f7e3f8",
+      "source_manifest_sha256_after": "92eb884caa96173cc660ca7a5a5f8cd60f6f122bf822b134094e7e9d29f7e3f8",
+      "preexisting_bytecode_before": {
+        "build/fpga-bringup/host-user2-20261026T171832Z/__pycache__/run_jobs.cpython-314.pyc": "3edb99b2bf9c2f342c389e78c88d875ebcda77008b7917f18a4ab935693dead7",
+        "build/fpga-bringup/host-user2-20261026T171832Z/__pycache__/run_sram_tests.cpython-314.pyc": "33301a11af7722712675b828816659ed98768b5ed0272c97c5aafa4f8a2488b4"
+      },
+      "preexisting_bytecode_after": {
+        "build/fpga-bringup/host-user2-20261026T171832Z/__pycache__/run_jobs.cpython-314.pyc": "3edb99b2bf9c2f342c389e78c88d875ebcda77008b7917f18a4ab935693dead7",
+        "build/fpga-bringup/host-user2-20261026T171832Z/__pycache__/run_sram_tests.cpython-314.pyc": "33301a11af7722712675b828816659ed98768b5ed0272c97c5aafa4f8a2488b4"
+      },
+      "preexisting_bytecode_unchanged": true,
+      "stdout_path": "build/fpga-bringup/host-user2-20261026T171832Z/py_compile.stdout.log",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "build/fpga-bringup/host-user2-20261026T171832Z/py_compile.stderr.log",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": [],
+      "stderr_tail": []
+    }
+  ],
+  "vivado_executed": false,
+  "hardware_accessed": false,
+  "programming_performed": false,
+  "tcl_or_native_hardware_invoked": false,
+  "finished_utc": "2026-10-26T17:23:33.457781+00:00",
+  "source_files_after": {
+    "build/fpga-bringup/host-user2-20261026T171832Z/harness_controls.py": "0c67dec33822ebfaf4ef3ccdc750c17ae2f365f990867dbf6b42d45273c01490",
+    "build/fpga-bringup/host-user2-20261026T171832Z/run_jobs.py": "4eefbdc7ad22ce4515f23f1c8769853590dc8311743c284c30b8121ed897e887",
+    "build/fpga-bringup/host-user2-20261026T171832Z/run_sram_tests.py": "fb6a0c8fb66dcb060216f0e8768e583609f3f2a29cef54816434a2658a41dbe1",
+    "build/fpga-bringup/host-user2-20261026T171832Z/program-template.tcl.in": "d7ebf86450c55de4378692f0aae20f6af20fffe7366b329a29b3972e6429a96d"
+  },
+  "source_hashes_unchanged": true,
+  "preexisting_bytecode_after": {
+    "build/fpga-bringup/host-user2-20261026T171832Z/__pycache__/run_jobs.cpython-314.pyc": "3edb99b2bf9c2f342c389e78c88d875ebcda77008b7917f18a4ab935693dead7",
+    "build/fpga-bringup/host-user2-20261026T171832Z/__pycache__/run_sram_tests.cpython-314.pyc": "33301a11af7722712675b828816659ed98768b5ed0272c97c5aafa4f8a2488b4"
+  },
+  "preexisting_bytecode_unchanged": true,
+  "pycache_prefix": "build/fpga-bringup/host-user2-20261026T171832Z/pycompile-cache"
+}

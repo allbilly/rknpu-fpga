@@ -1,0 +1,4 @@
+PASS_PUBLIC_PATTERN_GOLDENS rows=18 base=00001000 software_oracle=tools/ddr/capacity_pattern.py
+PASS_AXI_INTEGRATED span=512 base=00000000 writes=16 reads=20 fences=4
+PASS_AXI_TESTBENCH scope=adapter_contract_only physical=NOT_QUALIFIED
+/home/fedora/rknpu-fpga/tests/ddr/capacity/tb_capacity_axi.sv:502: $finish called at 4236000 (1ps)

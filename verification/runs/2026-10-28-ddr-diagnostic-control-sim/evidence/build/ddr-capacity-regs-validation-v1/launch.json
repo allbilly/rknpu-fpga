@@ -1,0 +1,38 @@
+{
+  "admission": {
+    "MemAvailable_kib": 26327152,
+    "cpu_psi_full_avg10": 0.0,
+    "cpu_psi_some_avg10": 0.0,
+    "memory_psi_full_avg10": 0.0,
+    "memory_psi_some_avg10": 0.0
+  },
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=rknpu-capacity-regs-validation-v1",
+    "-p",
+    "MemoryMax=4G",
+    "-p",
+    "MemorySwapMax=0",
+    "-p",
+    "CPUQuota=200%",
+    "-p",
+    "TasksMax=256",
+    "/home/linuxbrew/.linuxbrew/bin/python3",
+    "/home/fedora/rknpu-fpga/build/ddr-capacity-regs-validation-v1/run_validation.py"
+  ],
+  "bench_sha256": "11d519cb9ca1fbd905345c0aa3841796366d1f1077923c6f66957f348c077453",
+  "cgroup_requested": {
+    "CPUQuota": "200%",
+    "MemoryMax": "4G",
+    "MemorySwapMax": 0,
+    "TasksMax": 256
+  },
+  "cwd": "/home/fedora/rknpu-fpga",
+  "frozen_inputs_sha256": "e15f4fd944a2f846ca6b9f241a0721428622c74273b7db7b40573d3b5bcb6a39",
+  "launch_status": "PREPARED",
+  "runner_sha256": "8dacd8b36469eade743063991f75807f523814eb52dad2383396ec57006dce27",
+  "source_sha256": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+  "utc": "2026-10-28T07:24:21Z"
+}

@@ -1,0 +1,46 @@
+{
+  "status": "LAUNCH_OBSERVER_RESOURCE_FIELD_BUG_PRESERVED_NO_RERUN",
+  "scope": "The v6 run has already launched and must remain untouched. This sidecar records a reporting bug only; do not treat the fresh-launch memory PSI field as valid.",
+  "run_script": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v6/run.py",
+  "run_script_sha256": "16a4b24d69a982b45e50907e0a22ccf79398f779aff5aa18477533ea7757bc9e",
+  "launch_receipt": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v6/launch.json",
+  "launch_receipt_sha256": "5caed13237d8b61bc25d5eec0475bdccbbe2bc1495499f2f7fae6fee73524448",
+  "report_receipt": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v6/report.json",
+  "report_status_at_note": "RUNNING_PRIVATE_COMPLETE_PRODUCTION_MAKE_TEST_V6",
+  "issue": "run.py parses both cpu_psi_some_avg10 and memory_psi_full_avg10 from /proc/pressure/cpu; the latter field is mislabeled and is not a memory PSI sample. Do not use report.json:fresh_launch_sample.memory_psi_full_avg10 as evidence.",
+  "correct_resource_admission_receipt": "/home/fedora/rknpu-fpga/build/production-model-auditors/current-v6/admission.json",
+  "correct_resource_admission_sha256": "959d49ee3e42b48c78593fe0d11b9eb12e207fb121c435fdf5a02e8807c9cf2e",
+  "correct_admission_samples": [
+    {
+      "utc": "2026-10-27T19:09:01.742996+00:00",
+      "memavailable_bytes": 26671321088,
+      "cpu_psi_some_avg10": 0.0,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true
+    },
+    {
+      "utc": "2026-10-27T19:10:00.243361+00:00",
+      "memavailable_bytes": 26598047744,
+      "cpu_psi_some_avg10": 0.0,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true
+    },
+    {
+      "utc": "2026-10-27T19:10:45.565534+00:00",
+      "memavailable_bytes": 25560317952,
+      "cpu_psi_some_avg10": 0.11,
+      "memory_psi_full_avg10": 0.0,
+      "pass": true
+    }
+  ],
+  "correct_admission_status": "RESOURCE_GATE_PASS_FOR_PRODUCTION_V6",
+  "launch_started_utc": "2026-10-27T19:11:06.516126+00:00",
+  "unit": "--unit=rknpu-production-model-auditors-current-v6",
+  "configured_cgroup_caps": {
+    "MemoryMax": "6G",
+    "MemorySwapMax": "0",
+    "CPUQuota": "200%",
+    "TasksMax": 256
+  },
+  "action": "Preserved the live run without editing its script/receipt or restarting it; no corrected launch sample is invented."
+}

@@ -1,0 +1,114 @@
+"""Read-only packet controls use a hash-pinned historical image as a fixture.
+
+Accepting that fixture proves parser controls only, never full512 DDR admission.
+"""
+from pathlib import Path
+import importlib.util
+import struct
+import unittest
+
+spec = importlib.util.spec_from_file_location('private_image_audit',
+    Path(__file__).with_name('audit_image.py'))
+audit = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(audit)
+FIXTURE = Path('/home/fedora/rknpu-fpga/build/ypcb-ddr-shell/ch1-image-v2/emission/ew-ddr-ch1-user2.bit')
+FIXTURE_SHA = '45bd540cfaf7327ad8db5ba4e3a7548a209db1aeba4423f37159a72287296339'
+
+
+class BitfileControls(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        if not FIXTURE.exists():
+            raise unittest.SkipTest('Historical image fixture is unavailable')
+        if audit.sha(FIXTURE) != FIXTURE_SHA:
+            raise RuntimeError('Historical image fixture changed')
+        cls.data = FIXTURE.read_bytes()
+        cls.checker = audit.load_checker()
+        cls.structure = cls.checker.parse_bitstream(cls.data)
+        cls.inventory = audit.packet_inventory(cls.data, cls.structure, 'a2dfec21')
+
+    def test_historical_fixture_has_its_own_tag_and_scope(self):
+        self.assertEqual(self.inventory['crc_software_validation'], 'NOT_CHECKED')
+        self.assertGreater(self.inventory['fdri_words'], 100000)
+        self.assertFalse(self.inventory['iprog_seen'])
+
+    def test_old_image_cannot_satisfy_new_source_tag(self):
+        with self.assertRaisesRegex(ValueError, 'USR_ACCESS'):
+            audit.packet_inventory(self.data, self.structure, '5e99f881')
+
+    def test_changed_identity_is_rejected(self):
+        data = bytearray(self.data)
+        struct.pack_into('>I', data, self.inventory['idcode_words'][0]['offset'], 0x12345678)
+        with self.assertRaisesRegex(ValueError, 'IDCODE'):
+            audit.packet_inventory(data, self.structure, 'a2dfec21')
+
+    def test_iprog_is_rejected(self):
+        data = bytearray(self.data)
+        struct.pack_into('>I', data, self.inventory['command_words'][0]['offset'], 15)
+        with self.assertRaisesRegex(ValueError, 'IPROG'):
+            audit.packet_inventory(data, self.structure, 'a2dfec21')
+
+    def test_packet_overrun_is_rejected(self):
+        data = bytearray(self.data)
+        last = next(row for row in reversed(self.inventory['packets'])
+                    if row['type'] == 1 and row['opcode'] == 2)
+        header = struct.unpack_from('>I', data, last['offset'])[0]
+        self.assertEqual(last['type'], 1)
+        # Truncate to this header and claim more body words than remain.
+        data = data[:last['offset']+4]
+        struct.pack_into('>I', data, last['offset'], (header & ~0x7ff) | 0x7ff)
+        with self.assertRaisesRegex(ValueError, 'overruns'):
+            audit.packet_inventory(data, self.structure, 'a2dfec21')
+
+    def test_partial_container_is_rejected_by_independent_checker(self):
+        with self.assertRaises(ValueError):
+            self.checker.parse_bitstream(self.data[:-4])
+
+    def test_wrong_expected_bit_hash_rejects_historical_fixture(self):
+        with self.assertRaisesRegex(ValueError, 'SHA256'):
+            self.checker.check(FIXTURE, '0'*64)
+
+    def test_nonwrite_count_cannot_hide_iprog_packet(self):
+        for header in (0x20000002, 0x28000002):
+            data = bytearray(self.data)
+            data.extend(struct.pack('>III', header, 0x30008001, 15))
+            struct.pack_into('>I', data, self.structure['payload_offset']-4,
+                             len(data)-self.structure['payload_offset'])
+            # The pinned general checker accepts these stream shapes. This
+            # narrower inventory must reject them before advancing a cursor.
+            structure = self.checker.parse_bitstream(data)
+            with self.subTest(header=hex(header)), self.assertRaises(ValueError):
+                audit.packet_inventory(data, structure, 'a2dfec21')
+
+    def test_type2_without_immediate_fdri_write_context_is_rejected(self):
+        data = bytearray(self.data)
+        data.extend(struct.pack('>II', 0x50000001, 15))
+        with self.assertRaisesRegex(ValueError, 'FDRI write context'):
+            audit.packet_inventory(data, self.structure, 'a2dfec21')
+
+
+class DrcControls(unittest.TestCase):
+    def test_actual_old_drc_cannot_qualify_full512(self):
+        with self.assertRaisesRegex(ValueError, 'DRC total'):
+            audit.drc_inventory(FIXTURE.parent/'default_drc.rpt')
+
+    def test_duplicate_missing_unknown_or_changed_counts_reject(self):
+        import tempfile
+        rows = [f'| {rule} | Warning | Reviewed advice | {count} |'
+                for rule, count in audit.EXPECTED_DRC.items()]
+        base = 'Checks found: 2066\n'+'\n'.join(rows)+'\n'
+        with tempfile.TemporaryDirectory() as directory:
+            p = Path(directory)/'drc.rpt'
+            p.write_text(base)
+            self.assertEqual(audit.drc_inventory(p), audit.EXPECTED_DRC)
+            for text in (base+rows[0]+'\n', base.replace(rows[-1], ''),
+                         base.replace('1032 |', '1031 |'),
+                         base+'| NEW-1 | Warning | Unreviewed | 1 |\n',
+                         base.replace('Warning', 'Error', 1)):
+                p.write_text(text)
+                with self.subTest(text=text[-70:]), self.assertRaises(ValueError):
+                    audit.drc_inventory(p)
+
+
+if __name__ == '__main__':
+    unittest.main()

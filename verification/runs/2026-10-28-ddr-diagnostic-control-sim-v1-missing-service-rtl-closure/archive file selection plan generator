@@ -1,0 +1,131 @@
+#!/usr/bin/env python3
+"""Select immutable owner/regs/mux standalone simulations and service renderer lint evidence."""
+from __future__ import annotations
+import hashlib,json,pathlib,shutil
+ROOT=pathlib.Path('/home/fedora/rknpu-fpga');BUILD=ROOT/'build/ddr-diagnostic-control-sim-archive-v1'
+TEXT_EXTS={'.json','.py','.sv','.v','.tcl','.md','.txt','.log','.rpt','.csv'}
+VALIDATION_ROOTS=[]
+for prefix,versions in [('ddr-capacity-owner-validation',range(1,13)),
+                        ('ddr-capacity-regs-validation',range(1,9)),
+                        ('ddr-diagnostic-mux-validation',range(1,10))]:
+ VALIDATION_ROOTS.extend(ROOT/'build'/f'{prefix}-v{v}' for v in versions)
+SOURCE_ROOTS=[ROOT/'build/ddr-capacity-owner-source-v1',ROOT/'build/ddr-capacity-mux-source-v2',
+ ROOT/'build/ddr-capacity-service-source-v2',ROOT/'build/ddr-capacity-service-source-v3',ROOT/'build/ddr-capacity-service-lint-v1']
+SERVICE_LIVE=ROOT/'build/ddr-capacity-service-validation-v1'
+def sha(p):
+ h=hashlib.sha256()
+ with pathlib.Path(p).open('rb') as f:
+  for block in iter(lambda:f.read(1<<20),b''):h.update(block)
+ return h.hexdigest()
+def report_json(folder,name='report.json'):
+ p=folder/name
+ return json.loads(p.read_text()) if p.is_file() else {}
+def main():
+ files=[];excluded={};
+ def include(path,role,archive_path=None):
+  p=pathlib.Path(path);assert p.is_file(),p
+  rel=p.relative_to(ROOT).as_posix();archive=archive_path or ('evidence/'+rel)
+  if archive in {x['archive_path'] for x in files}:return
+  files.append({'source_path':rel,'archive_path':archive,'source_sha256':sha(p),'source_bytes':p.stat().st_size,'role':role})
+ def collect_text_tree(folder,role):
+  folder=pathlib.Path(folder)
+  if not folder.exists():return
+  for p in sorted(folder.rglob('*')):
+   if not p.is_file() or '__pycache__' in p.parts:continue
+   if p.suffix.lower() in TEXT_EXTS:include(p,role)
+ # Final standalone owner tests and their reviewed source closure.
+ collect_text_tree(ROOT/'build/ddr-capacity-owner-validation-v12','owner v12 final standalone-only source/tests/runner/receipts/logs/root review')
+ # Every prior owner attempt is retained exactly, regardless of producer status.
+ for v in range(1,12):collect_text_tree(ROOT/f'build/ddr-capacity-owner-validation-v{v}',f'owner v{v} prior attempt; original status/logs retained')
+ # Final standalone register-bank suite and all prior attempts.
+ for v in range(1,9):collect_text_tree(ROOT/f'build/ddr-capacity-regs-validation-v{v}',f'register-bank v{v} exact source/runner/report/log evidence')
+ # Preserve v1 RUNNING producer together with its terminal observer; do not reinterpret producer status.
+ regs1=ROOT/'build/ddr-capacity-regs-validation-v1';terminal=json.loads((regs1/'terminal-observer.json').read_text())
+ if terminal.get('status')!='ABORT_CONFIRMED_HARNESS_HANDSHAKE_BUG':raise RuntimeError('regs v1 terminal observer changed/unexpected')
+ # Final standalone mux suite and all prior attempts.
+ for v in range(1,10):collect_text_tree(ROOT/f'build/ddr-diagnostic-mux-validation-v{v}',f'diagnostic mux v{v} exact source/runner/report/log evidence')
+ # Renderer source derivations and strict ten-module lint reproduction only.
+ for d in SOURCE_ROOTS:collect_text_tree(d,'service renderer/source derivation or strict standalone lint reproduction only')
+ include(BUILD/'prepare_archive.py','packaging/prepare_archive.py','archive file selection plan generator')
+ include(BUILD/'archive.py','packaging/archive.py','deterministic archive packer and verifier')
+ # Include exact old unmodified mux parent for the new port-width derivation ancestry.
+ include(ROOT/'build/ddr-capacity-owner-source-v1/rk_ddr_diagnostic_mux.sv','unchanged original mux parent for mux-v2 derivation')
+ include(ROOT/'build/ddr-capacity-mux-source-v2/rk_ddr_diagnostic_mux.sv','derived standalone mux-v2 used by mux-v9 and service composition')
+ include(ROOT/'build/ddr-capacity-mux-source-v2/derivation.json','mux-v2 source derivation and parent hash')
+ # Hash but do not include the active service-behavior validation artifacts.
+ for p in sorted(SERVICE_LIVE.rglob('*')):
+  if p.is_file():excluded[p.relative_to(ROOT).as_posix()]={'source_sha256':sha(p),'source_bytes':p.stat().st_size,
+    'reason':'service behavior validation is active/out of scope; only standalone renderer sources and the separate strict lint reproduction are archived'}
+ # Exclude compiled outputs/object trees/caches under all selected validation/source roots and hash them for inventory.
+ scan_roots=VALIDATION_ROOTS+SOURCE_ROOTS+[ROOT/'build/ddr-capacity-owner-source-v1',ROOT/'build/ddr-capacity-mux-source-v2']
+ selected={x['source_path'] for x in files}
+ for folder in scan_roots:
+  if not folder.exists():continue
+  for p in sorted(folder.rglob('*')):
+   if not p.is_file() or p.relative_to(ROOT).as_posix() in selected or '__pycache__' in p.parts:continue
+   compiled=(p.suffix.lower() in {'.vvp','.o','.a','.so','.pyc','.elf','.bin','.vcd','.fst'} or
+      any(part in {'verilator_obj','verilator_full_elab_obj','obj_dir','__pycache__'} for part in p.relative_to(folder).parts) or
+      (p.stat().st_mode & 0o111)!=0)
+   if compiled:reason='compiled simulator/native/object/cache artifact excluded; SHA-256/size retained'
+   else:reason='non-text generated/build artifact excluded; SHA-256/size retained'
+   excluded[p.relative_to(ROOT).as_posix()]={'source_sha256':sha(p),'source_bytes':p.stat().st_size,'reason':reason}
+ # Native tools are identified by executable hash and version receipts, never copied as payloads.
+ tool_paths=set()
+ for folder in VALIDATION_ROOTS+[ROOT/'build/ddr-capacity-service-lint-v1']:
+  rp=folder/'report.json'
+  if not rp.is_file():continue
+  report=json.loads(rp.read_text())
+  for row in report.get('tool_versions',{}).values():
+   if isinstance(row,dict) and row.get('path'):tool_paths.add(row['path'])
+  for command in report.get('commands',[]):
+   for arg in command.get('argv',[]):
+    if isinstance(arg,str) and arg.startswith('/home/') and pathlib.Path(arg).is_file() and pathlib.Path(arg).stat().st_mode & 0o111:
+     tool_paths.add(arg)
+ for name in ('iverilog','vvp','verilator','yosys','systemd-run','make','c++','python3'):
+  p=shutil.which(name)
+  if p:tool_paths.add(p)
+ for val in sorted(tool_paths):
+  p=pathlib.Path(val)
+  if p.is_file():excluded[str(p)]={'source_sha256':sha(p),'source_bytes':p.stat().st_size,'reason':'native tool executable excluded; identities/hashes available from tool receipts'}
+ files.sort(key=lambda x:x['archive_path']);excluded_rows=[{'source_path':k,**v} for k,v in sorted(excluded.items())]
+ owner=json.loads((ROOT/'build/ddr-capacity-owner-validation-v12/root-review.json').read_text())
+ regs=json.loads((ROOT/'build/ddr-capacity-regs-validation-v8/root-review.json').read_text())
+ mux=json.loads((ROOT/'build/ddr-diagnostic-mux-validation-v9/root-review.json').read_text())
+ service=json.loads((ROOT/'build/ddr-capacity-service-lint-v1/report.json').read_text())
+ regs1report=json.loads((regs1/'report.json').read_text())
+ attempts=[]
+ for component,prefix,last in [('owner','ddr-capacity-owner-validation',12),('regs','ddr-capacity-regs-validation',8),
+                               ('mux','ddr-diagnostic-mux-validation',9)]:
+  for version in range(1,last+1):
+   folder=ROOT/'build'/f'{prefix}-v{version}';p=folder/'report.json'
+   if not p.is_file():continue
+   producer=json.loads(p.read_text());review=folder/'root-review.json'
+   row={'component':component,'version':version,'producer_path':str(p.relative_to(ROOT)),
+        'producer_sha256':sha(p),'producer_status':producer.get('status'),'producer_failure':producer.get('failure'),
+        'root_review_path':str(review.relative_to(ROOT)) if review.is_file() else None,
+        'root_review_status':json.loads(review.read_text()).get('status') if review.is_file() else None}
+   if component=='regs' and version==1:
+    obs=folder/'terminal-observer.json';observer=json.loads(obs.read_text())
+    row.update(terminal_observer_path=str(obs.relative_to(ROOT)),terminal_observer_sha256=sha(obs),
+       terminal_observer_status=observer.get('status'),producer_completed=False,
+       interpretation='Producer remains RUNNING; terminal observer confirms abort after harness handshake bug. Not completed or passed.')
+   attempts.append(row)
+ plan={'schema':'ddr-diagnostic-control-sim-archive-plan-v1','archive_path':'verification/runs/2026-10-28-ddr-diagnostic-control-sim',
+  'scope':'Standalone owner/regs/mux control-leaf simulations; service composition is strict lint only. No owner+regs+mux/service behavioral composition, no board integration, no physical DDR/capacity claim.',
+  'files':files,'file_count':len(files),'source_bytes':sum(x['source_bytes'] for x in files),'attempts':attempts,
+  'excluded_files':excluded_rows,'excluded_file_count':len(excluded_rows),'excluded_bytes':sum(x['source_bytes'] for x in excluded_rows),
+  'compression_policy':'gzip level 9 with mtime=0 for payloads >16 KiB; smaller files identity',
+  'index_policy':'Unique archive_path required; index.json is the only unindexed payload; no SHA256SUMS',
+  'owner_root_review':{'path':'build/ddr-capacity-owner-validation-v12/root-review.json','sha256':sha(ROOT/'build/ddr-capacity-owner-validation-v12/root-review.json'),'status':owner['status'],'scope':'owner observer source/bench only'},
+  'regs_root_review':{'path':'build/ddr-capacity-regs-validation-v8/root-review.json','sha256':sha(ROOT/'build/ddr-capacity-regs-validation-v8/root-review.json'),'status':regs['status'],'scope':'standalone register-bank simulation only'},
+  'mux_root_review':{'path':'build/ddr-diagnostic-mux-validation-v9/root-review.json','sha256':sha(ROOT/'build/ddr-diagnostic-mux-validation-v9/root-review.json'),'status':mux['status'],'scope':'standalone mux valid routing and parameter rejection only'},
+  'service_lint':{'path':'build/ddr-capacity-service-lint-v1/report.json','sha256':sha(ROOT/'build/ddr-capacity-service-lint-v1/report.json'),'status':service['status'],'scope':'strict ten-module lint only; no behavior'},
+  'regs_v1_terminal':{'producer_path':'build/ddr-capacity-regs-validation-v1/report.json','producer_sha256':sha(regs1/'report.json'),
+   'producer_status':regs1report['status'],'terminal_observer_path':'build/ddr-capacity-regs-validation-v1/terminal-observer.json',
+   'terminal_observer_sha256':sha(regs1/'terminal-observer.json'),'terminal_status':terminal['status'],
+   'interpretation':'Original producer report remains RUNNING; terminal observer confirms abort due to harness handshake bug. Not a completed simulation or a pass.'},
+  'owner_regs_mux_service_integration_qualified':False,'board_integration_qualified':False,'physical_capacity_qualified':False,
+  'hardware_executed':False}
+ out=BUILD/'archive-plan.json';out.write_text(json.dumps(plan,indent=2,sort_keys=True)+'\n')
+ print(json.dumps({'plan':str(out),'sha256':sha(out),'included':len(files),'excluded':len(excluded_rows),'bytes':plan['source_bytes'],'attempt_count':len(VALIDATION_ROOTS)},indent=2))
+if __name__=='__main__':main()

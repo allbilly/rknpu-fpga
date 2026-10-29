@@ -1,0 +1,866 @@
+{
+  "status": "PASS_ORIGINAL_PROFILE_GENERATED_SOURCE_BINDING_ONLY",
+  "scope": "Actual original-profile generated source, parameter, port and constraint inventory only; no mapped/routed/PHY/DDR/FPGA application qualification",
+  "hardware_accessed": false,
+  "physical_integration_ready": false,
+  "native_report_sha256": "85761e96dd18edd537ac6b3b0392e522be3adcd3d985e5d1f5dc8d2f7239c42d",
+  "generation_inputs_rechecked": 20,
+  "generated_artifacts_rechecked": 141,
+  "input_project_sha256": "adc1bcdb20b7aabb51f9359bf46eaea3c6e592819a9d88411ebf90e61e974d00",
+  "generated_project_sha256": "b15cb66fa67d8bb92630ca58dda609a85e4cef15d80ad7b2dd954a8fdc408d49",
+  "generator_removed_derived_tags": [
+    "C0_MEM_SIZE",
+    "C1_MEM_SIZE"
+  ],
+  "parameters": {
+    "c0": {
+      "values": {
+        "ROW_WIDTH": 15,
+        "COL_WIDTH": 10,
+        "BANK_WIDTH": 3,
+        "RANKS": 1,
+        "DQ_WIDTH": 72,
+        "DATA_WIDTH": 64,
+        "ECC": "ON",
+        "ECC_TEST": "OFF",
+        "OUTPUT_DRV": "HIGH",
+        "nCK_PER_CLK": 4,
+        "SIM_BYPASS_INIT_CAL": "OFF",
+        "C_S_AXI_ADDR_WIDTH": 31,
+        "C_S_AXI_DATA_WIDTH": 512,
+        "C_S_AXI_ID_WIDTH": 4,
+        "C_S_AXI_SUPPORTS_NARROW_BURST": 0
+      },
+      "capacity_bytes": 2147483648
+    },
+    "c1": {
+      "values": {
+        "ROW_WIDTH": 15,
+        "COL_WIDTH": 10,
+        "BANK_WIDTH": 3,
+        "RANKS": 1,
+        "DQ_WIDTH": 72,
+        "DATA_WIDTH": 64,
+        "ECC": "ON",
+        "ECC_TEST": "OFF",
+        "OUTPUT_DRV": "HIGH",
+        "nCK_PER_CLK": 4,
+        "SIM_BYPASS_INIT_CAL": "OFF",
+        "C_S_AXI_ADDR_WIDTH": 31,
+        "C_S_AXI_DATA_WIDTH": 512,
+        "C_S_AXI_ID_WIDTH": 4,
+        "C_S_AXI_SUPPORTS_NARROW_BURST": 0
+      },
+      "capacity_bytes": 2147483648
+    }
+  },
+  "actual_ports": {
+    "c0_ddr3_dq": {
+      "direction": "inout",
+      "width": 72
+    },
+    "c0_ddr3_dqs_n": {
+      "direction": "inout",
+      "width": 9
+    },
+    "c0_ddr3_dqs_p": {
+      "direction": "inout",
+      "width": 9
+    },
+    "c0_ddr3_addr": {
+      "direction": "out",
+      "width": 15
+    },
+    "c0_ddr3_ba": {
+      "direction": "out",
+      "width": 3
+    },
+    "c0_ddr3_ras_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_cas_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_we_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_reset_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_ck_p": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_ck_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_cke": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_cs_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_odt": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_sys_clk_p": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_sys_clk_n": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_ui_clk": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ui_clk_sync_rst": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_mmcm_locked": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_app_ecc_multiple_err": {
+      "direction": "out",
+      "width": 8
+    },
+    "c0_app_ecc_single_err": {
+      "direction": "out",
+      "width": 8
+    },
+    "c0_aresetn": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_app_sr_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_app_ref_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_app_zq_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_app_sr_active": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_app_ref_ack": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_app_zq_ack": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_awid": {
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_awaddr": {
+      "direction": "in",
+      "width": 31
+    },
+    "c0_s_axi_awlen": {
+      "direction": "in",
+      "width": 8
+    },
+    "c0_s_axi_awsize": {
+      "direction": "in",
+      "width": 3
+    },
+    "c0_s_axi_awburst": {
+      "direction": "in",
+      "width": 2
+    },
+    "c0_s_axi_awlock": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_awcache": {
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_awprot": {
+      "direction": "in",
+      "width": 3
+    },
+    "c0_s_axi_awqos": {
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_awvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_awready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_wdata": {
+      "direction": "in",
+      "width": 512
+    },
+    "c0_s_axi_wstrb": {
+      "direction": "in",
+      "width": 64
+    },
+    "c0_s_axi_wlast": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_wvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_wready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_bready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_bid": {
+      "direction": "out",
+      "width": 4
+    },
+    "c0_s_axi_bresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c0_s_axi_bvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_arid": {
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_araddr": {
+      "direction": "in",
+      "width": 31
+    },
+    "c0_s_axi_arlen": {
+      "direction": "in",
+      "width": 8
+    },
+    "c0_s_axi_arsize": {
+      "direction": "in",
+      "width": 3
+    },
+    "c0_s_axi_arburst": {
+      "direction": "in",
+      "width": 2
+    },
+    "c0_s_axi_arlock": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_arcache": {
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_arprot": {
+      "direction": "in",
+      "width": 3
+    },
+    "c0_s_axi_arqos": {
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_arvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_arready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_rready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_rid": {
+      "direction": "out",
+      "width": 4
+    },
+    "c0_s_axi_rdata": {
+      "direction": "out",
+      "width": 512
+    },
+    "c0_s_axi_rresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c0_s_axi_rlast": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_rvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_awvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_awready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_awaddr": {
+      "direction": "in",
+      "width": 32
+    },
+    "c0_s_axi_ctrl_wvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_wready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_wdata": {
+      "direction": "in",
+      "width": 32
+    },
+    "c0_s_axi_ctrl_bvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_bready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_bresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c0_s_axi_ctrl_arvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_arready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_araddr": {
+      "direction": "in",
+      "width": 32
+    },
+    "c0_s_axi_ctrl_rvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_rready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_rdata": {
+      "direction": "out",
+      "width": 32
+    },
+    "c0_s_axi_ctrl_rresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c0_interrupt": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_init_calib_complete": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_device_temp": {
+      "direction": "out",
+      "width": 12
+    },
+    "c1_ddr3_dq": {
+      "direction": "inout",
+      "width": 72
+    },
+    "c1_ddr3_dqs_n": {
+      "direction": "inout",
+      "width": 9
+    },
+    "c1_ddr3_dqs_p": {
+      "direction": "inout",
+      "width": 9
+    },
+    "c1_ddr3_addr": {
+      "direction": "out",
+      "width": 15
+    },
+    "c1_ddr3_ba": {
+      "direction": "out",
+      "width": 3
+    },
+    "c1_ddr3_ras_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_cas_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_we_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_reset_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_ck_p": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_ck_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_cke": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_cs_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_odt": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_sys_clk_p": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_sys_clk_n": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_ui_clk": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ui_clk_sync_rst": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_mmcm_locked": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_app_ecc_multiple_err": {
+      "direction": "out",
+      "width": 8
+    },
+    "c1_app_ecc_single_err": {
+      "direction": "out",
+      "width": 8
+    },
+    "c1_aresetn": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_app_sr_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_app_ref_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_app_zq_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_app_sr_active": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_app_ref_ack": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_app_zq_ack": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_awid": {
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_awaddr": {
+      "direction": "in",
+      "width": 31
+    },
+    "c1_s_axi_awlen": {
+      "direction": "in",
+      "width": 8
+    },
+    "c1_s_axi_awsize": {
+      "direction": "in",
+      "width": 3
+    },
+    "c1_s_axi_awburst": {
+      "direction": "in",
+      "width": 2
+    },
+    "c1_s_axi_awlock": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_awcache": {
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_awprot": {
+      "direction": "in",
+      "width": 3
+    },
+    "c1_s_axi_awqos": {
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_awvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_awready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_wdata": {
+      "direction": "in",
+      "width": 512
+    },
+    "c1_s_axi_wstrb": {
+      "direction": "in",
+      "width": 64
+    },
+    "c1_s_axi_wlast": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_wvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_wready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_bready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_bid": {
+      "direction": "out",
+      "width": 4
+    },
+    "c1_s_axi_bresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c1_s_axi_bvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_arid": {
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_araddr": {
+      "direction": "in",
+      "width": 31
+    },
+    "c1_s_axi_arlen": {
+      "direction": "in",
+      "width": 8
+    },
+    "c1_s_axi_arsize": {
+      "direction": "in",
+      "width": 3
+    },
+    "c1_s_axi_arburst": {
+      "direction": "in",
+      "width": 2
+    },
+    "c1_s_axi_arlock": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_arcache": {
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_arprot": {
+      "direction": "in",
+      "width": 3
+    },
+    "c1_s_axi_arqos": {
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_arvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_arready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_rready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_rid": {
+      "direction": "out",
+      "width": 4
+    },
+    "c1_s_axi_rdata": {
+      "direction": "out",
+      "width": 512
+    },
+    "c1_s_axi_rresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c1_s_axi_rlast": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_rvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_awvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_awready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_awaddr": {
+      "direction": "in",
+      "width": 32
+    },
+    "c1_s_axi_ctrl_wvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_wready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_wdata": {
+      "direction": "in",
+      "width": 32
+    },
+    "c1_s_axi_ctrl_bvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_bready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_bresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c1_s_axi_ctrl_arvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_arready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_araddr": {
+      "direction": "in",
+      "width": 32
+    },
+    "c1_s_axi_ctrl_rvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_rready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_rdata": {
+      "direction": "out",
+      "width": 32
+    },
+    "c1_s_axi_ctrl_rresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c1_interrupt": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_init_calib_complete": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_device_temp": {
+      "direction": "out",
+      "width": 12
+    },
+    "sys_rst": {
+      "direction": "in",
+      "width": 1
+    }
+  },
+  "veo_port_count": 165,
+  "actual_wrapper_port_count": 169,
+  "veo_omitted_outputs": {
+    "c0_app_ecc_single_err": {
+      "direction": "out",
+      "width": 8
+    },
+    "c0_device_temp": {
+      "direction": "out",
+      "width": 12
+    },
+    "c1_app_ecc_single_err": {
+      "direction": "out",
+      "width": 8
+    },
+    "c1_device_temp": {
+      "direction": "out",
+      "width": 12
+    }
+  },
+  "new_request_inputs": {
+    "c0_app_sr_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_app_ref_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_app_zq_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_app_sr_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_app_ref_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_app_zq_req": {
+      "direction": "in",
+      "width": 1
+    }
+  },
+  "clock_constraints": {
+    "c0": {
+      "period_ns": 5,
+      "pins": [
+        "AH27",
+        "AH28"
+      ],
+      "iostandard": "DIFF_SSTL15",
+      "board_delivery_verified": false
+    },
+    "c1": {
+      "period_ns": 5,
+      "pins": [
+        "G25",
+        "G26"
+      ],
+      "iostandard": "DIFF_SSTL15",
+      "board_delivery_verified": false
+    }
+  },
+  "archive_comparison": {
+    "byte_identical": 66,
+    "different": 41,
+    "different_paths": [
+      "top_mig_7series_0_0/mig.prj",
+      "top_mig_7series_0_0.veo",
+      "top_mig_7series_0_0/example_design/rtl/example_top.v",
+      "top_mig_7series_0_0/user_design/constraints/top_mig_7series_0_0.xdc",
+      "top_mig_7series_0_0/user_design/constraints/top_mig_7series_0_0_ooc.xdc",
+      "top_mig_7series_0_0/user_design/rtl/ip_top/mig_7series_v4_2_mem_intfc.v",
+      "top_mig_7series_0_0/user_design/rtl/ip_top/mig_7series_v4_2_memc_ui_top_axi.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_byte_group_io.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_byte_lane.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_tempmon.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_skip_calib_tap.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_if_post_fifo.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_init.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_oclkdelay_cal.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_prbs_rdlvl.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_rdlvl.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_top.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrlvl_off_delay.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_prbs_gen.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_lim.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_poc_top.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_mux.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_data.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_samp.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_edge.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_cntlr.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_po_cntlr.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_poc_pd.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_poc_tap_base.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_poc_meta.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_poc_edge_store.v",
+      "top_mig_7series_0_0/user_design/rtl/phy/mig_7series_v4_2_poc_cc.v",
+      "top_mig_7series_0_0/user_design/rtl/ui/mig_7series_v4_2_ui_cmd.v",
+      "top_mig_7series_0_0/user_design/rtl/ui/mig_7series_v4_2_ui_rd_data.v",
+      "top_mig_7series_0_0/user_design/rtl/ui/mig_7series_v4_2_ui_top.v",
+      "top_mig_7series_0_0/user_design/rtl/ui/mig_7series_v4_2_ui_wr_data.v",
+      "top_mig_7series_0_0/user_design/rtl/top_mig_7series_0_0_mig.v",
+      "top_mig_7series_0_0/user_design/rtl/top_mig_7series_0_0.v",
+      "top_mig_7series_0_0/user_design/rtl/top_mig_7series_0_0_mig_sim.v"
+    ]
+  },
+  "ui_bodies_byte_identical_from_timescale": [
+    "ui/mig_7series_v4_2_ui_cmd.v",
+    "ui/mig_7series_v4_2_ui_top.v",
+    "ui/mig_7series_v4_2_ui_rd_data.v",
+    "ui/mig_7series_v4_2_ui_wr_data.v"
+  ],
+  "width_one_arbiter_requires_separate_variant": true,
+  "normal_hardware_abi_requires_SKIP_CALIB_undefined": true,
+  "calibration_bypass_defaults": "OFF",
+  "remaining": [
+    "Bind actual wrapper ports; generated VEO still omits both single-ECC and device-temperature outputs",
+    "Explicitly bind new self-refresh/refresh/ZQ request inputs; no runtime low-power API is supplied",
+    "Apply and separately qualify the WIDTH1 arbiter source variant without modifying raw generated source",
+    "Complete source-matched model/PHY/reset/retirement and full-window qualification",
+    "Audit actual board clock delivery, electrical conditions, synthesis, CDC, routing/timing and exact image before any physical DDR claim"
+  ],
+  "utc": "2026-10-26T23:35:36.925356+00:00",
+  "auditor_sha256": "b6986fd30e504ed98f4edc69c5dc38c49cbe3ca9bb8f5c45abe0b7b305fc96aa"
+}
