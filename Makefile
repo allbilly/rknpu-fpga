@@ -17,7 +17,7 @@ STARTUP_DEMO_RTL = $(DMA_DEMO_RTL) rtl/rk_startup_reset.sv fpga/ypcb_ew_startup_
 .PHONY: all test model-test generated generated-check vectors rtl-test four-state-test cmac-vectors cmac-test cmac-four-state-test synth-check host-synth-check host-mapped-check openxc7-check lint demo-replay fpga clean
 all: model-test
 # "test" deliberately requires RTL simulation; missing tools do NOT yield a pass.
-test: model-test lint rtl-test four-state-test cmac-test cmac-four-state-test host-jtag-test host-jtag-four-state-test host-jtag-preparation-test debug-control-test full512-startup-control-test tinystories-preparation-test tinystories-memory-test ddr-endpoint-controls ddr-host-controls ddr-dual-controls ddr-capacity-controls ddr-capacity-parent-controls backend-layout-test host-frame-mailbox-test host-frame-mailbox-admission-test host-frame-owner-test host-frame-frontend-test host-transport-epoch-test host-pcie-bridge-reset-test ddr-session-quiet-test ddr-dual-host-npu-test process-controls
+test: model-test lint rtl-test four-state-test cmac-test cmac-four-state-test host-jtag-test host-jtag-four-state-test host-jtag-preparation-test debug-control-test full512-startup-control-test tinystories-preparation-test tinystories-memory-test ddr-endpoint-controls ddr-host-controls ddr-dual-controls ddr-capacity-controls ddr-capacity-parent-controls backend-layout-test host-frame-mailbox-test host-frame-mailbox-admission-test host-frame-owner-test host-frame-frontend-test host-transport-epoch-test host-pcie-bridge-reset-test ddr-session-quiet-test ddr-whole-reset-control-test ddr-dual-host-npu-test process-controls
 build/half_datapath.so: model/half_datapath.cpp
 	mkdir -p build
 	$(CXX) $(CXXFLAGS) $(SHARED_FLAGS) $< -o $@
@@ -127,6 +127,13 @@ ddr-capacity-parent-controls: generated-check
 # Dual-host session quiescence comparison; native candidate/reference test only.
 ddr-session-quiet-test: generated-check
 	$(PYTHON) tools/ddr/run_session_quiet.py --simulator both
+
+# Standalone SYS-clock maintenance reset-control protocol; no board integration claim.
+.PHONY: ddr-whole-reset-control-test
+DDR_WHOLE_RESET_CONTROL_OUT ?=
+ddr-whole-reset-control-test: generated-check
+	$(PYTHON) tools/ddr/run_whole_reset_control.py $(if $(strip $(DDR_WHOLE_RESET_CONTROL_OUT)),--out "$(DDR_WHOLE_RESET_CONTROL_OUT)",)
+
 host-jtag-prepare: generated-check
 	$(PYTHON) tools/host/prepare.py prepare
 
