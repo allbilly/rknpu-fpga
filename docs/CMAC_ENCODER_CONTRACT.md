@@ -2,8 +2,10 @@
 
 The original audit below is historical. The selected raw full512 CMAC and
 [TinyStories workload now pass physically](DDR_FULL512_FPGA_TEST.md).
-Full compiled-tensor CMAC integration remains unsupported because its layouts
-and standalone reset require additional hardware/runtime contracts.
+The separate [full-DDR framework profile](FRAMEWORK_FULL_PROFILE.md) now
+implements hardware layouts and standalone compute reset, with six selected
+compiler/final-writer native trials passing. Physical qualification of that
+complete interface remains pending. The default EW adapter still rejects CMAC.
 
 ## Precision and compute-group terminology
 

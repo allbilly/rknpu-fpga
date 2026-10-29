@@ -109,3 +109,19 @@ with the epoch guard and per-half mailbox admission snapshots selected. Both
 jobs compare all 1,600 complete BO lines before their job ACK. This uses the
 independent AXI RAM/minimal ECC-control model; actual PCIe IP/CDC, physical
 interfaces and the separate local-release FPGA reset candidate remain unqualified.
+
+The smallest compiler-derived CMAC pipeline now has separate
+[native trace acceptance](../build/dual-host-cmac-reset-post-root-review-v1/root-acceptance.json):
+input layout, weight layout, unchanged CMAC and output layout run through JTAG
+epoch 1 and retained PCIe epoch 2. Eight jobs/tasks, six compute resets and
+720,896 complete BO bytes pass before NPU ACK, with no PCIe host uploads.
+The independent audit checks 11,392 READ64s, twelve nonowner denials per
+direction, held-result release denials and one outer ACK per PCIe command.
+Logged test-model write backpressure keeps active probes deterministic and
+stays below the unchanged 2,048-UI-edge deadline. All 72 public core sources
+remain unchanged. The original producer FAIL is preserved for its trace
+reviewer's reset-poll alignment error; separate post-run and warning reviews
+qualify the unchanged observed execution. This is the `(1,16,32)` shape with
+independent RAM/ECC-control models; the other five shapes, PCIe IP/CDC,
+actual MIG/PHY and physical execution remain separate gates. It does not
+qualify the private factored-source FPGA timing candidate.
