@@ -1,6 +1,6 @@
 # Implementation plan and acceptance gates
 
-Reviewed 2026-10-29 HKT. This is the active plan. The
+Reviewed 2026-10-30 HKT. This is the active plan. The
 [previous plan and dated implementation history](REVIEW_AND_PLAN_HISTORY.md)
 preserve earlier decisions, receipts and failures; dated instructions there
 are not current authorization or status.
@@ -35,6 +35,8 @@ not a complete RK3588 implementation or a completed soDLA fork.
   unauthorized. Preserve the shared board lease throughout hardware ownership.
 - Never weaken timing, DRC, CDC, reset or electrical checks to emit an image.
   Each changed source/image needs its own applicable evidence.
+- Do not impose RAM, memory-high or swap caps on continuation jobs. The user
+  explicitly removed those limits; retain source, tool and hardware checks.
 
 ## Current progress
 
@@ -59,10 +61,33 @@ earlier image does not qualify a later changed image.
 | Compiler CMAC layouts | Standalone raw-command encoder/DMA passed both native simulators | [Contract and test target](LAYOUT_DMA.md), [independent review](../build/backend-layout-root-review-v1/report.json): all 18 captured gathers/16,897 indices, all 65,536 raw halfwords, 34 positive cases twice per simulator, 51 Icarus/50 Verilator negatives; parent/runtime/reset and physical integration remain pending |
 | Joined compiler-layout/CMAC parent | Six raw pipelines passed independent numerical/whole-BO review | [Seven-scenario review](../build/framework-layout-parent-replay-v6/root-result-review.json): all 24 stages, 3,358,720 pipeline BO bytes and 122,880 baseline bytes, exact engine read/write counts and original modeled capacity/reset controls; independent AXI RAM/ECC-control model only, with compute-reset/runtime/real-controller/physical qualification pending |
 | PCIe plus JTAG system profile | Pending | Combined fit, memory/queue/reset contract and independent physical execution through both transports |
+| PCIe BAR-path raw-frame mailbox | Standalone component and callback client passed | [Component contract](PCIE_FRAME_MAILBOX.md), `make host-frame-mailbox-test` (also in default `make test`): 1,151 Icarus/1,142 Verilator checks plus seventeen normal/optimized-Python callback controls; full raw framing, staging, backpressure, response observation and sticky faults. PCIe IP, CDC, cross-transport ownership and physical execution remain pending |
+| Shared raw-frame ownership mux and client | Same-clock component and callback client passed | [Ownership contract](RAW_FRAME_OWNERSHIP.md), `make host-frame-owner-test`: 259 checks per simulator for session acquire/release, exact response routing, nonowner denial, quiescence, link loss and sticky faults, plus 24 callback controls under normal/optimized Python; actual backend integration, CDC/PCIe and hardware remain pending |
+| PCIe/JTAG packet frontend composition | Same-clock packet path passed both simulators | `make host-frame-frontend-test`: 2,090 checks per simulator through real AXI-Lite packet staging and independent JTAG frames; packet ACK/session distinction, nonowner reset/ACK denial and in-flight link-loss quarantine. Backend is scripted; NPU/CDC/PCIe-IP integration remains pending |
+| Backend transport-release witness | Witness-only controller tests passed both simulators | [Witness contract](DUAL_HOST_BACKEND.md): actual descriptor-valid bits plus all pending control/memory/reset state; 105 native checks per simulator with all original controller outputs compared cycle by cycle. The current 72-source same-clock NPU/frontend wrapper lints with inherited diagnostics plus a recorded retained-reset sync/async-use diagnostic; The witness-only component does not qualify numerical integration; the current NPU replay is listed below. CDC and physical integration remain pending |
+| Shared frontend plus actual NPU | Current 72-source healthy-link EW replay passed independent native review | [Current admission/epoch review](../build/dual-host-npu-public-admission-v3/root-result-review.json): two jobs/four tasks, 204,800 complete BO bytes before job ACK and 3,203 modeled AXI reads; retained-BO JTAG-to-PCIe handoff. Epoch/admission faults have separate 2,090-check frontend and 83 Icarus/71 Verilator mailbox-admission suites. Earlier pre-guard sources remain archived. Actual MIG/PHY, CMAC/reset through both hosts, PCIe IP/CDC and hardware remain pending |
+| Actual AMD AXI-Lite converter plus reset component | Both native simulators passed the optional public controls | [Public target/contract](../tests/host/actual_converter/README.md), [source-bound result](../build/pcie-public-actual-converter-v3/report.json): Verilator and four-state XSim agree on 419 checks/five epochs, ten channel totals and seven retained write effects, including partial transactions and stopped-clock joint resets. Master and slave are coordinated test fixtures; actual XDMA, NPU crossing, link/clock-loss and physical CDC remain pending |
+| Framework transport over raw frame sessions | Callback controls passed | `make ddr-frame-transport-controls`: twelve controls under normal/optimized Python for inherited BO/job/reset methods on an acquired RKHO session; no TAP emulation or endpoint discovery. Actual framework/RTL and physical qualification through this entry remain pending |
 | Joined compute-reset parent | All six pipelines and baseline passed independent native review | [Reset/retention review](../build/framework-reset-parent-model-v3/root-result-review.json): 18 actual resets, 24 stages, 50 complete BO images/6,615,040 bytes; dirty state cleared, held-result admission blocked, retained DDR controls sampled on UI edges and no model reinitialization writes; runtime/real-controller/FPGA gates remain pending |
+| Actual vendor-controller raw framework pipeline | Functional replay passed with provenance limits | [Independent review](../build/framework-controller-sv-replay-v1/root-controller-review.json): original older-reset profile, real controller/UI/MC/control RTL plus encoded-PHY model; four raw pipeline stages and three resets, eight exact BO images/1,019,904 bytes. Five job images precede job ACK; three retention images follow reset ACK. Exact executable and 407 inputs are bound; Make version, generated-driver prebinding and historical group closure were not recorded. This does not qualify the new reset RTL, interactive Tensor runtime, physical training or FPGA |
 | RK numerical/shape differential | Pending | Actual RK outputs remain required for compatibility claims |
 | Ordinary framework CMAC runtime | All six public-source shapes passed independent native wire/whole-BO review | [Current public profile](../build/framework-public-runtime-coverage-v1/root-result-review.json): 24 jobs, 18 layouts, six unchanged-writer CMAC submissions, 18 resets, 328,587 commands and 2,375,680 BO bytes before ACK; no host tensor/scratch reloads after launch; actual controller and FPGA remain separate |
-| Published framework source/profile | Published 68-source ordered selection and explicit runtime/transport entry | [Profile contract](FRAMEWORK_FULL_PROFILE.md): 18 byte-identical RTL variants, 50 reused paths, ten runtime/twenty transport/five source controls; complete V22 regression running from a fresh 1,159-file source copy |
+| Published framework source/profile | Published 68-source ordered selection and explicit runtime/transport entry | [Profile contract](FRAMEWORK_FULL_PROFILE.md): 18 byte-identical RTL variants, 50 reused paths, ten runtime/twenty transport/five source controls; frozen V22 `make test` passed in 1,384.307 seconds; the live runner/test delta has separate [source reconciliation](../build/production-model-auditors/current-v22/current-source-reconciliation.json), with the outer drift failure preserved |
+| Framework implementation preparation | Fresh 169-HDL/178-input source closure and nine new reset-level CDC chains prepared | [Source candidate](../build/framework-vivado-prep-v2/preparation.json), [source-only constraint audit](../build/framework-compute-constraint-source-audit-v1/NOTES.md); first launched synthesis hit its 8-GiB aggregate cap and was [OOM-rejected](../build/framework-vivado-run-v2/oom-review.json). The [uncapped retry](../build/framework-vivado-run-v4-uncapped/report.json) follows the user's removal of RAM/swap limits and the former fixed memory-headroom gate; no new mapped/route/image qualification |
+| Framework source synthesis/optimization | Mapped review passed; initial route failed setup and corrective run was stopped | [Accepted synthesis](../build/framework-vivado-run-v5-mapped-audit/root-synth-review.json): 297,436 LUTs, 512 product/516 total DSPs, 16 kernels, 242 IOs; nine three-stage reset chains and reset consumers confined to compute. Eighteen estimated hold paths remain pending physical implementation. The [initial route](../build/framework-route-run-v1/report.json) reached setup -1.964 ns before correction. Its [superseded corrective run was stopped](../build/framework-route-run-v1/root-correction-stop.json) after reset-path diagnosis; the routed checkpoint and all input bindings are preserved, with all owned groups closed. No route/image/physical acceptance |
+| Local CORE reset-release timing candidate | Numerical and mapped reviews passed; fresh route failed functional UI setup | [Numerical review](../build/framework-reset-local-release-parent-v2/root-result-review.json): seven fresh scenarios, 18 resets, 50 complete BO captures/6,615,040 bytes; wrapper fixture-path failure preserved. [Mapped review](../build/framework-local-release-mapped-audit-v3/root-synth-review.json): 297,505 LUTs, 512 product/516 total DSPs, 242 IOs, 30 sync FFs, all 40 later-stage paths timed, eight compute and eight retained-reset boundaries verified; 20 estimated hold paths await routing. Same fresh RTL/checkpoint was re-audited after correcting overly broad fanout checks and a trimmed global-reset alias; no new timing cuts. [Fresh route](../build/framework-local-release-route-run-v1/report.json) completed but failed setup by 1.615 ns on the functional MIG-control-to-layout-lane-enable path; hold +0.052 ns. Clock/reset exceptions were not loosened and no image was accepted |
+| Layout lane-enable timing repair | Numerical and mapped checks passed; V4 routed setup failed | [Root acceptance](../build/framework-layout-enable-parent-v1/root-acceptance.json): seven scenarios, 18 resets, all 50 BO images/6,615,040 bytes exact. Bench output paths still pointed into the prior package; current-run timestamps, strict write-mode captures and all input/log/binary bindings were checked independently, with producer FAIL retained. [Mapped review](../build/framework-layout-enable-mapped-audit-v1/root-mapped-review.json): 297,468 LUTs, all 512 product/516 total DSPs and 242 IOs; all 96 nonclock inputs of 32 lane FFs independent of READY, with two positive controls. The FF selector overcount failure is retained. [V4 route](../build/framework-layout-enable-route-run-v4/report.json) measured setup -2.011 ns/hold +0.051 ns, then hit an undefined directory variable in its post-route lane audit. Both failures are retained. The next diagnosis covers 3,000 negative paths/133 endpoint families, rather than only the worst register; no image is accepted |
+
+The frozen V25 1,272-file copy's complete default `make test` exits zero in
+1,483.568 seconds with RAM/high/swap uncapped. Its
+[root acceptance](../build/production-model-auditors/current-v25/root-acceptance.json)
+binds the independent frozen source/native/host review and the later two-file
+bridge runner/README correction. The focused target passes again with exactly
+105 checks per simulator and six expected invalid-parameter failures. The
+producer's post-test JSON inventory error on two list-valued fixtures remains
+preserved; both Make commands passed. Older nested commands lacking cleanup
+fields remain explicitly unknown. This qualifies the frozen suite plus its
+focused delta, not the private timing sources or an FPGA image.
 
 The new layout increment adds six source/test paths and extends the default
 `make test` recipe with `backend-layout-test`. The fresh V21 regression
@@ -324,10 +349,10 @@ passing selected cases does not mean the entire backend suite passes.
 Add the supported compiler/RTL cases to a reproducible CI target with the
 backend revision pinned; keep portable fixture tests runnable without that
 external checkout. Report local and remote CI execution separately.
-The local workflow now includes the pinned backend compiler/RTL job and
-portable fixture checks. Its local `make backend-test` recipe passes all
-eleven cases; remote execution of this new workflow has not been triggered
-by this session.
+The local `make backend-test` recipe passes all eleven pinned backend
+compiler/RTL cases; portable fixtures run under `make backend-layout-test`.
+The current checkout has no committed CI workflow, so reproducible remote CI
+registration and remote execution remain pending.
 
 Source preparation for this step can proceed while Vivado runs. Physical
 execution requires the reviewed intended image and serialized board access;
@@ -452,6 +477,13 @@ address windows. OpenTPU records separate JTAG and Mac PCIe runs on the same
 image; the raw Mac receipts are absent locally and no concurrent two-host
 test is recorded. The inspected ZYNQ-NVDLA receipt explicitly leaves PCIe
 untested. These references inform integration; no result qualifies this design.
+
+The [clock/reset contract](PCIE_CLOCK_RESET.md) records the actual AMD
+AXI-Lite converter's local-clock reset behavior and the unselected bridge-reset
+preparation component. Joint reset while a PCIe clock is stopped requires a
+fresh-edge handshake before admission; link/PERST/compute reset must not clear
+retained owner/mailbox state. Component initialization readiness does not prove
+later clock liveness or qualify vendor-IP integration.
 
 Check actual combined resource fit early, retaining both interfaces,
 controllers and all 512 products. Qualify routing/timing/DRC, then run actual

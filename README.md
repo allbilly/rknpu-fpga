@@ -144,11 +144,67 @@ wire audit proves no host reload of tensor or scratch BOs after each pipeline
 starts. The six scenarios complete in 741.109 seconds with up to four native
 processes. The [explicit profile](docs/FRAMEWORK_FULL_PROFILE.md), its 68-source
 ordered RTL selection and 35 protocol/source controls are now public paths.
-This uses independent AXI RAM/minimal ECC-control models. The fresh complete
-V22 regression and actual-vendor-controller runtime trial are running; physical
-implementation and FPGA/RK qualification remain separate.
+This uses independent AXI RAM/minimal ECC-control models. The separate actual-vendor-controller raw fixture replay passes functional
+review with provenance limits; it is not an interactive Tensor runtime or a
+qualification of the later reset candidate. Physical implementation and
+FPGA/RK qualification remain separate.
 
-**Current production validation, 2026-10-29 HKT:** the fresh V21 source copy
+**Shared JTAG/PCIe NPU replay passed in native RTL, 2026-10-29 HKT:** the
+[72-source composition](docs/DUAL_HOST_BACKEND.md) passes
+[independent public-source review](build/dual-host-npu-public-admission-v3/root-result-review.json)
+for two raw SUB(9) jobs/four linked tasks. JTAG completes its job and releases
+ownership; PCIe acquires the next epoch and executes the retained program/BOs
+without reloading. Both transports compare all 1,600 owned BO lines before NPU
+ACK: 204,800 bytes and 3,203 modeled AXI reads. Nonowner writes/reset/ACK,
+early acquisition and held-result release are rejected. The callback-only
+[session client](docs/RAW_FRAME_OWNERSHIP.md) and
+[full-profile frame transport](docs/FRAMEWORK_FULL_PROFILE.md) have separate
+normal/optimized-Python controls. This uses actual numerical RTL with independent
+AXI RAM/minimal ECC-control models. PCIe IP, CDC, actual MIG/PHY and physical
+execution through both interfaces remain pending. The first framework route
+failed setup. A local reset-release fix now passes independent seven-scenario
+numerical review with 18 resets and 6,615,040 BO bytes; fresh source synthesis
+now passes independent mapped review at 297,505 LUTs with all 512 products.
+Fresh routing failed setup by 1.615 ns on a functional UI path into the
+layout lane counter. The separate lane-enable repair now passes both native
+component suites, paired cycle comparisons and a fresh seven-scenario parent
+[acceptance](build/framework-layout-enable-parent-v1/root-acceptance.json):
+18 compute resets and all 50 complete BO images/6,615,040 bytes match. The
+producer postprocessor failed because the bench wrote captures into its prior
+package directory; independent review preserved the fresh captures, checked
+each producing scenario/time window and retained that failure explicitly.
+The same fresh source netlist passes [independent mapped review](build/framework-layout-enable-mapped-audit-v1/root-mapped-review.json)
+at 297,468 LUTs, retaining all 512 product/516 total DSPs and 242 IOs. All
+96 nonclock inputs on the 32 lane registers are independent of request READY;
+two positive controls establish that the 165-endpoint traversal is live. The
+original selector counted 120 carry cells alongside those FFs; its failure is
+preserved. [Fresh V4 placement/routing](build/framework-layout-enable-route-run-v4/report.json)
+completed routing but measured setup -2.011 ns and hold +0.051 ns. Its post-route
+lane-audit call also hit an undefined output-directory variable; the failed
+receipt and checkpoint remain preserved. No image was accepted. A 3,000-path
+diagnostic identifies shared MIG-control/monitor/admission paths across 133
+endpoint families; further source timing repair and physical acceptance remain
+pending. [PCIe clock/reset preparation](docs/PCIE_CLOCK_RESET.md) is
+separate and is not selected in this FPGA source set.
+The optional [actual AMD converter controls](tests/host/actual_converter/README.md)
+now pass both Verilator and four-state XSim with 419 checks and five epochs.
+This qualifies the converter/reset fixture under coordinated master reset;
+actual XDMA, the asynchronous NPU path and physical PCIe remain pending.
+
+**Latest frozen source verification:** the V25 1,272-file source copy's
+complete default `make test` exits zero in 1,483.568 seconds, with RAM/high/swap
+uncapped. [Root acceptance](build/production-model-auditors/current-v25/root-acceptance.json)
+binds the independent source/native/host review and the later two-file bridge
+runner/README correction. The focused bridge target passes again with exactly
+105 checks per simulator and six expected invalid-parameter failures. The
+outer producer's post-test JSON inventory failed on two list-valued vector
+fixtures; that failure is preserved separately from the successful Make
+commands. Older nested commands without closure fields remain explicitly
+unknown; no historical process closure is inferred. This is a frozen-suite
+result plus a focused source delta, separate from private timing candidates,
+routing and physical qualification. Earlier snapshots remain preserved.
+
+**Earlier production validation, 2026-10-29 HKT:** the fresh V21 source copy
 passes complete serial `make test` in 1,088.121 seconds. Its
 [independent review](build/production-model-auditors/current-v21/root-review.json)
 rehashes all 1,133 original/copied files, all existing numerical/RTL/host
