@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import platform
@@ -20,6 +21,7 @@ OUT = ROOT / 'build' / ('rtl' if args.simulator == 'verilator' else 'iverilog')
 OUT.mkdir(parents=True, exist_ok=True)
 REPORT = OUT / 'report.json'
 report = {'status': 'RUNNING', 'started_utc': timestamp(), 'simulator': args.simulator,
+          'execution_schema': 1, 'execution_root': str(ROOT),
           'scope': 'RTL simulation only; not timing closure, FPGA or RK3588 validation',
           'source_revision': source_revision(), 'tests': [], 'commands': [],
           'seeds': {'vectors': '0x3588', 'alu_backpressure': '0x12345678',
@@ -27,6 +29,11 @@ report = {'status': 'RUNNING', 'started_utc': timestamp(), 'simulator': args.sim
                     'host_axi_backpressure': '0x3588c510', 'cmac_address_backpressure': '0x3588ca01'},
           'python_version': platform.python_version(),
           'warnings_policy': 'Verilator -Wall warnings are fatal. All tool output is logged.'}
+execution_images = {}
+
+
+def digest(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 def save():
@@ -35,7 +42,7 @@ def save():
 
 def execute(command: list[str], name: str, timeout: int = 180) -> str:
     log = OUT / f'{name}.log'
-    record = {'argv': command, 'log': str(log.relative_to(ROOT)), 'status': 'RUNNING'}
+    record = {'name': name, 'argv': command, 'log': str(log.relative_to(ROOT)), 'status': 'RUNNING'}
     report['commands'].append(record)
     save()
     start = time.monotonic()
@@ -51,7 +58,9 @@ def execute(command: list[str], name: str, timeout: int = 180) -> str:
     finally:
         record['seconds'] = round(time.monotonic() - start, 3)
         save()
-    output = log.read_text()
+    raw_output = log.read_bytes()
+    output = raw_output.decode()
+    record['log_sha256'] = hashlib.sha256(raw_output).hexdigest()
     record['warnings'] = [line for line in output.splitlines()
                           if line.startswith('%Warning') or 'warning:' in line.lower()]
     if result.returncode:
@@ -71,17 +80,30 @@ def build(top: str, files: list[str]) -> list[str]:
     else:
         binary = OUT / f'{top}.vvp'
         command = [compiler, '-g2012', '-Wall', '-s', top, '-o', str(binary)] + sources
-        executable = [shutil.which('vvp'), str(binary)]
+        executable = [str(runtime), str(binary)]
     execute(command, f'{top}_build', timeout=600)
+    binary = Path(executable[0] if args.simulator == 'verilator' else executable[1])
+    image = {'path': str(binary.relative_to(ROOT)), 'sha256': digest(binary),
+             'build_command': f'{top}_build'}
+    execution_images[str(binary)] = image
+    report['commands'][-1]['output'] = image.copy()
+    save()
     return executable
 
 
 def run(name: str, command: list[str], timeout: int = 180):
+    binary = Path(command[0] if args.simulator == 'verilator' else command[1])
+    image = execution_images[str(binary)]
+    if digest(binary) != image['sha256']:
+        raise RuntimeError(f'{name}: executable changed after compilation')
     output = execute(command, name, timeout=timeout)
+    if digest(binary) != image['sha256']:
+        raise RuntimeError(f'{name}: executable changed during execution')
     passes = [line for line in output.splitlines() if line.startswith('PASS ')]
     if not passes:
         raise RuntimeError(f'{name}: exited without a PASS marker')
-    report['tests'].append({'name': name, 'status': 'PASS', 'results': passes})
+    report['tests'].append({'name': name, 'status': 'PASS', 'results': passes,
+                            'execution': image | {'command': name}})
     print('\n'.join(passes), flush=True)
     save()
 
@@ -97,6 +119,10 @@ if not compiler or (args.simulator == 'iverilog' and not shutil.which('vvp')):
 try:
     version_args = ['--version'] if args.simulator == 'verilator' else ['-V']
     report['tool_version'] = execute([compiler] + version_args, 'version').splitlines()[0]
+    if args.simulator == 'iverilog':
+        runtime = Path(shutil.which('vvp')).resolve()
+        report['runtime'] = {'path': str(runtime), 'sha256': digest(runtime)}
+        report['runtime_version'] = execute([str(runtime), '-V'], 'runtime_version').splitlines()[0]
     report['cxx_version'] = subprocess.check_output(['c++', '--version'], text=True).splitlines()[0]
     def stimuli():
         return fingerprint([p for d in ('vectors', 'dma_vectors')
@@ -190,12 +216,23 @@ try:
                                ('demo_fault', 'tb_demo_fault', demo),
                                ('dma_demo', 'tb_dma_demo', dma_demo),
                                ('demo_memory', 'tb_demo_memory', ['rtl/rk_bram.sv', 'rtl/rk_demo_memory.sv']),
-                               ('ypcb', 'tb_ypcb', dma_demo + ['fpga/ypcb_top.sv'])]:
+                               ('ypcb', 'tb_ypcb', dma_demo + ['fpga/ypcb_top.sv']),
+                               ('startup_reset', 'tb_startup_reset', ['rtl/rk_startup_reset.sv']),
+                               ('ypcb_ew_startup', 'tb_ypcb_ew_startup', dma_demo +
+                                ['rtl/rk_startup_reset.sv', 'fpga/ypcb_ew_startup_top.sv'])]:
         run(name, build(top, sources))
     if source_revision()['sha256'] != report['source_revision']['sha256']:
         raise RuntimeError('Source files changed during the run; rerun before accepting results')
     if stimuli() != report['stimuli']:
         raise RuntimeError('Stimulus files changed during the run; rerun before accepting results')
+    expected_artifacts = {image['path']: image['sha256'] for image in execution_images.values()}
+    expected_artifacts.update({command['log']: command['log_sha256'] for command in report['commands']})
+    expected_artifacts.update(report['stimuli']['files'])
+    report['artifacts'] = fingerprint([ROOT / name for name in expected_artifacts])
+    if report['artifacts']['files'] != expected_artifacts:
+        raise RuntimeError('Executed binaries or command logs changed during the run')
+    if args.simulator == 'iverilog' and digest(runtime) != report['runtime']['sha256']:
+        raise RuntimeError('Icarus runtime changed during the run')
     report.update(status='PASS', finished_utc=timestamp())
     save()
 except (OSError, subprocess.SubprocessError, RuntimeError, ValueError) as exc:

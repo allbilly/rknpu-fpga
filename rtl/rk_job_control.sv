@@ -2,7 +2,10 @@
 `timescale 1ns/1ps
 // FPGA transport registers, not Rockchip NPU registers. One job/result slot.
 // The platform must reset the control, engine and downstream AXI domain together.
-module rk_job_control (
+module rk_job_control #(
+    parameter logic [31:0] DEVICE_ID = 32'h524b4557,
+    parameter logic [31:0] ABI_VERSION = 32'h00010000
+) (
     input logic clk, rst_n, memory_ready,
     input logic [31:0] s_axil_awaddr,
     input logic [2:0] s_axil_awprot,
@@ -103,8 +106,8 @@ module rk_job_control (
                 rvalid <= 1; s_axil_rresp <= 2'b00; s_axil_rdata <= 0;
                 if (s_axil_arprot != 0) s_axil_rresp <= 2'b10;
                 else case (s_axil_araddr)
-                    32'h00: s_axil_rdata <= 32'h524b4557; // RKEW
-                    32'h04: s_axil_rdata <= 32'h00010000;
+                    32'h00: s_axil_rdata <= DEVICE_ID; // RKEW by default
+                    32'h04: s_axil_rdata <= ABI_VERSION;
                     32'h08: s_axil_rdata <= status_word;
                     32'h0c: s_axil_rresp <= 2'b10;
                     32'h10: s_axil_rdata <= command_address;

@@ -1,0 +1,502 @@
+"""Actual encoder with byte-only mock transport; no simulated arithmetic or DRM."""
+from copy import deepcopy
+import ctypes
+import os
+from pathlib import Path
+import pickle
+import socket
+import subprocess
+import sys
+from types import SimpleNamespace
+import unittest
+from unittest.mock import patch
+import zlib
+
+from tools.backend import runtime as adapter
+
+
+class ByteTransport:
+    """Stores bytes and returns canned completion metadata, never computes EW."""
+    def __init__(self):
+        self.memory, self.calls = {}, []
+        self.tasks = 1
+        self.wrong_tag = False
+        self.error = None
+        self.closed = False
+        self.tag = 0
+
+    def reg_read(self, offset):
+        return {0: 0x524B4557, 4: 0x10000, 8: 0x10}[offset]
+
+    def mem_write(self, address, data):
+        self.calls.append(('write', address, len(data)))
+        self.memory[address] = bytes(data)
+
+    def mem_read(self, address, size):
+        self.calls.append(('read', address, size))
+        return self.memory[address][:size]
+
+    def submit(self, address, amount, tag):
+        self.calls.append(('submit', address, amount, tag)); self.tag = tag
+        if self.error:
+            raise self.error
+
+    def poll_result(self, timeout):
+        self.calls.append(('poll', timeout))
+        return SimpleNamespace(tag=self.tag ^ int(self.wrong_tag), completed_tasks=self.tasks, error_code=0, status=0x714)
+
+    def ack_success(self): self.calls.append(('ack',))
+    def close(self): self.closed = True
+
+
+def selected_backend():
+    return Path(os.environ.get('TINYGRAD_ROOT', os.environ.get('RKNPU_TINYGRAD', str(Path.home() / 'tinygrad'))))
+
+
+class RuntimeTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.backend = selected_backend()
+        if not cls.backend.exists():
+            raise unittest.SkipTest('UNAVAILABLE: pinned tinygrad checkout is required')
+        cls.rt, cls.rr, cls.td, cls.receipt = adapter._load_backend(cls.backend)
+        print('Pinned runtime:', cls.receipt['commit'], 'byte-only mock transport; no numeric execution', flush=True)
+
+    def setUp(self):
+        network = patch.object(socket, 'create_connection', side_effect=AssertionError('No network in runtime unit controls'))
+        network.start(); self.addCleanup(network.stop)
+        drm = patch.object(self.rt.FileIOInterface, '__init__', side_effect=AssertionError('No DRM device allowed'))
+        drm.start(); self.addCleanup(drm.stop)
+        self.transport = ByteTransport()
+        self.device_class = adapter.make_device_class(lambda: self.transport, self.backend)
+        self.device = self.device_class('RKNPUFPGA')
+        self.addCleanup(self.device.finalize)
+
+    def arg(self, index, kind=None, addend=0):
+        return self.rr.RKArg(self.rr.RKBufferKind.ARG if kind is None else kind, index, addend)
+
+    def image(self, count=9, cfg=0x108202C0):
+        return self.rr.RKImage((), (self.rr.RKEWOp(self.arg(0), self.arg(1), self.arg(2), count, cfg),))
+
+    def program(self, image):
+        obj = SimpleNamespace(name='mock_byte_contract', lib=zlib.compress(pickle.dumps(image, protocol=5)))
+        return self.device.runtime(obj)
+
+    def buffers(self, count=9):
+        return [self.device._gpu_alloc(count * 2) for _ in range(3)]
+
+    def test_original_final_writer_and_renderer_are_unchanged(self):
+        self.assertIs(self.device.runtime_t._submit_bodies, self.rt.RockchipProgram._submit_bodies)
+        self.assertIs(self.device.runtime_t._submit, self.rt.RockchipProgram._submit)
+        self.assertIs(self.device.runtime_t._run_ew_ops, self.rt.RockchipProgram._run_ew_ops)
+        self.assertEqual(self.device.renderers, [self.rr.RockchipRenderer])
+        self.assertIs(type(self.device.renderer), self.rr.RockchipRenderer)
+        self.assertEqual(self.device.renderer.target.device, 'ROCKCHIP')
+        self.assertFalse(hasattr(self.device.allocator, '_as_buffer'))
+        with self.assertRaises(adapter.UnsupportedProfile): self.device.reset_npu()
+
+    def test_first_fit_page_padding_view_bounds_and_free(self):
+        first = self.device._gpu_alloc(18)
+        second = self.device._gpu_alloc(5000)
+        third = self.device._gpu_alloc(2)
+        self.assertEqual((first.size, first.meta.size, first.meta.dma_addr), (18, 4096, adapter.BASE))
+        self.assertEqual((second.meta.size, third.meta.dma_addr), (8192, adapter.BASE + 12288))
+        self.device._gpu_free(second)
+        reused = self.device._gpu_alloc(4096)
+        self.assertEqual(reused.meta.dma_addr, adapter.BASE + 4096)
+        self.device.allocator._copyin(first, memoryview(b'\x55\xAA' * 9))
+        self.assertEqual(self.transport.memory[adapter.BASE], b'\x55\xAA' * 9 + bytes(4096 - 18))
+        for size, offset in ((0, 0), (19, 0), (2, -1), (2, 18)):
+            with self.assertRaises(adapter.UnsupportedProfile): self.device.allocator._offset(first, size, offset)
+        self.assertEqual(self.transport.calls, [('write', adapter.BASE, 4096)])
+
+    def test_hardware_page_readback_precedes_ack_and_receipts_are_raw(self):
+        buffers = self.buffers()
+        self.device.allocator._copyin(buffers[1], memoryview(b'\x01\x02' * 9))
+        self.device.allocator._copyin(buffers[2], memoryview(b'\x03\x04' * 9))
+        self.program(self.image())(*buffers, timeout=None)
+        record = self.device.records[-1]
+        self.assertEqual(record['status'], 'PASS')
+        self.assertEqual((record['amount'], record['task_count']), (35, 1))
+        self.assertEqual(len(record['task_bytes']), 40)
+        self.assertEqual(len(record['command_bytes'][0]), 35 * 8)
+        self.assertEqual(record['tasks'][0]['regcmd_addr'], record['address'])
+        self.assertEqual(record['tasks'][0]['enable_mask'], 0x18)
+        self.assertEqual(record['before'], record['after'])  # mock performs NO arithmetic
+        self.assertEqual(self.transport.calls[-1], ('ack',))
+        start = max(i for i, call in enumerate(self.transport.calls) if call[0] == 'submit')
+        reads = {call[1] for call in self.transport.calls[start:] if call[0] == 'read'}
+        self.assertEqual(reads, set(record['after']))
+        self.assertTrue(all(len(data) % 4096 == 0 for data in record['before'].values()))
+
+    def test_literal_prelude_uses_real_runtime_without_layout_operations(self):
+        scratch = self.rr.RKBufferKind.SCRATCH
+        literal = self.rr.RKGather(None, self.arg(0, scratch), 9, values=(0xBC00,))
+        op = self.rr.RKEWOp(self.arg(0), self.arg(1), self.arg(0, scratch), 9, 0x108003C4)
+        self.program(self.rr.RKImage((64,), (literal, op)))(*self.buffers())
+        arena = self.device._buffers['scratch']
+        self.assertEqual(self.device.records[-1]['before'][arena.meta.dma_addr], b'\x00\xBC' * 9 + bytes(4096 - 18))
+
+    def test_entire_image_is_rejected_before_scratch_or_transport_effects(self):
+        scratch = self.rr.RKBufferKind.SCRATCH
+        good = self.image().program[0]
+        literal = self.rr.RKGather(None, self.arg(0, scratch), 9, values=(0xBC00,))
+        bad = [good._replace(mode=self.rr.RKEWMode.INT16), good._replace(ew_cfg=0x108002C0),
+               self.rr.RKCMAC(self.arg(0), self.arg(1), self.arg(2), 1, 8, 8),
+               literal._replace(src=self.arg(1)), literal._replace(index=self.arg(1)),
+               literal._replace(dst=self.arg(0)), literal._replace(axes=((1, 9, 1),)),
+               literal._replace(offsets=tuple(range(9))), literal._replace(base=1),
+               literal._replace(partial=True), literal._replace(dst_stride=8),
+               literal._replace(itemsize=4), literal._replace(index_itemsize=2),
+               literal._replace(fill_bits=1), literal._replace(values=[0xBC00]),
+               literal._replace(values=(0xBC00, 0xBC00)), literal._replace(values=(-1,)),
+               good._replace(count=0), good._replace(lhs=self.arg(-1)), good._replace(rhs=self.arg(0, scratch, 2))]
+        for item in bad:
+            with self.subTest(item=item):
+                image = self.rr.RKImage((64,), (literal, good, item)) if type(item) is not self.rr.RKGather else self.rr.RKImage((64,), (item, good))
+                before = (len(self.device._owned), len(self.transport.calls))
+                with self.assertRaises(adapter.UnsupportedProfile): self.program(image)
+                self.assertEqual((len(self.device._owned), len(self.transport.calls)), before)
+        with self.assertRaises(adapter.UnsupportedProfile): self.program(self.rr.RKImage((64,), (good, literal)))
+
+    def test_call_options_and_binding_errors_fail_before_side_effects(self):
+        program = self.program(self.image())
+        buffers = self.buffers()
+        for kwargs in ({'vals': (1,)}, {'global_size': (2, 1, 1)}, {'local_size': (1, 2, 1)},
+                       {'local_size': (True, 1, 1)}, {'timeout': 1}, {'unknown': None}, {'wait': 1}):
+            before = len(self.transport.calls)
+            with self.subTest(kwargs=kwargs), self.assertRaises(adapter.UnsupportedProfile): program(*buffers, **kwargs)
+            self.assertEqual(len(self.transport.calls), before)
+        with self.assertRaises(adapter.UnsupportedProfile): program(*buffers[:2])
+        short_view = self.device.allocator._offset(self.device._gpu_alloc(64), 18, 16)
+        with self.assertRaises(adapter.UnsupportedProfile): program(short_view, buffers[1], buffers[2])
+        overlapping = self.device._gpu_alloc(64)
+        partial = self.program(self.image(count=16))
+        with self.assertRaises(adapter.UnsupportedProfile): partial(overlapping.offset(16, 32), overlapping.offset(0, 32), self.device._gpu_alloc(32))
+        self.assertEqual(len(self.transport.calls), 0)
+
+    def test_private_scratch_padding_and_default_no_grid_metadata(self):
+        kind = self.rr.RKBufferKind.SCRATCH
+        literal = self.rr.RKGather(None, self.arg(0, kind), 33, values=(0xBC00,))
+        op = self.rr.RKEWOp(self.arg(0), self.arg(1), self.arg(0, kind), 33, 0x108003C4)
+        self.program(self.rr.RKImage((68,), (literal, op)))(*self.buffers(33), global_size=None, local_size=None, timeout=None)
+        self.assertEqual(self.device.records[-1]['status'], 'PASS')
+        bad = op._replace(rhs=self.arg(0, kind, 4080), count=9)
+        with self.assertRaises(adapter.UnsupportedProfile): self.program(self.rr.RKImage((4096,), (bad,)))
+
+    def test_program_and_owned_view_tampering_are_rejected(self):
+        program = self.program(self.image()); buffers = self.buffers()
+        program.image = program.image._replace(scratch=(8192,))
+        with self.assertRaisesRegex(adapter.UnsupportedProfile, 'program state'): program(*buffers)
+        program.image = program._admitted_image
+        original = buffers[0].view
+        buffers[0].view = buffers[1].view
+        with self.assertRaisesRegex(adapter.UnsupportedProfile, 'CPU view'): program(*buffers)
+        buffers[0].view = original
+        self.assertFalse(self.transport.calls)
+
+    def test_remote_failure_or_wrong_completion_poison_without_retry_or_ack(self):
+        program = self.program(self.image()); buffers = self.buffers()
+        self.transport.error = OSError('mock remote error')
+        with self.assertRaises(OSError): program(*buffers)
+        count = len(self.transport.calls)
+        self.assertEqual(sum(call[0] == 'submit' for call in self.transport.calls), 1)
+        self.assertFalse(any(call[0] == 'ack' for call in self.transport.calls))
+        with self.assertRaises(RuntimeError): program(*buffers)
+        self.assertEqual(len(self.transport.calls), count)
+
+    def test_task_count_mismatch_rejects_before_ack(self):
+        self.transport.tasks = 2
+        with self.assertRaisesRegex(adapter.UnsupportedProfile, 'task count'):
+            self.program(self.image())(*self.buffers())
+        self.assertFalse(any(call[0] == 'ack' for call in self.transport.calls))
+        self.assertTrue(self.device._poisoned)
+
+    def test_allocator_capacity_rollback_and_repeat_preserve_data_bos(self):
+        buffers = self.buffers(); program = self.program(self.image())
+        first_addresses = [buf.meta.dma_addr for buf in buffers]
+        for _ in range(4): program(*buffers)
+        self.assertEqual([buf.meta.dma_addr for buf in buffers], first_addresses)
+        self.assertEqual(len(self.device._owned), 5)
+        self.assertEqual(len(self.device.records), 4)
+        self.assertEqual([r['tag'] for r in self.device.records], [1, 2, 3, 4])
+        current = set(self.device._owned)
+        with self.assertRaises(MemoryError): self.device._replace_submit_buffers(adapter.CAPACITY - 131072, 131072)
+        self.assertEqual(set(self.device._owned), current)
+        with self.assertRaises(adapter.UnsupportedProfile): self.device._gpu_alloc(4096, 1)
+
+    def test_submit_payload_and_descriptor_fields_fail_before_launch(self):
+        buffers = self.buffers(); program = self.program(self.image()); program(*buffers)
+        raw_record = self.device.records[-1]
+        rk = self.rt.rk
+        base = dict(raw_record['payload']); subcores = base.pop('subcore_task')
+        def payload():
+            return rk.struct_rknpu_submit(**base, subcore_task=(rk.struct_rknpu_subcore_task * 5)(
+                *(rk.struct_rknpu_subcore_task(**fields) for fields in subcores)))
+        request = 0xC0686441
+        before = len(self.transport.calls)
+        for name in ('flags', 'timeout', 'task_start', 'task_counter', 'priority', 'regcfg_obj_addr',
+                     'task_base_addr', 'user_data', 'core_mask', 'fence_fd', 'task_obj_addr'):
+            value = payload(); setattr(value, name, getattr(value, name) + 1)
+            with self.subTest(field=name), self.assertRaises(adapter.UnsupportedProfile): self.device.ioctl(request, value)
+        value = payload(); value.subcore_task[4].task_number = 1
+        with self.assertRaises(adapter.UnsupportedProfile): self.device.ioctl(request, value)
+        task = self.device._buffers['task']; descriptor = rk.struct_rknpu_task.from_address(task.va_addr)
+        original = bytes(descriptor)
+        for name in ('flags', 'op_idx', 'enable_mask', 'int_mask', 'int_clear', 'int_status', 'regcfg_amount', 'regcfg_offset', 'regcmd_addr'):
+            try:
+                setattr(descriptor, name, getattr(descriptor, name) + 1)
+                with self.subTest(field=name), self.assertRaises(adapter.UnsupportedProfile): self.device.ioctl(request, payload())
+            finally: ctypes.memmove(task.va_addr, original, len(original))
+        self.assertEqual(len(self.transport.calls), before)
+
+    def test_source_pin_checks_and_single_owner_are_enforced(self):
+        self.assertEqual(self.device.backend_receipt['commit'], adapter.PIN)
+        self.assertIn('tinygrad/runtime/ops_rockchip.py', self.device.backend_receipt['imported_files'])
+        another = adapter.make_device_class(ByteTransport, self.backend)
+        with self.assertRaisesRegex(adapter.UnsupportedProfile, 'owner'): another('RKNPUFPGA')
+        with patch.dict(adapter.PINNED_FILES, {'tinygrad/device.py': '0' * 64}):
+            with self.assertRaisesRegex(adapter.UnsupportedProfile, 'Pinned'): adapter.verify_backend(self.backend)
+        with patch.dict(sys.modules, {'tinygrad.foreign_control': SimpleNamespace(__file__='/tmp/foreign-tinygrad-control.py')}):
+            with self.assertRaisesRegex(adapter.UnsupportedProfile, 'Foreign tinygrad'): adapter.verify_backend(self.backend)
+        def dirty_git(argv, **kwargs):
+            return adapter.PIN if argv[-2:] == ['rev-parse', 'HEAD'] else ' M tinygrad/device.py\n'
+        with patch.object(adapter.subprocess, 'check_output', side_effect=dirty_git):
+            with self.assertRaisesRegex(adapter.UnsupportedProfile, 'must be clean'): another('RKNPUFPGA')
+
+    def test_restricted_compiler_image_rejects_unrelated_globals(self):
+        with self.assertRaises(adapter.UnsupportedProfile):
+            self.device.runtime(SimpleNamespace(name='bad', lib=zlib.compress(pickle.dumps(Path('/tmp/not-an-image')))))
+        self.assertFalse(self.transport.calls)
+
+    def test_registration_is_process_scoped_and_preserves_other_device_entries(self):
+        # A fresh child avoids clearing tinygrad's global cache for unrelated devices.
+        code = r'''
+from tools.backend.runtime import install, UnsupportedProfile, MODULE
+from tinygrad.device import Device
+from types import ModuleType
+import sys
+class T:
+ def reg_read(self,n): return {0:0x524b4557,4:0x10000,8:0x10}[n]
+ def close(self): pass
+before=Device.get_class
+sys.modules[MODULE]=ModuleType(MODULE)
+try: install(T,sys.argv[1])
+except UnsupportedProfile: pass
+else: raise AssertionError('foreign module binding accepted')
+del sys.modules[MODULE]
+handle=install(T,sys.argv[1]); device=Device['RKNPUFPGA']
+assert Device.get_class is before or Device.get_class.__func__ is before.__func__
+try: install(T,sys.argv[1])
+except UnsupportedProfile: pass
+else: raise AssertionError('duplicate registration accepted')
+handle.close()
+assert MODULE not in sys.modules and 'RKNPUFPGA' not in Device._opened_devices
+assert device._closed
+print('PASS registry ownership and cleanup; no cache clearing')
+'''
+        env = dict(os.environ, PYTHONPATH=str(self.backend), PYTHONDONTWRITEBYTECODE='1')
+        result = subprocess.run([sys.executable, '-c', code, str(self.backend)], env=env, cwd=Path(__file__).resolve().parents[2],
+                                text=True, capture_output=True, timeout=30)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn('PASS registry ownership', result.stdout)
+class DDRProfileTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.backend = selected_backend()
+        cls.rt, cls.rr, cls.td, cls.receipt = adapter._load_backend(cls.backend)
+
+    class ProfileTransport(ByteTransport):
+        def __init__(self, identity, abi=0x00010000, status=0x10):
+            super().__init__()
+            self.identity, self.abi, self.status = identity, abi, status
+            self.reg_reads = []
+            self.close_count = 0
+
+        def reg_read(self, offset):
+            self.reg_reads.append(offset)
+            return {0: self.identity, 4: self.abi, 8: self.status}[offset]
+
+        def close(self):
+            self.close_count += 1
+            self.closed = True
+
+    def setUp(self):
+        network = patch.object(socket, 'create_connection', side_effect=AssertionError('No network in DDR profile controls'))
+        network.start(); self.addCleanup(network.stop)
+        drm = patch.object(self.rt.FileIOInterface, '__init__', side_effect=AssertionError('No DRM in DDR profile controls'))
+        drm.start(); self.addCleanup(drm.stop)
+
+    def arg(self, index, kind=None, addend=0):
+        selected = self.rr.RKBufferKind.ARG if kind is None else kind
+        return self.rr.RKArg(selected, index, addend)
+
+    def make_device(self, transport, profile='ew_ddr'):
+        device_class = adapter.make_device_class(lambda: transport, self.backend, transport_profile=profile)
+        device = device_class('RKNPUFPGA')
+        self.addCleanup(device.finalize)
+        return device
+
+    def program(self, device, image):
+        obj = SimpleNamespace(name='profile_only_byte_mock', lib=zlib.compress(pickle.dumps(image, protocol=5)))
+        return device.runtime(obj)
+
+    def test_default_profile_rejects_rkad_before_memory_traffic(self):
+        transport = self.ProfileTransport(0x524B4144)
+        device_class = adapter.make_device_class(lambda: transport, self.backend)
+        with self.assertRaisesRegex(adapter.UnsupportedProfile, 'RKEW'):
+            device_class('RKNPUFPGA')
+        self.assertEqual(transport.reg_reads, [0])
+        self.assertEqual(transport.calls, [])
+        self.assertTrue(transport.closed)
+        self.assertEqual(transport.close_count, 1)
+
+    def test_explicit_ew_ddr_rejects_wrong_id_abi_and_nonidle_before_traffic(self):
+        cases = ((0x524B4557, 0x00010000, 0x10, [0]),
+                 (0x524B4344, 0x00010000, 0x10, [0]),
+                 (0x524B4144, 0x00010001, 0x10, [0, 4]),
+                 (0x524B4144, 0x00010000, 0x11, [0, 4, 8]))
+        for identity, abi, status, expected_reads in cases:
+            with self.subTest(identity=hex(identity), abi=hex(abi), status=hex(status)):
+                transport = self.ProfileTransport(identity, abi, status)
+                device_class = adapter.make_device_class(lambda: transport, self.backend, transport_profile='ew_ddr')
+                with self.assertRaisesRegex(adapter.UnsupportedProfile, 'Transport must expose'):
+                    device_class('RKNPUFPGA')
+                self.assertEqual(transport.reg_reads, expected_reads)
+                self.assertEqual(transport.calls, [])
+                self.assertTrue(transport.closed)
+                self.assertEqual(transport.close_count, 1)
+
+    def test_unknown_profile_rejects_before_transport_factory(self):
+        calls = []
+        def factory():
+            calls.append(1)
+            return self.ProfileTransport(0x524B4144)
+        with self.assertRaisesRegex(adapter.UnsupportedProfile, 'Unsupported EW transport profile'):
+            adapter.make_device_class(factory, self.backend, transport_profile='ew_cmac')
+        self.assertEqual(calls, [])
+
+    def test_valid_rkad_constructor_performs_only_three_admission_reads(self):
+        transport = self.ProfileTransport(0x524B4144)
+        device = self.make_device(transport, 'ew_ddr')
+        self.assertEqual(device.transport_profile, 'ew_ddr')
+        self.assertEqual(transport.reg_reads, [0, 4, 8])
+        self.assertEqual(transport.calls, [])
+        self.assertEqual(transport.close_count, 0)
+
+    def test_explicit_ddr_keeps_raw_final_writer_and_complete_bo_readback_before_ack(self):
+        transport = self.ProfileTransport(0x524B4144)
+        device = self.make_device(transport, 'ew_ddr')
+        buffers = [device._gpu_alloc(18) for _ in range(3)]
+        device.allocator._copyin(buffers[1], memoryview(b'\x01\x02' * 9))
+        device.allocator._copyin(buffers[2], memoryview(b'\x03\x04' * 9))
+        image = self.rr.RKImage((), (self.rr.RKEWOp(self.arg(0), self.arg(1), self.arg(2), 9, 0x108202C0),))
+        self.program(device, image)(*buffers, timeout=None)
+        record = device.records[-1]
+        self.assertEqual(record['status'], 'PASS')
+        self.assertEqual((record['amount'], record['task_count']), (35, 1))
+        self.assertEqual(len(record['task_bytes']), 40)
+        self.assertEqual(len(record['command_bytes'][0]), 35 * 8)
+        self.assertEqual(record['tasks'][0]['regcmd_addr'], record['address'])
+        self.assertEqual(record['tasks'][0]['enable_mask'], 0x18)
+        self.assertEqual(record['before'], record['after'])
+        submit = max(i for i, call in enumerate(transport.calls) if call[0] == 'submit')
+        ack = transport.calls.index(('ack',))
+        read_addresses = {call[1] for call in transport.calls[submit:ack] if call[0] == 'read'}
+        self.assertEqual(read_addresses, set(record['after']))
+        self.assertGreater(ack, submit)
+        self.assertTrue(all(len(data) % 4096 == 0 for data in record['before'].values()))
+
+    def test_explicit_ddr_accepts_source_free_index_free_literal_initializer(self):
+        transport = self.ProfileTransport(0x524B4144)
+        device = self.make_device(transport, 'ew_ddr')
+        buffers = [device._gpu_alloc(18) for _ in range(3)]
+        device.allocator._copyin(buffers[1], memoryview(b'\x01\x02' * 9))
+        device.allocator._copyin(buffers[2], memoryview(b'\x03\x04' * 9))
+        scratch = self.rr.RKBufferKind.SCRATCH
+        literal = self.rr.RKGather(None, self.arg(0, scratch), 9, values=(0xBC00,))
+        op = self.rr.RKEWOp(self.arg(0), self.arg(1), self.arg(0, scratch), 9, 0x108003C4)
+        self.program(device, self.rr.RKImage((64,), (literal, op)))(*buffers)
+        arena = device._buffers['scratch']
+        self.assertEqual(transport.memory[arena.meta.dma_addr], b'\x00\xBC' * 9 + bytes(4096 - 18))
+        self.assertEqual(device.records[-1]['status'], 'PASS')
+        self.assertEqual(device.records[-1]['before'], device.records[-1]['after'])
+        self.assertEqual(transport.calls[-1], ('ack',))
+
+    def test_explicit_ddr_keeps_input_dependent_gather_and_cmac_unsupported(self):
+        transport = self.ProfileTransport(0x524B4144)
+        device = self.make_device(transport, 'ew_ddr')
+        good = self.rr.RKEWOp(self.arg(0), self.arg(1), self.arg(2), 9, 0x108202C0)
+        cmac = self.rr.RKCMAC(self.arg(0), self.arg(1), self.arg(2), 1, 8, 8)
+        scratch = self.rr.RKBufferKind.SCRATCH
+        literal = self.rr.RKGather(None, self.arg(0, scratch), 9, values=(0xBC00,))
+        input_gather = literal._replace(src=self.arg(1))
+        cases = (self.rr.RKImage((), (cmac,)), self.rr.RKImage((64,), (input_gather, good)))
+        for image in cases:
+            before = (len(device._owned), len(transport.calls))
+            with self.assertRaises(adapter.UnsupportedProfile):
+                self.program(device, image)
+            self.assertEqual((len(device._owned), len(transport.calls)), before)
+
+    def test_fresh_process_install_uses_actual_tinygrad_registry_and_closes_only_alias(self):
+        candidate_path = Path(adapter.__file__).resolve()
+        code = r'''
+import hashlib, importlib, importlib.util, os, socket, sys
+from pathlib import Path
+from unittest.mock import patch
+candidate_path=Path(sys.argv[1]); backend=Path(sys.argv[2]); sys.path.insert(0,str(backend)); sys.dont_write_bytecode=True
+os.environ['PYTHONDONTWRITEBYTECODE']='1'
+spec=importlib.util.spec_from_file_location('_private_registration_candidate',candidate_path)
+candidate=importlib.util.module_from_spec(spec);sys.modules[spec.name]=candidate;spec.loader.exec_module(candidate)
+rt,rr,td,receipt=candidate._load_backend(backend)
+with patch.object(socket,'create_connection',side_effect=AssertionError('network forbidden')), patch.object(rt.FileIOInterface,'__init__',side_effect=AssertionError('DRM forbidden')):
+  import tinygrad.device as tinygrad_device
+  original=importlib.import_module('tinygrad.runtime.ops_rockchip')
+  original_path=Path(original.__file__); original_hash=hashlib.sha256(original_path.read_bytes()).hexdigest()
+  registry=tinygrad_device.Device; opened_before=set(registry._opened_devices); devices_before=list(registry._devices)
+  modules_before=set(sys.modules); calls=[]
+  class Owner:
+    def __init__(self): self.reads=[]; self.writes=[]; self.submissions=[]; self.closed=False; self.close_count=0
+    def reg_read(self,offset): self.reads.append(offset); return {0:0x524B4144,4:0x10000,8:0x10}[offset]
+    def mem_write(self,*args): self.writes.append(args)
+    def mem_read(self,*args): raise AssertionError('unexpected BO read at construction')
+    def submit(self,*args): self.submissions.append(args)
+    def poll_result(self,*args): raise AssertionError('unexpected poll at construction')
+    def ack_success(self): raise AssertionError('unexpected ACK at construction')
+    def close(self): self.closed=True; self.close_count+=1
+  owner=Owner()
+  def factory(): calls.append(1); return owner
+  registration=candidate.install(factory,backend,transport_profile='ew_ddr')
+  assert calls==[]
+  assert registration.device_class.backend_pin['commit']==candidate.PIN
+  assert sys.modules.get(candidate.MODULE) is registration.module
+  device=registry['RKNPUFPGA']
+  assert calls==[1]
+  assert isinstance(device,registration.device_class) and device.transport is owner
+  assert device.transport_profile=='ew_ddr' and owner.reads==[0,4,8]
+  assert not owner.writes and not owner.submissions and not owner.closed
+  assert device.runtime_t._submit_bodies is rt.RockchipProgram._submit_bodies
+  assert device.runtime_t._submit is rt.RockchipProgram._submit
+  assert device.runtime_t._run_ew_ops is rt.RockchipProgram._run_ew_ops
+  assert device.renderers==[rr.RockchipRenderer] and type(device.renderer) is rr.RockchipRenderer
+  assert sys.modules.get('tinygrad.runtime.ops_rockchip') is original
+  alias_before_close=set(sys.modules)
+  registration.close()
+  assert registration.closed and device._closed and owner.closed and owner.close_count==1
+  assert alias_before_close-set(sys.modules)=={candidate.MODULE}
+  assert candidate.MODULE not in sys.modules and sys.modules.get('tinygrad.runtime.ops_rockchip') is original
+  assert set(registry._opened_devices)==opened_before and list(registry._devices)==devices_before
+  assert hashlib.sha256(original_path.read_bytes()).hexdigest()==original_hash
+  assert owner.reads==[0,4,8] and not owner.writes and not owner.submissions
+  print('PASS_PRIVATE_EW_DDR_INSTALL factory=1 reads=0,4,8 writes=0 submit=0 close=1 alias_only=1')
+'''
+        env = dict(os.environ, TINYGRAD_ROOT=str(self.backend), PYTHONPATH=str(self.backend), PYTHONDONTWRITEBYTECODE='1')
+        result = subprocess.run([sys.executable, '-c', code, str(candidate_path), str(self.backend)],
+                                env=env, cwd=Path(__file__).resolve().parents[2],
+                                text=True, capture_output=True, timeout=30)
+        self.assertEqual(result.returncode, 0, result.stdout + '\n' + result.stderr)
+        self.assertEqual(result.stdout.splitlines(), ['PASS_PRIVATE_EW_DDR_INSTALL factory=1 reads=0,4,8 writes=0 submit=0 close=1 alias_only=1'])
+
+
+
+if __name__ == '__main__': unittest.main()

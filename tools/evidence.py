@@ -22,7 +22,7 @@ def fingerprint(paths: list[Path]) -> dict:
 
 def source_revision() -> dict:
     paths = [ROOT / 'Makefile']
-    for directory, patterns in {'rtl': ['*.sv'], 'fpga': ['*.sv', '*.xdc', '*.tcl'],
+    for directory, patterns in {'rtl': ['*.sv'], 'fpga': ['*.sv', '*.xdc', '*.tcl', '*.tcl.in'],
                                 'model': ['*.py', '*.cpp'], 'tools': ['*.py'],
                                 'tests': ['*.py', '*.sv', '*.svh', '*.json']}.items():
         for pattern in patterns:
