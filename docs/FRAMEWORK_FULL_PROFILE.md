@@ -6,6 +6,26 @@ with an already audited raw link and exclusive ownership. Importing either
 module does not connect, program hardware or recover a failed transaction.
 Registration retains the existing single-owner/single-registration contract.
 
+For the separate witness-enabled dual-host image, use
+`tools.ddr.frame_transport.FullDdrFrameTransport` with an explicitly acquired
+`tools.host.raw_frame_session.RawFrameSession`. It reuses the same BO, job,
+profile and compute-reset methods over one raw-frame exchange callback. It
+checks all four namespace identities and all three idle job banks before
+admitting writes. It calls no JTAG initializer, creates no device lock and
+opens no physical endpoint. A PCIe caller can supply the
+[MMIO packet client's](PCIE_FRAME_MAILBOX.md) `exchange` and `close` callbacks
+to `RawFrameSession`, identifying physical source 2; the existing JTAG entry
+continues to use its audited scan transport. The dual-host image additionally
+requires the [RKHO ownership bank](RAW_FRAME_OWNERSHIP.md).
+
+The caller owns per-transport exclusion and audits the image and endpoint.
+Call `transport.release()` explicitly after complete BO readback and job ACK.
+`transport.close()` closes the supplied session without releasing or resetting
+hardware. `make ddr-frame-transport-controls` runs twelve callback controls
+under normal and optimized Python and is included in default `make test`.
+These checks cover raw bytes, reset/retention, result ownership, release,
+deadlines and failure poisoning; they do not qualify PCIe IP, CDC or hardware.
+
 The required image exposes four exact namespaces:
 
 | Bank | Offset | Identity | Purpose |

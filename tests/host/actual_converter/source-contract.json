@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "contract": "installed-amd-axi-clock-converter-v2-1-actual-axilite-retained-epoch",
+  "top_module": "tb_actual_converter_reset",
+  "converter_module": "axi_clock_converter_v2_1_36_axi_clock_converter",
+  "vendor_files": [
+    {
+      "name": "axi_clock_converter_v2_1_vl_rfs.v",
+      "relative_path": "data/ip/xilinx/axi_clock_converter_v2_1/hdl/axi_clock_converter_v2_1_vl_rfs.v",
+      "sha256": "54640aaf60c378e66a71324a96c85e7ab59814a3da086d14e56eccffe93b5b74"
+    },
+    {
+      "name": "xpm_cdc.sv",
+      "relative_path": "data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv",
+      "sha256": "27592359d8363d7e6575298f9d0faa7c9f9258ea77f19c9a38946fbaf3783f09"
+    },
+    {
+      "name": "axi_infrastructure_v1_1_vl_rfs.v",
+      "relative_path": "data/ip/xilinx/axi_infrastructure_v1_1/hdl/axi_infrastructure_v1_1_vl_rfs.v",
+      "sha256": "64a5966a7f6c9f296102fb2816e0f4ac4808888b2b64bc0bdafae9ea019a72c4"
+    },
+    {
+      "name": "axi_infrastructure_v1_1_0.vh",
+      "relative_path": "data/ip/xilinx/axi_infrastructure_v1_1/hdl/axi_infrastructure_v1_1_0.vh",
+      "sha256": "6f75042bd294dd05d9e4d326fe845e6bd44ec51637b1ad8ce66fbc295f16cc52"
+    },
+    {
+      "name": "glbl.v",
+      "relative_path": "ids_lite/ISE/verilog/src/glbl.v",
+      "sha256": "fd18dd4ff89c96bc62c5b08bc0fcf9e8b75d436a2c4e68c7bc4177bf2a47513b"
+    }
+  ],
+  "parameters": {
+    "C_FAMILY": "kintex7",
+    "C_AXI_PROTOCOL": 2,
+    "C_AXI_IS_ACLK_ASYNC": 1,
+    "C_SYNCHRONIZER_STAGE": 3,
+    "C_AXI_ADDR_WIDTH": 32,
+    "C_AXI_DATA_WIDTH": 32,
+    "C_AXI_ID_WIDTH": 1,
+    "C_AXI_SUPPORTS_USER_SIGNALS": 0,
+    "C_AXI_SUPPORTS_READ": 1,
+    "C_AXI_SUPPORTS_WRITE": 1
+  },
+  "bench_source_literals": [
+    ".C_FAMILY(\"kintex7\")",
+    ".C_AXI_ID_WIDTH(1)",
+    ".C_AXI_ADDR_WIDTH(32)",
+    ".C_AXI_DATA_WIDTH(32)",
+    ".C_AXI_IS_ACLK_ASYNC(1)",
+    ".C_AXI_PROTOCOL(2)",
+    ".C_AXI_SUPPORTS_USER_SIGNALS(0)",
+    ".C_SYNCHRONIZER_STAGE(3)",
+    "glbl glbl();"
+  ],
+  "expected_markers": [
+    "PASS_GLBL_RELEASE_AND_ASYMMETRIC_STARTUP",
+    "PASS_AXI_LITE_ORDERING_BACKPRESSURE_AND_ERRORS",
+    "PASS_RESET_AW_OFFERED_BEFORE_SOURCE_HANDSHAKE",
+    "PASS_RESET_MASTER_ACCEPTED_AW_WITH_W_OFFERED",
+    "PASS_RESET_WITH_COMMITTED_B_HELD",
+    "PASS_RESET_WITH_R_HELD"
+  ],
+  "expected_completion": {
+    "checks": 419,
+    "epochs": 5,
+    "handshakes": {
+      "s_aw": 11,
+      "m_aw": 12,
+      "s_w": 10,
+      "m_w": 10,
+      "s_b": 9,
+      "m_b": 9,
+      "s_ar": 9,
+      "m_ar": 9,
+      "s_r": 8,
+      "m_r": 8,
+      "write_effects": 7
+    }
+  },
+  "limits": {
+    "transfer_timeout_source_cycles": 2000,
+    "global_simulation_timeout_ns": 1000000,
+    "no_random_seed": true,
+    "resource_caps": false
+  },
+  "simulator_plan": [
+    "Verilator functional run first.",
+    "Run the same bench in four-state XSim only when selected; no emulator-specific bench changes."
+  ],
+  "warning_policy": {
+    "verilator_flags": ["--binary", "--timing", "--assert", "-Wall", "-Wno-fatal", "-j", "2"],
+    "warning_code_suppression": false,
+    "classify_vendor_authored_and_other_warnings": true,
+    "authored_warnings_must_be_zero": true
+  },
+  "reference_only_dependency_probes": [
+    {
+      "path": "build/pcie-actual-converter-dependencies-v1/attempt-6-glbl-wrapper/report.json",
+      "status": "PASS_DEFAULT_XPM_GLBL_SCOPE_ELABORATION_ONLY",
+      "diagnostic_count": 301,
+      "scope": "Verilator dependency lint only; not functional qualification."
+    },
+    {
+      "path": "build/pcie-actual-converter-xsim-dependencies-v2/report.json",
+      "status": "PASS_XSIM_DEFAULT_SOURCE_ELABORATION_ONLY",
+      "scope": "Normal-source 250ns undriven-top elaboration only; not functional qualification."
+    }
+  ],
+  "reference_only_prior_review": {
+    "path": "build/pcie-actual-converter-root-review-v1/root-result-review.json",
+    "status": "PASS_INDEPENDENT_ACTUAL_CONVERTER_RESET_FUNCTIONAL_ONLY",
+    "verilator_checks": 419,
+    "xsim_checks": 419,
+    "qualification_transfer_to_public_copy": false
+  },
+  "scope_exclusions": [
+    "No synthesis-resource measurement.",
+    "No physical CDC/timing, PCIe/XDMA integration, link health or NPU arithmetic qualification.",
+    "No board/RK execution, implementation, programming, network connection or flash access."
+  ]
+}

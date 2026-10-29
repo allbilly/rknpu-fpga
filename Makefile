@@ -17,7 +17,7 @@ STARTUP_DEMO_RTL = $(DMA_DEMO_RTL) rtl/rk_startup_reset.sv fpga/ypcb_ew_startup_
 .PHONY: all test model-test generated generated-check vectors rtl-test four-state-test cmac-vectors cmac-test cmac-four-state-test synth-check host-synth-check host-mapped-check openxc7-check lint demo-replay fpga clean
 all: model-test
 # "test" deliberately requires RTL simulation; missing tools do NOT yield a pass.
-test: model-test lint rtl-test four-state-test cmac-test cmac-four-state-test host-jtag-test host-jtag-four-state-test host-jtag-preparation-test debug-control-test full512-startup-control-test tinystories-preparation-test tinystories-memory-test ddr-endpoint-controls ddr-host-controls ddr-dual-controls ddr-capacity-controls ddr-capacity-parent-controls backend-layout-test
+test: model-test lint rtl-test four-state-test cmac-test cmac-four-state-test host-jtag-test host-jtag-four-state-test host-jtag-preparation-test debug-control-test full512-startup-control-test tinystories-preparation-test tinystories-memory-test ddr-endpoint-controls ddr-host-controls ddr-dual-controls ddr-capacity-controls ddr-capacity-parent-controls backend-layout-test host-frame-mailbox-test host-frame-mailbox-admission-test host-frame-owner-test host-frame-frontend-test host-transport-epoch-test host-pcie-bridge-reset-test ddr-session-quiet-test ddr-dual-host-npu-test process-controls
 build/half_datapath.so: model/half_datapath.cpp
 	mkdir -p build
 	$(CXX) $(CXXFLAGS) $(SHARED_FLAGS) $< -o $@
@@ -89,12 +89,15 @@ tinystories-unity-check: generated-check
 tinystories-memory-test: generated-check
 	$(PYTHON) tools/tinystories/run_memory.py
 
-.PHONY: ddr-endpoint-controls ddr-host-controls ddr-channel-frozen-controls ddr-dual-controls
+.PHONY: ddr-endpoint-controls ddr-host-controls ddr-frame-transport-controls ddr-channel-frozen-controls ddr-dual-controls
 ddr-endpoint-controls: generated-check
 	$(PYTHON) -m unittest discover -s tests/ddr/endpoint -v
 # Byte-transport, preparation and independent-auditor controls only. These
 # mocks never open a network connection, program hardware or qualify DDR RTL.
-ddr-host-controls: generated-check
+ddr-frame-transport-controls: generated-check
+	$(PYTHON) -m unittest discover -s tests/ddr/frame_transport -v
+	$(PYTHON) -O -m unittest discover -s tests/ddr/frame_transport -v
+ddr-host-controls: generated-check ddr-frame-transport-controls
 	$(PYTHON) -m unittest discover -s tests/ddr/transport -v
 	$(PYTHON) -m unittest discover -s tests/ddr/dual_transport -v
 	$(PYTHON) -m unittest discover -s tests/ddr/framework_transport -v
@@ -113,7 +116,7 @@ ddr-channel-frozen-controls:
 	$(PYTHON) -m unittest discover -s tests/ddr/channel_profile_frozen -v
 ddr-dual-controls: generated-check
 	$(PYTHON) tools/ddr/run_dual_controls.py
-.PHONY: ddr-capacity-controls ddr-capacity-parent-controls
+.PHONY: ddr-capacity-controls ddr-capacity-parent-controls ddr-session-quiet-test
 ddr-capacity-controls: generated-check
 	$(PYTHON) -m unittest discover -s tests/ddr/capacity -p 'test*.py' -v
 	$(PYTHON) tools/ddr/run_capacity.py --simulator iverilog
@@ -121,6 +124,9 @@ ddr-capacity-controls: generated-check
 # Published parent-profile service/router/client controls only; no hardware claim.
 ddr-capacity-parent-controls: generated-check
 	$(PYTHON) tools/ddr/run_capacity_parent.py
+# Dual-host session quiescence comparison; native candidate/reference test only.
+ddr-session-quiet-test: generated-check
+	$(PYTHON) tools/ddr/run_session_quiet.py --simulator both
 host-jtag-prepare: generated-check
 	$(PYTHON) tools/host/prepare.py prepare
 
@@ -149,6 +155,46 @@ backend-layout-test: generated-check
 debug-control-test: generated-check
 	$(PYTHON) -m unittest discover -s tests/debug -v
 
+# PCIe BAR-path packet component only; this does not instantiate PCIe IP.
+.PHONY: host-frame-mailbox-test
+host-frame-mailbox-test: generated-check
+	$(PYTHON) -m unittest discover -s tests/host/frame_mailbox -v
+	$(PYTHON) tools/host/run_frame_mailbox.py
+
+.PHONY: host-frame-mailbox-admission-test
+host-frame-mailbox-admission-test: generated-check
+	$(PYTHON) tools/host/run_frame_mailbox.py --component admission
+
+.PHONY: host-frame-owner-test
+host-frame-owner-test: generated-check
+	$(PYTHON) -m unittest discover -s tests/host/frame_owner -v
+	$(PYTHON) -O -m unittest discover -s tests/host/frame_owner -v
+	$(PYTHON) tools/host/run_frame_mailbox.py --component owner
+
+.PHONY: host-frame-frontend-test
+host-frame-frontend-test: generated-check
+	$(PYTHON) tools/host/run_frame_mailbox.py --component frontend
+
+.PHONY: host-transport-epoch-test
+host-transport-epoch-test: generated-check
+	$(PYTHON) tools/host/run_transport_epoch.py
+
+# Standalone PCIe bridge reset startup-history component; no converter/IP or hardware.
+.PHONY: host-pcie-bridge-reset-test
+host-pcie-bridge-reset-test: generated-check
+	$(PYTHON) tools/host/run_bridge_reset.py
+
+# Optional commercial-vendor-source functional controls for the actual AMD
+# AXI4-Lite async converter. This is intentionally not a dependency of `test`.
+# Set RK_VIVADO_ROOT (or pass PCIE_ACTUAL_CONVERTER_VIVADO_ROOT) to an installed
+# Vivado tree and choose a fresh output directory for each run.
+.PHONY: host-pcie-actual-converter-test
+PCIE_ACTUAL_CONVERTER_VIVADO_ROOT ?= $(RK_VIVADO_ROOT)
+PCIE_ACTUAL_CONVERTER_OUT ?= build/pcie-actual-converter-public-v1
+PCIE_ACTUAL_CONVERTER_SIMULATOR ?= both
+host-pcie-actual-converter-test: generated-check
+	$(PYTHON) tools/host/run_actual_converter.py --out "$(PCIE_ACTUAL_CONVERTER_OUT)" --simulator "$(PCIE_ACTUAL_CONVERTER_SIMULATOR)" $(if $(strip $(PCIE_ACTUAL_CONVERTER_VIVADO_ROOT)),--vivado-root "$(PCIE_ACTUAL_CONVERTER_VIVADO_ROOT)",)
+
 .PHONY: full512-startup-control-test
 full512-startup-control-test: generated-check
 	$(PYTHON) -m unittest discover -s tests/cmac/startup -v
@@ -160,3 +206,14 @@ fpga: generated-check
 	vivado -mode batch -source fpga/build.tcl -log build/vivado/vivado.log -journal build/vivado/vivado.jou
 clean:
 	rm -rf build
+
+# Full numerical NPU plus same-clock JTAG/PCIe packet handoff; native only.
+.PHONY: ddr-dual-host-npu-test
+ddr-dual-host-npu-test: generated-check
+	$(PYTHON) tools/ddr/run_dual_host_npu.py --execute-reviewed-run
+
+# OS-backed command/session cleanup and interruption controls; no hardware.
+.PHONY: process-controls
+process-controls: generated-check
+	$(PYTHON) -m unittest discover -s tests/process -v
+	$(PYTHON) -O -m unittest discover -s tests/process -v

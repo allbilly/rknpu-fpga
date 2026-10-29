@@ -1,0 +1,27 @@
+{
+  "backend_manifest_sha256": "b17f8067098f9f368e4f11ac1b1efa9458a7d3ea0dffea5a9d34b8e69c4a79d7",
+  "schema": 1,
+  "sources": [
+    {
+      "path": "rtl/host/rk_axil_frame_mailbox.sv",
+      "sha256": "a77c47cd7812f8f1694f319ccc25ac1225ab4d82a08568f124ebc38e630fc0ee"
+    },
+    {
+      "path": "rtl/host/rk_raw_frame_owner_mux.sv",
+      "sha256": "a97fe244bdc63263d0eaccf5cf1c27f36f1e29815bdb3d4813a6244f15016899"
+    },
+    {
+      "path": "rtl/host/rk_transport_epoch_guard.sv",
+      "sha256": "d865fed78bcc898a22e45bd538a14850ab4eba026118fb0cf0dce09f46269470"
+    },
+    {
+      "path": "rtl/host/rk_pcie_jtag_frame_frontend.sv",
+      "sha256": "7e0023311b4385d051b700236c10b878c0aa0cc0a72cfdce3b1d0d64ac6f5bc1"
+    },
+    {
+      "path": "rtl/ddr/dual_host/rk_dual_host_ddr.sv",
+      "sha256": "34896e8f46e2e42b8a81c4768dbeaafb9e622d6e4ac3f04dca26d2c7aab6acc2"
+    }
+  ],
+  "top": "rk_dual_host_ddr"
+}
