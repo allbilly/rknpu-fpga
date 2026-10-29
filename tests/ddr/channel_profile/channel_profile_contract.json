@@ -1,0 +1,2603 @@
+{
+  "canonical_bindings": {
+    "c0_app_ecc_multiple_err": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c0_app_ecc_multiple_err",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 8
+    },
+    "c0_app_ecc_single_err": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c0_app_ecc_single_err",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 8
+    },
+    "c0_app_ref_ack": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c0_app_ref_ack",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_app_ref_req": {
+      "binding": {
+        "kind": "inactive_request_constant",
+        "reason": "No runtime low-power/refresh/ZQ request API",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_app_sr_active": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c0_app_sr_active",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_app_sr_req": {
+      "binding": {
+        "kind": "inactive_request_constant",
+        "reason": "No runtime low-power/refresh/ZQ request API",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_app_zq_ack": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c0_app_zq_ack",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_app_zq_req": {
+      "binding": {
+        "kind": "inactive_request_constant",
+        "reason": "No runtime low-power/refresh/ZQ request API",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_aresetn": {
+      "binding": {
+        "active_level": 0,
+        "kind": "endpoint",
+        "net": "c0_aresetn"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_ddr3_addr": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_addr",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 15
+    },
+    "c0_ddr3_ba": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_ba",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 3
+    },
+    "c0_ddr3_cas_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_cas_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_ck_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_ck_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_ck_p": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_ck_p",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_cke": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_cke",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_cs_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_cs_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_dq": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_dq",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "inout",
+      "width": 72
+    },
+    "c0_ddr3_dqs_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_dqs_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "inout",
+      "width": 9
+    },
+    "c0_ddr3_dqs_p": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_dqs_p",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "inout",
+      "width": 9
+    },
+    "c0_ddr3_odt": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_odt",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_ras_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_ras_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_reset_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_reset_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_we_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c0_ddr3_we_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_device_temp": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c0_device_temp",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 12
+    },
+    "c0_init_calib_complete": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "c0_init_calib_complete"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_interrupt": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "c0_interrupt"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_mmcm_locked": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c0_mmcm_locked",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_araddr": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_araddr"
+      },
+      "direction": "in",
+      "width": 31
+    },
+    "c0_s_axi_arburst": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_arburst"
+      },
+      "direction": "in",
+      "width": 2
+    },
+    "c0_s_axi_arcache": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_arcache"
+      },
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_arid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_arid"
+      },
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_arlen": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_arlen"
+      },
+      "direction": "in",
+      "width": 8
+    },
+    "c0_s_axi_arlock": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_arlock"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_arprot": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_arprot"
+      },
+      "direction": "in",
+      "width": 3
+    },
+    "c0_s_axi_arqos": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_arqos"
+      },
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_arready": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_arready"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_arsize": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_arsize"
+      },
+      "direction": "in",
+      "width": 3
+    },
+    "c0_s_axi_arvalid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_arvalid"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_awaddr": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_awaddr"
+      },
+      "direction": "in",
+      "width": 31
+    },
+    "c0_s_axi_awburst": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_awburst"
+      },
+      "direction": "in",
+      "width": 2
+    },
+    "c0_s_axi_awcache": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_awcache"
+      },
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_awid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_awid"
+      },
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_awlen": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_awlen"
+      },
+      "direction": "in",
+      "width": 8
+    },
+    "c0_s_axi_awlock": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_awlock"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_awprot": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_awprot"
+      },
+      "direction": "in",
+      "width": 3
+    },
+    "c0_s_axi_awqos": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_awqos"
+      },
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_awready": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_awready"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_awsize": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_awsize"
+      },
+      "direction": "in",
+      "width": 3
+    },
+    "c0_s_axi_awvalid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_awvalid"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_bid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_bid"
+      },
+      "direction": "out",
+      "width": 4
+    },
+    "c0_s_axi_bready": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_bready"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_bresp": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_bresp"
+      },
+      "direction": "out",
+      "width": 2
+    },
+    "c0_s_axi_bvalid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_bvalid"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_araddr": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_araddr"
+      },
+      "direction": "in",
+      "width": 32
+    },
+    "c0_s_axi_ctrl_arready": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_arready"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_arvalid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_arvalid"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_awaddr": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_awaddr"
+      },
+      "direction": "in",
+      "width": 32
+    },
+    "c0_s_axi_ctrl_awready": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_awready"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_awvalid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_awvalid"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_bready": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_bready"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_bresp": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_bresp"
+      },
+      "direction": "out",
+      "width": 2
+    },
+    "c0_s_axi_ctrl_bvalid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_bvalid"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_rdata": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_rdata"
+      },
+      "direction": "out",
+      "width": 32
+    },
+    "c0_s_axi_ctrl_rready": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_rready"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_rresp": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_rresp"
+      },
+      "direction": "out",
+      "width": 2
+    },
+    "c0_s_axi_ctrl_rvalid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_rvalid"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_wdata": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_wdata"
+      },
+      "direction": "in",
+      "width": 32
+    },
+    "c0_s_axi_ctrl_wready": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_wready"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_wvalid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_ctrl_wvalid"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_rdata": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_rdata"
+      },
+      "direction": "out",
+      "width": 512
+    },
+    "c0_s_axi_rid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_rid"
+      },
+      "direction": "out",
+      "width": 4
+    },
+    "c0_s_axi_rlast": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_rlast"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_rready": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_rready"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_rresp": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_rresp"
+      },
+      "direction": "out",
+      "width": 2
+    },
+    "c0_s_axi_rvalid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_rvalid"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_wdata": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_wdata"
+      },
+      "direction": "in",
+      "width": 512
+    },
+    "c0_s_axi_wlast": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_wlast"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_wready": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_wready"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_wstrb": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_wstrb"
+      },
+      "direction": "in",
+      "width": 64
+    },
+    "c0_s_axi_wvalid": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "m_axi_wvalid"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_sys_clk_n": {
+      "binding": {
+        "board_delivery_qualified": false,
+        "kind": "external_clock",
+        "net": "c0_sys_clk_n",
+        "nominal_hz": 200000000
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_sys_clk_p": {
+      "binding": {
+        "board_delivery_qualified": false,
+        "kind": "external_clock",
+        "net": "c0_sys_clk_p",
+        "nominal_hz": 200000000
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c0_ui_clk": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "c0_ui_clk",
+        "nominal_period_ns": 7.5
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ui_clk_sync_rst": {
+      "binding": {
+        "active_level": 1,
+        "kind": "endpoint",
+        "net": "c0_ui_clk_sync_rst"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_app_ecc_multiple_err": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_app_ecc_multiple_err",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 8
+    },
+    "c1_app_ecc_single_err": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_app_ecc_single_err",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 8
+    },
+    "c1_app_ref_ack": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_app_ref_ack",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_app_ref_req": {
+      "binding": {
+        "kind": "inactive_request_constant",
+        "reason": "No runtime low-power/refresh/ZQ request API",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_app_sr_active": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_app_sr_active",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_app_sr_req": {
+      "binding": {
+        "kind": "inactive_request_constant",
+        "reason": "No runtime low-power/refresh/ZQ request API",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_app_zq_ack": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_app_zq_ack",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_app_zq_req": {
+      "binding": {
+        "kind": "inactive_request_constant",
+        "reason": "No runtime low-power/refresh/ZQ request API",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_aresetn": {
+      "binding": {
+        "active_level": 0,
+        "kind": "endpoint",
+        "net": "c1_aresetn"
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_ddr3_addr": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_addr",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 15
+    },
+    "c1_ddr3_ba": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_ba",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 3
+    },
+    "c1_ddr3_cas_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_cas_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_ck_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_ck_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_ck_p": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_ck_p",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_cke": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_cke",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_cs_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_cs_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_dq": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_dq",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "inout",
+      "width": 72
+    },
+    "c1_ddr3_dqs_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_dqs_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "inout",
+      "width": 9
+    },
+    "c1_ddr3_dqs_p": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_dqs_p",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "inout",
+      "width": 9
+    },
+    "c1_ddr3_odt": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_odt",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_ras_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_ras_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_reset_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_reset_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_we_n": {
+      "binding": {
+        "kind": "physical_pad",
+        "net": "c1_ddr3_we_n",
+        "source": "Unchanged original MIG pad selection; board review required"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_device_temp": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_device_temp",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 12
+    },
+    "c1_init_calib_complete": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_init_calib_complete",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_interrupt": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_interrupt",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_mmcm_locked": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_mmcm_locked",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_araddr": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 31
+    },
+    "c1_s_axi_arburst": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 1
+      },
+      "direction": "in",
+      "width": 2
+    },
+    "c1_s_axi_arcache": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_arid": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_arlen": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 8
+    },
+    "c1_s_axi_arlock": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_arprot": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 3
+    },
+    "c1_s_axi_arqos": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_arready": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_arready",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_arsize": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 6
+      },
+      "direction": "in",
+      "width": 3
+    },
+    "c1_s_axi_arvalid": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_awaddr": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 31
+    },
+    "c1_s_axi_awburst": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 1
+      },
+      "direction": "in",
+      "width": 2
+    },
+    "c1_s_axi_awcache": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_awid": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_awlen": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 8
+    },
+    "c1_s_axi_awlock": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_awprot": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 3
+    },
+    "c1_s_axi_awqos": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_awready": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_awready",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_awsize": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 6
+      },
+      "direction": "in",
+      "width": 3
+    },
+    "c1_s_axi_awvalid": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_bid": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_bid",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 4
+    },
+    "c1_s_axi_bready": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_bresp": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_bresp",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 2
+    },
+    "c1_s_axi_bvalid": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_bvalid",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_araddr": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 32
+    },
+    "c1_s_axi_ctrl_arready": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_ctrl_arready",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_arvalid": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_awaddr": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 32
+    },
+    "c1_s_axi_ctrl_awready": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_ctrl_awready",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_awvalid": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_bready": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_bresp": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_ctrl_bresp",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 2
+    },
+    "c1_s_axi_ctrl_bvalid": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_ctrl_bvalid",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_rdata": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_ctrl_rdata",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 32
+    },
+    "c1_s_axi_ctrl_rready": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_rresp": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_ctrl_rresp",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 2
+    },
+    "c1_s_axi_ctrl_rvalid": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_ctrl_rvalid",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_wdata": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 32
+    },
+    "c1_s_axi_ctrl_wready": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_ctrl_wready",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_wvalid": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_rdata": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_rdata",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 512
+    },
+    "c1_s_axi_rid": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_rid",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 4
+    },
+    "c1_s_axi_rlast": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_rlast",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_rready": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_rresp": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_rresp",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 2
+    },
+    "c1_s_axi_rvalid": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_rvalid",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_wdata": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 512
+    },
+    "c1_s_axi_wlast": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_wready": {
+      "binding": {
+        "kind": "diagnostic_output",
+        "net": "unused_c1_s_axi_wready",
+        "validity_qualified": false
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_wstrb": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 64
+    },
+    "c1_s_axi_wvalid": {
+      "binding": {
+        "kind": "inactive_channel_constant",
+        "reason": "C1 has no admitted master; all VALID and response READY inputs stay0",
+        "value": 0
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_sys_clk_n": {
+      "binding": {
+        "board_delivery_qualified": false,
+        "kind": "external_clock",
+        "net": "c1_sys_clk_n",
+        "nominal_hz": 200000000
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_sys_clk_p": {
+      "binding": {
+        "board_delivery_qualified": false,
+        "kind": "external_clock",
+        "net": "c1_sys_clk_p",
+        "nominal_hz": 200000000
+      },
+      "direction": "in",
+      "width": 1
+    },
+    "c1_ui_clk": {
+      "binding": {
+        "kind": "endpoint",
+        "net": "c1_ui_clk",
+        "nominal_period_ns": 7.5
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ui_clk_sync_rst": {
+      "binding": {
+        "active_level": 1,
+        "kind": "endpoint",
+        "net": "c1_ui_clk_sync_rst"
+      },
+      "direction": "out",
+      "width": 1
+    },
+    "sys_rst": {
+      "binding": {
+        "active_level": 0,
+        "kind": "endpoint",
+        "net": "mig_sys_rst_n"
+      },
+      "direction": "in",
+      "width": 1
+    }
+  },
+  "ch1_package_binding_sha256": "2c4f093b1f377d75159fae7ce25b14aae3edbf92ee34d9be14f1b74ef4f6842c",
+  "endpoint_port_shapes": {
+    "admission_blocked": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_aresetn": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_clients_rst_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_init_calib_complete": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_interrupt": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_ui_clk": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_ui_clk_sync_rst": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_aresetn": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_clients_rst_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ui_clk": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_ui_clk_sync_rst": {
+      "direction": "in",
+      "width": 1
+    },
+    "cfg_reset": {
+      "direction": "in",
+      "width": 1
+    },
+    "fault": {
+      "direction": "out",
+      "width": 1
+    },
+    "fault_code": {
+      "direction": "out",
+      "width": 8
+    },
+    "init_active": {
+      "direction": "out",
+      "width": 1
+    },
+    "init_complete": {
+      "direction": "out",
+      "width": 1
+    },
+    "irq": {
+      "direction": "out",
+      "width": 1
+    },
+    "job_active": {
+      "direction": "out",
+      "width": 1
+    },
+    "job_owned": {
+      "direction": "out",
+      "width": 1
+    },
+    "job_retired": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_araddr": {
+      "direction": "out",
+      "width": 31
+    },
+    "m_axi_arburst": {
+      "direction": "out",
+      "width": 2
+    },
+    "m_axi_arcache": {
+      "direction": "out",
+      "width": 4
+    },
+    "m_axi_arid": {
+      "direction": "out",
+      "width": 4
+    },
+    "m_axi_arlen": {
+      "direction": "out",
+      "width": 8
+    },
+    "m_axi_arlock": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_arprot": {
+      "direction": "out",
+      "width": 3
+    },
+    "m_axi_arqos": {
+      "direction": "out",
+      "width": 4
+    },
+    "m_axi_arready": {
+      "direction": "in",
+      "width": 1
+    },
+    "m_axi_arsize": {
+      "direction": "out",
+      "width": 3
+    },
+    "m_axi_arvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_awaddr": {
+      "direction": "out",
+      "width": 31
+    },
+    "m_axi_awburst": {
+      "direction": "out",
+      "width": 2
+    },
+    "m_axi_awcache": {
+      "direction": "out",
+      "width": 4
+    },
+    "m_axi_awid": {
+      "direction": "out",
+      "width": 4
+    },
+    "m_axi_awlen": {
+      "direction": "out",
+      "width": 8
+    },
+    "m_axi_awlock": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_awprot": {
+      "direction": "out",
+      "width": 3
+    },
+    "m_axi_awqos": {
+      "direction": "out",
+      "width": 4
+    },
+    "m_axi_awready": {
+      "direction": "in",
+      "width": 1
+    },
+    "m_axi_awsize": {
+      "direction": "out",
+      "width": 3
+    },
+    "m_axi_awvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_bid": {
+      "direction": "in",
+      "width": 4
+    },
+    "m_axi_bready": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_bresp": {
+      "direction": "in",
+      "width": 2
+    },
+    "m_axi_bvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "m_axi_ctrl_araddr": {
+      "direction": "out",
+      "width": 32
+    },
+    "m_axi_ctrl_arready": {
+      "direction": "in",
+      "width": 1
+    },
+    "m_axi_ctrl_arvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_ctrl_awaddr": {
+      "direction": "out",
+      "width": 32
+    },
+    "m_axi_ctrl_awready": {
+      "direction": "in",
+      "width": 1
+    },
+    "m_axi_ctrl_awvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_ctrl_bready": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_ctrl_bresp": {
+      "direction": "in",
+      "width": 2
+    },
+    "m_axi_ctrl_bvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "m_axi_ctrl_rdata": {
+      "direction": "in",
+      "width": 32
+    },
+    "m_axi_ctrl_rready": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_ctrl_rresp": {
+      "direction": "in",
+      "width": 2
+    },
+    "m_axi_ctrl_rvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "m_axi_ctrl_wdata": {
+      "direction": "out",
+      "width": 32
+    },
+    "m_axi_ctrl_wready": {
+      "direction": "in",
+      "width": 1
+    },
+    "m_axi_ctrl_wvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_rdata": {
+      "direction": "in",
+      "width": 512
+    },
+    "m_axi_rid": {
+      "direction": "in",
+      "width": 4
+    },
+    "m_axi_rlast": {
+      "direction": "in",
+      "width": 1
+    },
+    "m_axi_rready": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_rresp": {
+      "direction": "in",
+      "width": 2
+    },
+    "m_axi_rvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "m_axi_wdata": {
+      "direction": "out",
+      "width": 512
+    },
+    "m_axi_wlast": {
+      "direction": "out",
+      "width": 1
+    },
+    "m_axi_wready": {
+      "direction": "in",
+      "width": 1
+    },
+    "m_axi_wstrb": {
+      "direction": "out",
+      "width": 64
+    },
+    "m_axi_wvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "memory_ready": {
+      "direction": "out",
+      "width": 1
+    },
+    "mig_sys_rst_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "req": {
+      "direction": "in",
+      "width": 604
+    },
+    "req_ready": {
+      "direction": "out",
+      "width": 1
+    },
+    "req_valid": {
+      "direction": "in",
+      "width": 1
+    },
+    "reset_req_ready": {
+      "direction": "out",
+      "width": 1
+    },
+    "reset_req_valid": {
+      "direction": "in",
+      "width": 1
+    },
+    "rsp_data": {
+      "direction": "out",
+      "width": 512
+    },
+    "rsp_seq": {
+      "direction": "out",
+      "width": 16
+    },
+    "rsp_status": {
+      "direction": "out",
+      "width": 8
+    },
+    "rsp_valid": {
+      "direction": "out",
+      "width": 1
+    },
+    "sequence_busy": {
+      "direction": "out",
+      "width": 1
+    },
+    "sequence_complete": {
+      "direction": "out",
+      "width": 1
+    },
+    "sequence_fault": {
+      "direction": "out",
+      "width": 1
+    },
+    "sequence_fault_code": {
+      "direction": "out",
+      "width": 8
+    },
+    "sys_clients_rst_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "sys_clk": {
+      "direction": "in",
+      "width": 1
+    }
+  },
+  "fixture_scope": "Source-derived interface contract only. Contains port shapes/bindings and provenance hashes, not vendor HDL bodies, build logs, image files or execution claims.",
+  "mig_port_shapes": {
+    "c0_app_ecc_multiple_err": {
+      "direction": "out",
+      "width": 8
+    },
+    "c0_app_ecc_single_err": {
+      "direction": "out",
+      "width": 8
+    },
+    "c0_app_ref_ack": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_app_ref_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_app_sr_active": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_app_sr_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_app_zq_ack": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_app_zq_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_aresetn": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_ddr3_addr": {
+      "direction": "out",
+      "width": 15
+    },
+    "c0_ddr3_ba": {
+      "direction": "out",
+      "width": 3
+    },
+    "c0_ddr3_cas_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_ck_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_ck_p": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_cke": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_cs_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_dq": {
+      "direction": "inout",
+      "width": 72
+    },
+    "c0_ddr3_dqs_n": {
+      "direction": "inout",
+      "width": 9
+    },
+    "c0_ddr3_dqs_p": {
+      "direction": "inout",
+      "width": 9
+    },
+    "c0_ddr3_odt": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_ras_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_reset_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ddr3_we_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_device_temp": {
+      "direction": "out",
+      "width": 12
+    },
+    "c0_init_calib_complete": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_interrupt": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_mmcm_locked": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_araddr": {
+      "direction": "in",
+      "width": 31
+    },
+    "c0_s_axi_arburst": {
+      "direction": "in",
+      "width": 2
+    },
+    "c0_s_axi_arcache": {
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_arid": {
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_arlen": {
+      "direction": "in",
+      "width": 8
+    },
+    "c0_s_axi_arlock": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_arprot": {
+      "direction": "in",
+      "width": 3
+    },
+    "c0_s_axi_arqos": {
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_arready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_arsize": {
+      "direction": "in",
+      "width": 3
+    },
+    "c0_s_axi_arvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_awaddr": {
+      "direction": "in",
+      "width": 31
+    },
+    "c0_s_axi_awburst": {
+      "direction": "in",
+      "width": 2
+    },
+    "c0_s_axi_awcache": {
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_awid": {
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_awlen": {
+      "direction": "in",
+      "width": 8
+    },
+    "c0_s_axi_awlock": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_awprot": {
+      "direction": "in",
+      "width": 3
+    },
+    "c0_s_axi_awqos": {
+      "direction": "in",
+      "width": 4
+    },
+    "c0_s_axi_awready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_awsize": {
+      "direction": "in",
+      "width": 3
+    },
+    "c0_s_axi_awvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_bid": {
+      "direction": "out",
+      "width": 4
+    },
+    "c0_s_axi_bready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_bresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c0_s_axi_bvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_araddr": {
+      "direction": "in",
+      "width": 32
+    },
+    "c0_s_axi_ctrl_arready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_arvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_awaddr": {
+      "direction": "in",
+      "width": 32
+    },
+    "c0_s_axi_ctrl_awready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_awvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_bready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_bresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c0_s_axi_ctrl_bvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_rdata": {
+      "direction": "out",
+      "width": 32
+    },
+    "c0_s_axi_ctrl_rready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_rresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c0_s_axi_ctrl_rvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_wdata": {
+      "direction": "in",
+      "width": 32
+    },
+    "c0_s_axi_ctrl_wready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_ctrl_wvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_rdata": {
+      "direction": "out",
+      "width": 512
+    },
+    "c0_s_axi_rid": {
+      "direction": "out",
+      "width": 4
+    },
+    "c0_s_axi_rlast": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_rready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_rresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c0_s_axi_rvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_wdata": {
+      "direction": "in",
+      "width": 512
+    },
+    "c0_s_axi_wlast": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_s_axi_wready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_s_axi_wstrb": {
+      "direction": "in",
+      "width": 64
+    },
+    "c0_s_axi_wvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_sys_clk_n": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_sys_clk_p": {
+      "direction": "in",
+      "width": 1
+    },
+    "c0_ui_clk": {
+      "direction": "out",
+      "width": 1
+    },
+    "c0_ui_clk_sync_rst": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_app_ecc_multiple_err": {
+      "direction": "out",
+      "width": 8
+    },
+    "c1_app_ecc_single_err": {
+      "direction": "out",
+      "width": 8
+    },
+    "c1_app_ref_ack": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_app_ref_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_app_sr_active": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_app_sr_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_app_zq_ack": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_app_zq_req": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_aresetn": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_ddr3_addr": {
+      "direction": "out",
+      "width": 15
+    },
+    "c1_ddr3_ba": {
+      "direction": "out",
+      "width": 3
+    },
+    "c1_ddr3_cas_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_ck_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_ck_p": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_cke": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_cs_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_dq": {
+      "direction": "inout",
+      "width": 72
+    },
+    "c1_ddr3_dqs_n": {
+      "direction": "inout",
+      "width": 9
+    },
+    "c1_ddr3_dqs_p": {
+      "direction": "inout",
+      "width": 9
+    },
+    "c1_ddr3_odt": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_ras_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_reset_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ddr3_we_n": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_device_temp": {
+      "direction": "out",
+      "width": 12
+    },
+    "c1_init_calib_complete": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_interrupt": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_mmcm_locked": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_araddr": {
+      "direction": "in",
+      "width": 31
+    },
+    "c1_s_axi_arburst": {
+      "direction": "in",
+      "width": 2
+    },
+    "c1_s_axi_arcache": {
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_arid": {
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_arlen": {
+      "direction": "in",
+      "width": 8
+    },
+    "c1_s_axi_arlock": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_arprot": {
+      "direction": "in",
+      "width": 3
+    },
+    "c1_s_axi_arqos": {
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_arready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_arsize": {
+      "direction": "in",
+      "width": 3
+    },
+    "c1_s_axi_arvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_awaddr": {
+      "direction": "in",
+      "width": 31
+    },
+    "c1_s_axi_awburst": {
+      "direction": "in",
+      "width": 2
+    },
+    "c1_s_axi_awcache": {
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_awid": {
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_awlen": {
+      "direction": "in",
+      "width": 8
+    },
+    "c1_s_axi_awlock": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_awprot": {
+      "direction": "in",
+      "width": 3
+    },
+    "c1_s_axi_awqos": {
+      "direction": "in",
+      "width": 4
+    },
+    "c1_s_axi_awready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_awsize": {
+      "direction": "in",
+      "width": 3
+    },
+    "c1_s_axi_awvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_bid": {
+      "direction": "out",
+      "width": 4
+    },
+    "c1_s_axi_bready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_bresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c1_s_axi_bvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_araddr": {
+      "direction": "in",
+      "width": 32
+    },
+    "c1_s_axi_ctrl_arready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_arvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_awaddr": {
+      "direction": "in",
+      "width": 32
+    },
+    "c1_s_axi_ctrl_awready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_awvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_bready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_bresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c1_s_axi_ctrl_bvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_rdata": {
+      "direction": "out",
+      "width": 32
+    },
+    "c1_s_axi_ctrl_rready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_rresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c1_s_axi_ctrl_rvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_wdata": {
+      "direction": "in",
+      "width": 32
+    },
+    "c1_s_axi_ctrl_wready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_ctrl_wvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_rdata": {
+      "direction": "out",
+      "width": 512
+    },
+    "c1_s_axi_rid": {
+      "direction": "out",
+      "width": 4
+    },
+    "c1_s_axi_rlast": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_rready": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_rresp": {
+      "direction": "out",
+      "width": 2
+    },
+    "c1_s_axi_rvalid": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_wdata": {
+      "direction": "in",
+      "width": 512
+    },
+    "c1_s_axi_wlast": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_s_axi_wready": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_s_axi_wstrb": {
+      "direction": "in",
+      "width": 64
+    },
+    "c1_s_axi_wvalid": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_sys_clk_n": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_sys_clk_p": {
+      "direction": "in",
+      "width": 1
+    },
+    "c1_ui_clk": {
+      "direction": "out",
+      "width": 1
+    },
+    "c1_ui_clk_sync_rst": {
+      "direction": "out",
+      "width": 1
+    },
+    "sys_rst": {
+      "direction": "in",
+      "width": 1
+    }
+  },
+  "profile": {
+    "actual_ch1_platform_sha256": "5c6c208264d71bc66e8ad8d49472d15adba63370dee4e9781cbc77ad94454b2c",
+    "address_or_data_conversion": false,
+    "logical_address_window": {
+      "base": 0,
+      "bytes": 2147483648,
+      "host_address_bits": 31
+    },
+    "logical_ui0_physical_channel": 1,
+    "logical_ui1_physical_channel": 0,
+    "normal_mig_port_count": 169,
+    "original_profile": {
+      "ecc": "ON",
+      "output_drive": "RZQ/7",
+      "sys_reset_active_level": 0,
+      "system_clock_hz": 200000000,
+      "system_clock_type": "DIFFERENTIAL",
+      "ui_period_ns": 7.5
+    },
+    "part": "xc7k480tffg1156-2",
+    "physical_ecc_data_bits_per_channel": 72,
+    "selected_physical_channel": 1,
+    "source_clock_ns": 20.0,
+    "top": "ypcb_ddr_ew_top"
+  },
+  "provenance": {
+    "sha256": "d768f8dfe2048db499c39e24f33ad83ef19b975d7df1a89a6f2e1399f8afb51b",
+    "source_files": {
+      "actual_board_xdc": {
+        "path": "build/ypcb-ddr-shell/ch1-source-v1/board.xdc",
+        "sha256": "18f8b2bdd853c991df4395a40ca184b7ee4618f035b19f9e073423f071d11a15"
+      },
+      "actual_ch1_platform": {
+        "path": "build/ypcb-ddr-shell/ch1-source-v1/platform.sv",
+        "sha256": "5c6c208264d71bc66e8ad8d49472d15adba63370dee4e9781cbc77ad94454b2c"
+      },
+      "actual_ch1_source_report": {
+        "path": "build/ypcb-ddr-shell/ch1-source-v1/report.json",
+        "sha256": "6e70442d1007307228dc972f8ecd306610471b12a7c9c1f93c32549668ec85bb"
+      },
+      "actual_ch1_top": {
+        "path": "build/ypcb-ddr-shell/ch1-source-v1/top.sv",
+        "sha256": "0ed6e7ed37b018274323ffb2576818f7fadf4c845766ef40283488d43ea028a1"
+      },
+      "actual_mig_xdc": {
+        "path": "build/ypcb-ddr-shell/ch1-source-v1/mig-original.xdc",
+        "sha256": "5ea42669bed59d09cfad5c25a08aec20e0824d48895071ecd2acfbff8261b6fc"
+      },
+      "async_endpoint": {
+        "path": "build/ddr-read-snapshot-candidate/v2/workspace/rtl/ddr/rk_jtag_ew_ddr_async.sv",
+        "sha256": "9b57c79fd7405a56589bec249c4943d0266e3a50b17c048f66eb168e8a1db441"
+      },
+      "original_binding_py": {
+        "path": "tools/ddr/original_binding.py",
+        "sha256": "b9924dfcc34e27b96ac8a7d9c134e8e7713fbde9cbafd8fc54fe61d8b8b4c00a"
+      },
+      "original_mig_selection_report": {
+        "path": "build/original-mig-rtl-selection/v4/report.json",
+        "sha256": "0189dac0575217651113b2507d85900379790ccaef78a0f50d84d98d1a3bbffc"
+      },
+      "original_mig_wrapper": {
+        "path": "build/original-mig-rtl-selection/v4/source/generated/rtl/top_mig_7series_0_0.v",
+        "sha256": "09c000b23396d629f924164b66e4bb8f289e369bf3ef274f1577d36a3892750d"
+      },
+      "original_platform_py": {
+        "path": "tools/ddr/original_platform.py",
+        "sha256": "96a2f06c6088708e8188905d7bf5500e2c87a34591981678175828e17f049767"
+      },
+      "original_port_map_report": {
+        "path": "build/original-mig-port-map/v2/report.json",
+        "sha256": "47bf170ee36768bc6faee04c432aa4f9231f7eaffa059aa27bd840ee0132be0f"
+      },
+      "parent_board_report": {
+        "path": "build/ddr-read-snapshot-candidate/v2/workspace/build/ypcb-ddr-shell/snapshot-source-v4/report.json",
+        "sha256": "42db52875bdcc3b0a075b2e26eddc4c70f1a12a1828fbd9a213e56688148b1aa"
+      },
+      "parent_platform_report": {
+        "path": "build/ddr-read-snapshot-candidate/v2/workspace/build/original-ddr-platform/snapshot-v3/report.json",
+        "sha256": "7a4afc12cf4769f27c2c546c0755df33c040f78038fe899c7b18af0a4cd46d55"
+      },
+      "prepare_channel_profile_py": {
+        "path": "tools/ddr/prepare_channel_profile.py",
+        "sha256": "7184817945b1ea898eb603efdb2424be6b03e36f7a9388d98c7f167f773b423a"
+      }
+    }
+  },
+  "schema": "ch1-physical-channel-binding-fixture-v1"
+}

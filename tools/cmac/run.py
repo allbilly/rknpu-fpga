@@ -17,6 +17,7 @@ import threading
 import time
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from evidence import ROOT,fingerprint,timestamp
+from board_contract import validate_board_result
 from run_openxc7 import (PART,NEXTPNR_REV,XRAY_REV,META_REV,SIGNOFF_GAPS,
                         normalized_xdc,package_pins,check_timing_report,pinned_checkout,digest)
 
@@ -29,7 +30,7 @@ def inputs():
     paths += [ROOT/p for p in spec['synthesis']+spec['simulation_helpers']]
     paths += [ROOT/p for p in ('fpga/cmac/Makefile','fpga/cmac/sources.json','fpga/cmac/IMPORTS.json',
                               'tests/cmac/fixtures.json','tests/axil_host.svh','tests/memory_check.svh','fpga/ypcb.xdc',
-                              'tools/cmac/run.py','tools/evidence.py','tools/run_openxc7.py')]
+                              'tools/cmac/run.py','tools/cmac/board_contract.py','tools/evidence.py','tools/run_openxc7.py')]
     return spec,fingerprint(paths)
 
 def check_rom():
@@ -55,6 +56,8 @@ def check_rom():
     assert (ROOT/'tests/cmac/data/board_rom.hex').read_text()==text,'stale packaged board ROM'
 
 def main():
+    if not __debug__:
+        raise RuntimeError('CMAC verification requires Python assertions enabled; do not use -O')
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action',choices=('check','test','synth','pnr'))
     parser.add_argument('--tool',choices=('verilator','iverilog'),default='verilator')
@@ -127,6 +130,8 @@ def main():
                 binary=out/'sim.vvp'
                 run([tool,'-g2012',*defines,'-s',test_top,'-o',binary,*sources,bench],'compile')
                 report['vvp_version']=run(['vvp','-V'],'vvp_version').splitlines()[0];execute=['vvp',binary]
+            report['runtime_binary']=fingerprint([binary])
+            save()
             fixtures=json.loads((ROOT/'tests/cmac/fixtures.json').read_text())['cases']
             if args.suite=='board':jobs=[(None,m) for m in list(range(7 if tool=='verilator' else 8))+[8]]
             elif args.suite=='memory':jobs=[(None,0)]
@@ -142,9 +147,7 @@ def main():
                 text=run(argv,name);lines=[s for s in text.splitlines() if s.startswith('PASS ')]
                 assert len(lines)==1,text
                 if args.suite=='board':
-                    good=mode in (0,3,4,5,6)
-                    assert f'mode={mode} success={2 if mode==6 else int(good)} resets={int(mode in (3,4,5,6))} faults={int(not good)}' in lines[0],lines
-                    if good:assert 'init=4096 check=4096 cmd_reads=196 operand_reads=12288 writes=64 acks=64' in lines[0],lines
+                    validate_board_result(lines[0],mode)
                 elif args.suite=='memory':assert 'transactions=11144 rejected=3720 reset_pending_write=1' in lines[0],lines
                 elif mode in ((0,9,10,19) if args.suite=='dma' else (0,9,10)):
                     assert f'good_jobs={2 if mode==10 else 1} faults=0 resets={int(mode in (9,19))}' in lines[0],lines
@@ -154,6 +157,8 @@ def main():
                 save();print(lines[0],flush=True)
             with ThreadPoolExecutor(max_workers=args.jobs) as pool:
                 for future in as_completed([pool.submit(test,c,m) for c,m in jobs]):future.result()
+            if fingerprint([binary])!=report['runtime_binary']:
+                raise RuntimeError('compiled simulator changed during replay')
             report['status']='PASS_CONSOLIDATED_CMAC_NATIVE_'+args.suite.upper()
         elif args.action=='synth':
             report['yosys_version']=run(['yosys','-V'],'version').strip()
@@ -191,7 +196,9 @@ def main():
             assert all(digest(Path(p))==sha for p,sha in report['tool_inputs'].items())
             report['status']='PNR_CHARACTERIZED_NOT_SIGNOFF'
         assert inputs()[1]==source,'source changed during run'
-        report['artifacts']=fingerprint([p for p in out.iterdir() if p.is_file() and p.name!='report.json'])
+        artifacts=[p for p in out.iterdir() if p.is_file() and p.name!='report.json']
+        if args.action=='test':artifacts.append(binary)
+        report['artifacts']=fingerprint(artifacts)
     except Exception as exc:report.update(status='FAIL',reason=str(exc));raise
     finally:report['finished_utc']=timestamp();save();print(out/'report.json',flush=True)
     print(report['status'],flush=True)

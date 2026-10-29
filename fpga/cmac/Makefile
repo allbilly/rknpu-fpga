@@ -461,3 +461,9 @@ array-dsp-prefix-protected-library-control-test:
 	cd $(ROOT) && $(PYTHON) tests/cmac/test_dsp_prefix_protected_library_control.py
 array-dsp-prefix-generated-top-replay:
 	cd $(ROOT) && $(PYTHON) tools/cmac/resume_dsp_prefix_generated_top.py --top-report "$(TOP_REPORT)" --fdce-verilator-report "$(FDCE_VERILATOR_REPORT)" --fdce-iverilog-report "$(FDCE_IVERILOG_REPORT)" --top-archive-report "$(TOP_ARCHIVE_INDEX)" --interface-archive-report "$(INTERFACE_ARCHIVE_INDEX)" --build-errors-archive-report "$(BUILD_ERRORS_ARCHIVE_INDEX)"
+# Serialized raw-command numerical board: source preparation only.
+.PHONY: serial-vivado-prepare serial-vivado-control-test
+serial-vivado-prepare:
+	cd $(ROOT) && $(PYTHON) tools/cmac/prepare_serial_board.py prepare
+serial-vivado-control-test:
+	cd $(ROOT) && $(PYTHON) -m unittest discover -s tests/cmac -p test_prepare_serial_board.py -v

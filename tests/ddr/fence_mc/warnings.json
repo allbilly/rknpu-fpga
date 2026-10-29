@@ -1,0 +1,1685 @@
+{
+  "schema_version": 1,
+  "review_status": "REVIEWED_FOR_BOUNDED_MC_MODEL",
+  "scope": "Exact WIDTH1-fixed MC source variant and official XECLIB functional simulation diagnostics; no physical/electrical/timing waiver.",
+  "compiled_source_sha256": {
+    "mig_7series_v4_2_arb_mux.v": "a509b910fc977799ddce78a587b2dfa96338948d21052c8285ed1acdf9335c75",
+    "mig_7series_v4_2_arb_row_col.v": "033f73c2378b01b429fa33e326e1be7d4350f0df49e1e56b1a669859a9b91422",
+    "mig_7series_v4_2_arb_select.v": "6d1d51c8b419efe976b87b46939ba5a5b5bff2b5dc652163c2176a8eb0d4493f",
+    "mig_7series_v4_2_bank_cntrl.v": "ed48004bb5e2466d376cb15870416a00973c6b3d928f12d7a4b6cf2de275bd69",
+    "mig_7series_v4_2_bank_common.v": "20458b07b3bc751e788e8bb613cfc88792cc52ae97fa8f1e596c33f2fccd6dd1",
+    "mig_7series_v4_2_bank_compare.v": "ed85f3f2b2430a8e5028c8adc21db598ada44d5f83b0515777c648c4adb060f3",
+    "mig_7series_v4_2_bank_mach.v": "09b68e3243186872cb20e4d530c5dea1351117e3d7edb697b209ffb3a875f165",
+    "mig_7series_v4_2_bank_queue.v": "8c379fc4f9fab724f0ac94d008d9de844159b295fc12e1458c603d1d9209eeb9",
+    "mig_7series_v4_2_bank_state.v": "465babb32d1346f6c7c7e7f2f5dd67d71438aea9ae31056258e15af3bd36b35f",
+    "mig_7series_v4_2_col_mach.v": "a91e4cd5e8afcf0f956e94144d896a78849dafea0e31b5d88b62147de9f7bf0a",
+    "mig_7series_v4_2_mc.v": "98e99f2d2dc416ea8fb917f68fd5d609da3f574c3c417c15a31719d612f98c8b",
+    "mig_7series_v4_2_rank_cntrl.v": "25f0ba1a096ede1f408fe8fa1f1e045624d7f2b349e966fac487369ce7ec4ef7",
+    "mig_7series_v4_2_rank_common.v": "eb8fae78ffef6674890baf439790a57b8d21d11b1666ac7c4f17a77ddeae9683",
+    "mig_7series_v4_2_rank_mach.v": "c7df91c07d2fa021ad2649d9003b85ced3da8c0d0a2c271a56421303b50a1468",
+    "mig_7series_v4_2_ecc_buf.v": "2b70153618c0dc18b13cb7e8e52d9dfe9aee78f7750c5e8fc8d3d9d98b910e72",
+    "mig_7series_v4_2_ecc_dec_fix.v": "84745585695a18896e41aec6f3f2a51faca2774f4fe1e931ad9a67256eb7f140",
+    "mig_7series_v4_2_ecc_gen.v": "fb1b09096febcceb3f05b4f68c9c3fe2d0ff40661c210fb44797413860fd6e89",
+    "mig_7series_v4_2_ecc_merge_enc.v": "54e55ddbf12fa67d3e96db020415aa1303cd0c76a1c6e77f0b8a56ecc556d114",
+    "mig_7series_v4_2_fi_xor.v": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+    "RAM32M.v": "109bf9683d22755429ad95a9ad19547b79f4afc90064cb2f7621e0c4f114a4e6",
+    "SRLC32E.v": "9837e9e530292cc0976c5e8a3ca7914a60696bb08148191bbf3f7e5f488f2d10",
+    "mig_7series_v4_2_round_robin_arb.v": "ae6be8a3f77170c867bf076a4291bd6b0755c1250ab32215a8b679274b88368f"
+  },
+  "bench_sha256": "af2c25346657504bc05094e69c738ccc713176f263a0a8e8463299f524f2dafe",
+  "arbiter_bench_sha256": "0ef616636038dcc02ab093f0c0851fc39668e09b8cdd79418f2dd7aa358452e2",
+  "arbiter_helper_sha256": "eeafdc009e9db7a50b51752eaf4b1bf52e18dc1a2f725fbdf4a55dcf18d8cfb6",
+  "original_arbiter_sha256": "a4b107a17899ee17b42c76e91f8789737d74b65d37c1be6f895bbe24b8b614ef",
+  "iverilog_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "verilator_version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+  "iverilog": [
+    {
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 322,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 382,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 311,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 363,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 429,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 322,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 273,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 327,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 374,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 417,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 474,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 114,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 140,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 188,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 215,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 231,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 212,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 276,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 134,
+      "message": "warning: Anachronistic use of named begin/end to surround generate schemes."
+    },
+    {
+      "file": "mig_7series_v4_2_fi_xor.v",
+      "line": 106,
+      "message": "warning: Anachronistic use of begin/end to surround generate schemes."
+    }
+  ],
+  "verilator": [
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 143,
+      "column": 13,
+      "message": "Instance pin connected by name with empty reference: 'grant_ns'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 172,
+      "column": 7,
+      "message": "Instance pin connected by name with empty reference: 'grant_ns'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 206,
+      "column": 11,
+      "message": "Instance pin connected by name with empty reference: 'grant_ns'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 233,
+      "column": 7,
+      "message": "Instance pin connected by name with empty reference: 'grant_ns'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 280,
+      "column": 7,
+      "message": "Instance pin connected by name with empty reference: 'grant_ns'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 318,
+      "column": 13,
+      "message": "Instance pin connected by name with empty reference: 'grant_r'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 264,
+      "column": 7,
+      "message": "Instance pin connected by name with empty reference: 'grant_r'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 381,
+      "column": 14,
+      "message": "Instance pin connected by name with empty reference: 'DOD'"
+    },
+    {
+      "code": "PINMISSING",
+      "file": "mig_7series_v4_2_mc.v",
+      "line": 670,
+      "column": 5,
+      "message": "Instance has missing pin: 'idle'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 279,
+      "column": 11,
+      "message": "Instance pin connected by name with empty reference: 'Q31'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 451,
+      "column": 9,
+      "message": "Instance pin connected by name with empty reference: 'grant_r'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 152,
+      "column": 14,
+      "message": "Instance pin connected by name with empty reference: 'DOD'"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 163,
+      "column": 10,
+      "message": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 326,
+      "column": 25,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 328,
+      "column": 25,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 336,
+      "column": 32,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 341,
+      "column": 32,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 349,
+      "column": 29,
+      "message": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 351,
+      "column": 29,
+      "message": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 400,
+      "column": 25,
+      "message": "Unnamed generate block 'genblk5' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 414,
+      "column": 12,
+      "message": "Unnamed generate block 'genblk5' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 137,
+      "column": 28,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 139,
+      "column": 28,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_dec_fix.v",
+      "line": 161,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk5' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 187,
+      "column": 30,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 189,
+      "column": 30,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 191,
+      "column": 30,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 193,
+      "column": 30,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 194,
+      "column": 32,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 116,
+      "column": 76,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 475,
+      "column": 39,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 541,
+      "column": 34,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 488,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 366,
+      "column": 24,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 382,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 401,
+      "column": 24,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 420,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 442,
+      "column": 24,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 458,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 482,
+      "column": 24,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 500,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 217,
+      "column": 29,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 352,
+      "column": 9,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 456,
+      "column": 53,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 463,
+      "column": 36,
+      "message": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 477,
+      "column": 12,
+      "message": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 509,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk4' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 520,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk5' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 545,
+      "column": 22,
+      "message": "Unnamed generate block 'genblk6' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 562,
+      "column": 29,
+      "message": "Unnamed generate block 'genblk7' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 565,
+      "column": 26,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 584,
+      "column": 27,
+      "message": "Unnamed generate block 'genblk8' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 662,
+      "column": 10,
+      "message": "Unnamed generate block 'genblk9' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 672,
+      "column": 28,
+      "message": "Unnamed generate block 'genblk10' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_compare.v",
+      "line": 171,
+      "column": 21,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 319,
+      "column": 21,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 320,
+      "column": 12,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 448,
+      "column": 28,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 494,
+      "column": 55,
+      "message": "Unnamed generate block 'genblk4' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 503,
+      "column": 10,
+      "message": "Unnamed generate block 'genblk4' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 553,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk6' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 558,
+      "column": 10,
+      "message": "Unnamed generate block 'genblk6' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 655,
+      "column": 22,
+      "message": "Unnamed generate block 'genblk9' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 658,
+      "column": 22,
+      "message": "Unnamed generate block 'genblk9' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "VARHIDDEN",
+      "file": "mig_7series_v4_2_bank_mach.v",
+      "line": 194,
+      "column": 42,
+      "message": "Declaration of signal hides declaration in upper scope: 'size'"
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_mc.v",
+      "line": 353,
+      "column": 34,
+      "message": "Logical operator LOGNOT expects 1 bit on the LHS, but LHS's MODDIVS generates 32 or 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_mc.v",
+      "line": 817,
+      "column": 13,
+      "message": "Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_mach.v",
+      "line": 206,
+      "column": 125,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 315,
+      "column": 33,
+      "message": "Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 335,
+      "column": 15,
+      "message": "Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 400,
+      "column": 15,
+      "message": "Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 168,
+      "column": 34,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 270,
+      "column": 50,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 323,
+      "column": 79,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 370,
+      "column": 79,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 or 3 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 204,
+      "column": 75,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 409,
+      "column": 51,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 416,
+      "column": 53,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 or 7 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 423,
+      "column": 57,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 or 10 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 248,
+      "column": 19,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 or 3 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 254,
+      "column": 17,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 or 3 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 255,
+      "column": 19,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's SUB generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 308,
+      "column": 13,
+      "message": "Operator NEQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 482,
+      "column": 45,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 110,
+      "column": 62,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 or 4 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 442,
+      "column": 12,
+      "message": "Logical operator LOGNOT expects 1 bit on the LHS, but LHS's MODDIVS generates 32 or 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 456,
+      "column": 15,
+      "message": "Operator NEQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 337,
+      "column": 26,
+      "message": "Operator COND expects 22 bits on the Conditional True, but Conditional True's REPLICATE generates 1 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 365,
+      "column": 26,
+      "message": "Operator COND expects 22 bits on the Conditional True, but Conditional True's REPLICATE generates 1 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 404,
+      "column": 38,
+      "message": "Operator NEQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 576,
+      "column": 49,
+      "message": "Operator ASSIGNW expects 1 bits on the Assign RHS, but Assign RHS's REPLICATE generates 2 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 617,
+      "column": 57,
+      "message": "Operator AND expects 8 bits on the LHS, but LHS's VARREF 'col_ra_one_hot' generates 1 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 619,
+      "column": 57,
+      "message": "Operator AND expects 2 bits on the LHS, but LHS's SEL generates 1 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_bank_queue.v",
+      "line": 450,
+      "column": 33,
+      "message": "Operator EQ expects 48 bits on the LHS, but LHS's VARREF 'ORDERING' generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_bank_queue.v",
+      "line": 455,
+      "column": 24,
+      "message": "Operator EQ expects 48 bits on the LHS, but LHS's VARREF 'ORDERING' generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 369,
+      "column": 25,
+      "message": "Operator LTE expects 32 bits on the LHS, but LHS's VARREF 'ras_timer_r' generates 3 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "SRLC32E.v",
+      "line": 62,
+      "column": 11,
+      "message": "Bit extraction of var[31:0] requires 5 bit index, not 7 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "SRLC32E.v",
+      "line": 62,
+      "column": 26,
+      "message": "Bit extraction of var[31:0] requires 5 bit index, not 7 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 370,
+      "column": 23,
+      "message": "Operator ASSIGN expects 2 bits on the Assign RHS, but Assign RHS's REPLICATE generates 1 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 382,
+      "column": 30,
+      "message": "Operator ASSIGN expects 2 bits on the Assign RHS, but Assign RHS's CONST '4'h0' generates 4 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 440,
+      "column": 75,
+      "message": "Operator COND expects 32 bits on the Conditional True, but Conditional True's REPLICATE generates 8 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 438,
+      "column": 60,
+      "message": "Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's COND generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 338,
+      "column": 27,
+      "message": "Bit extraction of var[7:0] requires 3 bit index, not 1 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 169,
+      "column": 38,
+      "message": "Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'ones' generates 8 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_mc.v",
+      "line": 421,
+      "column": 54,
+      "message": "Operator ASSIGNW expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'col_ra' generates 1 bits."
+    },
+    {
+      "code": "BLKSEQ",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 461,
+      "column": 49,
+      "message": "Blocking assignment '=' in sequential logic process"
+    },
+    {
+      "code": "BLKSEQ",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 283,
+      "column": 37,
+      "message": "Blocking assignment '=' in sequential logic process"
+    },
+    {
+      "code": "BLKSEQ",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 320,
+      "column": 46,
+      "message": "Blocking assignment '=' in sequential logic process"
+    },
+    {
+      "code": "BLKSEQ",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 221,
+      "column": 16,
+      "message": "Blocking assignment '=' in sequential logic process"
+    },
+    {
+      "code": "BLKSEQ",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 223,
+      "column": 16,
+      "message": "Blocking assignment '=' in sequential logic process"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_mc.v",
+      "line": 433,
+      "column": 37,
+      "message": "Signal is not driven, nor used: 'i'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_dec_fix.v",
+      "line": 86,
+      "column": 9,
+      "message": "Signal is not used: 'rst'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_rank_mach.v",
+      "line": 74,
+      "column": 14,
+      "message": "Parameter is not used: 'CS_WIDTH'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 98,
+      "column": 14,
+      "message": "Parameter is not used: 'DQS_WIDTH'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 151,
+      "column": 9,
+      "message": "Signal is not used: 'col_size'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 286,
+      "column": 26,
+      "message": "Signal is not used: 'col_ra'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 289,
+      "column": 25,
+      "message": "Bits of signal are not used: 'col_a'[14,12,10]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 149,
+      "column": 13,
+      "message": "Bits of signal are not used: 'offset_ns'[1]"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 197,
+      "column": 69,
+      "message": "Procedural assignment to declaration with initial value: 'offset_r1'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 198,
+      "column": 69,
+      "message": "Procedural assignment to declaration with initial value: 'offset_r2'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 293,
+      "column": 15,
+      "message": "Bits of signal are not used: 'col_a_full'[11:10]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 395,
+      "column": 27,
+      "message": "Bits of signal are not used: 'fifo_out_data_r'[41:37]"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 73,
+      "column": 15,
+      "message": "Parameter is not used: 'DATA_BUF_ADDR_WIDTH'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 74,
+      "column": 15,
+      "message": "Parameter is not used: 'DATA_BUF_OFFSET_WIDTH'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 89,
+      "column": 9,
+      "message": "Signal is not used: 'rst'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 95,
+      "column": 41,
+      "message": "Signal is not used: 'wr_data_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 96,
+      "column": 40,
+      "message": "Signal is not used: 'wr_data_mask_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 97,
+      "column": 38,
+      "message": "Signal is not used: 'rd_merge_data_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 87,
+      "column": 9,
+      "message": "Signal is not used: 'rst'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 93,
+      "column": 35,
+      "message": "Bits of signal are not used: 'rd_data_addr'[4]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 97,
+      "column": 35,
+      "message": "Bits of signal are not used: 'wr_data_addr'[4]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 132,
+      "column": 24,
+      "message": "Bits of signal are not used: 'buf_out_data'[515:512]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "RAM32M.v",
+      "line": 57,
+      "column": 7,
+      "message": "Signal is not driven, nor used: 'notifier'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 316,
+      "column": 14,
+      "message": "Parameter is not used: 'TWO'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 77,
+      "column": 14,
+      "message": "Parameter is not used: 'nBANK_MACHS'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 165,
+      "column": 20,
+      "message": "Procedural assignment to declaration with initial value: 'zq_request'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 168,
+      "column": 21,
+      "message": "Procedural assignment to declaration with initial value: 'zq_tick'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 209,
+      "column": 21,
+      "message": "Procedural assignment to declaration with initial value: 'sre_request'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 233,
+      "column": 71,
+      "message": "Procedural assignment to declaration with initial value: 'ckesr_timer_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 234,
+      "column": 72,
+      "message": "Procedural assignment to declaration with initial value: 'ckesr_timer_ns'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 281,
+      "column": 12,
+      "message": "Signal is not used: 'maint_busy'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 292,
+      "column": 24,
+      "message": "Signal is not used: 'maint_grant_ns'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 383,
+      "column": 23,
+      "message": "Procedural assignment to declaration with initial value: 'app_ref_ack_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 384,
+      "column": 19,
+      "message": "Procedural assignment to declaration with initial value: 'app_ref_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 397,
+      "column": 22,
+      "message": "Procedural assignment to declaration with initial value: 'app_zq_ack_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 398,
+      "column": 18,
+      "message": "Procedural assignment to declaration with initial value: 'app_zq_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 501,
+      "column": 28,
+      "message": "Procedural assignment to declaration with initial value: 'maint_ref_zq_wip_r'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 84,
+      "column": 14,
+      "message": "Parameter is not used: 'RANKS'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 85,
+      "column": 14,
+      "message": "Parameter is not used: 'CWL'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 218,
+      "column": 27,
+      "message": "Signal is not used: 'end_rtp'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 219,
+      "column": 27,
+      "message": "Signal is not used: 'passing_open_bank'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 220,
+      "column": 27,
+      "message": "Signal is not used: 'op_exit_req'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 223,
+      "column": 27,
+      "message": "Signal is not used: 'start_pre_wait'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 279,
+      "column": 15,
+      "message": "Bits of signal are not used: 'cmd'[2:1]"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_queue.v",
+      "line": 502,
+      "column": 30,
+      "message": "Procedural assignment to declaration with initial value: 'rcv_open_bank'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_queue.v",
+      "line": 499,
+      "column": 31,
+      "message": "Bits of signal are not used: 'rb_hit_busy_ns_in'[7:4,0]"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_queue.v",
+      "line": 251,
+      "column": 19,
+      "message": "Procedural assignment to declaration with initial value: 'adv_queue'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_queue.v",
+      "line": 323,
+      "column": 20,
+      "message": "Procedural assignment to declaration with initial value: 'tail_r_lcl'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_bank_compare.v",
+      "line": 80,
+      "column": 14,
+      "message": "Parameter is not used: 'ECC'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_compare.v",
+      "line": 119,
+      "column": 9,
+      "message": "Signal is not used: 'size'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_compare.v",
+      "line": 248,
+      "column": 34,
+      "message": "Procedural assignment to declaration with initial value: 'col_addr_template'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_compare.v",
+      "line": 248,
+      "column": 14,
+      "message": "Bits of signal are not used: 'col_addr_template'[15]"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 160,
+      "column": 14,
+      "message": "Parameter is not used: 'ORDERING'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 422,
+      "column": 9,
+      "message": "Signal is not used: 'passing_open_bank'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 423,
+      "column": 9,
+      "message": "Signal is not used: 'low_idle_cnt_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 425,
+      "column": 9,
+      "message": "Signal is not used: 'op_exit_grant'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 426,
+      "column": 9,
+      "message": "Signal is not used: 'tail_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 638,
+      "column": 31,
+      "message": "Bits of signal are not used: 'demand_act_priority_in'[7:4,0]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 751,
+      "column": 31,
+      "message": "Bits of signal are not used: 'demand_priority_in'[7:4,0]"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 262,
+      "column": 59,
+      "message": "Procedural assignment to declaration with initial value: 'rcd_timer_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 264,
+      "column": 22,
+      "message": "Procedural assignment to declaration with initial value: 'rcd_active_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 302,
+      "column": 21,
+      "message": "Procedural assignment to declaration with initial value: 'rmw_rd_done'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 303,
+      "column": 25,
+      "message": "Procedural assignment to declaration with initial value: 'rd_half_rmw_lcl'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 306,
+      "column": 20,
+      "message": "Procedural assignment to declaration with initial value: 'rmw_wait_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 639,
+      "column": 22,
+      "message": "Procedural assignment to declaration with initial value: 'act_demanded'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 752,
+      "column": 18,
+      "message": "Procedural assignment to declaration with initial value: 'demanded'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 852,
+      "column": 27,
+      "message": "Procedural assignment to declaration with initial value: 'phy_mc_ctl_full_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 853,
+      "column": 27,
+      "message": "Procedural assignment to declaration with initial value: 'phy_mc_cmd_full_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 864,
+      "column": 19,
+      "message": "Procedural assignment to declaration with initial value: 'ofs_rdy_r'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 91,
+      "column": 14,
+      "message": "Parameter is not used: 'nRAS'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 92,
+      "column": 14,
+      "message": "Parameter is not used: 'nRCD'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 93,
+      "column": 14,
+      "message": "Parameter is not used: 'nWR'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 335,
+      "column": 30,
+      "message": "Procedural assignment to declaration with initial value: 'send_cmd0_col'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 336,
+      "column": 30,
+      "message": "Procedural assignment to declaration with initial value: 'send_cmd1_row'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 340,
+      "column": 30,
+      "message": "Procedural assignment to declaration with initial value: 'send_cmd2_pre'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 343,
+      "column": 23,
+      "message": "Procedural assignment to declaration with initial value: 'cs_en0'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 344,
+      "column": 23,
+      "message": "Procedural assignment to declaration with initial value: 'cs_en1'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 345,
+      "column": 23,
+      "message": "Procedural assignment to declaration with initial value: 'cs_en2'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 306,
+      "column": 27,
+      "message": "Signal is not used: 'col_rdy_wr'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 297,
+      "column": 24,
+      "message": "Procedural assignment to declaration with initial value: 'sent_col_lcl_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 356,
+      "column": 29,
+      "message": "Procedural assignment to declaration with initial value: 'sent_row_or_maint_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 356,
+      "column": 7,
+      "message": "Signal is not used: 'sent_row_or_maint_r'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 82,
+      "column": 15,
+      "message": "Parameter is not used: 'BURST_MODE'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 84,
+      "column": 15,
+      "message": "Parameter is not used: 'CL'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 101,
+      "column": 15,
+      "message": "Parameter is not used: 'RTT_NOM'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 102,
+      "column": 15,
+      "message": "Parameter is not used: 'RTT_WR'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 103,
+      "column": 15,
+      "message": "Parameter is not used: 'SLOT_0_CONFIG'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 104,
+      "column": 15,
+      "message": "Parameter is not used: 'SLOT_1_CONFIG'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 143,
+      "column": 11,
+      "message": "Signal is not used: 'init_calib_complete'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 167,
+      "column": 29,
+      "message": "Signal is not used: 'grant_col_wr'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 178,
+      "column": 17,
+      "message": "Signal is not used: 'slot_1_present'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 201,
+      "column": 22,
+      "message": "Procedural assignment to declaration with initial value: 'col_rd_wr_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 202,
+      "column": 54,
+      "message": "Procedural assignment to declaration with initial value: 'col_cmd_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 494,
+      "column": 48,
+      "message": "Procedural assignment to declaration with initial value: 'cmd0'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 506,
+      "column": 48,
+      "message": "Procedural assignment to declaration with initial value: 'cmd1'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 516,
+      "column": 48,
+      "message": "Procedural assignment to declaration with initial value: 'cmd2'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 517,
+      "column": 48,
+      "message": "Procedural assignment to declaration with initial value: 'cmd3'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 629,
+      "column": 13,
+      "message": "Signal is not used: 'slot_1_population'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 675,
+      "column": 13,
+      "message": "Signal is not used: 'mc_aux_out_r_2'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_round_robin_arb.v",
+      "line": 141,
+      "column": 21,
+      "message": "Bits of signal are not used: 'dbl_last_master_ns'[5:4]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_round_robin_arb.v",
+      "line": 144,
+      "column": 21,
+      "message": "Bits of signal are not used: 'dbl_req'[5,0]"
+    },
+    {
+      "code": "INITIALDLY",
+      "file": "SRLC32E.v",
+      "line": 62,
+      "column": 19,
+      "message": "Non-blocking assignment '<=' in initial/final block"
+    },
+    {
+      "code": "SYNCASYNCNET",
+      "file": "tb_mig_fence_order.sv",
+      "line": 11,
+      "column": 13,
+      "message": "Signal flopped as both synchronous and async: 'tb_mig_fence_order.init_calib_complete'"
+    },
+    {
+      "code": "SYNCASYNCNET",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 488,
+      "column": 12,
+      "message": "Signal flopped as both synchronous and async: 'tb_mig_fence_order.dut.rank_mach0.rank_cntrl[0].rank_cntrl0.periodic_rd_generation.genblk1.int_read_this_rank'"
+    },
+    {
+      "code": "UNOPTFLAT",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 177,
+      "column": 24,
+      "message": "Signal unoptimizable: Circular combinational logic: 'tb_mig_fence_order.dut.ecc_on.ecc_gen0.ht_matrix'"
+    }
+  ],
+  "arbiter": {
+    "iverilog": {
+      "arbiter-original-multi": [],
+      "arbiter-variant": [],
+      "arbiter-original-one": []
+    },
+    "verilator": {
+      "arbiter-original-multi": [
+        {
+          "code": "UNUSEDSIGNAL",
+          "file": "mig_7series_v4_2_round_robin_arb.v",
+          "line": 141,
+          "column": 21,
+          "message": "Bits of signal are not used: 'dbl_last_master_ns'[5:4]"
+        },
+        {
+          "code": "UNUSEDSIGNAL",
+          "file": "mig_7series_v4_2_round_robin_arb.v",
+          "line": 144,
+          "column": 21,
+          "message": "Bits of signal are not used: 'dbl_req'[5,0]"
+        }
+      ],
+      "arbiter-variant": [
+        {
+          "code": "UNUSEDSIGNAL",
+          "file": "mig_7series_v4_2_round_robin_arb.v",
+          "line": 141,
+          "column": 21,
+          "message": "Bits of signal are not used: 'dbl_last_master_ns'[5:4]"
+        },
+        {
+          "code": "UNUSEDSIGNAL",
+          "file": "mig_7series_v4_2_round_robin_arb.v",
+          "line": 144,
+          "column": 21,
+          "message": "Bits of signal are not used: 'dbl_req'[5,0]"
+        }
+      ]
+    }
+  }
+}

@@ -7,6 +7,45 @@ OUTPUTS={'result':44,'invalid':1}
 ROLES={'combo_update':{'data':512,'data_mask':32,'weight_mask':32},'seq_update':{'weight':512}}
 
 
+def sv_tokens(text):
+    """Tokenize the emitted subset; comments and string contents are not code."""
+    tokens=re.findall(r'//[^\n]*|/\*.*?\*/|"(?:\\.|[^"\\])*"|'
+                      r'[A-Za-z_$][A-Za-z0-9_$]*|[0-9]+|[^\s]',text,re.S)
+    tokens=[token for token in tokens if not token.startswith(('//','/*'))]
+    assert '"' not in tokens and all(pair not in (['/','*'],['*','/'])
+                                    for pair in (tokens[i:i+2] for i in range(len(tokens)-1))), \
+        'Unsupported generated SV lexical form'
+    return tokens
+
+
+def validate_initial_hash_check(wrapper,protection_hash):
+    # V3ProtectLib 5.048 emits one direct module initializer, immediately after
+    # the hash declaration. Support that exact sequence, not arbitrary SV
+    # control flow or preprocessor/generate wrappers around matching text.
+    tokens=sv_tokens(wrapper)
+    assert tokens[:2]==['module',BLOCK] and tokens.count('endmodule')==1, \
+        'Generated wrapper must be one unconditional top-level module'
+    body=tokens[:tokens.index('endmodule')]
+    assert body.count('module')==1 and '`' not in body and body.count('initial')==1, \
+        'Generated initializer must not be conditional or duplicated'
+    start=body.index('initial')
+    prefix=body[:start]
+    forbidden={'begin','end','generate','endgenerate','if','else','for','foreach',
+               'case','casex','casez','while','repeat','forever','fork','join',
+               'task','endtask','class','package','always','always_comb',
+               'always_ff','always_latch'}
+    assert not forbidden.intersection(prefix), 'Generated initializer must be at module scope'
+    declaration=sv_tokens("localparam int protectlib_hash__V = 32'd"+str(protection_hash)+';')
+    assert prefix[-len(declaration):]==declaration, 'Changed generated initializer placement'
+    expected=sv_tokens('initial begin '+BLOCK+'_protectlib_check_hash(protectlib_hash__V); '
+        'handle__V = '+BLOCK+'_protectlib_create($sformatf("%m")); end')
+    assert body[start:start+len(expected)]==expected, \
+        'Generated initializer must check the library hash unconditionally before create'
+    # Exactly the DPI import and the direct call are present as active tokens.
+    assert body.count(BLOCK+'_protectlib_check_hash')==2, \
+        'Missing or duplicate generated library hash check'
+
+
 def validate(wrapper,bridge,top_sources):
     ports=re.search(r'\bmodule '+BLOCK+r'\s*\((.*?)\);',wrapper,re.S)
     assert ports
@@ -34,13 +73,21 @@ def validate(wrapper,bridge,top_sources):
     assert not re.search(r'always @\((?:pos|neg)edge weight',wrapper)
     wrapper_hash=re.findall(r'localparam int protectlib_hash__V = 32\'d(\d+);',wrapper)
     bridge_hash=re.findall(r'const int expected_hash__V = (\d+)U;',bridge)
-    assert wrapper_hash==bridge_hash==['2969735049']
+    # Verilator 5.048 V3ProtectLib.cpp computes this from the emitted C++ AST
+    # and writes it into this particular wrapper and bridge. It is a linkage
+    # guard, not a fixed constant of the FPGA datapath.
+    assert len(wrapper_hash)==len(bridge_hash)==1 and wrapper_hash==bridge_hash, \
+        'Generated wrapper and bridge protection hashes disagree'
+    protection_hash=int(wrapper_hash[0])
+    assert 0<=protection_hash<=0xffffffff and str(protection_hash)==wrapper_hash[0], \
+        'Unsupported generated protection hash encoding'
+    validate_initial_hash_check(wrapper,protection_hash)
     assert 'if (protectlib_hash__V != expected_hash__V)' in bridge
     operations={operation for text in top_sources for operation in ('create','combo_update','seq_update')
         if re.search(r'\b'+BLOCK+'_protectlib_'+operation+r'\s*\(',text)}
     assert operations=={'create','combo_update','seq_update'}
     return dict(actual_library_operations=sorted(operations),generated_input_roles=ROLES,
-        observed_outputs=OUTPUTS,wrapper_library_protection_hash=int(wrapper_hash[0]),
+        observed_outputs=OUTPUTS,wrapper_library_protection_hash=protection_hash,
         weight_callback_trigger='any operand change, not posedge/negedge',
         native_kernel_combinational_api_required=False,
         source_interface_acceptance=True,full_array_numerical_acceptance=False,

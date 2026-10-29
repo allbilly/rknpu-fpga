@@ -1,0 +1,900 @@
+{
+  "schema_version": 1,
+  "status": "ARCHIVED_SOURCE_FACTS_LIFECYCLE_POLICY_PENDING",
+  "scope": "Source trace only. No controller simulation, lifecycle RTL, physical profile substitution or hardware execution.",
+  "catalog": {
+    "path": "fpga/ddr/xdma_archive_reference.json",
+    "sha256": "49e35169ae339e3b7520af1265cec0585581bbb42e483e12f9308df7de722904",
+    "archive_sha256": "09050b7ca090b3f8206d7735f9de919788f2a35d868311b7911f8d6c7812a84a"
+  },
+  "sources": {
+    "wrapper": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/top_mig_7series_0_0.v",
+      "sha256": "febfef3d11ab42d5aad7540dfadfbd1e44eddbaa669d8b46cf129d67be1bd828",
+      "bytes": 22584
+    },
+    "generated_core": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/top_mig_7series_0_0_mig.v",
+      "sha256": "aa09f2d6fa37b440a1dc36ff7a7e50d2cb32d6b290e1a0af8779e8704f0d17ba",
+      "bytes": 138551
+    },
+    "memory_top": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/ip_top/mig_7series_v4_2_memc_ui_top_axi.v",
+      "sha256": "c88637b037f97fe069266f749aee2cf8bf5286923bd0988b68eaac15a1ed0bb6",
+      "bytes": 57984
+    },
+    "memory_interface": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/ip_top/mig_7series_v4_2_mem_intfc.v",
+      "sha256": "cd8507787a595e5591f94c32f3c52f939e1e377f6dece8af7aec9fb97879b11f",
+      "bytes": 43928
+    },
+    "memory_controller": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/controller/mig_7series_v4_2_mc.v",
+      "sha256": "98e99f2d2dc416ea8fb917f68fd5d609da3f574c3c417c15a31719d612f98c8b",
+      "bytes": 42870
+    },
+    "column_machine": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/controller/mig_7series_v4_2_col_mach.v",
+      "sha256": "a91e4cd5e8afcf0f956e94144d896a78849dafea0e31b5d88b62147de9f7bf0a",
+      "bytes": 16640
+    },
+    "ecc_decoder": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/ecc/mig_7series_v4_2_ecc_dec_fix.v",
+      "sha256": "84745585695a18896e41aec6f3f2a51faca2774f4fe1e931ad9a67256eb7f140",
+      "bytes": 6657
+    },
+    "ui_read": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/ui/mig_7series_v4_2_ui_rd_data.v",
+      "sha256": "5be750304d5ae624dbbc516e74e7c8090968b2a7c0f56c3b617da322569381b0",
+      "bytes": 20181
+    },
+    "axi_memory": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc.v",
+      "sha256": "394b78b22adbfc6bd639dad1075b3745de31b99d7cb0f4d7cb0b1f2218751c37",
+      "bytes": 49184
+    },
+    "axi_read": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_r_channel.v",
+      "sha256": "13a23ff1dd32164e98c1d90702819eac060b0717ec52da435d73485fa442daf1",
+      "bytes": 12758
+    },
+    "axi_write_response": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_b_channel.v",
+      "sha256": "bddc862c27c006f2e3a1a468a02ddff09270a94afae229e52de665a80d50d5d7",
+      "bytes": 8173
+    },
+    "axi_write_command": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_wr_cmd_fsm.v",
+      "sha256": "9357a4c13f8b890e5baf67b8321fec2494f2a351cd3ce5ad8ab8140aabdf0fd3",
+      "bytes": 6682
+    },
+    "axi_arbiter": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "sha256": "992f1d1a33deb893784553f84843ce19e2bb02787ec42046182bac0f0b32ef29",
+      "bytes": 12139
+    },
+    "control_top": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_top.v",
+      "sha256": "1a0b8cbbcd037f1ad61dbaeac866b3b4f3020624f1b727c66b23390a47d08ce5",
+      "bytes": 28757
+    },
+    "control_register": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg.v",
+      "sha256": "4e591bbe440121fa35520b340067140ad5a5f8257abe9c74f60b5ba1555aacdf",
+      "bytes": 6114
+    },
+    "control_bank": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "sha256": "5146f0f3e8dfc1e0e95673ba2ff357f52f4c4a5baca88a9489b37f926d801917",
+      "bytes": 29651
+    },
+    "control_read": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_read.v",
+      "sha256": "e7fba8820fabc830ace6e2bf431e1ab1134312a4682240f9d1ab8e63091c0a94",
+      "bytes": 6160
+    },
+    "control_write": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_write.v",
+      "sha256": "a6b8863fc39ba11b721be2dfc6826f679fa2606c633cb475b385ca4e39faaa79",
+      "bytes": 7620
+    },
+    "clock_infrastructure": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/clocking/mig_7series_v4_2_infrastructure.v",
+      "sha256": "2dbb9bb2a1a4b95407c16b87d9ab421ba1d25c516a6faddff50fa46392035c52",
+      "bytes": 30834
+    },
+    "iodelay_control": {
+      "member": "XC7K480T_XDMA_Test/XC7K480T_XDMA_Test.gen/sources_1/bd/top/ip/top_mig_7series_0_0/top_mig_7series_0_0/user_design/rtl/clocking/mig_7series_v4_2_iodelay_ctrl.v",
+      "sha256": "094265eb7c3509e132d03d43b834461d5252d0e5643da86181bc21b6aa79338f",
+      "bytes": 13704
+    }
+  },
+  "physical_integration_ready": false,
+  "controller_simulated": false,
+  "lifecycle_implemented": false,
+  "control_interface": {
+    "clock": "c0_ui_clk",
+    "reset": "c0_aresetn",
+    "reset_active_level": 0,
+    "interrupt": "c0_interrupt",
+    "address_width": 32,
+    "data_width": 32,
+    "response_width": 2,
+    "ports": [
+      "c0_s_axi_ctrl_awvalid",
+      "c0_s_axi_ctrl_awready",
+      "c0_s_axi_ctrl_awaddr",
+      "c0_s_axi_ctrl_wvalid",
+      "c0_s_axi_ctrl_wready",
+      "c0_s_axi_ctrl_wdata",
+      "c0_s_axi_ctrl_bvalid",
+      "c0_s_axi_ctrl_bready",
+      "c0_s_axi_ctrl_bresp",
+      "c0_s_axi_ctrl_arvalid",
+      "c0_s_axi_ctrl_arready",
+      "c0_s_axi_ctrl_araddr",
+      "c0_s_axi_ctrl_rvalid",
+      "c0_s_axi_ctrl_rready",
+      "c0_s_axi_ctrl_rdata",
+      "c0_s_axi_ctrl_rresp"
+    ],
+    "absent_fields": [
+      "WSTRB",
+      "AWPROT",
+      "ARPROT",
+      "transaction IDs"
+    ],
+    "evidence": [
+      {
+        "source": "wrapper",
+        "lines": [
+          143,
+          165
+        ]
+      },
+      {
+        "source": "memory_top",
+        "lines": [
+          1086,
+          1110
+        ]
+      }
+    ],
+    "address_handshake": {
+      "statement": "The control top latches AWADDR or ARADDR into one shared address register at its handshake. Pending read/write state prevents a second control transaction until response handshake.",
+      "evidence": [
+        {
+          "source": "control_top",
+          "lines": [
+            595,
+            635
+          ]
+        },
+        {
+          "source": "control_top",
+          "lines": [
+            649,
+            655
+          ]
+        },
+        {
+          "source": "control_top",
+          "lines": [
+            677,
+            687
+          ]
+        }
+      ]
+    },
+    "read_data": {
+      "statement": "RVALID equals read-pending and RDATA is the live selected register value; the read leaf does not snapshot changing status under backpressure. Control RRESP is always OKAY.",
+      "evidence": [
+        {
+          "source": "control_read",
+          "lines": [
+            134,
+            137
+          ]
+        }
+      ]
+    },
+    "write_completion": {
+      "statement": "The write leaf accepts W only after AW. WDATA is registered; the delayed W handshake drives the register write. BVALID is raised after W handshake and BRESP is always OKAY.",
+      "evidence": [
+        {
+          "source": "control_write",
+          "lines": [
+            153,
+            189
+          ]
+        }
+      ]
+    },
+    "calibration_gate": {
+      "statement": "Control AWREADY/ARREADY remain low until the delayed calibration-complete input is high; control reset is the inverse of aresetn.",
+      "evidence": [
+        {
+          "source": "memory_top",
+          "lines": [
+            564,
+            565
+          ]
+        },
+        {
+          "source": "memory_top",
+          "lines": [
+            1107,
+            1107
+          ]
+        },
+        {
+          "source": "control_top",
+          "lines": [
+            587,
+            627
+          ]
+        }
+      ]
+    }
+  },
+  "control_leaf_parameters": {
+    "module": "mig_7series_v4_2_axi_ctrl_top",
+    "scope": "Exact overrides for the archive's channel-0 control leaf, not vendor default parameters.",
+    "values": {
+      "C_S_AXI_CTRL_ADDR_WIDTH": 32,
+      "C_S_AXI_CTRL_DATA_WIDTH": 32,
+      "C_S_AXI_ADDR_WIDTH": 31,
+      "C_S_AXI_BASEADDR": 0,
+      "C_ECC_TEST": "OFF",
+      "C_DQ_WIDTH": 72,
+      "C_ECC_WIDTH": 8,
+      "C_MEM_ADDR_ORDER": "BANK_ROW_COLUMN",
+      "C_BANK_WIDTH": 3,
+      "C_ROW_WIDTH": 15,
+      "C_COL_WIDTH": 10,
+      "C_ECC_ONOFF_RESET_VALUE": 1,
+      "C_ECC_CE_COUNTER_WIDTH": 8,
+      "C_NCK_PER_CLK": 4,
+      "C_MC_ERR_ADDR_WIDTH": 29
+    },
+    "derived_values": {
+      "C_ECC_WIDTH": "C0_ECC=ON and C0_DATA_WIDTH=64 select the <=120 branch, giving 8.",
+      "C_MC_ERR_ADDR_WIDTH": "C0_CS_WIDTH=1 selects zero rank bits; 0 + BANK_WIDTH(3) + ROW_WIDTH(15) + COL_WIDTH(10) + DATA_BUF_OFFSET_WIDTH(1) = 29.",
+      "ecc_event_vector_bits": 8,
+      "dfi_rddata_bits": 576
+    },
+    "evidence": [
+      {"source": "generated_core", "lines": [81, 125]},
+      {"source": "generated_core", "lines": [459, 459]},
+      {"source": "generated_core", "lines": [482, 482]},
+      {"source": "generated_core", "lines": [535, 543]},
+      {"source": "generated_core", "lines": [1290, 1305]},
+      {"source": "generated_core", "lines": [1800, 1828]},
+      {"source": "generated_core", "lines": [1862, 1866]},
+      {"source": "generated_core", "lines": [1924, 1937]},
+      {"source": "memory_top", "lines": [1068, 1084]},
+      {"source": "control_top", "lines": [139, 143]}
+    ]
+  },
+  "registers": {
+    "ECC_STATUS": {
+      "offset": 0,
+      "reset_value": 0,
+      "implemented_mask": 3,
+      "bits": {
+        "0": "UE_STATUS",
+        "1": "CE_STATUS"
+      },
+      "access": "read / write-one-to-clear",
+      "evidence": [
+        {
+          "source": "control_top",
+          "lines": [
+            360,
+            365
+          ]
+        },
+        {
+          "source": "control_bank",
+          "lines": [
+            341,
+            361
+          ]
+        }
+      ]
+    },
+    "ECC_IRQ_ENABLE": {
+      "offset": 4,
+      "reset_value": 0,
+      "implemented_mask": 3,
+      "bits": {
+        "0": "UE_EN_IRQ",
+        "1": "CE_EN_IRQ"
+      },
+      "access": "read/write",
+      "evidence": [
+        {
+          "source": "control_top",
+          "lines": [
+            353,
+            358
+          ]
+        },
+        {
+          "source": "control_bank",
+          "lines": [
+            363,
+            380
+          ]
+        }
+      ]
+    },
+    "ECC_ON_OFF": {
+      "offset": 8,
+      "reset_value": 1,
+      "implemented_mask": 1,
+      "access": "read/write",
+      "evidence": [
+        {
+          "source": "generated_core",
+          "lines": [
+            541,
+            543
+          ]
+        },
+        {
+          "source": "control_top",
+          "lines": [
+            346,
+            351
+          ]
+        },
+        {
+          "source": "control_bank",
+          "lines": [
+            382,
+            395
+          ]
+        }
+      ]
+    },
+    "CE_COUNT": {
+      "offset": 12,
+      "reset_value": 0,
+      "width": 8,
+      "access": "read/write",
+      "count_unit": "One increment per cycle with any qualified raw single-error bit while ECC enabled; not a count of set vector bits. Saturates at 255.",
+      "evidence": [
+        {
+          "source": "control_top",
+          "lines": [
+            339,
+            344
+          ]
+        },
+        {
+          "source": "control_bank",
+          "lines": [
+            397,
+            408
+          ]
+        }
+      ]
+    },
+    "CE_FIRST_FAILING_ADDRESS_LOW": {
+      "offset": 448,
+      "reset_value": 0,
+      "access": "read-only; cleared after CE status clear",
+      "association": "Captured on CE status transition from zero to one; no job/task identifier. Address conversion is not admitted by this contract.",
+      "evidence": [
+        {
+          "source": "control_top",
+          "lines": [
+            297,
+            302
+          ]
+        },
+        {
+          "source": "control_bank",
+          "lines": [
+            355,
+            361
+          ]
+        },
+        {
+          "source": "control_bank",
+          "lines": [
+            468,
+            477
+          ]
+        }
+      ]
+    },
+    "UE_FIRST_FAILING_ADDRESS_LOW": {
+      "offset": 704,
+      "reset_value": 0,
+      "access": "read-only; cleared after UE status clear",
+      "association": "Captured on UE status transition from zero to one; no job/task identifier. Address conversion is not admitted by this contract.",
+      "evidence": [
+        {
+          "source": "control_top",
+          "lines": [
+            248,
+            253
+          ]
+        },
+        {
+          "source": "control_bank",
+          "lines": [
+            355,
+            361
+          ]
+        },
+        {
+          "source": "control_bank",
+          "lines": [
+            548,
+            558
+          ]
+        }
+      ]
+    }
+  },
+  "ecc_validity": {
+    "exported_vectors": {
+      "statement": "Both c0_app_ecc_single_err[7:0] and c0_app_ecc_multiple_err[7:0] are exported from the generated wrapper through the generated core and memory top. They are the reordered UI outputs, not the raw decoder events.",
+      "evidence": [
+        {
+          "source": "wrapper",
+          "lines": [
+            95,
+            96
+          ]
+        },
+        {
+          "source": "wrapper",
+          "lines": [
+            376,
+            377
+          ]
+        },
+        {
+          "source": "generated_core",
+          "lines": [
+            1986,
+            1987
+          ]
+        },
+        {
+          "source": "memory_top",
+          "lines": [
+            961,
+            962
+          ]
+        }
+      ]
+    },
+    "exported_valid_signal": null,
+    "exported_vectors_zero_when_invalid": false,
+    "ui_output_qualification": {
+      "statement": "In the selected NORM ordering mode, ECC vectors are stored with read data, then registered each clock from bypass or read-buffer data without gating on app_rd_data_valid and without clearing on invalid cycles. The matching app_rd_data_valid exists internally but is not an exported wrapper port.",
+      "evidence": [
+        {
+          "source": "generated_core",
+          "lines": [
+            399,
+            399
+          ]
+        },
+        {
+          "source": "ui_read",
+          "lines": [
+            199,
+            209
+          ]
+        },
+        {
+          "source": "ui_read",
+          "lines": [
+            311,
+            324
+          ]
+        },
+        {
+          "source": "ui_read",
+          "lines": [
+            356,
+            386
+          ]
+        },
+        {
+          "source": "memory_top",
+          "lines": [
+            528,
+            529
+          ]
+        },
+        {
+          "source": "memory_top",
+          "lines": [
+            932,
+            934
+          ]
+        }
+      ]
+    },
+    "raw_events": {
+      "statement": "The ECC decoder gates each raw single/multiple bit with ecc_status_valid. The column machine asserts that validity for non-periodic physical read returns, including RMW reads, but suppresses rd_data_en for RMW. Thus RMW ECC is available to the raw status path but not delivered as a normal UI/AXI read response.",
+      "evidence": [
+        {
+          "source": "column_machine",
+          "lines": [
+            420,
+            437
+          ]
+        },
+        {
+          "source": "memory_controller",
+          "lines": [
+            779,
+            785
+          ]
+        },
+        {
+          "source": "memory_controller",
+          "lines": [
+            874,
+            886
+          ]
+        },
+        {
+          "source": "ecc_decoder",
+          "lines": [
+            168,
+            178
+          ]
+        }
+      ]
+    },
+    "sticky_status_and_interrupt": {
+      "statement": "The ECC control bank receives raw ecc_single/ecc_multiple. While ECC_ON_OFF is enabled, status OR-latches them independently of IRQ enable. Interrupt is the registered OR of enabled status bits, gated by ECC_ON_OFF.",
+      "evidence": [
+        {
+          "source": "memory_top",
+          "lines": [
+            1107,
+            1110
+          ]
+        },
+        {
+          "source": "control_bank",
+          "lines": [
+            188,
+            191
+          ]
+        },
+        {
+          "source": "control_bank",
+          "lines": [
+            348,
+            352
+          ]
+        },
+        {
+          "source": "control_bank",
+          "lines": [
+            377,
+            395
+          ]
+        }
+      ]
+    },
+    "clear_collision": {
+      "statement": "A software register write has priority over an internal event update. Writing one to clear status can therefore discard a simultaneous raw event; clearing is not an atomic event-preserving acknowledgment.",
+      "evidence": [
+        {
+          "source": "control_register",
+          "lines": [
+            111,
+            120
+          ]
+        },
+        {
+          "source": "control_bank",
+          "lines": [
+            348,
+            352
+          ]
+        }
+      ]
+    },
+    "read_response": {
+      "statement": "The memory AXI path OR-reduces the UI multiple-error vector and enqueues it alongside read data when internal read-valid is high. The resulting stored error bit selects SLVERR for that read response.",
+      "evidence": [
+        {
+          "source": "axi_memory",
+          "lines": [
+            1028,
+            1031
+          ]
+        },
+        {
+          "source": "axi_read",
+          "lines": [
+            189,
+            191
+          ]
+        },
+        {
+          "source": "axi_read",
+          "lines": [
+            230,
+            245
+          ]
+        }
+      ]
+    }
+  },
+  "completion_ordering": {
+    "memory_b_is_rmw_retirement": false,
+    "status_read_after_b_is_a_proven_fence": false,
+    "bounded_delay_until_all_rmw_events_visible": null,
+    "evidence": {
+      "statement": "Write B is queued on the last native command acceptance: b_push=cmd_en_last, and command-full is derived from the selected MC app_rdy. This is not a physical write/RMW retirement event. The independent AXI-Lite status read has no ordering dependency on memory-command execution.",
+      "evidence": [
+        {
+          "source": "axi_write_command",
+          "lines": [
+            113,
+            119
+          ]
+        },
+        {
+          "source": "axi_arbiter",
+          "lines": [
+            125,
+            130
+          ]
+        },
+        {
+          "source": "axi_write_response",
+          "lines": [
+            137,
+            155
+          ]
+        },
+        {
+          "source": "axi_write_response",
+          "lines": [
+            185,
+            196
+          ]
+        },
+        {
+          "source": "control_top",
+          "lines": [
+            613,
+            635
+          ]
+        },
+        {
+          "source": "control_read",
+          "lines": [
+            134,
+            137
+          ]
+        }
+      ]
+    },
+    "consequence": "No successful-job fence may be inferred from final B followed by a status read or an arbitrary fixed delay. An audited retirement/drain/ordering mechanism remains required."
+  },
+  "reset_coverage": {
+    "aresetn": {
+      "statement": "c0_aresetn reaches the AXI memory interface and ECC AXI-Lite control block. Memory AXI internally combines it with delayed calibration-complete, resets channel state/FIFOs and does not use it as the MC/PHY reset. Control status reset is synchronous inverse aresetn.",
+      "evidence": [
+        {
+          "source": "generated_core",
+          "lines": [
+            2073,
+            2073
+          ]
+        },
+        {
+          "source": "memory_top",
+          "lines": [
+            996,
+            997
+          ]
+        },
+        {
+          "source": "memory_top",
+          "lines": [
+            1088,
+            1089
+          ]
+        },
+        {
+          "source": "axi_memory",
+          "lines": [
+            452,
+            458
+          ]
+        },
+        {
+          "source": "axi_memory",
+          "lines": [
+            1018,
+            1021
+          ]
+        },
+        {
+          "source": "control_top",
+          "lines": [
+            587,
+            587
+          ]
+        },
+        {
+          "source": "control_register",
+          "lines": [
+            111,
+            113
+          ]
+        }
+      ]
+    },
+    "sys_rst": {
+      "statement": "Active-low sys_rst passes through the shared IODELAY control to the infrastructure. Infrastructure resets its PLL, resets the MMCM when PLL lock is absent, and asynchronously asserts then synchronously releases the exported UI reset. c0_rst drives MC/PHY reset; its registered derivative resets the UI buffers. This is separate from c0_aresetn.",
+      "evidence": [
+        {
+          "source": "generated_core",
+          "lines": [
+            1019,
+            1019
+          ]
+        },
+        {
+          "source": "generated_core",
+          "lines": [
+            1599,
+            1609
+          ]
+        },
+        {
+          "source": "iodelay_control",
+          "lines": [
+            146,
+            159
+          ]
+        },
+        {
+          "source": "clock_infrastructure",
+          "lines": [
+            252,
+            252
+          ]
+        },
+        {
+          "source": "clock_infrastructure",
+          "lines": [
+            329,
+            329
+          ]
+        },
+        {
+          "source": "clock_infrastructure",
+          "lines": [
+            552,
+            556
+          ]
+        },
+        {
+          "source": "clock_infrastructure",
+          "lines": [
+            708,
+            723
+          ]
+        },
+        {
+          "source": "generated_core",
+          "lines": [
+            1566,
+            1567
+          ]
+        },
+        {
+          "source": "memory_interface",
+          "lines": [
+            465,
+            465
+          ]
+        },
+        {
+          "source": "memory_interface",
+          "lines": [
+            649,
+            649
+          ]
+        },
+        {
+          "source": "memory_interface",
+          "lines": [
+            863,
+            866
+          ]
+        },
+        {
+          "source": "memory_top",
+          "lines": [
+            567,
+            568
+          ]
+        },
+        {
+          "source": "memory_top",
+          "lines": [
+            939,
+            939
+          ]
+        }
+      ]
+    },
+    "ui_clock_during_system_reset": {
+      "statement": "UI clock is supplied by the MMCM feedback output through BUFG; MMCM reset is driven by loss of PLL lock and PLL reset by sys_rst. Continued UI-clock operation during system reset is not guaranteed.",
+      "evidence": [
+        {
+          "source": "clock_infrastructure",
+          "lines": [
+            259,
+            261
+          ]
+        },
+        {
+          "source": "clock_infrastructure",
+          "lines": [
+            329,
+            342
+          ]
+        },
+        {
+          "source": "clock_infrastructure",
+          "lines": [
+            519,
+            519
+          ]
+        },
+        {
+          "source": "clock_infrastructure",
+          "lines": [
+            552,
+            556
+          ]
+        }
+      ]
+    },
+    "generated_joint_reset_ack": null,
+    "requirements": [
+      "Resetting only c0_aresetn is not a joint reset of pending MC/PHY/UI work.",
+      "The platform must own reset across upstream masters, adapters, interconnect and the affected controller domain, including clock loss.",
+      "Calibration complete and UI reset release are not transaction-drain acknowledgments; reset does not roll back already modified memory."
+    ]
+  },
+  "pending_policy": {
+    "state": "UNIMPLEMENTED_SOURCE_PREPARATION",
+    "safe_next_increment": "An exclusive owner of the actual ECC control port can initialize/read back ECC configuration and observe sticky status/interrupt in c0_ui_clk, with source-bound tests of the actual archived control modules. It is not a completed job lifecycle or DDR shell.",
+    "monitor_requirements": [
+      "Keep control RREADY asserted and sample only a valid handshake; allow only the modeled fixed register addresses.",
+      "Establish exclusive control-port ownership; acknowledge or clear status only while all memory work is demonstrably quiescent.",
+      "Verify ECC_ON_OFF and IRQ-enable configuration before reporting monitor armed; armed is not memory initialization or execution readiness.",
+      "Use sticky raw-event status/interrupt, not an unqualified OR of exported UI ECC vectors.",
+      "Treat calibration/clock/reset loss and uncertain control transactions as unavailable until platform-coordinated recovery."
+    ],
+    "unresolved": [
+      "CE handling policy versus UE quarantine policy.",
+      "Allocated full-beat data/ECC initialization and ownership.",
+      "A proven final write/RMW retirement fence before successful job completion.",
+      "Platform joint reset/drain acknowledgment and clock-loss handling.",
+      "Fresh controller integration simulation and physical/electrical qualification."
+    ]
+  }
+}

@@ -1,0 +1,4083 @@
+{
+  "schema": 1,
+  "status": "SOURCE_BOUND_LOGICAL_SIMULATION_BASELINE_ONLY",
+  "scope": "Exact pinned generated MIG/XECLIB diagnostics and two explicitly sourced reset-style notices; never physical DRC/timing policy or a new control warning waiver",
+  "verilator_version": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426",
+  "origin_sha256": {
+    "mig_7series_v4_2_axi_mc.v": "394b78b22adbfc6bd639dad1075b3745de31b99d7cb0f4d7cb0b1f2218751c37",
+    "mig_7series_v4_2_axi_mc_b_channel.v": "bddc862c27c006f2e3a1a468a02ddff09270a94afae229e52de665a80d50d5d7",
+    "mig_7series_v4_2_axi_mc_r_channel.v": "13a23ff1dd32164e98c1d90702819eac060b0717ec52da435d73485fa442daf1",
+    "mig_7series_v4_2_ddr_axi_upsizer.v": "ed069bdf77b16d1cc400e223c2087f25e2e3c91c6c2d5f3ecfa329c501c0bda4",
+    "mig_7series_v4_2_ddr_command_fifo.v": "b88b881970ceceb8e2c62dd724092b5703adb19be6c1167ed6f1d83e73e72022",
+    "mig_7series_v4_2_arb_row_col.v": "033f73c2378b01b429fa33e326e1be7d4350f0df49e1e56b1a669859a9b91422",
+    "mig_7series_v4_2_bank_common.v": "20458b07b3bc751e788e8bb613cfc88792cc52ae97fa8f1e596c33f2fccd6dd1",
+    "mig_7series_v4_2_col_mach.v": "a91e4cd5e8afcf0f956e94144d896a78849dafea0e31b5d88b62147de9f7bf0a",
+    "mig_7series_v4_2_mc.v": "98e99f2d2dc416ea8fb917f68fd5d609da3f574c3c417c15a31719d612f98c8b",
+    "mig_7series_v4_2_rank_cntrl.v": "25f0ba1a096ede1f408fe8fa1f1e045624d7f2b349e966fac487369ce7ec4ef7",
+    "mig_7series_v4_2_rank_common.v": "eb8fae78ffef6674890baf439790a57b8d21d11b1666ac7c4f17a77ddeae9683",
+    "mig_7series_v4_2_ecc_buf.v": "2b70153618c0dc18b13cb7e8e52d9dfe9aee78f7750c5e8fc8d3d9d98b910e72",
+    "mig_7series_v4_2_ui_rd_data.v": "5be750304d5ae624dbbc516e74e7c8090968b2a7c0f56c3b617da322569381b0",
+    "mig_7series_v4_2_ui_wr_data.v": "f38f809b8e6594a5c02f147e13a3fc3fecda7c61b4b2f2f50928f9871b87ef16",
+    "mig_7series_v4_2_ui_top.v": "1f72a13314f0a1da1231788c64639fd63ece6413edf844e65e45a0ba8f20be90",
+    "mig_7series_v4_2_axi_ctrl_reg_bank.v": "5146f0f3e8dfc1e0e95673ba2ff357f52f4c4a5baca88a9489b37f926d801917",
+    "mig_7series_v4_2_ecc_dec_fix.v": "84745585695a18896e41aec6f3f2a51faca2774f4fe1e931ad9a67256eb7f140",
+    "mig_7series_v4_2_ecc_gen.v": "fb1b09096febcceb3f05b4f68c9c3fe2d0ff40661c210fb44797413860fd6e89",
+    "mig_7series_v4_2_ecc_merge_enc.v": "54e55ddbf12fa67d3e96db020415aa1303cd0c76a1c6e77f0b8a56ecc556d114",
+    "mig_7series_v4_2_ui_cmd.v": "0961499cbcd0130efc6403687c88dca66ca064273d0f4215b722b4d1051638b8",
+    "mig_7series_v4_2_axi_mc_incr_cmd.v": "ada5247b231ce56dc52c5efeecf74be533433e44576e7981c85a60a0333bd709",
+    "mig_7series_v4_2_axi_mc_wrap_cmd.v": "45a21e37a32f6eec11868127cd5be25954a5a95bfaf7052ce0649946731b6dbf",
+    "mig_7series_v4_2_ddr_axic_register_slice.v": "b90c26e1d63612bf38c45c37fb8978008a8a149f2f3060593e5ac373060f4c12",
+    "mig_7series_v4_2_arb_select.v": "6d1d51c8b419efe976b87b46939ba5a5b5bff2b5dc652163c2176a8eb0d4493f",
+    "mig_7series_v4_2_bank_compare.v": "ed85f3f2b2430a8e5028c8adc21db598ada44d5f83b0515777c648c4adb060f3",
+    "mig_7series_v4_2_bank_state.v": "465babb32d1346f6c7c7e7f2f5dd67d71438aea9ae31056258e15af3bd36b35f",
+    "mig_7series_v4_2_bank_mach.v": "09b68e3243186872cb20e4d530c5dea1351117e3d7edb697b209ffb3a875f165",
+    "mig_7series_v4_2_axi_ctrl_top.v": "1a0b8cbbcd037f1ad61dbaeac866b3b4f3020624f1b727c66b23390a47d08ce5",
+    "mig_7series_v4_2_axi_mc_cmd_arbiter.v": "992f1d1a33deb893784553f84843ce19e2bb02787ec42046182bac0f0b32ef29",
+    "mig_7series_v4_2_axi_mc_cmd_translator.v": "483ad56bcf65bfa05a83e414504776b0ba33cecf639878df9f8fc2ae9e7b2e4f",
+    "mig_7series_v4_2_axi_mc_fifo.v": "e9602843ef3c03c6652aef0c2f6b6dc0cb60f789c37ea228485b1c2b21bb6a92",
+    "SRLC32E.v": "9837e9e530292cc0976c5e8a3ca7914a60696bb08148191bbf3f7e5f488f2d10",
+    "mig_7series_v4_2_bank_queue.v": "8c379fc4f9fab724f0ac94d008d9de844159b295fc12e1458c603d1d9209eeb9",
+    "mig_7series_v4_2_axi_mc_aw_channel.v": "e736dacd4c9f6b751722b1fb55d6e12a7b1f1bab1b8c1afaf22d40fffdbecaf1",
+    "mig_7series_v4_2_axi_mc_w_channel.v": "0444eab3dae92342270e371d9cb3909d68cd8be7b9714f82786a4f6644b25395",
+    "mig_7series_v4_2_axi_mc_ar_channel.v": "087940abd9208340abc61ecb7015cfc97d85857aaa648409c994d97cecd78964",
+    "mig_7series_v4_2_rank_mach.v": "c7df91c07d2fa021ad2649d9003b85ced3da8c0d0a2c271a56421303b50a1468",
+    "mig_7series_v4_2_axi_ctrl_write.v": "a6b8863fc39ba11b721be2dfc6826f679fa2606c633cb475b385ca4e39faaa79",
+    "mig_7series_v4_2_axi_ctrl_read.v": "e7fba8820fabc830ace6e2bf431e1ab1134312a4682240f9d1ab8e63091c0a94",
+    "RAM32M.v": "109bf9683d22755429ad95a9ad19547b79f4afc90064cb2f7621e0c4f114a4e6",
+    "mig_7series_v4_2_axi_mc_wr_cmd_fsm.v": "9357a4c13f8b890e5baf67b8321fec2494f2a351cd3ce5ad8ab8140aabdf0fd3",
+    "mig_7series_v4_2_ddr_axi_register_slice.v": "f33f4abbcdb1a25724b4fbba48b4ab4ec77627b73c647a657d296ff57d323e94",
+    "mig_7series_v4_2_axi_mc_cmd_fsm.v": "1b26f14b768d75024e27e1d35d8602365b32084f95a46370b9286ebbbd4928ba",
+    "mig_7series_v4_2_axi_ctrl_addr_decode.v": "45ded45ecd1aaee6be25e8de45b46f8b1c4142e80259f95c8be038e1b71b5bb0",
+    "mig_7series_v4_2_axi_ctrl_reg.v": "4e591bbe440121fa35520b340067140ad5a5f8257abe9c74f60b5ba1555aacdf",
+    "mig_7series_v4_2_round_robin_arb.v": "ae6be8a3f77170c867bf076a4291bd6b0755c1250ab32215a8b679274b88368f",
+    "tb_jtag_ew_ddr.sv": "1cc070a37583fbb037c4b935496817a08f5459661832b59b2930f21f712bdc01"
+  },
+  "reset_context_sha256": {
+    "tests/ddr/tb_jtag_ew_ddr.sv": "1cc070a37583fbb037c4b935496817a08f5459661832b59b2930f21f712bdc01",
+    "tests/ddr/mig_logic_model.sv": "b7bbf8135d3e7bd4e811bc4bff54507428bf6e69d3aa0f5176d5fdc7dd3b3349",
+    "rtl/ddr/rk_mig_reset_coordinator.sv": "c457acd1d88c969b6cbe15c9de1faaaa2b826536277121aabae857124bb8b117"
+  },
+  "verilator": [
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 504,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_BUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 524,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_RUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 534,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWREGION'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 537,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 540,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 544,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 560,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARREGION'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 562,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 624,
+      "column": 8,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_BUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 644,
+      "column": 8,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_RUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 655,
+      "column": 8,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWREGION'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 657,
+      "column": 8,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 663,
+      "column": 8,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 679,
+      "column": 8,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARREGION'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 681,
+      "column": 8,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 778,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_BUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 798,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_RUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 806,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWSIZE'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 811,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWREGION'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 813,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 816,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 820,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 833,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARSIZE'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 838,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARREGION'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 840,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc_b_channel.v",
+      "line": 193,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'a_full'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc_b_channel.v",
+      "line": 195,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'a_empty'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "line": 241,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'a_empty'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "line": 264,
+      "column": 4,
+      "message": "Instance pin connected by name with empty reference: 'a_empty'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 362,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_WREADY'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 363,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_BID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 364,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_BRESP'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 365,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_BUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 366,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_BVALID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 381,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_RID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 382,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_RDATA'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 383,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_RRESP'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 384,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_RLAST'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 385,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_RUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 386,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_RVALID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 401,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 402,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WDATA'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 403,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WSTRB'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 404,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WLAST'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 405,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 406,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WVALID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 412,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_BREADY'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 432,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_RREADY'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 461,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_AWREADY'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 468,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_WREADY'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 469,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_BID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 470,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_BRESP'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 471,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_BUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 472,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_BVALID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 486,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_ARREADY'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 494,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 495,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWADDR'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 496,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWLEN'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 497,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWSIZE'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 498,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWBURST'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 499,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWLOCK'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 500,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWCACHE'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 501,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWPROT'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 502,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWREGION'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 503,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWQOS'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 504,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 505,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_AWVALID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 507,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 508,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WDATA'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 509,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WSTRB'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 510,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WLAST'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 511,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 512,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WVALID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 518,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_BREADY'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 519,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 520,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARADDR'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 521,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARLEN'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 522,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARSIZE'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 523,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARBURST'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 524,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARLOCK'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 525,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARCACHE'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 526,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARPROT'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 527,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARREGION'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 528,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARQOS'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 529,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 530,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_ARVALID'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 687,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'M_AXI_WUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "line": 860,
+      "column": 10,
+      "message": "Instance pin connected by name with empty reference: 'S_AXI_RUSER'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_command_fifo.v",
+      "line": 355,
+      "column": 15,
+      "message": "Instance pin connected by name with empty reference: 'Q31'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ddr_command_fifo.v",
+      "line": 366,
+      "column": 15,
+      "message": "Instance pin connected by name with empty reference: 'Q15'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 143,
+      "column": 13,
+      "message": "Instance pin connected by name with empty reference: 'grant_ns'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 172,
+      "column": 7,
+      "message": "Instance pin connected by name with empty reference: 'grant_ns'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 206,
+      "column": 11,
+      "message": "Instance pin connected by name with empty reference: 'grant_ns'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 233,
+      "column": 7,
+      "message": "Instance pin connected by name with empty reference: 'grant_ns'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 280,
+      "column": 7,
+      "message": "Instance pin connected by name with empty reference: 'grant_ns'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 318,
+      "column": 13,
+      "message": "Instance pin connected by name with empty reference: 'grant_r'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 264,
+      "column": 7,
+      "message": "Instance pin connected by name with empty reference: 'grant_r'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 381,
+      "column": 14,
+      "message": "Instance pin connected by name with empty reference: 'DOD'"
+    },
+    {
+      "code": "PINMISSING",
+      "file": "mig_7series_v4_2_mc.v",
+      "line": 670,
+      "column": 5,
+      "message": "Instance has missing pin: 'idle'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 279,
+      "column": 11,
+      "message": "Instance pin connected by name with empty reference: 'Q31'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 451,
+      "column": 9,
+      "message": "Instance pin connected by name with empty reference: 'grant_r'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 152,
+      "column": 14,
+      "message": "Instance pin connected by name with empty reference: 'DOD'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 295,
+      "column": 14,
+      "message": "Instance pin connected by name with empty reference: 'DOB'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 297,
+      "column": 14,
+      "message": "Instance pin connected by name with empty reference: 'DOD'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 341,
+      "column": 16,
+      "message": "Instance pin connected by name with empty reference: 'DOD'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 423,
+      "column": 14,
+      "message": "Instance pin connected by name with empty reference: 'DOA'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 426,
+      "column": 14,
+      "message": "Instance pin connected by name with empty reference: 'DOD'"
+    },
+    {
+      "code": "PINCONNECTEMPTY",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 486,
+      "column": 14,
+      "message": "Instance pin connected by name with empty reference: 'DOD'"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_top.v",
+      "line": 206,
+      "column": 33,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 314,
+      "column": 61,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 342,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 364,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 383,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 398,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 412,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 419,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 426,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 427,
+      "column": 32,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 433,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 441,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 442,
+      "column": 32,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 448,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 457,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 461,
+      "column": 32,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 464,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 469,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 473,
+      "column": 48,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 475,
+      "column": 18,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 481,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 485,
+      "column": 48,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 487,
+      "column": 18,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 493,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 500,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 507,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 508,
+      "column": 32,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 514,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 522,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 523,
+      "column": 32,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 529,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 537,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 541,
+      "column": 32,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 544,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 549,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 553,
+      "column": 48,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 555,
+      "column": 18,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 561,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 565,
+      "column": 48,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 567,
+      "column": 18,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 573,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 588,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 603,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 609,
+      "column": 34,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 618,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 624,
+      "column": 34,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 633,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 640,
+      "column": 33,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 647,
+      "column": 34,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 656,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_mc_b_channel.v",
+      "line": 140,
+      "column": 25,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_mc_b_channel.v",
+      "line": 159,
+      "column": 12,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 163,
+      "column": 10,
+      "message": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 326,
+      "column": 25,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 328,
+      "column": 25,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 336,
+      "column": 32,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 341,
+      "column": 32,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 349,
+      "column": 29,
+      "message": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 351,
+      "column": 29,
+      "message": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 400,
+      "column": 25,
+      "message": "Unnamed generate block 'genblk5' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 414,
+      "column": 12,
+      "message": "Unnamed generate block 'genblk5' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 137,
+      "column": 28,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 139,
+      "column": 28,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_dec_fix.v",
+      "line": 161,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk5' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 187,
+      "column": 30,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 189,
+      "column": 30,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 191,
+      "column": 30,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 193,
+      "column": 30,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 194,
+      "column": 32,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 116,
+      "column": 76,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_cmd.v",
+      "line": 167,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_cmd.v",
+      "line": 173,
+      "column": 9,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_cmd.v",
+      "line": 182,
+      "column": 9,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_cmd.v",
+      "line": 194,
+      "column": 9,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_cmd.v",
+      "line": 203,
+      "column": 9,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_cmd.v",
+      "line": 221,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_cmd.v",
+      "line": 238,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 315,
+      "column": 11,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 316,
+      "column": 35,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 318,
+      "column": 35,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 321,
+      "column": 35,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 323,
+      "column": 35,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 458,
+      "column": 9,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 459,
+      "column": 33,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 461,
+      "column": 33,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 465,
+      "column": 33,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 468,
+      "column": 33,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 507,
+      "column": 47,
+      "message": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 508,
+      "column": 29,
+      "message": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 475,
+      "column": 39,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 541,
+      "column": 34,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 488,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "line": 137,
+      "column": 27,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "line": 142,
+      "column": 12,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "line": 149,
+      "column": 28,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "line": 151,
+      "column": 28,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "line": 175,
+      "column": 27,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "line": 179,
+      "column": 12,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "line": 184,
+      "column": 25,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "line": 186,
+      "column": 25,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ddr_axic_register_slice.v",
+      "line": 102,
+      "column": 5,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ddr_axic_register_slice.v",
+      "line": 114,
+      "column": 5,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ddr_axic_register_slice.v",
+      "line": 217,
+      "column": 5,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ddr_axic_register_slice.v",
+      "line": 265,
+      "column": 5,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ddr_axic_register_slice.v",
+      "line": 332,
+      "column": 5,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ddr_axic_register_slice.v",
+      "line": 350,
+      "column": 5,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_ddr_axic_register_slice.v",
+      "line": 522,
+      "column": 5,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 366,
+      "column": 24,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 382,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 401,
+      "column": 24,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 420,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 442,
+      "column": 24,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 458,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 482,
+      "column": 24,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 500,
+      "column": 14,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 217,
+      "column": 29,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 352,
+      "column": 9,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 456,
+      "column": 53,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 463,
+      "column": 36,
+      "message": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 477,
+      "column": 12,
+      "message": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 509,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk4' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 520,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk5' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 545,
+      "column": 22,
+      "message": "Unnamed generate block 'genblk6' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 562,
+      "column": 29,
+      "message": "Unnamed generate block 'genblk7' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 565,
+      "column": 26,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 584,
+      "column": 27,
+      "message": "Unnamed generate block 'genblk8' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 662,
+      "column": 10,
+      "message": "Unnamed generate block 'genblk9' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 672,
+      "column": 28,
+      "message": "Unnamed generate block 'genblk10' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_compare.v",
+      "line": 171,
+      "column": 21,
+      "message": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 319,
+      "column": 21,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 320,
+      "column": 12,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 448,
+      "column": 28,
+      "message": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 494,
+      "column": 55,
+      "message": "Unnamed generate block 'genblk4' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 503,
+      "column": 10,
+      "message": "Unnamed generate block 'genblk4' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 553,
+      "column": 7,
+      "message": "Unnamed generate block 'genblk6' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 558,
+      "column": 10,
+      "message": "Unnamed generate block 'genblk6' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 655,
+      "column": 22,
+      "message": "Unnamed generate block 'genblk9' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "GENUNNAMED",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 658,
+      "column": 22,
+      "message": "Unnamed generate block 'genblk9' (IEEE 1800-2023 27.6)"
+    },
+    {
+      "code": "VARHIDDEN",
+      "file": "mig_7series_v4_2_bank_mach.v",
+      "line": 194,
+      "column": 42,
+      "message": "Declaration of signal hides declaration in upper scope: 'size'"
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 243,
+      "column": 55,
+      "message": "Operator COND expects 32 bits on the Conditional True, but Conditional True's CONST '3'h2' generates 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 244,
+      "column": 55,
+      "message": "Operator COND expects 32 bits on the Conditional True, but Conditional True's CONST '3'h3' generates 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 245,
+      "column": 55,
+      "message": "Operator COND expects 32 bits on the Conditional True, but Conditional True's CONST '3'h4' generates 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 246,
+      "column": 55,
+      "message": "Operator COND expects 32 bits on the Conditional True, but Conditional True's CONST '3'h5' generates 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 247,
+      "column": 55,
+      "message": "Operator COND expects 32 bits on the Conditional True, but Conditional True's CONST '3'h6' generates 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 247,
+      "column": 55,
+      "message": "Operator COND expects 32 bits on the Conditional False, but Conditional False's CONST '3'h7' generates 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 265,
+      "column": 76,
+      "message": "Operator COND expects 32 bits on the Conditional True, but Conditional True's CONST '1'h1' generates 1 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 268,
+      "column": 55,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'P_USE_UPSIZER' generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 268,
+      "column": 55,
+      "message": "Operator COND expects 32 bits on the Conditional False, but Conditional False's SEL generates 1 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 269,
+      "column": 20,
+      "message": "Operator VAR 'P_D2_REG_CONFIG_W' expects 32 bits on the Initial value, but Initial value's SEL generates 1 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 270,
+      "column": 55,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'P_USE_UPSIZER' generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 270,
+      "column": 55,
+      "message": "Operator COND expects 32 bits on the Conditional False, but Conditional False's SEL generates 1 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 271,
+      "column": 20,
+      "message": "Operator VAR 'P_D2_REG_CONFIG_R' expects 32 bits on the Initial value, but Initial value's SEL generates 1 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 575,
+      "column": 3,
+      "message": "Logical operator GENIF expects 1 bit on the If, but If's VARREF 'P_USE_UPSIZER' generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_mc.v",
+      "line": 353,
+      "column": 34,
+      "message": "Logical operator LOGNOT expects 1 bit on the LHS, but LHS's MODDIVS generates 32 or 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_mc.v",
+      "line": 817,
+      "column": 13,
+      "message": "Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 375,
+      "column": 5,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 375,
+      "column": 22,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 376,
+      "column": 27,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 377,
+      "column": 26,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 378,
+      "column": 26,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 379,
+      "column": 26,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 380,
+      "column": 28,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 381,
+      "column": 28,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 382,
+      "column": 22,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 383,
+      "column": 29,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 384,
+      "column": 28,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 385,
+      "column": 28,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 386,
+      "column": 28,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 387,
+      "column": 28,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 388,
+      "column": 28,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 389,
+      "column": 22,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 390,
+      "column": 29,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 391,
+      "column": 28,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 392,
+      "column": 28,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 393,
+      "column": 28,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 394,
+      "column": 22,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 395,
+      "column": 26,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 396,
+      "column": 26,
+      "message": "Unsized numbers/parameters not allowed in concatenations."
+    },
+    {
+      "code": "WIDTH",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 374,
+      "column": 31,
+      "message": "Assigning >32 bit to unranged parameter (defaults to 32 bits)"
+    },
+    {
+      "code": "WIDTHCONCAT",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 397,
+      "column": 26,
+      "message": "Unsized numbers/parameters not allowed in replications."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "line": 148,
+      "column": 34,
+      "message": "Operator EQ expects 88 bits on the LHS, but LHS's VARREF 'C_RD_WR_ARB_ALGORITHM' generates 80 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 214,
+      "column": 13,
+      "message": "Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 218,
+      "column": 51,
+      "message": "Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 224,
+      "column": 18,
+      "message": "Operator EQ expects 48 bits on the LHS, but LHS's VARREF 'ORDERING' generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 315,
+      "column": 19,
+      "message": "Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 372,
+      "column": 15,
+      "message": "Operator NEQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 380,
+      "column": 15,
+      "message": "Operator NEQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_mach.v",
+      "line": 206,
+      "column": 125,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 315,
+      "column": 33,
+      "message": "Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 335,
+      "column": 15,
+      "message": "Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 400,
+      "column": 15,
+      "message": "Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_cmd_translator.v",
+      "line": 115,
+      "column": 54,
+      "message": "Operator XOR expects 29 bits on the RHS, but RHS's REPLICATE generates 3 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_fifo.v",
+      "line": 94,
+      "column": 27,
+      "message": "Operator VAR 'C_FULL' expects 3 bits on the Initial value, but Initial value's SUB generates 32 or 4 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_fifo.v",
+      "line": 95,
+      "column": 27,
+      "message": "Operator VAR 'C_FULL_PRE' expects 3 bits on the Initial value, but Initial value's SUB generates 32 or 4 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_fifo.v",
+      "line": 94,
+      "column": 27,
+      "message": "Operator VAR 'C_FULL' expects 5 bits on the Initial value, but Initial value's SUB generates 32 or 6 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_fifo.v",
+      "line": 95,
+      "column": 27,
+      "message": "Operator VAR 'C_FULL_PRE' expects 5 bits on the Initial value, but Initial value's SUB generates 32 or 6 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 168,
+      "column": 34,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 270,
+      "column": 50,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 323,
+      "column": 79,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 370,
+      "column": 79,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 or 3 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 204,
+      "column": 75,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 409,
+      "column": 51,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 416,
+      "column": 53,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 or 7 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 423,
+      "column": 57,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 or 10 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 248,
+      "column": 19,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 or 3 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 254,
+      "column": 17,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 or 3 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 255,
+      "column": 19,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's SUB generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 308,
+      "column": 13,
+      "message": "Operator NEQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 482,
+      "column": 45,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 110,
+      "column": 62,
+      "message": "Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's MODDIVS generates 32 or 4 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 442,
+      "column": 12,
+      "message": "Logical operator LOGNOT expects 1 bit on the LHS, but LHS's MODDIVS generates 32 or 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 456,
+      "column": 15,
+      "message": "Operator NEQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "SRLC32E.v",
+      "line": 62,
+      "column": 11,
+      "message": "Bit extraction of var[31:0] requires 5 bit index, not 7 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "SRLC32E.v",
+      "line": 62,
+      "column": 26,
+      "message": "Bit extraction of var[31:0] requires 5 bit index, not 7 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 337,
+      "column": 26,
+      "message": "Operator COND expects 22 bits on the Conditional True, but Conditional True's REPLICATE generates 1 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 365,
+      "column": 26,
+      "message": "Operator COND expects 22 bits on the Conditional True, but Conditional True's REPLICATE generates 1 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 404,
+      "column": 38,
+      "message": "Operator NEQ expects 24 bits on the LHS, but LHS's VARREF 'ECC' generates 16 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 576,
+      "column": 49,
+      "message": "Operator ASSIGNW expects 1 bits on the Assign RHS, but Assign RHS's REPLICATE generates 2 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 617,
+      "column": 57,
+      "message": "Operator AND expects 8 bits on the LHS, but LHS's VARREF 'col_ra_one_hot' generates 1 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 619,
+      "column": 57,
+      "message": "Operator AND expects 2 bits on the LHS, but LHS's SEL generates 1 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_bank_queue.v",
+      "line": 450,
+      "column": 33,
+      "message": "Operator EQ expects 48 bits on the LHS, but LHS's VARREF 'ORDERING' generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_bank_queue.v",
+      "line": 455,
+      "column": 24,
+      "message": "Operator EQ expects 48 bits on the LHS, but LHS's VARREF 'ORDERING' generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 369,
+      "column": 25,
+      "message": "Operator LTE expects 32 bits on the LHS, but LHS's VARREF 'ras_timer_r' generates 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "line": 190,
+      "column": 36,
+      "message": "Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'int_addr_t' generates 4 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "line": 190,
+      "column": 23,
+      "message": "Operator ASSIGNW expects 4 bits on the Assign RHS, but Assign RHS's ADD generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "line": 156,
+      "column": 17,
+      "message": "Operator ASSIGN expects 31 bits on the Assign RHS, but Assign RHS's ADD generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "line": 182,
+      "column": 15,
+      "message": "Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's CONST '4'hf' generates 4 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 370,
+      "column": 23,
+      "message": "Operator ASSIGN expects 2 bits on the Assign RHS, but Assign RHS's REPLICATE generates 1 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 382,
+      "column": 30,
+      "message": "Operator ASSIGN expects 2 bits on the Assign RHS, but Assign RHS's CONST '4'h0' generates 4 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 440,
+      "column": 75,
+      "message": "Operator COND expects 32 bits on the Conditional True, but Conditional True's REPLICATE generates 8 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 438,
+      "column": 60,
+      "message": "Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's COND generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 338,
+      "column": 27,
+      "message": "Bit extraction of var[7:0] requires 3 bit index, not 1 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_fifo.v",
+      "line": 111,
+      "column": 18,
+      "message": "Operator ASSIGNW expects 5 bits on the Assign RHS, but Assign RHS's VARREF 'cnt_read' generates 6 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_fifo.v",
+      "line": 151,
+      "column": 26,
+      "message": "Operator EQ expects 6 bits on the RHS, but RHS's VARREF 'C_FULL' generates 5 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_fifo.v",
+      "line": 153,
+      "column": 28,
+      "message": "Operator EQ expects 6 bits on the RHS, but RHS's VARREF 'C_FULL_PRE' generates 5 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_fifo.v",
+      "line": 154,
+      "column": 28,
+      "message": "Operator EQ expects 6 bits on the RHS, but RHS's VARREF 'C_EMPTY_PRE' generates 5 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_cmd_translator.v",
+      "line": 147,
+      "column": 59,
+      "message": "Operator AND expects 31 bits on the RHS, but RHS's VARREF 'P_MC_BURST_MASK' generates 29 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_cmd_translator.v",
+      "line": 148,
+      "column": 59,
+      "message": "Operator AND expects 31 bits on the RHS, but RHS's VARREF 'P_MC_BURST_MASK' generates 29 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_cmd_translator.v",
+      "line": 146,
+      "column": 25,
+      "message": "Operator ASSIGNW expects 29 bits on the Assign RHS, but Assign RHS's COND generates 31 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_fifo.v",
+      "line": 111,
+      "column": 18,
+      "message": "Operator ASSIGNW expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'cnt_read' generates 4 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_fifo.v",
+      "line": 151,
+      "column": 26,
+      "message": "Operator EQ expects 4 bits on the RHS, but RHS's VARREF 'C_FULL' generates 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_fifo.v",
+      "line": 153,
+      "column": 28,
+      "message": "Operator EQ expects 4 bits on the RHS, but RHS's VARREF 'C_FULL_PRE' generates 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_fifo.v",
+      "line": 154,
+      "column": 28,
+      "message": "Operator EQ expects 4 bits on the RHS, but RHS's VARREF 'C_EMPTY_PRE' generates 3 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 302,
+      "column": 13,
+      "message": "Operator SHIFTL expects 32 or 31 bits on the LHS, but LHS's REPLICATE generates 28 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 304,
+      "column": 13,
+      "message": "Operator SHIFTL expects 32 or 31 bits on the LHS, but LHS's REPLICATE generates 28 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 187,
+      "column": 60,
+      "message": "Operator COND expects 32 or 6 bits on the Conditional False, but Conditional False's VARREF 'single_data' generates 1 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 257,
+      "column": 60,
+      "message": "Operator COND expects 6 bits on the Conditional True, but Conditional True's VARREF 'rd_data_addr' generates 5 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 257,
+      "column": 33,
+      "message": "Operator ASSIGNW expects 5 bits on the Assign RHS, but Assign RHS's COND generates 6 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 162,
+      "column": 48,
+      "message": "Operator ASSIGN expects 8 bits on the Assign RHS, but Assign RHS's CONST '4'h0' generates 4 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 234,
+      "column": 34,
+      "message": "Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's CONST '5'h0' generates 5 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 235,
+      "column": 47,
+      "message": "Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's ADD generates 5 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "line": 171,
+      "column": 23,
+      "message": "Operator ASSIGNDLY expects 10 bits on the Assign RHS, but Assign RHS's MULS generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "line": 176,
+      "column": 42,
+      "message": "Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'rd_wait_limit' generates 5 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "line": 176,
+      "column": 25,
+      "message": "Operator ASSIGNDLY expects 5 bits on the Assign RHS, but Assign RHS's ADD generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "line": 179,
+      "column": 42,
+      "message": "Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'rd_starve_cnt' generates 10 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "line": 179,
+      "column": 25,
+      "message": "Operator ASSIGNDLY expects 10 bits on the Assign RHS, but Assign RHS's ADD generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "line": 186,
+      "column": 23,
+      "message": "Operator ASSIGNDLY expects 10 bits on the Assign RHS, but Assign RHS's MULS generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "line": 191,
+      "column": 42,
+      "message": "Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'wr_wait_limit' generates 5 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "line": 191,
+      "column": 25,
+      "message": "Operator ASSIGNDLY expects 5 bits on the Assign RHS, but Assign RHS's ADD generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "line": 194,
+      "column": 42,
+      "message": "Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'wr_starve_cnt' generates 10 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "line": 194,
+      "column": 25,
+      "message": "Operator ASSIGNDLY expects 10 bits on the Assign RHS, but Assign RHS's ADD generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 169,
+      "column": 38,
+      "message": "Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'ones' generates 8 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 633,
+      "column": 10,
+      "message": "Operator ASSIGNDLY expects 31 bits on the Assign RHS, but Assign RHS's VARREF 's_axi_awaddr' generates 32 bits."
+    },
+    {
+      "code": "WIDTHTRUNC",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 635,
+      "column": 10,
+      "message": "Operator ASSIGNDLY expects 31 bits on the Assign RHS, but Assign RHS's VARREF 's_axi_araddr' generates 32 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 655,
+      "column": 4,
+      "message": "Input port connection 'awaddr' expects 32 bits on the pin connection, but pin connection's VARREF 'addr' generates 31 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 681,
+      "column": 4,
+      "message": "Input port connection 'araddr' expects 32 bits on the pin connection, but pin connection's VARREF 'addr' generates 31 bits."
+    },
+    {
+      "code": "WIDTHEXPAND",
+      "file": "mig_7series_v4_2_mc.v",
+      "line": 421,
+      "column": 54,
+      "message": "Operator ASSIGNW expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'col_ra' generates 1 bits."
+    },
+    {
+      "code": "BLKSEQ",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 461,
+      "column": 49,
+      "message": "Blocking assignment '=' in sequential logic process"
+    },
+    {
+      "code": "BLKSEQ",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 283,
+      "column": 37,
+      "message": "Blocking assignment '=' in sequential logic process"
+    },
+    {
+      "code": "BLKSEQ",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 320,
+      "column": 46,
+      "message": "Blocking assignment '=' in sequential logic process"
+    },
+    {
+      "code": "BLKSEQ",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 221,
+      "column": 16,
+      "message": "Blocking assignment '=' in sequential logic process"
+    },
+    {
+      "code": "BLKSEQ",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 223,
+      "column": 16,
+      "message": "Blocking assignment '=' in sequential logic process"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 158,
+      "column": 21,
+      "message": "Parameter is not used: 'C_S_AXI_REG_EN1'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 356,
+      "column": 32,
+      "message": "Signal is not used: 'awsize_d2'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 376,
+      "column": 32,
+      "message": "Signal is not used: 'arsize_d2'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc.v",
+      "line": 405,
+      "column": 32,
+      "message": "Signal is not used: 'wlast_d3'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ui_top.v",
+      "line": 162,
+      "column": 35,
+      "message": "Bits of signal are not used: 'wr_data_addr'[4]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ui_top.v",
+      "line": 106,
+      "column": 9,
+      "message": "Signal is not used: 'accept'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_mc.v",
+      "line": 433,
+      "column": 37,
+      "message": "Signal is not driven, nor used: 'i'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 115,
+      "column": 45,
+      "message": "Bits of signal are not used: 's_axi_awaddr'[31]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 127,
+      "column": 45,
+      "message": "Bits of signal are not used: 's_axi_araddr'[31]"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_ctrl_top.v",
+      "line": 374,
+      "column": 12,
+      "message": "Parameter is not used: 'P_REG_INDX_ARRAY'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_b_channel.v",
+      "line": 109,
+      "column": 47,
+      "message": "Signal is not used: 'b_resp_rdy'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_b_channel.v",
+      "line": 123,
+      "column": 12,
+      "message": "Parameter is not used: 'P_EXOKAY'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_b_channel.v",
+      "line": 124,
+      "column": 12,
+      "message": "Parameter is not used: 'P_SLVERR'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_b_channel.v",
+      "line": 125,
+      "column": 12,
+      "message": "Parameter is not used: 'P_DECERR'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_dec_fix.v",
+      "line": 86,
+      "column": 9,
+      "message": "Signal is not used: 'rst'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_aw_channel.v",
+      "line": 99,
+      "column": 47,
+      "message": "Signal is not used: 'awlock'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_aw_channel.v",
+      "line": 100,
+      "column": 47,
+      "message": "Signal is not used: 'awcache'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_aw_channel.v",
+      "line": 101,
+      "column": 47,
+      "message": "Signal is not used: 'awprot'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_aw_channel.v",
+      "line": 135,
+      "column": 37,
+      "message": "Parameter is not used: 'P_CMD_READ'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_w_channel.v",
+      "line": 75,
+      "column": 21,
+      "message": "Parameter is not used: 'C_AXI_ADDR_WIDTH'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_w_channel.v",
+      "line": 91,
+      "column": 47,
+      "message": "Signal is not used: 'awvalid'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_w_channel.v",
+      "line": 93,
+      "column": 47,
+      "message": "Signal is not used: 'w_ignore_begin'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_w_channel.v",
+      "line": 94,
+      "column": 47,
+      "message": "Signal is not used: 'w_ignore_end'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_ar_channel.v",
+      "line": 99,
+      "column": 47,
+      "message": "Signal is not used: 'arlock'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_ar_channel.v",
+      "line": 100,
+      "column": 47,
+      "message": "Signal is not used: 'arcache'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_ar_channel.v",
+      "line": 101,
+      "column": 47,
+      "message": "Signal is not used: 'arprot'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_ar_channel.v",
+      "line": 129,
+      "column": 37,
+      "message": "Parameter is not used: 'P_CMD_WRITE'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "line": 81,
+      "column": 21,
+      "message": "Parameter is not used: 'C_AXI_ADDR_WIDTH'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "line": 85,
+      "column": 21,
+      "message": "Parameter is not used: 'C_MC_nCK_PER_CLK'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "line": 88,
+      "column": 21,
+      "message": "Parameter is not used: 'C_MC_BURST_MODE'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "line": 106,
+      "column": 47,
+      "message": "Signal is not used: 'mc_app_rd_last'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "line": 136,
+      "column": 12,
+      "message": "Parameter is not used: 'P_EXOKAY'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "line": 138,
+      "column": 12,
+      "message": "Parameter is not used: 'P_DECERR'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "line": 161,
+      "column": 28,
+      "message": "Signal is not driven, nor used: 'rlast_i'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "line": 162,
+      "column": 28,
+      "message": "Signal is not driven, nor used: 'r_valid_i'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_ui_cmd.v",
+      "line": 98,
+      "column": 19,
+      "message": "Procedural assignment to declaration with initial value: 'app_rdy_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_ui_cmd.v",
+      "line": 109,
+      "column": 49,
+      "message": "Procedural assignment to declaration with initial value: 'app_addr_r1'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_ui_cmd.v",
+      "line": 110,
+      "column": 49,
+      "message": "Procedural assignment to declaration with initial value: 'app_addr_r2'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 156,
+      "column": 29,
+      "message": "Signal is not used: 'app_raw_not_ecc'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 162,
+      "column": 27,
+      "message": "Signal is not used: 'app_raw_not_ecc_r1'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 178,
+      "column": 7,
+      "message": "Signal is not used: 'app_wdf_rdy_r_copy4'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 272,
+      "column": 14,
+      "message": "Signal is not used: 'wb_wr_data_addr'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 204,
+      "column": 52,
+      "message": "Procedural assignment to declaration with initial value: 'app_ecc_multiple_err_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 205,
+      "column": 50,
+      "message": "Procedural assignment to declaration with initial value: 'app_ecc_single_err_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 272,
+      "column": 20,
+      "message": "Bits of signal are not used: 'wr_status'[1]"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_rank_mach.v",
+      "line": 74,
+      "column": 14,
+      "message": "Parameter is not used: 'CS_WIDTH'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 98,
+      "column": 14,
+      "message": "Parameter is not used: 'DQS_WIDTH'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 151,
+      "column": 9,
+      "message": "Signal is not used: 'col_size'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 286,
+      "column": 26,
+      "message": "Signal is not used: 'col_ra'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 289,
+      "column": 25,
+      "message": "Bits of signal are not used: 'col_a'[14,12,10]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 149,
+      "column": 13,
+      "message": "Bits of signal are not used: 'offset_ns'[1]"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 197,
+      "column": 69,
+      "message": "Procedural assignment to declaration with initial value: 'offset_r1'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 198,
+      "column": 69,
+      "message": "Procedural assignment to declaration with initial value: 'offset_r2'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 293,
+      "column": 15,
+      "message": "Bits of signal are not used: 'col_a_full'[11:10]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_col_mach.v",
+      "line": 395,
+      "column": 27,
+      "message": "Bits of signal are not used: 'fifo_out_data_r'[41:37]"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 73,
+      "column": 15,
+      "message": "Parameter is not used: 'DATA_BUF_ADDR_WIDTH'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 74,
+      "column": 15,
+      "message": "Parameter is not used: 'DATA_BUF_OFFSET_WIDTH'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 89,
+      "column": 9,
+      "message": "Signal is not used: 'rst'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 95,
+      "column": 41,
+      "message": "Signal is not used: 'wr_data_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 96,
+      "column": 40,
+      "message": "Signal is not used: 'wr_data_mask_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_merge_enc.v",
+      "line": 97,
+      "column": 38,
+      "message": "Signal is not used: 'rd_merge_data_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 87,
+      "column": 9,
+      "message": "Signal is not used: 'rst'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 93,
+      "column": 35,
+      "message": "Bits of signal are not used: 'rd_data_addr'[4]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 97,
+      "column": 35,
+      "message": "Bits of signal are not used: 'wr_data_addr'[4]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ecc_buf.v",
+      "line": 132,
+      "column": 24,
+      "message": "Bits of signal are not used: 'buf_out_data'[515:512]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_ctrl_write.v",
+      "line": 125,
+      "column": 29,
+      "message": "Signal is not driven, nor used: 'awready_i'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_ctrl_read.v",
+      "line": 90,
+      "column": 45,
+      "message": "Signal is not used: 'clk'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_ctrl_read.v",
+      "line": 91,
+      "column": 45,
+      "message": "Signal is not used: 'reset'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_ctrl_read.v",
+      "line": 96,
+      "column": 45,
+      "message": "Signal is not used: 'rready'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 67,
+      "column": 21,
+      "message": "Parameter is not used: 'C_ADDR_WIDTH'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 71,
+      "column": 21,
+      "message": "Parameter is not used: 'C_ECC_ONOFF_RESET_VALUE'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 72,
+      "column": 21,
+      "message": "Parameter is not used: 'C_ECC_TEST'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 89,
+      "column": 21,
+      "message": "Parameter is not used: 'C_REG_RDAC_ARRAY'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 90,
+      "column": 21,
+      "message": "Parameter is not used: 'C_REG_WRAC_ARRAY'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 93,
+      "column": 21,
+      "message": "Parameter is not used: 'C_REG_ADDR_ARRAY'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 118,
+      "column": 21,
+      "message": "Parameter is not used: 'C_REG_DUMMY_INDX'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 167,
+      "column": 32,
+      "message": "Signal is not driven, nor used: 'ecc_err_addr_offset'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 169,
+      "column": 32,
+      "message": "Bits of signal are not used: 'ecc_err_addr_swapped'[2:0]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 170,
+      "column": 22,
+      "message": "Bits of signal are not used: 'we'[23:19]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 172,
+      "column": 22,
+      "message": "Bits of signal are not used: 'we_int'[23:19]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "RAM32M.v",
+      "line": 57,
+      "column": 7,
+      "message": "Signal is not driven, nor used: 'notifier'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_wr_cmd_fsm.v",
+      "line": 81,
+      "column": 21,
+      "message": "Parameter is not used: 'C_MC_BURST_LEN'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_wr_cmd_fsm.v",
+      "line": 84,
+      "column": 21,
+      "message": "Parameter is not used: 'C_MC_RD_INST'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ddr_axi_register_slice.v",
+      "line": 106,
+      "column": 41,
+      "message": "Signal is not used: 'S_AXI_AWUSER'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ddr_axi_register_slice.v",
+      "line": 115,
+      "column": 41,
+      "message": "Signal is not used: 'S_AXI_WUSER'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ddr_axi_register_slice.v",
+      "line": 137,
+      "column": 41,
+      "message": "Signal is not used: 'S_AXI_ARUSER'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ddr_axi_register_slice.v",
+      "line": 177,
+      "column": 40,
+      "message": "Signal is not used: 'M_AXI_BUSER'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ddr_axi_register_slice.v",
+      "line": 201,
+      "column": 40,
+      "message": "Signal is not used: 'M_AXI_RUSER'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_cmd_translator.v",
+      "line": 96,
+      "column": 47,
+      "message": "Bits of signal are not used: 'axburst'[0]"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_cmd_fsm.v",
+      "line": 77,
+      "column": 21,
+      "message": "Parameter is not used: 'C_MC_BURST_LEN'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_cmd_fsm.v",
+      "line": 80,
+      "column": 21,
+      "message": "Parameter is not used: 'C_MC_RD_INST'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 316,
+      "column": 14,
+      "message": "Parameter is not used: 'TWO'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 77,
+      "column": 14,
+      "message": "Parameter is not used: 'nBANK_MACHS'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 165,
+      "column": 20,
+      "message": "Procedural assignment to declaration with initial value: 'zq_request'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 168,
+      "column": 21,
+      "message": "Procedural assignment to declaration with initial value: 'zq_tick'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 209,
+      "column": 21,
+      "message": "Procedural assignment to declaration with initial value: 'sre_request'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 233,
+      "column": 71,
+      "message": "Procedural assignment to declaration with initial value: 'ckesr_timer_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 234,
+      "column": 72,
+      "message": "Procedural assignment to declaration with initial value: 'ckesr_timer_ns'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 281,
+      "column": 12,
+      "message": "Signal is not used: 'maint_busy'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 292,
+      "column": 24,
+      "message": "Signal is not used: 'maint_grant_ns'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 383,
+      "column": 23,
+      "message": "Procedural assignment to declaration with initial value: 'app_ref_ack_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 384,
+      "column": 19,
+      "message": "Procedural assignment to declaration with initial value: 'app_ref_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 397,
+      "column": 22,
+      "message": "Procedural assignment to declaration with initial value: 'app_zq_ack_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 398,
+      "column": 18,
+      "message": "Procedural assignment to declaration with initial value: 'app_zq_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_rank_common.v",
+      "line": 501,
+      "column": 28,
+      "message": "Procedural assignment to declaration with initial value: 'maint_ref_zq_wip_r'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 84,
+      "column": 14,
+      "message": "Parameter is not used: 'RANKS'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 85,
+      "column": 14,
+      "message": "Parameter is not used: 'CWL'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 218,
+      "column": 27,
+      "message": "Signal is not used: 'end_rtp'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 219,
+      "column": 27,
+      "message": "Signal is not used: 'passing_open_bank'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 220,
+      "column": 27,
+      "message": "Signal is not used: 'op_exit_req'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 223,
+      "column": 27,
+      "message": "Signal is not used: 'start_pre_wait'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_common.v",
+      "line": 279,
+      "column": 15,
+      "message": "Bits of signal are not used: 'cmd'[2:1]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_ctrl_addr_decode.v",
+      "line": 82,
+      "column": 45,
+      "message": "Bits of signal are not used: 'axaddr'[31:10,1:0]"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_ctrl_reg.v",
+      "line": 81,
+      "column": 21,
+      "message": "Parameter is not used: 'C_MASK'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_queue.v",
+      "line": 502,
+      "column": 30,
+      "message": "Procedural assignment to declaration with initial value: 'rcv_open_bank'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_queue.v",
+      "line": 499,
+      "column": 31,
+      "message": "Bits of signal are not used: 'rb_hit_busy_ns_in'[7:4,0]"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_queue.v",
+      "line": 251,
+      "column": 19,
+      "message": "Procedural assignment to declaration with initial value: 'adv_queue'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_queue.v",
+      "line": 323,
+      "column": 20,
+      "message": "Procedural assignment to declaration with initial value: 'tail_r_lcl'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_ddr_axic_register_slice.v",
+      "line": 63,
+      "column": 14,
+      "message": "Parameter is not used: 'C_FAMILY'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ddr_axic_register_slice.v",
+      "line": 78,
+      "column": 15,
+      "message": "Signal is not used: 'ACLK'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_ddr_axic_register_slice.v",
+      "line": 79,
+      "column": 15,
+      "message": "Signal is not used: 'ARESET'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "line": 74,
+      "column": 21,
+      "message": "Parameter is not used: 'C_MC_ADDR_WIDTH'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "line": 79,
+      "column": 21,
+      "message": "Parameter is not used: 'C_DATA_WIDTH'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "line": 94,
+      "column": 47,
+      "message": "Signal is not used: 'axsize'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "line": 110,
+      "column": 12,
+      "message": "Parameter is not used: 'P_AXLEN_WIDTH'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "line": 107,
+      "column": 21,
+      "message": "Parameter is not used: 'C_MC_ADDR_WIDTH'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "line": 112,
+      "column": 21,
+      "message": "Parameter is not used: 'C_DATA_WIDTH'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "line": 126,
+      "column": 47,
+      "message": "Bits of signal are not used: 'axlen'[7:4]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "line": 127,
+      "column": 47,
+      "message": "Signal is not used: 'axsize'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "line": 143,
+      "column": 12,
+      "message": "Parameter is not used: 'P_AXLEN_WIDTH'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_bank_compare.v",
+      "line": 80,
+      "column": 14,
+      "message": "Parameter is not used: 'ECC'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_compare.v",
+      "line": 119,
+      "column": 9,
+      "message": "Signal is not used: 'size'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_compare.v",
+      "line": 248,
+      "column": 34,
+      "message": "Procedural assignment to declaration with initial value: 'col_addr_template'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_compare.v",
+      "line": 248,
+      "column": 14,
+      "message": "Bits of signal are not used: 'col_addr_template'[15]"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 160,
+      "column": 14,
+      "message": "Parameter is not used: 'ORDERING'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 422,
+      "column": 9,
+      "message": "Signal is not used: 'passing_open_bank'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 423,
+      "column": 9,
+      "message": "Signal is not used: 'low_idle_cnt_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 425,
+      "column": 9,
+      "message": "Signal is not used: 'op_exit_grant'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 426,
+      "column": 9,
+      "message": "Signal is not used: 'tail_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 638,
+      "column": 31,
+      "message": "Bits of signal are not used: 'demand_act_priority_in'[7:4,0]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 751,
+      "column": 31,
+      "message": "Bits of signal are not used: 'demand_priority_in'[7:4,0]"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 262,
+      "column": 59,
+      "message": "Procedural assignment to declaration with initial value: 'rcd_timer_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 264,
+      "column": 22,
+      "message": "Procedural assignment to declaration with initial value: 'rcd_active_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 302,
+      "column": 21,
+      "message": "Procedural assignment to declaration with initial value: 'rmw_rd_done'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 303,
+      "column": 25,
+      "message": "Procedural assignment to declaration with initial value: 'rd_half_rmw_lcl'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 306,
+      "column": 20,
+      "message": "Procedural assignment to declaration with initial value: 'rmw_wait_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 639,
+      "column": 22,
+      "message": "Procedural assignment to declaration with initial value: 'act_demanded'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 752,
+      "column": 18,
+      "message": "Procedural assignment to declaration with initial value: 'demanded'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 852,
+      "column": 27,
+      "message": "Procedural assignment to declaration with initial value: 'phy_mc_ctl_full_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 853,
+      "column": 27,
+      "message": "Procedural assignment to declaration with initial value: 'phy_mc_cmd_full_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_bank_state.v",
+      "line": 864,
+      "column": 19,
+      "message": "Procedural assignment to declaration with initial value: 'ofs_rdy_r'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 91,
+      "column": 14,
+      "message": "Parameter is not used: 'nRAS'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 92,
+      "column": 14,
+      "message": "Parameter is not used: 'nRCD'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 93,
+      "column": 14,
+      "message": "Parameter is not used: 'nWR'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 335,
+      "column": 30,
+      "message": "Procedural assignment to declaration with initial value: 'send_cmd0_col'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 336,
+      "column": 30,
+      "message": "Procedural assignment to declaration with initial value: 'send_cmd1_row'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 340,
+      "column": 30,
+      "message": "Procedural assignment to declaration with initial value: 'send_cmd2_pre'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 343,
+      "column": 23,
+      "message": "Procedural assignment to declaration with initial value: 'cs_en0'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 344,
+      "column": 23,
+      "message": "Procedural assignment to declaration with initial value: 'cs_en1'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 345,
+      "column": 23,
+      "message": "Procedural assignment to declaration with initial value: 'cs_en2'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 306,
+      "column": 27,
+      "message": "Signal is not used: 'col_rdy_wr'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 297,
+      "column": 24,
+      "message": "Procedural assignment to declaration with initial value: 'sent_col_lcl_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 356,
+      "column": 29,
+      "message": "Procedural assignment to declaration with initial value: 'sent_row_or_maint_r'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_row_col.v",
+      "line": 356,
+      "column": 7,
+      "message": "Signal is not used: 'sent_row_or_maint_r'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 82,
+      "column": 15,
+      "message": "Parameter is not used: 'BURST_MODE'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 84,
+      "column": 15,
+      "message": "Parameter is not used: 'CL'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 101,
+      "column": 15,
+      "message": "Parameter is not used: 'RTT_NOM'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 102,
+      "column": 15,
+      "message": "Parameter is not used: 'RTT_WR'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 103,
+      "column": 15,
+      "message": "Parameter is not used: 'SLOT_0_CONFIG'"
+    },
+    {
+      "code": "UNUSEDPARAM",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 104,
+      "column": 15,
+      "message": "Parameter is not used: 'SLOT_1_CONFIG'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 143,
+      "column": 11,
+      "message": "Signal is not used: 'init_calib_complete'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 167,
+      "column": 29,
+      "message": "Signal is not used: 'grant_col_wr'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 178,
+      "column": 17,
+      "message": "Signal is not used: 'slot_1_present'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 201,
+      "column": 22,
+      "message": "Procedural assignment to declaration with initial value: 'col_rd_wr_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 202,
+      "column": 54,
+      "message": "Procedural assignment to declaration with initial value: 'col_cmd_r'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 494,
+      "column": 48,
+      "message": "Procedural assignment to declaration with initial value: 'cmd0'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 506,
+      "column": 48,
+      "message": "Procedural assignment to declaration with initial value: 'cmd1'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 516,
+      "column": 48,
+      "message": "Procedural assignment to declaration with initial value: 'cmd2'"
+    },
+    {
+      "code": "PROCASSINIT",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 517,
+      "column": 48,
+      "message": "Procedural assignment to declaration with initial value: 'cmd3'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 629,
+      "column": 13,
+      "message": "Signal is not used: 'slot_1_population'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_arb_select.v",
+      "line": 675,
+      "column": 13,
+      "message": "Signal is not used: 'mc_aux_out_r_2'"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_round_robin_arb.v",
+      "line": 141,
+      "column": 21,
+      "message": "Bits of signal are not used: 'dbl_last_master_ns'[5:4]"
+    },
+    {
+      "code": "UNUSEDSIGNAL",
+      "file": "mig_7series_v4_2_round_robin_arb.v",
+      "line": 144,
+      "column": 21,
+      "message": "Bits of signal are not used: 'dbl_req'[5,0]"
+    },
+    {
+      "code": "CASEINCOMPLETE",
+      "file": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "line": 315,
+      "column": 3,
+      "message": "Case values incompletely covered (example pattern 0x0)"
+    },
+    {
+      "code": "CASEINCOMPLETE",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 342,
+      "column": 7,
+      "message": "Case values incompletely covered (example pattern 0x0)"
+    },
+    {
+      "code": "CASEINCOMPLETE",
+      "file": "mig_7series_v4_2_ui_wr_data.v",
+      "line": 380,
+      "column": 14,
+      "message": "Case values incompletely covered (example pattern 0x0)"
+    },
+    {
+      "code": "CASEINCOMPLETE",
+      "file": "mig_7series_v4_2_ui_rd_data.v",
+      "line": 406,
+      "column": 16,
+      "message": "Case values incompletely covered (example pattern 0x0)"
+    },
+    {
+      "code": "CASEX",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 227,
+      "column": 3,
+      "message": "Suggest casez (with ?'s) in place of casex (with X's)"
+    },
+    {
+      "code": "CASEX",
+      "file": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "line": 251,
+      "column": 3,
+      "message": "Suggest casez (with ?'s) in place of casex (with X's)"
+    },
+    {
+      "code": "INITIALDLY",
+      "file": "SRLC32E.v",
+      "line": 62,
+      "column": 19,
+      "message": "Non-blocking assignment '<=' in initial/final block"
+    },
+    {
+      "code": "SYNCASYNCNET",
+      "file": "tb_jtag_ew_ddr.sv",
+      "line": 21,
+      "column": 8,
+      "message": "Signal flopped as both synchronous and async: 'tb_jtag_ew_ddr.c0_init_calib_complete'"
+    },
+    {
+      "code": "SYNCASYNCNET",
+      "file": "tb_jtag_ew_ddr.sv",
+      "line": 13,
+      "column": 9,
+      "message": "Signal flopped as both synchronous and async: 'tb_jtag_ew_ddr.cfg_reset'"
+    },
+    {
+      "code": "SYNCASYNCNET",
+      "file": "mig_7series_v4_2_rank_cntrl.v",
+      "line": 488,
+      "column": 12,
+      "message": "Signal flopped as both synchronous and async: 'tb_jtag_ew_ddr.memory_model.mc.rank_mach0.rank_cntrl[0].rank_cntrl0.periodic_rd_generation.genblk1.int_read_this_rank'"
+    },
+    {
+      "code": "UNOPTFLAT",
+      "file": "mig_7series_v4_2_ecc_gen.v",
+      "line": 177,
+      "column": 24,
+      "message": "Signal unoptimizable: Circular combinational logic: 'tb_jtag_ew_ddr.memory_model.mc.ecc_on.ecc_gen0.ht_matrix'"
+    }
+  ],
+  "reset_notice_reason": "The selected archived rank controller asynchronously uses calibration while the original memory-top seam registers it; cfg_reset is an explicit asynchronous coordinator input observed by synchronous diagnostics. Both are source-bound simulation notices, not physical reset/CDC qualification.",
+  "baseline_log_sha256": "b2994b1957e50a129425ed3c271ac48aec74eedaa3f0f5ed5671abcfaa8a08af",
+  "baseline_report_sha256": "4d12cf22696a39fadab2ea602e0f234b339752528621c453778395bcb7c8ba43"
+}
