@@ -1,0 +1,285 @@
+{
+  "schema": 1,
+  "top": "rk_jtag_dual_ddr_async",
+  "precision": "FP16",
+  "atomic_c": 32,
+  "atomic_k": 16,
+  "defines": [
+    "DESIGNWARE_NOEXIST",
+    "ASSERT_ON"
+  ],
+  "sources": [
+    {
+      "path": "rtl/rk_fp16_alu.sv",
+      "sha256": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650"
+    },
+    {
+      "path": "rtl/rk_ew_regs.sv",
+      "sha256": "592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73"
+    },
+    {
+      "path": "rtl/rk_ew_engine.sv",
+      "sha256": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e"
+    },
+    {
+      "path": "rtl/rk_ew_core.sv",
+      "sha256": "493195964b189d3cf829c31104d6fcb8d72d5e7dc3a8c8310d2ceb62add2e873"
+    },
+    {
+      "path": "rtl/rk_ew_dma.sv",
+      "sha256": "55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046"
+    },
+    {
+      "path": "rtl/rk_axi_mem.sv",
+      "sha256": "dc4cb342145781bd3632b25df95d2c5c15f39a0a03e6509265e1c8434efb149e"
+    },
+    {
+      "path": "rtl/rk_job_control.sv",
+      "sha256": "5507702165a738d1655a5af651ba233955cb6c94e09a5b16469509319305a9f7"
+    },
+    {
+      "path": "rtl/host/rk_jtag_backend.sv",
+      "sha256": "9f298914314b09e42c9bf4d62db1c3de05b241f1c6ca3fd169a95e5df9d2995e"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_mig_reset_coordinator.sv",
+      "sha256": "b8d2a7c2e2f1084d5be481d76f26bf1e4998470fb75d74468ceacf6873027490"
+    },
+    {
+      "path": "rtl/ddr/rk_mig_ecc_monitor.sv",
+      "sha256": "5496da2e953afe2ad4e76bcbcceba255b54146ce30cd7afc1dd18eeed2e89bd5"
+    },
+    {
+      "path": "rtl/ddr/rk_mig_write_fence.sv",
+      "sha256": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92"
+    },
+    {
+      "path": "rtl/ddr/capacity/rk_ddr_memory_fabric_snapshot_capacity.sv",
+      "sha256": "dfbd37efc97406fd410bd7175474c548aa0cbb6cc0554e7939024bb084714e34"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_async_job_port.sv",
+      "sha256": "f4c74cc1c1bcc8d1aa8174b4000a647139592f25f880dd5e272c3a26f22a45ec"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_async_mem_port.sv",
+      "sha256": "528350f9574d524f21dc5a6b28be541a2fe2f02901eb4d43fffb208728a0e276"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_ew_async_engine.sv",
+      "sha256": "5030281ae0934e1745386e3861d641d157870db6c18d7c7080bd756cb1a378c9"
+    },
+    {
+      "path": "rtl/ddr/rk_axi_mem_read_snapshot.sv",
+      "sha256": "1a8f0125a0da68c381a3be2901645626275baecd3a919774396a783816549a77"
+    },
+    {
+      "path": "rtl/rk_startup_reset.sv",
+      "sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09"
+    },
+    {
+      "path": "rtl/vendor/opentpu/otpu_jtag_mailbox.sv",
+      "sha256": "46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9"
+    },
+    {
+      "path": "rtl/vendor/nvdla/NV_DW02_tree.v",
+      "sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e"
+    },
+    {
+      "path": "rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+      "sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2"
+    },
+    {
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+      "sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6"
+    },
+    {
+      "path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028"
+    },
+    {
+      "path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd"
+    },
+    {
+      "path": "rtl/rk_cmac_profile.sv",
+      "sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995"
+    },
+    {
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+      "sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574"
+    },
+    {
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+      "sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b"
+    },
+    {
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+      "sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c"
+    },
+    {
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv",
+      "sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d"
+    },
+    {
+      "path": "rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv",
+      "sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43"
+    },
+    {
+      "path": "rtl/cmac/rk_nvdla_cacc.sv",
+      "sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c"
+    },
+    {
+      "path": "rtl/cmac/rk_cacc_fp16_array.sv",
+      "sha256": "b55f02cdacc81ea2605f237d333d5cc4406bf8887a1649cec6914cd80e36f500"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_cmac_cacc_fp16_array.sv",
+      "sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0"
+    },
+    {
+      "path": "rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+      "sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_writer.sv",
+      "sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_output_nvdla.sv",
+      "sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_frame_output.sv",
+      "sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_array_datapath.sv",
+      "sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_array_front.sv",
+      "sha256": "03b28203092a37875363cb5b9b4539871a593838f7b3566c87c6b777e41fcfc7"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_rw_arbiter.sv",
+      "sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_array_core.sv",
+      "sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f"
+    },
+    {
+      "path": "rtl/cmac/rk_cmac_array_dma.sv",
+      "sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+      "sha256": "32862d4d14fefa4f5ffed5d8457a334d5ee691e58ab5986684ab267e7a1716e9"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+      "sha256": "27908a593196c654e5be4df94b168751789d10bd3a442980217564f1c5edeb82"
+    },
+    {
+      "path": "rtl/tinystories/rk_cmac_success_rearm.sv",
+      "sha256": "495d5374268bfb52aaeb896b6b25373a6e4d84ab6df4b33c53f0dbf4fd18ad6e"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_cmac_async_engine.sv",
+      "sha256": "256e3e0da518a44107fd2e03a5ae2ecda2cfa33ef8b051bb2f575a5307405363"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_dual_async_dispatch.sv",
+      "sha256": "9c74716d8d064847bf34e13019c6b4c4ff49c416d4ad5b4bb7a2a7f4edbe51b4"
+    },
+    {
+      "path": "rtl/ddr/rk_dual_job_control.sv",
+      "sha256": "c37d67bacf7e3fbea99489f2dd0aaf5b93ae56790b3342f097bdb6d277046c6f"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_jtag_dual_ddr_async.sv",
+      "sha256": "835e3bc3de848cf6ce4d07b0da2f9c8fe987e8470d756463c3995181e7adc3dd"
+    },
+    {
+      "path": "rtl/ddr/capacity/rk_job_control_admission.sv",
+      "sha256": "812417617c2eac21ead4f364ad9b280f15298edc613a506ab1a20ed889cee17d"
+    },
+    {
+      "path": "rtl/ddr/capacity/rk_dual_job_control_admission.sv",
+      "sha256": "755415cfbde70ec657db213f498fc01763af264d0ded1eea463226092bed40a0"
+    },
+    {
+      "path": "rtl/ddr/rk_ddr_capacity_pattern.sv",
+      "sha256": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8"
+    },
+    {
+      "path": "rtl/ddr/rk_ddr_capacity_sweep.sv",
+      "sha256": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_ddr_capacity_axi.sv",
+      "sha256": "2fde9e9b2a18c9d714a4d994fdb812b9c141b010ac0e2fd3070a0812e0d43195"
+    },
+    {
+      "path": "rtl/ddr/rk_ddr_capacity_bist.sv",
+      "sha256": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae"
+    },
+    {
+      "path": "rtl/ddr/capacity/rk_ddr_capacity_owner.sv",
+      "sha256": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e"
+    },
+    {
+      "path": "rtl/ddr/capacity/rk_ddr_capacity_regs.sv",
+      "sha256": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7"
+    },
+    {
+      "path": "rtl/ddr/capacity/rk_ddr_diagnostic_mux.sv",
+      "sha256": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd"
+    },
+    {
+      "path": "rtl/ddr/capacity/rk_ddr_capacity_service.sv",
+      "sha256": "eb3b03bdc30d6e6316bd1014525b2f2713e8255cbf253ad4e31046a893c146fc"
+    },
+    {
+      "path": "rtl/ddr/capacity/rk_axil_diagnostic_router.sv",
+      "sha256": "66529475beb67412b6545729ff366370b8e241a039b312d68c53551e78f4b083"
+    },
+    {
+      "path": "rtl/vendor/nvdla/compat/nv_assert_never.v",
+      "sha256": "28a3ff37142647e9499cc0dd88095313c029acffe1bf7806160eb9fbbd288732"
+    },
+    {
+      "path": "rtl/vendor/nvdla/compat/nv_assert_no_x.v",
+      "sha256": "6eb56dc9ea269a4b071d3c00de3a23f5b75782b72403bcc72a7acc9e625a6e97"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_cmac_fp16_shared_data.sv",
+      "sha256": "7434af380e4f8f07ff60a96269d6727186478099989eb855c16427f60283cecc"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_layout_job_control.sv",
+      "sha256": "fea874241ec13ecd7787f9e4fe017593a3ad16b2dae9b5084941e82e821b8169"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_layout_compute_dispatch.sv",
+      "sha256": "c6962d081973567b5cc43f7c9dcc9c16041755ac4659963b579d9a18429eb938"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_layout_dma.sv",
+      "sha256": "aa409aa9dc99a60eb05abb74bf61524181ac44788713980ed538867c5f04d003"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_quiescent_compute_reset.sv",
+      "sha256": "d8213ec92216f259c6db3b0a51bb4d9709845f65f14a6f206562150f821b8b08"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_compute_reset_regs.sv",
+      "sha256": "a02d6bd59340761e1003abd06068801289c4d007361438f1191bc48e9ae170af"
+    },
+    {
+      "path": "rtl/ddr/framework/rk_axil_compute_reset_router.sv",
+      "sha256": "dade1c4cb47d2bae4ef4258c0ab40edb75b3243a1335d09d26e07ae99e65e51c"
+    }
+  ]
+}
