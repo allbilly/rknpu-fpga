@@ -2,8 +2,89 @@
 
 The user supplied these repositories for continuing the FPGA implementation.
 The 2026-09-21 home-directory inventory was read-only and excluded credential
-contents. None of these candidates has been integrated by this audit, and old
-test logs do not establish success against modified RTL.
+contents. That inventory did not integrate these candidates. Subsequent source
+imports are identified below; old test logs do not establish success against
+modified RTL.
+
+## OpenTPU board and transport reference, 2026-10-26
+
+The requested follow-up checked `~/openTPU` with HEAD
+`98286b6a4e0806aa80de680845cb33e0a299075b`. Some reference helpers are
+untracked working files, so HEAD alone does not identify their contents. The
+audit records each selected file's hash and whether it matches a HEAD blob;
+it did not modify the donor checkout. Use `OPENTPU_ROOT` for a different local
+checkout.
+The preserved `bitstreams/spare-dual-host-4gb-c0182800` package supplies the
+fixed-clock reference. Its later `c01848` runtime-clock effort is abandoned
+according to `HANDOFF.md`; reading that history does not resume it.
+
+Paths in the following table are relative to `OPENTPU_ROOT`:
+
+| Reference | Application here | Boundary |
+|---|---|---|
+| `docs/vivado_bitstream_guide.md` | Fresh source snapshots, recorded stage exits, strict timing/DRC and image-specific reviews | Its old implementation entrypoints are retired. Do not run its preparers: some generate vendor IP. No OpenTPU build or programming authorization transfers here. |
+| `bitstreams/spare-dual-host-4gb-c0182800/evidence/dual-host/otpu_host_reset.sv` | Registered reset output and bounded hold, already used to inform the separate startup wrappers | OpenTPU additionally synchronizes clock lock and PCIe transitions. Our configuration-time reset does not implement its platform recovery protocol. |
+| `bitstreams/spare-dual-host-4gb-c0182800/evidence/dual-host/otpu_jtag_mailbox.sv` and `otpu_dual_host.tcl` in the same directory | Exact mailbox import, USER2 ownership, held-payload bounds and first-stage synchronizer exceptions | [Our CDC script](../fpga/host/mailbox_cdc.tcl) binds our hierarchy and 50 MHz clock. OpenTPU routed receipts cannot qualify those new paths. |
+| `tools/dual_host_source.py` and the fixed package's `evidence/dual-host/otpu_fpga_top_ld.sv` | Independent host clock, arbitration, explicit reset ownership and retained PCIe/JTAG interfaces | This is a different DDR shell, with a 128-bit host path. It is not a drop-in connection for our 512-bit AXI master. |
+| `tools/fedora_run_vivado_native_jtag.py` and `tools/fedora_benchmark_ch1_jtag_rpc.py` | Numeric loopback Vivado scan RPC pattern for the existing raw-byte USER2 transport | Our bridge separately verifies target/DNA/source tag and uses the previously verified DLC10 3 MHz setting. It contains no programming or fabric-reset command. No donor execution result is inherited. |
+
+The imported mailbox still matches the fixed package byte-for-byte at SHA256
+`46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9`.
+The fixed reset reference is
+`517b7c49b2755aa2150b1dfaadca74a4af0efcb3117e6a5b9aad4839b1a53538`;
+the fixed CDC Tcl is
+`ad6d98db73104ded02c2bec864b2cd68d77ab787d05bd8276b98ddea9888e80c`.
+The [local reference audit](../build/opentpu-reference-audit/1792969129918921835/report.json)
+records selected file hashes separately from this project's simulation evidence.
+
+The additional [native RPC reference audit](../build/opentpu-native-rpc-reference/report.json)
+preserves both read-only source copies. Their SHA256 values are
+`fdfe1256d10b759e0839f94723e6a857bb2cf78423cb01d44440615435f3bf12`
+and `97b52efc7a52b076fc2e869e6114215e389daaca9f27b57110fb14fd10f8c450`,
+respectively. The foreign scripts were read, not executed.
+
+Do not inherit the fixed image's spare-lane DDR configuration: its package
+README specifies CH0 lanes `[0,1,2,3,4,5,8,7]` without ECC, CH1 with ECC,
+and an independent 250 MHz host DMA clock. Our existing
+[MIG-shaped adapter](AXI_MEMORY.md) instead has 31-bit byte addresses,
+512-bit data, four-bit IDs and a single transaction clock; the inspected MIG
+configuration uses a 72-bit physical interface with ECC. Source review must
+resolve the selected controller, address windows, width/ID conversion, all
+transaction clocks, calibration/ECC signaling and joint reset before wiring
+them together. Neither truncating the channel-select address bit nor tying
+unrelated reset domains together establishes a valid integration.
+
+OpenTPU's calibration status is not a complete memory-health recovery contract.
+`rtl/boards/ypcb-00338/otpu_board.sv` synchronizes calibration status, and
+`otpu_ctrl.sv` exposes it; the `n_err` flag in `otpu_mem_ch.sv` denotes a native
+protocol violation, not an ECC syndrome. Its request/hold/drain reset pattern
+and `boards/ypcb-00338/constraints/otpu_mem_ch.tcl` provide useful transaction
+and CDC references. They do not establish what this project should do on
+calibration loss or an uncorrectable ECC event with an outstanding write.
+
+## ZYNQ-NVDLA integration reference, 2026-10-27
+
+The requested `~/ZYNQ-NVDLA` review read its YPCB integration RTL, BD script,
+JTAG runtime and dated board report. The
+[read-only source audit](../build/zynq-nvdla-reference-review.json) records exact
+file hashes independently of Git HEAD, since another session is actively
+working in that checkout. No foreign script was executed or source modified,
+and its reported hardware results were not reproduced here. Use
+`ZYNQ_NVDLA_ROOT` when referring to another local checkout.
+
+| Reference, relative to that checkout | Useful preparation pattern | Required boundary here |
+|---|---|---|
+| `boards/ypcb/vivado/system.tcl` | A separate core/host clock keeps JTAG and control alive without PCIe; clock converters isolate the XDMA side, and address windows decode before narrowing | Audit every reset/CDC/ownership branch for our clocks and masters. Its board reset and CDC/methodology dispositions do not transfer. |
+| `boards/ypcb/rtl/nvdla_mem64.sv` and `nvdla_ypcb_top.sv` | Explicit aperture/alignment/burst rejection, held native requests, masked writes and completion accounting | This is 64-bit AXI to a 512-bit OpenTPU/LiteDRAM native CH1 path. Our 512-bit AXI/MIG ordering and write-retirement proof are different; its `n_wdone` cannot replace them. |
+| `tools/ypcb/jtag.tcl` and `boards/ypcb/JTAG_RESULT_20261026.md` | Reserved scratch ranges, upload readback, output/sentinel comparisons and bank-aware repeated jobs | Its `0x80000000..0xffffffff` aperture is outside our current 31-bit host contract. Do not copy those physical addresses or run its destructive scratch commands against this image. |
+
+That accelerator is `nv_small` INT8, initially 64 MACs, with separate larger
+variants. Its arithmetic, APB register plans and numerical results do not
+qualify this project's FP16/raw-RK path or full 512-product performance target.
+The useful next work is our live compiler-to-USER2 test, followed by closing
+the existing joined DDR numerical timeout and preparing separately audited
+memory/PCIe integration. Retain the source-level contracts and explicit faults;
+no CPU arithmetic/layout repair or timing/electrical exception is inherited.
 
 ## Vortex floating-point paths
 

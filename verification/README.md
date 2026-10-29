@@ -1,14 +1,421 @@
 # Verification evidence
 
-The current 2026-10-23 review and validation results are recorded in the
-[project README](../README.md) and [preparation handoff](../progress.md).
+Current source, review and validation results are recorded in the
+[project README](../README.md) and [implementation plan](../docs/REVIEW_AND_PLAN.md).
 The dated results below remain evidence for their original source snapshots.
+
+The historical full32 DDR archive has a packaging inconsistency: its index
+both includes `payload/build/tinystories-full-oracle/v1/arithmetic/oracle.so`
+and lists the same source as a hash-only exclusion. The included 12,664-byte
+CPU-oracle library has SHA-256
+`dabb4aa33d17edf6a11e0ea62e1efe2ca54370aeb938d39b16796796c9d26a5d`.
+The original archive and index are preserved verbatim. Statements below about
+compiled-object exclusions have this exception; the library is a historical
+reference artifact and supplies no qualification for changed source or tools.
+
+The [full32 DDR physical archive](runs/2026-10-28-full512-ddr-full32-fpga/index.json)
+preserves 678 payloads in 61,613,646 stored bytes. Root independently rehashes
+all source/stored/decompressed bytes, all 77 physical artifacts and 479 bound
+image/model/runtime references. It retains the accepted one-prompt model
+workload, all three actual phase captures, binary BO/logit data and the prior
+v4 failure. Compiled images/tools remain hash-only references. Selected DDR
+inference passes; full capacity, injected ECC/recovery, PCIe and RK equivalence
+remain unqualified.
+
+The [V16 production capacity-RTL archive](runs/2026-10-28-production-ddr-capacity-rtl/index.json)
+preserves 2,705 payloads in 19,539,956 stored bytes. Root independently rehashes
+all payloads, the complete 1,105-file source snapshot, both full host reports,
+all twelve capacity cases and 1,128 compiled/tool exclusions. Serial Make
+passes in 876.048 seconds with unchanged source/copy hashes. V15 is retained
+as report/review lineage. This is source/native evidence only.
+
+The [capacity AXI/BIST archive](runs/2026-10-28-ddr-capacity-axi-sim/index.json)
+preserves 410 payloads in 2,679,925 stored bytes. Root independently checks
+every original/stored/decompressed payload, all 219 coverage references and
+1,103 hash-only exclusions. Current qualification uses the expanded private
+v16 and fresh public runs. The earlier private v15 post-run bench mutation,
+its forensic diff and the historical producer-bound bytes are explicit.
+This is bounded AXI/control-model evidence, not physical capacity.
+
+The [FI-leaf archive v2](runs/2026-10-28-ddr-ecc-fi-leaf-sim-v2/index.json)
+preserves 89 payloads in 426,668 stored bytes. Independent root rehash checks
+every original/stored/decompressed payload, all 85 coverage references and
+226 hash-only exclusions. It includes all six vendor sources named by the
+injection-obligations review. Both native leaf outcomes are preserved beside
+the failed Icarus footer-parser receipt; no controller/decoder/PHY, physical
+injection or recovery qualification follows from these leaf tests.
+
+The [capacity-controller simulation archive](runs/2026-10-28-ddr-capacity-controller-sim/index.json)
+preserves 235 source/evidence payloads in 4,848,190 stored bytes, including
+pattern mapping, bounded sweep tests and their failed attempts. Root
+independently rehashes all original/stored/decompressed payloads and all 309
+hash-only exclusions. The sweep result covers a 256-byte model and default
+two-GiB boundary elaboration; real MIG integration and physical capacity
+remain unqualified.
+
+The [first DDR BOS archive](runs/2026-10-28-full512-ddr-first-bos/index.json)
+preserves 498 verbatim payloads totaling 65,844,133 bytes. Independent root
+rehash checks every original/archive pair, all 12 binary exclusions and the
+read-only audit-view references. The accepted control completes one position,
+36 learned FPGA projections, 232 raw jobs, 348 tasks and 950,272 output-BO
+bytes with all 512 logits matching. The overall v4 observer-path failure
+remains failed, and this archive makes no full32 claim.
+
+The [V15 capacity-plan source archive](runs/2026-10-28-production-ddr-capacity-plan/index.json)
+preserves 2,619 payloads in 19,892,855 stored bytes, with all 1,230 coverage
+references and every source/stored/decompressed payload independently rehashed.
+It contains the 1,098-file V15 snapshot, full default regression and seven
+supplemental capacity controls. The supplemental scope is software-only;
+physical capacity remains unqualified.
+
+The [full512 DDR trained FPGA archive](runs/2026-10-28-full512-ddr-trained-fpga/index.json)
+preserves 397 payloads in 4,106,430 stored bytes. One audited volatile load
+passed scratch and four trained raw jobs with 360,448 complete BO bytes before
+ACK, 26,204 actual scans and 8,732 commands. Both traces and all four binary
+readbacks are included. Root independently rehashes every payload and all 527
+coverage references; bitstream/checkpoints/tools are hash-only exclusions.
+Full-model inference, capacity, injected ECC, recovery and PCIe remain open.
+
+The [production DDR repeat-control archive](runs/2026-10-28-production-ddr-repeat-control/index.json)
+preserves the V14 run and V13 source history: 5,210 payloads in 37,940,410
+stored bytes, with all 2,439 coverage references independently checked.
+Serial Make passed in 794.096 seconds with 89 DDR controls, 61 TinyStories
+controls and both complete native host suites. This source/native snapshot
+does not qualify any physical model inference.
+
+The [full512 DDR timing archive](runs/2026-10-28-full512-ddr-timing/index.json)
+preserves the independently qualified routed result: setup +0.004 ns, hold
++0.048 ns and pulse +0.264 ns, zero failing endpoints and 422,138 fully routed
+nets. It includes 406 payloads in 3,965,773 stored bytes and all 343 input
+references, with native tools/checkpoints hash-identified as exclusions. The
+original native repair pass and wrapper provenance failure remain preserved
+beside the fresh successful qualification. Independent root rehash covers all
+source/stored/decompressed bytes and references. No image or physical DDR
+application acceptance follows from this timing result alone.
+
+The [production full512 DRC-gate archive](runs/2026-10-28-production-full512-drc-gate/index.json)
+preserves the completed V13 run: 2,615 payloads, 19,208,376 stored bytes and
+1,222 coverage references, including all 1,095 copied sources and both source
+reviews. Serial Make passes in 890.086 seconds, with 84 DDR software controls,
+61 TinyStories controls and the original native suites. The three new emitter
+controls reject changed warning counts, unknown DRC rules and severities.
+Root independently rehashes all source/stored/decompressed bytes and coverage
+references. This source/native result does not admit a bitstream or hardware.
+
+The [prior production DDR model-auditor archive](runs/2026-10-28-production-ddr-model-auditors/index.json)
+preserves the completed V12 run: 2,613 payloads, 19,193,963 stored bytes and
+1,218 coverage references, including all 1,095 private source inputs. Default
+Make passes in 902.088 seconds, with 81 DDR software controls and 61 TinyStories
+controls alongside the original native suites. Independent root rehash checks
+every stored, decompressed and source payload. This is source/native evidence;
+it does not qualify routed timing or physical DDR inference.
+
+The [shared-data controller archive](runs/2026-10-28-shared-data-controller-33/index.json)
+preserves 662 payloads in 3,893,933 stored bytes for all 12 CMAC and 21 EW
+numerical/fault/recovery cases on the same executable. Independent root rehash
+checks all stored/decompressed/source bytes and 2,775 input-closure references
+across six completed groups. The 112 HDL sources and five headers are included;
+the ELF and native tools are hash-identified exclusions. The PHY and one-MiB
+memory window are modeled. Routed timing and physical DDR remain separate.
+
+The [full512 DDR constrained-source archive](runs/2026-10-28-full512-ddr-constrained-source/index.json)
+preserves 360 payloads in 2,912,186 stored bytes. Its 293,826-LUT optimized
+design retains all 512 product DSPs, both controllers and the exact 242-port
+interface. All 819 coverage references and every stored/decompressed/source
+payload pass independent rehash. The post-opt inventory producer's marker
+location failure remains failed beside separate acceptance of the actual
+native exit-zero facts. Routing, timing, image and physical gates remain separate.
+
+The [shared-data logical archive v2](runs/2026-10-28-shared-data-logical-v2/index.json)
+preserves 1,090 payloads in 7,092,601 stored bytes. It includes complete sampled
+cell equivalence in both simulators, both nine-mode dispatcher suites, the
+2,125.131-second trained CMAC/EW/CMAC controller replay, and strict read-only
+mapped inventories. Every payload and all 1,726 included input references pass
+independent rehash/path verification. The prior archive's 449 missing gzip
+suffixes remain a failed metadata receipt; v2 preserves identical payloads.
+Original simulator failures remain failed. Live synthesis/fault runs, native
+binaries and generated C++ are excluded. This supplies no routed timing,
+physical DDR or RK silicon qualification.
+
+The [production full512 image-control archive](runs/2026-10-28-production-full512-image-controls/index.json)
+preserves 2,611 payloads in 19,176,796 stored bytes, including all 1,093 private
+source files and 1,216 exact coverage references. Serial `make test` passes in
+1,024.229 seconds, with 61 TinyStories controls, 66 DDR controls and both full
+host suites. Independent rehash validates every stored, decompressed and
+original payload and every coverage path. The image-emission tests are offline;
+no image, routed timing or physical DDR qualification comes from this run.
+
+The [prior production DDR/model-profile archive](runs/2026-10-28-production-ddr-model-profile/index.json)
+preserves 2,601 selected payloads in 19,126,361 stored bytes, including the
+complete 1,090-file source copy, native reports/logs, both full host receipts,
+resource admission and independent review. Serial `make test` passes in
+978.148 seconds with 61 TinyStories controls, 58 DDR software/auditor controls
+and six dual-control native commands. Every archived, decompressed and source
+payload is independently rehashed. Native build outputs/tools remain excluded
+with hashes and reasons. This default regression does not qualify the optional
+full512 controller composition, physical DDR or PCIe.
+
+The [full512 shared-dispatch logical archive](runs/2026-10-27-full512-dispatch-logical/index.json)
+preserves 155 selected payloads in 811,044 stored bytes. Both simulators pass
+all nine original CMAC numerical/fault/reset modes through the actual shared
+dispatcher, retaining sixteen C32 kernels and 512 product lanes. The repeat
+case checks 98 original command words, 13,056 operand reads, 128 writes,
+13,576 responses and two safe rearms. Original fixture bytes, seed and error
+expectations remain unchanged. Independent review rehashes both input maps,
+all archived/decompressed payloads and all 18 native logs. Strict Verilator
+compile failure and reviewed-warning compilation retain separate receipts.
+This is numerical component evidence; joined DDR, physical execution, CDC and
+routed timing remain unqualified. See [the source contract](../docs/DDR_DUAL_ENDPOINT.md).
+
+The [first physical CH1 DDR archive](runs/2026-10-27-ch1-ddr-first-fpga/index.json)
+preserves 575 selected payloads, including all 122 actual-used HDL sources,
+the two XDC copies, original fixtures and complete actual JTAG scan trace.
+One volatile load passed CH1 initialization, 768 scratch bytes and a captured
+SUB(9) job with two tasks. Independent replay checks 24,238 scans and 8,078
+mailbox commands, including all 102,400 owned BO bytes before ACK. All 511
+image-admission inputs are accounted for: 505 textual inputs are included;
+four compiled images/checkpoints and two native tool wrappers remain excluded
+with hashes. The first failed auditor receipt remains failed beside the
+passing corrected audit. Full capacity, injected ECC faults/recovery,
+full512/DDR, PCIe, RK equivalence and production electrical signoff remain
+open; software CRC validation was not performed. See the
+[physical report](../docs/DDR_FPGA_TEST.md).
+
+The [fresh production archive](runs/2026-10-27-production-memory-wait-controls/index.json)
+preserves1,065 files, including the complete1,051-file private source snapshot
+and selected actual reports/logs for serial `make test` in1,035.709seconds.
+All55 TinyStories controls and11 DDR controls pass, alongside both249-entry
+EW suites, both15-case host suites and the numerical corpus. The independent
+review rechecks sources, reports and both full host receipts. The archive
+occupies8,115,851bytes; source and decompressed copies are independently
+rehashed. Optional async/CDC sources are copied for provenance, with their
+native qualification separate. Compiled images, bulkvectors and the full
+native artifact DAG are excluded; this supplies no physical DDR/PCIe/RK proof.
+
+The [unpromoted reset-candidate archive](runs/2026-10-27-ddr-clean-reset-candidate/index.json)
+preserves1,160 source/evidence files in8,957,113bytes. Original32/23 reset
+cases, five new public-status cases and two joined fault cases pass; actual
+118-source MIG synthesis and scoped mapped status/job/memory checks pass.
+The new source removes six unknown-level CDC findings and registers the SYS
+admission witness. The mapped audit covers nine status chains/27 registers,
+167 held payload bits, four constant bits and18 job/memory synchronizer
+stages. Original-circuit and wrong-clock negative controls reject.
+All archived/source/decompressed bytes are independently rehashed. This is a
+source candidate, not the active main RTL: full21-case runtime, twelve remaining
+reset/vendor findings, platform timing and physical DDR/full512/PCIe/RK remain
+open. Active recovery artifacts, compiled images and external vendor bodies
+are excluded. See the [reset review](../docs/DDR_LIFECYCLE.md#mapped-reset-findings-and-private-candidate).
+
+The [complete32-position TinyStories FPGA archive](runs/2026-10-27-tinystories-full32-fpga/index.json)
+preserves331 files and49,234,220 stored bytes, including the complete actual
+JTAG trace, reviewed local sources, original raw programs, BO observations,
+host model operators, CPU reference and independent auditors. All1,152
+learned projections run on the full512 FPGA; all16,384 logits and28 generated
+token IDs match the donor-policy reference. The independent decoder/replay
+checks2,743,153 scans,914,383 commands,7,424 jobs,11,136 tasks and30,408,704
+complete output BO bytes before ACK. The index hashes original and archived
+bytes; deterministic gzip entries decompress to the exact recorded contents.
+Explicit CPU host operators remain, with no learned-dense fallback. Images,
+checkpoints and native tools are excluded; JTAG inference supplies no physical
+DDR, PCIe or RK equivalence claim. Flash is unchanged. See the
+[physical report](../docs/TINYSTORIES_FPGA_TEST.md).
+
+The [twenty-case logical DDR archive](runs/2026-10-27-ddr-all20-logical/index.json)
+preserves 130 selected local-source/text entries and their exact hashes.
+Nine completed positive cases, ten fault/recovery cases and a separately
+verified repeated SUB(9) use the same native binary and original deadlines.
+The independent union passes all twenty cases; the original positive shard's
+repeat timeout, failed status and partial output remain preserved. Thirteen
+successful jobs compare 1,282,048 physical BO bytes in the encoded-PHY model.
+This archive excludes external generated/vendor sources and the native binary;
+it supplies no full binary DAG, pad/training, physical DDR, PCIe or RK proof.
+
+The [earlier production archive](runs/2026-10-27-production-ddr-controls/index.json)
+preserves the complete 1,002-file private source snapshot and selected actual
+logs, host readbacks and reports for serial `make test` at source
+`2a3d4a7b195b`. The run passed in 1,107.786 seconds, including both 249-entry
+EW suites, both 15-case host suites, 73 root unit methods, 53 host controls,
+28 TinyStories controls and 11 DDR endpoint controls. Independent current-source
+rehashing and both full host receipt verifiers pass. Compiled images and bulk
+generated vectors are excluded; this selected archive is not a complete binary
+artifact DAG. It supplies no full joined-MC, mapped or physical result, and
+excludes optional original-MIG work added afterward.
+
+The [original-profile MIG source archive](runs/2026-10-27-original-mig-source/index.json)
+preserves 48 selected files for unchanged-input RZQ/7 source generation in
+Vivado 2026.1. Its native run returns zero, hashes 141 generated artifacts and
+has a separate source-binding audit of 169 actual wrapper ports, geometry,
+clock constraints and generated-template omissions. Source generation and the
+separately prepared WIDTH1 arbiter definition supply no complete generated-PHY,
+matched-model, implementation, board clock/electrical or physical DDR result.
+See [the source preparation report](../docs/DDR_ORIGINAL_MIG.md).
+
+The [2026-10-26 EW FPGA archive](runs/2026-10-26-ew-startup-fpga/index.json)
+preserves raw passive JTAG captures and selected source/implementation/image
+receipts for three successful volatile-SRAM loads. Four captures contain 404
+positive scoreboard-output samples and 32 heartbeat transitions. See the
+[hardware scope and result](../docs/EW_FPGA_TEST.md); this supplies no direct
+memory readback, GEMM, DDR, PCIe or RK silicon result. Bitstream/DCP and
+compiled simulator binaries remain outside this selected text archive.
+
+The [full512 FPGA startup archive](runs/2026-10-27-full512-regmem-fpga/index.json)
+preserves three actual volatile-SRAM load receipts and four positive passive
+captures: 404 samples, 32 heartbeat transitions, PASS=1 / FAIL=0, drivers
+enabled and INIT/DONE valid. Its 101-row pre-load baseline remains UNKNOWN
+and excluded. All 512 CMAC products are bound to the reviewed image; the
+finite K65 workload's terminal scoreboard output is observed, with no direct
+RAM readback or broader RK/host/DDR/PCIe/electrical claim. Flash was not written.
+
+The [USER2 host-controlled FPGA archive](runs/2026-10-27-host-user2-fpga/index.json)
+preserves 228 text/source files, including raw numeric scans and complete BO
+inputs/readbacks. Eleven positive jobs complete sixteen tasks; all 1,077,248
+owned bytes match before ACK. Unknown-register E1 persists across reconnect
+and TAP reset, then explicit SRAM reconfiguration recovers it. Two actual
+loads pass. The independent auditor decodes 106,662 scans and 35,550 mailbox
+commands. This is raw captured EW execution in BRAM; live compiler-to-card,
+full512 host, DDR/PCIe and RK equivalence remain separate. See the
+[physical report](../docs/HOST_FPGA_TEST.md). Flash was not written.
+
+The [TinyStories preflight archive](runs/2026-10-27-tinystories-preflight/index.json)
+preserves78 text/source files: pinned static input metadata, unmodified C
+reference/license and CPU generation, finite unity-copy RTL controls, and the
+first trained BOS query tile replay on all512 pipeline products. It includes
+the original dependency failure and full-Make timeout. This is preparation
+and component/reference execution, not RKNPU TinyStories FPGA inference.
+The [application plan](../docs/TINYSTORIES.md) distinguishes the later raw-EW
+compaction and focused-timeout replay results from this frozen snapshot.
+
+The [TinyStories shared-endpoint archive](runs/2026-10-27-tinystories-dual-route/index.json)
+preserves 145 files: frozen full512/dual-endpoint source, corrected native
+runs, routed reset/CDC/timing reports, raw-program metadata and CPU model
+references. Its 50 MHz checkpoint passes setup +0.640 ns, hold +0.056 ns and
+pulse +9.600 ns with all 512 products retained. This archive has no FPGA
+image/checkpoint or physical acceptance claim.
+
+The [physical trained-tile archive](runs/2026-10-27-tinystories-trained-tile-fpga/index.json)
+preserves 85 files for the exact new image and actual BOS Wq tile: two raw
+CMAC jobs and two linked FPGA compactions, all 360,448 owned BO bytes matched
+before ACK. The independent decoder checks 25,894 actual JTAG scans and
+8,630 mailbox commands. Large text reports/scans are gzip-compressed; the
+index binds both archived and original bytes. Small complete BO readbacks
+are retained directly. Images/checkpoints are excluded and flash is unchanged.
+This is trained-tile execution; full-model inference remains a separate gate.
+See the [physical report](../docs/TINYSTORIES_FPGA_TEST.md).
+
+The [first complete model-forward archive](runs/2026-10-27-tinystories-first-forward-fpga/index.json)
+preserves 41 closed files for one physical BOS forward through all five
+TinyStories-260K layers and the output head. All 36 learned projections run
+on the FPGA; every actual input/output pair, original command/task BO and
+resident weight tile passes independent raw-scan audit. All 512 logits match
+the donor-policy oracle bit-exactly and greedy sampling produces token 403,
+`Once`. The run completes 232 raw jobs/348 tasks and reads 950,272 complete
+mutable-output BO bytes before ACK. Explicit CPU host operators remain; the
+longer32-position run is excluded from that first-forward archive. Its later
+complete physical producer and independent full32 audit now pass; see the
+[physical report](../docs/TINYSTORIES_FPGA_TEST.md).
+
+The [registered-RAM full512 timing archive](runs/2026-10-26-full512-regmem-timing/index.json)
+preserves 193 text/source files, including the complete 125-file frozen
+snapshot. Its newer routed 50 MHz result has setup +0.987 ns, hold +0.057 ns
+and pulse width +9.600 ns, all with zero failures. RAM async-control findings
+are absent; the remaining 2,060 DSP advisories retain factory severity. The
+routed INIT/IO/DSP review and source-copy audit pass. This archive contains no
+checkpoint, full netlist, simulator binary, bitstream or full512 hardware
+result; mapped startup and final image admission remain separate gates.
+
+The earlier [full512 pipeline timing archive](runs/2026-10-26-full512-pipeline-timing/index.json)
+records the separate 50 MHz routed timing pass: setup +0.045 ns, hold +0.075 ns
+and pulse +9.600 ns, with zero failing endpoints and all 512 products retained.
+It preserves warning-level DRC findings and source/ROM inputs. This is timing
+evidence only; mapped validation, warning/startup/image review and actual
+full512 FPGA execution remain separate gates.
 
 Git includes the text reports, indexes and checksum manifests. Compressed
 `runs/**/*.tar.gz` evidence archives, build outputs and logs remain local and
 are ignored. Links into those locations require the original workspace or its
 separately preserved evidence. An index or checksum alone does not reproduce
 a run or qualify modified sources.
+
+The [2026-10-26 reviewed full regression](../build/plan-ddr-lifecycle-implementation/1792976927285576710/production-validation.json)
+records actual `make -j2 test` exit 0, both 249-entry EW suites, both raw-product
+CMAC suites and both 15-scenario USER2 host suites in 429.182 seconds.
+Its [copied receipts](../build/plan-ddr-lifecycle-implementation/1792976927285576710/production-evidence.json)
+preserve 1,485 selected source/artifact files. The independently scoped
+[USER2 BRAM package](../build/host-jtag-preparation/1792967662198630675/report.json)
+binds its current native source, binaries, commands, logs and stimuli; its
+separate [eight preparation controls](../build/host-preparation-review-1792955479549759890/report.json)
+cover the final foreign-artifact-origin fix. Board review remains incomplete.
+The original aggregation-label failure and earlier host attempts are preserved;
+the reviewed summary changes no test outcome. No Vivado or hardware result is
+supplied by these source/preparation checks.
+
+The [DDR metadata/source audit](../build/ddr-interface-audit/1792970299029233481/copy-audit.json)
+records fourteen passing command checks, including thirteen unit methods in
+normal and optimized Python, copied verification and tamper rejection. The
+actual original MIG inspection remains blocked with eight source conflicts
+and five integration blockers. A [separate archive inventory](../fpga/ddr/xdma_archive_reference.json)
+provides generated logical-interface sources with an explicitly different
+output-drive profile. Neither artifact implements a DDR lifecycle wrapper,
+simulates MIG or qualifies physical memory.
+
+The [ECC control monitor](../docs/DDR_ECC_MONITOR.md) is a separately qualified
+leaf. Its [reviewed Make target](../build/plan-ddr-monitor-implementation/1792971553929950788/monitor-validation-reviewed.json)
+passes 29 Icarus/23 Verilator portable cases and all 21 actual archived-control
+cases per simulator, plus nine runner regressions. The
+[23 copied-evidence checks](../build/ddr-monitor-copy-audit/1792974487715872025/report.json)
+preserve all 74 selected files, including source, binaries, command logs and
+parameter headers. Exact command/version/image/input binding and the required
+absolute header macro reject the reproduced metadata and shadowing failures.
+These results leave initialization, retirement and whole-domain reset pending;
+no DDR-ready or successful-job result is supplied.
+
+The separate [reset/fence component target](../build/plan-ddr-lifecycle-implementation/1792976927285576710/protocol-validation.json)
+passes reset 32/23 and fence 71/54 Icarus/Verilator cases, plus six parameter
+rejections per simulator and nine verifier regressions. Its
+[23 evidence checks](../build/ddr-lifecycle-copy-audit/1792980569267619617/report.json)
+preserve 68 selected files and originals. Actual-MC qualification separately
+passes all six directed scheduling/ECC cases in both simulators for the
+WIDTH=1-fixed source variant, with official functional primitives and modeled
+PHY returns. It preserves the original failure, 512 derived-arbiter rows and
+384 larger-width equivalence rows. The
+[25 copied-evidence checks](../build/ddr-mc-copy-audit/1792981883884855148/report.json)
+preserve all 272 selected files and originals. See [scope and exact receipts](../docs/DDR_LIFECYCLE.md).
+The original archived controller, joined platform, physical DDR, global drain
+and successful application execution are not qualified by these checks.
+
+The separate [full512 startup-native profile](../build/plan-full512-startup-implementation/1792966979950932621/startup-native-summary.json)
+passes 22 Icarus and 20 Verilator cases with unchanged K=65 oracles and actual
+16-kernel/512-lane hierarchy. Its [checkpoint package](../build/full512-startup-preparation/1792967676447887367/report.json)
+keeps the original arithmetic DAG as an external current prerequisite. The old
+R28 reset qualification is not relabelled as startup proof. Physical INIT/FF
+mapping, reconfiguration, fit/timing/DRC and execution remain unproved.
+The [actual startup package audit](../build/full512-startup-package-audit/1792967676447887367/report.json)
+passes eleven controls, preserving all 184 package files and 275 original
+qualified files. Isolated copied-source verification never treats unavailable
+external arithmetic-parent evidence as build permission.
+
+The optional [ILA preparation controls](../build/plan-debug-implementation/1792961083679149070/debug-validation-final.json)
+pass under Tcl 9.0.3 and vendor Tcl 8.6.13. The full regression included the
+initial fourteen controls; the final snapshot-import fix passed sixteen
+targeted controls afterward. These are source/preparation checks only, with
+unchanged RTL and no debug-core implementation or physical capture.
+The [autonomous](../build/ew-debug-preparation/1792962351826175702/report.json)
+and [USER2 host](../build/ew-debug-preparation/1792962351620948606/report.json)
+debug packages pass [23 copied-evidence checks](../build/ila-package-audit/1792962791198091922/report.json),
+including isolated copied validators and rejection of changed sources,
+artifacts and generated Tcl. Both still reject build admission for missing
+board review; the normal RTL and full 512-product target are preserved.
+
+The separate [production compiler-to-RTL run](../build/backend-rtl/1792958040917797032/report.json)
+passes ten numerical Tensor cases and one compiled runtime-gather rejection.
+Original compiler/writer code-object calls, locally compiled program images,
+unchanged command/task bytes, 11 submissions/16 tasks and 1,081,344 complete BO
+bytes are verified. This source-bound `RKNPUFPGA` adapter uses an injected frame
+RTL process and test TAP shim; it is not full tinygrad, DDR/PCIe, FPGA or RK
+silicon validation. See [the runtime contract](../docs/BACKEND_RUNTIME.md).
+The [frozen evidence package](../build/backend-copy-audit/1792958403533425061/package)
+passes [14 integrity and execution-binding controls](../build/backend-copy-audit/1792958403533425061/audit.json),
+including verification without access to the original run or tinygrad checkout.
 
 ## Preserved production source and regression history
 
@@ -2191,7 +2598,7 @@ RK_TEST_TCLSH=/home/fedora/vivado/2026.1.1/Vivado_Lab/bin/xtclsh \
   python3 -m unittest discover -s tests -p test_fpga_build.py -v
 ```
 
-The optional backend encoder check requires the exact clean checkout and Python dependencies described in [BACKEND_CAPTURE.md](../docs/BACKEND_CAPTURE.md). It runs the backend's real final encoder, intercepting only BO allocation/submission; no DRM device is opened. The earlier unconfirmed candidate pin was `c6784623afc4f116ae7dc326ab9842e6bf9a3dcf`; the current supplied backend and capture evidence are described above. RK differential captures remain a compatibility acceptance target, not a blocker to donor-based implementation. Full Vivado is unavailable and the requested open-source route is being developed without relaxing timing/electrical gates. Do not program the board without an explicit requested action and an audited target/electrical configuration.
+The optional backend encoder check requires the exact clean checkout and Python dependencies described in [BACKEND_CAPTURE.md](../docs/BACKEND_CAPTURE.md). It runs the backend's real final encoder, intercepting only BO allocation/submission; no DRM device is opened. The earlier unconfirmed candidate pin was `c6784623afc4f116ae7dc326ab9842e6bf9a3dcf`; the current supplied backend and capture evidence are described above. RK differential captures remain a compatibility acceptance target, not a blocker to donor-based implementation. The former unavailable-Vivado/open-source-route description is historical; the current continuation uses Vivado and retains all timing/electrical gates. Hardware actions still require explicit authorization and an audited target/electrical configuration.
 
 ## Historical delivery evidence (unchanged)
 

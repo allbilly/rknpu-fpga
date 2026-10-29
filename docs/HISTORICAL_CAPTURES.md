@@ -73,3 +73,21 @@ Other history leads include `e6feba9` (ADD 1x8), `e46ea49` (MUL),
 `d4a2c4f` (batches). Their names are not validation claims. Before using any,
 check raw task-to-command addresses, buffer sizes/layouts, capture phase,
 driver/runtime versions and post-execution output provenance independently.
+
+### Follow-up on the historical EW leads, 2026-10-26
+
+The read-only [ADD/MUL capture-timing audit](../build/plan-source-implementation-1792942734594175489/historical-ew-capture-timing-audit/report.json)
+checked the `ops_reg` source and debugger scripts in commits
+`e6feba90dcdd9c3bc054ba29e1addfb6be10a9e3` and
+`e46ea495d932570746acd70bfbe979e7ee49b305`. Both scripts stop at
+`submitTask` entry, dump BOs, then continue. In both corresponding headers,
+the RKNPU submission ioctl is inside that function after the entry breakpoint.
+The scripts record no post-completion BO dump for the stopped invocation.
+
+These leads therefore do not establish that the saved output BOs are results
+of that invocation. An earlier complete program run in the debugger script
+does not bind its output allocations to the later stopped run's buffers.
+No raw bytes or descriptors were repaired, no hardware was accessed, and no
+historical output was promoted to a matched silicon golden. This audit is
+limited to those two `ops_reg` leads; it is not a claim about every capture
+elsewhere in the donor repository.

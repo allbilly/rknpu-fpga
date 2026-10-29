@@ -11,6 +11,24 @@ They are not RK MMIO registers or an implemented PCIe BAR. The endpoint is
 single-clock and requires a platform-wide transaction reset on faults; the
 board self-test remains a separate BRAM-only top.
 
+The separate [USER2 BRAM candidate](HOST_JTAG_BRAM.md) composes the same
+controller and raw DMA with `rk_bram` and the reference mailbox. It has a
+physical wrapper and a [source-bound raw-BO hardware result](HOST_FPGA_TEST.md).
+It retains the
+original descriptor/control ABI and does not substitute for the AXI/MIG path.
+The [RKNPUFPGA source adapter](BACKEND_RUNTIME.md) puts that byte transport
+under the pinned backend's unchanged final encoder for the tested HALF EW
+subset; its offline compiler-to-RTL result is not physical FPGA validation.
+Its explicit `ew_ddr` software profile also admits the RKAD EW namespace;
+the same command whitelist and BO/ACK contract apply. This admission adds
+no CMAC or runtime-gather support and does not establish live DDR framework
+execution. See the adapter contract for the separate current test results.
+
+The separate [full-DDR framework profile](FRAMEWORK_FULL_PROFILE.md) adds
+explicit CMAC/layout/reset dispatch. Its preparation candidate passes six
+native compiler-to-RTL shapes; actual-controller and physical qualification
+remain pending. These additional banks do not extend this original EW ABI.
+
 ## Commands
 
 `rk_ew_core` accepts `cmd_valid`, `cmd_ready` and `cmd_data[63:0]`. A command transfers only on a rising edge where both valid and ready are high. The sender holds the word and valid stable while stalled, and holds valid low during reset. Do not pulse valid regardless of ready.

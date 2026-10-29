@@ -1,15 +1,537 @@
 # RK-NPU FPGA: first register-stream RTL slice
 
+Evidence links under `build/` refer to workspace-local receipts and are not
+included in a source checkout. Portable records are linked through
+`verification/runs/` indexes. The newer framework/layout/reset and production
+regression preparation reviews have not yet been archived there.
+
 **Current direction, 2026-10-23:** use Vivado for implementation, with the
 OpenTPU Vivado workflow as the reference. OpenXC7 placement/routing work is
 retired from the continuation; its scripts and evidence remain historical.
-The current authorized work is documentation, review, fixes and preparation.
-Do not start a Vivado build, openXC7 job, or FPGA/flash programming during this
-preparation pass. The dated results below do not authorize resuming a build.
-Keep the full C32/K16 DSP-prefix candidate with 512 parallel CMAC products as
-the preparation target; the small EW demo is a separate regression target.
+The initial source/preparation pass was followed on 2026-10-26 by explicit
+authorization to start FPGA testing as needed.
 
-**Current review validation, 2026-10-23 03:26 HKT:** the fresh
+**Compute configuration:** the selected FP16 group is **C32/K16**: 32
+input/reduction channels and 16 output kernels, with 512 parallel product
+lanes. Here kernel K is GEMM's output dimension N, not GEMM's reduction K.
+This describes our implemented parallel dot-product datapath; it does not
+establish a square systolic topology for RK3588 silicon or measured end-to-end
+MACs per clock. INT8/INT4 arithmetic and doubled INT8 throughput are unsupported.
+See the [precision and layout boundary](docs/CMAC_ENCODER_CONTRACT.md#precision-and-compute-group-terminology).
+
+**Application priority, 2026-10-27:** check
+[TinyStories-260K before general tinygrad integration](docs/TINYSTORIES.md).
+The CPU reference and complete 32-position donor-policy oracle pass, matching
+28 greedy token IDs/text. All 36 learned projections have prepared FP16 tiles
+totaling 557,056 bytes and 116 original raw programs. The shared full512
+CMAC/EW/USER2 endpoint passes both native suites and routed 50 MHz timing:
+setup +0.640 ns, hold +0.056 ns and pulse +9.600 ns, with zero failures.
+Its [complete 32-position physical inference](docs/TINYSTORIES_FPGA_TEST.md)
+now passes independent raw-wire audit: all 1,152 learned projections execute
+on the FPGA, with every dense input/output and all 16,384 logits matching
+the donor-policy oracle exactly. It generates the same 28 greedy token IDs
+and text through 7,424 raw jobs and 11,136 tasks. The audit checks 2,743,153
+actual JTAG scans and 30,408,704 complete output-buffer bytes before ACK.
+Attention, normalization and other host operators remain explicitly on the
+CPU, with no learned-dense CPU fallback or runtime CPU layout repair.
+The earlier RPC/OOM and memory-guard failures retain their failed receipts.
+The passing session uses the same image, unchanged 2 GiB admission minimum
+and transport deadlines, with bounded waiting only at idle projection boundaries.
+The [portable full32 archive](verification/runs/2026-10-27-tinystories-full32-fpga/index.json)
+preserves 331 source/evidence files, including the complete actual JTAG trace;
+compiled images/checkpoints and native tools remain excluded and hash-identified.
+The earlier trained tile also passes repeated CMAC/FPGA compaction, with
+360,448 complete BO bytes independently audited before ACK. Flash is unchanged.
+
+**Full512 CH1 DDR inference passed, 2026-10-28:** the same complete TinyStories
+workload now [passes independent physical review with DDR](docs/DDR_FULL512_FPGA_TEST.md).
+All 1,152 learned FPGA projections, 16,384 logits and 28 generated token IDs
+match the donor reference and the BRAM result exactly. The raw-wire audit
+checks 2,984,893 JTAG scans, 7,424 jobs, 11,136 tasks and 30,408,704 complete
+output-buffer bytes before ACK. First and repeated BOS controls also pass in
+the same loaded controller epoch. All owned processes close; flash is unchanged.
+The [portable full32 DDR archive](verification/runs/2026-10-28-full512-ddr-full32-fpga/index.json)
+preserves 678 payloads, with every source/stored/decompressed byte and the
+77 physical/479 image-model-runtime references independently verified.
+Full memory capacity, injected ECC/recovery, PCIe and RK equivalence retain
+their separate gates.
+
+**Live tinygrad EW passed, 2026-10-29 HKT:** all eleven selected framework
+cases pass [independent physical review](build/fpga-bringup/full512-ddr-framework-prep-v1/root-result-review.json)
+on that same full512 CH1 DDR image. The pinned original compiler and final
+writer execute ADD/SUB/MUL at lengths 8/9/33 and repeated SUB(9), while a runtime
+gather is explicitly rejected. Review replays 117,578 actual JTAG scans,
+11 FPGA jobs, 16 tasks and 1,081,344 complete BO bytes before ACK. There is no
+numeric CPU fallback or runtime layout repair. The one volatile reload has
+exact target/image receipts; every owned process closes before lease release,
+and flash is unchanged. [CMAC framework layout support](docs/BACKEND_RUNTIME.md),
+the complete backend suite and selected framework coverage on the later
+capacity image retain separate gates.
+
+**Full two-GiB capacity and raw-job recovery passed, 2026-10-29 HKT:** the
+new [full512 CH1 capacity image](docs/DDR_CAPACITY_FPGA_TEST.md), tag `2c8f17dd`,
+passes two complete global trials: 67,108,864 writes and 67,108,864 reads,
+terminal status `0x68`, zero fault codes/sources. Original K65 CMAC and SUB(9)
+pass before and after a second audited SRAM load, with 245,760 complete BO
+bytes checked before ACK. Independent review consumes 59,130 actual JTAG scans
+and 19,702 commands, rehashes all 234 frozen inputs and 60 physical artifacts,
+and verifies exact DNA/IDCODE/TCK plus cleanup before lease release. All 512
+product DSPs and both controllers remain; flash is unchanged. This qualifies
+capacity and reconfiguration recovery, with physical FI/PCIe and full TinyStories
+on this diagnostic image retaining separate gates.
+The [portable capacity archive](verification/runs/2026-10-29-full512-capacity-fpga/index.json)
+preserves 426 payloads, including all six complete traces and 171 hardware
+sources. Independent byte review verifies source, stored and decompressed
+content, all 60 physical artifacts and 234 preparation bindings; bitfiles,
+checkpoints and native tools remain excluded and hash-identified.
+
+**Framework CMAC layout component passed, 2026-10-29 HKT:** the
+[raw-command layout encoder/DMA](docs/LAYOUT_DMA.md) passes both native
+simulators for all 18 captured compiler gathers and 16,897 indices. Each
+simulator also transports every raw halfword value, runs 34 positive cases
+twice with complete-aperture comparisons, and checks 51 Icarus/50 Verilator
+negative controls. Actual pinned compiler types pass the encoder check.
+The default EW entry continues rejecting CMAC. The separate explicit
+[full-DDR runtime](docs/FRAMEWORK_FULL_PROFILE.md) now has the integrated native
+result below. This component has no new FPGA qualification.
+
+**Joined full512 raw matmul pipelines passed, 2026-10-29 HKT:** the
+[independent parent-model review](build/framework-layout-parent-replay-v6/root-result-review.json)
+accepts all six captured compiler shapes through input layout, weight layout,
+unchanged CMAC commands and output layout. All 24 stages check exact engine
+read/write volumes and complete BO bytes before ACK: 3,358,720 pipeline bytes,
+plus 122,880 baseline K65/SUB9 bytes. The original modeled one-MiB capacity
+BIST/global-reset controls also pass. This uses actual full512 numerical RTL
+and the joined parent/fabric with independent AXI RAM and minimal ECC-control
+models. Actual MIG/PHY, framework reset/runtime, implementation and FPGA
+qualification remain separate gates. Earlier failed attempts retain their own
+receipts; the review binds each actual scenario to its source, immutable
+simulator image and observed BOs.
+
+**Joined compute-reset parent passed, 2026-10-29 HKT:** a fresh
+[independent review](build/framework-reset-parent-model-v3/root-result-review.json)
+accepts all six layout/CMAC pipelines with three actual compute resets each,
+plus the original K65/SUB9 baseline. All 18 resets clear dirty compute state,
+retain complete owned BOs and reject new work while their results are held.
+The review compares 50 observed images totaling 6,615,040 BO bytes and binds
+121 frozen inputs, 68 RTL sources and the compiled image. The seven scenarios
+finish in 757.994 seconds with no new HDL warnings. Common assertion of both
+compute reset trees repairs an observed CDC epoch mismatch; each tree retains
+its local release sequencing. DDR reset/initialization signals are checked on
+UI clock edges and modeled write counts remain unchanged across compute reset.
+Actual MIG/PHY, framework runtime, timing and FPGA qualification remain pending.
+
+**First ordinary framework matmul passed in native RTL, 2026-10-29 HKT:**
+the pinned compiler and original final writer now execute logical FP16
+`(M,N,K)=(1,16,32)` through three raw hardware layout jobs and one CMAC job.
+The [independent wire/whole-BO review](build/framework-full-runtime-e2e-v2/root-result-review.json)
+replays all 34,464 commands and compares 360,448 complete owned BO bytes before
+ACK against a separate raw-layout/exact-finite-dot oracle. Constructor,
+pre-CMAC and post-CMAC resets use the actual reset service. CPU gather calls
+and creation of CPU workload programs are blocked; five pinned CPU queue
+helpers initialize explicitly before the workload. This is an unselected
+runtime candidate using actual full512 RTL with independent AXI RAM/ECC-control
+models, not physical or RK qualification. The earlier instrumentation failure
+is preserved. Six-shape runtime coverage and actual-controller/image integration
+remain required before changing the default adapter's CMAC rejection.
+
+**Public full-DDR framework profile passed six native shapes, 2026-10-29 HKT:**
+the [current public-source review](build/framework-public-runtime-coverage-v1/root-result-review.json)
+accepts all six actual Tensor/compiler/final-writer trials through the rebuilt
+full512 endpoint: 24 jobs, 18 hardware layouts, six CMAC submissions, 18 compute
+resets, 328,587 commands and 2,375,680 complete BO bytes before ACK. A separate
+wire audit proves no host reload of tensor or scratch BOs after each pipeline
+starts. The six scenarios complete in 741.109 seconds with up to four native
+processes. The [explicit profile](docs/FRAMEWORK_FULL_PROFILE.md), its 68-source
+ordered RTL selection and 35 protocol/source controls are now public paths.
+This uses independent AXI RAM/minimal ECC-control models. The fresh complete
+V22 regression and actual-vendor-controller runtime trial are running; physical
+implementation and FPGA/RK qualification remain separate.
+
+**Current production validation, 2026-10-29 HKT:** the fresh V21 source copy
+passes complete serial `make test` in 1,088.121 seconds. Its
+[independent review](build/production-model-auditors/current-v21/root-review.json)
+rehashes all 1,133 original/copied files, all existing numerical/RTL/host
+receipts, the strict capacity-parent matrix and both new layout suites.
+The increment adds exactly six layout source/test paths and changes only
+`Makefile` relative to V20. The separate compute-reset and dispatcher
+preparation candidates are outside this source snapshot. Their separate native
+parent review above does not qualify the production runtime or physical image.
+
+**Preceding production validation, 2026-10-29 HKT:** the fresh V20 source copy
+passes serial `make test` in 1,048.195 seconds.
+[Independent review](build/production-model-auditors/current-v20/root-review.json)
+rehashes all 1,127 original/copied files and the complete native/host receipts.
+The three-file raw-status auditor increment adds six mutation controls;
+all sixteen pass, including exact descriptor-valid bits and active ownership.
+The strict capacity-parent verifier accepts all 32 commands, 15 result groups,
+12 simulator images and 38 source/import bindings. This default source/native
+qualification remains separate from the physical result above.
+
+**Preceding production validation, 2026-10-28 HKT:** the fresh V19 source copy
+passes serial `make test` in 1,246.321 seconds under a one-CPU/six-GiB limit.
+The [independent review](build/production-model-auditors/current-v19/root-review.json)
+rehashes all 1,127 original/copied inputs and the complete numerical/RTL/host
+receipts, including the admission timing fix. The published capacity-parent
+profile's strict verifier accepts 32 commands, 15 result groups, 12 simulator
+images and 38 source/import bindings, including the paired original/candidate
+controllers, 12 client, 12 capacity-wire and ten raw-job wire controls.
+This qualifies source/native tests; capacity-enabled routing and physical
+capacity remain separate pending gates.
+
+The V20 result above covers the later three-file wire-auditor increment.
+V19 remains a preserved earlier source snapshot.
+
+The subsequent [explicit EW-DDR runtime admission](docs/BACKEND_RUNTIME.md)
+passes its separate 23-control/eleven-scenario compiler-to-RTL regression.
+It preserves the default BRAM behavior and the original final encoder.
+The V19 complete default regression also passes after that two-file change;
+the eleven selected physical DDR framework cases pass as described above.
+The preceding
+[V18 snapshot](build/production-model-auditors/current-v18/root-review.json) and
+[V17 snapshot](build/production-model-auditors/current-v17/root-review.json)
+remain preserved separately.
+
+**Current capacity timing fix, 2026-10-29 HKT:** fresh synthesis of the
+descriptor-admission change passes its
+[independent review](build/full512-capacity-admission-vivado-run-v3/root-synth-review.json),
+with 295,763 LUTs, all 512 product DSPs, 516 total DSPs and 242 IOs.
+[Placement/routing](build/full512-capacity-admission-route-run-v1/report.json)
+and one targeted repair both failed setup by 9 ps. The measured path drives
+the capacity adapter's 96-bit retirement snapshot enable. A new source variant
+stores one acceptance bit for the strict monitor's validated constant tuple;
+all fault and retirement checks remain. Its
+[paired adapter comparison](build/full512-capacity-retire-snapshot-controls-v1/root-paired-v3-review.json)
+and [fast parent model](build/full512-capacity-retire-fast-model-v1/root-result-review.json)
+pass. Its [fresh actual-controller model](build/full512-capacity-retire-controller-v1/root-result-review.json)
+also passes full modeled one-MiB BIST/reset, with 32,768 writes and reads.
+Fresh [source synthesis](build/full512-capacity-retire-vivado-run-v1/root-synth-review.json)
+passes at 295,757 LUTs with all 512 product/516 total DSPs and 242 IOs.
+Fresh [placement/routing](build/full512-capacity-retire-route-run-v1/root-route-review.json)
+now passes independent review: setup +0.027 ns, hold +0.052 ns and pulse
++0.264 ns, with zero failures or routing errors. All 512 product DSPs remain;
+the routed LUT count is 290,266. The exact DRC inventory and all 232 reported
+pulse rows pass, together with the reset/CDC/source checks.
+The complete V19 regression and the
+[fresh actual-controller-source capacity model](build/full512-capacity-parent-admission-controller-v1/root-result-review.json)
+pass. That model checks the full modeled 1 MiB/two-trial BIST and global reset;
+the physical two-GiB result now passes as described above. Fresh image/test preparation
+binds the retirement variant under source tag `2c8f17dd`; seven offline
+admission controls pass. The routed IO review passes all 242 ports/1,936
+properties. The successful emission corrects only two audit-helper prefix
+arguments after the first stopped before writing a bitfile; all constant,
+timing and DRC gates remain. The independent bitfile audit and physical
+capacity/reconfiguration trial pass; the earlier tag `670fdaf8` does not qualify
+this source. This diagnostic work preserves the earlier independently qualified
+TinyStories images. See the [active plan](docs/REVIEW_AND_PLAN.md).
+
+**Preceding V16 validation:** serial `make test` passed
+in 876.048 seconds with copied-source manifest `7c4d4cdc91c0`, including both 249-entry EW suites,
+both 15-case host suites, 61 TinyStories controls, 11 DDR endpoint controls,
+89 additional DDR software controls and six dual-control native commands. The
+[independent source/host review](build/production-model-auditors/current-v16/root-review.json)
+checks all 1,105 copied/live inputs and both complete host receipts. Seven
+software capacity controls and twelve bounded capacity-native cases now pass
+inside default Make. The [V16 portable archive](verification/runs/2026-10-28-production-ddr-capacity-rtl/index.json)
+preserves 2,705 payloads, including the complete source snapshot, host/capacity
+receipts and V15 report history. Root independently rehashes all payloads,
+the 1,105 source bindings and 1,128 binary/tool exclusions. The
+[preceding V15 archive](verification/runs/2026-10-28-production-ddr-capacity-plan/index.json)
+retains its separate 1,098-file source snapshot and results.
+The new emitter gate checks exact warning counts for both DRC ruledecks before
+writing a checkpoint or bitstream; its 14 focused controls pass.
+The DDR model audit adds an explicit repeated-BOS gate; all 17 focused DDR
+controls and 61 TinyStories controls pass within the completed V16 snapshot.
+The prior private run's missing-build-fixture failure remains preserved; the corrected
+channel controls pass in a source-only copy and retain a separate full-package
+audit. Default Make does not qualify the complete joined DDR numerical design.
+The async components have separate native/mapping results. Both the direct
+CMAC bridge and its new shared-dispatch composition pass all nine modes in
+both simulators; the two-clock EW/DDR model passes its independent same-ELF
+21-case union. These results remain separate from the default Make snapshot.
+The earlier
+[selected production archive](verification/runs/2026-10-27-production-ddr-controls/index.json)
+preserves its own 1,107.786-second snapshot.
+A separate [original-profile MIG generation](docs/DDR_ORIGINAL_MIG.md) now
+produces actual RZQ/7 controller sources. Their real-source async EW composition
+now has a routed EW/DDR checkpoint with setup +0.105 ns, hold +0.039 ns and
+pulse width +0.264 ns; project reset/job/memory/mailbox audits pass. See
+[the board preparation and remaining gates](docs/DDR_BOARD_PREPARATION.md).
+That checkpoint is the C0-active historical baseline. The explicit CH1-active
+profile now has its separate routed image and first physical result below,
+retaining both original controllers and ECC.
+
+The [shared full512/EW DDR source candidate](docs/DDR_DUAL_ENDPOINT.md) now
+has separate CSR banks and a global owner through readback/ACK. All nine
+original K65 numerical/fault modes pass in both simulators through the actual
+512-product dispatcher. Its independently rehashed
+[155-file logical archive](verification/runs/2026-10-27-full512-dispatch-logical/index.json)
+preserves both native suites and the exact source/golden bytes. The first
+[joined AXI/UI/MC model executions](docs/DDR_FULL512_MODEL.md) also pass their
+independent checks for original K65 CMAC and SUB(9), on the same binary with
+separate reset epochs. The original trained tile also passes CMAC/EW/CMAC
+reuse in one controller epoch with 270,336 BO bytes checked before ACK. The
+[shared-data area candidate](docs/DDR_AREA_CANDIDATE.md) has a nominal
+293,826-LUT constrained post-opt fit with all 512 products. Its cell equivalence and
+nine dispatcher modes pass in both simulators, and its fresh trained controller
+reuse passes with 270,336 BO bytes checked before ACK. Mapped inventory checks
+pass, and all 33 controller cases pass. The first routed checkpoint fails setup
+at -0.551 ns; hold and pulse pass at +0.048/+0.264 ns. The native repair now
+passes setup/hold/pulse at +0.004/+0.048/+0.264 ns, with all strict audits.
+Its wrapper preserves a provenance failure caused by an unused emitter-origin
+change. A fresh strict requalification and independent review now pass, checking
+all 343 inputs and 422,138 fully routed nets with zero routing errors. The
+[portable timing archive](verification/runs/2026-10-28-full512-ddr-timing/index.json)
+preserves that result and the failed parent receipts. See the
+[timing diagnosis and repair](docs/DDR_TIMING_REPAIR.md). Its emitted image now
+passes the independent bitfile audit and the physical trained-tile result below.
+
+**First physical full512 DDR milestone, 2026-10-28:** the
+[audited trained-tile trial](docs/DDR_FULL512_FPGA_TEST.md) passes on CH1 with
+all 512 products retained. One reviewed volatile load reached INIT/DONE and
+source tag `5e99f881`. Six scratch lines passed in two write orders, then the
+unchanged CMAC/EW/CMAC/EW sequence matched all 360,448 complete BO bytes before
+ACK. Independent replay checks 26,204 JTAG scans and 8,732 commands, bound to
+the exact image, target DNA and raw IDCODE. Cleanup completes before shared
+lease release. Flash is untouched. The later full-model DDR result above
+passes separately; capacity/ECC injection/recovery, PCIe and RK equivalence remain open.
+
+The [first complete physical DDR BOS forward](build/fpga-bringup/full512-ddr-model-prep-v4/root-first-bos-review.json)
+also passes independent replay: all 36 learned projections, 232 raw jobs,
+348 tasks, 950,272 complete output-BO bytes and all 512 donor-policy logits
+match. It generates token 403, `Once`. That run then failed on observer-path
+bookkeeping before repeated BOS; its overall failure is preserved. A fresh
+session with the corrected runner has now passed both first and repeated BOS
+under independent root replay on one loaded controller epoch. Both produce
+the same exact logit row and token. The completed 32-position DDR workload
+now [passes independent root acceptance](build/fpga-bringup/full512-ddr-model-prep-v5/root-full32-review.json).
+
+The next [capacity-test increment](docs/DDR_CAPACITY_PREPARATION.md) adds a
+64-byte sweep sequencer, AXI adapter and existing fence/ECC-monitor composition.
+`make ddr-capacity-controls` passes seven software controls and six bounded
+configurations in each simulator, including nonzero/high-boundary addresses
+and fault/drain behavior. The target is now part of default `make test`; the
+fresh V16 full regression passes with an independent source/receipt review. No capacity
+image has been built or programmed, and physical capacity remains unqualified.
+The integrated diagnostic service separately passes modeled ownership,
+sweep/fault/recovery tests and Vivado OOC resource synthesis: 1,821 LUTs,
+2,094 registers, no BRAM/DSP. Full-parent wiring and fast modeled normal-job,
+one-MiB BIST and reset replay now pass. Fresh full-parent synthesis passes
+at 295,755 LUTs with all 512 products and both controllers; placement/routing
+is active. Image review and physical capacity testing remain open. See the
+[active execution plan](docs/REVIEW_AND_PLAN.md).
+
+**First physical DDR milestone, 2026-10-28 HKT:** the
+[CH1 scratch and raw EW trial](docs/DDR_FPGA_TEST.md) passes independent
+actual-wire audit. One reviewed volatile-SRAM load reached initialized,
+healthy CH1 memory. Six scratch lines passed in both write orders, then the
+unchanged captured SUB(9) program completed two tasks with all 102,400 owned
+BO bytes matching before ACK. The audit checks 24,238 actual JTAG scans and
+8,078 mailbox commands, bound to source tag `a2dfec21` and the exact image.
+Its routed setup/hold/pulse margins are +0.006/+0.035/+0.264 ns. The
+[portable archive](verification/runs/2026-10-27-ch1-ddr-first-fpga/index.json)
+preserves frozen sources and the complete actual trace. Flash is unchanged.
+Full capacity, injected ECC faults/recovery, full512/DDR, PCIe, RK equivalence
+and production electrical qualification remain open.
+
+**Logical DDR milestone, 2026-10-27:** the
+[independent same-binary union](build/ddr-endpoint-current/independent-all20-o3-union-v2.json)
+passes all twenty raw BO/fault/recovery cases. The original repeat timeout is
+preserved; its unchanged retry passes under the original 1,800-second limit.
+The [130-entry selected archive](verification/runs/2026-10-27-ddr-all20-logical/index.json)
+preserves the local sources and actual text evidence. The
+[new SYS50/UI133 composition](docs/DDR_ASYNC_ENDPOINT.md) adds a separate
+terminal-count fault case. Its optimized host-read path now passes all21
+logical cases with [portable source and raw evidence](verification/runs/2026-10-27-ddr-read-snapshot-all21/index.json).
+Physical DDR/PCIe and full512/DDR integration remain open.
+
+**FPGA milestone passed, 2026-10-26:** the separate EW startup image passed
+three volatile-SRAM loads on the YPCB XC7K480T, including repeated
+reconfiguration. Four passive JTAG captures contain 404 valid observations
+of PASS=1 / FAIL=0 and 32 heartbeat transitions. Its built-in scoreboard
+checks the unchanged SUB(9) raw-command workload and 336 mapped halfwords.
+See the [hardware report and preserved raw evidence](docs/EW_FPGA_TEST.md).
+The 50 MHz Vivado implementation passes setup, hold, pulse width and routing
+checks with zero waivers. Flash is unchanged. This result covers the autonomous
+EW BRAM self-test; full GEMM, host transport, DDR, PCIe and RK3588 equivalence
+retain their separate acceptance gates.
+Keep the full C32/K16 DSP-prefix candidate with 512 parallel CMAC products as
+the performance target; this EW milestone supplies no full-array fit result.
+
+**Full512 FPGA milestone passed, 2026-10-27:** the registered-RAM-control
+C32/K16 image passed three volatile-SRAM loads, including two reconfigurations,
+on the YPCB XC7K480T. Four passive JTAG captures contain 404 valid observations
+of PASS=1 / FAIL=0 and 32 heartbeat transitions. Its source-bound finite K65
+scoreboard executes the raw 49-QWORD program, twelve full frames and 64
+numerical writes, then checks all 4,096 halfwords. SAMPLE observes its terminal
+outputs; it does not directly read RAM. Flash is unchanged. See the
+[physical report and preserved evidence](docs/CMAC_FPGA_TEST.md).
+This validates the autonomous workload; general GEMM/RK equivalence, host
+transport, DDR, PCIe and broader backend coverage retain separate gates.
+
+**Full512 timing fixed, 2026-10-26:** the registered-RAM-control pipeline now
+passes routed timing at the unchanged 50 MHz target: setup +0.987 ns, hold
++0.057 ns and pulse width +9.600 ns, with zero failing endpoints and no
+unclocked/unconstrained internal endpoints. It retains all 512 CMAC products,
+using 267,240 LUTs (89.50%), 35,822 registers, six BRAM tiles and 515 total
+DSPs. Routed DRC has zero RAM async-control findings; 2,060 DSP pipelining
+advisories retain their original severity. Both complete native board suites
+pass (11 Icarus and 10 Verilator cases). The independent routed INIT/IO/DSP
+review is complete. Mapped startup and its expected-rejection control passed,
+followed by exact-image review and the physical result above. See the
+[current timing review](build/full512-regmem-implementation/20261026T111740Z/root-timing-review.json)
+and [implementation notes](docs/CMAC_PIPELINE_TIMING.md). Its
+[193-file text archive](verification/runs/2026-10-26-full512-regmem-timing/index.json)
+preserves the complete frozen source snapshot and selected reports without
+checkpoints, netlists or compiled images.
+
+Timing history: the original [full512 routed build](build/full512-vivado-implementation/1792992222236656161/run.json)
+retained all 512 CMAC products but failed setup at WNS -13.249 ns. The separate
+balanced-selector candidate also failed: routed WNS was -2.350 ns and
+post-route optimization reached -1.686 ns. Neither produced a bitstream. A new
+registered-preparation-stage candidate now has a routed timing report at the
+unchanged 20 ns clock: setup WNS +0.045 ns (45 ps), hold WHS +0.075 ns and pulse
+width +9.600 ns, with zero failing endpoints in all three groups. No-clock and
+unconstrained-internal endpoint checks each report zero. Routed utilization is
+267,210 LUTs (89.49%), 35,776 registers, six BRAM tiles and 515 total DSPs,
+including 512 CMAC products. The DRC report contains 2,081 warning-level
+findings: DSP input/output pipelining advice, 20 RAM async-control findings and
+one rule-limit warning. No source constraint or DRC waiver changed. Startup,
+image, electrical and DRC-warning review plus mapped validation remain before
+any bitstream; the vendor mapped replay exceeded its license instance limit.
+The registered-BRAM-control candidate passes both complete native board suites
+and the newer routed timing checks above. See the pipeline timing notes for its
+contract, export-boundary diagnosis and current evidence. Those earlier
+variants emitted no bitstream; the newer registered-RAM image has the separate
+physical result above. See the
+[timing candidate notes](docs/CMAC_PIPELINE_TIMING.md),
+[frozen source package](build/full512-pipeline-preparation/1793008000/report.json),
+[routed timing report](build/full512-pipeline-preparation/1793008000/implementation/timing.rpt),
+[DRC report](build/full512-pipeline-preparation/1793008000/implementation/drc.rpt), and
+[current build receipt](build/full512-pipeline-implementation/1793007479542120029/run.json).
+The [selected timing evidence](verification/runs/2026-10-26-full512-pipeline-timing/index.json)
+is preserved in the repository without binary checkpoints or an image-admission claim.
+
+**Source implementation increment, 2026-10-26:** a separate EW startup-reset
+profile now runs the unchanged captured SUB(9) self-test without consuming
+R28. It uses an initialized delay chain and registered reset output, informed
+by the preserved OpenTPU registered-reset reference. The existing external-R28
+profile remains available. `make fpga-prepare-startup` freezes sources and a
+checkpoint-only Vivado script without starting Vivado; its board-review fields
+begin incomplete. See [implementation and commands](docs/REVIEW_AND_PLAN_HISTORY.md#current-implementation-increment-ew-board-bring-up).
+
+A separate [USER2 host-controlled BRAM candidate](docs/HOST_JTAG_BRAM.md) now
+connects the unchanged raw-command DMA and job controller to OpenTPU's frozen
+mailbox framing, with stdlib XVC and native Vivado scan clients. Its exact
+50 MHz routed image passes CDC, startup, timing and image review. The
+[physical USER2 test](docs/HOST_FPGA_TEST.md) now passes all nine captured
+ADD/SUB/MUL workloads, repeated SUB(9), explicit E1 fault persistence across
+TAP reset/reconnect, and SUB(9) after SRAM reconfiguration. Eleven successful
+jobs complete sixteen linked tasks with all 1,077,248 owned BO bytes compared
+before ACK. Two volatile loads pass; flash is unchanged. This tests captured
+raw final-word BOs; live compiler-to-card, full C32/K16 host execution, DDR and
+PCIe retain separate gates.
+
+The [latest passing full production regression](build/production-dual-endpoint/20261026T203139Z/report.json)
+passes serial `make test` in1260.964seconds:73 root unit methods,1,087,299 C++ comparisons,
+249 EW RTL entries and three raw-product CMAC benches in each simulator. Its
+separate host suites pass all15 scenarios per simulator and53 host controls.
+The private copy also passes21 TinyStories controls and both registered-RAM
+native suites. Application-driver controls/code added later have separate
+evidence; they are not attributed to that earlier copy.
+The production source manifest is
+`eff34ab69dcb5bbf6bb8c70f10d91e34047725469e60c139242ddff5d97f5f9f`;
+the host profile separately binds
+`35bab7f90f268167956ee6dfc147c5074c0086e923067fd4bd28e82f65736f26`.
+The earlier [parallel full Make run](build/production-tinystories-controls/20261026T182707Z/report.json)
+failed when the unchanged Icarus host SUB(9) case exceeded its600-second
+limit. That failure is preserved. Its [unchanged-case replay](build/tinystories-host-timeout-replay/20261026T184305Z/report.json)
+passed in654.328 seconds with all1600 memory rows matching; it does not
+relabel the full Make run as passing.
+The later serial pass retains all individual deadlines; its asynchronous
+Icarus case completes in565.728seconds, within the unchanged600-second limit.
+All [82 EW memory images](build/plan-ddr-lifecycle-implementation/1792976927285576710/memory-image-comparison.json)
+and [13 host readback images](build/plan-ddr-lifecycle-implementation/1792976927285576710/host-memory-image-comparison.json)
+match between simulators. This verifies the selected source in simulation, not
+startup on the card, timing, electrical signoff or an FPGA image. The
+serialized numerical CMAC remains a separate qualification and preparation
+profile; the full C32/K16 prerequisite chain is not waived.
+
+The new [DDR source checker](docs/AXI_MEMORY.md#controller-source-admission)
+passes thirteen portable unit methods. Its audit records fourteen passing
+command checks, including both unit modes, isolated verification and tampering.
+It rejects the incomplete original MIG binding with five integration blockers;
+it does not implement or simulate a DDR lifecycle wrapper. A separately
+pinned archive supplies actual generated AXI/ECC sources for further offline
+binding, with an explicitly different output-drive profile. No electrical
+setting or original qualification was changed to use that candidate.
+
+The separate [ECC control monitor](docs/DDR_ECC_MONITOR.md) now verifies that
+archive's actual control interface, configures IRQ reporting and quarantines
+while preserving pending transactions. Its portable cases pass 29 Icarus and
+23 Verilator scenarios; all 21 archived-control scenarios pass per simulator.
+Nine runner regressions and [23 evidence checks](build/ddr-monitor-copy-audit/1792974487715872025/report.json)
+also pass. Joined initialization, AW/ownership tracking, platform recovery and
+DDR job admission remain pending; a clean monitor snapshot supplies no
+successful-job proof.
+
+The new [reset and fence components](docs/DDR_LIFECYCLE.md) pass both simulators,
+including stopped clocks, stale-permit revocation and current-fault priority.
+A separately identified one-requestor arbiter fix also enables six directed
+ordering/ECC cases against the actual archived MC in both simulators. The
+original defective controller remains unqualified. This establishes component
+and modeled-controller evidence; the joined DDR job path and physical memory
+remain unverified.
+
+The separate [production backend integration](docs/BACKEND_RUNTIME.md) now
+compiles real tinygrad Tensor programs through the unchanged Rockchip final
+writer and executes their bytes on the RTL frame endpoint. Its
+[reviewed run](build/backend-rtl/1792958040917797032/report.json) passes ten
+numerical cases and one explicit runtime-gather rejection: 11 submissions,
+16 linked tasks and 1,081,344 complete BO bytes checked. This is an offline
+`RKNPUFPGA` device alias with an injected test link, not full `test_ops`, a
+physical JTAG result or a complete RK backend.
+
+Optional [ILA preparation](docs/FPGA_DEBUG.md) now covers autonomous EW and
+host-controlled USER2 profiles, with 14 probes and separate USER1 debug-hub
+ownership. Sixteen source/control checks pass under Tcl 9.0.3 and vendor
+Tcl 8.6.13. The final snapshot dependency fix was checked after the full
+regression; it changes no RTL, probe Tcl or default physical flow. No debug
+core was implemented and no capture was performed.
+
+**Full-size offline qualification, 2026-10-26:** the fresh
+[own-parent-validated checkpoint package](build/rknpu-dsp-prefix-checkpoint-preflight/1792950744001340936/report.json)
+now admits its exact current area/native/raw-board/mapped parents. The native
+and mapped arrays retain all 512 products and pass the original 208-frame
+corpus; all nine raw-board modes pass. The mapped-library checker now validates
+each generated protection-hash pair and its unconditional initialization
+check, with original failures preserved. See [qualification details](docs/REVIEW_AND_PLAN_HISTORY.md#full-c32k16-qualification-refresh-2026-10-26).
+This is source preparation and simulation, with no Vivado implementation,
+physical fit/timing signoff, reviewed bitstream or FPGA execution result.
+
+The separate [full 512-product startup profile](docs/CMAC_ARRAY_STARTUP.md)
+now reuses the unchanged DSP-prefix array with configuration-time reset and
+no R28 input. Its [fresh native suites](build/plan-full512-startup-implementation/1792966979950932621/startup-native-summary.json)
+pass 22 Icarus and 20 Verilator cases, including both LED polarities and complete
+K=65 memory/numerical checks. The original R28 profile and its parents remain
+unchanged. Native cold starts do not establish physical reconfiguration or
+mapped startup behavior.
+The [startup checkpoint package](build/full512-startup-preparation/1792967676447887367/report.json)
+also passes [eleven copy-audit controls](build/full512-startup-package-audit/1792967676447887367/report.json).
+Its source/evidence integrity is verified; board review and current external
+arithmetic parents are still required before any separately authorized build.
+
+The [serialized numerical board package](build/plan-source-implementation-1792942734594175489/serial-vivado-reviewed/report.json)
+separately binds all eight Verilator and nine Icarus board modes, including
+the actual compiled binaries and complete command logs. Both it and the
+[EW startup package](build/ew-fpga-preparation/startup-1792967662354184758/report.json)
+remain `SOURCE_INTACT_REVIEW_PENDING`: no completed board/electrical review,
+Vivado build, bitstream or hardware pass is implied.
+The [USER2 BRAM package](build/host-jtag-preparation/1792967662198630675/report.json)
+also binds both complete host suites and independently copied evidence, with
+the same pending board-review status.
+
+**Historical review validation, 2026-10-23 03:26 HKT:** the fresh
 [`make -j2 test` run](build/review-all-20261022T190646Z/final-production/production-validation.json)
 passes in 296.016 seconds: 57 unit methods, 1,087,299 C++ comparisons, both
 247-entry EW suites and all three raw-product CMAC benches in each simulator.
@@ -1098,12 +1620,17 @@ The historical `verification/check_backend_encoder.py` check passed nine streams
 
 ## FPGA build
 
-The current preparation uses `python3 tools/cmac/vivado_dsp_prefix_array.py prepare`
+The following describes the initial preparation profile; the
+[active plan](docs/REVIEW_AND_PLAN.md) records later build/physical results
+and the current capacity increment. Its original preparation-only restriction
+was superseded by the user's authorization for Vivado and audited SRAM tests.
+
+That preparation uses `python3 tools/cmac/vivado_dsp_prefix_array.py prepare`
 for the full C32/K16 DSP-prefix candidate. This checks the source profile and
 generated ROM and writes source/Tcl snapshots and a preparation report. It does
 not validate numerical parents, launch Vivado or establish synthesis, timing,
 DRC or a usable bitstream.
-The current pass must not use its `synth` or `run` actions.
+The original preparation pass did not authorize its `synth` or `run` actions.
 
 The [preparation report](build/rknpu-dsp-prefix-array-vivado/prepare-1792696631656679983/report.json)
 and its `build.tcl` retain the full 32×16/512-product target. The separate
@@ -1181,10 +1708,8 @@ The FP16 numerical policy is round-to-nearest-even, gradual underflow, infinitie
 
 ## Next acceptance gate
 
-Complete the source review, fixes and Vivado preparation using the OpenTPU
-workflow as a reference. Do not start synthesis or implementation during this
-preparation pass. Matched RK command, input and output traces remain the
-acceptance test for numerical compatibility. Physical timing/electrical/DRC
-signoff and an explicitly authorized board test are still required before
-claiming an FPGA result. See `docs/REVIEW_AND_PLAN.md` for the working assumptions
-and separate implementation/verification gates.
+Finish the fresh capacity-enabled full512 placement/routing, review and audit
+its image, then run the physical two-GiB sweep and normal-job recovery.
+Live framework coverage, injected ECC, PCIe and matched RK command/input/output
+traces retain separate gates. See the [active plan](docs/REVIEW_AND_PLAN.md)
+for their order, dependencies and acceptance criteria.

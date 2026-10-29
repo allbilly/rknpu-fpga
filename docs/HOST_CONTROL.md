@@ -11,6 +11,11 @@ ABI, an implemented PCIe BAR, or a complete accelerator shell. The arithmetic
 and supported-register profile remain the strict FP16 EW subset. The board
 top remains the separate BRAM self-test; this endpoint has no physical pins.
 
+The later [USER2 BRAM candidate](HOST_JTAG_BRAM.md) reuses `rk_job_control`
+with the same raw DMA and a BRAM memory adapter. It gives these exact registers
+an independently tested mailbox transport and prepared board wrapper; it does
+not physically integrate this `rk_ew_axi`/512-bit AXI endpoint or a PCIe BAR.
+
 ## Registers
 
 Addresses are byte offsets. All accesses are aligned 32-bit transactions with
