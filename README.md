@@ -24,6 +24,15 @@ passes native protocol controls and the full default regression. It remains an
 unselected component; board-accessible retained reset and physical ECC recovery
 are still pending in the [active plan](docs/REVIEW_AND_PLAN.md).
 
+**Selected framework matmul passed on FPGA, 2026-10-30:** all six shapes now
+[pass physical USER2 JTAG review](docs/FRAMEWORK_MATMUL_FPGA_TEST.md) on the
+full512 dual-MIG CH1 DDR image, source tag `60e7abbb`. The original compiler and
+final writer execute 24 hardware jobs, with 18 compute resets and 2,375,680
+complete BO bytes compared before ACK. Both controllers and all 512 products
+remain; CPU gather/fallback and runtime layout repair are blocked. PCIe,
+physical ECC, broader backend coverage and full-model execution on this changed
+image retain separate gates. Flash is unchanged.
+
 **Application priority, 2026-10-27:** check
 [TinyStories-260K before general tinygrad integration](docs/TINYSTORIES.md).
 The CPU reference and complete 32-position donor-policy oracle pass, matching
