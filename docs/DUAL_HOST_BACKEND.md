@@ -1,5 +1,17 @@
 # Backend witness for transport-session release
 
+The separate [factored dual-host selection](../rtl/ddr/dual_host_factored/README.md)
+now passes a fresh six-shape native replay on the current factored compute
+sources. Select it explicitly with
+`tools.ddr.dual_host_factored_profile.core_source_paths()`; the original
+selection below remains available. The
+[root acceptance](../build/dual-host-factored-six-shape-results-review-v1/root-acceptance.json)
+binds all 48 jobs/tasks, 36 compute resets and 4,751,360 complete BO bytes
+before ACK across six fresh JTAG-to-retained-PCIe processes. All 72 source
+bytes and their order match the reviewed candidate. This is a common-clock
+numerical model result; actual PCIe IP/CDC, MIG/PHY, combined fit and physical
+qualification remain pending for the new selection.
+
 The witness-enabled source profile is selected through
 `tools.ddr.dual_host_profile.source_paths()`. It hash-binds the 68-source FP16
 C32/K16 base, substitutes three modules under `rtl/ddr/dual_host/`, and compiles
