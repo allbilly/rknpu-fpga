@@ -59,9 +59,16 @@ The local-release correction adds three default startup edges per domain.
 Its [fresh component receipt](../build/pcie-bridge-local-reset-native-v1/report.json)
 and [independent review](../build/pcie-bridge-local-reset-review-v1/review.json)
 pass 105 checks per simulator over three epochs and six expected parameter
-failures. Actual converter/integration reruns and mapped recovery/removal
-remain required for this changed source. Earlier converter and FPGA results
-below retain their original source scope.
+failures. The [fresh integration review](../build/pcie-local-reset-integration-results-review-v1/review.json)
+now accepts both actual-converter simulators at 419 checks/five epochs/seven
+write effects and all four joined guard runs at 2,685 checks/eight scenarios.
+Only the reset leaf changed; wrapper and benches remain byte-identical, with
+original deadlines and error expectations. The [full public regression](../build/pcie-local-reset-full-regression-v1/report.json)
+passes `make -j2 test` in 650.080 seconds with 20,881 stable input hashes;
+its [independent audit](../build/pcie-local-reset-publication-review-v1/full-regression-review.json)
+also verifies the nested bridge checks and process cleanup. Mapped
+recovery/removal, CDC/RDC and physical qualification remain required. Earlier
+converter and FPGA results below retain their original source scope.
 
 This component is not selected in the 72-source NPU profile or any FPGA
 image. The preceding revision of `make host-pcie-bridge-reset-test` passed 105 checks in each of Icarus
