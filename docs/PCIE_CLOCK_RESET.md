@@ -41,8 +41,11 @@ maps `ACLK_ASYNC=1`, `PROTOCOL=AXI4LITE`, and `SYNCHRONIZATION_STAGES=3`;
 the generated XCI and wrapper still need independent verification.
 
 The unselected [reset component](../rtl/host/rk_pcie_bridge_reset.sv) prepares
-that initialization boundary. After an observed common assertion, both reset
-outputs remain low until each domain has observed at least eight local
+that initialization boundary. After an observed common assertion, each domain
+first releases its internal reset through three local synchronizer stages.
+All functional state uses that local reset, so asynchronous SYS-epoch release
+cannot directly release the counters or peer-handshake state. Both output
+resets remain low until each domain has then observed eight functional local
 edges and a synchronized peer reset witness. Each then releases through
 three local stages, observes five further local edges, and exchanges a
 settled witness. The UI/JTAG frontend does not use these bridge reset outputs.
@@ -52,8 +55,16 @@ clock loss needs a separate health detector. The two ready flags need not
 rise together: synchronize destination readiness before exposing upstream
 traffic. No unilateral link reset or automatic recovery is provided.
 
+The local-release correction adds three default startup edges per domain.
+Its [fresh component receipt](../build/pcie-bridge-local-reset-native-v1/report.json)
+and [independent review](../build/pcie-bridge-local-reset-review-v1/review.json)
+pass 105 checks per simulator over three epochs and six expected parameter
+failures. Actual converter/integration reruns and mapped recovery/removal
+remain required for this changed source. Earlier converter and FPGA results
+below retain their original source scope.
+
 This component is not selected in the 72-source NPU profile or any FPGA
-image. `make host-pcie-bridge-reset-test` passes 105 checks in each of Icarus
+image. The preceding revision of `make host-pcie-bridge-reset-test` passed 105 checks in each of Icarus
 and Verilator across three reset epochs, plus six expected invalid-parameter
 failures. Its [source-bound receipt](../build/pcie-bridge-reset-v1/20261029T145710085796Z/report.json)
 records all 19 owned process groups closed and unchanged source hashes, with

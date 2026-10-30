@@ -29,6 +29,10 @@ module rk_pcie_bridge_reset #(
     localparam integer STAGES = SYNC_STAGES < 3 ? 3 : SYNC_STAGES;
     localparam integer RESET_BITS = RESET_EDGES < 2 ? 1 : $clog2(RESET_EDGES);
     localparam integer SETTLE_BITS = SETTLE_EDGES < 2 ? 1 : $clog2(SETTLE_EDGES);
+    // Only these reset synchronizers see the SYS-domain epoch directly.
+    // Every functional register below leaves reset on its own clock edge.
+    (* ASYNC_REG="TRUE", SHREG_EXTRACT="NO" *) logic [STAGES-2:0] s_local_release_early, m_local_release_early;
+    (* ASYNC_REG="TRUE", SHREG_EXTRACT="NO" *) logic s_local_rst_n, m_local_rst_n;
     logic [RESET_BITS-1:0] s_reset_edges, m_reset_edges;
     logic [SETTLE_BITS-1:0] s_settle_edges, m_settle_edges;
     logic s_reset_seen, m_reset_seen, s_settled, m_settled;
@@ -49,7 +53,22 @@ module rk_pcie_bridge_reset #(
     assign m_ready=m_settled && m_peer_settled[STAGES-1];
 
     always_ff @(posedge s_clk or negedge epoch_rst_n) begin
-        if (!epoch_rst_n) begin
+        if (!epoch_rst_n) begin s_local_release_early<=0; s_local_rst_n<=0; end
+        else begin
+            s_local_release_early<={s_local_release_early[STAGES-3:0],1'b1};
+            s_local_rst_n<=s_local_release_early[STAGES-2];
+        end
+    end
+    always_ff @(posedge m_clk or negedge epoch_rst_n) begin
+        if (!epoch_rst_n) begin m_local_release_early<=0; m_local_rst_n<=0; end
+        else begin
+            m_local_release_early<={m_local_release_early[STAGES-3:0],1'b1};
+            m_local_rst_n<=m_local_release_early[STAGES-2];
+        end
+    end
+
+    always_ff @(posedge s_clk or negedge s_local_rst_n) begin
+        if (!s_local_rst_n) begin
             s_reset_edges<=0;s_reset_seen<=0;s_peer_reset<=0;s_release<=0;
             s_settle_edges<=0;s_settled<=0;s_peer_settled<=0;
         end else begin
@@ -68,8 +87,8 @@ module rk_pcie_bridge_reset #(
         end
     end
 
-    always_ff @(posedge m_clk or negedge epoch_rst_n) begin
-        if (!epoch_rst_n) begin
+    always_ff @(posedge m_clk or negedge m_local_rst_n) begin
+        if (!m_local_rst_n) begin
             m_reset_edges<=0;m_reset_seen<=0;m_peer_reset<=0;m_release<=0;
             m_settle_edges<=0;m_settled<=0;m_peer_settled<=0;
         end else begin

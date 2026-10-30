@@ -10,6 +10,7 @@ module tb_pcie_bridge_reset #(
     wire s_aresetn,m_aresetn,s_ready,m_ready;
     integer s_edges,m_edges,s_post_edges,m_post_edges;
     integer checks=0,epochs=0;
+    integer s_raw_edges,m_raw_edges;
 
     rk_pcie_bridge_reset #(.SYNC_STAGES(SYNC_STAGES),.RESET_EDGES(RESET_EDGES),
         .SETTLE_EDGES(SETTLE_EDGES)) dut(
@@ -21,14 +22,25 @@ module tb_pcie_bridge_reset #(
     always begin #3; if(s_enable)s_clk=~s_clk;else s_clk=1'b0; end
     always begin #5; if(m_enable)m_clk=~m_clk;else m_clk=1'b0; end
 
-    always @(posedge s_clk or negedge epoch_rst_n) begin
-        if(!epoch_rst_n)begin s_edges<=0;s_post_edges<=0;end
+    always @(posedge s_clk or negedge dut.s_local_rst_n) begin
+        if(!dut.s_local_rst_n)begin s_edges<=0;s_post_edges<=0;end
         else begin s_edges<=s_edges+1;if(s_aresetn)s_post_edges<=s_post_edges+1;end
     end
-    always @(posedge m_clk or negedge epoch_rst_n) begin
-        if(!epoch_rst_n)begin m_edges<=0;m_post_edges<=0;end
+    always @(posedge m_clk or negedge dut.m_local_rst_n) begin
+        if(!dut.m_local_rst_n)begin m_edges<=0;m_post_edges<=0;end
         else begin m_edges<=m_edges+1;if(m_aresetn)m_post_edges<=m_post_edges+1;end
     end
+
+    always @(posedge s_clk or negedge epoch_rst_n)
+        if(!epoch_rst_n)s_raw_edges<=0;else s_raw_edges<=s_raw_edges+1;
+    always @(posedge m_clk or negedge epoch_rst_n)
+        if(!epoch_rst_n)m_raw_edges<=0;else m_raw_edges<=m_raw_edges+1;
+    always @(posedge dut.s_local_rst_n)
+        if(s_raw_edges!=SYNC_STAGES || s_clk!==1'b1 || s_edges!=0 || dut.s_reset_edges!=0 || dut.s_reset_seen!==1'b0)
+            $fatal(1,"source local reset must release after exact fresh synchronizer edges before functional counting");
+    always @(posedge dut.m_local_rst_n)
+        if(m_raw_edges!=SYNC_STAGES || m_clk!==1'b1 || m_edges!=0 || dut.m_reset_edges!=0 || dut.m_reset_seen!==1'b0)
+            $fatal(1,"destination local reset must release after exact fresh synchronizer edges before functional counting");
 
     always @(posedge s_aresetn)begin
         if(s_edges<RESET_EDGES || !dut.s_reset_seen || !dut.s_peer_reset[SYNC_STAGES-1])
@@ -86,6 +98,7 @@ module tb_pcie_bridge_reset #(
     endtask
     task automatic exact_s_reset_count(input string label);
         begin
+            wait(dut.s_local_rst_n===1'b1); #0.100;
             repeat(RESET_EDGES-1)@(posedge s_clk);
             #1;require(s_edges==RESET_EDGES-1 && dut.s_reset_seen===1'b0,{label," no early source reset seen"});
             @(posedge s_clk);#1;
@@ -94,6 +107,7 @@ module tb_pcie_bridge_reset #(
     endtask
     task automatic exact_m_reset_count(input string label);
         begin
+            wait(dut.m_local_rst_n===1'b1); #0.100;
             repeat(RESET_EDGES-1)@(posedge m_clk);
             #1;require(m_edges==RESET_EDGES-1 && dut.m_reset_seen===1'b0,{label," no early destination reset seen"});
             @(posedge m_clk);#1;
