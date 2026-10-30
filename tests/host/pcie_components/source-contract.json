@@ -1,0 +1,101 @@
+{
+  "contract": "public-pcie-clock-health-and-dma-decerr-native-components",
+  "dma_completion_marker": "PASS_PCIE_DMA_DECERR_NATIVE",
+  "dma_four_state_markers": {
+    "iverilog": "PASS_PCIE_DMA_DECERR_NATIVE four_state=1",
+    "verilator": "PASS_PCIE_DMA_DECERR_NATIVE four_state=0"
+  },
+  "dma_positive_checks": {
+    "iverilog": 956,
+    "verilator": 904
+  },
+  "dma_required_controls": [
+    "write/read burst lengths 1,2,255,256",
+    "all-address DECERR and exact IDs/data/response/last",
+    "AW before W, W before AW, and simultaneous AW/W",
+    "held B and R response stability",
+    "concurrent read/write",
+    "early and missing/late WLAST sticky fault while accepted burst drains",
+    "partial write, held read, held B reset behavior",
+    "pending read retained while unrelated write fault occurs",
+    "Icarus X/Z AWID/AWLEN/ARID/ARLEN/AWVALID/WVALID/ARVALID fail-closed cases"
+  ],
+  "health_clock_configs": [
+    {
+      "name": "125MHz_50MHz",
+      "source_half_ps": 4000,
+      "ui_half_ps": 10000
+    },
+    {
+      "name": "250MHz_50MHz",
+      "source_half_ps": 2000,
+      "ui_half_ps": 10000
+    },
+    {
+      "name": "125MHz_133MHz",
+      "source_half_ps": 4000,
+      "ui_half_ps": 3750
+    },
+    {
+      "name": "250MHz_133MHz",
+      "source_half_ps": 2000,
+      "ui_half_ps": 3750
+    }
+  ],
+  "health_control_parameters": {
+    "HEARTBEAT_BITS": 6,
+    "REQUIRED_TRANSITIONS": 2,
+    "SYNC_STAGES": 3,
+    "TIMEOUT_UI_CYCLES": 1024
+  },
+  "health_invalid_fatal": {
+    "1": "Invalid PCIe health synchronization/heartbeat/deadline parameters",
+    "2": "Invalid PCIe health synchronization/heartbeat/deadline parameters",
+    "3": "Invalid PCIe health synchronization/heartbeat/deadline parameters",
+    "4": "Invalid PCIe health synchronization/heartbeat/deadline parameters",
+    "5": "Invalid transport epoch freshness parameter"
+  },
+  "health_invalid_parameters": {
+    "1": "SYNC_STAGES=2",
+    "2": "HEARTBEAT_BITS=1",
+    "3": "REQUIRED_TRANSITIONS=1",
+    "4": "TIMEOUT_UI_CYCLES=7",
+    "5": "rk_transport_epoch_guard FRESH_CYCLES=1"
+  },
+  "health_pass_marker": "PASS_SOURCE_HEALTH",
+  "health_positive_checks": {
+    "iverilog": 43,
+    "verilator": 34
+  },
+  "health_required_controls": [
+    "PCIe clock absent at boot while independent JTAG guard qualifies",
+    "fresh link/reset/bridge/local release and divided heartbeat qualification",
+    "PCIe clock stop with link and reset held high times out after 1024 UI cycles",
+    "retained guard faults after health loss and does not recover until joint reset",
+    "short link-up pulse while PCIe clock stopped",
+    "short PERST pulse while UI clock stopped",
+    "joint reset while either PCIe or UI clock is stopped requires local edges after restart",
+    "Icarus-only X/Z link/reset/bridge fail-closed controls"
+  ],
+  "limits": {
+    "compile_timeout_s": 600,
+    "dma_iverilog_timeout_s": 180,
+    "dma_verilator_timeout_s": 180,
+    "health_invalid_expected_returncode": 1,
+    "health_simulation_timeout_ns": 1000000,
+    "runner_adds_resource_limits": false
+  },
+  "public_source_hashes": {
+    "rtl/host/rk_pcie_dma_decerr.sv": "9f0eb4280f8232a9dd04a6b4ec26845100ac99df4ae2b1607d4859a6d0d8ba68",
+    "rtl/host/rk_pcie_source_health.sv": "caa8e1a9e6b0573463f13640002f8b6db8a8b4662a4d82e1afe351975a6af695",
+    "rtl/host/rk_transport_epoch_guard.sv": "d865fed78bcc898a22e45bd538a14850ab4eba026118fb0cf0dce09f46269470",
+    "tests/host/pcie_components/tb_pcie_dma_decerr.sv": "2cb7eacdfac7ce25168b0a7d8d9d0370cf9128d39af5df2d09f403e3baac0b3d",
+    "tests/host/pcie_components/tb_pcie_source_health.sv": "d826bbe7114b2352d4d6b56ce1cd870cbd9bcf142efbdb1cc2128191076ba944",
+    "tests/host/pcie_components/tb_pcie_source_health_invalid.sv": "80c27949c4c094d8daf1129a301b5bfc8eeb8d8fac5bee62f0a123e0c37ed888"
+  },
+  "schema": 1,
+  "scope_exclusions": [
+    "No PCIe IP, clock converter, board shell, physical link, synthesis, or hardware qualification.",
+    "The clock-health result is a native functional component test, not physical CDC/RDC signoff."
+  ]
+}

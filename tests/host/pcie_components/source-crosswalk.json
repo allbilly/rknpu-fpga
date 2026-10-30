@@ -1,0 +1,46 @@
+{
+  "controls": [
+    "four independently compiled health clock ratios per simulator",
+    "5 invalid parameter cases per simulator with exact expected fatal text",
+    "DMA raw source bench retains all tasks and conditionals; counter instruments each check() call",
+    "no build/private HDL path is imported by the public runner"
+  ],
+  "dma_directed_bench": {
+    "assertions_and_stimulus_changed": false,
+    "control_body_byte_identical_after_counter_removal": true,
+    "instrumentation": [
+      "increment check_count in existing check task",
+      "initialize count before original initial sequence",
+      "print CHECK_COUNT_PCIE_DMA_DECERR after unchanged original PASS marker"
+    ],
+    "original_after_removing_only_check_counter_instrumentation_sha256": "b82371813e6e51443c33a36e7d4a91d23df22dee0aa1e91bf801aa9597c06496",
+    "path": "tests/host/pcie_components/tb_pcie_dma_decerr.sv",
+    "qualification_basis_sha256": "b82371813e6e51443c33a36e7d4a91d23df22dee0aa1e91bf801aa9597c06496",
+    "sha256": "2cb7eacdfac7ce25168b0a7d8d9d0370cf9128d39af5df2d09f403e3baac0b3d"
+  },
+  "health_functional_bench": {
+    "byte_identical": true,
+    "qualified_bench_sha256": "d826bbe7114b2352d4d6b56ce1cd870cbd9bcf142efbdb1cc2128191076ba944",
+    "sha256": "d826bbe7114b2352d4d6b56ce1cd870cbd9bcf142efbdb1cc2128191076ba944"
+  },
+  "health_invalid_bench": {
+    "byte_identical": true,
+    "qualified_bench_sha256": "80c27949c4c094d8daf1129a301b5bfc8eeb8d8fac5bee62f0a123e0c37ed888",
+    "sha256": "80c27949c4c094d8daf1129a301b5bfc8eeb8d8fac5bee62f0a123e0c37ed888"
+  },
+  "public_files": {
+    "dma_rtl": {
+      "byte_identical": true,
+      "path": "rtl/host/rk_pcie_dma_decerr.sv",
+      "qualified_leaf_sha256": "9f0eb4280f8232a9dd04a6b4ec26845100ac99df4ae2b1607d4859a6d0d8ba68",
+      "sha256": "9f0eb4280f8232a9dd04a6b4ec26845100ac99df4ae2b1607d4859a6d0d8ba68"
+    },
+    "health_rtl": {
+      "byte_identical": true,
+      "path": "rtl/host/rk_pcie_source_health.sv",
+      "qualified_leaf_sha256": "caa8e1a9e6b0573463f13640002f8b6db8a8b4662a4d82e1afe351975a6af695",
+      "sha256": "caa8e1a9e6b0573463f13640002f8b6db8a8b4662a4d82e1afe351975a6af695"
+    }
+  },
+  "schema": 1
+}

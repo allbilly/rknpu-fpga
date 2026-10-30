@@ -1,0 +1,14 @@
+--- qualified-directed-dma-bench
++++ public-dma-bench-with-counter
+@@ -32,0 +33 @@
++  integer check_count;
+@@ -34 +35,4 @@
+-    if(cond!==1'b1) $fatal(1,"CHECK_FAIL %s",msg);
++    begin
++      check_count=check_count+1;
++      if(cond!==1'b1) $fatal(1,"CHECK_FAIL %s",msg);
++    end
+@@ -255,0 +260 @@
++    check_count=0;
+@@ -275,0 +281 @@
++    $display("CHECK_COUNT_PCIE_DMA_DECERR checks=%0d",check_count);
