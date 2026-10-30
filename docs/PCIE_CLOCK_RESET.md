@@ -90,3 +90,19 @@ AXI-Lite signals. The child PCIe metadata enables a 1 MiB BAR0 and 64 KiB BAR1;
 BAR2 is disabled. The metadata does not establish which BAR routes to the
 mailbox. The optional export failure is retained, and neither bridge-only
 area savings nor combined resource fit is qualified.
+
+The [completed V4 generation and root review](../build/pcie-xdma-v4-root-review-v1/root-acceptance.json)
+now bind 136 generated files and unchanged source inputs. The corrected IP
+export command completed successfully. A separate
+[direct-top declaration audit](../build/pcie-xdma-v4-wrapper-review-v1/review.json)
+verifies 62 required ports, including all 19 AXI-Lite signals, M_AXI's
+64-bit addresses/128-bit data, PCIe x8 and clock/reset ports. Its negative
+controls reject internal-module decoys and wrong widths or directions. This
+audit supplies the interface admission missing from the producer's broader
+HDL-token check; the frozen producer is unchanged.
+
+Effective mode remains DMA and BAR2 remains disabled. Requested 250 MHz,
+the `axi_aclk` annotation of 125 MHz and interface annotations of 100 MHz
+are recorded separately; actual clock and BAR behavior are unqualified.
+IP-only synthesis area, combined fit, CDC, routing and physical execution
+remain required.

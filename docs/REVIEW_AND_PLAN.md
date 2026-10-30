@@ -58,6 +58,7 @@ earlier image does not qualify a later changed image.
 | Physical two-GiB capacity and recovery | Passed full physical BIST and raw jobs after deliberate volatile reconfiguration | [Physical report](DDR_CAPACITY_FPGA_TEST.md): 67,108,864 writes/reads, status `0x68`, zero faults; four K65/SUB9 jobs, 245,760 BO bytes before ACK; live reset, physical FI/PCIe and full-model qualification on this image remain separate |
 | Injected ECC/quarantine/recovery | Six full-parent actual-controller cases and six raw RKFI management cases passed independent native review | [Full-parent review](../build/full512-fi-parent-controller-model-v1/root-result-review.json): original K65/SUB9, CE/UE plus raw-job recovery, early ownership and capacity BIST; management/physical-wrapper integration, implementation and physical ECC remain pending |
 | Retained whole-transaction reset control | Standalone SYS controller passed both simulators and full default regression | [Control contract](WHOLE_RESET_CONTROL.md), [independent component review](../build/whole-reset-control-root-review-v1/v4-final-review.json), [full regression review](../build/whole-reset-full-regression-v1/independent-review.json): 369 Icarus/329 Verilator checks and eight invalid-parameter controls; `make -j2 test` passed in 574.557 seconds. Retained mailbox, fresh UI witnesses, actual parent/board integration and physical recovery remain pending |
+| Joined retained reset and actual-controller ECC | Fresh matrix failed after five passing cases | [V9 producer](../build/whole-reset-fi-parent-prep-v9/native-v1/report.json): CMAC, EW, early ownership, CE and UE recovery passed. The capacity BIST completed 32,768 writes and reads, but its following maintenance reset could not drain the retained capacity owner. A [reviewed RTL candidate](../build/whole-reset-capacity-drain-source-review-v1/review.json) requires fresh qualification of all twelve cases; prior passes do not qualify the changed RTL. Physical ECC remains pending |
 | Live framework integration | All eleven selected EW cases passed physical review | [Complete native trial review](../build/fpga-bringup/full512-ddr-framework-prep-v1/root-result-review.json) on the qualified TinyStories DDR image: 11 jobs, 16 tasks, 1,081,344 BO bytes before ACK; CMAC, broader census and the new capacity image remain separate |
 | Compiler CMAC layouts | Standalone raw-command encoder/DMA passed both native simulators | [Contract and test target](LAYOUT_DMA.md), [independent review](../build/backend-layout-root-review-v1/report.json): all 18 captured gathers/16,897 indices, all 65,536 raw halfwords, 34 positive cases twice per simulator, 51 Icarus/50 Verilator negatives; parent/runtime/reset and physical integration remain pending |
 | Joined compiler-layout/CMAC parent | Six raw pipelines passed independent numerical/whole-BO review | [Seven-scenario review](../build/framework-layout-parent-replay-v6/root-result-review.json): all 24 stages, 3,358,720 pipeline BO bytes and 122,880 baseline bytes, exact engine read/write counts and original modeled capacity/reset controls; independent AXI RAM/ECC-control model only, with compute-reset/runtime/real-controller/physical qualification pending |
@@ -505,9 +506,18 @@ and [frame-gate recheck](../build/whole-reset-frame-gate-review-v1/recheck-v2.js
 now pass component tests with scripted witnesses/backends. The gate seals before
 publishing quiet, rejects open-admission X/Z frames, and blocks or withdraws
 quiet on a sticky protocol fault. The proposed 133-source actual-controller
-wrapper also gates readiness on fault and uses the real coordinator, but
-[remains uncompiled and unqualified](../build/whole-reset-fi-parent-source-review-v1/recheck-v2.json).
-These leaf results do not establish retained mailbox or physical recovery.
+wrapper also gates readiness on fault and uses the real coordinator. Its
+[fresh V9 matrix](../build/whole-reset-fi-parent-prep-v9/native-v1/report.json)
+compiled and passed five cases, then failed capacity reset recovery after the
+BIST itself passed. The drain predicate rejected `capacity_selected`, while
+the capacity owner intentionally retains selection after completion until a
+whole reset. The [reviewed correction](../build/whole-reset-capacity-drain-source-review-v1/review.json)
+permits that selected owner only with its real completed, healthy and drained
+result; the other drain conditions remain. A separate held-request observer
+also hit its 50,000-UI-cycle window; its [test-only correction](../build/whole-reset-sealed-window-source-review-v1/review.json)
+uses the existing full-initialization allowance and still needs a fresh replay.
+All twelve cases must pass on the corrected RTL. These results do not establish
+a board-accessible retained mailbox or physical recovery.
 
 The FI mask is write-only, affects the first 72-bit codeword, clears on a
 controller write with clear priority, and has no reset port. Explicitly zero
