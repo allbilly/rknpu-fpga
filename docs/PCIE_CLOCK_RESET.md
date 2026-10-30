@@ -112,27 +112,31 @@ retains its original control body and uses no warning waiver. These results
 qualify the wrapper's directed functional controls, not an XDMA master,
 joined NPU transactions or physical CDC.
 
-The [source-health candidate review](../build/pcie-source-health-review-v2/review.json)
-checks 125/250 MHz source clocks against 50/133 MHz UI clocks, stopped clocks
-and short link/reset pulses. The
-[unsupported-DMA responder review](../build/pcie-dma-decerr-review-v1/review.json)
-checks DECERR responses through 256-beat bursts, backpressure, IDs and faulted
-drainage. The responder has no connection to either MIG or retained NPU BOs.
-These source-bound component results remain distinct from combined execution.
-The unchanged [source-health](../rtl/host/rk_pcie_source_health.sv) and
-[DECERR](../rtl/host/rk_pcie_dma_decerr.sv) leaves now have
-[portable tests](../tests/host/pcie_components/README.md) under
-`make host-pcie-components-test`, included in default `make test`. The
-[fresh public run](../build/pcie-components-native-20261030T131739727757Z/report.json)
-passes four ratios per simulator, ten expected invalid-parameter failures,
-956 four-state Icarus DMA checks and 904 Verilator DMA checks. All 46 owned
-process groups close and bound source bytes remain unchanged. The
-[public source/results review](../build/pcie-components-public-review-v1/review.json)
-passes. The subsequent full default `make -j2 test` also
-[passes independent review](../build/pcie-components-public-review-v1/full-regression-review.json):
-exit zero in 805.386 seconds, 20,859 before/after/current source hashes equal,
-and the nested PCIe component receipts reviewed. The local source increment
-is committed as `5f3cd97`; remote CI and hardware remain unqualified.
+The original source-health candidate and public component receipts are tied to
+the earlier `rk_pcie_source_health` bytes (SHA-256
+`caa8e1a9e6b0573463f13640002f8b6db8a8b4662a4d82e1afe351975a6af695`). Those
+receipts and the earlier default regression remain bound to that source snapshot.
+
+The currently published [source-health leaf](../rtl/host/rk_pcie_source_health.sv)
+(SHA-256 `8b03a382d6fa9221c6e3178b4d83f5117d3e56ae3e17e137829d4f1febcd869c`)
+qualifies `source_healthy` through the UI-local reset-release state. Common-reset
+assertion remains asynchronous, local release still requires the existing three
+UI edges, and the output no longer adds raw SYS reset as a combinational term.
+The standalone [public native run](../build/pcie-components-native-ui-health-publication-v1/run-v1/report.json)
+checks all four source/UI clock ratios, ten expected invalid-parameter failures,
+956 Icarus DMA checks and 904 Verilator DMA checks. The joined
+[V21 guard run](../build/pcie-controlplane-guard-prep-v21/out-native-health-candidate-v1/report.json)
+uses this same leaf with the actual converter, control plane, health, DECERR and
+frontend across eight scenarios, six epochs and 2,685 checks per simulator;
+its [source-bound review](../build/pcie-health-ui-qualified-native-results-review-v1/review.json)
+accepts native functional results only. These tests do not qualify physical CDC,
+timing, routing, a board or hardware.
+
+A fresh full NPU/MIG/PCIe/JTAG synth/opt census using the new leaf is running at
+[run-v1](../build/pcie-ui-health-shared2-wordbanks-fit-prep-v1/run-v1/report.json).
+It is not a route, bitstream or physical result. Existing selected-image and
+placement receipts remain bound to their own earlier source manifests and do not
+qualify this health leaf.
 
 The [combined control-plane contract](../build/pcie-control-plane-candidate-v1/CONTRACT.md)
 now wires all 75 generated XDMA ports: 19 AXI-Lite signals through the actual

@@ -28,6 +28,29 @@
     "qualified_bench_sha256": "80c27949c4c094d8daf1129a301b5bfc8eeb8d8fac5bee62f0a123e0c37ed888",
     "sha256": "80c27949c4c094d8daf1129a301b5bfc8eeb8d8fac5bee62f0a123e0c37ed888"
   },
+  "health_leaf_publication": {
+    "byte_identical": true,
+    "candidate_path": "build/pcie-health-ui-qualified-candidate-v1/rk_pcie_source_health.sv",
+    "candidate_sha256": "8b03a382d6fa9221c6e3178b4d83f5117d3e56ae3e17e137829d4f1febcd869c",
+    "current_native_component_report_target_path": "build/pcie-components-native-ui-health-publication-v1/run-v1/report.json",
+    "current_native_component_scope": "Public native standalone source-health/DMA DECERR components only: four health clock ratios, five invalid parameters per simulator, unchanged DMA controls; no board, PCIe IP, mapped CDC or physical timing claim.",
+    "derivation_status": "SOURCE_CANDIDATE_COPIED_BYTE_IDENTICALLY_TO_PUBLIC_PATH",
+    "joined_guard_v21_health_source_sha256": "8b03a382d6fa9221c6e3178b4d83f5117d3e56ae3e17e137829d4f1febcd869c",
+    "joined_guard_v21_report_path": "build/pcie-controlplane-guard-prep-v21/out-native-health-candidate-v1/report.json",
+    "joined_guard_v21_report_sha256": "75dbfca039fbf27e814d689f51ac1b745d06bc1104877141252371f98802fd04",
+    "joined_guard_v21_result_review_path": "build/pcie-health-ui-qualified-native-results-review-v1/review.json",
+    "joined_guard_v21_result_review_sha256": "11b80eaed115db89ad535800bd68bfb1fe9ea6150c74903bb065148b85fe5859",
+    "joined_guard_v21_result_review_status": "PASS_UI_QUALIFIED_HEALTH_NATIVE_RESULTS_ONLY",
+    "joined_guard_v21_scope": "Joined actual converter/control-plane/health/DECERR/frontend native functional guard controls only.",
+    "joined_guard_v21_status": "PASS_PCIE_CONTROLPLANE_GUARD_NATIVE_FUNCTIONAL_ONLY",
+    "previous_native_component_report_path": "build/pcie-components-native-20261030T192321789977Z/report.json",
+    "previous_native_component_report_sha256": "960bc088bdfde91d27c52673d99b177c4f4c0b63066c33799a45afaae027a7f7",
+    "previous_native_component_report_source_health_sha256": "caa8e1a9e6b0573463f13640002f8b6db8a8b4662a4d82e1afe351975a6af695",
+    "previous_public_leaf_sha256": "caa8e1a9e6b0573463f13640002f8b6db8a8b4662a4d82e1afe351975a6af695",
+    "public_path": "rtl/host/rk_pcie_source_health.sv",
+    "public_sha256": "8b03a382d6fa9221c6e3178b4d83f5117d3e56ae3e17e137829d4f1febcd869c",
+    "qualification_boundary": "Fresh standalone and joined native functional controls bind the published candidate leaf. The fresh full NPU/MIG/PCIe/JTAG synth/opt census is running separately. No CDC/RDC, timing, route, image, board or hardware acceptance follows. Prior image and placement receipts remain bound to their original source manifests."
+  },
   "public_files": {
     "dma_rtl": {
       "byte_identical": true,
@@ -37,9 +60,14 @@
     },
     "health_rtl": {
       "byte_identical": true,
+      "candidate_path": "build/pcie-health-ui-qualified-candidate-v1/rk_pcie_source_health.sv",
+      "candidate_sha256": "8b03a382d6fa9221c6e3178b4d83f5117d3e56ae3e17e137829d4f1febcd869c",
       "path": "rtl/host/rk_pcie_source_health.sv",
-      "qualified_leaf_sha256": "caa8e1a9e6b0573463f13640002f8b6db8a8b4662a4d82e1afe351975a6af695",
-      "sha256": "caa8e1a9e6b0573463f13640002f8b6db8a8b4662a4d82e1afe351975a6af695"
+      "previous_public_sha256": "caa8e1a9e6b0573463f13640002f8b6db8a8b4662a4d82e1afe351975a6af695",
+      "previous_qualification_receipts_remain_bound_to_previous_sha256": true,
+      "previous_qualified_leaf_sha256": "caa8e1a9e6b0573463f13640002f8b6db8a8b4662a4d82e1afe351975a6af695",
+      "qualified_leaf_sha256": "8b03a382d6fa9221c6e3178b4d83f5117d3e56ae3e17e137829d4f1febcd869c",
+      "sha256": "8b03a382d6fa9221c6e3178b4d83f5117d3e56ae3e17e137829d4f1febcd869c"
     }
   },
   "schema": 1

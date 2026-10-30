@@ -81,6 +81,9 @@ module rk_pcie_source_health #(
             end else age<=age+AGE_W'(1);
         end
     end
-    assign source_healthy=joint_reset_n===1'b1&&ui_local_rst_n===1'b1&&
+    // Local reset asserts asynchronously from joint_reset_n and releases only
+    // after STAGES UI edges. Keep the published level entirely in the UI
+    // domain; a direct SYS term would recreate a combinational CDC fanout.
+    assign source_healthy=ui_local_rst_n===1'b1&&
         available_ui===1'b1&&clock_alive===1'b1&&bridge_ready_ui===1'b1;
 endmodule
