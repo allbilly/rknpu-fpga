@@ -24,17 +24,21 @@ The UI-qualified combined PCIe/JTAG candidate now
 [completes routing](build/pcie-ui-health-route-results-review-v1/review.json)
 with all 512 product lanes and both memory controllers. Setup timing still
 fails at −0.885 ns across 2,734 endpoints; global hold passes at +0.012 ns.
-A new XDMA no-routable-load DRC warning also remains unaccepted. The health
+The [guarded net-only cleanup](build/pcie-dead-net-cleanup-results-review-v2/review.json)
+removes the separate unloaded-XDMA-net DRC warning on that diagnostic
+checkpoint, with its failing setup slack unchanged. The health
 cleanup and retained mailboxes pass the fresh default regression; timing,
 crossing audits and physical qualification remain in the [active plan](docs/REVIEW_AND_PLAN.md).
 
 The three measured Boolean timing corrections now pass paired native checks
-and isolated mapping review, and are in fresh full-design synthesis. The
+and isolated mapping review. Fresh full-design synthesis now passes its
+resource census at 288,160 LUTs, with all 512 products and both MIGs. The
+constrained audit stopped on a constant-field witness removed by optimization;
+disconnected pins are not accepted as proof of zero. The
 [retained physical-source integration](build/whole-reset-fi-pcie-physical-elab-review-v2/review.json)
 also passes full RTL interface/wiring elaboration with USER2/UI, USER3/SYS and
 C1 FI witnesses. That check uses an explicit XDMA stub; full implementation,
 joined execution and physical qualification remain pending.
-
 
 The separate [whole-transaction reset controller](docs/WHOLE_RESET_CONTROL.md)
 passes native protocol controls and the full default regression. Its joined
