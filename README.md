@@ -20,11 +20,13 @@ establish a square systolic topology for RK3588 silicon or measured end-to-end
 MACs per clock. INT8/INT4 arithmetic and doubled INT8 throughput are unsupported.
 See the [precision and layout boundary](docs/CMAC_ENCODER_CONTRACT.md#precision-and-compute-group-terminology).
 
-The combined PCIe/JTAG [placement diagnostic](build/pcie-combined-placement-review-v2/review.json)
-now fits at 282,606 LUTs with all 512 product lanes and both memory controllers.
-Post-placement setup/hold timing still fails. The UI-qualified PCIe health
-cleanup passes fresh native tests and is in a new whole-source synthesis run;
-its implementation and hardware qualification remain in the [active plan](docs/REVIEW_AND_PLAN.md).
+The UI-qualified combined PCIe/JTAG candidate now
+[completes routing](build/pcie-ui-health-route-results-review-v1/review.json)
+with all 512 product lanes and both memory controllers. Setup timing still
+fails at −0.885 ns across 2,734 endpoints; global hold passes at +0.012 ns.
+A new XDMA no-routable-load DRC warning also remains unaccepted. The health
+cleanup and retained mailboxes pass the fresh default regression; timing,
+crossing audits and physical qualification remain in the [active plan](docs/REVIEW_AND_PLAN.md).
 
 The separate [whole-transaction reset controller](docs/WHOLE_RESET_CONTROL.md)
 passes native protocol controls and the full default regression. Its joined
