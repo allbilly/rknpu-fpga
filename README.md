@@ -28,6 +28,14 @@ A new XDMA no-routable-load DRC warning also remains unaccepted. The health
 cleanup and retained mailboxes pass the fresh default regression; timing,
 crossing audits and physical qualification remain in the [active plan](docs/REVIEW_AND_PLAN.md).
 
+The three measured Boolean timing corrections now pass paired native checks
+and isolated mapping review, and are in fresh full-design synthesis. The
+[retained physical-source integration](build/whole-reset-fi-pcie-physical-elab-review-v2/review.json)
+also passes full RTL interface/wiring elaboration with USER2/UI, USER3/SYS and
+C1 FI witnesses. That check uses an explicit XDMA stub; full implementation,
+joined execution and physical qualification remain pending.
+
+
 The separate [whole-transaction reset controller](docs/WHOLE_RESET_CONTROL.md)
 passes native protocol controls and the full default regression. Its joined
 actual-controller model now passes all twelve reset/ECC scenarios and 532,480
