@@ -103,6 +103,13 @@ HDL-token check; the frozen producer is unchanged.
 
 Effective mode remains DMA and BAR2 remains disabled. Requested 250 MHz,
 the `axi_aclk` annotation of 125 MHz and interface annotations of 100 MHz
-are recorded separately; actual clock and BAR behavior are unqualified.
-IP-only synthesis area, combined fit, CDC, routing and physical execution
-remain required.
+are recorded separately; actual clock and BAR behavior are unqualified. A
+separate [root-accepted OOC IP area estimate](../build/pcie-xdma-ooc-results-review-v1/root-acceptance.json)
+(acceptance SHA-256 `8f4e04d04dc5abb3c9ad8e375fe3536d0385035b8ba4d1495b343cb72e2f3c31`)
+and [independent review](../build/pcie-xdma-ooc-results-review-v1/review.json)
+reports 19,201 LUTs, 21,203 flip-flops, 24 RAMB36, one RAMB18, zero DSPs, one
+`PCIE_2_1`, eight `GTXE2_CHANNEL`, two `GTXE2_COMMON`, and zero unresolved
+nonprimitive black boxes. The OOC `axi_aclk` had a 4 ns constraint. This is a
+standalone synthesized-IP area/cell census only; it does not qualify the actual
+clock or BAR mapping, combined shell fit, place/route/timing, or physical PCIe.
+Combined fit, CDC, routing and physical execution remain required.

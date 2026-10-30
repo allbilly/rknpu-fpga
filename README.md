@@ -33,14 +33,32 @@ remain; CPU gather/fallback and runtime layout repair are blocked. PCIe,
 physical ECC, broader backend coverage and full-model execution on this changed
 image retain separate gates. Flash is unchanged.
 
-**Current-image TinyStories trained tile passed, 2026-10-30:** the same
-`60e7abbb` image now passes the BOS Wq0 first-32-output smoke, repeated CMAC
-and FPGA EW compaction/rearm. The
+**Current-image TinyStories trained tile passed, 2026-10-30:** the
+`60e7abbb` / `1ca5ae19` image passes the BOS Wq0 first-32-output smoke,
+repeated CMAC and FPGA EW compaction/rearm. The
 [root physical acceptance](build/framework-factored-trained-physical-review-v1/root-acceptance.json)
 binds four jobs/six tasks, 360,448 complete BO bytes checked before ACK and
 25,945 trained JTAG scans. The separate scratch check passes six lines in two
 orders. Exact target and image receipts and process cleanup are reviewed;
-flash is unchanged. Full 32-position inference on this image remains pending.
+flash is unchanged. The same image's complete 32-position TinyStories result is
+documented below.
+
+**Current-image TinyStories full32 passed, 2026-10-30:** root and independent
+reviews accept all three physical phases on source tag `60e7abbb`, bitstream
+SHA-256 `1ca5ae19a0d95a13899a2e13fd3664668d26643cd2ae733f8f5936f6b380523a`.
+All 1,152 learned FPGA projections and 16,384 logits match the donor oracle;
+all 28 greedy token IDs/text match the separate CPU reference. The 32-position
+phase checks 30,408,704 complete BO bytes before ACK, 2,984,893 actual JTAG
+scans and 994,963 raw commands. Across the first/repeated BOS controls and the
+full32 phase, one audited volatile load covers 34 positions, 1,224 projections,
+7,888 jobs, 11,832 tasks, 32,309,248 BO bytes and 3,290,235 scans. CPU embedding,
+normalization, RoPE, attention, SwiGLU, residual, KV and sampling operators are
+explicit; there is no learned-dense CPU fallback or runtime CPU layout repair.
+See [current-image evidence and limits](docs/FRAMEWORK_TINYSTORIES_FPGA_TEST.md).
+Full memory capacity, physical ECC injection/recovery and warm reset, PCIe
+execution, cold boot and RK equivalence remain separate gates; flash is
+unchanged. Receipts are workspace-local and no portable archive for this
+current run exists.
 
 **Application priority, 2026-10-27:** check
 [TinyStories-260K before general tinygrad integration](docs/TINYSTORIES.md).
