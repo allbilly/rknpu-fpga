@@ -33,6 +33,15 @@ remain; CPU gather/fallback and runtime layout repair are blocked. PCIe,
 physical ECC, broader backend coverage and full-model execution on this changed
 image retain separate gates. Flash is unchanged.
 
+**Current-image TinyStories trained tile passed, 2026-10-30:** the same
+`60e7abbb` image now passes the BOS Wq0 first-32-output smoke, repeated CMAC
+and FPGA EW compaction/rearm. The
+[root physical acceptance](build/framework-factored-trained-physical-review-v1/root-acceptance.json)
+binds four jobs/six tasks, 360,448 complete BO bytes checked before ACK and
+25,945 trained JTAG scans. The separate scratch check passes six lines in two
+orders. Exact target and image receipts and process cleanup are reviewed;
+flash is unchanged. Full 32-position inference on this image remains pending.
+
 **Application priority, 2026-10-27:** check
 [TinyStories-260K before general tinygrad integration](docs/TINYSTORIES.md).
 The CPU reference and complete 32-position donor-policy oracle pass, matching
