@@ -152,10 +152,15 @@ TINYGRAD_ROOT="$HOME/tinygrad" make backend-test
 
 The [workflow](../.github/workflows/test.yml) now has a separate backend job
 that checks out `allbilly/tinygrad` at the exact pinned revision and runs this
-target. Its local equivalent passes all eleven scenarios in the
+target. Both jobs build source-pinned Verilator 5.048; the default regression
+uses options unavailable in Ubuntu 24.04's older simulator. The workflow
+preserves compiler and wire receipts, while the portable job
+runs the default regression, including both layout simulators. Its local
+equivalent passes all eleven scenarios in the
 [fresh receipt](../build/backend-rtl/1793204452150069276/report.json). The main
 CI job also runs the portable trace and runner fixtures without a Tinygrad
-checkout. The YAML parses locally; this session has not triggered remote CI.
+checkout. Local validation does not establish remote CI success; this session
+has not triggered remote CI.
 
 The portable checks can also be run directly:
 

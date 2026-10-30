@@ -1,0 +1,28 @@
+name: Install native test tools
+description: Install Icarus, Yosys and the source-pinned Verilator used by these test runners
+runs:
+  using: composite
+  steps:
+    - name: Install build prerequisites and simulators
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install --no-install-recommends -y g++ make clang tcl iverilog yosys yosys-dev autoconf flex bison help2man libfl-dev zlib1g-dev
+    - name: Build Verilator 5.048
+      shell: bash
+      env:
+        VERILATOR_COMMIT: d0aa828c217410fffc73d92077b6f4f54830357c
+      run: |
+        source_dir="$RUNNER_TEMP/rknpu-verilator-source"
+        install_dir="$RUNNER_TEMP/rknpu-verilator"
+        git init "$source_dir"
+        git -C "$source_dir" fetch --depth=1 https://github.com/verilator/verilator.git "$VERILATOR_COMMIT"
+        git -C "$source_dir" checkout --detach FETCH_HEAD
+        test "$(git -C "$source_dir" rev-parse HEAD)" = "$VERILATOR_COMMIT"
+        cd "$source_dir"
+        autoconf
+        ./configure --prefix="$install_dir"
+        make -j2
+        make install
+        "$install_dir/bin/verilator" --version
+        echo "$install_dir/bin" >> "$GITHUB_PATH"
