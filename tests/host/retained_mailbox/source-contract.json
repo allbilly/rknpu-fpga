@@ -1,0 +1,128 @@
+{
+  "counts": {
+    "checks_per_simulator": 55,
+    "denial_backend_accepts": 0,
+    "denial_payload_zero": true,
+    "denial_status": 2,
+    "held_denials": 1,
+    "normal_successes": 2,
+    "reset_requests_issued": 0,
+    "stimulus_seed": null,
+    "successful_backend_accepts": 2,
+    "sys_control_accepts": 1,
+    "sys_identity_reads": 1,
+    "sys_startup_edges": 65,
+    "ui_startup_edges": 65
+  },
+  "guards": {
+    "fresh_output_only": true,
+    "hardware_accessed": false,
+    "owned_process_groups_must_close": true,
+    "reject_tool_errors_and_assertions": true,
+    "resource_limits_added": false,
+    "source_hash_before_after": true,
+    "vivado_executed": false
+  },
+  "input_count": 7,
+  "inputs": [
+    {
+      "path": "rtl/host/rk_retained_jtag_mailbox.sv",
+      "role": "hdl",
+      "sha256": "f02ee1fd7c3326415d1188bc322860205b02962a9eb41feb33543b4a67f953ad"
+    },
+    {
+      "path": "rtl/vendor/opentpu/otpu_jtag_mailbox.sv",
+      "role": "hdl",
+      "sha256": "46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9"
+    },
+    {
+      "path": "rtl/rk_startup_reset.sv",
+      "role": "hdl",
+      "sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09"
+    },
+    {
+      "path": "rtl/ddr/maintenance_fi/rk_whole_reset_frame_gate.sv",
+      "role": "hdl",
+      "sha256": "38bdf51c044d0129f0d97388d5a2ceecbc904d2ef16d364b91c447e6f8288313"
+    },
+    {
+      "path": "rtl/ddr/maintenance/rk_whole_reset_control.sv",
+      "role": "hdl",
+      "sha256": "118441e62c67ab4df2ba01ad69d0e59d40f41976a40838f6240c08f89d985fa3"
+    },
+    {
+      "path": "tests/host/retained_mailbox/tb_retained_jtag_reset.sv",
+      "role": "bench",
+      "sha256": "8e3f37459053af724386bd140f747b693c4988703467070102aefa8629bd0506"
+    },
+    {
+      "path": "tests/host/mailbox_scan.svh",
+      "role": "include",
+      "sha256": "c3cdff9268a78079210c43faf2fcfbaac34e688b6a935c2900b41f852ca63291"
+    }
+  ],
+  "scan_contract": {
+    "interface_is_raw_frame_not_hex_literal": true,
+    "jtag_chain_words": 640,
+    "sys_raw_frame_bits": 604
+  },
+  "schema": 1,
+  "scope": "Native component test of retained USER2/UI and USER3/SYS mailbox behavior through the actual whole-reset controller and frame gate with an explicitly scripted backend. Does not instantiate BSCANE2/TAP, PCIe, MIG or a board; no arithmetic, physical or numerical qualification.",
+  "status": "PUBLIC_RETAINED_MAILBOX_COMPONENT_CONTRACT",
+  "timeouts_seconds": {
+    "iverilog_compile": 600,
+    "iverilog_run": 600,
+    "tool_version": 30,
+    "verilator_build": 600,
+    "verilator_lint": 600,
+    "verilator_run": 600
+  },
+  "timescale": "1ns/1ps",
+  "top": "tb_retained_jtag_reset",
+  "warning_policy": {
+    "baseline_provenance": {
+      "iverilog_baseline_compile_receipt_sha256": "cdf2a164b359367de67d581042065d80155a00bc90d58c553faf1828ef771f64",
+      "verilator_baseline_report_sha256": "4e42b57b6404c9f874992a850c63cf925fa688ec11daf79e26b2fb2aa8294e09",
+      "warning_classification": "unchanged vendor otpu_jtag_mailbox timescale diagnostic; no suppression"
+    },
+    "iverilog_compile": {
+      "baseline_compile_receipt_sha256": "cdf2a164b359367de67d581042065d80155a00bc90d58c553faf1828ef771f64",
+      "expected_count": 1,
+      "expected_lines": [
+        "rtl/vendor/opentpu/otpu_jtag_mailbox.sv:10: warning: timescale for otpu_jtag_mailbox inherited from another file."
+      ]
+    },
+    "matching": "For each command, compare the complete Counter of warning diagnostic lines after replacing the absolute repository root prefix with the empty string. No subset allowance, warning suppression or extra warning is accepted.",
+    "verilator_build": {
+      "expected_count": 10,
+      "expected_lines": [
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:23:22: Procedural assignment to declaration with initial value: 'sr'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:24:24: Procedural assignment to declaration with initial value: 'held'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:25:22: Procedural assignment to declaration with initial value: 'req_toggle'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:26:28: Procedural assignment to declaration with initial value: 'response'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:27:22: Procedural assignment to declaration with initial value: 'rsp_toggle'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:28:50: Procedural assignment to declaration with initial value: 'rq_sync'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:28:64: Procedural assignment to declaration with initial value: 'rs_sync'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:29:19: Procedural assignment to declaration with initial value: 'rq_seen'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:29:32: Procedural assignment to declaration with initial value: 'rs_seen'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:30:32: Procedural assignment to declaration with initial value: 'response_tck'"
+      ]
+    },
+    "verilator_lint": {
+      "expected_count": 10,
+      "expected_lines": [
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:23:22: Procedural assignment to declaration with initial value: 'sr'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:24:24: Procedural assignment to declaration with initial value: 'held'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:25:22: Procedural assignment to declaration with initial value: 'req_toggle'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:26:28: Procedural assignment to declaration with initial value: 'response'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:27:22: Procedural assignment to declaration with initial value: 'rsp_toggle'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:28:50: Procedural assignment to declaration with initial value: 'rq_sync'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:28:64: Procedural assignment to declaration with initial value: 'rs_sync'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:29:19: Procedural assignment to declaration with initial value: 'rq_seen'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:29:32: Procedural assignment to declaration with initial value: 'rs_seen'",
+        "%Warning-PROCASSINIT: rtl/vendor/opentpu/otpu_jtag_mailbox.sv:30:32: Procedural assignment to declaration with initial value: 'response_tck'"
+      ]
+    },
+    "verilator_version_required": "Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426"
+  }
+}

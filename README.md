@@ -1662,6 +1662,7 @@ The command profile comes from `allbilly/rk3588/examples/elementwise.py`, includ
 | Numeric references | `model/half.py`, `model/half_datapath.cpp` | Independent floating reference and integer design model |
 | RTL verification | `tests/tb_*.sv`, `tools/run_rtl.py` | Verilator and four-state Icarus tests; tool absence is not a pass |
 | Synthesis check | `tools/run_synth.py` | XC7 primitive mapping, BRAM inference gate and mapped-netlist self-test |
+| Retained board mailbox component | `rtl/host/rk_retained_jtag_mailbox.sv`, `tools/host/run_retained_mailbox.py` | Native USER2/UI and USER3/SYS retained-offered-frame controls; no BSCANE2, PCIe, MIG or board |
 
 ## Run the checks
 
@@ -1689,6 +1690,14 @@ make test           # Software, strict core/DMA/board lint, Verilator and Icarus
 ```
 
 The RTL and synthesis reports record tool versions, exact commands, source SHA256 manifests, vector seeds and per-test results. A source edit during a run invalidates that run. This unpacked tree has no Git revision, so the content manifest identifies its source. `.github/workflows/test.yml` also runs the synthesis check; remote CI has not been executed. `make generated-check` detects stale generated register/ROM sources.
+
+The retained-mailbox component is available with `make host-retained-mailbox-test`
+and is included in `make test`. It checks that a normal USER2 frame remains
+offered through client reset and stopped UI-clock intervals, while the separate
+USER3/SYS chain serves an identity read during UI stop. The bench uses an
+explicitly scripted backend and scans 640-bit USER frames; it does not instantiate
+BSCANE2 or select physical JTAG chains. Actual MIG integration, warm frontend
+recovery, FPGA behavior and numerical operation remain unqualified.
 
 The AXI-memory increment adds a tenth bench: directed protocol checks, nine
 production DMA replays through a behavioral 512-bit AXI RAM slave, and six
