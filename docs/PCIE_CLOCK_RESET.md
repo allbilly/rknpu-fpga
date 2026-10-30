@@ -125,6 +125,24 @@ XDMA and invalidates health; it must not clear retained packet/owner state.
 The retained guard must quarantine accepted or partial traffic through link
 recovery. Integrated loss/partial-transaction tests remain required.
 
+The later [joined protocol-model review](../build/pcie-controlplane-guard-results-review-v19/review.json)
+passes Verilator and four-state XSim at source clocks 125/250 MHz and UI
+133 MHz. Each run checks 2,685 conditions across eight scenarios and six common
+epochs. The actual converter, health, DECERR and retained frontend are used;
+XDMA and the numerical backend are scripted fixtures. Tests cover PCIe absent
+at boot with usable JTAG, exact raw frames, partial AW/W, held B/R, source clock
+loss, sticky quarantine through recovery and fresh-edge joint reset. Every
+owned group closes and all bound sources remain unchanged.
+
+The selected vendor converter's reverse R channel acknowledges the UI producer
+after the CPU-side R handshake returns across the synchronizer. Consequently,
+the UI mailbox's observed mask can lag the completed CPU reads. The real host
+client already reads CSR `0x14` before ACK; the joined test now uses that same
+causal fence before requiring all twenty observed bits. A held final CPU R
+keeps bit 19 unset. Consuming it later completes the mask, while the retained
+epoch fault still rejects ACK. Earlier tests that assumed immediate visibility
+or a full UI mask before CPU consumption remain failed, with no DUT changes.
+
 The first combined resource-census candidate retains USER2, both original
 MIGs and all 512 products. Completion is explicitly polling-only, with
 `usr_irq_req=0` and inactive configuration-management requests. No MSI
@@ -171,4 +189,20 @@ reports 298,600 available LUTs: the mapped count exceeds that budget by 19,484
 of standalone estimates and not placement/routing acceptance. An area
 optimization experiment is required before proceeding toward implementation;
 retain all products/controllers and every timing/electrical gate. Combined fit,
-CDC/RDC, routing and physical execution remain required.
+CDC/RDC, routing and physical execution remain required. A same-netlist
+`ExploreArea` experiment reduces the count to 316,809 LUTs, still 18,209 over
+budget. A separate [shared-accumulation-context candidate](../build/cacc-context-shared2-review-v1/review.json)
+preserves all 512 product lanes and sixteen FP48 contexts with two original
+NVIDIA arithmetic pipelines. Its unchanged numerical/control bench and
+standalone OOC results pass review; whole-system raw jobs, resource fit and
+routed timing remain unqualified. Its fresh combined build re-synthesizes all
+NPU/MIG RTL rather than reusing an earlier NPU checkpoint.
+
+The shared-context-only whole-source census subsequently completed at 300,129
+LUTs, still 1,529 over budget. A second component candidate changes only the
+front's payload storage to explicit 16-bit word enables. Its original numerical,
+reset, cancel and fault bench passes unchanged; standalone OOC measures
+14,049 to 2,038 LUTs with the same three address-arithmetic DSPs. These component
+savings cannot be added as a fit proof. The new two-override whole-source build
+retains all 512 products, both MIGs, USER2 and XDMA; combined fit, unchanged raw
+jobs, timing and hardware remain unqualified.

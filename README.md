@@ -21,9 +21,12 @@ MACs per clock. INT8/INT4 arithmetic and doubled INT8 throughput are unsupported
 See the [precision and layout boundary](docs/CMAC_ENCODER_CONTRACT.md#precision-and-compute-group-terminology).
 
 The separate [whole-transaction reset controller](docs/WHOLE_RESET_CONTROL.md)
-passes native protocol controls and the full default regression. It remains an
-unselected component; board-accessible retained reset and physical ECC recovery
-are still pending in the [active plan](docs/REVIEW_AND_PLAN.md).
+passes native protocol controls and the full default regression. Its joined
+actual-controller model now passes all twelve reset/ECC scenarios and 532,480
+complete numerical BO bytes before ACK. The exact project core is published
+as a separate [maintenance/FI profile](rtl/ddr/maintenance_fi/README.md).
+Retained board mailboxes, physical wrapper integration and FPGA ECC/warm recovery
+remain pending in the [active plan](docs/REVIEW_AND_PLAN.md).
 
 **Selected framework matmul passed on FPGA, 2026-10-30:** all six shapes now
 [pass physical USER2 JTAG review](docs/FRAMEWORK_MATMUL_FPGA_TEST.md) on the

@@ -3,12 +3,37 @@
 `rk_whole_reset_control` is a separate SYS-clock maintenance component. It is
 not selected by an existing board source profile. The current board still
 ties `reset_req_valid` low. This component alone supplies no accessible JTAG
-chain, CDC qualification, whole-parent reset path or physical recovery result.
+chain, board CDC/reset qualification or physical recovery result.
 
 Its `power_rst_n` belongs only to FPGA configuration/startup. Client, MIG,
 PCIe and TAP resets must not clear its operation/result counters. Its intended
 transport is a separate retained maintenance mailbox; the original USER2 NPU
 encoder, commands, BOs and fault policy remain separate.
+
+The [joined native parent acceptance](../build/whole-reset-terminal-format-results-review-v4/root-acceptance.json)
+now binds a fresh 133-source actual-controller/encoded-PHY-model executable,
+its separate coordinator-fault precheck and all twelve scenarios. Seven
+successful SYS resets, actual valid CE/UE quarantine/recovery, capacity BIST,
+held results, cancellation, sealed requests, expected coordinator failure and
+late-response drainage pass the original marker/BO validators. Six complete
+numerical images total 532,480 bytes checked before ACK; the modeled capacity
+BIST writes and reads 32,768 lines. All source/binary hashes remain stable and
+all owned groups close. The earlier V3 dual-completion-marker failure remains
+preserved; V4 uses a mutually exclusive terminal branch without changing any
+assertion or expected result.
+
+The separate [published project-core selection](../rtl/ddr/maintenance_fi/README.md)
+reuses 57 public files and copies fifteen exact source files in the native
+order. Its checker verifies 72 source paths/hashes; public source lint passes
+with no missing pins, latches, multiple drivers, combinational loops or errors.
+This is byte-identical publication, not a new execution or a physical MIG
+closure. Native limits are one MiB, four tasks and a 2048-cycle backend timeout;
+full two-GiB, 4095-task defaults need their own applicable qualification.
+
+An upstream normal mailbox must hold an unaccepted frame across client reset
+for the SEALED denial contract. The existing client-reset mailbox cannot
+establish that property. Configuration-lifetime normal/SYS mailboxes, actual
+physical FI witness ports, mapped CDC/RDC and FPGA tests remain required.
 
 The request is the existing 604-bit raw frame: magic `0x4f54504a`, sequence,
 opcode, strobes, byte address and 512 data bits. Only register read/write
