@@ -83,6 +83,56 @@ that same epoch; this does not qualify real XDMA reset/clock-loss handling,
 NPU operation through the crossing or physical CDC. The target is optional
 and requires the hash-pinned installed Vivado sources.
 
+The separate crossing-wrapper candidate now has its own
+[fresh independent functional review](../build/pcie-axil-crossing-native-results-review-v2/review.json).
+Verilator 5.048 and four-state XSim 2026.1 each pass all 419 controls,
+five epochs and seven retained write effects. The adapter preserves all
+19 AXI-Lite signals and does not gate VALID/READY with readiness or health.
+The earlier Verilator attempt stopped before simulation on testbench filename
+and unused-constant warnings; that receipt is preserved. The corrected bench
+retains its original control body and uses no warning waiver. These results
+qualify the wrapper's directed functional controls, not an XDMA master,
+joined NPU transactions or physical CDC.
+
+The [source-health candidate review](../build/pcie-source-health-review-v2/review.json)
+checks 125/250 MHz source clocks against 50/133 MHz UI clocks, stopped clocks
+and short link/reset pulses. The
+[unsupported-DMA responder review](../build/pcie-dma-decerr-review-v1/review.json)
+checks DECERR responses through 256-beat bursts, backpressure, IDs and faulted
+drainage. The responder has no connection to either MIG or retained NPU BOs.
+These source-bound component results remain distinct from combined execution.
+The unchanged [source-health](../rtl/host/rk_pcie_source_health.sv) and
+[DECERR](../rtl/host/rk_pcie_dma_decerr.sv) leaves now have
+[portable tests](../tests/host/pcie_components/README.md) under
+`make host-pcie-components-test`, included in default `make test`. The
+[fresh public run](../build/pcie-components-native-20261030T131739727757Z/report.json)
+passes four ratios per simulator, ten expected invalid-parameter failures,
+956 four-state Icarus DMA checks and 904 Verilator DMA checks. All 46 owned
+process groups close and bound source bytes remain unchanged. The
+[public source/results review](../build/pcie-components-public-review-v1/review.json)
+passes. The subsequent full default `make -j2 test` also
+[passes independent review](../build/pcie-components-public-review-v1/full-regression-review.json):
+exit zero in 805.386 seconds, 20,859 before/after/current source hashes equal,
+and the nested PCIe component receipts reviewed. The local source increment
+is committed as `5f3cd97`; remote CI and hardware remain unqualified.
+
+The [combined control-plane contract](../build/pcie-control-plane-candidate-v1/CONTRACT.md)
+now wires all 75 generated XDMA ports: 19 AXI-Lite signals through the actual
+converter, 35 DMA signals to the DECERR responder, and explicit clock/reset,
+link, interrupt and configuration-management policy. The common coordinator
+epoch resets XDMA and the converter together. PERST additionally resets
+XDMA and invalidates health; it must not clear retained packet/owner state.
+The retained guard must quarantine accepted or partial traffic through link
+recovery. Integrated loss/partial-transaction tests remain required.
+
+The first combined resource-census candidate retains USER2, both original
+MIGs and all 512 products. Completion is explicitly polling-only, with
+`usr_irq_req=0` and inactive configuration-management requests. No MSI
+notification service is offered. Its top has no warm-reset command source;
+retained reset/ECC recovery must still converge with the combined shell.
+Synthesis/optimization, physical constraints, CDC/RDC, routing and execution
+are separate gates; this wiring is not an accepted FPGA image.
+
 The [generated XDMA metadata review](../build/pcie-xdma-generated-review-v1/review.json)
 finds that both requested probe modes resolve to DMA for this target, including
 the attempted bridge-only configuration. Both templates expose the 19 required
@@ -112,4 +162,13 @@ reports 19,201 LUTs, 21,203 flip-flops, 24 RAMB36, one RAMB18, zero DSPs, one
 nonprimitive black boxes. The OOC `axi_aclk` had a 4 ns constraint. This is a
 standalone synthesized-IP area/cell census only; it does not qualify the actual
 clock or BAR mapping, combined shell fit, place/route/timing, or physical PCIe.
-Combined fit, CDC, routing and physical execution remain required.
+The later [combined source-netlist census](../build/pcie-combined-fit-results-review-v1/review.json)
+retains the actual XDMA, USER2, both MIGs and all sixteen C32 kernels/512 product
+DSPs. Its optimized resource report has 318,084 total LUTs and 516 DSPs. The
+[read-only device-budget query](../build/pcie-combined-area-probe-v1/device-utilization.rpt)
+reports 298,600 available LUTs: the mapped count exceeds that budget by 19,484
+(106.53 percent utilization). This is a measured combined census, not the sum
+of standalone estimates and not placement/routing acceptance. An area
+optimization experiment is required before proceeding toward implementation;
+retain all products/controllers and every timing/electrical gate. Combined fit,
+CDC/RDC, routing and physical execution remain required.

@@ -1,0 +1,53 @@
+{
+  "all_three_phases": {
+    "bo_bytes_before_ack": 32309248,
+    "jobs": 7888,
+    "positions": 34,
+    "projections": 1224,
+    "scans": 3290235,
+    "tasks": 11832
+  },
+  "archive": {
+    "bytes": 60971795,
+    "file": "full32-evidence.tar.gz",
+    "sha256": "5ff22deb9d9c2ddfe25a55b8ac38616d2cf5b1174683f31e12fa2524d68eb05e"
+  },
+  "bitstream_sha256": "1ca5ae19a0d95a13899a2e13fd3664668d26643cd2ae733f8f5936f6b380523a",
+  "cpu_host_operators": "Embedding, normalization, RoPE, attention, SwiGLU, residual, KV and greedy sampling remain explicit CPU operators.",
+  "full32": {
+    "bo_bytes_before_ack": 30408704,
+    "generated_token_count": 28,
+    "jtag_scans": 2984893,
+    "learned_fpga_projections": 1152,
+    "logit_values": 16384,
+    "positions": 32
+  },
+  "hash_only_exclusions": 27,
+  "independent_byte_review": {
+    "file": "independent-byte-review.json",
+    "sha256": "61a2d5ce8784116bd6211fec9e2b906e2665e2b716be49919a375d9d22a122dd"
+  },
+  "metadata": {
+    "provenance/artifact-list.json": "b0366c417428aa0dcf9fc7cd836eeb57c3f39738519f9ddd3a03ef59803e1fcd",
+    "provenance/crosswalk.json": "5436ac5ca6fa0e783d69f7a8e84a51210d38c0f9bf9b6eb98b113b3f892f2fb7"
+  },
+  "native_binaries_bitstreams_and_checkpoints_in_archive": false,
+  "payload_bytes": 1086699649,
+  "payload_files": 1357,
+  "qualification_limits": {
+    "ECC_injection_recovery": false,
+    "PCIe": false,
+    "RK_equivalence": false,
+    "flash_written": false,
+    "full_physical_capacity": false
+  },
+  "root_receipt": {
+    "member": "payload/build/framework-factored-fullmodel-physical-review-v1/root-acceptance.json",
+    "sha256": "45dc336492ecba5e941ea3c4c16a4d4d654b1bf84f359a63ad6a160caf26bb26",
+    "status": "PASS_ROOT_CURRENT_FACTORED_IMAGE_FULL32_TINYSTORIES_PHYSICAL_JTAG"
+  },
+  "schema": 1,
+  "scope": "Integrity and preservation of the independently accepted saved current-image hybrid TinyStories result; no new hardware execution, numerical equivalence, source modification or rebuilt image qualification.",
+  "source_tag": "60e7abbb",
+  "status": "PORTABLE_SAVED_CURRENT_IMAGE_FULL32_EVIDENCE"
+}

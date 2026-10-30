@@ -2,8 +2,9 @@
 
 Evidence links under `build/` refer to workspace-local receipts and are not
 included in a source checkout. Portable records are linked through
-`verification/runs/` indexes. The newer framework/layout/reset and production
-regression preparation reviews have not yet been archived there.
+`verification/runs/` indexes. Some newer framework/layout/reset and production
+regression preparation reviews remain workspace-local; the current-image
+TinyStories archive is linked below.
 
 **Current direction, 2026-10-23:** use Vivado for implementation, with the
 OpenTPU Vivado workflow as the reference. OpenXC7 placement/routing work is
@@ -57,8 +58,12 @@ explicit; there is no learned-dense CPU fallback or runtime CPU layout repair.
 See [current-image evidence and limits](docs/FRAMEWORK_TINYSTORIES_FPGA_TEST.md).
 Full memory capacity, physical ECC injection/recovery and warm reset, PCIe
 execution, cold boot and RK equivalence remain separate gates; flash is
-unchanged. Receipts are workspace-local and no portable archive for this
-current run exists.
+unchanged. The [current-image portable archive](verification/runs/2026-10-30-framework-factored-full32-fpga/index.json)
+preserves 1,357 source/evidence payloads, including all three actual JTAG traces,
+with every stored/decompressed byte independently checked. Native executables,
+bitstreams, checkpoints and installed tools remain excluded and hash-identified.
+The adjacent Python verifier checks saved evidence integrity without accessing
+hardware or rerunning inference.
 
 **Application priority, 2026-10-27:** check
 [TinyStories-260K before general tinygrad integration](docs/TINYSTORIES.md).

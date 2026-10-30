@@ -88,5 +88,15 @@ fallback or runtime CPU layout repair.
 This is one fixed-prompt, 32-position workload with prompt `Once upon a time`.
 Full-capacity qualification, physical ECC injection/recovery and warm-reset
 coverage, PCIe execution, cold-boot behavior, RK numerical equivalence and flash
-writes remain outside this result. The receipts are workspace-local; a portable
-archive for this current image/run has not been created.
+writes remain outside this result.
+
+The [portable current-image archive](../verification/runs/2026-10-30-framework-factored-full32-fpga/index.json)
+now preserves 1,357 source/evidence payloads and all three actual traces, totaling
+1,086,699,649 uncompressed bytes in a 60,971,795-byte compressed archive.
+Independent review streamed every payload and rehashed all 27 hash-only
+exclusions. Native executables/libraries, bitstreams, checkpoints and installed
+tools are excluded; their recorded identities remain. The adjacent
+[portable verifier](../verification/runs/2026-10-30-framework-factored-full32-fpga/verify_archive.py)
+checks archive/member hashes and the saved acceptance/image scope using only
+Python. This adds preservation/integrity evidence, not a new physical execution
+or numerical/raw-wire audit. The original workspace receipts remain linked above.
