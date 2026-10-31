@@ -7,6 +7,8 @@ set server_url @SERVER@
 set expected_access @USR_ACCESS@
 set ready_path @READY@
 set rpc_port @PORT@
+set allow_user3 @ALLOW_USER3@
+if {$allow_user3 ni {0 1}} {error "allow_user3 must be explicit 0 or 1"}
 set manager 0
 set connected 0
 set target_open 0
@@ -30,8 +32,18 @@ proc native_drop {channel} {
     catch {close $channel}
     if {$owner eq $channel} {set owner ""}
 }
+proc native_ir_allowed {allow_user3 bits opcode} {
+    if {$bits != 6} {return 0}
+    if {$opcode in {9 3 63}} {return 1}
+    return [expr {$allow_user3 eq "1" && $opcode == 34}]
+}
+proc native_dr_allowed {allow_user3 selected bits} {
+    if {$selected == 9 && $bits == 32} {return 1}
+    if {$selected == 3 && $bits == 640} {return 1}
+    return [expr {$allow_user3 eq "1" && $selected == 34 && $bits == 640}]
+}
 proc native_request {channel} {
-    global selected done
+    global selected done allow_user3
     if {[eof $channel]} {native_drop $channel;return}
     if {[gets $channel line]<0} {return}
     if {[string length $line]>1024} {native_drop $channel;return}
@@ -50,10 +62,11 @@ proc native_request {channel} {
                 lassign $fields unused kind bits value
                 if {![string is integer -strict $bits] || $bits ni {6 32 640} ||
                     ![regexp {^[0-9a-fA-F]{1,160}$} $value] || [expr "0x$value"] >= (1<<$bits)} {error "Invalid scan fields"}
-                if {$kind eq "IR" && $bits==6 && [expr "0x$value"] in {3 9 63}} {
+                set opcode [expr "0x$value"]
+                if {$kind eq "IR" && [native_ir_allowed $allow_user3 $bits $opcode]} {
                     set result [native_hex [scan_ir_hw_jtag 6 -tdi $value] 6]
-                    set selected [expr "0x$value"]
-                } elseif {$kind eq "DR" && (($selected==9 && $bits==32) || ($selected==3 && $bits==640))} {
+                    set selected $opcode
+                } elseif {$kind eq "DR" && [native_dr_allowed $allow_user3 $selected $bits]} {
                     set result [native_hex [scan_dr_hw_jtag $bits -tdi $value] $bits]
                 } else {error "Instruction or DR width outside audited interface"}
             }
@@ -69,11 +82,11 @@ proc native_request {channel} {
     if {$failed} {native_drop $channel}
 }
 proc native_accept {channel address port} {
-    global owner
+    global owner allow_user3
     fconfigure $channel -blocking 0 -buffering line -translation lf
     if {$owner ne ""} {puts $channel BUSY;flush $channel;close $channel;return}
     set owner $channel
-    puts $channel "READY 3000000"
+    if {$allow_user3 eq "1"} {puts $channel "READY 3000000 USER3"} else {puts $channel "READY 3000000"}
     flush $channel
     fileevent $channel readable [list native_request $channel]
 }
@@ -102,17 +115,29 @@ set failed [catch {
     open_hw_target -jtag_mode 1
     set target_open 1
     set raw 1
-    run_state_hw_jtag RESET
-    run_state_hw_jtag IDLE
-    scan_ir_hw_jtag 6 -tdi 09
-    set ident [native_hex [scan_dr_hw_jtag 32 -tdi 0] 32]
-    if {$ident ne "23751093"} {error "Wrong raw TAP identity"}
-    scan_ir_hw_jtag 6 -tdi 03
-    set selected 3
-    set reply [expr "0x[native_hex [scan_dr_hw_jtag 640 -tdi 0] 640]"]
-    if {(($reply>>536)&0xffffffff)!=0x4f54504a || ($reply>>568)!=0} {error "Wrong USER2 mailbox"}
+    if {$allow_user3 eq "0"} {
+        run_state_hw_jtag RESET
+        run_state_hw_jtag IDLE
+        scan_ir_hw_jtag 6 -tdi 09
+        set ident [native_hex [scan_dr_hw_jtag 32 -tdi 0] 32]
+        if {$ident ne "23751093"} {error "Wrong raw TAP identity"}
+        scan_ir_hw_jtag 6 -tdi 03
+        set selected 3
+        set reply [expr "0x[native_hex [scan_dr_hw_jtag 640 -tdi 0] 640]"]
+        if {(($reply>>536)&0xffffffff)!=0x4f54504a || ($reply>>568)!=0} {error "Wrong USER2 mailbox"}
+        set ready_marker "PASS_AUDITED_NATIVE_USER2_BRIDGE_READY"
+    } else {
+        # USER3 uses the already-live TAP state. Do not issue TAP RESET or
+        # any fabric reset; verify IDCODE, then select the retained SYS mailbox.
+        scan_ir_hw_jtag 6 -tdi 09
+        set ident [native_hex [scan_dr_hw_jtag 32 -tdi 0] 32]
+        if {$ident ne "23751093"} {error "Wrong raw TAP identity"}
+        scan_ir_hw_jtag 6 -tdi 22
+        set selected 34
+        set ready_marker "PASS_AUDITED_NATIVE_USER3_BRIDGE_READY_NO_RESET"
+    }
     set listener [socket -server native_accept -myaddr 127.0.0.1 $rpc_port]
-    set f [open $ready_path {WRONLY CREAT EXCL}];puts $f "PASS_AUDITED_NATIVE_USER2_BRIDGE_READY";close $f
+    set f [open $ready_path {WRONLY CREAT EXCL}];puts $f $ready_marker;close $f
     vwait done
 } problem]
 set cleanup_failed 0
@@ -123,5 +148,9 @@ if {$target_open && [catch {close_hw_target}]} {set cleanup_failed 1}
 if {$connected && [catch {disconnect_hw_server}]} {set cleanup_failed 1}
 if {$manager && [catch {close_hw_manager}]} {set cleanup_failed 1}
 if {$failed || $cleanup_failed} {error "Native bridge failed: $problem; cleanup=$cleanup_failed"}
-puts "PASS_NATIVE_USER2_BRIDGE_CLEAN_EXIT"
+if {$allow_user3 eq "1"} {
+    puts "PASS_NATIVE_USER3_ENABLED_BRIDGE_CLEAN_EXIT"
+} else {
+    puts "PASS_NATIVE_USER2_BRIDGE_CLEAN_EXIT"
+}
 exit

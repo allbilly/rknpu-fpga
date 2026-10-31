@@ -22,13 +22,15 @@ from tools.hardware.sample_ew import tcl_literal
 TEMPLATE = Path(__file__).resolve().parents[2]/'fpga/host/native_rpc.tcl.in'
 
 
-def render_bridge(target, server, source_tag, ready_path, port=3741):
+def render_bridge(target, server, source_tag, ready_path, port=3741, *, allow_user3=False):
     if not isinstance(target, str) or not target.startswith(server+'/') or any(c in target for c in '\r\n\0'):
         raise ValueError('Require exact audited native target URI')
+    if type(allow_user3) is not bool:
+        raise ValueError('allow_user3 must be an explicit bool')
     if not re.fullmatch('[0-9a-f]{8}', source_tag) or type(port) is not int or not 1 <= port <= 65535:
         raise ValueError('Invalid source tag or loopback RPC port')
     values = dict(TARGET=tcl_literal(target), SERVER=tcl_literal(server), USR_ACCESS=tcl_literal(source_tag),
-                  READY=tcl_literal(ready_path), PORT=str(port))
+                  READY=tcl_literal(ready_path), PORT=str(port), ALLOW_USER3='1' if allow_user3 else '0')
     text = TEMPLATE.read_text()
     for name, value in values.items():
         marker = '@'+name+'@'
@@ -40,15 +42,18 @@ def render_bridge(target, server, source_tag, ready_path, port=3741):
 
 class NativeLink:
     """The reset/scan interface consumed by the existing raw-byte owner."""
-    def __init__(self, host='127.0.0.1', port=3741, timeout=30.0, *, sock=None, clock=time.monotonic):
+    def __init__(self, host='127.0.0.1', port=3741, timeout=30.0, *, sock=None, clock=time.monotonic, allow_user3=False):
+        if type(allow_user3) is not bool:
+            raise ValueError('allow_user3 must be an explicit bool')
         if type(port) is not int or not 1 <= port <= 65535:
             raise ValueError('Invalid native RPC port')
         self.host, self.port = host, port
+        self.allow_user3 = allow_user3
         self.timeout = _positive_seconds(timeout)
         self._clock, self._mutex = clock, threading.RLock()
         self._failed, self.sock = False, None
         self.actual_period_ns = None
-        self._ir = None
+        self._ir = 0x22 if allow_user3 else None
         deadline = _Deadline(self.timeout, clock)
         try:
             self.sock = sock if sock is not None else socket.create_connection((host, port), deadline.remaining())
@@ -58,8 +63,9 @@ class NativeLink:
             # Use the3MHz DLC10 setting already verified by native receipts.
             # Preserve its exact rational period rather than rounding it up
             # to334ns. The owner uses the unchanged6MHz design ceiling.
-            if line != b'READY 3000000\n':
-                raise ProtocolError('Unexpected native readiness/clock receipt')
+            expected_ready = b'READY 3000000 USER3\n' if allow_user3 else b'READY 3000000\n'
+            if line != expected_ready:
+                raise ProtocolError('Unexpected native readiness/clock/instruction receipt')
             self.actual_period_ns = Fraction(1_000_000_000, 3_000_000)
             self.actual_frequency_hz = 3_000_000
         except BaseException:
@@ -112,9 +118,10 @@ class NativeLink:
             raise ValueError('Unsupported native scan width/kind')
         _uint(value, bits, 'native scan value')
         if ir:
-            if bits != 6 or value not in (0x09, 0x03, 0x3F):
-                raise ValueError('Only IDCODE/USER2/BYPASS instructions are supported')
-        elif (self._ir, bits) not in ((0x09, 32), (0x03, 640)):
+            allowed_ir = (0x09, 0x03, 0x3F, 0x22) if self.allow_user3 else (0x09, 0x03, 0x3F)
+            if bits != 6 or value not in allowed_ir:
+                raise ValueError('IR instruction is outside the explicit native whitelist')
+        elif (self._ir, bits) not in (((0x09, 32), (0x03, 640), (0x22, 640)) if self.allow_user3 else ((0x09, 32), (0x03, 640))):
             raise ValueError('DR width differs from selected audited instruction')
         result = self._command(f'SCAN {"IR" if ir else "DR"} {bits} {value:x}', deadline)
         if result >= 1 << bits:

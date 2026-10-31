@@ -109,6 +109,11 @@ These are host/source results, not hardware qualification. Earlier physical
 application results remain bound to source tag `60e7abbb` and bitstream
 `1ca5ae19`.
 
+The [SYS/JTAG host preparation guide](docs/SYS_HOST_RECOVERY.md) describes the
+explicit USER3 opt-in, raw USER2 ownership carrier and whole-reset client.
+Their offline protocol tests establish software preparation; physical recovery
+requires the newly accepted image and its separate target/lease audits.
+
 The separate [whole-transaction reset controller](docs/WHOLE_RESET_CONTROL.md)
 and frozen V4 actual-controller suite retain their native/default-regression
 results. The current 72-source [maintenance/FI selection](rtl/ddr/maintenance_fi/README.md)
