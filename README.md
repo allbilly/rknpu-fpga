@@ -40,8 +40,12 @@ removes the RTSTAT/PDRC findings on this checkpoint with all 438,940 routable
 nets fully routed and timing unchanged. Setup still fails; no new image is accepted.
 The next ordinary PCIe/JTAG timeout-classification candidate passes paired
 native checks, isolated mapping and fresh full synthesis at 288,138 LUTs.
-Its strict constrained review retains all 35 constant proofs; placement has
-been launched. Full routed timing acceptance remains pending.
+Its strict constrained and placement structural checks pass. The
+[fresh route](build/timeout-tag-route-results-review-v1/review.json) completes
+438,891 nets with zero routing errors and clean inherited DRC, but setup fails
+at −0.828 ns/TNS −1,206.249 ns across 3,418 endpoints; hold is +0.014 ns.
+The worst paths now reach job-result register enables through pending-fault
+classification. The timeout classifier alone has not closed timing.
 
 The [retained physical-source integration](build/whole-reset-fi-pcie-physical-elab-review-v2/review.json)
 passes RTL wiring elaboration with USER2/UI, USER3/SYS and C1 FI witnesses;
@@ -53,6 +57,13 @@ ACK pass independent trace/BO review. Its simulator exited successfully; the
 producer wrapper's post-run Python import failure is preserved. This uses an
 ordinary-RAM fixture with actual CTRL/FI leaves. Actual PCIe IP, MC/PHY, physical ECC and
 warm recovery remain pending in the [active plan](docs/REVIEW_AND_PLAN.md).
+
+The full retained SYS/FI physical design separately passes fresh synthesis,
+strict constrained structural checks and
+[placement review](build/physical-retained-placement-results-review-v1/review.json),
+retaining both JTAG chains, both MIGs and all 512 products. Its unrouted setup
+estimate remains −4.989 ns, with a long FI payload-staging enable path.
+Targeted private fixes are being validated; no new routed image is accepted.
 
 The separate [whole-transaction reset controller](docs/WHOLE_RESET_CONTROL.md)
 passes native protocol controls and the full default regression. Its joined
