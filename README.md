@@ -38,9 +38,12 @@ still fails unrouted setup at −2.099 ns.
 The next [monitor READY cofactor](build/monitor-ready-state-cofactor-native-v3/results-review.json)
 passes both native simulators and [matched mapping](build/monitor-ready-state-cofactor-mapped-v1/results-review.json):
 READY loses all 32 read-data inputs while full HEALTH fault checking retains
-them; both mappings retain 195 FFs. Fresh full synthesis is running and both
-full-parent codegens pass independent review. Those component/codegen checks
-do not qualify the changed parent or routed timing. The [active plan](docs/REVIEW_AND_PLAN.md)
+them; both mappings retain 195 FFs. Fresh
+[full synthesis](build/monitor-ready-full-synth-v1/results-review.json) passes at
+293,534 LUTs/89,793 FFs/516 DSPs, and strict structural checks and both fresh
+full-parent C++ builds pass independent review. Placement and the warm replay
+are running as of 05:39 HKT; the controller replay remains prepared. Those
+build/component checks do not qualify full-parent behavior or routed timing. The [active plan](docs/REVIEW_AND_PLAN.md)
 records the remaining new-image gates.
 
 An earlier UI-qualified combined PCIe/JTAG candidate

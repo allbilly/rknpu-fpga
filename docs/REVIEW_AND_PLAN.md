@@ -82,9 +82,17 @@ passes 29 Icarus and 23 Verilator original cases, seventeen outputs and state
 comparisons, plus a separately scoped 12,288-case four-state expression table.
 The [matched OOC review](../build/monitor-ready-state-cofactor-mapped-v1/results-review.json)
 checks READY's read-data cone goes from 32 inputs to zero while HEALTH retains
-all 32; FFs remain 195 and LUTs change 90→99. The actual next 201-input full
-synthesis is running. Both fresh full-parent codegens pass warning/source/tree
-review, but C++ build and full-parent replay remain pending for this new module.
+all 32; FFs remain 195 and LUTs change 90→99. The fresh
+[201-input full synthesis](../build/monitor-ready-full-synth-v1/results-review.json)
+passes at 293,534 LUTs/89,793 FFs/516 DSPs with the complete retained census.
+The [strict constrained review](../build/monitor-ready-implementation-prep-v1/strict-results-review.json)
+passes the original constant, startup, clock, reset and electrical checks.
+Both fresh full-parent codegens and C++ builds pass independent review:
+[warm model](../build/monitor-ready-warm-continuation-v1/build-results-review.json)
+and [controller model](../build/monitor-ready-controller-continuation-v1/build-results-review.json).
+At 05:39 HKT, placement and the fresh warm replay are live. The controller
+replay is prepared and waits for the warm replay to finish. Build/component
+passes do not qualify full-parent behavior, routed timing or a new FPGA image.
 
 | Active task | Status | Exit gate |
 |---|---|---|
@@ -95,7 +103,9 @@ review, but C++ build and full-parent replay remain pending for this new module.
 | Reset-request candidate full models | Both independently passed: 12 controller cases and 16 warm jobs/1,441,792 BO bytes | Bound to the preceding source; original producer/timeout failures preserved |
 | Monitor READY cofactor | Native/component mapping passed; 32→0 read-data READY inputs, HEALTH retains 32 | Fresh full-parent replays and physical timing still required |
 | Reset-request candidate placement | Strict structural pass; unrouted setup −2.099 ns and hold −0.392 ns fail | New monitor candidate targets the remaining path; no routed acceptance |
-| Monitor candidate full builds | Full synthesis running; both codegens independently reviewed | Fresh generated C++ builds and full replays pending |
+| Monitor candidate full builds | Full synthesis and both fresh C++ builds independently passed | Fresh full-parent replays remain required |
+| Monitor candidate implementation | Strict structural checks passed; placement running at 05:39 HKT | Inspect actual worst paths before routing; no current timing acceptance |
+| Monitor candidate full models | Warm replay running; first JTAG phase passed; controller suite prepared | Complete warm wire/BO audit and all twelve controller cases |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Full serial default suite passed](../build/mmio-posted-write-public-regression-v1/results-review.json), including 18 MMIO callback controls | Covers public sources, not the private timing candidate |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |
