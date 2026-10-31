@@ -46,13 +46,36 @@ earlier image does not qualify a later changed image.
 Latest timing continuation: the private FI staging-enable, snapshot-capture
 and parent-abort/seal-factor candidate passes component native and independent
 mapped-artifact reviews; the FI mapping producer's final parser failure remains
-preserved. Its [fresh 201-input synthesis review](../build/control-timing-next-physical-synth-results-review-v1/review.json) accepts
-293,537 LUTs, 89,793 FFs, all 512 products/516 DSPs, both MIGs, PCIe and
-USER2/UI plus USER3/SYS. This does not qualify timing or a new image. Next are
-the retained-constant and mapped clock/reset inventories, strict constraints,
-placement and routing; the fresh warm-reset and actual-controller suites
-remain separate numerical gates. The older −4.352 ns placement result below
-remains failed and belongs to its original source snapshot.
+preserved. Its [fresh 201-input synthesis review](../build/control-timing-next-physical-synth-results-review-v1/review.json)
+accepts 293,537 LUTs, 89,793 FFs, all 512 products/516 DSPs, both MIGs, PCIe
+and USER2/UI plus USER3/SYS. The initial next-candidate strict and placement V1
+attempts are invalid for this source: [strict V1 was retracted for wrong
+checkpoint ancestry](../build/control-timing-next-strict-results-review-v1/retraction-wrong-ancestor-v2.json),
+and [placement V1 failed the same ancestor check](../build/control-timing-next-placement-results-review-v1/review.json).
+The corrected [strict V2 review](../build/control-timing-next-strict-results-review-v2/review.json)
+binds the fresh retained-constant checkpoint `004cb49f`, local apply Tcl and
+fresh witness. It passes 35 pre/post constant proofs, three protected grounds
+and clock/DRC structural checks across 28 artifacts; it establishes no routed
+timing result. The [guarded placement V2 run](../build/control-timing-next-placement-prep-v2/run-v1/report.json)
+is running from strict V2 DCP `6e4bf67a` as of this review. Routing, image and
+hardware acceptance remain pending. The older −4.352 ns result below belongs
+to the prior combined-source snapshot, not this four-overlay candidate.
+
+The next candidate's separate model suites pass: the [warm reset
+review](../build/control-timing-next-warm-results-review-v1/review.json)
+checks 16 jobs, 12 compute resets, one SYS reset and 1,441,792 complete BO
+bytes before ACK using ordinary RAM and actual vendor CTRL/FI leaves. The
+[actual-controller review](../build/control-timing-next-controller-results-review-v1/review.json)
+checks 12 cases, seven successful SYS resets, six complete BO images/532,480
+bytes and 32,768 BIST writes/reads in a one-MiB model through the legacy
+wrapper and encoded-PHY model. These do not qualify physical dual-host
+MIG/PHY or a new image. The [serial public regression review](../build/shared-frame-sequence-public-regression-v2-results-review/review.json)
+passes the full default suite for its recorded source snapshot. Its Icarus
+async SUB(9) case produced all 1,600 expected lines under the unchanged
+600-second deadline; the parallel timeout remains preserved beside the
+[isolated same-case pass](../build/shared-frame-sequence-icarus-isolated-rerun-v1/run-v1/report.json).
+These are host/source results, not hardware qualification. Earlier physical
+results remain bound to source tag `60e7abbb` and bitstream `1ca5ae19`.
 
 | Increment | Status | Evidence and remaining boundary |
 |---|---|---|

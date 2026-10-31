@@ -71,12 +71,43 @@ The next private timing candidate extends local FI staging enables, localizes
 snapshot payload capture and factors the parent-abort/seal fault path without
 adding pipeline latency. Its component native and independent mapped-artifact
 reviews pass; the FI mapping producer's final parser failure remains preserved.
-The
-[fresh full-source synthesis review](build/control-timing-next-physical-synth-results-review-v1/review.json)
+The [fresh full-source synthesis review](build/control-timing-next-physical-synth-results-review-v1/review.json)
 accepts 293,537 LUTs/89,793 FFs with all 512 products, both MIGs, PCIe and both
 JTAG chains retained. Retained-logic, constrained placement, routed timing and
 new-image tests remain separate gates; this synthesis result does not establish
 that the −4.352 ns placement failure is fixed.
+
+The candidate's initial strict/placement V1 attempts are not current evidence:
+the [strict V1 result was retracted for wrong checkpoint ancestry](build/control-timing-next-strict-results-review-v1/retraction-wrong-ancestor-v2.json),
+and the [placement V1 review rejected its ancestor binding](build/control-timing-next-placement-results-review-v1/review.json).
+The corrected [strict V2 review](build/control-timing-next-strict-results-review-v2/review.json)
+binds the fresh retained-constant checkpoint `004cb49f`, local strict apply
+Tcl and fresh constant witnesses. It checks all 35 constant proofs before and
+after optimization, three protected grounds, and strict clock/DRC structure
+across 28 artifacts; it does not establish routed timing. The guarded
+[placement V2 run](build/control-timing-next-placement-prep-v2/run-v1/report.json)
+is running from strict V2 checkpoint `6e4bf67a` as of this review. Routing,
+a new image and hardware qualification remain pending. The −4.352 ns value
+above belongs to the earlier combined-source snapshot, not this next candidate.
+
+The next candidate's separate native suites also pass. The
+[warm reset review](build/control-timing-next-warm-results-review-v1/review.json)
+covers 16 jobs, 12 compute resets, one SYS reset and 1,441,792 complete BO
+bytes before ACK using ordinary RAM and actual vendor CTRL/FI leaves. The
+[actual-controller review](build/control-timing-next-controller-results-review-v1/review.json)
+covers 12 cases, seven successful SYS resets, six complete BO images/532,480
+bytes and 32,768 BIST writes/reads in a one-MiB model through a legacy test
+wrapper and encoded-PHY model. Neither qualifies physical dual-host/MIG-PHY or
+a new image.
+
+The [serial public regression review](build/shared-frame-sequence-public-regression-v2-results-review/review.json)
+also passes the full serial default suite for its recorded source snapshot.
+Its Icarus async SUB(9) case produced all 1,600 expected lines under the
+unchanged 600-second deadline. The earlier parallel timeout remains preserved
+beside the [isolated same-case pass](build/shared-frame-sequence-icarus-isolated-rerun-v1/run-v1/report.json).
+These are host/source results, not hardware qualification. Earlier physical
+application results remain bound to source tag `60e7abbb` and bitstream
+`1ca5ae19`.
 
 The separate [whole-transaction reset controller](docs/WHOLE_RESET_CONTROL.md)
 and frozen V4 actual-controller suite retain their native/default-regression
