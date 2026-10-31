@@ -112,9 +112,14 @@ The [compute-health cofactor review](build/fi-claim-compute-health-cofactor-mapp
 verifies that the projected quiet cone loses the combinational health path,
 while the original ready/full-quiet outputs retain it, with 319 FFs unchanged.
 Projection equivalence requires the separately reviewed known-health premise.
-[Fresh full-design synthesis](build/control-timing-fi-claim-next-physical-prep-v1/run-v1/report.json)
-is running with these changes; full-parent model, placement, routing and
-hardware qualification remain pending for this source.
+[Fresh full-design synthesis review](build/control-timing-fi-claim-next-physical-synth-results-review-v1/review.json)
+passes at 293,506 LUTs/89,793 FFs, retaining all 512 products, both MIGs,
+PCIe and both JTAG chains. The fresh
+[constant-retention](build/control-timing-fi-claim-post-synth-retention-results-review-v1/review.json)
+and [crossing-inventory](build/control-timing-fi-claim-post-synth-inventory-results-review-v1/review.json)
+audits also pass. The strict constrained audit and both full-parent model
+replays are running; placement, routed timing and hardware qualification
+remain pending for this source.
 
 The [serial public regression review](build/shared-frame-sequence-public-regression-v2-results-review/review.json)
 also passes the full serial default suite for its recorded source snapshot.

@@ -89,10 +89,19 @@ review](../build/fi-claim-compute-health-cofactor-mapped-results-review-v1/revie
 checks removal of the combinational health path only from the projected quiet
 cone, retaining the original ready/full-quiet dependencies and 319 FFs. Its
 equivalence applies under the reviewed known-health claim premise. The
-[fresh 201-input synthesis](../build/control-timing-fi-claim-next-physical-prep-v1/run-v1/report.json)
-is running with four changed HDL files relative to the preceding source
-snapshot. Fresh full-parent model and implementation gates remain pending;
-these isolated results do not close global timing or qualify a new image.
+[fresh 201-input synthesis review](../build/control-timing-fi-claim-next-physical-synth-results-review-v1/review.json)
+passes at 293,506 LUTs/89,793 FFs with four changed HDL files relative to the
+preceding source snapshot. All 512 products/516 DSPs, both MIGs, PCIe and
+USER2/UI plus USER3/SYS remain retained. Fresh
+[constant-retention](../build/control-timing-fi-claim-post-synth-retention-results-review-v1/review.json)
+and [crossing-inventory](../build/control-timing-fi-claim-post-synth-inventory-results-review-v1/review.json)
+reviews pass, binding the actual new SYNTH/OPT checkpoints and original
+35 constant proofs, three grounds and retained register inventories.
+The [strict constrained audit](../build/control-timing-fi-claim-implementation-prep-v1/strict-v1/report.json)
+is running. Both full-parent models have compiled and their fresh replays
+are running; their [82 project sources match the physical selection](../build/control-timing-fi-claim-model-physical-crosswalk-v1/review.json).
+Model execution, placement, routed timing and new-image hardware acceptance
+remain separate gates; synthesis does not establish timing closure.
 
 | Increment | Status | Evidence and remaining boundary |
 |---|---|---|
