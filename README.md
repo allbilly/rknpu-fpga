@@ -20,7 +20,16 @@ establish a square systolic topology for RK3588 silicon or measured end-to-end
 MACs per clock. INT8/INT4 arithmetic and doubled INT8 throughput are unsupported.
 See the [precision and layout boundary](docs/CMAC_ENCODER_CONTRACT.md#precision-and-compute-group-terminology).
 
-The UI-qualified combined PCIe/JTAG candidate now
+**Latest timing work, 2026-11-01:** the reset-request qualification passes
+[paired native checks](build/reset-request-qualified-native-v2/results-review.json)
+and [matched isolated mapping](build/reset-request-qualified-mapped-v1/results-review.json).
+The health-to-maintenance-quiet path drops from six logic levels/2.733 ns to
+two levels/1.441 ns in that mapping, with 319 FFs retained. Fresh full-design
+synthesis and both full-parent C++ model builds are running; this is not routed timing
+or a new accepted image. The [active plan](docs/REVIEW_AND_PLAN.md) separates
+these gates and earlier physical TinyStories results.
+
+An earlier UI-qualified combined PCIe/JTAG candidate
 [completes routing](build/pcie-ui-health-route-results-review-v1/review.json)
 with all 512 product lanes and both memory controllers. Setup timing still
 fails at −0.885 ns across 2,734 endpoints; global hold passes at +0.012 ns.
@@ -154,8 +163,12 @@ also passes, including all 130 protected startup registers before and after
 optimization and both original 65-register checks. The
 [fresh warm replay](build/three-control-fixes-warm-results-review-v1/review.json)
 passes all 16 jobs, 12 compute resets, one SYS reset and 1,441,792 checked BO
-bytes. Fresh placement and the controller case matrix remain running; routed
-timing, image and hardware acceptance remain pending.
+bytes. The [controller review](build/three-control-fixes-controller-results-review-v1/review.json)
+also passes all twelve cases and 532,480 complete BO bytes. The
+[placement review](build/three-control-fixes-placement-results-review-v1/review.json)
+passes structural checks but fails its unrouted timing estimates: setup
+−2.257 ns and hold −0.392 ns. The next reset-request repair above targets the
+remaining readiness feedback; new routed timing and hardware acceptance are pending.
 
 The [serial public regression review](build/shared-frame-sequence-public-regression-v2-results-review/review.json)
 also passes the full serial default suite for its recorded source snapshot.
