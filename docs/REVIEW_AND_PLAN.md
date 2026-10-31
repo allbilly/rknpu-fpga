@@ -1,6 +1,6 @@
 # Implementation plan and acceptance gates
 
-Reviewed 2026-10-31 HKT. This is the active plan. The
+Reviewed 2026-11-01 HKT. This is the active plan. The
 [previous plan and dated implementation history](REVIEW_AND_PLAN_HISTORY.md)
 preserve earlier decisions, receipts and failures; dated instructions there
 are not current authorization or status.
@@ -110,9 +110,15 @@ passes its 22 structural artifacts and actual strict-checkpoint binding.
 Unrouted setup improves from −4.005 ns to −2.951 ns, but still fails across
 8,241 endpoints/TNS −8,247.126 ns; hold is −0.805 ns. The worst setup path
 runs from the C1 MIG control decode through transport-release readiness to
-the frontend lease-epoch enables. The [fresh route](../build/control-timing-fi-claim-route-prep-v1/run-v1/report.json)
-is running from this placement's `69f4d43f` checkpoint. Routed timing and
-new-image hardware acceptance remain separate gates.
+the frontend lease-epoch enables. The [fresh raw route review](../build/control-timing-fi-claim-route-results-review-v1/review.json)
+verifies the actual `69f4d43f` parent and all 450,547 routable nets with zero
+routing errors. Setup still fails at −2.597 ns/TNS −7,344.686 ns across
+7,961 endpoints; raw hold is +0.013 ns. The run stops before cleanup/final
+acceptance because the original 65-register startup inventory fails. The
+[read-only comparison](../build/fi-claim-route-startup-inventory-v1/review.json)
+finds the added `u_mailbox/startup/rst_n_reg_replica`; the gate remains failed.
+The worst routed path reaches bank-0 command-address enables through memory
+readiness. No bitstream or hardware acceptance follows.
 
 The separate [host-accept cofactor native review](../build/fabric-host-accept-cofactor-native-v3-results-review-v1/review.json)
 passes all original 21 Icarus/19 Verilator cases, all 50 shared outputs,
@@ -123,7 +129,24 @@ checks removal of the `job_begin` path only from projected READY, retaining
 original READY, health/fault and five owning-state controls. Both designs
 have 1,111 FFs; LUTs are 2,298/2,335. The projection is equivalent in
 `host_valid && READY`; parent `260936a4` remains uncompiled by these component
-tests. It is not selected by the active route.
+tests. It was not selected by that failed route.
+
+The next source combines host acceptance with the
+[transport-release cofactor](../build/transport-ready-health-cofactor-native-v3-results-review-v1/review.json)
+and [descriptor local enables](../build/job-descriptor-local-enable-mapped-results-review-v1/review.json).
+Transport tests cover the original production/timeout128 reset fixtures and
+all 256 four-state/16 binary algebra tuples. The descriptor pair compares all
+13 outputs and 22 state fields; isolated mapping removes both readiness
+inputs from all 99 descriptor storage bits while preserving SUBMIT controls.
+The [201-input source review](../build/control-repair-three-fix-physical-source-review-v1/review.json)
+checks exactly three replacement modules and 198 unchanged inputs, plus the
+actual 195-HDL/two-XDC/XDMA-component read closure. Fresh
+[synthesis](../build/control-repair-three-fix-physical-prep-v1/synth-v1/report.json)
+is running. New full-parent models and implementation gates remain pending.
+The [startup protection helper](../build/retained-startup-protection-candidate-v1/source-review.json)
+has source review only: it must protect the original 130 startup FFs before
+physical optimization and retain both original 65-register checks, source
+connections, electrical rules and timing requirements.
 
 | Increment | Status | Evidence and remaining boundary |
 |---|---|---|

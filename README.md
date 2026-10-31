@@ -127,10 +127,13 @@ checks all twelve original cases and 32,768 BIST writes/reads in its one-MiB
 encoded-PHY model. The [fresh placement review](build/control-timing-fi-claim-placement-results-review-v1/review.json)
 passes its structural gates, but unrouted setup remains −2.951 ns across
 8,241 endpoints and hold −0.805 ns. This improves the prior candidate's
-−4.005 ns placement estimate without closing timing. A
-[fresh route](build/control-timing-fi-claim-route-prep-v1/run-v1/report.json)
-is running from the reviewed `69f4d43f` checkpoint; image and hardware
-qualification remain pending.
+−4.005 ns placement estimate without closing timing. The
+[fresh raw route review](build/control-timing-fi-claim-route-results-review-v1/review.json)
+verifies all 450,547 routable nets with zero routing errors, but setup remains
+−2.597 ns across 7,961 endpoints; raw hold is +0.013 ns. The run also fails
+the original startup inventory before cleanup/final acceptance. The
+[read-only probe](build/fi-claim-route-startup-inventory-v1/review.json)
+finds one added startup-register replica. No image is accepted.
 
 A separate [host-accept cofactor](build/fabric-host-accept-cofactor-mapped-results-review-v1/review.json)
 passes paired native and isolated mapping review. It removes `job_begin`
@@ -138,8 +141,18 @@ from projected READY while preserving original READY and health/fault
 controls. Its native pair compares all 50 original outputs and 44 sequential
 state fields; the mapped designs retain 1,111 FFs, with 2,298/2,335 LUTs.
 The projection is equivalent when used in `host_valid && READY`; the full
-parent is not compiled by these component tests. This candidate is separate
-from the active route.
+parent is not compiled by these component tests. It was not in that failed
+route.
+
+The next source combines this fix with independently reviewed
+[transport-release](build/transport-ready-health-cofactor-native-v3-results-review-v1/review.json)
+and [descriptor-enable](build/job-descriptor-local-enable-mapped-results-review-v1/review.json)
+repairs. Fresh synthesis is [running](build/control-repair-three-fix-physical-prep-v1/synth-v1/report.json)
+after whole-source review: three replaced modules, 198 unchanged inputs, with
+gates requiring all 512 products and both MIGs. Fresh full-parent execution and timing
+remain pending. The next constrained pass must protect both original
+65-register startup chains; their census, electrical and timing gates stay
+unchanged.
 
 The [serial public regression review](build/shared-frame-sequence-public-regression-v2-results-review/review.json)
 also passes the full serial default suite for its recorded source snapshot.
