@@ -41,9 +41,12 @@ READY loses all 32 read-data inputs while full HEALTH fault checking retains
 them; both mappings retain 195 FFs. Fresh
 [full synthesis](build/monitor-ready-full-synth-v1/results-review.json) passes at
 293,534 LUTs/89,793 FFs/516 DSPs, and strict structural checks and both fresh
-full-parent C++ builds pass independent review. Placement and the warm replay
-are running as of 05:39 HKT; the controller replay remains prepared. Those
-build/component checks do not qualify full-parent behavior or routed timing. The [active plan](docs/REVIEW_AND_PLAN.md)
+full-parent C++ builds pass independent review. The fresh
+[warm wire/BO review](build/monitor-ready-warm-wire-audit-v1/results-review.json)
+passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete
+BO bytes. Placement and the controller replay are running as of 05:52 HKT.
+The model uses ordinary RAM with actual vendor CTRL/FI leaves; physical MIG/PHY
+and routed timing remain separate. The [active plan](docs/REVIEW_AND_PLAN.md)
 records the remaining new-image gates.
 
 An earlier UI-qualified combined PCIe/JTAG candidate

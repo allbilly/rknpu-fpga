@@ -90,9 +90,15 @@ passes the original constant, startup, clock, reset and electrical checks.
 Both fresh full-parent codegens and C++ builds pass independent review:
 [warm model](../build/monitor-ready-warm-continuation-v1/build-results-review.json)
 and [controller model](../build/monitor-ready-controller-continuation-v1/build-results-review.json).
-At 05:39 HKT, placement and the fresh warm replay are live. The controller
-replay is prepared and waits for the warm replay to finish. Build/component
-passes do not qualify full-parent behavior, routed timing or a new FPGA image.
+The [fresh warm replay](../build/monitor-ready-warm-replay-v2/results-review.json)
+and [wire/whole-BO audit](../build/monitor-ready-warm-wire-audit-v1/results-review.json)
+now pass independently: sixteen jobs, twelve compute resets, one SYS reset
+and 1,441,792 complete BO bytes before ACK. The actual new executable finishes
+in 1,238.839 seconds under the unchanged 1,800-second deadline. It uses ordinary
+RAM and actual vendor CTRL/FI leaves; it does not qualify physical MIG/PHY.
+At 05:52 HKT, placement remains live and the fresh twelve-case controller
+replay has started after the warm simulation closed. Routed timing and a new
+FPGA image remain unqualified.
 
 | Active task | Status | Exit gate |
 |---|---|---|
@@ -105,7 +111,7 @@ passes do not qualify full-parent behavior, routed timing or a new FPGA image.
 | Reset-request candidate placement | Strict structural pass; unrouted setup −2.099 ns and hold −0.392 ns fail | New monitor candidate targets the remaining path; no routed acceptance |
 | Monitor candidate full builds | Full synthesis and both fresh C++ builds independently passed | Fresh full-parent replays remain required |
 | Monitor candidate implementation | Strict structural checks passed; placement running at 05:39 HKT | Inspect actual worst paths before routing; no current timing acceptance |
-| Monitor candidate full models | Warm replay running; first JTAG phase passed; controller suite prepared | Complete warm wire/BO audit and all twelve controller cases |
+| Monitor candidate full models | Warm replay and wire/BO audit independently passed: 16 jobs/12 compute resets/one SYS reset/1,441,792 bytes; controller suite running | Complete all twelve controller cases; physical MIG/PHY remains separate |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Full serial default suite passed](../build/mmio-posted-write-public-regression-v1/results-review.json), including 18 MMIO callback controls | Covers public sources, not the private timing candidate |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |
