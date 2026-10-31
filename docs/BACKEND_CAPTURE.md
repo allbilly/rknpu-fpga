@@ -38,4 +38,45 @@ This verifies the final encoder's ordinary single-terminal-task FP16 profile. It
 
 Gate B still needs a real RK3588 run with the same pinned backend. For each ADD/SUB/MUL case, retain the final command BO bytes and descriptor (including QWORD amount and device addresses), exact initialized bytes of every accessed input/output BO including padded lanes, output BO bytes after completed submission, logical and physical shapes, reset/driver/kernel state, seed and source revision. Do not export only an `allclose` result. Keep NaNs, signed zeros, subnormals and overflow as separate numerical-policy cases; the current RTL policy remains a candidate until those captures agree.
 
-The Fedora host's `/dev/dri/card1` was identified through sysfs as `amdgpu` (`1002:1636`), so no RK3588 example was executed against that pathname. YPCB programming and Rockchip execution remain separate, unperformed hardware gates.
+The Fedora host's `/dev/dri/card1` was identified through sysfs as `amdgpu` (`1002:1636`), so no RK3588 example was executed against that pathname. That capture performed neither YPCB programming nor Rockchip execution; later FPGA results are documented separately.
+
+## Passive DRM capture preparation
+
+[`tools/rk_capture.py`](../tools/rk_capture.py) now supplies recording primitives
+for a future real-device case runner. Importing it opens no device and imports
+no backend. `audit_device()` reads identity metadata and rejects a target that
+does not identify the RK3588 board and `rknpu` driver. `observe_backend()` checks
+the actual opened control descriptor against that audited device and observes
+the original allocator, free and ioctl functions. Install it before constructing
+the backend so the initial reset and every allocation are recorded.
+
+The source hooks are the pinned backend's `RockchipProgram._submit`,
+`RockchipDevice._gpu_alloc`, `_gpu_free` and `FileIOInterface.ioctl`. The actual
+submit hook is below the final encoder and its normal TO_DEVICE sync. It saves
+the unchanged submit structure and every live physical BO before the original
+core-0 blocking PC ioctl. After a successful return, explicitly recorded
+diagnostic FROM_DEVICE syncs precede complete post-submit snapshots. Extents
+come from the actual page-rounded mapping and `meta.size`, including padded
+lanes, command tails, descriptors and scratch. Logical tensor views alone are
+insufficient. No command, tensor arithmetic or layout is rewritten.
+
+The observer serializes capture and allocation/free across their original
+calls. It records whether the original submit started and returned successfully;
+a capture failure then poisons the device and prevents a retry. Failed allocation
+registration attempts clean up through the original free function. Uncertain
+free outcomes invalidate the mapping rather than permit a second unmap or a
+later snapshot of its old virtual address. Cleanup failure remains explicit.
+
+The device-free tests use owned ctypes memory and a fake ABI/driver. Run them
+with `python3 -m unittest tests.test_rk_capture -v` and the corresponding
+`python3 -O` command. They validate the observer and artifact behavior, not
+RK silicon, SystemVerilog or an FPGA.
+
+This is preparation, not a real-silicon fixture or a completed case runner.
+The future runner must pin the backend and driver/kernel provenance, select
+supported cases through the original compiler, initialize and record complete
+BO contents, preserve reset boundaries, and bind source hashes, seed and shapes
+before and after execution. Runtime tensor gathers remain excluded from the
+FPGA path. Actual RK output capture and a source-bound FPGA comparison are
+still required before numerical compatibility or special-value behavior is
+accepted.

@@ -814,6 +814,13 @@ be joined to a local model by filename. Full raw I/O capture and provenance
 remain required; this bounded search does not establish RK equivalence or
 exclude fixtures elsewhere.
 
+The [passive DRM capture primitives](BACKEND_CAPTURE.md#passive-drm-capture-preparation)
+now record original submit structures and complete physical BO extents around
+the unchanged blocking ioctl, with explicit diagnostic cache syncs and failed
+capture/ownership handling. Device-free tests cover these primitives only.
+A pinned real-device case runner, actual RK outputs and the FPGA differential
+remain required; no silicon compatibility result is inferred from this preparation.
+
 Cover signed zeros, subnormals, overflow, NaN/infinity, tail groups, lengths
 7/8/9 and 31/32/33, K=65, alignment, exact/partial aliasing and linked tasks.
 Preserve source/weight atom packing, logical CBUF semantics, strides,
