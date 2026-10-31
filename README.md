@@ -30,15 +30,26 @@ checkpoint, with its failing setup slack unchanged. The health
 cleanup and retained mailboxes pass the fresh default regression; timing,
 crossing audits and physical qualification remain in the [active plan](docs/REVIEW_AND_PLAN.md).
 
-The three measured Boolean timing corrections now pass paired native checks
-and isolated mapping review. Fresh full-design synthesis now passes its
-resource census at 288,160 LUTs, with all 512 products and both MIGs. The
-constrained audit stopped on a constant-field witness removed by optimization;
-disconnected pins are not accepted as proof of zero. The
-[retained physical-source integration](build/whole-reset-fi-pcie-physical-elab-review-v2/review.json)
-also passes full RTL interface/wiring elaboration with USER2/UI, USER3/SYS and
-C1 FI witnesses. That check uses an explicit XDMA stub; full implementation,
-joined execution and physical qualification remain pending.
+The three Boolean timing corrections now pass fresh full synthesis and
+[strict constrained review](build/three-fix-retained-constrained-results-review-v3/review.json),
+with all 512 products, both MIGs and all 35 constant-field proofs retained.
+Their latest routed diagnostic improves setup to −0.426 ns across 619
+endpoints; hold is +0.012 ns. The independently reviewed
+[23-net/four-buffer cleanup](build/three-fix-dead-lut-cleanup-results-review-v1/review.json)
+removes the RTSTAT/PDRC findings on this checkpoint with all 438,940 routable
+nets fully routed and timing unchanged. Setup still fails; no new image is accepted.
+The next timeout-classification candidate passes paired native and isolated
+mapping checks. Fresh full synthesis has been launched; full implementation
+and timing acceptance remain pending.
+
+The [retained physical-source integration](build/whole-reset-fi-pcie-physical-elab-review-v2/review.json)
+passes RTL wiring elaboration with USER2/UI, USER3/SYS and C1 FI witnesses;
+that query uses an explicit XDMA stub. The published
+[dual-host maintenance/FI profile](rtl/ddr/dual_host_maintenance_fi/README.md)
+now also passes a fresh joined warm replay: 16 jobs, 12 compute resets, one
+SYS reset and 1,441,792 complete BO bytes before ACK. This uses an ordinary-RAM
+fixture with actual CTRL/FI leaves. Actual PCIe IP, MC/PHY, physical ECC and
+warm recovery remain pending in the [active plan](docs/REVIEW_AND_PLAN.md).
 
 The separate [whole-transaction reset controller](docs/WHOLE_RESET_CONTROL.md)
 passes native protocol controls and the full default regression. Its joined
