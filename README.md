@@ -85,9 +85,11 @@ binds the fresh retained-constant checkpoint `004cb49f`, local strict apply
 Tcl and fresh constant witnesses. It checks all 35 constant proofs before and
 after optimization, three protected grounds, and strict clock/DRC structure
 across 28 artifacts; it does not establish routed timing. The guarded
-[placement V2 run](build/control-timing-next-placement-prep-v2/run-v1/report.json)
-is running from strict V2 checkpoint `6e4bf67a` as of this review. Routing,
-a new image and hardware qualification remain pending. The −4.352 ns value
+[placement V2 review](build/control-timing-next-placement-results-review-v2/review.json)
+verifies the fresh strict V2 checkpoint `6e4bf67a` and structural gates, but
+unrouted setup remains −4.005 ns/TNS −15,097.838 ns across 10,809 endpoints;
+hold is −0.677 ns. Routing, a new image and hardware qualification remain
+pending. The −4.352 ns value
 above belongs to the earlier combined-source snapshot, not this next candidate.
 
 The next candidate's separate native suites also pass. The
@@ -99,6 +101,20 @@ covers 12 cases, seven successful SYS resets, six complete BO images/532,480
 bytes and 32,768 BIST writes/reads in a one-MiB model through a legacy test
 wrapper and encoded-PHY model. Neither qualifies physical dual-host/MIG-PHY or
 a new image.
+
+Two further timing rewrites pass component simulation and isolated mapping
+review. The [FI command-metadata review](build/fi-command-actions-local-enable-mapped-results-review-v1/review.json)
+verifies removal of unrelated CLAIM fanin from all 96 metadata flops while
+permission/reset controls remain. Its OOC producer stays failed on a
+total-FF equality check: actual FFs decrease from 1,587 to 1,585; the saved
+reports do not establish the optimizer-level cause.
+The [compute-health cofactor review](build/fi-claim-compute-health-cofactor-mapped-results-review-v1/review.json)
+verifies that the projected quiet cone loses the combinational health path,
+while the original ready/full-quiet outputs retain it, with 319 FFs unchanged.
+Projection equivalence requires the separately reviewed known-health premise.
+[Fresh full-design synthesis](build/control-timing-fi-claim-next-physical-prep-v1/run-v1/report.json)
+is running with these changes; full-parent model, placement, routing and
+hardware qualification remain pending for this source.
 
 The [serial public regression review](build/shared-frame-sequence-public-regression-v2-results-review/review.json)
 also passes the full serial default suite for its recorded source snapshot.

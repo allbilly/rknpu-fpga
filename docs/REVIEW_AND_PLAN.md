@@ -56,9 +56,10 @@ The corrected [strict V2 review](../build/control-timing-next-strict-results-rev
 binds the fresh retained-constant checkpoint `004cb49f`, local apply Tcl and
 fresh witness. It passes 35 pre/post constant proofs, three protected grounds
 and clock/DRC structural checks across 28 artifacts; it establishes no routed
-timing result. The [guarded placement V2 run](../build/control-timing-next-placement-prep-v2/run-v1/report.json)
-is running from strict V2 DCP `6e4bf67a` as of this review. Routing, image and
-hardware acceptance remain pending. The older −4.352 ns result below belongs
+timing result. The [guarded placement V2 review](../build/control-timing-next-placement-results-review-v2/review.json)
+verifies strict V2 DCP `6e4bf67a` and structural gates. Unrouted setup remains
+−4.005 ns/TNS −15,097.838 ns across 10,809 endpoints; hold is −0.677 ns.
+Routing, image and hardware acceptance remain pending. The older −4.352 ns result below belongs
 to the prior combined-source snapshot, not this four-overlay candidate.
 
 The next candidate's separate model suites pass: the [warm reset
@@ -76,6 +77,22 @@ async SUB(9) case produced all 1,600 expected lines under the unchanged
 [isolated same-case pass](../build/shared-frame-sequence-icarus-isolated-rerun-v1/run-v1/report.json).
 These are host/source results, not hardware qualification. Earlier physical
 results remain bound to source tag `60e7abbb` and bitstream `1ca5ae19`.
+
+The next two control rewrites pass component simulation and isolated mapped
+review. The [FI action-enable review](../build/fi-command-actions-local-enable-mapped-results-review-v1/review.json)
+checks all 96 metadata flops: unrelated CLAIM fanin is absent and original
+permission/reset controls remain. The original OOC producer remains failed
+on its total-FF equality assumption; actual FFs decrease 1,587→1,585 and the
+saved artifacts are reviewed independently without claiming a cause for that
+optimizer-level difference. The [compute-health cofactor
+review](../build/fi-claim-compute-health-cofactor-mapped-results-review-v1/review.json)
+checks removal of the combinational health path only from the projected quiet
+cone, retaining the original ready/full-quiet dependencies and 319 FFs. Its
+equivalence applies under the reviewed known-health claim premise. The
+[fresh 201-input synthesis](../build/control-timing-fi-claim-next-physical-prep-v1/run-v1/report.json)
+is running with four changed HDL files relative to the preceding source
+snapshot. Fresh full-parent model and implementation gates remain pending;
+these isolated results do not close global timing or qualify a new image.
 
 | Increment | Status | Evidence and remaining boundary |
 |---|---|---|
