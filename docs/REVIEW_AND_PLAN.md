@@ -102,14 +102,34 @@ but unrouted setup remains −1.624 ns/TNS −6,358.057 ns across 8,646 endpoint
 hold is −0.392 ns. The worst path runs from C1 control decode through full
 monitor health and memory availability into the response-payload enable:
 nineteen LUT levels and 87.296% estimated net delay, versus twenty-seven levels
-in the preceding candidate's worst path. The first route of this source is
-running under the original gates. The
+in the preceding candidate's worst path. The
+[raw route review](../build/monitor-ready-route-prep-v1/results-review.json)
+now verifies 450,495/450,495 routable nets and zero routing errors. Setup still
+fails at −1.454 ns/TNS −3,941.236 ns across 5,253 endpoints; hold passes at
++0.012 ns. The original 65-register startup inventory fails after routing,
+despite the pre-physical-optimization audit retaining 130 protected startup
+registers. Its cause is under read-only checkpoint investigation; no inventory,
+timing or electrical gate is relaxed. Cleanup, detailed audits and image
+acceptance were not reached. The
 [fresh controller review](../build/monitor-ready-controller-replay-v2/results-review.json)
 now accepts all twelve original cases, six complete BO images/532,480 bytes,
 seven successful SYS resets and 32,768 BIST writes/reads. Sources, binary and
 owned process cleanup pass. This is modeled controller/PHY evidence, not
 physical memory or PCIe acceptance.
 Routed timing and a new FPGA image remain unqualified.
+
+The next [response-payload zero-bank candidate](../build/jtag-response-zero-bank-native-v1/results-review.json)
+preserves all twenty-three outputs, held invalid-cycle data and eleven shared
+state fields in the original twenty-eight-reply fixture; Icarus also passes
+supplemental four-state cases. [Matched OOC mapping](../build/jtag-response-zero-bank-mapped-v2/results-review.json)
+verifies all 512 payload FFs in both designs: memory-availability fanin falls
+from 1,024 data/enable pin hits to zero, while control-path dependence remains.
+LUTs change 1,763→2,275 and mapped FFs 1,228→1,235; an optimizer-level cause for
+the seven-FF difference is not inferred. Its [source-only full-design review](../build/response-zero-full-synth-v1/source-review.json)
+binds exactly one replacement, backend order 108, among 201 current inputs.
+Both eighty-two-project model crosswalks require the new backend at index seven
+and retain the other eighty-one source files byte-for-byte. Fresh full synthesis is running; no
+preceding full-parent model or route result qualifies this new source.
 
 | Active task | Status | Exit gate |
 |---|---|---|
@@ -121,10 +141,11 @@ Routed timing and a new FPGA image remain unqualified.
 | Monitor READY cofactor | Native/component mapping passed; 32→0 read-data READY inputs, HEALTH retains 32 | Fresh full-parent replays and physical timing still required |
 | Reset-request candidate placement | Strict structural pass; unrouted setup −2.099 ns and hold −0.392 ns fail | New monitor candidate targets the remaining path; no routed acceptance |
 | Monitor candidate full builds | Full synthesis and both fresh C++ builds independently passed | Fresh full-parent replays remain required |
-| Monitor candidate implementation | Placement structural review passed; setup −1.624 ns and hold −0.392 ns fail unrouted; first route running | Original routed timing, DRC and detailed audits remain mandatory |
+| Monitor candidate implementation | Raw routing completed; setup −1.454 ns fails, hold +0.012 ns passes; startup inventory fails | Preserve failed checkpoint; diagnose inventory and repair actual critical path |
 | Monitor candidate full models | Warm replay/wire audit and all twelve controller cases independently passed | Physical MIG/PHY, PCIe and new-image application tests remain separate |
+| Response-payload zero bank | Paired native and matched mapping passed; fresh 201-input full synthesis running | Fresh full-parent models, retention checks, implementation and hardware qualification |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
-| Public regression | [Full serial default suite passed](../build/mmio-posted-write-public-regression-v1/results-review.json), including 18 MMIO callback controls | Covers public sources, not the private timing candidate |
+| Public regression | [Fresh full serial default suite passed](../build/rk-capture-public-regression-v1/results-review.json) for commit `1652fb3`, with 43,985 tracked inputs unchanged | Covers the public capture primitives and existing suite, not private timing sources |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |
 
 Earlier source-bound timing milestones follow. The private FI staging-enable, snapshot-capture
@@ -831,6 +852,16 @@ the unchanged blocking ioctl, with explicit diagnostic cache syncs and failed
 capture/ownership handling. Device-free tests cover these primitives only.
 A pinned real-device case runner, actual RK outputs and the FPGA differential
 remain required; no silicon compatibility result is inferred from this preparation.
+
+The [offline EW case preparation](../build/rk-ew-silicon-case-prep-v1/results-review.json)
+now verifies eighteen original compiler programs: ADD/SUB/MUL at lengths
+7/8/9/31/32/33, each with finite and special-value input images. Its 126 artifacts
+include complete 4,096-byte A/B/output-before mappings with explicit zero/A5
+padding. These are compiler programs and initialized input fixtures, not final
+device-address command words, real allocations or observed hardware outputs.
+The workspace-only case-runner preparation has thirteen device-free tests and
+default preflights; no RK device was opened. Identifying the actual RK3588 host,
+auditing that target and capturing its raw results remain required.
 
 Cover signed zeros, subnormals, overflow, NaN/infinity, tail groups, lengths
 7/8/9 and 31/32/33, K=65, alignment, exact/partial aliasing and linked tasks.

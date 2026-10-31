@@ -49,10 +49,23 @@ passes structural checks, but setup remains −1.624 ns and hold −0.392 ns,
 both unrouted. The fresh
 [controller review](build/monitor-ready-controller-replay-v2/results-review.json)
 passes all twelve cases, 532,480 complete BO bytes, seven SYS resets and
-32,768 BIST writes/reads. The first route of this candidate is running.
+32,768 BIST writes/reads. Its [raw route review](build/monitor-ready-route-prep-v1/results-review.json)
+verifies all 450,495 routable nets with zero routing errors, but setup fails
+at −1.454 ns across 5,253 endpoints; hold passes at +0.012 ns. The original
+startup inventory also fails after routing. No clean checkpoint or new image
+is accepted.
 The model uses ordinary RAM with actual vendor CTRL/FI leaves; physical MIG/PHY
 and routed timing remain separate. The [active plan](docs/REVIEW_AND_PLAN.md)
 records the remaining new-image gates.
+
+The next [response-payload zero-bank candidate](build/jtag-response-zero-bank-native-v1/results-review.json)
+passes paired native checks and [matched mapping](build/jtag-response-zero-bank-mapped-v2/results-review.json).
+Memory availability leaves all 512 payload-register data/enable cones while
+remaining in the control path, at a measured cost of 512 LUTs and seven mapped
+FFs. Fresh full synthesis is running; full-parent replay and implementation
+still require new evidence. The separate
+[public default regression](build/rk-capture-public-regression-v1/results-review.json)
+passes for commit `1652fb3`, including the passive RK capture primitives.
 
 An earlier UI-qualified combined PCIe/JTAG candidate
 [completes routing](build/pcie-ui-health-route-results-review-v1/review.json)
