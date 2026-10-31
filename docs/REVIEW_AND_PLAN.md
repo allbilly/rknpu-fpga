@@ -96,9 +96,17 @@ now pass independently: sixteen jobs, twelve compute resets, one SYS reset
 and 1,441,792 complete BO bytes before ACK. The actual new executable finishes
 in 1,238.839 seconds under the unchanged 1,800-second deadline. It uses ordinary
 RAM and actual vendor CTRL/FI leaves; it does not qualify physical MIG/PHY.
-At 05:52 HKT, placement remains live and the fresh twelve-case controller
-replay has started after the warm simulation closed. Routed timing and a new
-FPGA image remain unqualified.
+The [placement review](../build/monitor-ready-implementation-prep-v1/placement-results-review.json)
+now passes its original structural checks at 287,659 LUTs/89,862 FFs/516 DSPs,
+but unrouted setup remains −1.624 ns/TNS −6,358.057 ns across 8,646 endpoints;
+hold is −0.392 ns. The worst path runs from C1 control decode through full
+monitor health and memory availability into the response-payload enable:
+nineteen LUT levels and 87.296% estimated net delay, versus twenty-seven levels
+in the preceding candidate's worst path. The first route of this source is
+running under the original gates. The controller replay remains live; ten
+case processes have completed, with capacity and late-drain still running at
+06:18 HKT. Process completion alone is not its numerical acceptance.
+Routed timing and a new FPGA image remain unqualified.
 
 | Active task | Status | Exit gate |
 |---|---|---|
@@ -110,7 +118,7 @@ FPGA image remain unqualified.
 | Monitor READY cofactor | Native/component mapping passed; 32→0 read-data READY inputs, HEALTH retains 32 | Fresh full-parent replays and physical timing still required |
 | Reset-request candidate placement | Strict structural pass; unrouted setup −2.099 ns and hold −0.392 ns fail | New monitor candidate targets the remaining path; no routed acceptance |
 | Monitor candidate full builds | Full synthesis and both fresh C++ builds independently passed | Fresh full-parent replays remain required |
-| Monitor candidate implementation | Strict structural checks passed; placement running at 05:39 HKT | Inspect actual worst paths before routing; no current timing acceptance |
+| Monitor candidate implementation | Placement structural review passed; setup −1.624 ns and hold −0.392 ns fail unrouted; first route running | Original routed timing, DRC and detailed audits remain mandatory |
 | Monitor candidate full models | Warm replay and wire/BO audit independently passed: 16 jobs/12 compute resets/one SYS reset/1,441,792 bytes; controller suite running | Complete all twelve controller cases; physical MIG/PHY remains separate |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Full serial default suite passed](../build/mmio-posted-write-public-regression-v1/results-review.json), including 18 MMIO callback controls | Covers public sources, not the private timing candidate |

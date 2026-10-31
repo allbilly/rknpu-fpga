@@ -44,7 +44,10 @@ them; both mappings retain 195 FFs. Fresh
 full-parent C++ builds pass independent review. The fresh
 [warm wire/BO review](build/monitor-ready-warm-wire-audit-v1/results-review.json)
 passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete
-BO bytes. Placement and the controller replay are running as of 05:52 HKT.
+BO bytes. Fresh [placement review](build/monitor-ready-implementation-prep-v1/placement-results-review.json)
+passes structural checks, but setup remains −1.624 ns and hold −0.392 ns,
+both unrouted. The first route of this candidate and its controller replay
+are running as of 06:18 HKT.
 The model uses ordinary RAM with actual vendor CTRL/FI leaves; physical MIG/PHY
 and routed timing remain separate. The [active plan](docs/REVIEW_AND_PLAN.md)
 records the remaining new-image gates.
