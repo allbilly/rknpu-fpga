@@ -94,7 +94,7 @@ module rk_job_control_admission #(
                     32'h0c: begin
                         if (write_data == 1 && can_submit) begin
                             active <= 1; launch_pending <= 1;
-                            result_tag <= 0; result_tasks <= 0; result_code <= 0; result_error <= 0;
+                            result_code <= 0; result_error <= 0;
                         end else if (write_data == 2 && result_valid && !result_error &&
                                      !active && !core_write_block) begin
                             result_valid <= 0; fields_valid <= 0;
@@ -123,16 +123,23 @@ module rk_job_control_admission #(
                     32'h10: s_axil_rdata <= command_address;
                     32'h14: s_axil_rdata <= command_amount;
                     32'h18: s_axil_rdata <= job_tag;
-                    32'h1c: s_axil_rdata <= result_tag;
-                    32'h20: s_axil_rdata <= result_tasks;
+                    32'h1c: s_axil_rdata <= active ? 32'b0 : result_tag;
+                    32'h20: s_axil_rdata <= active ? 32'b0 : result_tasks;
                     32'h24: s_axil_rdata <= {24'b0, result_code};
                     default: s_axil_rresp <= 2'b11;
                 endcase
             end
+            // Only the registered active bit enables these 64 metadata FFs.
+            // Reads stay zero throughout active, including a completion edge;
+            // the last active edge captures exactly the original completion
+            // payload. ACK keeps the held snapshot; no live-input read mux.
+            if (active) begin
+                result_tag <= job_tag; result_tasks <= core_completed_tasks;
+            end
             if (core_start_valid && core_start_ready) launch_pending <= 0;
             if (active && !launch_pending && (core_error || core_done)) begin
                 active <= 0; result_valid <= 1; result_error <= core_error;
-                result_tag <= job_tag; result_tasks <= core_completed_tasks;
+                // Result metadata was sampled on this same edge while active.
                 result_code <= core_error ? core_error_code : 8'b0;
             end
         end

@@ -24,3 +24,10 @@ These tests use independent AXI RAM/minimal ECC-control models and a common
 frontend clock. Actual PCIe IP/CDC, MIG/PHY, combined fit, routing and FPGA
 execution remain unqualified for this source selection. The earlier physical
 JTAG matmul and TinyStories results retain their own image scope.
+
+The current shared `rk_layout_dma.sv` has the locally qualified metadata-enable
+correction described in the [factored framework profile](../framework_factored/README.md).
+The profile ordering and architecture remain unchanged. The numerical and
+warning receipts above retain their frozen source scope; the changed common
+layout source has separate paired/mapped checks and fresh 82-source warm
+integration, rather than a new execution of those historical 72-source suites.

@@ -115,10 +115,51 @@ module rk_layout_dma #(
     endtask
     initial if(BYTES<72||aperture_end>33'h100000000||TIMEOUT_CYCLES==0)
         $fatal(1,"Invalid raw layout aperture/timeout");
+    // CMD_CHECK is disjoint from every waiting state. Its five raw metadata
+    // captures therefore never depend on the request-ready/timeout path.
+    // Use the original procedural-if truth convention, including unknown
+    // forced internal header bits; external unknown data still fails earlier.
+    wire metadata_response_bad=((mem_rsp_valid&&!outstanding)===1'b1)||
+        ((rsp_fire&&(bad_status||bad_data))===1'b1);
+    wire metadata_header_bad=(word_data[63:48]!=16'hff01)||
+        (word_data[15:0]!={10'd0,word_index,2'b0});
+    wire metadata_capture=(state===CMD_CHECK)&&!metadata_response_bad&&
+        (metadata_header_bad!==1'b1);
     always @(posedge clk)begin
         if(!rst_n)begin
-            state<=IDLE;command_address<=0;amount<=0;source_address<=0;destination_address<=0;table_address<=0;
-            count<=0;source_elements<=0;index_data<=0;wait_cycles<=0;word_data<=0;lane_data<=0;
+            source_address<=0;destination_address<=0;table_address<=0;count<=0;source_elements<=0;
+        end else if(metadata_capture)begin
+            case(word_index)
+                1:source_address<=word_data[47:16];
+                2:destination_address<=word_data[47:16];
+                3:table_address<=word_data[47:16];
+                4:count<=word_data[47:16];
+                5:source_elements<=word_data[47:16];
+                default:begin end
+            endcase
+        end
+    end
+`ifdef ASSERT_ON
+    wire metadata_selected=(word_index===1)||(word_index===2)||(word_index===3)||
+        (word_index===4)||(word_index===5);
+    wire original_metadata_capture=(state===CMD_CHECK)&&
+        ((mem_rsp_valid&&!outstanding)!==1'b1)&&
+        ((rsp_fire&&(bad_status||(state!=WRITE_RSP&&bad_data)))!==1'b1)&&
+        ((waiting&&!req_fire&&!rsp_fire&&wait_cycles==WAIT_BITS'(TIMEOUT_CYCLES-1))!==1'b1)&&
+        (metadata_header_bad!==1'b1)&&
+        (((word_index==0&&word_data[47:16]!=32'h00010002)||
+          ((word_index==6||word_index==7)&&word_data[47:16]!=0)||
+          (word_index==8&&word_data[47:16]!=1))!==1'b1);
+    always @(posedge clk)begin
+        if(rst_n===1'b1&&((metadata_selected&&metadata_capture)!==
+                         (metadata_selected&&original_metadata_capture)))
+            $fatal(1,"layout metadata capture enable differs from original guards");
+    end
+`endif
+    always @(posedge clk)begin
+        if(!rst_n)begin
+            state<=IDLE;command_address<=0;amount<=0;
+            index_data<=0;wait_cycles<=0;word_data<=0;lane_data<=0;
             word_index<=0;part<=0;index_high<=0;request_pending<=0;outstanding<=0;saved_code<=0;
             mem_req_write<=0;mem_req_addr<=0;mem_req_wdata<=0;
         end else begin
@@ -153,14 +194,7 @@ module rk_layout_dma #(
                                     ((word_index==6||word_index==7)&&word_data[47:16]!=0)||
                                     (word_index==8&&word_data[47:16]!=1))fail(2);
                             else begin
-                                case(word_index)
-                                    1:source_address<=word_data[47:16];
-                                    2:destination_address<=word_data[47:16];
-                                    3:table_address<=word_data[47:16];
-                                    4:count<=word_data[47:16];
-                                    5:source_elements<=word_data[47:16];
-                                    default:begin end
-                                endcase
+                                // Metadata fields use the equivalent CMD_CHECK-local enable below.
                                 if(word_index==8)state<=SPAN_CHECK;
                                 else begin word_index<=word_index+1'b1;part<=0;state<=CMD_REQ;end
                             end

@@ -10,34 +10,44 @@ Run `python3 tools/ddr/dual_host_maintenance_fi_profile.py --check` to verify
 its exact source order, hashes and architecture. The manifest contains no
 vendor MIG/PCIe implementation, memory/PHY model, fixture or testbench.
 
-The current source publication is byte-identical to the 82 project sources
-in the fresh timeout-classification warm replay. The
-[publication crosswalk](../../../build/maintenance-timeout-publication-v1/crosswalk.json)
-identifies the two changed RTL files and all 80 unchanged files. The fabric
-exports an internal exact-code-8 timeout tag; the parent uses it for its two
-timeout classifications. Diagnostic codes, priority, registers, latency,
-numerical behavior and unsupported-field failures stay unchanged. The
-[paired Icarus/Verilator review](../../../build/whole-reset-fi-timeout-tag-native-review-v1/review.json)
-checks the original outputs/state, initialization permission and four-state
-behavior, plus equality of the tag to the original diagnostic classification.
+The current 82-source selection matches the four-fix combined source set.
+Layout metadata capture uses its local command state; pending-fault classification
+uses the directly qualified event bits; job metadata follows the active descriptor
+while CSR reads remain masked during execution; and FI payload words use their
+own address-qualified write enable. Raw commands, numerical operations, error
+contracts and visible latency remain unchanged. The
+[publication crosswalk](../../../build/control-timing-four-fix-publication-prep-v1/applied.json)
+records the exact selected bytes and consuming manifest updates.
 
-The selected `(1,16,32)` fresh warm model run completes sixteen layout/CMAC
-jobs, twelve compute resets and one whole SYS reset. Its
-[independent wire and whole-BO review](../../../build/whole-reset-fi-timeout-tag-joined-results-review-v1/review.json)
-checks 1,441,792 complete BO bytes before ACK, the original final command
-records, both scripted JTAG/retained-PCIe packet paths, stopped-UI SYS access,
-an idle held owner, exact 16,384-line reinitialization and stale-lease denial
-after SYS ACK without forwarding to the new owner. The same unchanged wire
-auditor has nine saved-trace corruption/omission controls. The simulator exits
-successfully, but its producer wrapper remains failed because a missing Python
-`re` import stopped post-run validation. That original report is preserved;
-the separate independent audit accepts the actual fresh trace and BO files.
+The [fresh warm replay and whole-BO review](../../../build/control-timing-combined-warm-results-review-v1/review.json)
+passes sixteen layout/CMAC jobs, twelve compute resets, one whole SYS reset and
+1,441,792 complete BO bytes before ACK. Both scripted transport paths, retained
+BOs, stopped-UI SYS access and stale-lease denial are checked. The actual simulator
+and runner pass. An initial wire-auditor invocation used the raw-only fixture
+without its golden images; that failure is preserved. The successful audit uses
+the original hash-bound golden fixture and unchanged expectations.
 
-This is an ordinary-RAM model with actual vendor CTRL/FI leaves; it rejects
-nonzero FI corruption at a RAM write. It is not actual MC/PHY, PCIe-IP/CDC,
-TAP or FPGA execution. Its one-MiB/four-task geometry does not qualify the
-default two-GiB span or 4095 tasks. Separately scoped actual-controller
-ECC/reset receipts do not qualify physical ECC in this composition.
+The [component and mapping evidence](../../../docs/REVIEW_AND_PLAN.md) is separate
+from the [full physical-source synthesis](../../../build/control-timing-combined-synth-results-review-v1/review.json):
+293,399 LUTs, 89,797 FFs, all 512 product/516 total DSPs, both MIGs, PCIe,
+USER2/USER3 and 277 ports. The fresh
+[strict constrained audit](../../../build/control-timing-combined-strict-results-review-v1/review.json)
+passes its original constant, electrical, clock and retained reset/crossing
+checks. [Fresh placement](../../../build/control-timing-combined-placement-results-review-v1/review.json)
+passes its structural gates, with negative unrouted estimates of −4.352 ns
+setup and −0.392 ns hold. Routed timing and new-image acceptance remain open.
+The result-metadata component's OOC producer failed final JSON serialization;
+its separately reviewed saved artifacts establish its mapping evidence, while
+that original failed producer remains unchanged.
+
+The warm fixture uses ordinary RAM and actual vendor CTRL/FI leaves. It does
+not model MC/PHY or physical ECC corruption, PCIe IP/CDC, TAP or FPGA execution.
+Its one-MiB/four-task geometry does not qualify the default two-GiB span or
+4095 tasks. The [fresh actual-controller fixture](../../../build/control-timing-combined-controller-results-review-v1/review.json)
+passes all twelve cases, seven SYS resets, six complete BO images/532,480 bytes
+and 32,768 BIST writes/reads over one MiB. It uses a separate legacy test
+wrapper and encoded PHY; these results do not qualify the physical dual-host
+composition.
 
 The normal raw request/response interface is UI-clocked and the maintenance
 raw interface is SYS-clocked. Upstream mailboxes must retain offered frames

@@ -31,3 +31,10 @@ all 512 product lanes, both MIGs and actual XDMA. It proves neither physical
 fit nor timing for this public source selection. Fresh corrected-reset combined
 synthesis and constrained implementation have separate gates. No new routed
 image, FPGA, PCIe, physical ECC or RK-equivalence qualification is claimed.
+
+The current shared `rk_layout_dma.sv` has the locally qualified metadata-enable
+correction described in the [factored framework profile](../framework_factored/README.md).
+The profile ordering and architecture remain unchanged. The numerical and
+warning receipts above retain their frozen source scope; the changed common
+layout source has separate paired/mapped checks and fresh 82-source warm
+integration, rather than a new execution of those historical 72-source suites.

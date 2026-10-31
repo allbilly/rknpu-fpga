@@ -222,13 +222,30 @@ module rk_mig_fi_management_regs #(
         else if((state==WAIT_CTRL&&ctrl_rsp_valid===1'b1&&ctrl_rsp_response!==0)||
                 (state==WAIT_LINE&&line_rsp_valid===1'b1&&line_rsp_matched!==1'b1))fault_now=7;
     end
+    // A recognized data-word address selects only the original word-write
+    // permission. Do not feed unrelated CLAIM admission into its 512-bit CE
+    // through the shared all-register write_ok priority network.
+    wire payload_access_valid=(saved_awprot===3'b0)&&(saved_wstrb===4'hf)&&
+        ((^saved_wdata)!==1'bx)&&(saved_awaddr[1:0]===2'b0);
+    wire payload_write=write_commit&&write_data_word&&program_allowed&&payload_access_valid;
+    always_ff @(posedge clk)begin
+        if(!joint_rst_n)staged_line_data<=0;
+        else if(payload_write)staged_line_data[write_word_index*32+:32]<=saved_wdata;
+    end
+`ifdef ASSERT_ON
+    always @(posedge clk)begin
+        if(joint_rst_n===1'b1&&
+           ((payload_write===1'b1)!==((write_commit&&write_ok&&write_data_word)===1'b1)))
+            $fatal(1,"FI word-local payload enable differs from register-write contract");
+    end
+`endif
     always_ff @(posedge clk)begin
         if(!joint_rst_n)begin
             state<=IDLE;claimed<=0;grant_seen<=0;local_fault<=0;local_fault_code<=0;
             aw_held<=0;w_held<=0;saved_awaddr<=0;saved_wdata<=0;saved_awprot<=0;saved_wstrb<=0;
             s_axil_bvalid<=0;s_axil_bresp<=0;s_axil_rvalid<=0;s_axil_rresp<=0;s_axil_rdata<=0;
             staged_ctrl_address<=0;staged_ctrl_data<=0;staged_line_address<=0;staged_expected_response<=0;
-            staged_line_data<=0;fields_valid<=0;data_valid_words<=0;
+            fields_valid<=0;data_valid_words<=0;
             active_command<=0;result_command<=0;result_data<=0;result_response<=0;
             result_valid<=0;result_matched<=0;result_consumed_words<=0;
             held_result_word<=0;held_result_word_index<=0;wait_count<=0;command_ordinal<=0;
@@ -285,7 +302,7 @@ module rk_mig_fi_management_regs #(
                 aw_held<=0;w_held<=0;s_axil_bvalid<=1;
                 s_axil_bresp<=write_ok?2'b00:(write_mapped?2'b10:2'b11);
                 if(write_ok)begin
-                    if(write_data_word)begin staged_line_data[write_word_index*32+:32]<=saved_wdata;data_valid_words[write_word_index]<=1;end
+                    if(write_data_word)begin data_valid_words[write_word_index]<=1;end
                     case(saved_awaddr)
                         32'h310:begin staged_ctrl_address<=saved_wdata;fields_valid[0]<=1;end
                         32'h314:begin staged_ctrl_data<=saved_wdata;fields_valid[1]<=1;end

@@ -47,31 +47,40 @@ at −0.828 ns/TNS −1,206.249 ns across 3,418 endpoints; hold is +0.014 ns.
 The worst paths now reach job-result register enables through pending-fault
 classification. The timeout classifier alone has not closed timing.
 
-The [retained physical-source integration](build/whole-reset-fi-pcie-physical-elab-review-v2/review.json)
-passes RTL wiring elaboration with USER2/UI, USER3/SYS and C1 FI witnesses;
-that query uses an explicit XDMA stub. The published
-[dual-host maintenance/FI profile](rtl/ddr/dual_host_maintenance_fi/README.md)
-now publishes the exact timeout-tag RTL tested by the fresh joined warm replay:
-16 jobs, 12 compute resets, one SYS reset and 1,441,792 complete BO bytes before
-ACK pass independent trace/BO review. Its simulator exited successfully; the
-producer wrapper's post-run Python import failure is preserved. This uses an
-ordinary-RAM fixture with actual CTRL/FI leaves. Actual PCIe IP, MC/PHY, physical ECC and
-warm recovery remain pending in the [active plan](docs/REVIEW_AND_PLAN.md).
+The published [dual-host maintenance/FI profile](rtl/ddr/dual_host_maintenance_fi/README.md)
+now contains four qualified control-path timing fixes. The
+[fresh combined warm replay](build/control-timing-combined-warm-results-review-v1/review.json)
+passes 16 jobs, 12 compute resets, one SYS reset and 1,441,792 complete BO bytes
+before ACK, including stopped-UI SYS access and stale-lease denial. Its simulator
+and runner both pass. It uses ordinary RAM and actual vendor CTRL/FI leaves;
+actual MC/PHY and physical ECC remain separate.
 
-The full retained SYS/FI physical design separately passes fresh synthesis,
-strict constrained structural checks and
-[placement review](build/physical-retained-placement-results-review-v1/review.json),
-retaining both JTAG chains, both MIGs and all 512 products. Its unrouted setup
-estimate remains −4.989 ns, with a long FI payload-staging enable path.
-Targeted private fixes are being validated; no new routed image is accepted.
+The same full retained SYS/FI physical source set passes
+[fresh synthesis](build/control-timing-combined-synth-results-review-v1/review.json)
+at 293,399 LUTs/89,797 FFs, with all 512 products, both MIGs, PCIe and both JTAG
+chains retained. Its [strict constrained audit](build/control-timing-combined-strict-results-review-v1/review.json)
+passes the original 35 constant proofs, three protected grounds and electrical,
+clock and retained reset/crossing checks. The [fresh placement review](build/control-timing-combined-placement-results-review-v1/review.json)
+passes its structural gates, but unrouted setup remains −4.352 ns and hold
+−0.392 ns. The remaining control paths are under repair; routed timing and
+image acceptance remain open in the [active plan](docs/REVIEW_AND_PLAN.md).
+The earlier physical placement estimate of −4.989 ns belongs to its older
+source snapshot and is not a timing result for these fixes.
 
 The separate [whole-transaction reset controller](docs/WHOLE_RESET_CONTROL.md)
-passes native protocol controls and the full default regression. Its joined
-actual-controller model now passes all twelve reset/ECC scenarios and 532,480
-complete numerical BO bytes before ACK. The exact project core is published
-as a separate [maintenance/FI profile](rtl/ddr/maintenance_fi/README.md).
-Retained board mailboxes, physical wrapper integration and FPGA ECC/warm recovery
-remain pending in the [active plan](docs/REVIEW_AND_PLAN.md).
+and frozen V4 actual-controller suite retain their native/default-regression
+results. The current 72-source [maintenance/FI selection](rtl/ddr/maintenance_fi/README.md)
+adds the separately tested FI word-local enable; historical full-parent receipts
+remain bound to their original bytes. The current backend's [fresh actual-controller suite](build/control-timing-combined-controller-results-review-v1/review.json)
+passes all twelve cases, six complete BO images/532,480 bytes, seven SYS resets
+and 32,768 BIST writes/reads over a one-MiB model. It uses a legacy test wrapper
+and encoded PHY, with separate physical dual-host gates. FPGA ECC/warm recovery
+and PCIe execution still require new-image qualification.
+
+The four published RTL changes and profile/tool integrity updates pass the
+[fresh default regression review](build/control-timing-four-fix-public-regression-review-v1/review.json)
+and [all five affected profile checks](build/control-timing-four-fix-public-profile-checks-v1/report.json). This is source/native evidence; the
+historical FPGA images below retain their exact source tags.
 
 **Selected framework matmul passed on FPGA, 2026-10-30:** all six shapes now
 [pass physical USER2 JTAG review](docs/FRAMEWORK_MATMUL_FPGA_TEST.md) on the

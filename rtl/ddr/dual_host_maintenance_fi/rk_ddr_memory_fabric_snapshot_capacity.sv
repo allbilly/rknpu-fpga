@@ -237,8 +237,6 @@ module rk_ddr_memory_fabric_snapshot_capacity #(
         monitor_healthy!==1'b1&&monitor_fault===1'b0;
     assign fault=latched_fault||fault_now;
     assign fault_code=(latched_fault&&saved_fault_code!=0)?saved_fault_code:cause_now;
-    assign fault_cause_pending=(fault===1'b1)&&
-        ((latched_fault&&saved_fault_code!=0)===1'b0)&&cause_is_zero;
     assign memory_ready=joint_rst_n&&init_complete&&health_good&&!fault&&
         host_session_busy===1'b0&&!(request_live&&requester==HOST_REQUEST)&&!host_rsp_valid;
     assign init_active=joint_rst_n&&!init_complete&&!fault;
@@ -288,6 +286,8 @@ module rk_ddr_memory_fabric_snapshot_capacity #(
     assign fault_event[5] = (timeout_enabled && !progress && stalled_cycles >= TIMEOUT_CYCLES-1) === 1'b1;
     assign fault_event[6] = fence_fault === 1'b1;
     assign fault_now = |fault_event;
+    wire pending_cause_direct=!fault_event[0]&&!fault_event[1]&&fault_event[2]&&
+        (monitor_gap_pending===1'b0);
     // Parallel semantic tag for exact public code8, keeping diagnostic
     // priority/first-cause encoding off consumers that only classify timeout.
     wire cause_is_timeout=(fault_event[0] && monitor_fault===1'b1 && monitor_fault_code===8'd3) ||
@@ -298,6 +298,13 @@ module rk_ddr_memory_fabric_snapshot_capacity #(
     // internal selectors; the fallback is unreachable in physical binary logic.
     assign fault_is_timeout=(saved_cause_selected===1'b1) ? (saved_fault_code===8'd8) :
                             (saved_cause_selected===1'b0) ? cause_is_timeout : (fault_code===8'd8);
+
+    // Exact pending-code classification without routing an immediate fault
+    // through both the full OR and diagnostic priority tree. fault_event is
+    // binary even for X/Z inputs. Only priority event2 can publish code zero;
+    // with no immediate event, an existing zero-code latch is the other case.
+    assign fault_cause_pending=(saved_cause_selected===1'b0)&&
+        (pending_cause_direct||((latched_fault===1'b1)&&!(|fault_event)));
 
 
     always_comb begin
