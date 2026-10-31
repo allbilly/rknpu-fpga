@@ -105,9 +105,25 @@ checks 16 jobs, 12 compute resets, one SYS reset and 1,441,792 complete BO
 bytes; the [actual-controller suite](../build/control-timing-fi-claim-controller-results-review-v1/review.json)
 checks all twelve original cases and 32,768 BIST writes/reads in its one-MiB
 encoded-PHY model. Their [82 project sources match the physical selection](../build/control-timing-fi-claim-model-physical-crosswalk-v1/review.json).
-[Fresh placement](../build/control-timing-fi-claim-implementation-prep-v1/placement-v1/report.json)
-is running. Routed timing and new-image hardware acceptance remain separate
-gates; the model and structural passes do not establish timing closure.
+The [fresh placement review](../build/control-timing-fi-claim-placement-results-review-v1/review.json)
+passes its 22 structural artifacts and actual strict-checkpoint binding.
+Unrouted setup improves from −4.005 ns to −2.951 ns, but still fails across
+8,241 endpoints/TNS −8,247.126 ns; hold is −0.805 ns. The worst setup path
+runs from the C1 MIG control decode through transport-release readiness to
+the frontend lease-epoch enables. The [fresh route](../build/control-timing-fi-claim-route-prep-v1/run-v1/report.json)
+is running from this placement's `69f4d43f` checkpoint. Routed timing and
+new-image hardware acceptance remain separate gates.
+
+The separate [host-accept cofactor native review](../build/fabric-host-accept-cofactor-native-v3-results-review-v1/review.json)
+passes all original 21 Icarus/19 Verilator cases, all 50 shared outputs,
+44 sequential state fields and eight four-state/four binary directed cases.
+Earlier harness elaboration failures remain preserved. Its
+[matched mapping review](../build/fabric-host-accept-cofactor-mapped-results-review-v1/review.json)
+checks removal of the `job_begin` path only from projected READY, retaining
+original READY, health/fault and five owning-state controls. Both designs
+have 1,111 FFs; LUTs are 2,298/2,335. The projection is equivalent in
+`host_valid && READY`; parent `260936a4` remains uncompiled by these component
+tests. It is not selected by the active route.
 
 | Increment | Status | Evidence and remaining boundary |
 |---|---|---|

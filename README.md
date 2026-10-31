@@ -124,8 +124,22 @@ review: [warm replay](build/control-timing-fi-claim-warm-results-review-v1/revie
 checks 16 jobs, 12 compute resets, one SYS reset and 1,441,792 whole-BO bytes;
 the [actual-controller suite](build/control-timing-fi-claim-controller-results-review-v1/review.json)
 checks all twelve original cases and 32,768 BIST writes/reads in its one-MiB
-encoded-PHY model. Fresh placement is running; routed timing and new-image
-hardware qualification remain pending.
+encoded-PHY model. The [fresh placement review](build/control-timing-fi-claim-placement-results-review-v1/review.json)
+passes its structural gates, but unrouted setup remains −2.951 ns across
+8,241 endpoints and hold −0.805 ns. This improves the prior candidate's
+−4.005 ns placement estimate without closing timing. A
+[fresh route](build/control-timing-fi-claim-route-prep-v1/run-v1/report.json)
+is running from the reviewed `69f4d43f` checkpoint; image and hardware
+qualification remain pending.
+
+A separate [host-accept cofactor](build/fabric-host-accept-cofactor-mapped-results-review-v1/review.json)
+passes paired native and isolated mapping review. It removes `job_begin`
+from projected READY while preserving original READY and health/fault
+controls. Its native pair compares all 50 original outputs and 44 sequential
+state fields; the mapped designs retain 1,111 FFs, with 2,298/2,335 LUTs.
+The projection is equivalent when used in `host_valid && READY`; the full
+parent is not compiled by these component tests. This candidate is separate
+from the active route.
 
 The [serial public regression review](build/shared-frame-sequence-public-regression-v2-results-review/review.json)
 also passes the full serial default suite for its recorded source snapshot.
