@@ -43,7 +43,7 @@ not a complete RK3588 implementation or a completed soDLA fork.
 These rows describe separate profiles and source candidates. A passing
 earlier image does not qualify a later changed image.
 
-The active timing candidate changes only the parent reset-request qualification.
+The preceding timing candidate changes only the parent reset-request qualification.
 Its [native review](../build/reset-request-qualified-native-v2/results-review.json)
 uses the actual CSR and reset sequencer; its
 [mapping review](../build/reset-request-qualified-mapped-v1/results-review.json)
@@ -54,15 +54,37 @@ census. The warm C++ build passes; the controller executable has a separate
 [saved-artifact acceptance](../build/reset-request-qualified-controller-continuation-v1/build-acceptance-v1/report.json)
 after its producer rejected the newly generated static archive. All 491 archive
 members match the fresh objects; the original failed producer is unchanged.
-The actual controller replay is running.
+The [fresh controller replay review](../build/reset-request-qualified-controller-replay-v2/results-review.json)
+passes all twelve original cases, six BO outputs/532,480 data bytes, seven SYS
+reset markers and 32,768 BIST writes/reads. Its [strict review](../build/reset-request-qualified-implementation-prep-v1/strict-results-review.json)
+passes all thirty artifacts and all original protections. Its
+[placement review](../build/reset-request-qualified-implementation-prep-v1/placement-results-review.json)
+passes structural checks but still fails unrouted setup −2.099 ns/TNS
+−9,773.441 ns across 9,457 endpoints; hold is −0.392 ns.
 
 The first warm replay reached the unchanged 1,800-second wall-clock deadline.
 Its [partial-trace diagnostic](../build/reset-request-qualified-warm-timeout-diagnostic-v1/report.json)
 finds 31,969,393 complete-line bytes identical to the earlier accepted trace
 prefix, out of that trace's 33,756,027 bytes. This is progress diagnosis only,
-not completion or numerical acceptance. A fresh run will retain the same
-executable, fixture bytes and deadline after the competing controller replay;
-resource contention is a possible cause, not a proven diagnosis.
+not completion or numerical acceptance. The [fresh V2 warm wire/BO review](../build/reset-request-qualified-warm-wire-audit-v2/results-review.json)
+now passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792
+whole-BO bytes before ACK, including modeled stopped-UI SYS access and stale
+lease denial. The simulator reports 1,241.288 seconds under the unchanged
+1,800-second deadline using the same executable and fixtures. The first failure
+is preserved; resource contention remains a possible cause rather than a proven
+diagnosis.
+
+The active candidate is a state-qualified monitor READY expression. Source
+proof removes only the three read-data fault predicates that require mutually
+exclusive READ states; full HEALTH, fault priority and sequential behavior stay
+unchanged. Its [paired native review](../build/monitor-ready-state-cofactor-native-v3/results-review.json)
+passes 29 Icarus and 23 Verilator original cases, seventeen outputs and state
+comparisons, plus a separately scoped 12,288-case four-state expression table.
+The [matched OOC review](../build/monitor-ready-state-cofactor-mapped-v1/results-review.json)
+checks READY's read-data cone goes from 32 inputs to zero while HEALTH retains
+all 32; FFs remain 195 and LUTs change 90→99. The actual next 201-input full
+synthesis is running. Both fresh full-parent codegens pass warning/source/tree
+review, but C++ build and full-parent replay remain pending for this new module.
 
 | Active task | Status | Exit gate |
 |---|---|---|
@@ -70,9 +92,10 @@ resource contention is a possible cause, not a proven diagnosis.
 | Three-control-fix placement | Structural pass; setup −2.257 ns, hold −0.392 ns, both unrouted | Timing remains failed |
 | Reset-request repair | Paired native and isolated mapping passed; health-to-quiet 6→2 levels, 2.733→1.441 ns | Fresh full-parent models and implementation |
 | New full synthesis | Passed: 293,466 LUTs, 89,793 FFs, 516 DSPs | All 512 products, both MIGs, PCIe, USER2/UI and USER3/SYS retained; no routed timing claim |
-| New model executables | Warm build passed; controller saved-artifact audit passed with its original producer failure preserved | Fresh controller replay running; complete raw-wire/BO validation still required |
-| New warm replay | First attempt timed out at 1,800 seconds; failure preserved | Fresh same-binary/same-deadline retry after controller replay; partial trace is not acceptance |
-| New physical constraints | Mapped retained inventory and constant retention passed | Strict constrained audit, placement and routed timing remain separate gates |
+| Reset-request candidate full models | Both independently passed: 12 controller cases and 16 warm jobs/1,441,792 BO bytes | Bound to the preceding source; original producer/timeout failures preserved |
+| Monitor READY cofactor | Native/component mapping passed; 32→0 read-data READY inputs, HEALTH retains 32 | Fresh full-parent replays and physical timing still required |
+| Reset-request candidate placement | Strict structural pass; unrouted setup −2.099 ns and hold −0.392 ns fail | New monitor candidate targets the remaining path; no routed acceptance |
+| Monitor candidate full builds | Full synthesis running; both codegens independently reviewed | Fresh generated C++ builds and full replays pending |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Full serial default suite passed](../build/mmio-posted-write-public-regression-v1/results-review.json), including 18 MMIO callback controls | Covers public sources, not the private timing candidate |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |

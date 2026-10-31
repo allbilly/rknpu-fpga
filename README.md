@@ -27,12 +27,21 @@ The health-to-maintenance-quiet path drops from six logic levels/2.733 ns to
 two levels/1.441 ns in that mapping, with 319 FFs retained. Fresh
 [full synthesis](build/reset-request-qualified-full-synth-v1/results-review.json)
 passes at 293,466 LUTs/89,793 FFs/516 DSPs with all 512 products, both MIGs,
-PCIe and USER2/UI plus USER3/SYS retained. The fresh C++ executables are accepted;
-the controller replay is running. The first warm replay hit its unchanged
-1,800-second wall-clock limit near completion; its failure is preserved, and
-a fresh run with the same binary, inputs and deadline is being prepared after
-the competing controller replay. Routed timing and new-image qualification
-remain open in the [active plan](docs/REVIEW_AND_PLAN.md).
+PCIe and USER2/UI plus USER3/SYS retained. Its
+[controller replay](build/reset-request-qualified-controller-replay-v2/results-review.json)
+and [fresh warm wire/BO audit](build/reset-request-qualified-warm-wire-audit-v2/results-review.json)
+pass all twelve controller cases and the sixteen-job reset/recovery workload.
+The earlier warm timeout remains preserved. Its strict constraints pass, but
+[placement](build/reset-request-qualified-implementation-prep-v1/placement-results-review.json)
+still fails unrouted setup at −2.099 ns.
+
+The next [monitor READY cofactor](build/monitor-ready-state-cofactor-native-v3/results-review.json)
+passes both native simulators and [matched mapping](build/monitor-ready-state-cofactor-mapped-v1/results-review.json):
+READY loses all 32 read-data inputs while full HEALTH fault checking retains
+them; both mappings retain 195 FFs. Fresh full synthesis is running and both
+full-parent codegens pass independent review. Those component/codegen checks
+do not qualify the changed parent or routed timing. The [active plan](docs/REVIEW_AND_PLAN.md)
+records the remaining new-image gates.
 
 An earlier UI-qualified combined PCIe/JTAG candidate
 [completes routing](build/pcie-ui-health-route-results-review-v1/review.json)
