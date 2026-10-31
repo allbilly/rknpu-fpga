@@ -93,6 +93,16 @@ valid error responses pass through unchanged, including memory accesses whose
 addresses overlap management-register offsets. Only register opcodes 1/2 are
 reserved on the RKHO page.
 
+`command(opcode, address, data)` allocates completion sequences from the same
+counter as ownership requests. `FullDdrFrameTransport` uses this entry so its
+last backend request and the following release cannot reuse a sequence. An
+explicit `exchange(frame)` still forwards every bit unchanged and advances
+the allocator to that frame's sequence. For a retained JTAG mailbox, pass its
+captured completion sequence as `initial_sequence`; the default is zero for
+an endpoint with an initial zero completion. This framing rule prevents a
+previous completion from being mistaken for a new response. It adds no
+backend arithmetic, layout conversion or hardware recovery.
+
 Call `release()` explicitly after the hardware release witness becomes true.
 The session confirms owner/epoch/fault state; it never infers quiescence from a
 software job counter. A pre-write busy result leaves the session usable so the

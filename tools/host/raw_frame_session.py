@@ -38,7 +38,8 @@ def _request(sequence, opcode, address, data=0):
 class RawFrameSession:
     """Own one JTAG(1) or PCIe(2) RKHO lease around a raw exchange callback."""
 
-    def __init__(self, exchange, *, close, source, timeout=30.0, clock=time.monotonic):
+    def __init__(self, exchange, *, close, source, timeout=30.0, clock=time.monotonic,
+                 initial_sequence=0):
         if not callable(exchange) or not callable(close) or not callable(clock):
             raise TypeError('Explicit raw exchange, close, and clock callbacks are required')
         self._exchange = exchange
@@ -49,7 +50,9 @@ class RawFrameSession:
         self.failed = False
         self.released = False
         self._active = False
-        self._sequence = 0
+        # A physical mailbox retains its last completed sequence. Its owner
+        # supplies the captured value before the first management request.
+        self._sequence = _uint(initial_sequence, 16, 'initial completion sequence')
         self._io_attempts = 0
         self.source = source
         self.timeout = None
@@ -195,6 +198,24 @@ class RawFrameSession:
             raise DeviceBusy('RKHO backend session is not quiescent')
         return status
 
+    def command(self, opcode, address, data=0, *, deadline=None):
+        """Allocate one sequence across backend and ownership requests.
+
+        Only mailbox framing is constructed here; backend command buffers,
+        descriptors and BO payloads pass through unchanged.
+        """
+        _uint(opcode, 8, 'opcode')
+        _uint(address, 32, 'device address')
+        _uint(data, 512, 'raw payload')
+        if opcode not in (1, 2, 3, 4):
+            raise ValueError('Unsupported raw byte command opcode')
+        with self._try_operation_lock():
+            self._ensure_open()
+            if self._active:
+                raise DeviceBusy('A raw session operation is already active')
+            sequence = self._next_sequence()
+            return self.exchange(_request(sequence, opcode, address, data), deadline=deadline)
+
     def exchange(self, frame, *, deadline=None):
         """Forward exactly one backend frame; valid backend errors pass through unchanged."""
         _uint(frame, 640, 'raw request frame')
@@ -211,6 +232,9 @@ class RawFrameSession:
                 raise DeviceBusy('A raw session operation is already active')
             self._active = True
             try:
+                # Explicit raw-frame callers also advance the same allocator,
+                # so a later management operation cannot reuse their sequence.
+                self._sequence = (frame >> 556) & 0xFFFF
                 response = self._raw_call(frame, budget)
                 if response >> 568 or (response >> 536) & 0xFFFFFFFF != MAGIC:
                     raise ProtocolError('Malformed raw backend response header')

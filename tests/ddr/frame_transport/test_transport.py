@@ -215,6 +215,53 @@ class FakeRawEndpoint:
 
 
 class FullDdrFrameTransportTests(unittest.TestCase):
+    def test_backend_then_release_never_reuses_retained_completion_sequence(self):
+        endpoint = FakeRawEndpoint()
+        original = endpoint.exchange
+        completed = []
+
+        def retained_mailbox_exchange(frame, *, deadline):
+            sequence = decode(frame)[0]
+            # A physical mailbox can still return its preceding completion
+            # during the first polls of a new request. Reusing that sequence
+            # makes the old response indistinguishable from the new one.
+            if completed and sequence == completed[-1]:
+                raise ProtocolError('New request aliases retained completion')
+            reply = original(frame, deadline=deadline)
+            completed.append(sequence)
+            return reply
+
+        session = RawFrameSession(retained_mailbox_exchange, close=endpoint.close,
+                                  source=1, timeout=5, clock=endpoint.clock)
+        transport = FullDdrFrameTransport(session)
+        transport.release()
+        self.assertTrue(session.released)
+        self.assertEqual(endpoint.owner, 0)
+        self.assertEqual(len(completed), len(endpoint.frames))
+        self.assertTrue(all(a != b for a, b in zip(completed, completed[1:])))
+
+    def test_captured_completion_seed_wraps_and_raw_forwarding_advances_allocator(self):
+        endpoint = FakeRawEndpoint()
+        session = RawFrameSession(endpoint.exchange, close=endpoint.close, source=1,
+                                  timeout=5, clock=endpoint.clock, initial_sequence=0xFFFF)
+        self.assertEqual(decode(endpoint.frames[0][0])[0], 0)
+        raw = ((wire.MAGIC << 572) | (0xFFFF << 556) | (1 << 548) |
+               (15 << 544) | (8 << 512))
+        session.exchange(raw)
+        self.assertEqual(endpoint.frames[-1][0], raw)
+        session.release()
+        raw_index = next(i for i, (frame, _) in enumerate(endpoint.frames) if frame == raw)
+        self.assertEqual(decode(endpoint.frames[raw_index + 1][0])[0], 0)
+        self.assertTrue(session.released)
+
+    def test_bad_completion_seed_fails_before_any_exchange(self):
+        for seed in (True, -1, 0x10000, '0'):
+            endpoint = FakeRawEndpoint()
+            with self.subTest(seed=seed), self.assertRaises(ValueError):
+                RawFrameSession(endpoint.exchange, close=endpoint.close, source=1,
+                                clock=endpoint.clock, initial_sequence=seed)
+            self.assertEqual(endpoint.frames, [])
+
     def make_transport(self, endpoint=None, *, timeout=5.0, source=1):
         endpoint = endpoint or FakeRawEndpoint(source)
         session = endpoint.session()
@@ -286,7 +333,9 @@ class FullDdrFrameTransportTests(unittest.TestCase):
         self.assertEqual(endpoint.memory[0x600:0x680], bytes(expected))
         requests = endpoint.backend_frames
         self.assertTrue(all(1 <= seq <= 0xFFFF for seq, _, _, _ in requests))
-        self.assertEqual([seq for seq, _, _, _ in requests], list(range(1, len(requests) + 1)))
+        # Ownership and backend requests share one physical completion stream.
+        self.assertEqual([decode(frame)[0] for frame, _ in endpoint.frames],
+                         list(range(1, len(endpoint.frames) + 1)))
         self.assertTrue(all(opcode in (1, 2, 3, 4) for _, opcode, _, _ in requests))
         self.assertTrue(any(op == 3 and address == 0x600 for _, op, address, _ in requests))
         self.assertTrue(any(op == 4 and address == 0x600 for _, op, address, _ in requests))

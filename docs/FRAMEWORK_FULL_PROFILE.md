@@ -21,7 +21,11 @@ requires the [RKHO ownership bank](RAW_FRAME_OWNERSHIP.md).
 The caller owns per-transport exclusion and audits the image and endpoint.
 Call `transport.release()` explicitly after complete BO readback and job ACK.
 `transport.close()` closes the supplied session without releasing or resetting
-hardware. `make ddr-frame-transport-controls` runs twelve callback controls
+hardware. Backend and RKHO management requests share the session's completion
+sequence allocator, including release after a backend request. A physical
+retained-mailbox caller must seed the session from its captured completion
+sequence; this software contract does not qualify a physical JTAG adapter.
+`make ddr-frame-transport-controls` runs fifteen callback controls
 under normal and optimized Python and is included in default `make test`.
 These checks cover raw bytes, reset/retention, result ownership, release,
 deadlines and failure poisoning; they do not qualify PCIe IP, CDC or hardware.

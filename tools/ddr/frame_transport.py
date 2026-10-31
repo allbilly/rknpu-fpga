@@ -11,7 +11,7 @@ import time
 from tools.ddr.framework_transport import FullDdrRawTransport
 from tools.host.raw_frame_session import RawFrameSession
 from tools.host.transport import (
-    DeviceBusy, MailboxError, ProtocolError, MAGIC, _Deadline,
+    DeviceBusy, MailboxError, ProtocolError, _Deadline,
     _positive_seconds, _uint,
 )
 
@@ -42,7 +42,6 @@ class FullDdrFrameTransport(FullDdrRawTransport):
         self._mutex = _OperationLock()
         self._session = session
         self._failed = self._verified = False
-        self._seq = 0
         self._active_tag = self._result = None
         self._profile = 'ew'
         self.reset_receipts = []
@@ -87,11 +86,7 @@ class FullDdrFrameTransport(FullDdrRawTransport):
             budget = deadline.capped(self.timeout) if deadline is not None else _Deadline(self.timeout, self._clock)
             try:
                 budget.remaining()
-                self._seq = self._seq % 65535 + 1
-                sequence = self._seq
-                frame = (data | (address << 512) | (15 << 544) | (opcode << 548) |
-                         (sequence << 556) | (MAGIC << 572))
-                response = self._session.exchange(frame, deadline=budget)
+                response = self._session.command(opcode, address, data, deadline=budget)
                 # RawFrameSession validates the entire correlated frame. Keep
                 # command-specific payload validation at this transport layer.
                 status = (response >> 512) & 0xFF
