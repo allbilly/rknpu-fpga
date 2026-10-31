@@ -147,12 +147,15 @@ route.
 The next source combines this fix with independently reviewed
 [transport-release](build/transport-ready-health-cofactor-native-v3-results-review-v1/review.json)
 and [descriptor-enable](build/job-descriptor-local-enable-mapped-results-review-v1/review.json)
-repairs. Fresh synthesis is [running](build/control-repair-three-fix-physical-prep-v1/synth-v1/report.json)
-after whole-source review: three replaced modules, 198 unchanged inputs, with
-gates requiring all 512 products and both MIGs. Fresh full-parent execution and timing
-remain pending. The next constrained pass must protect both original
-65-register startup chains; their census, electrical and timing gates stay
-unchanged.
+repairs. The [fresh synthesis review](build/three-control-fixes-synth-results-review-v1/review.json)
+passes at 293,520 LUTs/89,793 FFs with the required 512-product/516-DSP and
+two-MIG census. The [strict review](build/three-control-fixes-strict-results-review-v1/review.json)
+also passes, including all 130 protected startup registers before and after
+optimization and both original 65-register checks. The
+[fresh warm replay](build/three-control-fixes-warm-results-review-v1/review.json)
+passes all 16 jobs, 12 compute resets, one SYS reset and 1,441,792 checked BO
+bytes. Fresh placement and the controller case matrix remain running; routed
+timing, image and hardware acceptance remain pending.
 
 The [serial public regression review](build/shared-frame-sequence-public-regression-v2-results-review/review.json)
 also passes the full serial default suite for its recorded source snapshot.

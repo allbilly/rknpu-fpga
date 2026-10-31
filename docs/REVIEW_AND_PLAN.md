@@ -140,13 +140,22 @@ all 256 four-state/16 binary algebra tuples. The descriptor pair compares all
 inputs from all 99 descriptor storage bits while preserving SUBMIT controls.
 The [201-input source review](../build/control-repair-three-fix-physical-source-review-v1/review.json)
 checks exactly three replacement modules and 198 unchanged inputs, plus the
-actual 195-HDL/two-XDC/XDMA-component read closure. Fresh
-[synthesis](../build/control-repair-three-fix-physical-prep-v1/synth-v1/report.json)
-is running. New full-parent models and implementation gates remain pending.
-The [startup protection helper](../build/retained-startup-protection-candidate-v1/source-review.json)
-has source review only: it must protect the original 130 startup FFs before
-physical optimization and retain both original 65-register checks, source
-connections, electrical rules and timing requirements.
+actual 195-HDL/two-XDC/XDMA-component read closure. The
+[fresh synthesis review](../build/three-control-fixes-synth-results-review-v1/review.json)
+passes at 293,520 LUTs/89,793 FFs with all 512 products/516 DSPs, both MIGs,
+PCIe and both JTAG chains retained. The
+[strict review](../build/three-control-fixes-strict-results-review-v1/review.json)
+passes all 30 artifacts, including 35 pre/post constant proofs and the exact
+130 startup protections before and after optimization; both original
+65-register checks remain unchanged. The
+[fresh warm review](../build/three-control-fixes-warm-results-review-v1/review.json)
+passes 16 jobs, 12 compute resets, one SYS reset and 1,441,792 complete BO
+bytes before ACK. Fresh placement is running. The controller case matrix is
+running through a separately reviewed [execution-only retry](../build/three-fix-controller-original12-retry-v1/source-review.json):
+its initial relative fixture-path failure is preserved, the original compiled
+inputs were restored byte-exact, and the executable, V4 validators, case
+order and deadlines are unchanged. New routed timing, image and hardware
+acceptance remain pending.
 
 | Increment | Status | Evidence and remaining boundary |
 |---|---|---|
