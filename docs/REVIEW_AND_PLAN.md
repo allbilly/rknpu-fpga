@@ -43,6 +43,17 @@ not a complete RK3588 implementation or a completed soDLA fork.
 These rows describe separate profiles and source candidates. A passing
 earlier image does not qualify a later changed image.
 
+Latest timing continuation: the private FI staging-enable, snapshot-capture
+and parent-abort/seal-factor candidate passes component native and independent
+mapped-artifact reviews; the FI mapping producer's final parser failure remains
+preserved. Its [fresh 201-input synthesis review](../build/control-timing-next-physical-synth-results-review-v1/review.json) accepts
+293,537 LUTs, 89,793 FFs, all 512 products/516 DSPs, both MIGs, PCIe and
+USER2/UI plus USER3/SYS. This does not qualify timing or a new image. Next are
+the retained-constant and mapped clock/reset inventories, strict constraints,
+placement and routing; the fresh warm-reset and actual-controller suites
+remain separate numerical gates. The older −4.352 ns placement result below
+remains failed and belongs to its original source snapshot.
+
 | Increment | Status | Evidence and remaining boundary |
 |---|---|---|
 | EW startup and USER2/BRAM | Passed selected physical tests | [EW](EW_FPGA_TEST.md), [host raw jobs](HOST_FPGA_TEST.md); not general RK compatibility |

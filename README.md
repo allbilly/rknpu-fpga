@@ -67,6 +67,17 @@ image acceptance remain open in the [active plan](docs/REVIEW_AND_PLAN.md).
 The earlier physical placement estimate of −4.989 ns belongs to its older
 source snapshot and is not a timing result for these fixes.
 
+The next private timing candidate extends local FI staging enables, localizes
+snapshot payload capture and factors the parent-abort/seal fault path without
+adding pipeline latency. Its component native and independent mapped-artifact
+reviews pass; the FI mapping producer's final parser failure remains preserved.
+The
+[fresh full-source synthesis review](build/control-timing-next-physical-synth-results-review-v1/review.json)
+accepts 293,537 LUTs/89,793 FFs with all 512 products, both MIGs, PCIe and both
+JTAG chains retained. Retained-logic, constrained placement, routed timing and
+new-image tests remain separate gates; this synthesis result does not establish
+that the −4.352 ns placement failure is fixed.
+
 The separate [whole-transaction reset controller](docs/WHOLE_RESET_CONTROL.md)
 and frozen V4 actual-controller suite retain their native/default-regression
 results. The current 72-source [maintenance/FI selection](rtl/ddr/maintenance_fi/README.md)
