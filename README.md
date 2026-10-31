@@ -46,8 +46,10 @@ full-parent C++ builds pass independent review. The fresh
 passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete
 BO bytes. Fresh [placement review](build/monitor-ready-implementation-prep-v1/placement-results-review.json)
 passes structural checks, but setup remains −1.624 ns and hold −0.392 ns,
-both unrouted. The first route of this candidate and its controller replay
-are running as of 06:18 HKT.
+both unrouted. The fresh
+[controller review](build/monitor-ready-controller-replay-v2/results-review.json)
+passes all twelve cases, 532,480 complete BO bytes, seven SYS resets and
+32,768 BIST writes/reads. The first route of this candidate is running.
 The model uses ordinary RAM with actual vendor CTRL/FI leaves; physical MIG/PHY
 and routed timing remain separate. The [active plan](docs/REVIEW_AND_PLAN.md)
 records the remaining new-image gates.

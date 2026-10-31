@@ -103,9 +103,12 @@ hold is −0.392 ns. The worst path runs from C1 control decode through full
 monitor health and memory availability into the response-payload enable:
 nineteen LUT levels and 87.296% estimated net delay, versus twenty-seven levels
 in the preceding candidate's worst path. The first route of this source is
-running under the original gates. The controller replay remains live; ten
-case processes have completed, with capacity and late-drain still running at
-06:18 HKT. Process completion alone is not its numerical acceptance.
+running under the original gates. The
+[fresh controller review](../build/monitor-ready-controller-replay-v2/results-review.json)
+now accepts all twelve original cases, six complete BO images/532,480 bytes,
+seven successful SYS resets and 32,768 BIST writes/reads. Sources, binary and
+owned process cleanup pass. This is modeled controller/PHY evidence, not
+physical memory or PCIe acceptance.
 Routed timing and a new FPGA image remain unqualified.
 
 | Active task | Status | Exit gate |
@@ -119,7 +122,7 @@ Routed timing and a new FPGA image remain unqualified.
 | Reset-request candidate placement | Strict structural pass; unrouted setup −2.099 ns and hold −0.392 ns fail | New monitor candidate targets the remaining path; no routed acceptance |
 | Monitor candidate full builds | Full synthesis and both fresh C++ builds independently passed | Fresh full-parent replays remain required |
 | Monitor candidate implementation | Placement structural review passed; setup −1.624 ns and hold −0.392 ns fail unrouted; first route running | Original routed timing, DRC and detailed audits remain mandatory |
-| Monitor candidate full models | Warm replay and wire/BO audit independently passed: 16 jobs/12 compute resets/one SYS reset/1,441,792 bytes; controller suite running | Complete all twelve controller cases; physical MIG/PHY remains separate |
+| Monitor candidate full models | Warm replay/wire audit and all twelve controller cases independently passed | Physical MIG/PHY, PCIe and new-image application tests remain separate |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Full serial default suite passed](../build/mmio-posted-write-public-regression-v1/results-review.json), including 18 MMIO callback controls | Covers public sources, not the private timing candidate |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |
