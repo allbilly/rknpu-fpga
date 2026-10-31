@@ -435,6 +435,7 @@ module rk_jtag_dual_ddr_async #(
     logic [7:0] read_fault_code;
     wire monitor_early_fault = monitor_seen && monitor_healthy !== 1'b1 && monitor_fault === 1'b0;
     wire fabric_cause_pending_hint;
+    wire fabric_is_timeout;
     wire fabric_cause_pending_decoded = fabric_fault === 1'b1 && fabric_fault_code === 8'b0;
     wire fabric_cause_pending = fabric_cause_pending_hint;
     wire sequence_lost = sequence_seen && (!sequence_ready_ui0 || c0_ui_clk_sync_rst !== 1'b0);
@@ -518,7 +519,7 @@ module rk_jtag_dual_ddr_async #(
             known_cause = 1;
             if (monitor_fault !== 1'b0)
                 known_cause_code = monitor_fault_code === 8'd3 ? 8'd8 : 8'd5;
-            else known_cause_code = fabric_fault === 1'b1 && fabric_fault_code === 8'd8 ? 8'd8 : 8'd5;
+            else known_cause_code = fabric_fault === 1'b1 && fabric_is_timeout ? 8'd8 : 8'd5;
         end else if (dma_error !== 1'b0) begin
             known_cause = 1; known_cause_code = dma_error_code;
         end else if (monitor_fault !== 1'b0) begin
@@ -542,7 +543,7 @@ module rk_jtag_dual_ddr_async #(
         end else if (compute_reset_error !== 1'b0) begin
             known_cause = 1; known_cause_code = compute_reset_code;
         end else if (fabric_fault !== 1'b0) begin
-            known_cause = 1; known_cause_code = fabric_fault_code === 8'd8 ? 8'd8 : 8'd5;
+            known_cause = 1; known_cause_code = fabric_is_timeout ? 8'd8 : 8'd5;
         end else if (sequence_lost) begin
             known_cause = 1; known_cause_code = 8'd5;
         end
@@ -786,7 +787,7 @@ module rk_jtag_dual_ddr_async #(
         // The accepted packet is identified by latched backend state/sequence.
         // memory_available is admission-only and may inspect the next req.
         .host_read_scope(backend_memory_busy&&!host_write&&!live_block),.host_read_epoch(rsp_seq),
-        .fault(fabric_fault),.fault_code(fabric_fault_code),.fault_cause_pending(fabric_cause_pending_hint),
+        .fault(fabric_fault),.fault_code(fabric_fault_code),.fault_cause_pending(fabric_cause_pending_hint),.fault_is_timeout(fabric_is_timeout),
         .diagnostic_quiescent(fabric_diagnostic_quiet),
         .m_axi_awid(n_axi_awid),
         .m_axi_awaddr(n_axi_awaddr),

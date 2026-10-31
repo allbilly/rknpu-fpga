@@ -10,25 +10,34 @@ Run `python3 tools/ddr/dual_host_maintenance_fi_profile.py --check` to verify
 its exact source order, hashes and architecture. The manifest contains no
 vendor MIG/PCIe implementation, memory/PHY model, fixture or testbench.
 
-The publication is byte-identical to the project portion of the fresh joined
-native candidate. Its selected `(1,16,32)` normal replay passes eight actual
-layout/CMAC jobs, six compute resets and 720,896 complete BO bytes before ACK,
-first through raw JTAG frames and then through the PCIe packet frontend with
-retained BOs. The wire checker compares the original final command records,
-owner/lease behavior, every expected BO byte and the ACK order. See the
-[source publication crosswalk](../../../build/joined-dual-host-source-publication-v1/crosswalk.json)
-and [normal wire receipt](../../../build/joined-dual-host-warm-native-candidate-v1/native-v2/normal-wire-review.json).
-This is an independent ordinary-RAM model with actual vendor CTRL/FI leaves;
-it rejects nonzero FI corruption at a RAM write. It is not actual MC/PHY,
-PCIe-IP/CDC, TAP or FPGA execution. The model uses one MiB and four tasks;
-default two-GiB capacity and 4095 tasks are not qualified by it. The corrected fresh [warm replay and independent wire review](../../../build/joined-dual-host-warm-results-review-v3/review.json)
-now pass sixteen jobs, twelve compute resets and one whole SYS reset, with
-1,441,792 complete BO bytes before ACK. The run checks stopped-UI SYS access,
-a held idle owner, exact full reinitialization and a correlated stale-lease
-denial after SYS result ACK, without forwarding to the new owner. Nine saved-
-trace corruption/omission controls also fail as intended. This remains the
-ordinary-RAM fixture; separately scoped actual-controller ECC/reset receipts
-do not qualify physical ECC in this frontend composition.
+The current source publication is byte-identical to the 82 project sources
+in the fresh timeout-classification warm replay. The
+[publication crosswalk](../../../build/maintenance-timeout-publication-v1/crosswalk.json)
+identifies the two changed RTL files and all 80 unchanged files. The fabric
+exports an internal exact-code-8 timeout tag; the parent uses it for its two
+timeout classifications. Diagnostic codes, priority, registers, latency,
+numerical behavior and unsupported-field failures stay unchanged. The
+[paired Icarus/Verilator review](../../../build/whole-reset-fi-timeout-tag-native-review-v1/review.json)
+checks the original outputs/state, initialization permission and four-state
+behavior, plus equality of the tag to the original diagnostic classification.
+
+The selected `(1,16,32)` fresh warm model run completes sixteen layout/CMAC
+jobs, twelve compute resets and one whole SYS reset. Its
+[independent wire and whole-BO review](../../../build/whole-reset-fi-timeout-tag-joined-results-review-v1/review.json)
+checks 1,441,792 complete BO bytes before ACK, the original final command
+records, both scripted JTAG/retained-PCIe packet paths, stopped-UI SYS access,
+an idle held owner, exact 16,384-line reinitialization and stale-lease denial
+after SYS ACK without forwarding to the new owner. The same unchanged wire
+auditor has nine saved-trace corruption/omission controls. The simulator exits
+successfully, but its producer wrapper remains failed because a missing Python
+`re` import stopped post-run validation. That original report is preserved;
+the separate independent audit accepts the actual fresh trace and BO files.
+
+This is an ordinary-RAM model with actual vendor CTRL/FI leaves; it rejects
+nonzero FI corruption at a RAM write. It is not actual MC/PHY, PCIe-IP/CDC,
+TAP or FPGA execution. Its one-MiB/four-task geometry does not qualify the
+default two-GiB span or 4095 tasks. Separately scoped actual-controller
+ECC/reset receipts do not qualify physical ECC in this composition.
 
 The normal raw request/response interface is UI-clocked and the maintenance
 raw interface is SYS-clocked. Upstream mailboxes must retain offered frames

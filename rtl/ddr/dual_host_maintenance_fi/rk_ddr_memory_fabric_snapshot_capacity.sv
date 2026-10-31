@@ -43,6 +43,7 @@ module rk_ddr_memory_fabric_snapshot_capacity #(
     output logic fault,
     output logic [7:0] fault_code,
     output wire fault_cause_pending,
+    output wire fault_is_timeout,
     output logic monitor_check_valid,
     input logic monitor_check_ready,
     input logic monitor_snapshot_valid,
@@ -287,6 +288,17 @@ module rk_ddr_memory_fabric_snapshot_capacity #(
     assign fault_event[5] = (timeout_enabled && !progress && stalled_cycles >= TIMEOUT_CYCLES-1) === 1'b1;
     assign fault_event[6] = fence_fault === 1'b1;
     assign fault_now = |fault_event;
+    // Parallel semantic tag for exact public code8, keeping diagnostic
+    // priority/first-cause encoding off consumers that only classify timeout.
+    wire cause_is_timeout=(fault_event[0] && monitor_fault===1'b1 && monitor_fault_code===8'd3) ||
+        (!(|fault_event[4:0]) && fault_event[5]) ||
+        (!(|fault_event[5:0]) && fault_event[6] && fence_fault_code===8'd6);
+    wire saved_cause_selected=latched_fault && saved_fault_code!=8'd0;
+    // Preserve full four-state ternary behavior, including forced unknown
+    // internal selectors; the fallback is unreachable in physical binary logic.
+    assign fault_is_timeout=(saved_cause_selected===1'b1) ? (saved_fault_code===8'd8) :
+                            (saved_cause_selected===1'b0) ? cause_is_timeout : (fault_code===8'd8);
+
 
     always_comb begin
         protocol_bad=0;
@@ -331,6 +343,8 @@ module rk_ddr_memory_fabric_snapshot_capacity #(
 
 `ifdef ASSERT_ON
     always_ff @(posedge clk) begin
+        if(fault_is_timeout !== (fault_code===8'd8))
+            $fatal(1,"timeout classification tag diverged from public code8");
         if(fault_cause_pending !== ((fault===1'b1)&&(fault_code===8'd0)))
             $fatal(1,"fault cause pending tag diverged from public fault and code");
     end

@@ -38,17 +38,20 @@ endpoints; hold is +0.012 ns. The independently reviewed
 [23-net/four-buffer cleanup](build/three-fix-dead-lut-cleanup-results-review-v1/review.json)
 removes the RTSTAT/PDRC findings on this checkpoint with all 438,940 routable
 nets fully routed and timing unchanged. Setup still fails; no new image is accepted.
-The next timeout-classification candidate passes paired native and isolated
-mapping checks. Fresh full synthesis has been launched; full implementation
-and timing acceptance remain pending.
+The next ordinary PCIe/JTAG timeout-classification candidate passes paired
+native checks, isolated mapping and fresh full synthesis at 288,138 LUTs.
+Its strict constrained review retains all 35 constant proofs; placement has
+been launched. Full routed timing acceptance remains pending.
 
 The [retained physical-source integration](build/whole-reset-fi-pcie-physical-elab-review-v2/review.json)
 passes RTL wiring elaboration with USER2/UI, USER3/SYS and C1 FI witnesses;
 that query uses an explicit XDMA stub. The published
 [dual-host maintenance/FI profile](rtl/ddr/dual_host_maintenance_fi/README.md)
-now also passes a fresh joined warm replay: 16 jobs, 12 compute resets, one
-SYS reset and 1,441,792 complete BO bytes before ACK. This uses an ordinary-RAM
-fixture with actual CTRL/FI leaves. Actual PCIe IP, MC/PHY, physical ECC and
+now publishes the exact timeout-tag RTL tested by the fresh joined warm replay:
+16 jobs, 12 compute resets, one SYS reset and 1,441,792 complete BO bytes before
+ACK pass independent trace/BO review. Its simulator exited successfully; the
+producer wrapper's post-run Python import failure is preserved. This uses an
+ordinary-RAM fixture with actual CTRL/FI leaves. Actual PCIe IP, MC/PHY, physical ECC and
 warm recovery remain pending in the [active plan](docs/REVIEW_AND_PLAN.md).
 
 The separate [whole-transaction reset controller](docs/WHOLE_RESET_CONTROL.md)
