@@ -48,14 +48,31 @@ Its [native review](../build/reset-request-qualified-native-v2/results-review.js
 uses the actual CSR and reset sequencer; its
 [mapping review](../build/reset-request-qualified-mapped-v1/results-review.json)
 checks the same modules and the exact parent expression. Neither compiles the
-full parent. Fresh full-design synthesis and both full-parent C++ model builds are running.
+full parent. The [fresh full-synthesis review](../build/reset-request-qualified-full-synth-v1/results-review.json)
+now accepts 293,466 LUTs/89,793 FFs/516 DSPs and the full retained interface/compute
+census. The warm C++ build passes; the controller executable has a separate
+[saved-artifact acceptance](../build/reset-request-qualified-controller-continuation-v1/build-acceptance-v1/report.json)
+after its producer rejected the newly generated static archive. All 491 archive
+members match the fresh objects; the original failed producer is unchanged.
+The actual controller replay is running.
+
+The first warm replay reached the unchanged 1,800-second wall-clock deadline.
+Its [partial-trace diagnostic](../build/reset-request-qualified-warm-timeout-diagnostic-v1/report.json)
+finds 31,969,393 complete-line bytes identical to the earlier accepted trace
+prefix, out of that trace's 33,756,027 bytes. This is progress diagnosis only,
+not completion or numerical acceptance. A fresh run will retain the same
+executable, fixture bytes and deadline after the competing controller replay;
+resource contention is a possible cause, not a proven diagnosis.
 
 | Active task | Status | Exit gate |
 |---|---|---|
 | Three-control-fix full models | Passed: 12 controller cases; 16 warm jobs, 12 compute resets and one SYS reset | Bound to that earlier parent |
 | Three-control-fix placement | Structural pass; setup −2.257 ns, hold −0.392 ns, both unrouted | Timing remains failed |
 | Reset-request repair | Paired native and isolated mapping passed; health-to-quiet 6→2 levels, 2.733→1.441 ns | Fresh full-parent models and implementation |
-| New full synthesis and model builds | Running | Preserve all 512 products, both MIGs, PCIe, USER2/UI and USER3/SYS |
+| New full synthesis | Passed: 293,466 LUTs, 89,793 FFs, 516 DSPs | All 512 products, both MIGs, PCIe, USER2/UI and USER3/SYS retained; no routed timing claim |
+| New model executables | Warm build passed; controller saved-artifact audit passed with its original producer failure preserved | Fresh controller replay running; complete raw-wire/BO validation still required |
+| New warm replay | First attempt timed out at 1,800 seconds; failure preserved | Fresh same-binary/same-deadline retry after controller replay; partial trace is not acceptance |
+| New physical constraints | Mapped retained inventory and constant retention passed | Strict constrained audit, placement and routed timing remain separate gates |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Full serial default suite passed](../build/mmio-posted-write-public-regression-v1/results-review.json), including 18 MMIO callback controls | Covers public sources, not the private timing candidate |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |

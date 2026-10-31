@@ -24,10 +24,15 @@ See the [precision and layout boundary](docs/CMAC_ENCODER_CONTRACT.md#precision-
 [paired native checks](build/reset-request-qualified-native-v2/results-review.json)
 and [matched isolated mapping](build/reset-request-qualified-mapped-v1/results-review.json).
 The health-to-maintenance-quiet path drops from six logic levels/2.733 ns to
-two levels/1.441 ns in that mapping, with 319 FFs retained. Fresh full-design
-synthesis and both full-parent C++ model builds are running; this is not routed timing
-or a new accepted image. The [active plan](docs/REVIEW_AND_PLAN.md) separates
-these gates and earlier physical TinyStories results.
+two levels/1.441 ns in that mapping, with 319 FFs retained. Fresh
+[full synthesis](build/reset-request-qualified-full-synth-v1/results-review.json)
+passes at 293,466 LUTs/89,793 FFs/516 DSPs with all 512 products, both MIGs,
+PCIe and USER2/UI plus USER3/SYS retained. The fresh C++ executables are accepted;
+the controller replay is running. The first warm replay hit its unchanged
+1,800-second wall-clock limit near completion; its failure is preserved, and
+a fresh run with the same binary, inputs and deadline is being prepared after
+the competing controller replay. Routed timing and new-image qualification
+remain open in the [active plan](docs/REVIEW_AND_PLAN.md).
 
 An earlier UI-qualified combined PCIe/JTAG candidate
 [completes routing](build/pcie-ui-health-route-results-review-v1/review.json)
