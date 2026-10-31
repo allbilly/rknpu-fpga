@@ -52,11 +52,15 @@ No RAM limits, PCIe connection or hardware programming are performed.
 
 `tools.host.axil_frame_mailbox.AxilFrameMailbox` provides the callback-only
 host side. Supply owned `read32`, `write32` and `close` callbacks; each MMIO
-operation shares one absolute deadline. It stages all twenty DWORDs, commits,
+operation shares one absolute deadline. Callbacks must preserve device MMIO
+ordering: a read-back must observe preceding writes. A write returning `None`
+does not establish device-side acceptance; staging-mask and state read-back
+checks still reject a dropped request word or rejected commit without ACK or
+automatic retry. It stages all twenty DWORDs, commits,
 reads and validates all twenty response DWORDs, verifies their observation
 mask, then ACKs the packet snapshot. Valid backend error frames pass unchanged.
 This packet ACK does not acknowledge an NPU job. Partial protocol failures
-poison the owner; closing never resets or recovers hardware. Seventeen scripted
+poison the owner; closing never resets or recovers hardware. Eighteen scripted
 callback controls pass in normal and optimized Python, and run in the same
 Make target. BAR mapping and device ownership are not implemented here.
 

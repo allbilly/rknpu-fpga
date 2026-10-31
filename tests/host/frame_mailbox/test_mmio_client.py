@@ -136,6 +136,36 @@ class MMIOClientControls(unittest.TestCase):
         self.assertEqual([a for a, _ in d.reads if 0x100 <= a <= 0x14c], [0x100 + i*4 for i in range(20)])
         client.close()
 
+    def test_silent_rejected_write_is_detected_without_ack_or_retry(self):
+        # A posted-write adapter may not expose a device-side write rejection.
+        # Request-mask and state readback must still prevent false completion.
+        for dropped_address in (0x48, 0x0c):
+            with self.subTest(dropped_address=dropped_address):
+                device = RegisterDevice()
+                original_write = device.write32
+
+                def reject_write(address, value, *, deadline):
+                    if address == dropped_address:
+                        device.writes.append((address, value, deadline))
+                        device.events.append(('write_rejected', address, value))
+                        return None
+                    return original_write(address, value, deadline=deadline)
+
+                device.write32 = reject_write
+                client, device = self.make_client(device)
+                with self.assertRaises(ProtocolError):
+                    client.exchange(request_frame())
+                self.assertTrue(client.failed)
+                self.assertFalse(device.committed)
+                self.assertFalse(device.acked)
+                self.assertNotIn((0x0c, 2), [(a, v) for a, v, _ in device.writes])
+                writes = list(device.writes)
+                with self.assertRaises(ProtocolError):
+                    client.exchange(request_frame())
+                self.assertEqual(device.writes, writes)
+                client.close()
+                self.assertEqual(device.closed, 1)
+
     def test_polling_and_all_response_words_precede_ack(self):
         client, d = self.make_client()
         d.reads.clear()
