@@ -21,10 +21,14 @@ and [normal wire receipt](../../../build/joined-dual-host-warm-native-candidate-
 This is an independent ordinary-RAM model with actual vendor CTRL/FI leaves;
 it rejects nonzero FI corruption at a RAM write. It is not actual MC/PHY,
 PCIe-IP/CDC, TAP or FPGA execution. The model uses one MiB and four tasks;
-default two-GiB capacity and 4095 tasks are not qualified by it. The fresh
-whole-reset replay is a separate pending gate; a normal numerical pass does
-not establish warm recovery. Separately scoped core ECC/reset receipts do
-not qualify this new frontend composition.
+default two-GiB capacity and 4095 tasks are not qualified by it. The corrected fresh [warm replay and independent wire review](../../../build/joined-dual-host-warm-results-review-v3/review.json)
+now pass sixteen jobs, twelve compute resets and one whole SYS reset, with
+1,441,792 complete BO bytes before ACK. The run checks stopped-UI SYS access,
+a held idle owner, exact full reinitialization and a correlated stale-lease
+denial after SYS result ACK, without forwarding to the new owner. Nine saved-
+trace corruption/omission controls also fail as intended. This remains the
+ordinary-RAM fixture; separately scoped actual-controller ECC/reset receipts
+do not qualify physical ECC in this frontend composition.
 
 The normal raw request/response interface is UI-clocked and the maintenance
 raw interface is SYS-clocked. Upstream mailboxes must retain offered frames
@@ -42,6 +46,6 @@ Unsupported fields and original sticky errors remain explicit failures.
 
 A physical integration must provide the exact C1 MC/FI witnesses, retain both
 MIGs and both normal transports, and connect the independently retained SYS
-mailbox. Fresh joined recovery tests, mapped reset/CDC, placement/routing,
+mailbox. Broader joined recovery tests, mapped reset/CDC, placement/routing,
 DRC/timing, image/target audit and actual application/ECC tests remain required.
 No bitstream, board or RK-silicon equivalence follows from this source profile.
