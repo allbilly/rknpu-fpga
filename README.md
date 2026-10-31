@@ -117,9 +117,15 @@ passes at 293,506 LUTs/89,793 FFs, retaining all 512 products, both MIGs,
 PCIe and both JTAG chains. The fresh
 [constant-retention](build/control-timing-fi-claim-post-synth-retention-results-review-v1/review.json)
 and [crossing-inventory](build/control-timing-fi-claim-post-synth-inventory-results-review-v1/review.json)
-audits also pass. The strict constrained audit and both full-parent model
-replays are running; placement, routed timing and hardware qualification
-remain pending for this source.
+audits also pass. The fresh [strict constrained review](build/control-timing-fi-claim-strict-results-review-v1/review.json)
+passes all 35 pre/post constant proofs, three retained grounds and original
+clock/reset/crossing/DRC checks. Both full-parent models pass independent
+review: [warm replay](build/control-timing-fi-claim-warm-results-review-v1/review.json)
+checks 16 jobs, 12 compute resets, one SYS reset and 1,441,792 whole-BO bytes;
+the [actual-controller suite](build/control-timing-fi-claim-controller-results-review-v1/review.json)
+checks all twelve original cases and 32,768 BIST writes/reads in its one-MiB
+encoded-PHY model. Fresh placement is running; routed timing and new-image
+hardware qualification remain pending.
 
 The [serial public regression review](build/shared-frame-sequence-public-regression-v2-results-review/review.json)
 also passes the full serial default suite for its recorded source snapshot.

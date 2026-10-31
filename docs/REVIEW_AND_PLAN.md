@@ -97,11 +97,17 @@ USER2/UI plus USER3/SYS remain retained. Fresh
 and [crossing-inventory](../build/control-timing-fi-claim-post-synth-inventory-results-review-v1/review.json)
 reviews pass, binding the actual new SYNTH/OPT checkpoints and original
 35 constant proofs, three grounds and retained register inventories.
-The [strict constrained audit](../build/control-timing-fi-claim-implementation-prep-v1/strict-v1/report.json)
-is running. Both full-parent models have compiled and their fresh replays
-are running; their [82 project sources match the physical selection](../build/control-timing-fi-claim-model-physical-crosswalk-v1/review.json).
-Model execution, placement, routed timing and new-image hardware acceptance
-remain separate gates; synthesis does not establish timing closure.
+The [strict constrained review](../build/control-timing-fi-claim-strict-results-review-v1/review.json)
+passes all 28 artifacts, 35 pre/post constant proofs, three grounds and the
+original clock/reset/crossing/DRC checks. Both fresh full-parent models pass
+independent review: the [warm replay](../build/control-timing-fi-claim-warm-results-review-v1/review.json)
+checks 16 jobs, 12 compute resets, one SYS reset and 1,441,792 complete BO
+bytes; the [actual-controller suite](../build/control-timing-fi-claim-controller-results-review-v1/review.json)
+checks all twelve original cases and 32,768 BIST writes/reads in its one-MiB
+encoded-PHY model. Their [82 project sources match the physical selection](../build/control-timing-fi-claim-model-physical-crosswalk-v1/review.json).
+[Fresh placement](../build/control-timing-fi-claim-implementation-prep-v1/placement-v1/report.json)
+is running. Routed timing and new-image hardware acceptance remain separate
+gates; the model and structural passes do not establish timing closure.
 
 | Increment | Status | Evidence and remaining boundary |
 |---|---|---|
