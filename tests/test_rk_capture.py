@@ -738,5 +738,99 @@ class ObserveBackendTests(unittest.TestCase):
                         self.assertEqual(len(callback_errors), 1)
 
 
+class AuditDeviceTests(unittest.TestCase):
+    target = "/mock/dev/dri/card0"
+    target_rdev = 0x123456
+
+    def run_audit(self, mode, driver, compatible):
+        accesses = []
+
+        class FakePath:
+            def __init__(self, value):
+                self.value = str(value)
+
+            def resolve(self, *, strict=False):
+                accesses.append(("resolve", self.value, strict))
+                if self.value.startswith("/mock"):
+                    return self
+                return self
+
+            def stat(self):
+                accesses.append(("stat", self.value))
+                if self.value != AuditDeviceTests.target:
+                    raise AssertionError("unexpected stat path: " + self.value)
+                return SimpleNamespace(st_mode=mode, st_rdev=AuditDeviceTests.target_rdev)
+
+            def __truediv__(self, child):
+                return FakePath(self.value.rstrip("/") + "/" + child)
+
+            @property
+            def name(self):
+                accesses.append(("name", self.value))
+                return driver
+
+            def read_bytes(self):
+                accesses.append(("read_bytes", self.value))
+                if self.value != "/proc/device-tree/compatible":
+                    raise AssertionError("unexpected read path: " + self.value)
+                return compatible
+
+            def __str__(self):
+                return self.value
+
+        fake_uname = SimpleNamespace(release="mock-kernel-1.2")
+        with patch("tools.rk_capture.Path", side_effect=FakePath) as path_factory, \
+             patch("tools.rk_capture.os.major", return_value=226), \
+             patch("tools.rk_capture.os.minor", return_value=7), \
+             patch("tools.rk_capture.os.uname", return_value=fake_uname):
+            try:
+                result = rk_capture.audit_device(self.target)
+            except RuntimeError as error:
+                result = error
+        self.assertTrue(all(event[2] for event in accesses if event[0] == "resolve"))
+        self.assertTrue(path_factory.called)
+        return result, accesses
+
+    def test_noncharacter_device_fails_before_sysfs_or_proc_reads(self):
+        result, accesses = self.run_audit(stat.S_IFREG | 0o600, "rknpu", b"rockchip,rk3588\0")
+        self.assertIsInstance(result, RuntimeError)
+        self.assertIn("character device", str(result))
+        self.assertEqual([op for op, *_ in accesses], ["resolve", "stat"])
+
+    def test_wrong_driver_and_wrong_board_compatibility_are_rejected(self):
+        wrong_driver, driver_accesses = self.run_audit(
+            stat.S_IFCHR | 0o600, "other-driver", b"rockchip,rk3588\0"
+        )
+        self.assertIsInstance(wrong_driver, RuntimeError)
+        self.assertIn("required RK3588 rknpu driver", str(wrong_driver))
+        self.assertTrue(any(op == "read_bytes" for op, *_ in driver_accesses))
+
+        wrong_board, board_accesses = self.run_audit(
+            stat.S_IFCHR | 0o600, "rknpu", b"rockchip,rk3568\0"
+        )
+        self.assertIsInstance(wrong_board, RuntimeError)
+        self.assertIn("required RK3588 rknpu driver", str(wrong_board))
+        self.assertTrue(any(op == "name" for op, *_ in board_accesses))
+        self.assertTrue(any(op == "read_bytes" for op, *_ in board_accesses))
+
+    def test_rk3588_rknpu_returns_exact_target_and_kernel_identity(self):
+        result, accesses = self.run_audit(
+            stat.S_IFCHR | 0o600,
+            "rknpu",
+            b"rockchip,rk3588\0rockchip,soc\0",
+        )
+        self.assertEqual(result, {
+            "path": self.target,
+            "rdev": self.target_rdev,
+            "sysfs_device": "/sys/dev/char/226:7/device",
+            "driver": "rknpu",
+            "board_compatible": ["rockchip,rk3588", "rockchip,soc"],
+            "kernel": "mock-kernel-1.2",
+        })
+        self.assertIn(("stat", self.target), accesses)
+        self.assertTrue(any(op == "name" for op, *_ in accesses))
+        self.assertTrue(any(op == "read_bytes" for op, *_ in accesses))
+
+
 if __name__ == "__main__":
     unittest.main()
