@@ -44,11 +44,11 @@ Current focus: close setup timing for the combined PCIe/JTAG image. The latest
 result/counter repair passes full synthesis, constant retention and mapped
 inventory with independent review. Both fresh C++ builds, strict constraints and
 the sixteen-job warm reset/whole-BO replay have passed independent review.
-Controller replay and placement are running. Routing preparation is reviewed
-and waits on the fresh placement result. Nine controller cases have passed
-incremental original-validator checks; the full twelve-case result remains pending.
-The current image-emission preparation is source-reviewed and waits on the
-complete controller, route and detailed-audit results. The latest completed route remains failed at
+The complete controller replay and placement structural checks have passed
+independent review. Unrouted placement timing still fails: setup −1.692 ns and
+hold −0.392 ns. The fresh guarded route is running. The current image-emission
+preparation is source-reviewed and waits on route and detailed-audit acceptance.
+The latest completed route remains failed at
 −1.801 ns setup slack; there is no accepted new image. Historical TinyStories
 success applies to its earlier image only.
 
@@ -311,20 +311,29 @@ placement started after the warm run closed, retaining the original test
 deadlines. The first warm replay service was rejected before model
 execution because its Python interpreter differed from the reviewed snapshot.
 Its journal and failure receipt are preserved; the fresh service uses the exact
-reviewed interpreter with unchanged source, fixtures and deadlines. Controller
-replay acceptance and routed timing remain required before image acceptance.
+reviewed interpreter with unchanged source, fixtures and deadlines. The fresh
+[controller review](../build/result-counter-zero-controller-replay-v1/results-review.json)
+now accepts all twelve original cases plus the coordinator-fault precheck,
+six complete output buffers/532,480 BO bytes, original ECC/recovery assertions
+and 32,768 BIST writes plus 32,768 reads. This remains model-only evidence.
 
 The [incremental controller review](../build/result-counter-zero-controller-incremental-review-v3/report.json)
 accepts nine completed cases using the unchanged V4 validators, including CE/UE
 recovery and held-result controls, with 430,080 whole-BO payload bytes checked.
-Capacity, coordinator-fault and late-drain completion remain pending in that
-snapshot. This partial review cannot substitute for the complete matrix.
+Capacity, coordinator-fault and late-drain completion were pending in that
+snapshot; the complete review above now closes the matrix separately.
 The [current emitter source review](../build/result-counter-zero-image-emitter-prep-v1/source-review.json)
 and [Tcl review](../build/result-counter-zero-image-emitter-prep-v1/tcl-source-review.json)
 retain the original emission/timing/electrical checks and adapt admission to the
 new compact model reports. Seven prefix controls pass; an actual emission request
 with missing parents is rejected before creating an emission directory. Its
-read-only preflight waits on controller, route and detailed-audit acceptance.
+read-only preflight accepts both completed model suites and waits on route and
+detailed-audit acceptance. The fresh
+[placement review](../build/result-counter-zero-implementation-prep-v1/placement-results-review.json)
+passes the original structural protections, but setup is −1.692 ns/TNS
+−3,628.345 ns across 6,093 endpoints and hold is −0.392 ns, both unrouted.
+The worst setup path reaches the legacy memory adapter FSM through snapshot-hit
+selection. The guarded route is running on this new placement checkpoint.
 No new image has been emitted. SRAM-load preparation still needs fresh bindings
 to this emitter and its future image; the renderer below selects the prior image.
 
@@ -379,7 +388,7 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | DONE cofactor: current routed diagnostic | Controller/warm regressions pass. All 451,005 nets route with zero errors; reset/startup/protected-source and cleanup guards pass. Setup −1.801 ns fails; hold +0.013 ns passes. | Preserve failed route; qualify the next timing repair before another full build |
 | SUBMIT result-zero timing repair | Paired native and matched mapping independently pass: nine result FF input cones removed, 205→195 LUTs/286 FFs | Fresh full-parent models and timing before selection |
 | Fabric counter zero bank | Original 21/19 protocol cases, conditional formal checks and matched mapping reviewed: 370→0 live-control payload points, +94 LUTs/+6 FFs | Fresh full-parent checks; formal assumptions and direct-simulation limits remain explicit |
-| Combined result/counter full design | Synthesis, retention, inventory, both C++ builds, strict constraints and sixteen-job warm/whole-BO replay independently passed. Controller replay and placement running; routing source reviewed | Controller replay, placement/route and new-image qualification; generic CTRL model alias remains outside the accepted source profile |
+| Combined result/counter full design | Both fresh model suites and placement structural checks independently passed. Unrouted setup −1.692 ns/hold −0.392 ns fail; guarded route running | Routed timing, detailed audits and new-image qualification; generic CTRL model alias remains outside the accepted source profile |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rkfi-host-public-independent-review-v1/results-review.json) with 43,992 inputs unchanged, including fourteen normal and fourteen optimized RKFI callback tests | Covers the public source snapshot and fake-register callback controls; not physical MIG, FPGA, ECC or RK silicon |
