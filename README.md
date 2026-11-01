@@ -62,8 +62,14 @@ The next [response-payload zero-bank candidate](build/jtag-response-zero-bank-na
 passes paired native checks and [matched mapping](build/jtag-response-zero-bank-mapped-v2/results-review.json).
 Memory availability leaves all 512 payload-register data/enable cones while
 remaining in the control path, at a measured cost of 512 LUTs and seven mapped
-FFs. Fresh full synthesis is running; full-parent replay and implementation
-still require new evidence. The separate
+FFs in that isolated mapping. Fresh
+[full synthesis](build/response-zero-full-synth-v1/results-review.json) passes at
+293,554 LUTs/89,804 FFs/516 DSPs with the full retained census. The
+[full-design fan-in check](build/response-zero-full-fanin-inventory-v1/results-review.json)
+confirms removal of the measured control-address paths from the 512 payload
+registers' data/enable inputs. Both fresh model binaries and post-synthesis
+retention/inventory pass review; the new full-parent replays are running.
+Implementation still requires new evidence. The separate
 [public default regression](build/rk-capture-public-regression-v1/results-review.json)
 passes for commit `1652fb3`, including the passive RK capture primitives.
 

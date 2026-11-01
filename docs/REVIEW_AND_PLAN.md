@@ -128,8 +128,19 @@ LUTs change 1,763→2,275 and mapped FFs 1,228→1,235; an optimizer-level cause
 the seven-FF difference is not inferred. Its [source-only full-design review](../build/response-zero-full-synth-v1/source-review.json)
 binds exactly one replacement, backend order 108, among 201 current inputs.
 Both eighty-two-project model crosswalks require the new backend at index seven
-and retain the other eighty-one source files byte-for-byte. Fresh full synthesis is running; no
-preceding full-parent model or route result qualifies this new source.
+and retain the other eighty-one source files byte-for-byte. The
+[fresh synthesis review](../build/response-zero-full-synth-v1/results-review.json)
+now passes at 293,554 LUTs/89,804 FFs/516 DSPs with all required interfaces,
+controllers and products retained. The
+[matched full-design fan-in inventory](../build/response-zero-full-fanin-inventory-v1/results-review.json)
+records 1,024 old memory-driver and C1 control-address-register hits on payload
+D/CE pins versus zero in the new 512-FF bank. This is mapped connectivity,
+not routed timing. Both fresh C++ binaries pass exact archive/link/source review,
+and the new warm and twelve-case controller replays are running; controller
+host concurrency is two, with original cases, validators and deadlines unchanged.
+Fresh [constant retention](../build/response-zero-post-synth-prep-v1/retention-results-review.json)
+and [crossing/reset inventory](../build/response-zero-post-synth-prep-v1/inventory-results-review.json)
+also pass. No preceding full-parent model or route result qualifies this source.
 
 | Active task | Status | Exit gate |
 |---|---|---|
@@ -143,7 +154,7 @@ preceding full-parent model or route result qualifies this new source.
 | Monitor candidate full builds | Full synthesis and both fresh C++ builds independently passed | Fresh full-parent replays remain required |
 | Monitor candidate implementation | Raw routing completed; setup −1.454 ns fails, hold +0.012 ns passes; startup inventory fails | Preserve failed checkpoint; diagnose inventory and repair actual critical path |
 | Monitor candidate full models | Warm replay/wire audit and all twelve controller cases independently passed | Physical MIG/PHY, PCIe and new-image application tests remain separate |
-| Response-payload zero bank | Paired native and matched mapping passed; fresh 201-input full synthesis running | Fresh full-parent models, retention checks, implementation and hardware qualification |
+| Response-payload zero bank | Fresh full synthesis, full fan-in checks, C++ builds and retention/inventory passed; full-parent replays running | Complete fresh model audits and constrained implementation, then hardware qualification |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rk-capture-public-regression-v1/results-review.json) for commit `1652fb3`, with 43,985 tracked inputs unchanged | Covers the public capture primitives and existing suite, not private timing sources |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |
