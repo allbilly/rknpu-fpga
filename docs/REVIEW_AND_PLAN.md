@@ -42,10 +42,10 @@ not a complete RK3588 implementation or a completed soDLA fork.
 
 Current focus: close setup timing for the combined PCIe/JTAG image. The latest
 result/counter repair passes full synthesis, constant retention and mapped
-inventory with independent review. Fresh strict constraints and the warm
-reset replay are running, with its whole-BO audit scheduled after simulation;
-both fresh C++ builds have passed independent review. The latest completed route
-remains failed at
+inventory with independent review. Both fresh C++ builds, strict constraints and
+the sixteen-job warm reset/whole-BO replay have passed independent review.
+Controller replay and placement are running. Routing preparation is reviewed
+and waits on the fresh placement result. The latest completed route remains failed at
 −1.801 ns setup slack; there is no accepted new image. Historical TinyStories
 success applies to its earlier image only.
 
@@ -293,13 +293,22 @@ unqualified; the earlier warm warning-review failure is preserved.
 
 The fresh [warm C++ build](../build/result-counter-zero-warm-continuation-v1/build-results-review.json)
 and [controller C++ build](../build/result-counter-zero-controller-continuation-v1/build-results-review.json)
-pass independent source/runtime/object/archive review. The warm replay and fresh
-strict-constraints run are active. The unchanged whole-BO audit follows model
-completion. Controller replay follows the warm run to retain the original test
-deadlines. The first replay service was rejected before model
+pass independent source/runtime/object/archive review. The fresh
+[strict review](../build/result-counter-zero-implementation-prep-v1/strict-results-review.json)
+accepts the original clock, electrical, reset and DRC gates, 35 constant-field proofs and
+three grounds, 130 startup registers, 21 protected startup net segments and
+seven assertion sources/75 segments. This remains a structural diagnostic,
+without timing acceptance. The fresh
+[warm replay/whole-BO review](../build/result-counter-zero-warm-replay-v1/results-review.json)
+passes all sixteen jobs, twelve compute resets, one SYS reset and 1,441,792
+complete BO bytes across the unchanged two eight-job phases. Its actual trace
+and original numerical/ownership auditors are bound to the new executable.
+Controller replay and
+placement started after the warm run closed, retaining the original test
+deadlines. The first warm replay service was rejected before model
 execution because its Python interpreter differed from the reviewed snapshot.
 Its journal and failure receipt are preserved; the fresh service uses the exact
-reviewed interpreter with unchanged source, fixtures and deadlines. Fresh model
+reviewed interpreter with unchanged source, fixtures and deadlines. Controller
 replay acceptance and routed timing remain required before image acceptance.
 
 The private [SRAM-load renderer](../build/ui-stable-done-sram-load-prep-v1/runner-review.json)
@@ -353,7 +362,7 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | DONE cofactor: current routed diagnostic | Controller/warm regressions pass. All 451,005 nets route with zero errors; reset/startup/protected-source and cleanup guards pass. Setup −1.801 ns fails; hold +0.013 ns passes. | Preserve failed route; qualify the next timing repair before another full build |
 | SUBMIT result-zero timing repair | Paired native and matched mapping independently pass: nine result FF input cones removed, 205→195 LUTs/286 FFs | Fresh full-parent models and timing before selection |
 | Fabric counter zero bank | Original 21/19 protocol cases, conditional formal checks and matched mapping reviewed: 370→0 live-control payload points, +94 LUTs/+6 FFs | Fresh full-parent checks; formal assumptions and direct-simulation limits remain explicit |
-| Combined result/counter full design | Synthesis, constant retention and mapped inventory independently passed; 293,584 LUTs/89,807 FFs/516 DSPs, full topology retained. Both C++ builds passed; warm replay and strict constraints running | Controller replay, fresh replay/whole-BO acceptance, placement/route and new-image qualification; generic CTRL model alias remains outside the accepted source profile |
+| Combined result/counter full design | Synthesis, retention, inventory, both C++ builds, strict constraints and sixteen-job warm/whole-BO replay independently passed. Controller replay and placement running; routing source reviewed | Controller replay, placement/route and new-image qualification; generic CTRL model alias remains outside the accepted source profile |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rkfi-host-public-independent-review-v1/results-review.json) with 43,992 inputs unchanged, including fourteen normal and fourteen optimized RKFI callback tests | Covers the public source snapshot and fake-register callback controls; not physical MIG, FPGA, ECC or RK silicon |
