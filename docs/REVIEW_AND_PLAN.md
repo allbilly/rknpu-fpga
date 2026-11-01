@@ -40,6 +40,15 @@ not a complete RK3588 implementation or a completed soDLA fork.
 
 ## Current progress
 
+Current focus: close setup timing for the combined PCIe/JTAG image. The latest
+result/counter repair passes full synthesis, constant retention and mapped
+inventory with independent review. Fresh strict constraints and the warm
+reset replay are running, with its whole-BO audit scheduled after simulation;
+both fresh C++ builds have passed independent review. The latest completed route
+remains failed at
+−1.801 ns setup slack; there is no accepted new image. Historical TinyStories
+success applies to its earlier image only.
+
 These rows describe separate profiles and source candidates. A passing
 earlier image does not qualify a later changed image.
 
@@ -262,13 +271,36 @@ its evidence is preserved, and fresh v2 completed after the runner/contract
 and exact-version source checks were corrected. These are component results.
 
 The two repairs are selected in the fresh
-[combined full-synthesis run](../build/result-counter-zero-full-synth-v1/run-v1/report.json),
-which is now active. Its 201-record manifest changes only orders 112 and 149;
-the other 199 source paths/bytes and all parameters/XDC/IP references remain
+[combined full-synthesis review](../build/result-counter-zero-full-synth-v1/results-review.json),
+which passes the resource census at 293,584 LUTs, 89,807 FFs and 516 DSPs.
+All 512 product lanes, sixteen kernels, both MIGs, two CACC units, PCIe and
+USER2/USER3 remain retained. Its 201-record manifest changes only orders 112 and
+149. The other 199 source paths/bytes and all parameters/XDC/IP references remain
 identical to the immediate parent. Both 82-project model crosswalks change
 indices 11 and 48 only, retaining eighty project sources. This run checks
-resource fit and retained topology; fresh full-parent models and timing remain
-required before image acceptance.
+resource fit and retained topology; it does not establish timing. Fresh
+[constant retention](../build/result-counter-zero-retained-prep-v1/retention-results-review.json)
+and [mapped inventory](../build/result-counter-zero-retained-prep-v1/inventory-results-review.json)
+pass independent review with all 35 constant witnesses and three ground nets
+retained. Both [warm](../build/result-counter-zero-warm-prep-v1/codegen-results-review.json)
+and [controller](../build/result-counter-zero-controller-prep-v1/codegen-results-review.json)
+source-generation and warning reviews pass. The
+[address composition review](../build/mig-ctrl-address-admissibility-v1/source-composition-review-v1.json)
+limits the four vendor CTRL width warnings to this known-reset binary source
+profile: the generic model truncates bit 31, while the selected monitor and
+guarded FI producers issue only low addresses. The generic alias remains
+unqualified; the earlier warm warning-review failure is preserved.
+
+The fresh [warm C++ build](../build/result-counter-zero-warm-continuation-v1/build-results-review.json)
+and [controller C++ build](../build/result-counter-zero-controller-continuation-v1/build-results-review.json)
+pass independent source/runtime/object/archive review. The warm replay and fresh
+strict-constraints run are active. The unchanged whole-BO audit follows model
+completion. Controller replay follows the warm run to retain the original test
+deadlines. The first replay service was rejected before model
+execution because its Python interpreter differed from the reviewed snapshot.
+Its journal and failure receipt are preserved; the fresh service uses the exact
+reviewed interpreter with unchanged source, fixtures and deadlines. Fresh model
+replay acceptance and routed timing remain required before image acceptance.
 
 The private [SRAM-load renderer](../build/ui-stable-done-sram-load-prep-v1/runner-review.json)
 now passes source review against the approved emitter-v2 selection. Its
@@ -321,7 +353,7 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | DONE cofactor: current routed diagnostic | Controller/warm regressions pass. All 451,005 nets route with zero errors; reset/startup/protected-source and cleanup guards pass. Setup −1.801 ns fails; hold +0.013 ns passes. | Preserve failed route; qualify the next timing repair before another full build |
 | SUBMIT result-zero timing repair | Paired native and matched mapping independently pass: nine result FF input cones removed, 205→195 LUTs/286 FFs | Fresh full-parent models and timing before selection |
 | Fabric counter zero bank | Original 21/19 protocol cases, conditional formal checks and matched mapping reviewed: 370→0 live-control payload points, +94 LUTs/+6 FFs | Fresh full-parent checks; formal assumptions and direct-simulation limits remain explicit |
-| Combined result/counter full design | Fresh synthesis running with exactly two HDL replacements; both model source crosswalks prepared | Resource/topology review, fresh models, constraints/place/route and new-image qualification |
+| Combined result/counter full design | Synthesis, constant retention and mapped inventory independently passed; 293,584 LUTs/89,807 FFs/516 DSPs, full topology retained. Both C++ builds passed; warm replay and strict constraints running | Controller replay, fresh replay/whole-BO acceptance, placement/route and new-image qualification; generic CTRL model alias remains outside the accepted source profile |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rkfi-host-public-independent-review-v1/results-review.json) with 43,992 inputs unchanged, including fourteen normal and fourteen optimized RKFI callback tests | Covers the public source snapshot and fake-register callback controls; not physical MIG, FPGA, ECC or RK silicon |
