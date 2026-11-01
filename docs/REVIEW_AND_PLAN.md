@@ -241,8 +241,34 @@ accepts the reset-reachable representation proof for five counters and the
 last completed write address. Six publication bits replace wide payload zero
 enables, preserving all logical 32-bit values, original update/clear priority,
 wrap/overflow checks and late drains. No clock, latency or compute grouping
-changes. Actual paired native, transition-corner and matched mapping checks
-are still pending; this source is not selected for a full design.
+changes. The [basic native review](../build/fabric-counter-zero-bank-native-results-review-v1/review.json)
+now passes all original 21 Icarus/19 Verilator protocol cases, comparing 51
+outputs, 44 shared state fields and all six logical counter/address values.
+The suite does not directly seed overflow or simultaneous clear/increment.
+A separate [formal review](../build/fabric-counter-zero-bank-formal-v1/results-review-v2.json)
+accepts binary reset observations and conditional matching-point induction;
+all 2,581 equivalence points pass. Deliberate reset, full-width wrap and
+clear-priority mutations are rejected by the proof checks; the initial narrowed-port
+elaboration failure is excluded. This remains a conditional binary result,
+not unconditional equivalence from arbitrary independent initial states or a
+four-state/physical proof. The [matched OOC review](../build/fabric-counter-zero-bank-mapped-v1/results-review.json)
+now verifies 185 payload FFs in both designs, all 740 D/CE observation rows
+and twelve publication-control rows. Selected control fanin reaches up to 370
+baseline payload points; all seven measured controls reach zero candidate
+payload points. Initialization/health dependencies
+remain on the publication flags. LUTs change 2,314→2,408 and FFs 1,111→1,117.
+The first version-only OOC attempt failed on a missing execution-contract key;
+its evidence is preserved, and fresh v2 completed after the runner/contract
+and exact-version source checks were corrected. These are component results.
+
+The two repairs are selected in the fresh
+[combined full-synthesis run](../build/result-counter-zero-full-synth-v1/run-v1/report.json),
+which is now active. Its 201-record manifest changes only orders 112 and 149;
+the other 199 source paths/bytes and all parameters/XDC/IP references remain
+identical to the immediate parent. Both 82-project model crosswalks change
+indices 11 and 48 only, retaining eighty project sources. This run checks
+resource fit and retained topology; fresh full-parent models and timing remain
+required before image acceptance.
 
 The private [SRAM-load renderer](../build/ui-stable-done-sram-load-prep-v1/runner-review.json)
 now passes source review against the approved emitter-v2 selection. Its
@@ -294,7 +320,8 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | Response-payload zero bank | Earlier route stopped before `route_design` at the retained assertion-source guard | Preserve the failed checkpoint and its diagnosis |
 | DONE cofactor: current routed diagnostic | Controller/warm regressions pass. All 451,005 nets route with zero errors; reset/startup/protected-source and cleanup guards pass. Setup −1.801 ns fails; hold +0.013 ns passes. | Preserve failed route; qualify the next timing repair before another full build |
 | SUBMIT result-zero timing repair | Paired native and matched mapping independently pass: nine result FF input cones removed, 205→195 LUTs/286 FFs | Fresh full-parent models and timing before selection |
-| Fabric counter zero bank | Source proof accepted for six logical 32-bit fields; native preparation pending | Paired protocol/transition-corner tests, mapping, then full-parent qualification |
+| Fabric counter zero bank | Original 21/19 protocol cases, conditional formal checks and matched mapping reviewed: 370→0 live-control payload points, +94 LUTs/+6 FFs | Fresh full-parent checks; formal assumptions and direct-simulation limits remain explicit |
+| Combined result/counter full design | Fresh synthesis running with exactly two HDL replacements; both model source crosswalks prepared | Resource/topology review, fresh models, constraints/place/route and new-image qualification |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rkfi-host-public-independent-review-v1/results-review.json) with 43,992 inputs unchanged, including fourteen normal and fourteen optimized RKFI callback tests | Covers the public source snapshot and fake-register callback controls; not physical MIG, FPGA, ECC or RK silicon |
