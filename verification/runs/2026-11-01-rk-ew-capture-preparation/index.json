@@ -1,0 +1,1022 @@
+{
+  "archive_path": "rk-ew-capture-handoff-v1.tar.gz",
+  "archive_sha256": "2127e993680aec07e820db1b963bbd29945ee04bcf2927f7eef38748b8552d0b",
+  "archive_size": 32957,
+  "backend_pin": {
+    "commit": "078eee94d8f1912bb63ce786c250d2c24984844a",
+    "path": "/home/fedora/tinygrad",
+    "source_hashes": {
+      "/home/fedora/tinygrad/tinygrad/renderer/rockchip.py": "c84b70e73449a721319981334b746f79aadd095bd39cc2f576c84bd397fbcc1d",
+      "/home/fedora/tinygrad/tinygrad/runtime/autogen/rockchip.py": "6d6c11176fd78201fa013b5b4485d9a1a67158ba749eca0d892a12e22c8f1f56",
+      "/home/fedora/tinygrad/tinygrad/runtime/ops_rockchip.py": "73cddbdebaf52c33a9d3cef33bbc016b78357da35a588403c23e35069e223daa"
+    }
+  },
+  "case_prep": {
+    "artifact_count": 126,
+    "case_count": 18,
+    "input_sets": [
+      "finite",
+      "special"
+    ],
+    "logical_counts": [
+      7,
+      8,
+      9,
+      31,
+      32,
+      33
+    ],
+    "operations": [
+      "ADD",
+      "SUB",
+      "MUL"
+    ],
+    "path": "build/rk-ew-silicon-case-prep-v1",
+    "physical_image_bytes": 4096,
+    "producer_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/report.json",
+    "producer_sha256": "5bf46ee9e0e8b328f2925470a460bef88a22ebae6a1f0518c7b683b5c50f0d11",
+    "producer_status": "PASS_COMPILE_AND_INPUT_PREPARATION_ONLY_NO_DEVICE_COMMANDS_OR_OUTPUTS",
+    "review_path": "build/rk-ew-silicon-case-prep-v1/results-review.json",
+    "review_sha256": "b1f450939756fe1ab79635c4d9d27f9dc62e5f73eca38cdfc00c86305567d4b6",
+    "review_status": "PASS_RK_EW_COMPILER_INPUT_PREPARATION_ONLY_REVIEW"
+  },
+  "member_count": 134,
+  "members": [
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/finite/a.bin",
+      "sha256": "dcf2559cef3589a9685adaadceb8457cb953b49760e7d80c6bbb35b0ce1d516e",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/finite/b.bin",
+      "sha256": "b7ee7cddd7cdbc53b49c613aa4792a391968593fcd107f6d7da2d262b426ce3b",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/program.bin",
+      "sha256": "ca64046933f22975f99ca2a2d60c3125bf4fa7a534344cfd86ccc81b3931ab6b",
+      "size": 161,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/special/a.bin",
+      "sha256": "423168692962afd51a07a8ac3c1aaf5ba7fa8d81a3fb8c5165681957cbd43789",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/special/b.bin",
+      "sha256": "edd7a070d9fd374c178ccda0062419964f8849ae10f554ec9b461c562139cc4c",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_31/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/finite/a.bin",
+      "sha256": "71165c65a5b2ebc00c444c8a7e43e5a7d599de41f71ff37235d0c781b325eee4",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/finite/b.bin",
+      "sha256": "7a6ab473b0f5ff6b0c8d9a43fa9040207cb2535952634bd3718f7fa51cab5499",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/program.bin",
+      "sha256": "020f4466e1ddacb2837046726ecbeeaa1e370a28ef8e0f449cae888aac05a01b",
+      "size": 161,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/special/a.bin",
+      "sha256": "fb65363ec09123d5dd587dc0ab8ba29bb19c0464774c6cfdcecd8d36fed03cf8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/special/b.bin",
+      "sha256": "e4d297b73bcae2f58df09c480806a6e64215581db729b7bf138f0ad20801fbc3",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_32/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/finite/a.bin",
+      "sha256": "7c7aac4087cc0d9c72c435f6a86f44dafa4ae7ffd7c74a8ea4110ad5a3d7869f",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/finite/b.bin",
+      "sha256": "f9c7a979d1ddacbac1b656a32aef425c055c30c95ee71335f097f56a151001e3",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/program.bin",
+      "sha256": "72a42b159aecd65b701dd6a8c99b527458e76e1dc92047fdd4d96312644a4c6e",
+      "size": 161,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/special/a.bin",
+      "sha256": "95c6100819c88e12bd48e70f9ba7071c776592cccd5d0054176e9c504ca6c0d4",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/special/b.bin",
+      "sha256": "cfa41de92458875a8cbb21ef046753ab46c2a2c57fc40e4db3013d93a73e141b",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_33/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/finite/a.bin",
+      "sha256": "b217a1a57ca8a66c2cbd132dc2fb702c2bedbe69d4df1f1180d0b64bea1e54a0",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/finite/b.bin",
+      "sha256": "49459eda24cd8526af08b4ba723214570783eb8df7e906e3290c40abbe5ca5b7",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/program.bin",
+      "sha256": "68110e9d08ab0b25bf77b131cdb497f37d81358a01a7d799781f2dda898e3f4b",
+      "size": 161,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/special/a.bin",
+      "sha256": "c5bd7a13a1dc72be42afc5d68e81ef230a5595fdbdefd6115d3acbf5a9287c3c",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/special/b.bin",
+      "sha256": "c4444dc266f6ffd70892fdf1adc542d34c905d3382b9982203105e43968c02e4",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_7/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/finite/a.bin",
+      "sha256": "e14d4ef7e708442667f1bab3a7ef7cd1e91d5330a18d4460c83e656b911fa041",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/finite/b.bin",
+      "sha256": "3687ba0e44894d6890258e9ee56efab0fd50245022bbe5e89ae6506c6b3afce9",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/program.bin",
+      "sha256": "cc8991166a78bde69fde55dd480c22aae4154e8700f3f3a22eb1119d106c1bb1",
+      "size": 161,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/special/a.bin",
+      "sha256": "f8b42c0824dc9b9e86811ee0d2df3c26e00f34a68c891d250d7ac4a3c90b0f9a",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/special/b.bin",
+      "sha256": "ebcb7c8f2317b737b3e19f9ab1867990b3d4b0bcfcd21c5061f27138e88c2c91",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_8/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/finite/a.bin",
+      "sha256": "aa4a2a088dec93d2e57186e6d3e3ab91df13bc4d6883a2655351943f3666f461",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/finite/b.bin",
+      "sha256": "525899d35d1a0401f5967e01882ed4b5d0583bb045f781cb7a7c5b26abd92d3a",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/program.bin",
+      "sha256": "71026cb0489f88b38063c76cdff74f601ec74ca0bcba53ca53c621bd68daa396",
+      "size": 161,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/special/a.bin",
+      "sha256": "71a05a0a18ee07dd2df55bf5120bffbb60c867feb7f1cb4b370e9c427bc1ee71",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/special/b.bin",
+      "sha256": "2add190b952ebfb4793bfd27f4d5952c789f1c93608e2f7cbc3ab3f8a02d6f99",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/add_9/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/finite/a.bin",
+      "sha256": "dcf2559cef3589a9685adaadceb8457cb953b49760e7d80c6bbb35b0ce1d516e",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/finite/b.bin",
+      "sha256": "b7ee7cddd7cdbc53b49c613aa4792a391968593fcd107f6d7da2d262b426ce3b",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/program.bin",
+      "sha256": "d3e828de33920fde0c8f9327e521fd8cc3538b2538a69662f1f4b396f8e44994",
+      "size": 161,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/special/a.bin",
+      "sha256": "423168692962afd51a07a8ac3c1aaf5ba7fa8d81a3fb8c5165681957cbd43789",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/special/b.bin",
+      "sha256": "edd7a070d9fd374c178ccda0062419964f8849ae10f554ec9b461c562139cc4c",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_31/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/finite/a.bin",
+      "sha256": "71165c65a5b2ebc00c444c8a7e43e5a7d599de41f71ff37235d0c781b325eee4",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/finite/b.bin",
+      "sha256": "7a6ab473b0f5ff6b0c8d9a43fa9040207cb2535952634bd3718f7fa51cab5499",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/program.bin",
+      "sha256": "ebe6f12fa2144f1d98ac63286cc6d3277f904514fe41b98b1fb209aede397265",
+      "size": 161,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/special/a.bin",
+      "sha256": "fb65363ec09123d5dd587dc0ab8ba29bb19c0464774c6cfdcecd8d36fed03cf8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/special/b.bin",
+      "sha256": "e4d297b73bcae2f58df09c480806a6e64215581db729b7bf138f0ad20801fbc3",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_32/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/finite/a.bin",
+      "sha256": "7c7aac4087cc0d9c72c435f6a86f44dafa4ae7ffd7c74a8ea4110ad5a3d7869f",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/finite/b.bin",
+      "sha256": "f9c7a979d1ddacbac1b656a32aef425c055c30c95ee71335f097f56a151001e3",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/program.bin",
+      "sha256": "b41b042fa94048c363d1d679b8b84c3501966f53aa3ebc5d72bad9ecd74049d0",
+      "size": 161,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/special/a.bin",
+      "sha256": "95c6100819c88e12bd48e70f9ba7071c776592cccd5d0054176e9c504ca6c0d4",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/special/b.bin",
+      "sha256": "cfa41de92458875a8cbb21ef046753ab46c2a2c57fc40e4db3013d93a73e141b",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_33/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/finite/a.bin",
+      "sha256": "b217a1a57ca8a66c2cbd132dc2fb702c2bedbe69d4df1f1180d0b64bea1e54a0",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/finite/b.bin",
+      "sha256": "49459eda24cd8526af08b4ba723214570783eb8df7e906e3290c40abbe5ca5b7",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/program.bin",
+      "sha256": "b08b4c6cf04c1b1b35c836d0916ac6e5ec813b7323f19311e06668795607e96a",
+      "size": 161,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/special/a.bin",
+      "sha256": "c5bd7a13a1dc72be42afc5d68e81ef230a5595fdbdefd6115d3acbf5a9287c3c",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/special/b.bin",
+      "sha256": "c4444dc266f6ffd70892fdf1adc542d34c905d3382b9982203105e43968c02e4",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_7/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/finite/a.bin",
+      "sha256": "e14d4ef7e708442667f1bab3a7ef7cd1e91d5330a18d4460c83e656b911fa041",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/finite/b.bin",
+      "sha256": "3687ba0e44894d6890258e9ee56efab0fd50245022bbe5e89ae6506c6b3afce9",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/program.bin",
+      "sha256": "3958daec92e49e4f5247ce3870fe2f617c58c6805d42a01c01b984ef1cbaeadd",
+      "size": 161,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/special/a.bin",
+      "sha256": "f8b42c0824dc9b9e86811ee0d2df3c26e00f34a68c891d250d7ac4a3c90b0f9a",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/special/b.bin",
+      "sha256": "ebcb7c8f2317b737b3e19f9ab1867990b3d4b0bcfcd21c5061f27138e88c2c91",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_8/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/finite/a.bin",
+      "sha256": "aa4a2a088dec93d2e57186e6d3e3ab91df13bc4d6883a2655351943f3666f461",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/finite/b.bin",
+      "sha256": "525899d35d1a0401f5967e01882ed4b5d0583bb045f781cb7a7c5b26abd92d3a",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/program.bin",
+      "sha256": "b57ec9445b8b17f69cf5d249f38276e5cce3a9e2c343e5de20a69fdedca0085c",
+      "size": 161,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/special/a.bin",
+      "sha256": "71a05a0a18ee07dd2df55bf5120bffbb60c867feb7f1cb4b370e9c427bc1ee71",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/special/b.bin",
+      "sha256": "2add190b952ebfb4793bfd27f4d5952c789f1c93608e2f7cbc3ab3f8a02d6f99",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/mul_9/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/report.json",
+      "sha256": "5bf46ee9e0e8b328f2925470a460bef88a22ebae6a1f0518c7b683b5c50f0d11",
+      "size": 18962,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/report.json"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/finite/a.bin",
+      "sha256": "dcf2559cef3589a9685adaadceb8457cb953b49760e7d80c6bbb35b0ce1d516e",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/finite/b.bin",
+      "sha256": "b7ee7cddd7cdbc53b49c613aa4792a391968593fcd107f6d7da2d262b426ce3b",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/program.bin",
+      "sha256": "cbb788383cbd27eb32c32c899337c4a476fb11591c777b5ad4be173692f35ed1",
+      "size": 227,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/special/a.bin",
+      "sha256": "423168692962afd51a07a8ac3c1aaf5ba7fa8d81a3fb8c5165681957cbd43789",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/special/b.bin",
+      "sha256": "edd7a070d9fd374c178ccda0062419964f8849ae10f554ec9b461c562139cc4c",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_31/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/finite/a.bin",
+      "sha256": "71165c65a5b2ebc00c444c8a7e43e5a7d599de41f71ff37235d0c781b325eee4",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/finite/b.bin",
+      "sha256": "7a6ab473b0f5ff6b0c8d9a43fa9040207cb2535952634bd3718f7fa51cab5499",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/program.bin",
+      "sha256": "fe18398b0f3e1df5126dadfd4de80d8bf456f7792ffafbe71697d100ee9ea426",
+      "size": 227,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/special/a.bin",
+      "sha256": "fb65363ec09123d5dd587dc0ab8ba29bb19c0464774c6cfdcecd8d36fed03cf8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/special/b.bin",
+      "sha256": "e4d297b73bcae2f58df09c480806a6e64215581db729b7bf138f0ad20801fbc3",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_32/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/finite/a.bin",
+      "sha256": "7c7aac4087cc0d9c72c435f6a86f44dafa4ae7ffd7c74a8ea4110ad5a3d7869f",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/finite/b.bin",
+      "sha256": "f9c7a979d1ddacbac1b656a32aef425c055c30c95ee71335f097f56a151001e3",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/program.bin",
+      "sha256": "399002050443502de00cb4cb99292f4352acc24d609292f7eff33fa72e609039",
+      "size": 227,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/special/a.bin",
+      "sha256": "95c6100819c88e12bd48e70f9ba7071c776592cccd5d0054176e9c504ca6c0d4",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/special/b.bin",
+      "sha256": "cfa41de92458875a8cbb21ef046753ab46c2a2c57fc40e4db3013d93a73e141b",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_33/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/finite/a.bin",
+      "sha256": "b217a1a57ca8a66c2cbd132dc2fb702c2bedbe69d4df1f1180d0b64bea1e54a0",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/finite/b.bin",
+      "sha256": "49459eda24cd8526af08b4ba723214570783eb8df7e906e3290c40abbe5ca5b7",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/program.bin",
+      "sha256": "cdba36a799c7849753cc54fa6bec08f953667fa8580c3d831564544488dad0d7",
+      "size": 227,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/special/a.bin",
+      "sha256": "c5bd7a13a1dc72be42afc5d68e81ef230a5595fdbdefd6115d3acbf5a9287c3c",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/special/b.bin",
+      "sha256": "c4444dc266f6ffd70892fdf1adc542d34c905d3382b9982203105e43968c02e4",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_7/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/finite/a.bin",
+      "sha256": "e14d4ef7e708442667f1bab3a7ef7cd1e91d5330a18d4460c83e656b911fa041",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/finite/b.bin",
+      "sha256": "3687ba0e44894d6890258e9ee56efab0fd50245022bbe5e89ae6506c6b3afce9",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/program.bin",
+      "sha256": "8edb40fd30ae2a34e8f3cc1800cbc3f1f895a153b91539d882df8f1f194f17a8",
+      "size": 227,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/special/a.bin",
+      "sha256": "f8b42c0824dc9b9e86811ee0d2df3c26e00f34a68c891d250d7ac4a3c90b0f9a",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/special/b.bin",
+      "sha256": "ebcb7c8f2317b737b3e19f9ab1867990b3d4b0bcfcd21c5061f27138e88c2c91",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_8/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/finite/a.bin",
+      "sha256": "aa4a2a088dec93d2e57186e6d3e3ab91df13bc4d6883a2655351943f3666f461",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/finite/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/finite/b.bin",
+      "sha256": "525899d35d1a0401f5967e01882ed4b5d0583bb045f781cb7a7c5b26abd92d3a",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/finite/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/finite/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/finite/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/program.bin",
+      "sha256": "f0a1990a26bd877071d55ef11e6e513f43afb6536becee81a0ac533d2f5a5fd2",
+      "size": 227,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/program.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/special/a.bin",
+      "sha256": "71a05a0a18ee07dd2df55bf5120bffbb60c867feb7f1cb4b370e9c427bc1ee71",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/special/a.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/special/b.bin",
+      "sha256": "2add190b952ebfb4793bfd27f4d5952c789f1c93608e2f7cbc3ab3f8a02d6f99",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/special/b.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/special/output-before.bin",
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8",
+      "size": 4096,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/cases-v1/sub_9/special/output-before.bin"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/prepare.py",
+      "sha256": "31be7f55157c0265dc0cdddfd76951c78f11beb570cb666a84fd0ee8f2ca331e",
+      "size": 6476,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/prepare.py"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-case-prep-v1/results-review.json",
+      "sha256": "b1f450939756fe1ab79635c4d9d27f9dc62e5f73eca38cdfc00c86305567d4b6",
+      "size": 1463,
+      "source_path": "build/rk-ew-silicon-case-prep-v1/results-review.json"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-runner-prep-v1/preflight-v4/preflight.json",
+      "sha256": "a978a051d8cfc65ea92778b042d8ad5aa81e27230a0f6cdf004f0b6fcd1063dc",
+      "size": 2052,
+      "source_path": "build/rk-ew-silicon-runner-prep-v1/preflight-v4/preflight.json"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-runner-prep-v1/rk_capture.py",
+      "sha256": "00a1f1e3b04bf9042acf58726e7ee0a42fc28f9fd2910df295aadef77fb46691",
+      "size": 16472,
+      "source_path": "build/rk-ew-silicon-runner-prep-v1/rk_capture.py"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-runner-prep-v1/run_capture.py",
+      "sha256": "660bf7436d706deaf0fd42c4f395245fa82916ad4dc5991ef7eff7fb6f4f5317",
+      "size": 15169,
+      "source_path": "build/rk-ew-silicon-runner-prep-v1/run_capture.py"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-runner-prep-v1/source-review.json",
+      "sha256": "4283b8ea0cf41a74ce503e7a56f3b32b0b09eaa16025b3282710754459d6471a",
+      "size": 590,
+      "source_path": "build/rk-ew-silicon-runner-prep-v1/source-review.json"
+    },
+    {
+      "kind": "regular_file",
+      "path": "build/rk-ew-silicon-runner-prep-v1/test_run_capture_device_free.py",
+      "sha256": "df62a7e1786434a906bfec6f87d3d2db06cd7f088455ea7ff06597e2a3ffd5b3",
+      "size": 27622,
+      "source_path": "build/rk-ew-silicon-runner-prep-v1/test_run_capture_device_free.py"
+    }
+  ],
+  "omissions": [
+    "native object/archive/PCH/ELF files",
+    "hardware outputs or logs",
+    "bitstreams and checkpoints",
+    "weights"
+  ],
+  "readme_path": "README.md",
+  "readme_sha256": "60051cabebf482e93d713e20f6c8f86f6a7b788f9d4e6f86551b94001aac7db1",
+  "relocation_preflight": {
+    "case": "add_8",
+    "hardware_accessed": false,
+    "input_set": "finite",
+    "path": "relocation-preflight-v1/add8-finite/preflight.json",
+    "proposed_device": null,
+    "sha256": "67a43a38f8cd61f0cd5ce0ff452e3b100e64d839223ea77b0053db92d88ed255",
+    "status": "PASS_CASE_SOURCE_PREFLIGHT_ONLY_NO_DEVICE_OPENED"
+  },
+  "runner_prep": {
+    "default_preflight_path": "build/rk-ew-silicon-runner-prep-v1/preflight-v4/preflight.json",
+    "default_preflight_sha256": "a978a051d8cfc65ea92778b042d8ad5aa81e27230a0f6cdf004f0b6fcd1063dc",
+    "default_preflight_status": "PASS_CASE_SOURCE_PREFLIGHT_ONLY_NO_DEVICE_OPENED",
+    "device_free_test_count": 13,
+    "device_free_test_path": "build/rk-ew-silicon-runner-prep-v1/test_run_capture_device_free.py",
+    "device_free_test_sha256": "df62a7e1786434a906bfec6f87d3d2db06cd7f088455ea7ff06597e2a3ffd5b3",
+    "observer_path": "build/rk-ew-silicon-runner-prep-v1/rk_capture.py",
+    "observer_sha256": "00a1f1e3b04bf9042acf58726e7ee0a42fc28f9fd2910df295aadef77fb46691",
+    "path": "build/rk-ew-silicon-runner-prep-v1",
+    "runner_path": "build/rk-ew-silicon-runner-prep-v1/run_capture.py",
+    "runner_sha256": "660bf7436d706deaf0fd42c4f395245fa82916ad4dc5991ef7eff7fb6f4f5317",
+    "source_review_path": "build/rk-ew-silicon-runner-prep-v1/source-review.json",
+    "source_review_sha256": "4283b8ea0cf41a74ce503e7a56f3b32b0b09eaa16025b3282710754459d6471a",
+    "source_review_status": "PASS_RK_EW_SILICON_RUNNER_SOURCE_AND_DEVICE_FREE_TESTS_ONLY"
+  },
+  "schema": "rk-ew-capture-handoff-index-v1",
+  "scope": "Source and compiler/input preparation only. No final device-address command words, BO allocation, silicon output, or RK numerical acceptance are included.",
+  "status": "PASS_PORTABLE_SOURCE_AND_INPUT_HANDOFF_ONLY",
+  "verifier_path": "verify.py",
+  "verifier_sha256": "5919390ed97a7c730cf1f70f43d2ab1803c02bd0bff5fd4cdd5f5f8be5d2fda4"
+}

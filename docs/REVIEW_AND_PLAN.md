@@ -873,6 +873,10 @@ device-address command words, real allocations or observed hardware outputs.
 The workspace-only case-runner preparation has thirteen device-free tests and
 default preflights; no RK device was opened. Identifying the actual RK3588 host,
 auditing that target and capturing its raw results remain required.
+The [portable source/input handoff](../verification/runs/2026-11-01-rk-ew-capture-preparation/README.md)
+preserves 134 regular payloads with a standalone archive verifier and a checked
+relocated preflight. It contains initialization images and compiler IR, not
+observed RK outputs or numerical-equivalence evidence.
 
 Cover signed zeros, subnormals, overflow, NaN/infinity, tail groups, lengths
 7/8/9 and 31/32/33, K=65, alignment, exact/partial aliasing and linked tasks.
