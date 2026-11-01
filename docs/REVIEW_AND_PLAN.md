@@ -207,10 +207,42 @@ The fresh
 passes all twelve original cases, six complete output buffers/532,480 bytes,
 seven SYS resets and 32,768 BIST writes plus 32,768 reads. All source hashes
 remain unchanged and owned process groups are closed. The
-[guarded implementation/route run](../build/ui-stable-done-route-prep-v1/run-v1/report.json)
-is now active from the reviewed placement checkpoint; routed timing is pending.
+[guarded route review](../build/ui-stable-done-route-prep-v1/results-review.json)
+verifies 451,005/451,005 routable nets and zero routing errors, but setup fails
+at −1.801 ns/TNS −4,998.582 ns across 5,759 endpoints; hold passes at +0.013 ns.
+All original constant, startup, seven-source and electrical guards pass through
+the bounded cleanup, which removes 23 unloaded nets/four proved unused LUT1
+buffers without changing timing. The 1,121 input hashes remain unchanged and
+owned process groups close. The route remains failed at its strict setup gate;
+there is no accepted image. Its worst path traverses C1 CTRL read decode,
+monitor HEALTH and capacity admission into a job-result code enable.
 These model runs do not qualify physical MIG/PHY behavior,
 RK execution or a new FPGA image.
+
+The next isolated [SUBMIT result-zero candidate](../build/job-submit-result-zero-cofactor-candidate-v1/source-review.json)
+has source-only review against the exact current controller. It removes two
+redundant zero assignments: a result-free admissible state already has zero
+code/error, while error results remain sticky and unacknowledgeable until
+reset. It changes no latency, numerical datapath, clock or constraint.
+Fresh [paired native review](../build/job-submit-result-zero-native-results-review-v2/review.json)
+now passes 3,233 Icarus and 2,534 Verilator comparisons, including all original
+public outputs/shared state and the invalid-result zero invariant. The
+[matched OOC review](../build/job-submit-result-zero-mapped-v1/results-review.json)
+verifies memory-ready input hits on the nine result code/error FFs fall from
+nine to zero, while both designs retain submit admission dependencies. LUTs
+change 205→195 and FFs remain 286. This is component evidence; fresh full-parent
+models and routed timing remain required before selecting it. The first native compile selected a
+ccache wrapper despite compiler environment variables; that attempt is
+preserved and unaccepted. The fresh V2 build explicitly passes the direct
+compiler/linker through make arguments, with all original test expectations.
+
+A separate [fabric counter zero-bank source review](../build/fabric-counter-zero-bank-candidate-v1/source-review.json)
+accepts the reset-reachable representation proof for five counters and the
+last completed write address. Six publication bits replace wide payload zero
+enables, preserving all logical 32-bit values, original update/clear priority,
+wrap/overflow checks and late drains. No clock, latency or compute grouping
+changes. Actual paired native, transition-corner and matched mapping checks
+are still pending; this source is not selected for a full design.
 
 The private [SRAM-load renderer](../build/ui-stable-done-sram-load-prep-v1/runner-review.json)
 now passes source review against the approved emitter-v2 selection. Its
@@ -260,7 +292,9 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | Monitor candidate implementation | Raw routing completed; setup −1.454 ns fails, hold +0.012 ns passes; startup inventory fails | Preserve failed checkpoint; diagnose inventory and repair actual critical path |
 | Monitor candidate full models | Warm replay/wire audit and all twelve controller cases independently passed | Physical MIG/PHY, PCIe and new-image application tests remain separate |
 | Response-payload zero bank | Earlier route stopped before `route_design` at the retained assertion-source guard | Preserve the failed checkpoint and its diagnosis |
-| DONE cofactor: current candidate | Full synthesis, strict/placement structural checks, twelve controller cases and sixteen warm jobs/1,441,792 whole-BO bytes independently pass. Placement timing remains failed and unrouted (setup −2.041 ns, hold −0.469 ns). Guarded implementation/route is active. | Require the new routed timing, DRC, reset/crossing and protected-source results before image emission |
+| DONE cofactor: current routed diagnostic | Controller/warm regressions pass. All 451,005 nets route with zero errors; reset/startup/protected-source and cleanup guards pass. Setup −1.801 ns fails; hold +0.013 ns passes. | Preserve failed route; qualify the next timing repair before another full build |
+| SUBMIT result-zero timing repair | Paired native and matched mapping independently pass: nine result FF input cones removed, 205→195 LUTs/286 FFs | Fresh full-parent models and timing before selection |
+| Fabric counter zero bank | Source proof accepted for six logical 32-bit fields; native preparation pending | Paired protocol/transition-corner tests, mapping, then full-parent qualification |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rkfi-host-public-independent-review-v1/results-review.json) with 43,992 inputs unchanged, including fourteen normal and fourteen optimized RKFI callback tests | Covers the public source snapshot and fake-register callback controls; not physical MIG, FPGA, ECC or RK silicon |

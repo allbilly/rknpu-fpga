@@ -122,8 +122,11 @@ fixtures and 1,800-second deadline; the first timeout remains failed evidence.
 The fresh [controller replay review](build/ui-stable-done-controller-replay-v1/results-review.json)
 passes all twelve original cases, six whole output buffers/532,480 bytes,
 seven SYS resets and 32,768 BIST writes plus 32,768 reads. This separate DONE
-cofactor is now in a [guarded implementation/route run](build/ui-stable-done-route-prep-v1/run-v1/report.json).
-Routed timing and new-image qualification remain pending. The model runs do not qualify
+cofactor's [guarded route review](build/ui-stable-done-route-prep-v1/results-review.json)
+verifies all 451,005 routable nets and zero routing errors, but setup fails at
+−1.801 ns across 5,759 endpoints; hold passes at +0.013 ns. Original reset,
+startup and seven-source protections survive routing and cleanup. No new
+image is accepted. The model runs do not qualify
 physical MIG/PHY behavior, RK execution or a new FPGA image.
 
 The [fresh public default regression review](build/rkfi-host-public-independent-review-v1/results-review.json)
