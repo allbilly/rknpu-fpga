@@ -76,8 +76,10 @@ BO bytes before ACK. The fresh
 passes the original constant, startup, clock, reset and electrical checks.
 It also verifies protection of both original startup output-net families;
 the preceding route duplicated two startup registers during physical
-optimization. Placement and the twelve-case controller replay are running.
-Routing and new-image hardware qualification remain pending. The separate
+optimization. The fresh [response-zero controller replay review](build/response-zero-controller-replay-v1/results-review.json)
+passes all twelve original cases with host fanout two; it is model-only.
+Placement is running, and routing and new-image hardware qualification remain
+pending. The separate
 [public default regression](build/rk-capture-public-regression-v1/results-review.json)
 passes for commit `1652fb3`, including the passive RK capture primitives.
 

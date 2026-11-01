@@ -140,8 +140,11 @@ D/CE pins versus zero in the new 512-FF bank. This is mapped connectivity,
 not routed timing. Both fresh C++ binaries pass exact archive/link/source review.
 The fresh [warm wire/BO review](../build/response-zero-warm-wire-audit-v1/results-review.json)
 passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete
-BO bytes before ACK. The twelve-case controller replay is running with host
-concurrency two and original cases, validators and deadlines unchanged.
+BO bytes before ACK. The twelve-case controller replay with host concurrency
+two and the original cases, validators and deadlines unchanged has a fresh
+[independent review](../build/response-zero-controller-replay-v1/results-review.json)
+passing all twelve original cases. This is model-only evidence and does not
+qualify routing or hardware.
 Fresh [constant retention](../build/response-zero-post-synth-prep-v1/retention-results-review.json)
 and [crossing/reset inventory](../build/response-zero-post-synth-prep-v1/inventory-results-review.json)
 also pass. The fresh [strict review](../build/response-zero-implementation-prep-v1/strict-results-review.json)
@@ -167,7 +170,7 @@ qualifies this source.
 | Monitor candidate full builds | Full synthesis and both fresh C++ builds independently passed | Fresh full-parent replays remain required |
 | Monitor candidate implementation | Raw routing completed; setup −1.454 ns fails, hold +0.012 ns passes; startup inventory fails | Preserve failed checkpoint; diagnose inventory and repair actual critical path |
 | Monitor candidate full models | Warm replay/wire audit and all twelve controller cases independently passed | Physical MIG/PHY, PCIe and new-image application tests remain separate |
-| Response-payload zero bank | Fresh full synthesis, full fan-in checks, C++ builds, retention/inventory, warm whole-BO audit and strict constraints passed; placement and controller replay running | Complete controller audit and placement, then fresh routing and hardware qualification |
+| Response-payload zero bank | Fresh full synthesis, full fan-in checks, C++ builds, retention/inventory, warm whole-BO audit and strict constraints passed; the original-12 controller review passes model-only; placement is running | Complete placement, then fresh routing and hardware qualification |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rk-capture-public-regression-v1/results-review.json) for commit `1652fb3`, with 43,985 tracked inputs unchanged | Covers the public capture primitives and existing suite, not private timing sources |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |
@@ -738,6 +741,11 @@ handshakes before ACK, timeout/late drain, ownership/control/response faults,
 and four-state rejection. No RTL errors/deadlines were relaxed; bench failures
 are preserved. Full raw-backend/parent/MIG and physical qualification of this
 new bank remain pending. It is absent from the capacity image under preparation.
+
+The callback-only host wrapper is documented in
+[FI_HOST_PREPARATION.md](FI_HOST_PREPARATION.md). Its public
+`make ddr-fi-client-controls` target runs normal and optimized fake-register
+tests only; this does not verify SystemVerilog or the physical register path.
 
 The separate [raw RKFI parent trial](../build/ddr-fi-management-parent-prep-v5/native-v1/report.json)
 now selects 129 actual-controller/model sources: 126 unchanged sources, two
