@@ -175,7 +175,28 @@ binds a [201-record manifest](../build/ui-stable-done-full-synth-v1/source-manif
 with only sequencer order 165 replaced. Its
 [warm](../build/ui-stable-done-full-synth-v1/model-crosswalks/warm-82-project-crosswalk.json)
 and [controller](../build/ui-stable-done-full-synth-v1/model-crosswalks/controller-82-project-crosswalk.json)
-82-project crosswalks change only index 64. Full synthesis is running.
+82-project crosswalks change only index 64. Its fresh
+[full-synthesis review](../build/ui-stable-done-full-synth-v1/results-review.json)
+passes source/resource census at 293,492 LUTs, 89,804 FFs and 516 DSPs. Fresh
+[warm](../build/ui-stable-done-warm-continuation-v1/build-results-review.json)
+and [controller](../build/ui-stable-done-controller-continuation-v1/build-results-review.json)
+C++ builds pass independent review. Fresh [constant retention](../build/ui-stable-done-post-synth-prep-v1/retention-results-review.json)
+and [mapped inventory](../build/ui-stable-done-post-synth-prep-v1/inventory-results-review.json)
+also pass. The [strict structural review](../build/ui-stable-done-implementation-prep-v1/strict-results-review.json)
+passes the original gates, including seven assertion sources/75 net segments
+and 130 protected startup registers after optimization; it does not accept
+timing. Placement remains in progress.
+
+The first warm replay attempt [timed out at the unchanged 1,800-second limit](../build/ui-stable-done-warm-replay-v1/results-review.json).
+The read-only [timeout diagnosis](../build/ui-stable-done-warm-timeout-diagnostic-v1/report.json)
+matches 33,148,976 complete-line bytes to the prior accepted trace prefix; it
+is not a completed replay or whole-BO result. Warm replay V2 has
+[source review](../build/ui-stable-done-warm-replay-v2/source-review.json) and
+is queued behind the currently live controller replay. The fresh
+[controller report](../build/ui-stable-done-controller-replay-v1/run-v1/report.json)
+remains live. There is no accepted warm trace or full whole-BO audit for this
+DONE cofactor source. These model runs do not qualify physical MIG/PHY behavior,
+RK execution or a new FPGA image.
 
 | Active task | Status | Exit gate |
 |---|---|---|
@@ -189,7 +210,7 @@ and [controller](../build/ui-stable-done-full-synth-v1/model-crosswalks/controll
 | Monitor candidate full builds | Full synthesis and both fresh C++ builds independently passed | Fresh full-parent replays remain required |
 | Monitor candidate implementation | Raw routing completed; setup −1.454 ns fails, hold +0.012 ns passes; startup inventory fails | Preserve failed checkpoint; diagnose inventory and repair actual critical path |
 | Monitor candidate full models | Warm replay/wire audit and all twelve controller cases independently passed | Physical MIG/PHY, PCIe and new-image application tests remain separate |
-| Response-payload zero bank | Fresh full synthesis, retention/inventory and strict checks pass; warm 16-job and original-12 controller model audits pass; placement structure passes but unrouted setup/hold fail; route stopped before `route_design` after a client-reset source was cloned | Preserve the original assertion sources and guards, then require fresh route/image/physical qualification; full synthesis of the separate DONE cofactor is running |
+| Response-payload zero bank | The preceding response-zero route attempt stopped before `route_design` at the retained assertion-source guard; its placement had negative unrouted setup/hold. The separate DONE cofactor now passes fresh synthesis (293,492 LUTs/89,804 FFs/516 DSP), C++ builds, retention/inventory and strict structural checks. Warm V1 timed out at 1,800 seconds with only a matching partial-prefix diagnostic; warm V2 is source-reviewed and queued after the live controller replay. Placement is live. | Preserve the route failure and warm timeout as failures. Complete the current controller and placement reviews, then run warm V2 and the full whole-BO audit. Require fresh route/image/physical qualification separately |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rkfi-host-public-independent-review-v1/results-review.json) with 43,992 inputs unchanged, including fourteen normal and fourteen optimized RKFI callback tests | Covers the public source snapshot and fake-register callback controls; not physical MIG, FPGA, ECC or RK silicon |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |

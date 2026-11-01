@@ -93,10 +93,30 @@ optimization and routing remains unproven. No routed timing result or new image 
 A separate private [DONE cofactor component candidate](build/reset-ui-stable-done-cofactor-native-v1/results-review.json)
 passes paired native and [matched OOC checks](build/reset-ui-stable-done-cofactor-mapped-v1/results-review.json): result-ready CE hits fall from
 32 to zero, LUTs from 320 to 316, and FFs remain 208. It is not canonical and
-has no full-parent or physical qualification. Fresh full-design synthesis is
-running with only that sequencer changed from the response-zero source; its
-[source review](build/ui-stable-done-full-synth-v1/source-review.json) binds the
-[201-record manifest](build/ui-stable-done-full-synth-v1/source-manifest.json).
+has no full-parent or physical qualification. The fresh full-design
+[synthesis review](build/ui-stable-done-full-synth-v1/results-review.json)
+reports 293,492 LUTs, 89,804 FFs and 516 DSPs. Its source review binds a
+[201-record manifest](build/ui-stable-done-full-synth-v1/source-manifest.json)
+with only sequencer order 165 changed. Fresh [warm](build/ui-stable-done-warm-continuation-v1/build-results-review.json)
+and [controller](build/ui-stable-done-controller-continuation-v1/build-results-review.json)
+C++ builds passed; retention and mapped inventory passed; and the
+[strict structural review](build/ui-stable-done-implementation-prep-v1/strict-results-review.json)
+passes the original constant, reset, clock, electrical, DRC and full-design
+census checks, including seven assertion sources/75 net segments and 130
+protected startup registers after optimization. The strict result does not
+accept timing.
+
+Fresh placement is still running. The first warm replay attempt
+[timed out at its unchanged 1,800-second limit](build/ui-stable-done-warm-replay-v1/results-review.json).
+A read-only [trace comparison](build/ui-stable-done-warm-timeout-diagnostic-v1/report.json)
+matches 33,148,976 complete-line bytes to the earlier accepted prefix; this is
+partial progress only, not a replay or whole-BO pass. A fresh warm replay V2
+has [source review](build/ui-stable-done-warm-replay-v2/source-review.json) and
+is queued to run after the live controller replay. The current [controller
+replay](build/ui-stable-done-controller-replay-v1/run-v1/report.json) is also
+still running. This separate DONE cofactor has no accepted warm trace, whole-BO
+audit, routed timing or new-image qualification. The model runs do not qualify
+physical MIG/PHY behavior, RK execution or a new FPGA image.
 
 The [fresh public default regression review](build/rkfi-host-public-independent-review-v1/results-review.json)
 passes on 43,992 unchanged input hashes, including fourteen normal and fourteen
