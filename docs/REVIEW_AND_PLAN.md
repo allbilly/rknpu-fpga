@@ -185,18 +185,39 @@ and [mapped inventory](../build/ui-stable-done-post-synth-prep-v1/inventory-resu
 also pass. The [strict structural review](../build/ui-stable-done-implementation-prep-v1/strict-results-review.json)
 passes the original gates, including seven assertion sources/75 net segments
 and 130 protected startup registers after optimization; it does not accept
-timing. Placement remains in progress.
+timing. The fresh [placement review](../build/ui-stable-done-implementation-prep-v1/placement-results-review.json)
+passes structural checks, including seven assertion sources/75 net segments,
+but unrouted setup fails at −2.041 ns/TNS −7,626.422 ns across 9,025 endpoints;
+hold fails at −0.469 ns across 1,445 endpoints. The worst reported setup path
+runs from the C1 control address through full monitor HEALTH and snapshot-hit
+selection into the legacy memory-adapter state enable: 23 logic levels and
+9.001 ns data-path delay. Routing must provide its own timing result.
 
 The first warm replay attempt [timed out at the unchanged 1,800-second limit](../build/ui-stable-done-warm-replay-v1/results-review.json).
 The read-only [timeout diagnosis](../build/ui-stable-done-warm-timeout-diagnostic-v1/report.json)
 matches 33,148,976 complete-line bytes to the prior accepted trace prefix; it
 is not a completed replay or whole-BO result. Warm replay V2 has
 [source review](../build/ui-stable-done-warm-replay-v2/source-review.json) and
-is queued behind the currently live controller replay. The fresh
-[controller report](../build/ui-stable-done-controller-replay-v1/run-v1/report.json)
-remains live. There is no accepted warm trace or full whole-BO audit for this
+is now running after placement and controller processes closed, with the same
+binary, fixtures and 1,800-second deadline. The fresh
+[controller review](../build/ui-stable-done-controller-replay-v1/results-review.json)
+passes all twelve original cases, six complete output buffers/532,480 bytes,
+seven SYS resets and 32,768 BIST writes plus 32,768 reads. All source hashes
+remain unchanged and owned process groups are closed. There is no accepted
+warm trace or warm whole-BO audit for this
 DONE cofactor source. These model runs do not qualify physical MIG/PHY behavior,
 RK execution or a new FPGA image.
+
+The private [SRAM-load renderer](../build/ui-stable-done-sram-load-prep-v1/runner-review.json)
+now passes source review against the approved emitter-v2 selection. Its
+seven-source assertion crosswalk uses the actual variable net-segment count.
+The [programming components](../build/ui-stable-done-hardware-executor-prep-v1/component-results-review.json)
+pass eighteen device-free controls, including actual transient user scopes
+with detached children, server-listener ownership and strict programming
+receipt checks. The shared lease remains held through child cleanup; observed
+memory/high/swap limits are unlimited. These are library/preparation results:
+the final application entrypoint and its source-bound execution review remain
+to be integrated. No real board lease, programming or application run occurred.
 
 | Active task | Status | Exit gate |
 |---|---|---|
@@ -210,7 +231,7 @@ RK execution or a new FPGA image.
 | Monitor candidate full builds | Full synthesis and both fresh C++ builds independently passed | Fresh full-parent replays remain required |
 | Monitor candidate implementation | Raw routing completed; setup −1.454 ns fails, hold +0.012 ns passes; startup inventory fails | Preserve failed checkpoint; diagnose inventory and repair actual critical path |
 | Monitor candidate full models | Warm replay/wire audit and all twelve controller cases independently passed | Physical MIG/PHY, PCIe and new-image application tests remain separate |
-| Response-payload zero bank | The preceding response-zero route attempt stopped before `route_design` at the retained assertion-source guard; its placement had negative unrouted setup/hold. The separate DONE cofactor now passes fresh synthesis (293,492 LUTs/89,804 FFs/516 DSP), C++ builds, retention/inventory and strict structural checks. Warm V1 timed out at 1,800 seconds with only a matching partial-prefix diagnostic; warm V2 is source-reviewed and queued after the live controller replay. Placement is live. | Preserve the route failure and warm timeout as failures. Complete the current controller and placement reviews, then run warm V2 and the full whole-BO audit. Require fresh route/image/physical qualification separately |
+| Response-payload zero bank | The preceding response-zero route attempt stopped before `route_design` at the retained assertion-source guard; its placement had negative unrouted setup/hold. The separate DONE cofactor now passes fresh synthesis (293,492 LUTs/89,804 FFs/516 DSP), C++ builds, retention/inventory and strict structural checks. Warm V1 timed out at 1,800 seconds with only a matching partial-prefix diagnostic; warm V2 is running after placement and controller processes closed. All twelve current controller cases and six complete output buffers/532,480 bytes pass independent review. Placement passes structural review but setup −2.041 ns and hold −0.469 ns remain failed and unrouted. | Preserve the route failure and warm timeout as failures. Complete warm V2 and its full whole-BO audit, then run the guarded route. Require fresh route/image/physical qualification separately |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rkfi-host-public-independent-review-v1/results-review.json) with 43,992 inputs unchanged, including fourteen normal and fourteen optimized RKFI callback tests | Covers the public source snapshot and fake-register callback controls; not physical MIG, FPGA, ECC or RK silicon |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |

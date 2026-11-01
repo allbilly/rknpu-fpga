@@ -106,15 +106,20 @@ census checks, including seven assertion sources/75 net segments and 130
 protected startup registers after optimization. The strict result does not
 accept timing.
 
-Fresh placement is still running. The first warm replay attempt
+Fresh [placement review](build/ui-stable-done-implementation-prep-v1/placement-results-review.json)
+passes the retained structural checks, including the seven assertion sources
+and 75 net segments, but unrouted setup remains −2.041 ns and hold −0.469 ns.
+The first warm replay attempt
 [timed out at its unchanged 1,800-second limit](build/ui-stable-done-warm-replay-v1/results-review.json).
 A read-only [trace comparison](build/ui-stable-done-warm-timeout-diagnostic-v1/report.json)
 matches 33,148,976 complete-line bytes to the earlier accepted prefix; this is
 partial progress only, not a replay or whole-BO pass. A fresh warm replay V2
 has [source review](build/ui-stable-done-warm-replay-v2/source-review.json) and
-is queued to run after the live controller replay. The current [controller
-replay](build/ui-stable-done-controller-replay-v1/run-v1/report.json) is also
-still running. This separate DONE cofactor has no accepted warm trace, whole-BO
+is now running after placement and controller processes closed, with the same
+binary, fixtures and 1,800-second deadline. The fresh [controller replay review](build/ui-stable-done-controller-replay-v1/results-review.json)
+passes all twelve original cases, six whole output buffers/532,480 bytes,
+seven SYS resets and 32,768 BIST writes plus 32,768 reads. This separate DONE
+cofactor has no accepted warm trace, warm whole-BO
 audit, routed timing or new-image qualification. The model runs do not qualify
 physical MIG/PHY behavior, RK execution or a new FPGA image.
 
