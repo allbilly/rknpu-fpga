@@ -74,7 +74,7 @@ lease denial. The simulator reports 1,241.288 seconds under the unchanged
 is preserved; resource contention remains a possible cause rather than a proven
 diagnosis.
 
-The active candidate is a state-qualified monitor READY expression. Source
+The preceding candidate is a state-qualified monitor READY expression. Source
 proof removes only the three read-data fault predicates that require mutually
 exclusive READ states; full HEALTH, fault priority and sequential behavior stay
 unchanged. Its [paired native review](../build/monitor-ready-state-cofactor-native-v3/results-review.json)
@@ -108,8 +108,10 @@ now verifies 450,495/450,495 routable nets and zero routing errors. Setup still
 fails at −1.454 ns/TNS −3,941.236 ns across 5,253 endpoints; hold passes at
 +0.012 ns. The original 65-register startup inventory fails after routing,
 despite the pre-physical-optimization audit retaining 130 protected startup
-registers. Its cause is under read-only checkpoint investigation; no inventory,
-timing or electrical gate is relaxed. Cleanup, detailed audits and image
+registers. Read-only checkpoint comparison identifies two new replicas of
+the UI startup final-reset register, introduced by physical optimization;
+all original 130 protected startup FFs remain. No inventory, timing or
+electrical gate is relaxed. Cleanup, detailed audits and image
 acceptance were not reached. The
 [fresh controller review](../build/monitor-ready-controller-replay-v2/results-review.json)
 now accepts all twelve original cases, six complete BO images/532,480 bytes,
@@ -135,12 +137,23 @@ controllers and products retained. The
 [matched full-design fan-in inventory](../build/response-zero-full-fanin-inventory-v1/results-review.json)
 records 1,024 old memory-driver and C1 control-address-register hits on payload
 D/CE pins versus zero in the new 512-FF bank. This is mapped connectivity,
-not routed timing. Both fresh C++ binaries pass exact archive/link/source review,
-and the new warm and twelve-case controller replays are running; controller
-host concurrency is two, with original cases, validators and deadlines unchanged.
+not routed timing. Both fresh C++ binaries pass exact archive/link/source review.
+The fresh [warm wire/BO review](../build/response-zero-warm-wire-audit-v1/results-review.json)
+passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete
+BO bytes before ACK. The twelve-case controller replay is running with host
+concurrency two and original cases, validators and deadlines unchanged.
 Fresh [constant retention](../build/response-zero-post-synth-prep-v1/retention-results-review.json)
 and [crossing/reset inventory](../build/response-zero-post-synth-prep-v1/inventory-results-review.json)
-also pass. No preceding full-parent model or route result qualifies this source.
+also pass. The fresh [strict review](../build/response-zero-implementation-prep-v1/strict-results-review.json)
+passes the original 35 constant proofs, three retained grounds, 130 protected
+startup FFs and original 65-register inventories, clock/reset/electrical gates
+and retained interface census. It additionally protects the two original
+startup output-net families and verifies all 21 logical segments before and
+after optimization. Fresh placement is running; preservation through placement
+and routing still requires measurement. The prepared route now audits startup
+cells and nets immediately after physical optimization, before routing, so
+another duplication stops early. No preceding full-parent model or route result
+qualifies this source.
 
 | Active task | Status | Exit gate |
 |---|---|---|
@@ -154,7 +167,7 @@ also pass. No preceding full-parent model or route result qualifies this source.
 | Monitor candidate full builds | Full synthesis and both fresh C++ builds independently passed | Fresh full-parent replays remain required |
 | Monitor candidate implementation | Raw routing completed; setup −1.454 ns fails, hold +0.012 ns passes; startup inventory fails | Preserve failed checkpoint; diagnose inventory and repair actual critical path |
 | Monitor candidate full models | Warm replay/wire audit and all twelve controller cases independently passed | Physical MIG/PHY, PCIe and new-image application tests remain separate |
-| Response-payload zero bank | Fresh full synthesis, full fan-in checks, C++ builds and retention/inventory passed; full-parent replays running | Complete fresh model audits and constrained implementation, then hardware qualification |
+| Response-payload zero bank | Fresh full synthesis, full fan-in checks, C++ builds, retention/inventory, warm whole-BO audit and strict constraints passed; placement and controller replay running | Complete controller audit and placement, then fresh routing and hardware qualification |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rk-capture-public-regression-v1/results-review.json) for commit `1652fb3`, with 43,985 tracked inputs unchanged | Covers the public capture primitives and existing suite, not private timing sources |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |

@@ -68,8 +68,16 @@ FFs in that isolated mapping. Fresh
 [full-design fan-in check](build/response-zero-full-fanin-inventory-v1/results-review.json)
 confirms removal of the measured control-address paths from the 512 payload
 registers' data/enable inputs. Both fresh model binaries and post-synthesis
-retention/inventory pass review; the new full-parent replays are running.
-Implementation still requires new evidence. The separate
+retention/inventory pass review. The fresh
+[warm wire/BO review](build/response-zero-warm-wire-audit-v1/results-review.json)
+passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 whole
+BO bytes before ACK. The fresh
+[strict review](build/response-zero-implementation-prep-v1/strict-results-review.json)
+passes the original constant, startup, clock, reset and electrical checks.
+It also verifies protection of both original startup output-net families;
+the preceding route duplicated two startup registers during physical
+optimization. Placement and the twelve-case controller replay are running.
+Routing and new-image hardware qualification remain pending. The separate
 [public default regression](build/rk-capture-public-regression-v1/results-review.json)
 passes for commit `1652fb3`, including the passive RK capture primitives.
 
