@@ -45,7 +45,10 @@ result/counter repair passes full synthesis, constant retention and mapped
 inventory with independent review. Both fresh C++ builds, strict constraints and
 the sixteen-job warm reset/whole-BO replay have passed independent review.
 Controller replay and placement are running. Routing preparation is reviewed
-and waits on the fresh placement result. The latest completed route remains failed at
+and waits on the fresh placement result. Nine controller cases have passed
+incremental original-validator checks; the full twelve-case result remains pending.
+The current image-emission preparation is source-reviewed and waits on the
+complete controller, route and detailed-audit results. The latest completed route remains failed at
 −1.801 ns setup slack; there is no accepted new image. Historical TinyStories
 success applies to its earlier image only.
 
@@ -310,6 +313,20 @@ execution because its Python interpreter differed from the reviewed snapshot.
 Its journal and failure receipt are preserved; the fresh service uses the exact
 reviewed interpreter with unchanged source, fixtures and deadlines. Controller
 replay acceptance and routed timing remain required before image acceptance.
+
+The [incremental controller review](../build/result-counter-zero-controller-incremental-review-v3/report.json)
+accepts nine completed cases using the unchanged V4 validators, including CE/UE
+recovery and held-result controls, with 430,080 whole-BO payload bytes checked.
+Capacity, coordinator-fault and late-drain completion remain pending in that
+snapshot. This partial review cannot substitute for the complete matrix.
+The [current emitter source review](../build/result-counter-zero-image-emitter-prep-v1/source-review.json)
+and [Tcl review](../build/result-counter-zero-image-emitter-prep-v1/tcl-source-review.json)
+retain the original emission/timing/electrical checks and adapt admission to the
+new compact model reports. Seven prefix controls pass; an actual emission request
+with missing parents is rejected before creating an emission directory. Its
+read-only preflight waits on controller, route and detailed-audit acceptance.
+No new image has been emitted. SRAM-load preparation still needs fresh bindings
+to this emitter and its future image; the renderer below selects the prior image.
 
 The private [SRAM-load renderer](../build/ui-stable-done-sram-load-prep-v1/runner-review.json)
 now passes source review against the approved emitter-v2 selection. Its
