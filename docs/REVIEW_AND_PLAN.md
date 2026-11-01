@@ -215,13 +215,12 @@ RK execution or a new FPGA image.
 The private [SRAM-load renderer](../build/ui-stable-done-sram-load-prep-v1/runner-review.json)
 now passes source review against the approved emitter-v2 selection. Its
 seven-source assertion crosswalk uses the actual variable net-segment count.
-The [programming components](../build/ui-stable-done-hardware-executor-prep-v1/component-results-review.json)
-pass eighteen device-free controls, including actual transient user scopes
+The [programming components](../build/ui-stable-done-hardware-executor-prep-v1/component-results-review-v2.json)
+pass twenty device-free controls, including actual transient user scopes
 with detached children, server-listener ownership and strict programming
 receipt checks. The shared lease remains held through child cleanup; observed
-memory/high/swap limits are unlimited. These are library/preparation results:
-the final application entrypoint and its source-bound execution review remain
-to be integrated. No real board lease, programming or application run occurred.
+memory/high/swap limits are unlimited. These remain source/preparation results;
+no real board lease, programming or application run occurred.
 
 The combined-image TinyStories preparation now uses an acquired RKHO frame
 owner instead of reusing the older direct-namespace transport. Device-free
@@ -231,8 +230,22 @@ wrap, explicit owner release and error rejection. A separate
 checks 232 jobs/348 tasks/950,272 BO bytes through the unchanged numerical
 checker, with corrupted-logit and BO controls rejected. Its saved data and
 regenerated frame envelope are unit-test fixtures, not new RTL or physical
-execution evidence. The source-bound outer application runner, actual
-combined-image inference and its physical review remain pending.
+execution evidence.
+
+The [outer application runner](../build/ui-stable-done-hardware-executor-prep-v1/README.md)
+now has [independent source/preparation review](../build/ui-stable-done-hardware-executor-prep-v1/application-runner-results-review.json).
+Its 35-code/180-static-input inventory binds the model, original raw catalog,
+host compiler, native bridge and source-bound worker/auditor. Nine admission
+and source-loading controls and four mocked execution controls pass, alongside
+the twenty ownership/source-buffer controls. A fresh direct GCC 16.2.1
+external-dense host build/load also passes with zero inference positions or
+learned projection calls. Worker host libraries remain fresh builds, with
+their source/compiler receipts checked against this feasibility build.
+The executable path requires one audited volatile load and three serial
+phases: first BOS, repeated BOS and full32, each with complete raw-wire/BO
+auditing. Its default preflight does not access hardware. Actual image-plan
+and trial admission, combined-image inference, independent physical review,
+and separate SYS/ECC/PCIe qualification remain pending.
 
 | Active task | Status | Exit gate |
 |---|---|---|
@@ -248,7 +261,7 @@ combined-image inference and its physical review remain pending.
 | Monitor candidate full models | Warm replay/wire audit and all twelve controller cases independently passed | Physical MIG/PHY, PCIe and new-image application tests remain separate |
 | Response-payload zero bank | Earlier route stopped before `route_design` at the retained assertion-source guard | Preserve the failed checkpoint and its diagnosis |
 | DONE cofactor: current candidate | Full synthesis, strict/placement structural checks, twelve controller cases and sixteen warm jobs/1,441,792 whole-BO bytes independently pass. Placement timing remains failed and unrouted (setup −2.041 ns, hold −0.469 ns). Guarded implementation/route is active. | Require the new routed timing, DRC, reset/crossing and protected-source results before image emission |
-| Combined-image application preparation | Renderer and programming components pass source/device-free checks; RKHO transport/decoder and synthetic whole-BO auditor controls pass | Integrate the source-bound outer application runner, then perform actual new-image tests |
+| Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rkfi-host-public-independent-review-v1/results-review.json) with 43,992 inputs unchanged, including fourteen normal and fourteen optimized RKFI callback tests | Covers the public source snapshot and fake-register callback controls; not physical MIG, FPGA, ECC or RK silicon |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |
