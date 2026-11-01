@@ -113,14 +113,17 @@ The first warm replay attempt
 [timed out at its unchanged 1,800-second limit](build/ui-stable-done-warm-replay-v1/results-review.json).
 A read-only [trace comparison](build/ui-stable-done-warm-timeout-diagnostic-v1/report.json)
 matches 33,148,976 complete-line bytes to the earlier accepted prefix; this is
-partial progress only, not a replay or whole-BO pass. A fresh warm replay V2
-has [source review](build/ui-stable-done-warm-replay-v2/source-review.json) and
-is now running after placement and controller processes closed, with the same
-binary, fixtures and 1,800-second deadline. The fresh [controller replay review](build/ui-stable-done-controller-replay-v1/results-review.json)
+partial progress only, not a replay or whole-BO pass. Fresh warm replay V2
+passes [marker/provenance review](build/ui-stable-done-warm-replay-v2/results-review.json)
+and the [independent wire/whole-BO audit](build/ui-stable-done-warm-wire-audit-v2/results-review.json):
+sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete BO
+bytes before ACK. It finishes in 1,203.315 seconds with the same binary,
+fixtures and 1,800-second deadline; the first timeout remains failed evidence.
+The fresh [controller replay review](build/ui-stable-done-controller-replay-v1/results-review.json)
 passes all twelve original cases, six whole output buffers/532,480 bytes,
 seven SYS resets and 32,768 BIST writes plus 32,768 reads. This separate DONE
-cofactor has no accepted warm trace, warm whole-BO
-audit, routed timing or new-image qualification. The model runs do not qualify
+cofactor is now in a [guarded implementation/route run](build/ui-stable-done-route-prep-v1/run-v1/report.json).
+Routed timing and new-image qualification remain pending. The model runs do not qualify
 physical MIG/PHY behavior, RK execution or a new FPGA image.
 
 The [fresh public default regression review](build/rkfi-host-public-independent-review-v1/results-review.json)

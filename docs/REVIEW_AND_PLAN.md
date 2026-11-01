@@ -196,16 +196,20 @@ selection into the legacy memory-adapter state enable: 23 logic levels and
 The first warm replay attempt [timed out at the unchanged 1,800-second limit](../build/ui-stable-done-warm-replay-v1/results-review.json).
 The read-only [timeout diagnosis](../build/ui-stable-done-warm-timeout-diagnostic-v1/report.json)
 matches 33,148,976 complete-line bytes to the prior accepted trace prefix; it
-is not a completed replay or whole-BO result. Warm replay V2 has
-[source review](../build/ui-stable-done-warm-replay-v2/source-review.json) and
-is now running after placement and controller processes closed, with the same
-binary, fixtures and 1,800-second deadline. The fresh
+is not a completed replay or whole-BO result. Fresh warm replay V2 now passes
+[marker/provenance review](../build/ui-stable-done-warm-replay-v2/results-review.json)
+and the [independent wire/whole-BO audit](../build/ui-stable-done-warm-wire-audit-v2/results-review.json):
+sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 whole-BO bytes
+before ACK. The same binary and fixtures finish in 1,203.315 seconds under
+the unchanged 1,800-second deadline. The first timeout remains failed evidence.
+The fresh
 [controller review](../build/ui-stable-done-controller-replay-v1/results-review.json)
 passes all twelve original cases, six complete output buffers/532,480 bytes,
 seven SYS resets and 32,768 BIST writes plus 32,768 reads. All source hashes
-remain unchanged and owned process groups are closed. There is no accepted
-warm trace or warm whole-BO audit for this
-DONE cofactor source. These model runs do not qualify physical MIG/PHY behavior,
+remain unchanged and owned process groups are closed. The
+[guarded implementation/route run](../build/ui-stable-done-route-prep-v1/run-v1/report.json)
+is now active from the reviewed placement checkpoint; routed timing is pending.
+These model runs do not qualify physical MIG/PHY behavior,
 RK execution or a new FPGA image.
 
 The private [SRAM-load renderer](../build/ui-stable-done-sram-load-prep-v1/runner-review.json)
@@ -219,6 +223,17 @@ memory/high/swap limits are unlimited. These are library/preparation results:
 the final application entrypoint and its source-bound execution review remain
 to be integrated. No real board lease, programming or application run occurred.
 
+The combined-image TinyStories preparation now uses an acquired RKHO frame
+owner instead of reusing the older direct-namespace transport. Device-free
+transport and decoder controls preserve raw commands/BOs, retained sequence
+wrap, explicit owner release and error rejection. A separate
+[synthetic auditor review](../build/ui-stable-done-hardware-executor-prep-v1/combined-auditor-results-review.json)
+checks 232 jobs/348 tasks/950,272 BO bytes through the unchanged numerical
+checker, with corrupted-logit and BO controls rejected. Its saved data and
+regenerated frame envelope are unit-test fixtures, not new RTL or physical
+execution evidence. The source-bound outer application runner, actual
+combined-image inference and its physical review remain pending.
+
 | Active task | Status | Exit gate |
 |---|---|---|
 | Three-control-fix full models | Passed: 12 controller cases; 16 warm jobs, 12 compute resets and one SYS reset | Bound to that earlier parent |
@@ -231,7 +246,9 @@ to be integrated. No real board lease, programming or application run occurred.
 | Monitor candidate full builds | Full synthesis and both fresh C++ builds independently passed | Fresh full-parent replays remain required |
 | Monitor candidate implementation | Raw routing completed; setup −1.454 ns fails, hold +0.012 ns passes; startup inventory fails | Preserve failed checkpoint; diagnose inventory and repair actual critical path |
 | Monitor candidate full models | Warm replay/wire audit and all twelve controller cases independently passed | Physical MIG/PHY, PCIe and new-image application tests remain separate |
-| Response-payload zero bank | The preceding response-zero route attempt stopped before `route_design` at the retained assertion-source guard; its placement had negative unrouted setup/hold. The separate DONE cofactor now passes fresh synthesis (293,492 LUTs/89,804 FFs/516 DSP), C++ builds, retention/inventory and strict structural checks. Warm V1 timed out at 1,800 seconds with only a matching partial-prefix diagnostic; warm V2 is running after placement and controller processes closed. All twelve current controller cases and six complete output buffers/532,480 bytes pass independent review. Placement passes structural review but setup −2.041 ns and hold −0.469 ns remain failed and unrouted. | Preserve the route failure and warm timeout as failures. Complete warm V2 and its full whole-BO audit, then run the guarded route. Require fresh route/image/physical qualification separately |
+| Response-payload zero bank | Earlier route stopped before `route_design` at the retained assertion-source guard | Preserve the failed checkpoint and its diagnosis |
+| DONE cofactor: current candidate | Full synthesis, strict/placement structural checks, twelve controller cases and sixteen warm jobs/1,441,792 whole-BO bytes independently pass. Placement timing remains failed and unrouted (setup −2.041 ns, hold −0.469 ns). Guarded implementation/route is active. | Require the new routed timing, DRC, reset/crossing and protected-source results before image emission |
+| Combined-image application preparation | Renderer and programming components pass source/device-free checks; RKHO transport/decoder and synthetic whole-BO auditor controls pass | Integrate the source-bound outer application runner, then perform actual new-image tests |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rkfi-host-public-independent-review-v1/results-review.json) with 43,992 inputs unchanged, including fourteen normal and fourteen optimized RKFI callback tests | Covers the public source snapshot and fake-register callback controls; not physical MIG, FPGA, ECC or RK silicon |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |
