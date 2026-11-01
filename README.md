@@ -78,10 +78,30 @@ It also verifies protection of both original startup output-net families;
 the preceding route duplicated two startup registers during physical
 optimization. The fresh [response-zero controller replay review](build/response-zero-controller-replay-v1/results-review.json)
 passes all twelve original cases with host fanout two; it is model-only.
-Placement is running, and routing and new-image hardware qualification remain
-pending. The separate
-[public default regression](build/rk-capture-public-regression-v1/results-review.json)
-passes for commit `1652fb3`, including the passive RK capture primitives.
+The [fresh placement review](build/response-zero-implementation-prep-v1/placement-results-review.json)
+passes structural checks, but unrouted setup is −2.128 ns and hold is −0.718 ns.
+The subsequent [route attempt](build/response-zero-route-prep-v1/failure-review.json)
+stopped before `route_design` at the post-phys-opt retained assertion-source
+guard; it preserves the post-phys-opt DCP at SHA-256
+`a7a1635a2102f5cf69eed093dfc7dd3f51ad1822ce60b8fd49cb43dc15921781`.
+A [read-only comparison](build/response-zero-release-source-inventory-v1/results-review.json)
+identifies a cloned client-reset source feeding all three frontend assertion
+cones. An [in-memory property probe](build/retained-assertion-source-property-probe-v1/results-review.json)
+protects the seven declared sources and 75 discovered net segments while
+preserving the original guards and recorded topology. Preservation through
+optimization and routing remains unproven. No routed timing result or new image is accepted.
+A separate private [DONE cofactor component candidate](build/reset-ui-stable-done-cofactor-native-v1/results-review.json)
+passes paired native and [matched OOC checks](build/reset-ui-stable-done-cofactor-mapped-v1/results-review.json): result-ready CE hits fall from
+32 to zero, LUTs from 320 to 316, and FFs remain 208. It is not canonical and
+has no full-parent or physical qualification. Fresh full-design synthesis is
+running with only that sequencer changed from the response-zero source; its
+[source review](build/ui-stable-done-full-synth-v1/source-review.json) binds the
+[201-record manifest](build/ui-stable-done-full-synth-v1/source-manifest.json).
+
+The [fresh public default regression review](build/rkfi-host-public-independent-review-v1/results-review.json)
+passes on 43,992 unchanged input hashes, including fourteen normal and fourteen
+optimized RKFI callback tests. This is source regression evidence, not physical
+MIG, FPGA or RK silicon acceptance.
 
 An earlier UI-qualified combined PCIe/JTAG candidate
 [completes routing](build/pcie-ui-health-route-results-review-v1/review.json)

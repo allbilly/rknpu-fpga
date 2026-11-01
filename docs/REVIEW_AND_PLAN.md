@@ -152,11 +152,30 @@ passes the original 35 constant proofs, three retained grounds, 130 protected
 startup FFs and original 65-register inventories, clock/reset/electrical gates
 and retained interface census. It additionally protects the two original
 startup output-net families and verifies all 21 logical segments before and
-after optimization. Fresh placement is running; preservation through placement
-and routing still requires measurement. The prepared route now audits startup
-cells and nets immediately after physical optimization, before routing, so
-another duplication stops early. No preceding full-parent model or route result
-qualifies this source.
+after optimization. Fresh placement passes structural checks, but unrouted
+setup is −2.128 ns and hold is −0.718 ns. The subsequent route attempt stopped
+before `route_design` at the post-phys-opt retained assertion-source guard; it
+preserves DCP `a7a1635a2102f5cf69eed093dfc7dd3f51ad1822ce60b8fd49cb43dc15921781`.
+A [read-only comparison](../build/response-zero-release-source-inventory-v1/results-review.json)
+identifies the changed source: all three frontend CLR cones use
+`clients_rst_n_reg_replica_1/C` instead of the original register's clock pin.
+The other four frontend sources and all six readiness source sets match.
+The [in-memory protection probe](../build/retained-assertion-source-property-probe-v1/results-review.json)
+protects the seven original declared sources and 75 discovered net segments
+while preserving their recorded topology, all 130 startup-cell snapshots and
+the unchanged three-family release inventory. Preservation through optimization
+and routing still requires fresh proof; no source inventory or guard is relaxed. There is no
+routed timing result or new image. A separate private
+[UI-stable DONE cofactor component candidate](../build/reset-ui-stable-done-cofactor-native-v1/results-review.json)
+passes paired native and [matched OOC review](../build/reset-ui-stable-done-cofactor-mapped-v1/results-review.json): the result-ready CE input count
+falls from 32 to zero, LUTs from 320 to 316, and FFs remain 208. It remains a
+component-only candidate, not a canonical source or full-parent/physical result.
+The fresh full-design [source review](../build/ui-stable-done-full-synth-v1/source-review.json)
+binds a [201-record manifest](../build/ui-stable-done-full-synth-v1/source-manifest.json)
+with only sequencer order 165 replaced. Its
+[warm](../build/ui-stable-done-full-synth-v1/model-crosswalks/warm-82-project-crosswalk.json)
+and [controller](../build/ui-stable-done-full-synth-v1/model-crosswalks/controller-82-project-crosswalk.json)
+82-project crosswalks change only index 64. Full synthesis is running.
 
 | Active task | Status | Exit gate |
 |---|---|---|
@@ -170,9 +189,9 @@ qualifies this source.
 | Monitor candidate full builds | Full synthesis and both fresh C++ builds independently passed | Fresh full-parent replays remain required |
 | Monitor candidate implementation | Raw routing completed; setup −1.454 ns fails, hold +0.012 ns passes; startup inventory fails | Preserve failed checkpoint; diagnose inventory and repair actual critical path |
 | Monitor candidate full models | Warm replay/wire audit and all twelve controller cases independently passed | Physical MIG/PHY, PCIe and new-image application tests remain separate |
-| Response-payload zero bank | Fresh full synthesis, full fan-in checks, C++ builds, retention/inventory, warm whole-BO audit and strict constraints passed; the original-12 controller review passes model-only; placement is running | Complete placement, then fresh routing and hardware qualification |
+| Response-payload zero bank | Fresh full synthesis, retention/inventory and strict checks pass; warm 16-job and original-12 controller model audits pass; placement structure passes but unrouted setup/hold fail; route stopped before `route_design` after a client-reset source was cloned | Preserve the original assertion sources and guards, then require fresh route/image/physical qualification; full synthesis of the separate DONE cofactor is running |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
-| Public regression | [Fresh full serial default suite passed](../build/rk-capture-public-regression-v1/results-review.json) for commit `1652fb3`, with 43,985 tracked inputs unchanged | Covers the public capture primitives and existing suite, not private timing sources |
+| Public regression | [Fresh full serial default suite passed](../build/rkfi-host-public-independent-review-v1/results-review.json) with 43,992 inputs unchanged, including fourteen normal and fourteen optimized RKFI callback tests | Covers the public source snapshot and fake-register callback controls; not physical MIG, FPGA, ECC or RK silicon |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |
 
 Earlier source-bound timing milestones follow. The private FI staging-enable, snapshot-capture

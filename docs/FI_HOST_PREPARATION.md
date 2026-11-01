@@ -59,4 +59,14 @@ Run the focused callback controls with `make ddr-fi-client-controls`; this
 target is also part of the default `make test`. The tests use fake register
 callbacks under normal and optimized Python. They do not exercise SystemVerilog,
 MIG, an FPGA, RK silicon, physical ECC injection or numerical equivalence.
-Coupled RTL/host tests and physical qualification remain separate gates.
+The [full public default regression review](../build/rkfi-host-public-independent-review-v1/results-review.json)
+records 43,992 unchanged inputs and fourteen normal plus fourteen optimized
+client controls; this remains public source-regression evidence only.
+
+A separate [host/actual-register-leaf review](../build/rkfi-host-rtl-prep-v3/results-review.json)
+passes nine callback cases, 32 raw AXI word reads and seven ACKs against the
+management-register RTL leaf with modeled children. It is not an actual MIG or
+ECC event test. The earlier [V1](../build/rkfi-host-rtl-prep-v1/run-v1/report.json)
+and [V2](../build/rkfi-host-rtl-prep-v2/run-v1/report.json) fixture failures
+remain preserved. Coupled parent/MIG tests and physical ECC qualification
+remain separate gates.
