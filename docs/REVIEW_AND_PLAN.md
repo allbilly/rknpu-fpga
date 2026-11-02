@@ -1,6 +1,6 @@
 # Implementation plan and acceptance gates
 
-Reviewed 2026-11-02 HKT. This is the active plan. The
+Reviewed 2026-11-03 HKT. This is the active plan. The
 [previous plan and dated implementation history](REVIEW_AND_PLAN_HISTORY.md)
 preserve earlier decisions, receipts and failures; dated instructions there
 are not current authorization or status.
@@ -65,7 +65,15 @@ passes all original structural/protection checks; unrouted setup remains
 −151.362 ns across 1,223 endpoints. Its worst estimated setup path reaches
 backend line-data enables from C1 MIG CTRL through full monitor health.
 The [fresh guarded route](../build/snapshot-publication-route-prep-v1/source-review.json)
-is running from this reviewed placement checkpoint. The
+has completed from this reviewed placement checkpoint. Its
+[independent failure review](../build/snapshot-publication-route-prep-v1/failure-review.json)
+verifies all 450,895 routable nets, zero routing errors, the original protection
+inventories and only inherited DRC warnings. Guarded cleanup removes twenty-three
+unloaded nets and eight proven-dead O5 buffers without changing routing or
+slacks. Setup still fails at −1.208 ns/TNS −1,874.641 ns across 3,925 endpoints;
+hold passes at +0.012 ns. The worst path reaches compute-reset block-level state
+from C1 CTRL through monitor health and capacity admission. The saved cleaned
+checkpoint remains a failed-timing diagnostic, not an accepted image. The
 [explicit source candidate](../rtl/ddr/pcie_snapshot_publication/README.md)
 preserves all 201 selected inputs through 177 existing repository sources,
 22 new HDL files, one header and the separately supplied unchanged XDMA
@@ -464,12 +472,35 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | SUBMIT result-zero timing repair | Paired native and matched mapping independently pass: nine result FF input cones removed, 205→195 LUTs/286 FFs | Fresh full-parent models and timing before selection |
 | Fabric counter zero bank | Original 21/19 protocol cases, conditional formal checks and matched mapping reviewed: 370→0 live-control payload points, +94 LUTs/+6 FFs | Fresh full-parent checks; formal assumptions and direct-simulation limits remain explicit |
 | Combined result/counter full design | Both model suites and placement structural checks pass. Raw route: 450,803/450,803 nets, zero route errors; setup −1.457 ns fails, hold +0.014 ns passes. Cleanup rejects new PDRC-61 | Preserve failed route; qualify control-path repairs, diagnose cleanup, then fresh full-parent/physical gates |
-| Snapshot-scope and result-publication source candidate | Component/native and scoped binary checks pass; combined full synthesis independently passes at 293,628 LUTs/89,807 FFs/516 DSPs | Retention/inventory, both codegens/C++ builds, strict checks, fresh16-job warm replay and all12 controller cases independently passed; placement structure passes but unrouted setup/hold fail; guarded route running |
+| Snapshot-scope and result-publication source candidate | Component/native and scoped binary checks pass; combined full synthesis independently passes at 293,628 LUTs/89,807 FFs/516 DSPs | Retention/inventory, both codegens/C++ builds, strict checks, fresh16-job warm replay and all12 controller cases independently passed; placement structure passes; route/cleanup complete but setup −1.208 ns fails, hold +0.012 ns passes; next admission repair in component qualification |
+| Capacity-admission health cofactor v3 | Source, native, binary/four-state equation and matched OOC reviews pass; health path 4→1 levels, 2.492→1.117 ns estimated | Fresh order154 full-source synthesis running; full-parent replays and physical qualification required |
 | Guarded O5 cleanup | Independent diagnostic passes: eight proven-dead buffers, zero PDRC-61; route and slacks unchanged | Recheck on the new source route; no timing acceptance |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/snapshot-publication-public-regression-v1/results-review.json) with 44,020 inputs unchanged; 582 unittest checks plus original native suites | Default targets remain separate from the candidate full-system model suites; not physical MIG, FPGA, ECC or RK silicon |
 | New-image FPGA qualification | Pending | Routed timing/DRC/crossing acceptance, audited volatile load, then JTAG/PCIe and TinyStories tests |
+
+The next private [capacity-admission health cofactor](../build/capacity-admission-health-cofactor-candidate-v3/source-review.json)
+changes only the admission predicate of the owner leaf, full-source order 154.
+Known-good health and no request make two earlier fault-encoder branches
+redundant for admission; public fault encoding, registered state and latency
+remain unchanged. A kept combinational non-health predicate places the health
+qualification at the last mapped gate. Fresh
+[proof review](../build/capacity-admission-health-cofactor-proof-v3/results-review.json)
+accepts 126 matched-state binary RTL points, a reset-reachable missing-health
+mutant counterexample, and a separate 8,192-vector four-state equation table.
+[Native review](../build/capacity-admission-health-cofactor-native-v4/results-review.json)
+passes eight original service profiles plus paired owner cycle/state comparisons
+in both simulators; Icarus additionally exercises X/Z inputs.
+[Matched OOC review](../build/capacity-admission-health-cofactor-mapped-v2/results-review.json)
+verifies all four health-input paths shrink from four logic levels/2.492 ns
+to one level/1.117 ns estimated delay. LUTs change 108→106, FFs remain 66 and
+ports remain 123; public fault-state input dependence and five high fault-code
+constant-zero bits are retained. These component results do not qualify full
+parent timing or hardware. Fresh full-source synthesis is running; fresh model sources are being
+prepared in parallel. Both full-parent replays and implementation remain
+required. Earlier declaration, native-harness and OOC
+report-table failures are preserved; none is relabeled as a successful run.
 
 Earlier source-bound timing milestones follow. The private FI staging-enable, snapshot-capture
 and parent-abort/seal-factor candidate passes component native and independent

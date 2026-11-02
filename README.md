@@ -39,9 +39,12 @@ passes sixteen jobs and 1,441,792 BO bytes. The fresh
 passes all twelve original cases and 532,480 BO bytes. Fresh
 [placement](build/snapshot-publication-implementation-prep-v1/placement-results-review.json)
 passes structural review but fails unrouted setup −1.465 ns and hold −0.978 ns;
-the guarded route is running. The [explicit source candidate](rtl/ddr/pcie_snapshot_publication/README.md)
+the [guarded route failure](build/snapshot-publication-route-prep-v1/failure-review.json)
+retains all 450,895 routed nets with zero routing errors and passes hold
+at +0.012 ns, but setup fails at −1.208 ns across 3,925 endpoints. The
+guarded O5 cleanup and source protections pass. The [explicit source candidate](rtl/ddr/pcie_snapshot_publication/README.md)
 preserves the 201-input selection for source preparation and remains separate
-from the default targets. This source has no accepted placement, route or image;
+from the default targets. Routed timing and a new image remain unqualified;
 the preceding result/counter candidate failed routed setup at −1.457 ns.
 The [full public default regression](build/snapshot-publication-public-regression-v1/results-review.json)
 passes with 44,020 inputs unchanged; these default targets are separate from
