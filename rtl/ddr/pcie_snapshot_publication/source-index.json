@@ -1,0 +1,1839 @@
+{
+  "external_component": {
+    "relative_path": "components/xdma_ooc.dcp",
+    "repository_path": null,
+    "required_sha256": "9c9d895d1af9811548a6b534ad40b79c50f6c8eb7a1a7c13f52ffe7e783c9c5a",
+    "required_size_bytes": 9075034,
+    "status": "UNCHANGED_EXTERNAL_COMPONENT_CHECKPOINT_REQUIRED"
+  },
+  "git_head_at_materialization": "1b47160a9cc1aef2f5327e8b1eb442556e5c78e0",
+  "new_public_hdl_count": 22,
+  "new_public_header_count": 1,
+  "new_public_source_count": 23,
+  "record_count": 201,
+  "record_kind_counts": {
+    "component_checkpoint": 1,
+    "hdl": 195,
+    "header": 3,
+    "xdc": 2
+  },
+  "records": [
+    {
+      "basename": "mig_7series_v4_2_axi_ctrl_addr_decode.v",
+      "kind": "hdl",
+      "order": 0,
+      "relative_path": "sources/hdl/000/mig_7series_v4_2_axi_ctrl_addr_decode.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/000/mig_7series_v4_2_axi_ctrl_addr_decode.v",
+      "sha256": "45ded45ecd1aaee6be25e8de45b46f8b1c4142e80259f95c8be038e1b71b5bb0",
+      "size_bytes": 6854
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_ctrl_read.v",
+      "kind": "hdl",
+      "order": 1,
+      "relative_path": "sources/hdl/001/mig_7series_v4_2_axi_ctrl_read.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/001/mig_7series_v4_2_axi_ctrl_read.v",
+      "sha256": "e7fba8820fabc830ace6e2bf431e1ab1134312a4682240f9d1ab8e63091c0a94",
+      "size_bytes": 6160
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "kind": "hdl",
+      "order": 2,
+      "relative_path": "sources/hdl/002/mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/002/mig_7series_v4_2_axi_ctrl_reg_bank.v",
+      "sha256": "5146f0f3e8dfc1e0e95673ba2ff357f52f4c4a5baca88a9489b37f926d801917",
+      "size_bytes": 29651
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_ctrl_reg.v",
+      "kind": "hdl",
+      "order": 3,
+      "relative_path": "sources/hdl/003/mig_7series_v4_2_axi_ctrl_reg.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/003/mig_7series_v4_2_axi_ctrl_reg.v",
+      "sha256": "4e591bbe440121fa35520b340067140ad5a5f8257abe9c74f60b5ba1555aacdf",
+      "size_bytes": 6114
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_ctrl_top.v",
+      "kind": "hdl",
+      "order": 4,
+      "relative_path": "sources/hdl/004/mig_7series_v4_2_axi_ctrl_top.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/004/mig_7series_v4_2_axi_ctrl_top.v",
+      "sha256": "1a0b8cbbcd037f1ad61dbaeac866b3b4f3020624f1b727c66b23390a47d08ce5",
+      "size_bytes": 28757
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_ctrl_write.v",
+      "kind": "hdl",
+      "order": 5,
+      "relative_path": "sources/hdl/005/mig_7series_v4_2_axi_ctrl_write.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/005/mig_7series_v4_2_axi_ctrl_write.v",
+      "sha256": "a6b8863fc39ba11b721be2dfc6826f679fa2606c633cb475b385ca4e39faaa79",
+      "size_bytes": 7620
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc.v",
+      "kind": "hdl",
+      "order": 6,
+      "relative_path": "sources/hdl/006/mig_7series_v4_2_axi_mc.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/006/mig_7series_v4_2_axi_mc.v",
+      "sha256": "394b78b22adbfc6bd639dad1075b3745de31b99d7cb0f4d7cb0b1f2218751c37",
+      "size_bytes": 49184
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_ar_channel.v",
+      "kind": "hdl",
+      "order": 7,
+      "relative_path": "sources/hdl/007/mig_7series_v4_2_axi_mc_ar_channel.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/007/mig_7series_v4_2_axi_mc_ar_channel.v",
+      "sha256": "087940abd9208340abc61ecb7015cfc97d85857aaa648409c994d97cecd78964",
+      "size_bytes": 10260
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_aw_channel.v",
+      "kind": "hdl",
+      "order": 8,
+      "relative_path": "sources/hdl/008/mig_7series_v4_2_axi_mc_aw_channel.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/008/mig_7series_v4_2_axi_mc_aw_channel.v",
+      "sha256": "e736dacd4c9f6b751722b1fb55d6e12a7b1f1bab1b8c1afaf22d40fffdbecaf1",
+      "size_bytes": 10655
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_b_channel.v",
+      "kind": "hdl",
+      "order": 9,
+      "relative_path": "sources/hdl/009/mig_7series_v4_2_axi_mc_b_channel.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/009/mig_7series_v4_2_axi_mc_b_channel.v",
+      "sha256": "bddc862c27c006f2e3a1a468a02ddff09270a94afae229e52de665a80d50d5d7",
+      "size_bytes": 8173
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "kind": "hdl",
+      "order": 10,
+      "relative_path": "sources/hdl/010/mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/010/mig_7series_v4_2_axi_mc_cmd_arbiter.v",
+      "sha256": "992f1d1a33deb893784553f84843ce19e2bb02787ec42046182bac0f0b32ef29",
+      "size_bytes": 12139
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_cmd_fsm.v",
+      "kind": "hdl",
+      "order": 11,
+      "relative_path": "sources/hdl/011/mig_7series_v4_2_axi_mc_cmd_fsm.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/011/mig_7series_v4_2_axi_mc_cmd_fsm.v",
+      "sha256": "1b26f14b768d75024e27e1d35d8602365b32084f95a46370b9286ebbbd4928ba",
+      "size_bytes": 6275
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_wr_cmd_fsm.v",
+      "kind": "hdl",
+      "order": 12,
+      "relative_path": "sources/hdl/012/mig_7series_v4_2_axi_mc_wr_cmd_fsm.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/012/mig_7series_v4_2_axi_mc_wr_cmd_fsm.v",
+      "sha256": "9357a4c13f8b890e5baf67b8321fec2494f2a351cd3ce5ad8ab8140aabdf0fd3",
+      "size_bytes": 6682
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_cmd_translator.v",
+      "kind": "hdl",
+      "order": 13,
+      "relative_path": "sources/hdl/013/mig_7series_v4_2_axi_mc_cmd_translator.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/013/mig_7series_v4_2_axi_mc_cmd_translator.v",
+      "sha256": "483ad56bcf65bfa05a83e414504776b0ba33cecf639878df9f8fc2ae9e7b2e4f",
+      "size_bytes": 9738
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "kind": "hdl",
+      "order": 14,
+      "relative_path": "sources/hdl/014/mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/014/mig_7series_v4_2_axi_mc_incr_cmd.v",
+      "sha256": "ada5247b231ce56dc52c5efeecf74be533433e44576e7981c85a60a0333bd709",
+      "size_bytes": 10182
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_r_channel.v",
+      "kind": "hdl",
+      "order": 15,
+      "relative_path": "sources/hdl/015/mig_7series_v4_2_axi_mc_r_channel.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/015/mig_7series_v4_2_axi_mc_r_channel.v",
+      "sha256": "13a23ff1dd32164e98c1d90702819eac060b0717ec52da435d73485fa442daf1",
+      "size_bytes": 12758
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_simple_fifo.v",
+      "kind": "hdl",
+      "order": 16,
+      "relative_path": "sources/hdl/016/mig_7series_v4_2_axi_mc_simple_fifo.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/016/mig_7series_v4_2_axi_mc_simple_fifo.v",
+      "sha256": "b1a57e5f75a0b55009c4413dcd77eb7cc591c566a0c15abd92193c04f34c2bbd",
+      "size_bytes": 5531
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_fifo.v",
+      "kind": "hdl",
+      "order": 17,
+      "relative_path": "sources/hdl/017/mig_7series_v4_2_axi_mc_fifo.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/017/mig_7series_v4_2_axi_mc_fifo.v",
+      "sha256": "e9602843ef3c03c6652aef0c2f6b6dc0cb60f789c37ea228485b1c2b21bb6a92",
+      "size_bytes": 5742
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_w_channel.v",
+      "kind": "hdl",
+      "order": 18,
+      "relative_path": "sources/hdl/018/mig_7series_v4_2_axi_mc_w_channel.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/018/mig_7series_v4_2_axi_mc_w_channel.v",
+      "sha256": "0444eab3dae92342270e371d9cb3909d68cd8be7b9714f82786a4f6644b25395",
+      "size_bytes": 11337
+    },
+    {
+      "basename": "mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "kind": "hdl",
+      "order": 19,
+      "relative_path": "sources/hdl/019/mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/019/mig_7series_v4_2_axi_mc_wrap_cmd.v",
+      "sha256": "45a21e37a32f6eec11868127cd5be25954a5a95bfaf7052ce0649946731b6dbf",
+      "size_bytes": 11272
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_a_upsizer.v",
+      "kind": "hdl",
+      "order": 20,
+      "relative_path": "sources/hdl/020/mig_7series_v4_2_ddr_a_upsizer.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/020/mig_7series_v4_2_ddr_a_upsizer.v",
+      "sha256": "6df7218fcd22d6f19a5e234dbc58da047c8712fa910d7c003fb786accd500505",
+      "size_bytes": 49825
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_axi_register_slice.v",
+      "kind": "hdl",
+      "order": 21,
+      "relative_path": "sources/hdl/021/mig_7series_v4_2_ddr_axi_register_slice.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/021/mig_7series_v4_2_ddr_axi_register_slice.v",
+      "sha256": "f33f4abbcdb1a25724b4fbba48b4ab4ec77627b73c647a657d296ff57d323e94",
+      "size_bytes": 22580
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_axi_upsizer.v",
+      "kind": "hdl",
+      "order": 22,
+      "relative_path": "sources/hdl/022/mig_7series_v4_2_ddr_axi_upsizer.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/022/mig_7series_v4_2_ddr_axi_upsizer.v",
+      "sha256": "ed069bdf77b16d1cc400e223c2087f25e2e3c91c6c2d5f3ecfa329c501c0bda4",
+      "size_bytes": 44062
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_axic_register_slice.v",
+      "kind": "hdl",
+      "order": 23,
+      "relative_path": "sources/hdl/023/mig_7series_v4_2_ddr_axic_register_slice.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/023/mig_7series_v4_2_ddr_axic_register_slice.v",
+      "sha256": "c21552fb3bd001886a800ebd4ca6240952da81923f3bb5e97f73b091e591e84f",
+      "size_bytes": 19169
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_carry_and.v",
+      "kind": "hdl",
+      "order": 24,
+      "relative_path": "sources/hdl/024/mig_7series_v4_2_ddr_carry_and.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/024/mig_7series_v4_2_ddr_carry_and.v",
+      "sha256": "7aac21a3ac4b09171cfdc4b245deb520859132544cdd6f9d506824386ecc65f8",
+      "size_bytes": 4267
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_carry_latch_and.v",
+      "kind": "hdl",
+      "order": 25,
+      "relative_path": "sources/hdl/025/mig_7series_v4_2_ddr_carry_latch_and.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/025/mig_7series_v4_2_ddr_carry_latch_and.v",
+      "sha256": "423346d831a88a54cb4ebbc30579339af527fd51259490f95da0310dacac9234",
+      "size_bytes": 4311
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_carry_latch_or.v",
+      "kind": "hdl",
+      "order": 26,
+      "relative_path": "sources/hdl/026/mig_7series_v4_2_ddr_carry_latch_or.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/026/mig_7series_v4_2_ddr_carry_latch_or.v",
+      "sha256": "741a607ef458700e5b2129c2ec487f8e80d2b5406251921199e49662372574d5",
+      "size_bytes": 4251
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_carry_or.v",
+      "kind": "hdl",
+      "order": 27,
+      "relative_path": "sources/hdl/027/mig_7series_v4_2_ddr_carry_or.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/027/mig_7series_v4_2_ddr_carry_or.v",
+      "sha256": "3e423d97b128583849c13ac086a9cee98f2a6de595d096ed927bc458fd92619b",
+      "size_bytes": 4320
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_command_fifo.v",
+      "kind": "hdl",
+      "order": 28,
+      "relative_path": "sources/hdl/028/mig_7series_v4_2_ddr_command_fifo.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/028/mig_7series_v4_2_ddr_command_fifo.v",
+      "sha256": "b88b881970ceceb8e2c62dd724092b5703adb19be6c1167ed6f1d83e73e72022",
+      "size_bytes": 16175
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_comparator.v",
+      "kind": "hdl",
+      "order": 29,
+      "relative_path": "sources/hdl/029/mig_7series_v4_2_ddr_comparator.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/029/mig_7series_v4_2_ddr_comparator.v",
+      "sha256": "6a072f8ebfe614e9ac45a7f1666281d46240d8436e9a5e88f1124deceefadd7e",
+      "size_bytes": 6018
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_comparator_sel.v",
+      "kind": "hdl",
+      "order": 30,
+      "relative_path": "sources/hdl/030/mig_7series_v4_2_ddr_comparator_sel.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/030/mig_7series_v4_2_ddr_comparator_sel.v",
+      "sha256": "3094f4708342d46cd9a6b91c6d998b7b081c847313d2ee9343b4a1b28ea0e563",
+      "size_bytes": 6466
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_comparator_sel_static.v",
+      "kind": "hdl",
+      "order": 31,
+      "relative_path": "sources/hdl/031/mig_7series_v4_2_ddr_comparator_sel_static.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/031/mig_7series_v4_2_ddr_comparator_sel_static.v",
+      "sha256": "474048741076de56f5bfdc732b823a60ca6cf5219886569715b4e409b45913ad",
+      "size_bytes": 6602
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_r_upsizer.v",
+      "kind": "hdl",
+      "order": 32,
+      "relative_path": "sources/hdl/032/mig_7series_v4_2_ddr_r_upsizer.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/032/mig_7series_v4_2_ddr_r_upsizer.v",
+      "sha256": "6b31714f9919f7921bbc8409441b4e0e2db1353258fcc9433c5cec004e104903",
+      "size_bytes": 36366
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_w_upsizer.v",
+      "kind": "hdl",
+      "order": 33,
+      "relative_path": "sources/hdl/033/mig_7series_v4_2_ddr_w_upsizer.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/033/mig_7series_v4_2_ddr_w_upsizer.v",
+      "sha256": "5b5ae736bfef69e33e808a6fa4527955a8f3d95d25b4fb64e419f924dbe2ba9e",
+      "size_bytes": 68101
+    },
+    {
+      "basename": "mig_7series_v4_2_clk_ibuf.v",
+      "kind": "hdl",
+      "order": 34,
+      "relative_path": "sources/hdl/034/mig_7series_v4_2_clk_ibuf.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/034/mig_7series_v4_2_clk_ibuf.v",
+      "sha256": "4cade14875e2101e1e9e997beacec38da0b9d712908b0b503e5a35c9c592f992",
+      "size_bytes": 4797
+    },
+    {
+      "basename": "mig_7series_v4_2_infrastructure.v",
+      "kind": "hdl",
+      "order": 35,
+      "relative_path": "sources/hdl/035/mig_7series_v4_2_infrastructure.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/035/mig_7series_v4_2_infrastructure.v",
+      "sha256": "2dbb9bb2a1a4b95407c16b87d9ab421ba1d25c516a6faddff50fa46392035c52",
+      "size_bytes": 30834
+    },
+    {
+      "basename": "mig_7series_v4_2_iodelay_ctrl.v",
+      "kind": "hdl",
+      "order": 36,
+      "relative_path": "sources/hdl/036/mig_7series_v4_2_iodelay_ctrl.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/036/mig_7series_v4_2_iodelay_ctrl.v",
+      "sha256": "094265eb7c3509e132d03d43b834461d5252d0e5643da86181bc21b6aa79338f",
+      "size_bytes": 13704
+    },
+    {
+      "basename": "mig_7series_v4_2_tempmon.v",
+      "kind": "hdl",
+      "order": 37,
+      "relative_path": "sources/hdl/037/mig_7series_v4_2_tempmon.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/037/mig_7series_v4_2_tempmon.v",
+      "sha256": "d7d00b5a6e980f855f2a11a8749f6ec70bdadb7a44fc4ca15c3e341b33a2ed13",
+      "size_bytes": 15168
+    },
+    {
+      "basename": "mig_7series_v4_2_arb_mux.v",
+      "kind": "hdl",
+      "order": 38,
+      "relative_path": "sources/hdl/038/mig_7series_v4_2_arb_mux.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/038/mig_7series_v4_2_arb_mux.v",
+      "sha256": "a509b910fc977799ddce78a587b2dfa96338948d21052c8285ed1acdf9335c75",
+      "size_bytes": 19766
+    },
+    {
+      "basename": "mig_7series_v4_2_arb_row_col.v",
+      "kind": "hdl",
+      "order": 39,
+      "relative_path": "sources/hdl/039/mig_7series_v4_2_arb_row_col.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/039/mig_7series_v4_2_arb_row_col.v",
+      "sha256": "033f73c2378b01b429fa33e326e1be7d4350f0df49e1e56b1a669859a9b91422",
+      "size_bytes": 18941
+    },
+    {
+      "basename": "mig_7series_v4_2_arb_select.v",
+      "kind": "hdl",
+      "order": 40,
+      "relative_path": "sources/hdl/040/mig_7series_v4_2_arb_select.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/040/mig_7series_v4_2_arb_select.v",
+      "sha256": "6d1d51c8b419efe976b87b46939ba5a5b5bff2b5dc652163c2176a8eb0d4493f",
+      "size_bytes": 26780
+    },
+    {
+      "basename": "mig_7series_v4_2_bank_cntrl.v",
+      "kind": "hdl",
+      "order": 41,
+      "relative_path": "sources/hdl/041/mig_7series_v4_2_bank_cntrl.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/041/mig_7series_v4_2_bank_cntrl.v",
+      "sha256": "ed48004bb5e2466d376cb15870416a00973c6b3d928f12d7a4b6cf2de275bd69",
+      "size_bytes": 25942
+    },
+    {
+      "basename": "mig_7series_v4_2_bank_common.v",
+      "kind": "hdl",
+      "order": 42,
+      "relative_path": "sources/hdl/042/mig_7series_v4_2_bank_common.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/042/mig_7series_v4_2_bank_common.v",
+      "sha256": "20458b07b3bc751e788e8bb613cfc88792cc52ae97fa8f1e596c33f2fccd6dd1",
+      "size_bytes": 18422
+    },
+    {
+      "basename": "mig_7series_v4_2_bank_compare.v",
+      "kind": "hdl",
+      "order": 43,
+      "relative_path": "sources/hdl/043/mig_7series_v4_2_bank_compare.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/043/mig_7series_v4_2_bank_compare.v",
+      "sha256": "ed85f3f2b2430a8e5028c8adc21db598ada44d5f83b0515777c648c4adb060f3",
+      "size_bytes": 10848
+    },
+    {
+      "basename": "mig_7series_v4_2_bank_mach.v",
+      "kind": "hdl",
+      "order": 44,
+      "relative_path": "sources/hdl/044/mig_7series_v4_2_bank_mach.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/044/mig_7series_v4_2_bank_mach.v",
+      "sha256": "09b68e3243186872cb20e4d530c5dea1351117e3d7edb697b209ffb3a875f165",
+      "size_bytes": 31505
+    },
+    {
+      "basename": "mig_7series_v4_2_bank_queue.v",
+      "kind": "hdl",
+      "order": 45,
+      "relative_path": "sources/hdl/045/mig_7series_v4_2_bank_queue.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/045/mig_7series_v4_2_bank_queue.v",
+      "sha256": "8c379fc4f9fab724f0ac94d008d9de844159b295fc12e1458c603d1d9209eeb9",
+      "size_bytes": 23289
+    },
+    {
+      "basename": "mig_7series_v4_2_bank_state.v",
+      "kind": "hdl",
+      "order": 46,
+      "relative_path": "sources/hdl/046/mig_7series_v4_2_bank_state.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/046/mig_7series_v4_2_bank_state.v",
+      "sha256": "465babb32d1346f6c7c7e7f2f5dd67d71438aea9ae31056258e15af3bd36b35f",
+      "size_bytes": 36755
+    },
+    {
+      "basename": "mig_7series_v4_2_col_mach.v",
+      "kind": "hdl",
+      "order": 47,
+      "relative_path": "sources/hdl/047/mig_7series_v4_2_col_mach.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/047/mig_7series_v4_2_col_mach.v",
+      "sha256": "a91e4cd5e8afcf0f956e94144d896a78849dafea0e31b5d88b62147de9f7bf0a",
+      "size_bytes": 16640
+    },
+    {
+      "basename": "mig_7series_v4_2_mc.v",
+      "kind": "hdl",
+      "order": 48,
+      "relative_path": "sources/hdl/048/mig_7series_v4_2_mc.v",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/048/mig_7series_v4_2_mc.v",
+      "sha256": "bf2ef9ecd5c5accaafd076a05dca65750ecc0a7182a585addaf69e469f023e29",
+      "size_bytes": 43299
+    },
+    {
+      "basename": "mig_7series_v4_2_rank_cntrl.v",
+      "kind": "hdl",
+      "order": 49,
+      "relative_path": "sources/hdl/049/mig_7series_v4_2_rank_cntrl.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/049/mig_7series_v4_2_rank_cntrl.v",
+      "sha256": "25f0ba1a096ede1f408fe8fa1f1e045624d7f2b349e966fac487369ce7ec4ef7",
+      "size_bytes": 22800
+    },
+    {
+      "basename": "mig_7series_v4_2_rank_common.v",
+      "kind": "hdl",
+      "order": 50,
+      "relative_path": "sources/hdl/050/mig_7series_v4_2_rank_common.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/050/mig_7series_v4_2_rank_common.v",
+      "sha256": "eb8fae78ffef6674890baf439790a57b8d21d11b1666ac7c4f17a77ddeae9683",
+      "size_bytes": 20640
+    },
+    {
+      "basename": "mig_7series_v4_2_rank_mach.v",
+      "kind": "hdl",
+      "order": 51,
+      "relative_path": "sources/hdl/051/mig_7series_v4_2_rank_mach.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/051/mig_7series_v4_2_rank_mach.v",
+      "sha256": "c7df91c07d2fa021ad2649d9003b85ced3da8c0d0a2c271a56421303b50a1468",
+      "size_bytes": 12348
+    },
+    {
+      "basename": "mig_7series_v4_2_ecc_buf.v",
+      "kind": "hdl",
+      "order": 52,
+      "relative_path": "sources/hdl/052/mig_7series_v4_2_ecc_buf.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/052/mig_7series_v4_2_ecc_buf.v",
+      "sha256": "2b70153618c0dc18b13cb7e8e52d9dfe9aee78f7750c5e8fc8d3d9d98b910e72",
+      "size_bytes": 6294
+    },
+    {
+      "basename": "mig_7series_v4_2_ecc_dec_fix.v",
+      "kind": "hdl",
+      "order": 53,
+      "relative_path": "sources/hdl/053/mig_7series_v4_2_ecc_dec_fix.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/053/mig_7series_v4_2_ecc_dec_fix.v",
+      "sha256": "84745585695a18896e41aec6f3f2a51faca2774f4fe1e931ad9a67256eb7f140",
+      "size_bytes": 6657
+    },
+    {
+      "basename": "mig_7series_v4_2_ecc_gen.v",
+      "kind": "hdl",
+      "order": 54,
+      "relative_path": "sources/hdl/054/mig_7series_v4_2_ecc_gen.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/054/mig_7series_v4_2_ecc_gen.v",
+      "sha256": "fb1b09096febcceb3f05b4f68c9c3fe2d0ff40661c210fb44797413860fd6e89",
+      "size_bytes": 7900
+    },
+    {
+      "basename": "mig_7series_v4_2_ecc_merge_enc.v",
+      "kind": "hdl",
+      "order": 55,
+      "relative_path": "sources/hdl/055/mig_7series_v4_2_ecc_merge_enc.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/055/mig_7series_v4_2_ecc_merge_enc.v",
+      "sha256": "54e55ddbf12fa67d3e96db020415aa1303cd0c76a1c6e77f0b8a56ecc556d114",
+      "size_bytes": 5948
+    },
+    {
+      "basename": "mig_7series_v4_2_fi_xor.v",
+      "kind": "hdl",
+      "order": 56,
+      "relative_path": "sources/hdl/056/mig_7series_v4_2_fi_xor.v",
+      "repository_path": "verification/runs/2026-10-28-ddr-ecc-fi-leaf-sim/attempts/v1/source/mig_7series_v4_2_fi_xor.v",
+      "sha256": "ba05d31545d807b8e485a6d2c4e6bd51824aefe31981c9fe4e3d98bbd4e06fb1",
+      "size_bytes": 5556
+    },
+    {
+      "basename": "mig_7series_v4_2_mem_intfc.v",
+      "kind": "hdl",
+      "order": 57,
+      "relative_path": "sources/hdl/057/mig_7series_v4_2_mem_intfc.v",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/057/mig_7series_v4_2_mem_intfc.v",
+      "sha256": "322756b63f23ef38bbe0126dee8776eb8f8d2a543fd8c91a712f38555f7a6eeb",
+      "size_bytes": 44130
+    },
+    {
+      "basename": "mig_7series_v4_2_memc_ui_top_axi.v",
+      "kind": "hdl",
+      "order": 58,
+      "relative_path": "sources/hdl/058/mig_7series_v4_2_memc_ui_top_axi.v",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/058/mig_7series_v4_2_memc_ui_top_axi.v",
+      "sha256": "ba62954004046464a0cb7bf47e5d82fb21c3ad5a043b2e2365ad33746196572d",
+      "size_bytes": 58927
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_byte_group_io.v",
+      "kind": "hdl",
+      "order": 59,
+      "relative_path": "sources/hdl/059/mig_7series_v4_2_ddr_byte_group_io.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/059/mig_7series_v4_2_ddr_byte_group_io.v",
+      "sha256": "e4379b843bd3a67370c614f9d354ccea9427ab156fcbd1652aa2623cb63b5db0",
+      "size_bytes": 21874
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_byte_lane.v",
+      "kind": "hdl",
+      "order": 60,
+      "relative_path": "sources/hdl/060/mig_7series_v4_2_ddr_byte_lane.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/060/mig_7series_v4_2_ddr_byte_lane.v",
+      "sha256": "76df6abb6ce7f27092281185e10deb3fd327475ab4a8248926af3ffa590a137a",
+      "size_bytes": 33007
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_tempmon.v",
+      "kind": "hdl",
+      "order": 61,
+      "relative_path": "sources/hdl/061/mig_7series_v4_2_ddr_phy_tempmon.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/061/mig_7series_v4_2_ddr_phy_tempmon.v",
+      "sha256": "9d65b6e2e0347644e98f0bffedb8f523723ed4f87625d34b7a68fc0f3adcee93",
+      "size_bytes": 26454
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_calib_top.v",
+      "kind": "hdl",
+      "order": 62,
+      "relative_path": "sources/hdl/062/mig_7series_v4_2_ddr_calib_top.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/062/mig_7series_v4_2_ddr_calib_top.v",
+      "sha256": "55af136ed7e16794963c59d5cd265ce20b4e818914bf1ee31f1c9024c41a44d5",
+      "size_bytes": 103892
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_skip_calib_tap.v",
+      "kind": "hdl",
+      "order": 63,
+      "relative_path": "sources/hdl/063/mig_7series_v4_2_ddr_skip_calib_tap.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/063/mig_7series_v4_2_ddr_skip_calib_tap.v",
+      "sha256": "e43e9cfa2732ead8e509318a90a53ed05e320e49aa07d45af7ce6c5ed5e83f80",
+      "size_bytes": 30235
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_if_post_fifo.v",
+      "kind": "hdl",
+      "order": 64,
+      "relative_path": "sources/hdl/064/mig_7series_v4_2_ddr_if_post_fifo.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/064/mig_7series_v4_2_ddr_if_post_fifo.v",
+      "sha256": "880206463937c66ce15c8636d2e200e1809d879171b79de5a31aeb5c0c2befab",
+      "size_bytes": 8544
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_mc_phy.v",
+      "kind": "hdl",
+      "order": 65,
+      "relative_path": "sources/hdl/065/mig_7series_v4_2_ddr_mc_phy.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/065/mig_7series_v4_2_ddr_mc_phy.v",
+      "sha256": "00a05653eeb1191bc69f6b5682b43088bfee1b9f888e850999f7de2028b15eac",
+      "size_bytes": 89698
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_mc_phy_wrapper.v",
+      "kind": "hdl",
+      "order": 66,
+      "relative_path": "sources/hdl/066/mig_7series_v4_2_ddr_mc_phy_wrapper.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/066/mig_7series_v4_2_ddr_mc_phy_wrapper.v",
+      "sha256": "0074ef82db3ea178a15f8a71278d8286a263aa680043fd7f7f3607f9b15bc82a",
+      "size_bytes": 71874
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_of_pre_fifo.v",
+      "kind": "hdl",
+      "order": 67,
+      "relative_path": "sources/hdl/067/mig_7series_v4_2_ddr_of_pre_fifo.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/067/mig_7series_v4_2_ddr_of_pre_fifo.v",
+      "sha256": "04660aa87dd1121088ba8bb8708d8784f3d22b7193efad30c8ebf93f3004bbc6",
+      "size_bytes": 8025
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_4lanes.v",
+      "kind": "hdl",
+      "order": 68,
+      "relative_path": "sources/hdl/068/mig_7series_v4_2_ddr_phy_4lanes.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/068/mig_7series_v4_2_ddr_phy_4lanes.v",
+      "sha256": "d0abc5c25f7efdc9764c730acec134449485a6ebd4c1f0addf51e3fb1af4d07f",
+      "size_bytes": 80514
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_ck_addr_cmd_delay.v",
+      "kind": "hdl",
+      "order": 69,
+      "relative_path": "sources/hdl/069/mig_7series_v4_2_ddr_phy_ck_addr_cmd_delay.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/069/mig_7series_v4_2_ddr_phy_ck_addr_cmd_delay.v",
+      "sha256": "aa45ef4586f2158e810499c0d8af6d6d916106dcee8261dc735c46d2420a5e1c",
+      "size_bytes": 8728
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_init.v",
+      "kind": "hdl",
+      "order": 70,
+      "relative_path": "sources/hdl/070/mig_7series_v4_2_ddr_phy_init.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/070/mig_7series_v4_2_ddr_phy_init.v",
+      "sha256": "8639c5ba24d0cdfdb64cfe7224181b939156d0c4a20354d9f4935e03ae1b0f1f",
+      "size_bytes": 242625
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_dqs_found_cal.v",
+      "kind": "hdl",
+      "order": 71,
+      "relative_path": "sources/hdl/071/mig_7series_v4_2_ddr_phy_dqs_found_cal.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/071/mig_7series_v4_2_ddr_phy_dqs_found_cal.v",
+      "sha256": "6f61ffb756793dddd5ea7b4777af2863ed365e4935fd214d89e2bce0ce7ae8ac",
+      "size_bytes": 51401
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_dqs_found_cal_hr.v",
+      "kind": "hdl",
+      "order": 72,
+      "relative_path": "sources/hdl/072/mig_7series_v4_2_ddr_phy_dqs_found_cal_hr.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/072/mig_7series_v4_2_ddr_phy_dqs_found_cal_hr.v",
+      "sha256": "05f62981edf9fd7c976d3f3f297b69017f97ba1ec08d217de4d50d2cea4c055e",
+      "size_bytes": 51699
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_oclkdelay_cal.v",
+      "kind": "hdl",
+      "order": 73,
+      "relative_path": "sources/hdl/073/mig_7series_v4_2_ddr_phy_oclkdelay_cal.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/073/mig_7series_v4_2_ddr_phy_oclkdelay_cal.v",
+      "sha256": "a23d8cf2669fa62885d629b403082d994039bd010ec4bbd40cf0f1cc5f6245f1",
+      "size_bytes": 25217
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_prbs_rdlvl.v",
+      "kind": "hdl",
+      "order": 74,
+      "relative_path": "sources/hdl/074/mig_7series_v4_2_ddr_phy_prbs_rdlvl.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/074/mig_7series_v4_2_ddr_phy_prbs_rdlvl.v",
+      "sha256": "956169530edf4f1ccebd75315d2c94553245581d4c6642ad1c536256cfdea50a",
+      "size_bytes": 250616
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_rdlvl.v",
+      "kind": "hdl",
+      "order": 75,
+      "relative_path": "sources/hdl/075/mig_7series_v4_2_ddr_phy_rdlvl.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/075/mig_7series_v4_2_ddr_phy_rdlvl.v",
+      "sha256": "7a77876d23b2e818b6fe82939bbab6dec5c78644c6ed6fd3544c96b3cd9849b3",
+      "size_bytes": 147440
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_top.v",
+      "kind": "hdl",
+      "order": 76,
+      "relative_path": "sources/hdl/076/mig_7series_v4_2_ddr_phy_top.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/076/mig_7series_v4_2_ddr_phy_top.v",
+      "sha256": "31f6ee7c905205563e587b2fad8d21f25cd62e7a37b767b3f9fbe3bcbe767672",
+      "size_bytes": 74306
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_wrcal.v",
+      "kind": "hdl",
+      "order": 77,
+      "relative_path": "sources/hdl/077/mig_7series_v4_2_ddr_phy_wrcal.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/077/mig_7series_v4_2_ddr_phy_wrcal.v",
+      "sha256": "bf3255be3ae668a46c6d0d7e8751cfec35e62eccd59abfe0ed4cb0b631edfee3",
+      "size_bytes": 54329
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_wrlvl.v",
+      "kind": "hdl",
+      "order": 78,
+      "relative_path": "sources/hdl/078/mig_7series_v4_2_ddr_phy_wrlvl.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/078/mig_7series_v4_2_ddr_phy_wrlvl.v",
+      "sha256": "72552e2ab6796f5bd7ae6be787a5eb508df5734523a1d396127fb4c7eaed201e",
+      "size_bytes": 50488
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_wrlvl_off_delay.v",
+      "kind": "hdl",
+      "order": 79,
+      "relative_path": "sources/hdl/079/mig_7series_v4_2_ddr_phy_wrlvl_off_delay.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/079/mig_7series_v4_2_ddr_phy_wrlvl_off_delay.v",
+      "sha256": "3809f9f9451a53be183be17e95c2e2b4b90649f7f910510332c5672c216004bd",
+      "size_bytes": 8906
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_prbs_gen.v",
+      "kind": "hdl",
+      "order": 80,
+      "relative_path": "sources/hdl/080/mig_7series_v4_2_ddr_prbs_gen.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/080/mig_7series_v4_2_ddr_prbs_gen.v",
+      "sha256": "237fdead2fe1171c2a43cabf6b07238a71cc5afdc9187f4fcba59fa12b048998",
+      "size_bytes": 29593
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_ocd_lim.v",
+      "kind": "hdl",
+      "order": 81,
+      "relative_path": "sources/hdl/081/mig_7series_v4_2_ddr_phy_ocd_lim.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/081/mig_7series_v4_2_ddr_phy_ocd_lim.v",
+      "sha256": "ebb5cb0d5f1158f9f89152ebf4b4a23951f0b872b6a46aa7aaf285fa576db870",
+      "size_bytes": 21167
+    },
+    {
+      "basename": "mig_7series_v4_2_poc_top.v",
+      "kind": "hdl",
+      "order": 82,
+      "relative_path": "sources/hdl/082/mig_7series_v4_2_poc_top.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/082/mig_7series_v4_2_poc_top.v",
+      "sha256": "68753e48a21e2bb70a46287697dbab2ab25b027566f62a40ab0d73d695e01c91",
+      "size_bytes": 16230
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_ocd_mux.v",
+      "kind": "hdl",
+      "order": 83,
+      "relative_path": "sources/hdl/083/mig_7series_v4_2_ddr_phy_ocd_mux.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/083/mig_7series_v4_2_ddr_phy_ocd_mux.v",
+      "sha256": "cfe0b65ab6d5411c5b9b1208838b7d29f9eca1cb165314c5cc26d7d91791407a",
+      "size_bytes": 7536
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_ocd_data.v",
+      "kind": "hdl",
+      "order": 84,
+      "relative_path": "sources/hdl/084/mig_7series_v4_2_ddr_phy_ocd_data.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/084/mig_7series_v4_2_ddr_phy_ocd_data.v",
+      "sha256": "e407db424813952afec4930f78182d9902d75841bce601ecf39ffe64d3a956d9",
+      "size_bytes": 9144
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_ocd_samp.v",
+      "kind": "hdl",
+      "order": 85,
+      "relative_path": "sources/hdl/085/mig_7series_v4_2_ddr_phy_ocd_samp.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/085/mig_7series_v4_2_ddr_phy_ocd_samp.v",
+      "sha256": "29a22219ca4b77023957c2347cffab6b9b1e6748f0edb7940051eae2657b9221",
+      "size_bytes": 12544
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_ocd_edge.v",
+      "kind": "hdl",
+      "order": 86,
+      "relative_path": "sources/hdl/086/mig_7series_v4_2_ddr_phy_ocd_edge.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/086/mig_7series_v4_2_ddr_phy_ocd_edge.v",
+      "sha256": "3c39007e5da49858c5eacfa654132bda597beabd83b85901c72aea8b42b5606b",
+      "size_bytes": 7872
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_ocd_cntlr.v",
+      "kind": "hdl",
+      "order": 87,
+      "relative_path": "sources/hdl/087/mig_7series_v4_2_ddr_phy_ocd_cntlr.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/087/mig_7series_v4_2_ddr_phy_ocd_cntlr.v",
+      "sha256": "23c1bc544d854878bd676d017b4318b4540dcb701fd0cac4fff5f12735802f69",
+      "size_bytes": 9784
+    },
+    {
+      "basename": "mig_7series_v4_2_ddr_phy_ocd_po_cntlr.v",
+      "kind": "hdl",
+      "order": 88,
+      "relative_path": "sources/hdl/088/mig_7series_v4_2_ddr_phy_ocd_po_cntlr.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/088/mig_7series_v4_2_ddr_phy_ocd_po_cntlr.v",
+      "sha256": "38a0220a6afa1f1e319f12c562e72b59f3f9c935a7c71f7ed9dc6fed92fc3720",
+      "size_bytes": 21551
+    },
+    {
+      "basename": "mig_7series_v4_2_poc_pd.v",
+      "kind": "hdl",
+      "order": 89,
+      "relative_path": "sources/hdl/089/mig_7series_v4_2_poc_pd.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/089/mig_7series_v4_2_poc_pd.v",
+      "sha256": "c9a3f44de175378ff426b065919edfd9c16275df13ab655a088a24e169b307a7",
+      "size_bytes": 4565
+    },
+    {
+      "basename": "mig_7series_v4_2_poc_tap_base.v",
+      "kind": "hdl",
+      "order": 90,
+      "relative_path": "sources/hdl/090/mig_7series_v4_2_poc_tap_base.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/090/mig_7series_v4_2_poc_tap_base.v",
+      "sha256": "04b268f7d0170484eaa718cc5dd67630f22a15c5846ac67834db97e00c290fc7",
+      "size_bytes": 10940
+    },
+    {
+      "basename": "mig_7series_v4_2_poc_meta.v",
+      "kind": "hdl",
+      "order": 91,
+      "relative_path": "sources/hdl/091/mig_7series_v4_2_poc_meta.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/091/mig_7series_v4_2_poc_meta.v",
+      "sha256": "cef98e6f81e1245fb052febdca24d2b41c900d7019075bd466fb6e06db192e99",
+      "size_bytes": 12644
+    },
+    {
+      "basename": "mig_7series_v4_2_poc_edge_store.v",
+      "kind": "hdl",
+      "order": 92,
+      "relative_path": "sources/hdl/092/mig_7series_v4_2_poc_edge_store.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/092/mig_7series_v4_2_poc_edge_store.v",
+      "sha256": "edf73be15a599251d3714495f4b97ee7ccc1f036941061e47674be00fe97cd6b",
+      "size_bytes": 4833
+    },
+    {
+      "basename": "mig_7series_v4_2_poc_cc.v",
+      "kind": "hdl",
+      "order": 93,
+      "relative_path": "sources/hdl/093/mig_7series_v4_2_poc_cc.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/093/mig_7series_v4_2_poc_cc.v",
+      "sha256": "3246efc5cf2d9aa0d89e988ecae5716ab7799f8a00a03d4107a653572a992d82",
+      "size_bytes": 7911
+    },
+    {
+      "basename": "mig_7series_v4_2_ui_cmd.v",
+      "kind": "hdl",
+      "order": 94,
+      "relative_path": "sources/hdl/094/mig_7series_v4_2_ui_cmd.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/094/mig_7series_v4_2_ui_cmd.v",
+      "sha256": "7efeb6619b9ed54d502dc4d05d9c5c594ecad25606589916550c13e7de1dad3e",
+      "size_bytes": 11317
+    },
+    {
+      "basename": "mig_7series_v4_2_ui_rd_data.v",
+      "kind": "hdl",
+      "order": 95,
+      "relative_path": "sources/hdl/095/mig_7series_v4_2_ui_rd_data.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/095/mig_7series_v4_2_ui_rd_data.v",
+      "sha256": "4c62aafa17931493b77fcd74f7f82d370bf137fc66ac3be27b35f06837cd9fc7",
+      "size_bytes": 20157
+    },
+    {
+      "basename": "mig_7series_v4_2_ui_top.v",
+      "kind": "hdl",
+      "order": 96,
+      "relative_path": "sources/hdl/096/mig_7series_v4_2_ui_top.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/hdl/096/mig_7series_v4_2_ui_top.v",
+      "sha256": "c439eb6c66f175c6a1e7d56deb9109b90b7bcf6507d3bff043d8c59afd43d326",
+      "size_bytes": 15295
+    },
+    {
+      "basename": "mig_7series_v4_2_ui_wr_data.v",
+      "kind": "hdl",
+      "order": 97,
+      "relative_path": "sources/hdl/097/mig_7series_v4_2_ui_wr_data.v",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/full512-ddr-preparation/shared-data-constrained-prep-v4/source/hdl/097/mig_7series_v4_2_ui_wr_data.v",
+      "sha256": "9e3179cb34048abb2902aa2610b9eaa8b3a0d42b549bc8b334391e1237847a9c",
+      "size_bytes": 21320
+    },
+    {
+      "basename": "top_mig_7series_0_0.v",
+      "kind": "hdl",
+      "order": 98,
+      "relative_path": "sources/hdl/098/top_mig_7series_0_0.v",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/098/top_mig_7series_0_0.v",
+      "sha256": "627149c9a838fc9ccecb2fa4cde0410d5f67dd745cad64e0362e221e348496d7",
+      "size_bytes": 24590
+    },
+    {
+      "basename": "top_mig_7series_0_0_mig.v",
+      "kind": "hdl",
+      "order": 99,
+      "relative_path": "sources/hdl/099/top_mig_7series_0_0_mig.v",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/099/top_mig_7series_0_0_mig.v",
+      "sha256": "c0b5ef9723dbf796628236c6e7b21748c2da9539227f3ef30ad87639dc78ac3c",
+      "size_bytes": 140531
+    },
+    {
+      "basename": "mig_7series_v4_2_round_robin_arb.v",
+      "kind": "hdl",
+      "order": 100,
+      "relative_path": "sources/hdl/100/mig_7series_v4_2_round_robin_arb.v",
+      "repository_path": "verification/runs/2026-10-27-ddr-read-snapshot-all21/model-hdl/logic/variant/mig_7series_v4_2_round_robin_arb.v",
+      "sha256": "ae6be8a3f77170c867bf076a4291bd6b0755c1250ab32215a8b679274b88368f",
+      "size_bytes": 7807
+    },
+    {
+      "basename": "rk_fp16_alu.sv",
+      "kind": "hdl",
+      "order": 101,
+      "relative_path": "sources/hdl/101/rk_fp16_alu.sv",
+      "repository_path": "rtl/rk_fp16_alu.sv",
+      "sha256": "f09ad0089a13737885066b3352cc1053d39b6ef53c0470db82c67927d8845650",
+      "size_bytes": 4913
+    },
+    {
+      "basename": "rk_ew_regs.sv",
+      "kind": "hdl",
+      "order": 102,
+      "relative_path": "sources/hdl/102/rk_ew_regs.sv",
+      "repository_path": "rtl/rk_ew_regs.sv",
+      "sha256": "592b127870e2141aa27b20f55d91c96019738322c939193f4ccf317fd5f77a73",
+      "size_bytes": 10660
+    },
+    {
+      "basename": "rk_ew_engine.sv",
+      "kind": "hdl",
+      "order": 103,
+      "relative_path": "sources/hdl/103/rk_ew_engine.sv",
+      "repository_path": "rtl/rk_ew_engine.sv",
+      "sha256": "aa38f7d757c633fabc7a127cbaf02c8e7e3e8215a037c0e0171eebf7f1c3e94e",
+      "size_bytes": 5138
+    },
+    {
+      "basename": "rk_ew_core.sv",
+      "kind": "hdl",
+      "order": 104,
+      "relative_path": "sources/hdl/104/rk_ew_core.sv",
+      "repository_path": "rtl/rk_ew_core.sv",
+      "sha256": "493195964b189d3cf829c31104d6fcb8d72d5e7dc3a8c8310d2ceb62add2e873",
+      "size_bytes": 2348
+    },
+    {
+      "basename": "rk_ew_dma.sv",
+      "kind": "hdl",
+      "order": 105,
+      "relative_path": "sources/hdl/105/rk_ew_dma.sv",
+      "repository_path": "rtl/rk_ew_dma.sv",
+      "sha256": "55d1a0c4f504e1d15b17a8603b296238cfee6b01a9820d81b231c8d3a2376046",
+      "size_bytes": 7716
+    },
+    {
+      "basename": "rk_axi_mem.sv",
+      "kind": "hdl",
+      "order": 106,
+      "relative_path": "sources/hdl/106/rk_axi_mem.sv",
+      "repository_path": "rtl/rk_axi_mem.sv",
+      "sha256": "dc4cb342145781bd3632b25df95d2c5c15f39a0a03e6509265e1c8434efb149e",
+      "size_bytes": 4919
+    },
+    {
+      "basename": "rk_job_control.sv",
+      "kind": "hdl",
+      "order": 107,
+      "relative_path": "sources/hdl/107/rk_job_control.sv",
+      "repository_path": "rtl/rk_job_control.sv",
+      "sha256": "5507702165a738d1655a5af651ba233955cb6c94e09a5b16469509319305a9f7",
+      "size_bytes": 6534
+    },
+    {
+      "basename": "rk_jtag_backend.sv",
+      "kind": "hdl",
+      "order": 108,
+      "relative_path": "sources/hdl/108/rk_jtag_backend.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/108/rk_jtag_backend.sv",
+      "sha256": "3431aac9cd84ae553c6f4d3cfab4478bb0253516f93d7becbc2ad5492a6f2e30",
+      "size_bytes": 9043
+    },
+    {
+      "basename": "rk_mig_reset_coordinator.sv",
+      "kind": "hdl",
+      "order": 109,
+      "relative_path": "sources/hdl/109/rk_mig_reset_coordinator.sv",
+      "repository_path": "rtl/ddr/framework/rk_mig_reset_coordinator.sv",
+      "sha256": "b8d2a7c2e2f1084d5be481d76f26bf1e4998470fb75d74468ceacf6873027490",
+      "size_bytes": 11170
+    },
+    {
+      "basename": "rk_mig_ecc_monitor.sv",
+      "kind": "hdl",
+      "order": 110,
+      "relative_path": "sources/hdl/110/rk_mig_ecc_monitor.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/110/rk_mig_ecc_monitor.sv",
+      "sha256": "a8582a0e704f3d44aad2420669649a87a44cf4ffc7afd0ffca341d4dc3165da3",
+      "size_bytes": 8925
+    },
+    {
+      "basename": "rk_mig_write_fence.sv",
+      "kind": "hdl",
+      "order": 111,
+      "relative_path": "sources/hdl/111/rk_mig_write_fence.sv",
+      "repository_path": "rtl/ddr/rk_mig_write_fence.sv",
+      "sha256": "ab12764367d4bb408385391ceacd819386cd8ba45005f52962375ab5562cca92",
+      "size_bytes": 8120
+    },
+    {
+      "basename": "rk_ddr_memory_fabric_snapshot_capacity.sv",
+      "kind": "hdl",
+      "order": 112,
+      "relative_path": "sources/hdl/112/rk_ddr_memory_fabric_snapshot_capacity.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/112/rk_ddr_memory_fabric_snapshot_capacity.sv",
+      "sha256": "025127ee6feb99c615fb4f1520baf1d217eaea2ed7c1cf67660c447eb45953bb",
+      "size_bytes": 34494
+    },
+    {
+      "basename": "rk_async_job_port.sv",
+      "kind": "hdl",
+      "order": 113,
+      "relative_path": "sources/hdl/113/rk_async_job_port.sv",
+      "repository_path": "rtl/ddr/framework_factored/rk_async_job_port.sv",
+      "sha256": "9aec039ba3c336c2bf79b789f124e14ac9eb83d341f21974e0511ca79ecccb04",
+      "size_bytes": 6362
+    },
+    {
+      "basename": "rk_async_mem_port.sv",
+      "kind": "hdl",
+      "order": 114,
+      "relative_path": "sources/hdl/114/rk_async_mem_port.sv",
+      "repository_path": "rtl/ddr/framework/rk_async_mem_port.sv",
+      "sha256": "528350f9574d524f21dc5a6b28be541a2fe2f02901eb4d43fffb208728a0e276",
+      "size_bytes": 5395
+    },
+    {
+      "basename": "rk_ew_async_engine.sv",
+      "kind": "hdl",
+      "order": 115,
+      "relative_path": "sources/hdl/115/rk_ew_async_engine.sv",
+      "repository_path": "rtl/ddr/framework_factored/rk_ew_async_engine.sv",
+      "sha256": "f0a3473da6833759677b955e7271a5568618fe8dfe404cd3571a48f9b9e9020d",
+      "size_bytes": 7877
+    },
+    {
+      "basename": "rk_axi_mem_read_snapshot.sv",
+      "kind": "hdl",
+      "order": 116,
+      "relative_path": "sources/hdl/116/rk_axi_mem_read_snapshot.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/116/rk_axi_mem_read_snapshot.sv",
+      "sha256": "82aab15f380746e6e916a8fc76729306696ee2fc89800b69a071f32697035d46",
+      "size_bytes": 7354
+    },
+    {
+      "basename": "rk_startup_reset.sv",
+      "kind": "hdl",
+      "order": 117,
+      "relative_path": "sources/hdl/117/rk_startup_reset.sv",
+      "repository_path": "rtl/rk_startup_reset.sv",
+      "sha256": "884afddfc59f0216a112990b63623251f3a951279ef6c5ea7ebb84e1a5d1bf09",
+      "size_bytes": 1158
+    },
+    {
+      "basename": "otpu_jtag_mailbox.sv",
+      "kind": "hdl",
+      "order": 118,
+      "relative_path": "sources/hdl/118/otpu_jtag_mailbox.sv",
+      "repository_path": "rtl/vendor/opentpu/otpu_jtag_mailbox.sv",
+      "sha256": "46f4a1148419279262fd274726eba0ab1f35285b91bf58138bc1997e692aeec9",
+      "size_bytes": 2322
+    },
+    {
+      "basename": "NV_DW02_tree.v",
+      "kind": "hdl",
+      "order": 119,
+      "relative_path": "sources/hdl/119/NV_DW02_tree.v",
+      "repository_path": "rtl/vendor/nvdla/NV_DW02_tree.v",
+      "sha256": "9c82f73fa7d7cfaed742a23b280b281bf2e1e965fa95600a0e9aa07f0f85a33e",
+      "size_bytes": 1781
+    },
+    {
+      "basename": "NV_DW_lsd.v",
+      "kind": "hdl",
+      "order": 120,
+      "relative_path": "sources/hdl/120/NV_DW_lsd.v",
+      "repository_path": "rtl/vendor/nvdla/compat/NV_DW_lsd.v",
+      "sha256": "6a548e1fa7bd053f7eee59c32760c311f60b7595dff4043d8d4eb74fa9c0fee2",
+      "size_bytes": 1670
+    },
+    {
+      "basename": "NV_NVDLA_CMAC_CORE_MAC_mul.v",
+      "kind": "hdl",
+      "order": 121,
+      "relative_path": "sources/hdl/121/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+      "repository_path": "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+      "sha256": "e3863ee66376dab62f7a07ec4cb86dc32084bc00999748cd65083342654394f6",
+      "size_bytes": 20574
+    },
+    {
+      "basename": "NV_NVDLA_CACC_CALC_fp_48b.v",
+      "kind": "hdl",
+      "order": 122,
+      "relative_path": "sources/hdl/122/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "repository_path": "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+      "sha256": "ef3dbfb8b56f4359f6554af9e3c07e3b47b87423b255c17aaedeeb0dc94b7028",
+      "size_bytes": 32017
+    },
+    {
+      "basename": "HLS_fp32_to_fp16.v",
+      "kind": "hdl",
+      "order": 123,
+      "relative_path": "sources/hdl/123/HLS_fp32_to_fp16.v",
+      "repository_path": "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+      "sha256": "56755f347c87a7c8b33458dbdfd2630d57f4dbc4aa1f8f3b2a4dfefedc0401cd",
+      "size_bytes": 66473
+    },
+    {
+      "basename": "rk_cmac_profile.sv",
+      "kind": "hdl",
+      "order": 124,
+      "relative_path": "sources/hdl/124/rk_cmac_profile.sv",
+      "repository_path": "rtl/rk_cmac_profile.sv",
+      "sha256": "01e1e4438e7787cf7a587287e7d4aa8f309511ef314f739a8db4cc5ebae2b995",
+      "size_bytes": 8801
+    },
+    {
+      "basename": "rk_cmac_fp16_rows.sv",
+      "kind": "hdl",
+      "order": 125,
+      "relative_path": "sources/hdl/125/rk_cmac_fp16_rows.sv",
+      "repository_path": "rtl/cmac/experimental/rk_cmac_fp16_rows.sv",
+      "sha256": "eefcb5296112e958d9a9c30c1821d8364b9751a9dbd2ad7e0137cb3fc2c40574",
+      "size_bytes": 2533
+    },
+    {
+      "basename": "rk_cmac_fp16_discarded_carry.sv",
+      "kind": "hdl",
+      "order": 126,
+      "relative_path": "sources/hdl/126/rk_cmac_fp16_discarded_carry.sv",
+      "repository_path": "rtl/cmac/experimental/rk_cmac_fp16_discarded_carry.sv",
+      "sha256": "265856695c352d9fee3f7f8858724c52103fe82b198717edccd7dec994f21f5b",
+      "size_bytes": 737
+    },
+    {
+      "basename": "rk_cmac_fp16_lane_dsp_prefix.sv",
+      "kind": "hdl",
+      "order": 127,
+      "relative_path": "sources/hdl/127/rk_cmac_fp16_lane_dsp_prefix.sv",
+      "repository_path": "rtl/cmac/experimental/rk_cmac_fp16_lane_dsp_prefix.sv",
+      "sha256": "5d599f4efd6d8fe16dc54a5e0e1f426ba8735c416eabe886672d749f5a0aff2c",
+      "size_bytes": 2279
+    },
+    {
+      "basename": "rk_cmac_fp16_cell_dsp_prefix.sv",
+      "kind": "hdl",
+      "order": 128,
+      "relative_path": "sources/hdl/128/rk_cmac_fp16_cell_dsp_prefix.sv",
+      "repository_path": "rtl/cmac/experimental/rk_cmac_fp16_cell_dsp_prefix.sv",
+      "sha256": "7e2de2abb8949c54e87220e0b0596db60a9bcbb1b4a1604a64473aa7b98b832d",
+      "size_bytes": 2747
+    },
+    {
+      "basename": "rk_cmac_fp16_array_dsp_prefix.sv",
+      "kind": "hdl",
+      "order": 129,
+      "relative_path": "sources/hdl/129/rk_cmac_fp16_array_dsp_prefix.sv",
+      "repository_path": "rtl/cmac/experimental/rk_cmac_fp16_array_dsp_prefix.sv",
+      "sha256": "9d3c4b1775dbea2fe6f95a7364f762168091b3572ea5ebbbf2a88c19d144cf43",
+      "size_bytes": 2231
+    },
+    {
+      "basename": "rk_nvdla_cacc.sv",
+      "kind": "hdl",
+      "order": 130,
+      "relative_path": "sources/hdl/130/rk_nvdla_cacc.sv",
+      "repository_path": "rtl/cmac/rk_nvdla_cacc.sv",
+      "sha256": "5a970a4d8c91660267815ba02a54bd0e8a50b755ce851806800c0db36e34654c",
+      "size_bytes": 3722
+    },
+    {
+      "basename": "rk_cacc_fp16_array.sv",
+      "kind": "hdl",
+      "order": 131,
+      "relative_path": "sources/hdl/131/rk_cacc_fp16_array.sv",
+      "repository_path": "rtl/cmac/shared_cacc/rk_cacc_fp16_array.sv",
+      "sha256": "089ff61c062231950b2ab6cd08091414a33b938ac15520d030c710fed6d8f8d2",
+      "size_bytes": 6012
+    },
+    {
+      "basename": "rk_cmac_cacc_fp16_array.sv",
+      "kind": "hdl",
+      "order": 132,
+      "relative_path": "sources/hdl/132/rk_cmac_cacc_fp16_array.sv",
+      "repository_path": "rtl/ddr/framework/rk_cmac_cacc_fp16_array.sv",
+      "sha256": "774c82e17445694dda784698c3d758f3fb69fbec48b2b988fd214fa34d513ef0",
+      "size_bytes": 2907
+    },
+    {
+      "basename": "rk_nvdla_fp32_to_fp16.sv",
+      "kind": "hdl",
+      "order": 133,
+      "relative_path": "sources/hdl/133/rk_nvdla_fp32_to_fp16.sv",
+      "repository_path": "rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+      "sha256": "bd71e8efbaecbd18263e8e8043a30614cacb04e966f336c2c5b031fe8506cdb3",
+      "size_bytes": 1553
+    },
+    {
+      "basename": "rk_cmac_writer.sv",
+      "kind": "hdl",
+      "order": 134,
+      "relative_path": "sources/hdl/134/rk_cmac_writer.sv",
+      "repository_path": "rtl/cmac/rk_cmac_writer.sv",
+      "sha256": "d2b1b6ea7c37c13f1cc601a2ae371d2625a75a637a8e5d10974af2a9b785ee25",
+      "size_bytes": 3673
+    },
+    {
+      "basename": "rk_cmac_output_nvdla.sv",
+      "kind": "hdl",
+      "order": 135,
+      "relative_path": "sources/hdl/135/rk_cmac_output_nvdla.sv",
+      "repository_path": "rtl/cmac/rk_cmac_output_nvdla.sv",
+      "sha256": "851a4ba7213ae749dc9ad445f4649abdb555385c2f17d4410164acfb86c19eb5",
+      "size_bytes": 4276
+    },
+    {
+      "basename": "rk_cmac_frame_output.sv",
+      "kind": "hdl",
+      "order": 136,
+      "relative_path": "sources/hdl/136/rk_cmac_frame_output.sv",
+      "repository_path": "rtl/cmac/rk_cmac_frame_output.sv",
+      "sha256": "6be3150ce676e832a2af2d00f72162b86f9ec378827a8daec3eea3e2cb31217c",
+      "size_bytes": 4186
+    },
+    {
+      "basename": "rk_cmac_array_datapath.sv",
+      "kind": "hdl",
+      "order": 137,
+      "relative_path": "sources/hdl/137/rk_cmac_array_datapath.sv",
+      "repository_path": "rtl/cmac/rk_cmac_array_datapath.sv",
+      "sha256": "2c2fff0afa4000b394709c13e82903ea6e8f869e25b6bccc18c57093e938ae93",
+      "size_bytes": 3926
+    },
+    {
+      "basename": "rk_cmac_array_front.sv",
+      "kind": "hdl",
+      "order": 138,
+      "relative_path": "sources/hdl/138/rk_cmac_array_front.sv",
+      "repository_path": "rtl/cmac/shared_cacc/rk_cmac_array_front.sv",
+      "sha256": "524c00b447a54e18c39d05785085635f67a9fee0c401b315a2381e2fd6eee328",
+      "size_bytes": 8795
+    },
+    {
+      "basename": "rk_cmac_rw_arbiter.sv",
+      "kind": "hdl",
+      "order": 139,
+      "relative_path": "sources/hdl/139/rk_cmac_rw_arbiter.sv",
+      "repository_path": "rtl/cmac/rk_cmac_rw_arbiter.sv",
+      "sha256": "92c157082232bc7b74b90c4aee786e5269c6cf2303d6c7d17971f71d196cc5ac",
+      "size_bytes": 3718
+    },
+    {
+      "basename": "rk_cmac_array_core.sv",
+      "kind": "hdl",
+      "order": 140,
+      "relative_path": "sources/hdl/140/rk_cmac_array_core.sv",
+      "repository_path": "rtl/cmac/rk_cmac_array_core.sv",
+      "sha256": "95eefc20f818663a6a3cf7a3b8c7233842e70f60b97a158b0c41423fa35f092f",
+      "size_bytes": 5388
+    },
+    {
+      "basename": "rk_cmac_array_dma.sv",
+      "kind": "hdl",
+      "order": 141,
+      "relative_path": "sources/hdl/141/rk_cmac_array_dma.sv",
+      "repository_path": "rtl/cmac/rk_cmac_array_dma.sv",
+      "sha256": "cf5f0b098c1514f51ade0e8d88364637b05a8ab478417f01cf2f7297602fb0b0",
+      "size_bytes": 6303
+    },
+    {
+      "basename": "rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+      "kind": "hdl",
+      "order": 142,
+      "relative_path": "sources/hdl/142/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+      "repository_path": "rtl/ddr/framework/rk_cmac_fp16_cell_dsp_prefix_pipe.sv",
+      "sha256": "32862d4d14fefa4f5ffed5d8457a334d5ee691e58ab5986684ab267e7a1716e9",
+      "size_bytes": 4193
+    },
+    {
+      "basename": "rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+      "kind": "hdl",
+      "order": 143,
+      "relative_path": "sources/hdl/143/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+      "repository_path": "rtl/ddr/framework/rk_cmac_fp16_array_dsp_prefix_pipe.sv",
+      "sha256": "27908a593196c654e5be4df94b168751789d10bd3a442980217564f1c5edeb82",
+      "size_bytes": 3264
+    },
+    {
+      "basename": "rk_cmac_success_rearm.sv",
+      "kind": "hdl",
+      "order": 144,
+      "relative_path": "sources/hdl/144/rk_cmac_success_rearm.sv",
+      "repository_path": "rtl/tinystories/rk_cmac_success_rearm.sv",
+      "sha256": "495d5374268bfb52aaeb896b6b25373a6e4d84ab6df4b33c53f0dbf4fd18ad6e",
+      "size_bytes": 5395
+    },
+    {
+      "basename": "rk_cmac_async_engine.sv",
+      "kind": "hdl",
+      "order": 145,
+      "relative_path": "sources/hdl/145/rk_cmac_async_engine.sv",
+      "repository_path": "rtl/ddr/framework_factored/rk_cmac_async_engine.sv",
+      "sha256": "d2b65ea08d0e5e67fe42abc5f8930997cd8b6770a3830cff11ad22babff99f89",
+      "size_bytes": 9326
+    },
+    {
+      "basename": "rk_dual_async_dispatch.sv",
+      "kind": "hdl",
+      "order": 146,
+      "relative_path": "sources/hdl/146/rk_dual_async_dispatch.sv",
+      "repository_path": "rtl/ddr/framework_factored/rk_dual_async_dispatch.sv",
+      "sha256": "71fdef09c8a58de6301fee617f58810363deaa7022be5d5e9170a4d39ccc1d02",
+      "size_bytes": 8677
+    },
+    {
+      "basename": "rk_dual_job_control.sv",
+      "kind": "hdl",
+      "order": 147,
+      "relative_path": "sources/hdl/147/rk_dual_job_control.sv",
+      "repository_path": "rtl/ddr/rk_dual_job_control.sv",
+      "sha256": "c37d67bacf7e3fbea99489f2dd0aaf5b93ae56790b3342f097bdb6d277046c6f",
+      "size_bytes": 5519
+    },
+    {
+      "basename": "rk_jtag_dual_ddr_async.sv",
+      "kind": "hdl",
+      "order": 148,
+      "relative_path": "sources/hdl/148/rk_jtag_dual_ddr_async.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/148/rk_jtag_dual_ddr_async.sv",
+      "sha256": "9d20d4de7bc1a777be54840cbfb286cb688b509d73cacef258ef4ec669a587d5",
+      "size_bytes": 83763
+    },
+    {
+      "basename": "rk_job_control_admission.sv",
+      "kind": "hdl",
+      "order": 149,
+      "relative_path": "sources/hdl/149/rk_job_control_admission.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/149/rk_job_control_admission.sv",
+      "sha256": "56ffb71fe46924bdcb40335c1760b808adf61731e0fc56e2af29bd32d1e8df4f",
+      "size_bytes": 9443
+    },
+    {
+      "basename": "rk_ddr_capacity_pattern.sv",
+      "kind": "hdl",
+      "order": 150,
+      "relative_path": "sources/hdl/150/rk_ddr_capacity_pattern.sv",
+      "repository_path": "rtl/ddr/rk_ddr_capacity_pattern.sv",
+      "sha256": "366c9120efdaea0959b902c5cd08e4bb1fd934468272bffc1321a9bbd123eaa8",
+      "size_bytes": 864
+    },
+    {
+      "basename": "rk_ddr_capacity_sweep.sv",
+      "kind": "hdl",
+      "order": 151,
+      "relative_path": "sources/hdl/151/rk_ddr_capacity_sweep.sv",
+      "repository_path": "rtl/ddr/rk_ddr_capacity_sweep.sv",
+      "sha256": "984940927ba0e7a9c23ed689b2ec8e78593db077a9b22c1cc2bb445bf97e60af",
+      "size_bytes": 9174
+    },
+    {
+      "basename": "rk_ddr_capacity_axi.sv",
+      "kind": "hdl",
+      "order": 152,
+      "relative_path": "sources/hdl/152/rk_ddr_capacity_axi.sv",
+      "repository_path": "rtl/ddr/framework/rk_ddr_capacity_axi.sv",
+      "sha256": "2fde9e9b2a18c9d714a4d994fdb812b9c141b010ac0e2fd3070a0812e0d43195",
+      "size_bytes": 13561
+    },
+    {
+      "basename": "rk_ddr_capacity_bist.sv",
+      "kind": "hdl",
+      "order": 153,
+      "relative_path": "sources/hdl/153/rk_ddr_capacity_bist.sv",
+      "repository_path": "rtl/ddr/rk_ddr_capacity_bist.sv",
+      "sha256": "27dd3ccffe578207523e0552df3535b6635056d6ddd15adbbbf93b4115f222ae",
+      "size_bytes": 5047
+    },
+    {
+      "basename": "rk_ddr_capacity_owner.sv",
+      "kind": "hdl",
+      "order": 154,
+      "relative_path": "sources/hdl/154/rk_ddr_capacity_owner.sv",
+      "repository_path": "rtl/ddr/capacity/rk_ddr_capacity_owner.sv",
+      "sha256": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+      "size_bytes": 9175
+    },
+    {
+      "basename": "rk_ddr_capacity_regs.sv",
+      "kind": "hdl",
+      "order": 155,
+      "relative_path": "sources/hdl/155/rk_ddr_capacity_regs.sv",
+      "repository_path": "rtl/ddr/capacity/rk_ddr_capacity_regs.sv",
+      "sha256": "9aad45783d80cd51055b939025af907688e19d41c7ee214c8f8cda7af03ff6b7",
+      "size_bytes": 6817
+    },
+    {
+      "basename": "rk_ddr_diagnostic_mux.sv",
+      "kind": "hdl",
+      "order": 156,
+      "relative_path": "sources/hdl/156/rk_ddr_diagnostic_mux.sv",
+      "repository_path": "rtl/ddr/capacity/rk_ddr_diagnostic_mux.sv",
+      "sha256": "1700149dcd7ba3928b7db10b80a7a3b7f5473de1c78b00929baeb39ed03e23dd",
+      "size_bytes": 6273
+    },
+    {
+      "basename": "rk_ddr_capacity_service.sv",
+      "kind": "hdl",
+      "order": 157,
+      "relative_path": "sources/hdl/157/rk_ddr_capacity_service.sv",
+      "repository_path": "rtl/ddr/maintenance_fi/rk_ddr_capacity_service.sv",
+      "sha256": "6ed1fc827c5e0fafb1b28499c7f4362d1fd7d4a173a7bea465b244bc206d5ae6",
+      "size_bytes": 29211
+    },
+    {
+      "basename": "rk_axil_diagnostic_router.sv",
+      "kind": "hdl",
+      "order": 158,
+      "relative_path": "sources/hdl/158/rk_axil_diagnostic_router.sv",
+      "repository_path": "rtl/ddr/maintenance_fi/rk_axil_diagnostic_router.sv",
+      "sha256": "a790e13d4fb142187c11ec3ad3d24e014f16e2a4da1f54847e9468ebf5f0cbf3",
+      "size_bytes": 5731
+    },
+    {
+      "basename": "nv_assert_never.v",
+      "kind": "hdl",
+      "order": 159,
+      "relative_path": "sources/hdl/159/nv_assert_never.v",
+      "repository_path": "rtl/vendor/nvdla/compat/nv_assert_never.v",
+      "sha256": "28a3ff37142647e9499cc0dd88095313c029acffe1bf7806160eb9fbbd288732",
+      "size_bytes": 1104
+    },
+    {
+      "basename": "nv_assert_no_x.v",
+      "kind": "hdl",
+      "order": 160,
+      "relative_path": "sources/hdl/160/nv_assert_no_x.v",
+      "repository_path": "rtl/vendor/nvdla/compat/nv_assert_no_x.v",
+      "sha256": "6eb56dc9ea269a4b071d3c00de3a23f5b75782b72403bcc72a7acc9e625a6e97",
+      "size_bytes": 691
+    },
+    {
+      "basename": "rk_cmac_fp16_shared_data.sv",
+      "kind": "hdl",
+      "order": 161,
+      "relative_path": "sources/hdl/161/rk_cmac_fp16_shared_data.sv",
+      "repository_path": "rtl/ddr/framework/rk_cmac_fp16_shared_data.sv",
+      "sha256": "7434af380e4f8f07ff60a96269d6727186478099989eb855c16427f60283cecc",
+      "size_bytes": 1236
+    },
+    {
+      "basename": "rk_layout_job_control.sv",
+      "kind": "hdl",
+      "order": 162,
+      "relative_path": "sources/hdl/162/rk_layout_job_control.sv",
+      "repository_path": "rtl/ddr/dual_host_maintenance_fi/rk_layout_job_control.sv",
+      "sha256": "c9e7c9b919bc88ef50172c188bf7ec759ed4049de91a9351dad4448615abe74b",
+      "size_bytes": 6340
+    },
+    {
+      "basename": "rk_layout_compute_dispatch.sv",
+      "kind": "hdl",
+      "order": 163,
+      "relative_path": "sources/hdl/163/rk_layout_compute_dispatch.sv",
+      "repository_path": "rtl/ddr/framework_factored/rk_layout_compute_dispatch.sv",
+      "sha256": "48231c92b2cef2b27c5e59c2a1d444625c87722554cd61479bd0b885d644d930",
+      "size_bytes": 9893
+    },
+    {
+      "basename": "rk_layout_dma.sv",
+      "kind": "hdl",
+      "order": 164,
+      "relative_path": "sources/hdl/164/rk_layout_dma.sv",
+      "repository_path": "rtl/ddr/framework_factored/rk_layout_dma.sv",
+      "sha256": "d9a931e6680b2b5eb93bb4bb48530f674353d23af68017941b7ec23a6dbf92f0",
+      "size_bytes": 12333
+    },
+    {
+      "basename": "rk_quiescent_compute_reset.sv",
+      "kind": "hdl",
+      "order": 165,
+      "relative_path": "sources/hdl/165/rk_quiescent_compute_reset.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/165/rk_quiescent_compute_reset.sv",
+      "sha256": "d68c9978d91d2567a619b0249ac5304aa61c26429770810f3de4d9eafd55fc5c",
+      "size_bytes": 11126
+    },
+    {
+      "basename": "rk_compute_reset_regs.sv",
+      "kind": "hdl",
+      "order": 166,
+      "relative_path": "sources/hdl/166/rk_compute_reset_regs.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/166/rk_compute_reset_regs.sv",
+      "sha256": "df60786050fa1d3865787f32f28ec47c2c64a75870d65db049739c760c955aa3",
+      "size_bytes": 4147
+    },
+    {
+      "basename": "rk_axil_compute_reset_router.sv",
+      "kind": "hdl",
+      "order": 167,
+      "relative_path": "sources/hdl/167/rk_axil_compute_reset_router.sv",
+      "repository_path": "rtl/ddr/framework/rk_axil_compute_reset_router.sv",
+      "sha256": "dade1c4cb47d2bae4ef4258c0ab40edb75b3243a1335d09d26e07ae99e65e51c",
+      "size_bytes": 5533
+    },
+    {
+      "basename": "rk_transport_epoch_guard.sv",
+      "kind": "hdl",
+      "order": 168,
+      "relative_path": "sources/hdl/168/rk_transport_epoch_guard.sv",
+      "repository_path": "rtl/host/rk_transport_epoch_guard.sv",
+      "sha256": "d865fed78bcc898a22e45bd538a14850ab4eba026118fb0cf0dce09f46269470",
+      "size_bytes": 1465
+    },
+    {
+      "basename": "platform.sv",
+      "kind": "hdl",
+      "order": 169,
+      "relative_path": "sources/hdl/169/platform.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/169/platform.sv",
+      "sha256": "ded68799ee5975aa5986227d59a87a4d43e74aad19f543feba8d564b6441d46f",
+      "size_bytes": 21548
+    },
+    {
+      "basename": "top.sv",
+      "kind": "hdl",
+      "order": 170,
+      "relative_path": "sources/hdl/170/top.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/170/top.sv",
+      "sha256": "d23e28bf080df721ad5e46d87da434654c1ed60dd7123ad2a607638822576c6e",
+      "size_bytes": 14956
+    },
+    {
+      "basename": "rk_pcie_control_plane.sv",
+      "kind": "hdl",
+      "order": 171,
+      "relative_path": "sources/hdl/171/rk_pcie_control_plane.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/171/rk_pcie_control_plane.sv",
+      "sha256": "15238bcb7d7bc58e7d18c7a6b844503ab7151a4af9310eb0839aee1618f1a346",
+      "size_bytes": 9987
+    },
+    {
+      "basename": "rk_pcie_axil_crossing.sv",
+      "kind": "hdl",
+      "order": 172,
+      "relative_path": "sources/hdl/172/rk_pcie_axil_crossing.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/172/rk_pcie_axil_crossing.sv",
+      "sha256": "4d7ecbaf001e70ba2d0b09a1c9148fa145c07af3d4c0a29ff7c6138c54f05abe",
+      "size_bytes": 6909
+    },
+    {
+      "basename": "rk_pcie_source_health.sv",
+      "kind": "hdl",
+      "order": 173,
+      "relative_path": "sources/hdl/173/rk_pcie_source_health.sv",
+      "repository_path": "rtl/host/rk_pcie_source_health.sv",
+      "sha256": "8b03a382d6fa9221c6e3178b4d83f5117d3e56ae3e17e137829d4f1febcd869c",
+      "size_bytes": 4653
+    },
+    {
+      "basename": "rk_pcie_dma_decerr.sv",
+      "kind": "hdl",
+      "order": 174,
+      "relative_path": "sources/hdl/174/rk_pcie_dma_decerr.sv",
+      "repository_path": "rtl/host/rk_pcie_dma_decerr.sv",
+      "sha256": "9f0eb4280f8232a9dd04a6b4ec26845100ac99df4ae2b1607d4859a6d0d8ba68",
+      "size_bytes": 4120
+    },
+    {
+      "basename": "rk_pcie_bridge_reset.sv",
+      "kind": "hdl",
+      "order": 175,
+      "relative_path": "sources/hdl/175/rk_pcie_bridge_reset.sv",
+      "repository_path": "rtl/host/rk_pcie_bridge_reset.sv",
+      "sha256": "faf41fa4a3f5d85201d5ae7a70a5b28ea0c15f69262db2f8afd26e9f426d076f",
+      "size_bytes": 5568
+    },
+    {
+      "basename": "axi_clock_converter_v2_1_vl_rfs.v",
+      "kind": "hdl",
+      "order": 176,
+      "relative_path": "sources/hdl/176/axi_clock_converter_v2_1_vl_rfs.v",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/176/axi_clock_converter_v2_1_vl_rfs.v",
+      "sha256": "54640aaf60c378e66a71324a96c85e7ab59814a3da086d14e56eccffe93b5b74",
+      "size_bytes": 101915
+    },
+    {
+      "basename": "xpm_cdc.sv",
+      "kind": "hdl",
+      "order": 177,
+      "relative_path": "sources/hdl/177/xpm_cdc.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/177/xpm_cdc.sv",
+      "sha256": "27592359d8363d7e6575298f9d0faa7c9f9258ea77f19c9a38946fbaf3783f09",
+      "size_bytes": 63282
+    },
+    {
+      "basename": "axi_infrastructure_v1_1_vl_rfs.v",
+      "kind": "hdl",
+      "order": 178,
+      "relative_path": "sources/hdl/178/axi_infrastructure_v1_1_vl_rfs.v",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/178/axi_infrastructure_v1_1_vl_rfs.v",
+      "sha256": "64a5966a7f6c9f296102fb2816e0f4ac4808888b2b64bc0bdafae9ea019a72c4",
+      "size_bytes": 29851
+    },
+    {
+      "basename": "xdma_probe_stub.sv",
+      "kind": "hdl",
+      "order": 179,
+      "relative_path": "sources/hdl/179/xdma_probe_stub.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/179/xdma_probe_stub.sv",
+      "sha256": "04a372ac4d7d3cfc38fe0616bb8ac2dc3970a2929f6c5206b0af02f59e5f7472",
+      "size_bytes": 2662
+    },
+    {
+      "basename": "rk_mig_fi_control_service.sv",
+      "kind": "hdl",
+      "order": 180,
+      "relative_path": "sources/hdl/180/rk_mig_fi_control_service.sv",
+      "repository_path": "rtl/ddr/maintenance_fi/rk_mig_fi_control_service.sv",
+      "sha256": "26c137ef54e1477a5985e5a3508cf486ca4b392b0f093fe7ed6ecaf0c401767c",
+      "size_bytes": 11672
+    },
+    {
+      "basename": "rk_mig_fi_line_access.sv",
+      "kind": "hdl",
+      "order": 181,
+      "relative_path": "sources/hdl/181/rk_mig_fi_line_access.sv",
+      "repository_path": "rtl/ddr/maintenance_fi/rk_mig_fi_line_access.sv",
+      "sha256": "e37a3b4a4c39d676688a7a4bc38a1c52b814d58bc825c4e1dfe031ec7ff15c4d",
+      "size_bytes": 6822
+    },
+    {
+      "basename": "rk_mig_fi_startup_disarm.sv",
+      "kind": "hdl",
+      "order": 182,
+      "relative_path": "sources/hdl/182/rk_mig_fi_startup_disarm.sv",
+      "repository_path": "rtl/ddr/maintenance_fi/rk_mig_fi_startup_disarm.sv",
+      "sha256": "c720476443f269f266ae278c34a67875916ebc32902266e137877b01a84d3cd1",
+      "size_bytes": 3868
+    },
+    {
+      "basename": "rk_mig_ctrl_owner_mux.sv",
+      "kind": "hdl",
+      "order": 183,
+      "relative_path": "sources/hdl/183/rk_mig_ctrl_owner_mux.sv",
+      "repository_path": "rtl/ddr/maintenance_fi/rk_mig_ctrl_owner_mux.sv",
+      "sha256": "3fe68779036330ef80ddbc2bfaebb69d869209c79e8bc2097ce68b57d01bf1c6",
+      "size_bytes": 4688
+    },
+    {
+      "basename": "rk_mig_fi_write_guard.sv",
+      "kind": "hdl",
+      "order": 184,
+      "relative_path": "sources/hdl/184/rk_mig_fi_write_guard.sv",
+      "repository_path": "rtl/ddr/maintenance_fi/rk_mig_fi_write_guard.sv",
+      "sha256": "8166ddaea18995939cdb3893c1d21c39dbbba0d87aec9983912f677f98486e31",
+      "size_bytes": 9151
+    },
+    {
+      "basename": "rk_mig_fi_management_regs.sv",
+      "kind": "hdl",
+      "order": 185,
+      "relative_path": "sources/hdl/185/rk_mig_fi_management_regs.sv",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/185/rk_mig_fi_management_regs.sv",
+      "sha256": "54d2d4cf844f19f1f25d28981e7b6906dae039a51ff7f157515e17e42b9e69cf",
+      "size_bytes": 22165
+    },
+    {
+      "basename": "rk_whole_reset_control.sv",
+      "kind": "hdl",
+      "order": 186,
+      "relative_path": "sources/hdl/186/rk_whole_reset_control.sv",
+      "repository_path": "rtl/ddr/maintenance/rk_whole_reset_control.sv",
+      "sha256": "118441e62c67ab4df2ba01ad69d0e59d40f41976a40838f6240c08f89d985fa3",
+      "size_bytes": 11515
+    },
+    {
+      "basename": "rk_whole_reset_dual_power_ui_bridge.sv",
+      "kind": "hdl",
+      "order": 187,
+      "relative_path": "sources/hdl/187/rk_whole_reset_dual_power_ui_bridge.sv",
+      "repository_path": "rtl/ddr/dual_host_maintenance_fi/rk_whole_reset_dual_power_ui_bridge.sv",
+      "sha256": "6acf122ce5c2dc6381abfc10d4fe365b01cf71db286bdc95d4860a2ee29d160a",
+      "size_bytes": 6191
+    },
+    {
+      "basename": "rk_whole_reset_frame_gate.sv",
+      "kind": "hdl",
+      "order": 188,
+      "relative_path": "sources/hdl/188/rk_whole_reset_frame_gate.sv",
+      "repository_path": "rtl/ddr/maintenance_fi/rk_whole_reset_frame_gate.sv",
+      "sha256": "38bdf51c044d0129f0d97388d5a2ceecbc904d2ef16d364b91c447e6f8288313",
+      "size_bytes": 4090
+    },
+    {
+      "basename": "rk_whole_reset_dual_host_parent.sv",
+      "kind": "hdl",
+      "order": 189,
+      "relative_path": "sources/hdl/189/rk_whole_reset_dual_host_parent.sv",
+      "repository_path": "rtl/ddr/dual_host_maintenance_fi/rk_whole_reset_dual_host_parent.sv",
+      "sha256": "32d8984dcf06381198c14778ee692d713b4283a6e6899374a8a7cd46add03f57",
+      "size_bytes": 12078
+    },
+    {
+      "basename": "rk_pcie_jtag_maintenance_frontend.sv",
+      "kind": "hdl",
+      "order": 190,
+      "relative_path": "sources/hdl/190/rk_pcie_jtag_maintenance_frontend.sv",
+      "repository_path": "rtl/ddr/dual_host_maintenance_fi/rk_pcie_jtag_maintenance_frontend.sv",
+      "sha256": "72609e7452809a252003a1c2d9848c78a6c6e82a42684eca539a38e55b3bd52e",
+      "size_bytes": 7670
+    },
+    {
+      "basename": "rk_axil_maintenance_seal.sv",
+      "kind": "hdl",
+      "order": 191,
+      "relative_path": "sources/hdl/191/rk_axil_maintenance_seal.sv",
+      "repository_path": "rtl/ddr/dual_host_maintenance_fi/rk_axil_maintenance_seal.sv",
+      "sha256": "190ef3e10f87cd473b6796553fc83945f19dbc8999cdb9133a9a613b35b5953e",
+      "size_bytes": 4217
+    },
+    {
+      "basename": "rk_axil_frame_mailbox_maintenance.sv",
+      "kind": "hdl",
+      "order": 192,
+      "relative_path": "sources/hdl/192/rk_axil_frame_mailbox_maintenance.sv",
+      "repository_path": "rtl/ddr/dual_host_maintenance_fi/rk_axil_frame_mailbox_maintenance.sv",
+      "sha256": "b0d79614a292dc96eddbea0631ba35c27941cbf82d23a01148e16d4ade7e2cf8",
+      "size_bytes": 7114
+    },
+    {
+      "basename": "rk_raw_frame_owner_mux_maintenance.sv",
+      "kind": "hdl",
+      "order": 193,
+      "relative_path": "sources/hdl/193/rk_raw_frame_owner_mux_maintenance.sv",
+      "repository_path": "rtl/ddr/dual_host_maintenance_fi/rk_raw_frame_owner_mux_maintenance.sv",
+      "sha256": "b362f856d0bac4721af411c99b14e019d27c6af14d084db3b176842e49f102b1",
+      "size_bytes": 6619
+    },
+    {
+      "basename": "rk_retained_jtag_mailbox.sv",
+      "kind": "hdl",
+      "order": 194,
+      "relative_path": "sources/hdl/194/rk_retained_jtag_mailbox.sv",
+      "repository_path": "rtl/host/rk_retained_jtag_mailbox.sv",
+      "sha256": "f02ee1fd7c3326415d1188bc322860205b02962a9eb41feb33543b4a67f953ad",
+      "size_bytes": 1371
+    },
+    {
+      "basename": "nv_assert_never.vlib",
+      "kind": "header",
+      "order": null,
+      "relative_path": "sources/headers/nv_assert_never.vlib",
+      "repository_path": "rtl/vendor/nvdla/nv_assert_never.vlib",
+      "sha256": "d5b31a424e4518cdf58ef9fe303a749cd514bc1d134a9ac8198b454adc12c2ad",
+      "size_bytes": 3550
+    },
+    {
+      "basename": "nv_assert_no_x.vlib",
+      "kind": "header",
+      "order": null,
+      "relative_path": "sources/headers/nv_assert_no_x.vlib",
+      "repository_path": "rtl/vendor/nvdla/nv_assert_no_x.vlib",
+      "sha256": "64ae1b6d9735257b681d3ad42ee0e05f425fc0ec11308c845cb7f668ce117a02",
+      "size_bytes": 3758
+    },
+    {
+      "basename": "axi_infrastructure_v1_1_0.vh",
+      "kind": "header",
+      "order": null,
+      "relative_path": "sources/headers/axi_infrastructure_v1_1_0.vh",
+      "repository_path": "rtl/ddr/pcie_snapshot_publication/source/headers/axi_infrastructure_v1_1_0.vh",
+      "sha256": "6f75042bd294dd05d9e4d326fe845e6bd44ec51637b1ad8ce66fbc295f16cc52",
+      "size_bytes": 8325
+    },
+    {
+      "basename": "board.xdc",
+      "kind": "xdc",
+      "order": null,
+      "relative_path": "sources/xdc/board.xdc",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-constrained-source/source-copy/board.xdc",
+      "sha256": "18f8b2bdd853c991df4395a40ca184b7ee4618f035b19f9e073423f071d11a15",
+      "size_bytes": 426
+    },
+    {
+      "basename": "mig-original.xdc",
+      "kind": "xdc",
+      "order": null,
+      "relative_path": "sources/xdc/mig-original.xdc",
+      "repository_path": "verification/runs/2026-10-28-full512-ddr-first-bos/files/build/ypcb-ddr-shell/ch1-routed-io-review-v1/source/mig-original.xdc",
+      "sha256": "5ea42669bed59d09cfad5c25a08aec20e0824d48895071ecd2acfbff8261b6fc",
+      "size_bytes": 85957
+    },
+    {
+      "basename": "xdma_ooc.dcp",
+      "kind": "component_checkpoint",
+      "order": null,
+      "relative_path": "components/xdma_ooc.dcp",
+      "repository_path": null,
+      "sha256": "9c9d895d1af9811548a6b534ad40b79c50f6c8eb7a1a7c13f52ffe7e783c9c5a",
+      "size_bytes": 9075034
+    }
+  ],
+  "schema": "snapshot-publication-repository-source-index-v1",
+  "source_count": 201,
+  "source_manifest_path_at_materialization": "build/snapshot-scope-cofactor-full-synth-v1/source-manifest.json",
+  "source_manifest_sha256": "68cea9679fcb1140e5c1db61027993c0f335fee11386db91921cd4d5a27e322d",
+  "status": "CANDIDATE_SOURCE_INDEX_ONLY_NOT_DEFAULT_PROMOTION",
+  "synth_recipe_origin": "build/snapshot-publication-portable-source-prep-v1/synth.tcl; byte-identical; expects a rendered sources/{hdl,headers,xdc}/ and components/ layout",
+  "synth_recipe_path": "rtl/ddr/pcie_snapshot_publication/synth.tcl",
+  "synth_recipe_sha256": "51a0dd1cdac2a71323e0ed37edc592dc9b7fc2553670e8889d1927681b8c713d"
+}
