@@ -20,7 +20,20 @@ establish a square systolic topology for RK3588 silicon or measured end-to-end
 MACs per clock. INT8/INT4 arithmetic and doubled INT8 throughput are unsupported.
 See the [precision and layout boundary](docs/CMAC_ENCODER_CONTRACT.md#precision-and-compute-group-terminology).
 
-**Latest timing work, 2026-11-01:** the reset-request qualification passes
+**Latest timing work, 2026-11-02:** the private combined snapshot-scope and
+result-publication repair passes independent
+[full synthesis](build/snapshot-scope-cofactor-full-synth-v1/results-review.json)
+at 293,628 LUTs/89,807 FFs/516 DSPs, retaining the full compute and interface
+census. Fresh [constant retention](build/snapshot-publication-retained-prep-v1/retention-results-review.json)
+and [mapped inventory](build/snapshot-publication-retained-prep-v1/inventory-results-review.json)
+pass independent review. Both fresh [warm](build/snapshot-publication-warm-prep-v1/codegen-results-review.json)
+and [controller](build/snapshot-publication-controller-prep-v1/codegen-results-review.json)
+codegens pass independent warning/artifact review; C++ compilation and strict
+constraints are running. This source has no accepted placement, route or image;
+the preceding result/counter candidate failed routed setup at −1.457 ns.
+The [active plan](docs/REVIEW_AND_PLAN.md) records the source-specific gates.
+
+**Earlier timing work, 2026-11-01:** the reset-request qualification passes
 [paired native checks](build/reset-request-qualified-native-v2/results-review.json)
 and [matched isolated mapping](build/reset-request-qualified-mapped-v1/results-review.json).
 The health-to-maintenance-quiet path drops from six logic levels/2.733 ns to

@@ -46,10 +46,12 @@ combined snapshot-scope/result-publication repair has passed independent
 293,628 LUTs, 89,807 FFs and 516 DSPs, retaining all 512 products, sixteen
 kernels, both MIGs, both CACC pipelines, PCIe and USER2/UI plus USER3/SYS.
 Its 201-input selection changes only source orders 112, 116, 148 and 149
-relative to the preceding result/counter candidate. Fresh constant retention
-and mapped-inventory jobs have started; fresh warm/controller source profiles
-and original codegen argument plans are prepared. Full-parent model replay,
-placement, routing and hardware acceptance remain pending for this source.
+relative to the preceding result/counter candidate. Fresh [constant retention](../build/snapshot-publication-retained-prep-v1/retention-results-review.json)
+and [mapped inventory](../build/snapshot-publication-retained-prep-v1/inventory-results-review.json)
+pass independent review. Both fresh codegens pass independent warning/artifact
+review; warm/controller C++ compilation and strict constraints are running.
+Full-parent model replay, placement, routing and hardware acceptance remain
+pending for this source.
 
 The preceding result/counter candidate passed both full-parent model suites
 and placement structural checks, but its preserved raw route fails setup at
@@ -58,7 +60,11 @@ PDRC-61 warning. The read-only diagnostic's Vivado command completed, but its
 Python output collector failed on a contract-key mismatch; an
 [additive saved-artifact audit](../build/result-counter-zero-pdrc61-probe-v2-artifact-audit-v1/report.json)
 records that failure and two inventory-query limitations without changing the
-original report. There is no accepted new image. Historical TinyStories
+original report. The [fresh guarded O5 cleanup diagnostic](../build/guarded-o5-cleanup-candidate-v1/results-review.json)
+now passes: all eight proven-dead O5 buffers are removed, PDRC-61 clears, and
+functional connectivity, routing and slacks remain unchanged. That result does
+not repair the failed setup timing or qualify the new combined source.
+There is no accepted new image. Historical TinyStories
 success applies to its earlier image only.
 
 These rows describe separate profiles and source candidates. A passing
@@ -349,7 +355,10 @@ the original startup/reset/assertion-source protections. Raw setup fails at
 The worst routed path now reaches job-result code enables through completion
 error qualification. Cleanup stops on PDRC-61#1, dangling O5 at
 `SLICE_X186Y398:C5LUT`. That warning is absent from the raw-route DRC and
-appears in the cleanup-stage report; its exact cause is under investigation.
+appears in the cleanup-stage report. The old helper removed four named O5
+buffers, while this placement has eight O5 buffers among the exact same
+twenty-three guarded unloaded nets. The separately reviewed diagnostic above
+removes all eight with the original non-target/DRC/route/slack guards retained.
 The initial read-only probe incorrectly expected it in the raw checkpoint and
 is preserved as failed. No severity, DRC or timing gate has been relaxed.
 No new image has been emitted. SRAM-load preparation still needs fresh bindings
@@ -431,7 +440,8 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | SUBMIT result-zero timing repair | Paired native and matched mapping independently pass: nine result FF input cones removed, 205→195 LUTs/286 FFs | Fresh full-parent models and timing before selection |
 | Fabric counter zero bank | Original 21/19 protocol cases, conditional formal checks and matched mapping reviewed: 370→0 live-control payload points, +94 LUTs/+6 FFs | Fresh full-parent checks; formal assumptions and direct-simulation limits remain explicit |
 | Combined result/counter full design | Both model suites and placement structural checks pass. Raw route: 450,803/450,803 nets, zero route errors; setup −1.457 ns fails, hold +0.014 ns passes. Cleanup rejects new PDRC-61 | Preserve failed route; qualify control-path repairs, diagnose cleanup, then fresh full-parent/physical gates |
-| Private snapshot-scope and result-publication repairs | Component/native and scoped binary checks pass; combined full synthesis independently passes at 293,628 LUTs/89,807 FFs/516 DSPs | Fresh retention/inventory running; new full-parent models, placement and route remain required |
+| Private snapshot-scope and result-publication repairs | Component/native and scoped binary checks pass; combined full synthesis independently passes at 293,628 LUTs/89,807 FFs/516 DSPs | Retention/inventory and both codegens independently passed; C++ builds and strict constraints running; full-parent replays, placement and route remain required |
+| Guarded O5 cleanup | Independent diagnostic passes: eight proven-dead buffers, zero PDRC-61; route and slacks unchanged | Recheck on the new source route; no timing acceptance |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rkfi-host-public-independent-review-v1/results-review.json) with 43,992 inputs unchanged, including fourteen normal and fourteen optimized RKFI callback tests | Covers the public source snapshot and fake-register callback controls; not physical MIG, FPGA, ECC or RK silicon |
