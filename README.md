@@ -27,10 +27,13 @@ independently audited component mapping, with unchanged state counts. Fresh
 [full synthesis](build/capacity-service-admission-full-synth-v1/results-review.json)
 passes at 293,553 LUTs/89,807 FFs/516 DSPs, retaining all 512 products, both MIGs,
 both CACC pipelines, PCIe and BSCAN chains. Both fresh model codegens and C++
-builds pass independent review. The sixteen-job warm replay and twelve-case
-controller replay are running with their original validators and deadlines.
-Fresh retained-constant and mapped-interface audits pass; strict implementation
-and placement preparation continue. This source has no routed-timing or new-image
+builds pass independent review. The fresh
+[warm replay](build/capacity-service-admission-warm-replay-v1/results-review.json)
+passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete
+BO bytes. The twelve-case controller replay remains active under its original
+validators and deadlines. Fresh retained-constant and mapped-interface audits
+and [strict structural checks](build/capacity-service-admission-implementation-prep-v1/strict-results-review.json)
+pass independent review; placement is running. This source has no routed-timing or new-image
 FPGA acceptance.
 
 **Preceding timing candidate, 2026-11-03:** the capacity-admission health cofactor
