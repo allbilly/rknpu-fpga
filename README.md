@@ -32,9 +32,20 @@ codegens pass independent warning/artifact review. Both fresh C++ builds
 ([warm](build/snapshot-publication-warm-continuation-v1/build-results-review.json),
 [controller](build/snapshot-publication-controller-continuation-v1/build-results-review.json))
 and [strict constraints](build/snapshot-publication-implementation-prep-v1/strict-results-review.json)
-pass independent review. The fresh warm reset/whole-BO replay and placement are
-running. This source has no accepted placement, route or image;
+pass independent review. The fresh
+[warm reset/whole-BO replay](build/snapshot-publication-warm-replay-v1/results-review.json)
+passes sixteen jobs and 1,441,792 BO bytes. The fresh
+[controller replay](build/snapshot-publication-controller-replay-v1/results-review.json)
+passes all twelve original cases and 532,480 BO bytes. Fresh
+[placement](build/snapshot-publication-implementation-prep-v1/placement-results-review.json)
+passes structural review but fails unrouted setup −1.465 ns and hold −0.978 ns;
+the guarded route is running. The [explicit source candidate](rtl/ddr/pcie_snapshot_publication/README.md)
+preserves the 201-input selection for source preparation and remains separate
+from the default targets. This source has no accepted placement, route or image;
 the preceding result/counter candidate failed routed setup at −1.457 ns.
+The [full public default regression](build/snapshot-publication-public-regression-v1/results-review.json)
+passes with 44,020 inputs unchanged; these default targets are separate from
+this candidate's full-parent model suites.
 The [active plan](docs/REVIEW_AND_PLAN.md) records the source-specific gates.
 
 **Earlier timing work, 2026-11-01:** the reset-request qualification passes

@@ -29,4 +29,4 @@ repository source index and preparation receipt to identify the selected source.
 
 ## Evidence scope
 
-The source manifest's current synthesis review is resource-census-only. The warm model replay and strict stage are separately reviewed within their stated scopes. The controller replay remains pending, and the route package is still a non-executable draft with no routed result. This candidate does not establish timing closure, electrical signoff, routed-image validity, FPGA qualification, or hardware execution.
+The source manifest's current synthesis review is resource-census-only. The warm model replay and strict stage are separately reviewed within their stated scopes. The controller replay now passes all twelve original model cases. Placement passes structural review but its unrouted setup/hold estimates fail; the guarded route is running with no accepted routed result. The full public default regression also passes, and those default targets remain separate from this candidate full-system profile. This candidate does not establish timing closure, electrical signoff, routed-image validity, FPGA qualification, or hardware execution.
