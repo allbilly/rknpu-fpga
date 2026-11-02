@@ -41,11 +41,18 @@ estimates fail setup at −1.387 ns and hold at −0.392 ns. The
 verifies all 450,804 routable nets with zero route errors, but setup fails at
 −1.075 ns across 5,297 endpoints; hold passes at +0.013 ns. Cleanup and the
 original source protections pass. The worst path now crosses normal monitor
-health and fabric readiness to command BRESP. An unselected, zero-state,
-zero-latency parent-readiness cofactor passes source review and an extracted
-binary cone proof with two real negative controls; native and mapping checks
-remain required before selection. This source has no timing or new-image FPGA
-acceptance.
+health and fabric readiness to command BRESP. The unselected
+[parent-readiness cofactor](rtl/ddr/parent_readiness_cofactor/README.md) adds no
+state or latency. Source review, an extracted binary cone proof with two real
+negative controls, 210,384 selected four-state cone checks and
+[paired native review](build/parent-readiness-cofactor-native-v4/results-review.json)
+pass. The native pair directly compares all 51 original fabric outputs and 44
+state fields, with all three added outputs checked separately; it does not
+compile the full parent. Matched mapping and full implementation remain
+required. The [public default regression](build/parent-readiness-public-regression-v1/report.json)
+passes 582 unit-test executions and the native suites with all 44,025 tracked
+files unchanged; those targets do not select this candidate. This source has
+no timing or new-image FPGA acceptance.
 
 **Preceding timing candidate, 2026-11-03:** the capacity-admission health cofactor
 passes [full-synthesis resource review](build/capacity-admission-health-full-synth-v1/results-review.json)

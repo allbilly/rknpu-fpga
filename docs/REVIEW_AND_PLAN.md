@@ -74,9 +74,23 @@ first-cause/state logic and actual DMA/job launches remain unchanged. Its
 [source review](../build/parent-readiness-cofactor-candidate-v1/source-review.json)
 and [extracted binary cone proof](../build/parent-readiness-cofactor-candidate-v1/proof-v1/report.json)
 pass, including two real negative controls. These are component algebra
-results, not full-parent, four-state, mapped timing or hardware acceptance.
-Fresh native and matched mapping evidence are required before selection or a
-new full build.
+results, not full-parent or hardware acceptance. The independently reviewed
+[selected four-state cone checks](../build/parent-readiness-cofactor-candidate-v1/four-state-review.json)
+pass 210,384 checks without claiming the full 44-input cross-product. Fresh
+[paired native review](../build/parent-readiness-cofactor-native-v4/results-review.json)
+passes the original 21 Icarus/19 Verilator cases, directly compares all 51
+original outputs and 44 state fields, and checks all three added outputs.
+Its parent-equation fixture passes 15 Icarus vectors including X/Z and 11
+binary Verilator vectors; actual order148 is not compiled. The first fixture
+run failed because reset initialization followed a delayed additive fixture;
+that failure and the intermediate coverage/metadata-limited runs remain
+preserved. Matched mapping through the actual monitor, fabric and queued
+controller remains pending before selection or a new full build. The
+[public default regression](../build/parent-readiness-public-regression-v1/report.json)
+passes 582 unit-test executions and the native suites at source `0de9634`, with
+all 44,025 tracked files unchanged. These default targets do not select the new
+candidate, whose [durable source pair](../rtl/ddr/parent_readiness_cofactor/README.md)
+remains separate.
 
 The preceding capacity-admission health cofactor passed full-synthesis review at
 293,543 LUTs/89,807 FFs/516 DSPs, with the complete required topology retained.
