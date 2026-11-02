@@ -49,8 +49,13 @@ Its 201-input selection changes only source orders 112, 116, 148 and 149
 relative to the preceding result/counter candidate. Fresh [constant retention](../build/snapshot-publication-retained-prep-v1/retention-results-review.json)
 and [mapped inventory](../build/snapshot-publication-retained-prep-v1/inventory-results-review.json)
 pass independent review. Both fresh codegens pass independent warning/artifact
-review; warm/controller C++ compilation and strict constraints are running.
-Full-parent model replay, placement, routing and hardware acceptance remain
+review. Both fresh C++ builds
+([warm](../build/snapshot-publication-warm-continuation-v1/build-results-review.json),
+[controller](../build/snapshot-publication-controller-continuation-v1/build-results-review.json))
+and [strict constraints](../build/snapshot-publication-implementation-prep-v1/strict-results-review.json)
+pass independent review. Fresh warm reset/whole-BO replay and placement are
+running; the twelve-case controller replay follows the warm workload to avoid
+overlapping the two long model suites. Routing and hardware acceptance remain
 pending for this source.
 
 The preceding result/counter candidate passed both full-parent model suites
@@ -440,7 +445,7 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | SUBMIT result-zero timing repair | Paired native and matched mapping independently pass: nine result FF input cones removed, 205→195 LUTs/286 FFs | Fresh full-parent models and timing before selection |
 | Fabric counter zero bank | Original 21/19 protocol cases, conditional formal checks and matched mapping reviewed: 370→0 live-control payload points, +94 LUTs/+6 FFs | Fresh full-parent checks; formal assumptions and direct-simulation limits remain explicit |
 | Combined result/counter full design | Both model suites and placement structural checks pass. Raw route: 450,803/450,803 nets, zero route errors; setup −1.457 ns fails, hold +0.014 ns passes. Cleanup rejects new PDRC-61 | Preserve failed route; qualify control-path repairs, diagnose cleanup, then fresh full-parent/physical gates |
-| Private snapshot-scope and result-publication repairs | Component/native and scoped binary checks pass; combined full synthesis independently passes at 293,628 LUTs/89,807 FFs/516 DSPs | Retention/inventory and both codegens independently passed; C++ builds and strict constraints running; full-parent replays, placement and route remain required |
+| Private snapshot-scope and result-publication repairs | Component/native and scoped binary checks pass; combined full synthesis independently passes at 293,628 LUTs/89,807 FFs/516 DSPs | Retention/inventory, both codegens/C++ builds and strict constraints independently passed; warm replay and placement running; controller replay and route remain required |
 | Guarded O5 cleanup | Independent diagnostic passes: eight proven-dead buffers, zero PDRC-61; route and slacks unchanged | Recheck on the new source route; no timing acceptance |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |

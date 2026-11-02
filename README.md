@@ -28,8 +28,12 @@ census. Fresh [constant retention](build/snapshot-publication-retained-prep-v1/r
 and [mapped inventory](build/snapshot-publication-retained-prep-v1/inventory-results-review.json)
 pass independent review. Both fresh [warm](build/snapshot-publication-warm-prep-v1/codegen-results-review.json)
 and [controller](build/snapshot-publication-controller-prep-v1/codegen-results-review.json)
-codegens pass independent warning/artifact review; C++ compilation and strict
-constraints are running. This source has no accepted placement, route or image;
+codegens pass independent warning/artifact review. Both fresh C++ builds
+([warm](build/snapshot-publication-warm-continuation-v1/build-results-review.json),
+[controller](build/snapshot-publication-controller-continuation-v1/build-results-review.json))
+and [strict constraints](build/snapshot-publication-implementation-prep-v1/strict-results-review.json)
+pass independent review. The fresh warm reset/whole-BO replay and placement are
+running. This source has no accepted placement, route or image;
 the preceding result/counter candidate failed routed setup at −1.457 ns.
 The [active plan](docs/REVIEW_AND_PLAN.md) records the source-specific gates.
 
