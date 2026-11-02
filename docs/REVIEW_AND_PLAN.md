@@ -56,8 +56,27 @@ outputs/532,480 bytes, seven successful SYS resets and 32,768 BIST writes plus
 32,768 reads under the original budgets. Fresh retention,
 mapped-interface and [strict structural checks](../build/capacity-service-admission-implementation-prep-v1/strict-results-review.json)
 pass independent review. Placement passes structural review but its unrouted
-setup −1.387 ns and hold −0.392 ns still fail. The guarded route is running;
-routed timing and a new-image FPGA test remain required.
+setup −1.387 ns and hold −0.392 ns still fail. The
+[guarded route failure review](../build/capacity-service-admission-route-prep-v1/failure-review.json)
+verifies 450,804/450,804 routable nets and zero route errors. Final setup fails
+at −1.075 ns/TNS −2,104.147 ns across 5,297 endpoints; hold passes at +0.013 ns,
+with zero hold or pulse-width failures. Cleanup and the original source
+protections pass. The worst path runs from C1 CTRL address through normal
+monitor health and fabric readiness to bank0 command BRESP. This source has no
+accepted image or new-image hardware result.
+
+The next unselected
+[parent-readiness candidate](../build/parent-readiness-cofactor-candidate-v1/source-candidate.json)
+adds no state or latency. It omits the instantaneous fabric monitor-gap term
+only when a known-seen monitor already blocks the parent, and uses fault-free
+readiness only behind the original parent fault mask. Original fabric outputs,
+first-cause/state logic and actual DMA/job launches remain unchanged. Its
+[source review](../build/parent-readiness-cofactor-candidate-v1/source-review.json)
+and [extracted binary cone proof](../build/parent-readiness-cofactor-candidate-v1/proof-v1/report.json)
+pass, including two real negative controls. These are component algebra
+results, not full-parent, four-state, mapped timing or hardware acceptance.
+Fresh native and matched mapping evidence are required before selection or a
+new full build.
 
 The preceding capacity-admission health cofactor passed full-synthesis review at
 293,543 LUTs/89,807 FFs/516 DSPs, with the complete required topology retained.

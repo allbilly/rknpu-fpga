@@ -36,8 +36,16 @@ passes all twelve original cases and the coordinator precheck, with 532,480
 whole-BO bytes and the original deadlines. Fresh retained-constant and mapped-interface audits
 and [strict structural checks](build/capacity-service-admission-implementation-prep-v1/strict-results-review.json)
 pass independent review. Placement passes structural review but its unrouted
-estimates fail setup at −1.387 ns and hold at −0.392 ns. The guarded route is
-running; this source has no routed-timing or new-image FPGA acceptance.
+estimates fail setup at −1.387 ns and hold at −0.392 ns. The
+[guarded route failure review](build/capacity-service-admission-route-prep-v1/failure-review.json)
+verifies all 450,804 routable nets with zero route errors, but setup fails at
+−1.075 ns across 5,297 endpoints; hold passes at +0.013 ns. Cleanup and the
+original source protections pass. The worst path now crosses normal monitor
+health and fabric readiness to command BRESP. An unselected, zero-state,
+zero-latency parent-readiness cofactor passes source review and an extracted
+binary cone proof with two real negative controls; native and mapping checks
+remain required before selection. This source has no timing or new-image FPGA
+acceptance.
 
 **Preceding timing candidate, 2026-11-03:** the capacity-admission health cofactor
 passes [full-synthesis resource review](build/capacity-admission-health-full-synth-v1/results-review.json)
