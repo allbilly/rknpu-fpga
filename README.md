@@ -28,8 +28,12 @@ CACC pipelines, PCIe and BSCAN chains retained. Both fresh C++ builds and
 [inventory](build/capacity-admission-health-retained-prep-v1/inventory-results-review.json)
 pass independent review. The fresh
 [warm replay](build/capacity-admission-health-warm-replay-v1/results-review.json)
-passes sixteen jobs and 1,441,792 BO bytes. Controller replay and strict
-implementation are running; this source has no routed-timing or FPGA acceptance.
+passes sixteen jobs and 1,441,792 BO bytes. The fresh
+[controller replay](build/capacity-admission-health-controller-replay-v1/results-review.json)
+passes all twelve original cases and 532,480 BO bytes. Strict implementation
+and placement pass structural review; placement estimates still fail setup
+−1.144 ns and hold −0.392 ns. The guarded route is running. This source has
+no routed-timing or FPGA acceptance.
 
 **Earlier timing work, 2026-11-02:** the private combined snapshot-scope and
 result-publication repair passes independent

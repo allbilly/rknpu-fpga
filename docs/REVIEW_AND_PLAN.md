@@ -44,9 +44,11 @@ Current focus: close setup timing for the combined PCIe/JTAG image. The latest
 capacity-admission health cofactor passes independent full-synthesis review at
 293,543 LUTs/89,807 FFs/516 DSPs, with the complete required topology retained.
 Both fresh model binaries and constant-retention/mapped-inventory stages pass
-review. Its fresh warm replay passes sixteen jobs/1,441,792 BO bytes; controller
-replay and strict implementation are running. Placement, routing and FPGA
-qualification remain pending for this source. The component and full-source
+review. Its fresh warm replay passes sixteen jobs/1,441,792 BO bytes, and all
+twelve controller cases pass their original V4/whole-BO checks. Strict and
+placement structural reviews pass. Unrouted placement estimates still fail
+setup −1.144 ns and hold −0.392 ns; the guarded route is running. Routed timing
+and FPGA qualification remain pending for this source. The component and full-source
 receipts are linked in the capacity-admission paragraph below.
 
 The preceding snapshot/publication candidate remains separately qualified by
@@ -483,7 +485,7 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | Fabric counter zero bank | Original 21/19 protocol cases, conditional formal checks and matched mapping reviewed: 370→0 live-control payload points, +94 LUTs/+6 FFs | Fresh full-parent checks; formal assumptions and direct-simulation limits remain explicit |
 | Combined result/counter full design | Both model suites and placement structural checks pass. Raw route: 450,803/450,803 nets, zero route errors; setup −1.457 ns fails, hold +0.014 ns passes. Cleanup rejects new PDRC-61 | Preserve failed route; qualify control-path repairs, diagnose cleanup, then fresh full-parent/physical gates |
 | Snapshot-scope and result-publication source candidate | Component/native and scoped binary checks pass; combined full synthesis independently passes at 293,628 LUTs/89,807 FFs/516 DSPs | Retention/inventory, both codegens/C++ builds, strict checks, fresh16-job warm replay and all12 controller cases independently passed; placement structure passes; route/cleanup complete but setup −1.208 ns fails, hold +0.012 ns passes; next admission repair in component qualification |
-| Capacity-admission health cofactor v3 | Source, native, binary/four-state equation and matched OOC reviews pass; health path 4→1 levels, 2.492→1.117 ns estimated | Full synthesis, both binaries, retention/inventory and warm replay passed; controller replay and strict implementation running; routed timing and physical qualification required |
+| Capacity-admission health cofactor v3 | Source, native, binary/four-state equation and matched OOC reviews pass; health path 4→1 levels, 2.492→1.117 ns estimated | Full synthesis, both model suites, retention/inventory, strict and placement structure passed; unrouted timing fails; guarded route running |
 | Guarded O5 cleanup | Independent diagnostic passes: eight proven-dead buffers, zero PDRC-61; route and slacks unchanged | Recheck on the new source route; no timing acceptance |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
@@ -516,8 +518,18 @@ and [mapped inventory](../build/capacity-admission-health-retained-prep-v1/inven
 pass their original checks. The fresh
 [warm replay](../build/capacity-admission-health-warm-replay-v1/results-review.json)
 passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 BO bytes.
-Controller replay and strict implementation are running. Fresh placement,
-routing and physical qualification remain required. Earlier declaration, native-harness and OOC
+The fresh [controller review](../build/capacity-admission-health-controller-replay-v1/results-review.json)
+passes all twelve original V4 cases, six complete BO outputs/532,480 bytes,
+seven successful SYS resets and 32,768 BIST writes plus 32,768 reads. Fresh
+[strict review](../build/capacity-admission-health-implementation-prep-v1/strict-results-review.json)
+and [placement review](../build/capacity-admission-health-implementation-prep-v1/placement-results-review.json)
+retain the original structural/source/protection gates. Placement setup remains
+−1.144 ns/TNS −1,366.967 ns across 3,542 endpoints; hold is −0.392 ns/THS
+−158.363 ns across 1,669 endpoints, all unrouted. The worst estimated path
+reaches compute-reset UI-stable enables from C1 CTRL. The fresh
+[guarded route](../build/capacity-admission-health-route-prep-v1/source-review.json)
+is running from the reviewed `c10b055e…` placement checkpoint. Detailed audits,
+image admission and physical qualification remain required. Earlier declaration, native-harness and OOC
 report-table failures are preserved; none is relabeled as a successful run.
 
 Earlier source-bound timing milestones follow. The private FI staging-enable, snapshot-capture
