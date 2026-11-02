@@ -30,11 +30,14 @@ both CACC pipelines, PCIe and BSCAN chains. Both fresh model codegens and C++
 builds pass independent review. The fresh
 [warm replay](build/capacity-service-admission-warm-replay-v1/results-review.json)
 passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete
-BO bytes. The twelve-case controller replay remains active under its original
-validators and deadlines. Fresh retained-constant and mapped-interface audits
+BO bytes. The fresh
+[controller replay](build/capacity-service-admission-controller-replay-v1/results-review.json)
+passes all twelve original cases and the coordinator precheck, with 532,480
+whole-BO bytes and the original deadlines. Fresh retained-constant and mapped-interface audits
 and [strict structural checks](build/capacity-service-admission-implementation-prep-v1/strict-results-review.json)
-pass independent review; placement is running. This source has no routed-timing or new-image
-FPGA acceptance.
+pass independent review. Placement passes structural review but its unrouted
+estimates fail setup at −1.387 ns and hold at −0.392 ns. The guarded route is
+running; this source has no routed-timing or new-image FPGA acceptance.
 
 **Preceding timing candidate, 2026-11-03:** the capacity-admission health cofactor
 passes [full-synthesis resource review](build/capacity-admission-health-full-synth-v1/results-review.json)

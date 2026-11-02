@@ -50,10 +50,14 @@ passes at 293,553 LUTs/89,807 FFs/516 DSPs with the required full compute and
 interface topology. Both fresh codegens and C++ builds pass independent review.
 The [fresh warm replay](../build/capacity-service-admission-warm-replay-v1/results-review.json)
 passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 whole-BO
-bytes; the twelve-case controller replay remains active. Fresh retention,
+bytes. The [fresh controller review](../build/capacity-service-admission-controller-replay-v1/results-review.json)
+passes all twelve original V4 cases and coordinator precheck, six complete BO
+outputs/532,480 bytes, seven successful SYS resets and 32,768 BIST writes plus
+32,768 reads under the original budgets. Fresh retention,
 mapped-interface and [strict structural checks](../build/capacity-service-admission-implementation-prep-v1/strict-results-review.json)
-pass independent review. Placement is running; routed timing and a new-image
-FPGA test remain required.
+pass independent review. Placement passes structural review but its unrouted
+setup −1.387 ns and hold −0.392 ns still fail. The guarded route is running;
+routed timing and a new-image FPGA test remain required.
 
 The preceding capacity-admission health cofactor passed full-synthesis review at
 293,543 LUTs/89,807 FFs/516 DSPs, with the complete required topology retained.
@@ -502,7 +506,7 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | Combined result/counter full design | Both model suites and placement structural checks pass. Raw route: 450,803/450,803 nets, zero route errors; setup −1.457 ns fails, hold +0.014 ns passes. Cleanup rejects new PDRC-61 | Preserve failed route; qualify control-path repairs, diagnose cleanup, then fresh full-parent/physical gates |
 | Snapshot-scope and result-publication source candidate | Component/native and scoped binary checks pass; combined full synthesis independently passes at 293,628 LUTs/89,807 FFs/516 DSPs | Retention/inventory, both codegens/C++ builds, strict checks, fresh16-job warm replay and all12 controller cases independently passed; placement structure passes; route/cleanup complete but setup −1.208 ns fails, hold +0.012 ns passes; next admission repair in component qualification |
 | Capacity-admission health cofactor v3 | Source, native, binary/four-state equation and matched OOC reviews pass; health path 4→1 levels, 2.492→1.117 ns estimated | Full synthesis, both model suites, retention/inventory, strict and placement structure passed. Route: all 450,829 nets routed, zero errors; setup −1.109 ns fails, hold +0.014 ns passes. Preserve failure; repair the shared diagnostic-completion/admission path |
-| Service admission cofactor | Binary composition, sixteen service runs, four owner comparisons and twenty saved-image replays independently pass; saved matched mapping removes 32→0 admission dependencies with unchanged FF counts | Fresh synthesis, both codegens/C++ builds, retention/inventory and strict structural checks independently pass. Warm replay passes sixteen jobs/1,441,792 BO bytes; controller matrix and placement are running. Routing and physical tests remain required |
+| Service admission cofactor | Binary composition, sixteen service runs, four owner comparisons and twenty saved-image replays independently pass; saved matched mapping removes 32→0 admission dependencies with unchanged FF counts | Fresh synthesis, both model suites and retention/inventory/strict/placement structural reviews independently pass. Placement timing estimates fail setup −1.387 ns and hold −0.392 ns; guarded route is running. Routed timing and physical tests remain required |
 | Guarded O5 cleanup | Independent diagnostic passes: eight proven-dead buffers, zero PDRC-61; route and slacks unchanged | Recheck on the new source route; no timing acceptance |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
