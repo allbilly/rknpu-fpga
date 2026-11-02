@@ -532,6 +532,18 @@ is running from the reviewed `c10b055e…` placement checkpoint. Detailed audits
 image admission and physical qualification remain required. Earlier declaration, native-harness and OOC
 report-table failures are preserved; none is relabeled as a successful run.
 
+The [published admission owner leaf](../rtl/ddr/capacity/admission_health_cofactor/README.md)
+is byte-identical to that tested order-154 selection. Its source index pins
+the baseline and candidate hashes; default source lists remain separate.
+The current-image [application source review](../build/capacity-admission-health-hardware-executor-prep-v1/application-runner-source-review.json)
+and [runner review](../build/capacity-admission-health-hardware-executor-prep-v1/application-runner-runner-review.json)
+bind 35 code and 180 static inputs and preserve the serial one-position,
+repeat-position and greedy32 TinyStories phases. Device-free preflight waits
+for route, detailed audit, accepted image and concrete trial admission. The
+initial controls-script hash mismatch and its failed review remain preserved;
+the corrected binding passes fresh independent review. No new programming or
+application execution is claimed by this preparation.
+
 Earlier source-bound timing milestones follow. The private FI staging-enable, snapshot-capture
 and parent-abort/seal-factor candidate passes component native and independent
 mapped-artifact reviews; the FI mapping producer's final parser failure remains
