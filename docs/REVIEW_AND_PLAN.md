@@ -84,8 +84,32 @@ Its parent-equation fixture passes 15 Icarus vectors including X/Z and 11
 binary Verilator vectors; actual order148 is not compiled. The first fixture
 run failed because reset initialization followed a delayed additive fixture;
 that failure and the intermediate coverage/metadata-limited runs remain
-preserved. Matched mapping through the actual monitor, fabric and queued
-controller remains pending before selection or a new full build. The
+preserved. The
+[matched mapping review](../build/parent-readiness-cofactor-mapped-v3/results-review.json)
+now accepts the diagnostic artifacts but finds mixed timing: queued readiness
+5.779→5.631 ns and host-pending readiness 5.110→4.763 ns improve, while memory
+readiness worsens 5.410→5.631 ns (12→13 levels). The
+[saved-netlist BRESP-D probe](../build/parent-readiness-bresp-probe-v1/results-review.json)
+finds all three measured error-bit register paths worse, 7.260→7.356–7.360 ns
+and 18→19 levels. Linking adds matched I/O/clock buffers; these are diagnostic
+estimates, not routed timing. The original guarded mapping failures remain
+preserved. The [v1 disposition](../build/parent-readiness-cofactor-candidate-v1/selection-disposition.json)
+rejects a full build of this candidate.
+
+The next unselected
+[invariant-aware v2](../build/parent-readiness-cofactor-candidate-v2/source-candidate.json)
+removes the measured fallback mux. The actual fabric only sets `service_active`
+on known-good monitor health; the parent records that same health on the same
+clock edge and keeps `monitor_seen` until their shared reset. The
+[actual-fabric binary invariant review](../build/parent-readiness-cofactor-candidate-v2/invariant-review.json)
+checks reset base and induction plus a real wrong-update counterexample.
+The [conditioned binary composition](../build/parent-readiness-cofactor-candidate-v2/composition-review.json)
+and [selected four-state cone review](../build/parent-readiness-cofactor-candidate-v2/four-state-review.json)
+pass. The latter checks 198,093 legal contexts and excludes 12,291; exclusions
+are not equivalence passes. These do not prove four-state reachability or
+full-parent execution. Fresh coupled native and matched mapping results remain
+required before selecting v2 for a full build. No state, arithmetic or latency
+is added, and the parent has an explicit invariant assertion. The
 [public default regression](../build/parent-readiness-public-regression-v1/report.json)
 passes 582 unit-test executions and the native suites at source `0de9634`, with
 all 44,025 tracked files unchanged. These default targets do not select the new

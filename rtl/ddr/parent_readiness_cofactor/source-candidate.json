@@ -17,6 +17,21 @@
       "sha256": "3ac25ab92b6d19c8573281e689acf4aa51acffeedaa536f4cf1fb1f5b4ab8308",
       "status": "PASS_PARENT_READINESS_EXTRACTED_FOUR_STATE_CONE_GROUPS_REVIEW_ONLY"
     },
+    "linked_bresp_diagnostic": {
+      "path": "build/parent-readiness-bresp-probe-v1/results-review.json",
+      "sha256": "033ec7b3186da5101d5c1bc1787e99cc54a3feb1936f900afeacd3c9965e9f20",
+      "status": "PASS_PARENT_READINESS_LINKED_BRESP_D_PROBE_REVIEW_ONLY"
+    },
+    "matched_mapping_diagnostic": {
+      "path": "build/parent-readiness-cofactor-mapped-v3/results-review.json",
+      "sha256": "b7c9704a8d33e9eede441041d439aefbe301dc10c96f3c1adda69155db28fa8f",
+      "status": "PASS_PARENT_READINESS_COFACTOR_MATCHED_OOC_DIAGNOSTIC_ONLY"
+    },
+    "native_component": {
+      "path": "build/parent-readiness-cofactor-native-v4/results-review.json",
+      "sha256": "114940af2445279c4edf68d21942a4c7633fd19869cc9f7e138c8176ae118c48",
+      "status": "PASS_PARENT_READINESS_NATIVE_V4_RESULTS_COMPONENT_ONLY"
+    },
     "source": {
       "path": "build/parent-readiness-cofactor-candidate-v1/source-review.json",
       "sha256": "9e88b8f790a8167af0fbc8ed8f4043d73cd018f6665ae382fce24efa13a1de3d",
@@ -25,6 +40,13 @@
   },
   "hardware_accessed": false,
   "schema": "parent-readiness-source-candidate-v1",
+  "selection_outcome": {
+    "bresp_review_path": "build/parent-readiness-bresp-probe-v1/results-review.json",
+    "mapping_review_path": "build/parent-readiness-cofactor-mapped-v3/results-review.json",
+    "physical_acceptance": false,
+    "reason": "Memory readiness and all three measured linked BRESP error-bit D paths worsen.",
+    "status": "NOT_SELECTED_FOR_FULL_PARENT_BUILD"
+  },
   "sources": [
     {
       "baseline_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/112/rk_ddr_memory_fabric_snapshot_capacity.sv",
@@ -41,5 +63,5 @@
       "sha256": "32983c890dbedad2ab1fae6431a9f2a8f53dc48d4a2b186e7424026908cb4ab3"
     }
   ],
-  "status": "UNSELECTED_REQUIRES_NATIVE_MAPPING_AND_FULL_PARENT_QUALIFICATION"
+  "status": "NOT_SELECTED_FOR_FULL_PARENT_BUILD"
 }

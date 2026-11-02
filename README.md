@@ -48,8 +48,17 @@ negative controls, 210,384 selected four-state cone checks and
 [paired native review](build/parent-readiness-cofactor-native-v4/results-review.json)
 pass. The native pair directly compares all 51 original fabric outputs and 44
 state fields, with all three added outputs checked separately; it does not
-compile the full parent. Matched mapping and full implementation remain
-required. The [public default regression](build/parent-readiness-public-regression-v1/report.json)
+compile the full parent. The
+[matched mapping](build/parent-readiness-cofactor-mapped-v3/results-review.json)
+then found worse memory readiness (5.410→5.631 ns, 12→13 levels), and the
+[linked-netlist BRESP-D probe](build/parent-readiness-bresp-probe-v1/results-review.json)
+found all three measured register paths worse (7.260→7.356–7.360 ns,
+18→19 levels). This candidate is **not selected for a full build**.
+The next unselected invariant-aware candidate removes the fallback mux using
+the shared-reset `service_active`→`monitor_seen` relation. Its actual-fabric
+binary reset/induction proof and conditioned binary/four-state cone reviews
+pass; fresh coupled native and mapped results remain pending. The
+[public default regression](build/parent-readiness-public-regression-v1/report.json)
 passes 582 unit-test executions and the native suites with all 44,025 tracked
 files unchanged; those targets do not select this candidate. This source has
 no timing or new-image FPGA acceptance.
