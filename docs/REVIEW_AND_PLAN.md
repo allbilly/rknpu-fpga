@@ -1,6 +1,6 @@
 # Implementation plan and acceptance gates
 
-Reviewed 2026-11-01 HKT. This is the active plan. The
+Reviewed 2026-11-02 HKT. This is the active plan. The
 [previous plan and dated implementation history](REVIEW_AND_PLAN_HISTORY.md)
 preserve earlier decisions, receipts and failures; dated instructions there
 are not current authorization or status.
@@ -40,16 +40,25 @@ not a complete RK3588 implementation or a completed soDLA fork.
 
 ## Current progress
 
-Current focus: close setup timing for the combined PCIe/JTAG image. The latest
-result/counter repair passes full synthesis, constant retention and mapped
-inventory with independent review. Both fresh C++ builds, strict constraints and
-the sixteen-job warm reset/whole-BO replay have passed independent review.
-The complete controller replay and placement structural checks have passed
-independent review. Unrouted placement timing still fails: setup −1.692 ns and
-hold −0.392 ns. The fresh guarded route is running. The current image-emission
-preparation is source-reviewed and waits on route and detailed-audit acceptance.
-The latest completed route remains failed at
-−1.801 ns setup slack; there is no accepted new image. Historical TinyStories
+Current focus: close setup timing for the combined PCIe/JTAG image. The new
+combined snapshot-scope/result-publication repair has passed independent
+[full-synthesis review](../build/snapshot-scope-cofactor-full-synth-v1/results-review.json):
+293,628 LUTs, 89,807 FFs and 516 DSPs, retaining all 512 products, sixteen
+kernels, both MIGs, both CACC pipelines, PCIe and USER2/UI plus USER3/SYS.
+Its 201-input selection changes only source orders 112, 116, 148 and 149
+relative to the preceding result/counter candidate. Fresh constant retention
+and mapped-inventory jobs have started; fresh warm/controller source profiles
+and original codegen argument plans are prepared. Full-parent model replay,
+placement, routing and hardware acceptance remain pending for this source.
+
+The preceding result/counter candidate passed both full-parent model suites
+and placement structural checks, but its preserved raw route fails setup at
+−1.457 ns; hold passes at +0.014 ns. Cleanup additionally rejects a new
+PDRC-61 warning. The read-only diagnostic's Vivado command completed, but its
+Python output collector failed on a contract-key mismatch; an
+[additive saved-artifact audit](../build/result-counter-zero-pdrc61-probe-v2-artifact-audit-v1/report.json)
+records that failure and two inventory-query limitations without changing the
+original report. There is no accepted new image. Historical TinyStories
 success applies to its earlier image only.
 
 These rows describe separate profiles and source candidates. A passing
@@ -333,9 +342,42 @@ detailed-audit acceptance. The fresh
 passes the original structural protections, but setup is −1.692 ns/TNS
 −3,628.345 ns across 6,093 endpoints and hold is −0.392 ns, both unrouted.
 The worst setup path reaches the legacy memory adapter FSM through snapshot-hit
-selection. The guarded route is running on this new placement checkpoint.
+selection. The [guarded route failure review](../build/result-counter-zero-route-prep-v1/failure-review.json)
+verifies all 450,803 routable nets with zero routing errors and retention of
+the original startup/reset/assertion-source protections. Raw setup fails at
+−1.457 ns/TNS −2,885.518 ns across 5,720 endpoints; hold passes at +0.014 ns.
+The worst routed path now reaches job-result code enables through completion
+error qualification. Cleanup stops on PDRC-61#1, dangling O5 at
+`SLICE_X186Y398:C5LUT`. That warning is absent from the raw-route DRC and
+appears in the cleanup-stage report; its exact cause is under investigation.
+The initial read-only probe incorrectly expected it in the raw checkpoint and
+is preserved as failed. No severity, DRC or timing gate has been relaxed.
 No new image has been emitted. SRAM-load preparation still needs fresh bindings
 to this emitter and its future image; the renderer below selects the prior image.
+
+Two private candidates remain separate from that failed full design. The
+[snapshot-scope cofactor](../build/snapshot-scope-cofactor-candidate-v1/source-review.json)
+passes [paired component tests](../build/snapshot-scope-cofactor-native-results-review-v1/review.json)
+and [scoped binary composition checks](../build/snapshot-scope-cofactor-equivalence-prep-v1/results-review.json).
+Its [matched OOC path](../build/snapshot-scope-cofactor-mapped-v1/timing-depth-review.json)
+changes from twelve to eleven LUT levels and 4.582 to 4.175 ns estimated delay,
+with unchanged LUT/FF counts and health/abort dependence retained. This is not
+full-chip routed timing.
+The [result-publication bank](../build/job-result-publication-bank-candidate-v1/source-review.json)
+passes [paired native tests](../build/job-result-publication-bank-native-results-review-v1/review.json)
+and a [selected-observer binary proof](../build/job-result-publication-bank-formal-v1/inductive-observers-v5/results-review.json)
+with a reset base, depth-one induction and a real mutant counterexample. The
+proof covers publication/control/protocol observers; earlier induction failures
+and the whole-public bounded timeout remain preserved. Its
+[matched OOC review](../build/job-result-publication-bank-mapped-v1/results-review-v2.json)
+shows completion-error/done input hits on nine payload enables fall from nine
+to zero, LUTs 195→181 and FFs 286→286. Error-code data and result-valid state
+paths remain measured. The original internal-Q columns have false negatives;
+the [offline correction](../build/job-result-publication-bank-mapped-v1/classification-review-v2.json)
+confirms active-register dependence from the saved C/Q startpoints. Both
+candidates are selected in the private combined full-synthesis profile. They
+are not yet promoted to the public source profile or qualified as a new FPGA
+image.
 
 The private [SRAM-load renderer](../build/ui-stable-done-sram-load-prep-v1/runner-review.json)
 now passes source review against the approved emitter-v2 selection. Its
@@ -388,7 +430,8 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | DONE cofactor: current routed diagnostic | Controller/warm regressions pass. All 451,005 nets route with zero errors; reset/startup/protected-source and cleanup guards pass. Setup −1.801 ns fails; hold +0.013 ns passes. | Preserve failed route; qualify the next timing repair before another full build |
 | SUBMIT result-zero timing repair | Paired native and matched mapping independently pass: nine result FF input cones removed, 205→195 LUTs/286 FFs | Fresh full-parent models and timing before selection |
 | Fabric counter zero bank | Original 21/19 protocol cases, conditional formal checks and matched mapping reviewed: 370→0 live-control payload points, +94 LUTs/+6 FFs | Fresh full-parent checks; formal assumptions and direct-simulation limits remain explicit |
-| Combined result/counter full design | Both fresh model suites and placement structural checks independently passed. Unrouted setup −1.692 ns/hold −0.392 ns fail; guarded route running | Routed timing, detailed audits and new-image qualification; generic CTRL model alias remains outside the accepted source profile |
+| Combined result/counter full design | Both model suites and placement structural checks pass. Raw route: 450,803/450,803 nets, zero route errors; setup −1.457 ns fails, hold +0.014 ns passes. Cleanup rejects new PDRC-61 | Preserve failed route; qualify control-path repairs, diagnose cleanup, then fresh full-parent/physical gates |
+| Private snapshot-scope and result-publication repairs | Component/native and scoped binary checks pass; combined full synthesis independently passes at 293,628 LUTs/89,807 FFs/516 DSPs | Fresh retention/inventory running; new full-parent models, placement and route remain required |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
 | Public regression | [Fresh full serial default suite passed](../build/rkfi-host-public-independent-review-v1/results-review.json) with 43,992 inputs unchanged, including fourteen normal and fourteen optimized RKFI callback tests | Covers the public source snapshot and fake-register callback controls; not physical MIG, FPGA, ECC or RK silicon |
