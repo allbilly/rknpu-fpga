@@ -1,0 +1,9 @@
+# Parent-readiness source candidate
+
+This is an unselected, byte-exact fabric/parent pair for the normal monitor-to-command-readiness timing path. Replace full-source orders 112 and 148 together; the comparison baseline is the published `pcie_snapshot_publication` pair recorded in [source-candidate.json](source-candidate.json). Existing source selectors are unchanged. Do not compile these modules alongside their baseline definitions.
+
+The fabric adds three combinational outputs. One omits only the instantaneous monitor-gap term; pending and latched causes and every other fault remain. The parent selects that term only when `monitor_seen===1`, where the same gap already blocks through its early-fault predicate. Seen values 0/X/Z retain the original term. The other two outputs expose readiness before fault gating; only parent readiness expressions already masked by the full parent fault use them. Original fabric outputs, fault cause/state logic, actual DMA/job launch expressions, command words, arithmetic, clocks and latency remain unchanged. No state is added.
+
+The source-level composition review, extracted binary cone proof and selected four-state cone groups pass independent review. The binary proof includes two real negative controls. The four-state simulation covers 210,384 checks across three eight-input groups and scalar-pair loops; it does not enumerate all 44 inputs together or compile the full parent. These receipts are workspace-local and hash-bound in the manifest.
+
+Fresh paired native acceptance, matched mapping through the actual monitor/controller, full-parent models, full implementation timing, image audit and physical requalification remain required. The preceding source routed every net but failed setup at −1.075 ns. This candidate has no accepted timing, image or hardware result.

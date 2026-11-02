@@ -1,0 +1,45 @@
+{
+  "added_latency_cycles": 0,
+  "added_state_bits": 0,
+  "changed_full_source_orders": [
+    112,
+    148
+  ],
+  "default_source_selectors_modified": false,
+  "evidence": {
+    "binary_cone": {
+      "path": "build/parent-readiness-cofactor-candidate-v1/proof-review.json",
+      "sha256": "33652ea2314984c72868650eea130dd82f656986d880ee93bc51ffaf0e8d3c77",
+      "status": "PASS_PARENT_READINESS_EXTRACTED_BINARY_CONE_PROOF_REVIEW_ONLY"
+    },
+    "four_state_cone": {
+      "path": "build/parent-readiness-cofactor-candidate-v1/four-state-review.json",
+      "sha256": "3ac25ab92b6d19c8573281e689acf4aa51acffeedaa536f4cf1fb1f5b4ab8308",
+      "status": "PASS_PARENT_READINESS_EXTRACTED_FOUR_STATE_CONE_GROUPS_REVIEW_ONLY"
+    },
+    "source": {
+      "path": "build/parent-readiness-cofactor-candidate-v1/source-review.json",
+      "sha256": "9e88b8f790a8167af0fbc8ed8f4043d73cd018f6665ae382fce24efa13a1de3d",
+      "status": "PASS_PARENT_READINESS_COFACTOR_SOURCE_REVIEW_ONLY"
+    }
+  },
+  "hardware_accessed": false,
+  "schema": "parent-readiness-source-candidate-v1",
+  "sources": [
+    {
+      "baseline_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/112/rk_ddr_memory_fabric_snapshot_capacity.sv",
+      "baseline_sha256": "025127ee6feb99c615fb4f1520baf1d217eaea2ed7c1cf67660c447eb45953bb",
+      "order": 112,
+      "path": "rtl/ddr/parent_readiness_cofactor/rk_ddr_memory_fabric_snapshot_capacity.sv",
+      "sha256": "d1f25addfae2396efea89706e66fcf2423970e23129e3f895baf0485b7944e86"
+    },
+    {
+      "baseline_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/148/rk_jtag_dual_ddr_async.sv",
+      "baseline_sha256": "9d20d4de7bc1a777be54840cbfb286cb688b509d73cacef258ef4ec669a587d5",
+      "order": 148,
+      "path": "rtl/ddr/parent_readiness_cofactor/rk_jtag_dual_ddr_async.sv",
+      "sha256": "32983c890dbedad2ab1fae6431a9f2a8f53dc48d4a2b186e7424026908cb4ab3"
+    }
+  ],
+  "status": "UNSELECTED_REQUIRES_NATIVE_MAPPING_AND_FULL_PARENT_QUALIFICATION"
+}
