@@ -20,8 +20,9 @@ include Icarus X/Z controls; the binary proof does not establish arbitrary
 forced-X RTL equivalence. Isolated Vivado mapping measures health paths from
 four levels/2.492 ns to one level/1.117 ns with 66 FFs and 123 ports retained.
 Full synthesis and both warm/controller model suites pass their source-bound
-reviews. The current route is still pending; these results do not qualify an
-FPGA image, physical DDR/ECC/PCIe operation or RK silicon equivalence.
+reviews. Its first route fails setup at −1.109 ns across 3,422 endpoints;
+hold passes at +0.014 ns. These results do not qualify an FPGA image,
+physical DDR/ECC/PCIe operation or RK silicon equivalence.
 
 The preceding owner versions, native-harness failures and OOC report-table
 failure remain preserved in their original workspace packages. No historical

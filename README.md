@@ -31,9 +31,13 @@ pass independent review. The fresh
 passes sixteen jobs and 1,441,792 BO bytes. The fresh
 [controller replay](build/capacity-admission-health-controller-replay-v1/results-review.json)
 passes all twelve original cases and 532,480 BO bytes. Strict implementation
-and placement pass structural review; placement estimates still fail setup
-−1.144 ns and hold −0.392 ns. The guarded route is running. This source has
-no routed-timing or FPGA acceptance.
+and placement pass structural review. The
+[guarded route failure review](build/capacity-admission-health-route-prep-v1/failure-review.json)
+verifies 450,829 fully routed nets and zero route errors, but setup fails at
+−1.109 ns across 3,422 endpoints; hold passes at +0.014 ns. Cleanup and the
+original source protections pass. All one hundred worst setup paths pass
+through diagnostic completion and capacity admission. The next repair targets
+that shared service path; this source has no timing or new-image FPGA acceptance.
 
 **Earlier timing work, 2026-11-02:** the private combined snapshot-scope and
 result-publication repair passes independent
