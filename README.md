@@ -20,7 +20,20 @@ establish a square systolic topology for RK3588 silicon or measured end-to-end
 MACs per clock. INT8/INT4 arithmetic and doubled INT8 throughput are unsupported.
 See the [precision and layout boundary](docs/CMAC_ENCODER_CONTRACT.md#precision-and-compute-group-terminology).
 
-**Latest timing work, 2026-11-03:** the capacity-admission health cofactor
+**Latest timing work, 2026-11-03:** the
+[service-admission source candidate](rtl/ddr/capacity/service_admission_cofactor/README.md)
+removes all 32 diagnostic CTRL read-data dependencies from normal admission in
+independently audited component mapping, with unchanged state counts. Fresh
+[full synthesis](build/capacity-service-admission-full-synth-v1/results-review.json)
+passes at 293,553 LUTs/89,807 FFs/516 DSPs, retaining all 512 products, both MIGs,
+both CACC pipelines, PCIe and BSCAN chains. Both fresh model codegens and C++
+builds pass independent review. The sixteen-job warm replay and twelve-case
+controller replay are running with their original validators and deadlines.
+Fresh retained-constant and mapped-interface audits pass; strict implementation
+and placement preparation continue. This source has no routed-timing or new-image
+FPGA acceptance.
+
+**Preceding timing candidate, 2026-11-03:** the capacity-admission health cofactor
 passes [full-synthesis resource review](build/capacity-admission-health-full-synth-v1/results-review.json)
 at 293,543 LUTs/89,807 FFs/516 DSPs, with all 512 products, both MIGs, both
 CACC pipelines, PCIe and BSCAN chains retained. Both fresh C++ builds and
