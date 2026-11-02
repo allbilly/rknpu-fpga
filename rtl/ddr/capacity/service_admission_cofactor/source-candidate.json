@@ -1,0 +1,198 @@
+{
+  "candidate_directory": "rtl/ddr/capacity/service_admission_cofactor",
+  "candidate_files": [
+    {
+      "copied_from": "build/capacity-service-admission-cofactor-candidate-v1/rk_ddr_capacity_owner.sv",
+      "path": "rtl/ddr/capacity/service_admission_cofactor/rk_ddr_capacity_owner.sv",
+      "role": "owner",
+      "sha256": "f4a8bb3d62fba1bd5a64bd4d83bff3e30acfc03dd7dcead255a9267ba67a046f"
+    },
+    {
+      "copied_from": "build/capacity-service-admission-cofactor-candidate-v1/rk_ddr_capacity_service.sv",
+      "path": "rtl/ddr/capacity/service_admission_cofactor/rk_ddr_capacity_service.sv",
+      "role": "service",
+      "sha256": "5820895990a22b748b4610258b322cb0e0653db49d6fe327c7a5e84c8e9e1ef6"
+    }
+  ],
+  "comparison_baseline": [
+    {
+      "path": "rtl/ddr/capacity/admission_health_cofactor/rk_ddr_capacity_owner.sv",
+      "role": "cofactor_owner",
+      "sha256": "320a9898dbf672db9c691efda2113e7aec7a3fa4c2c7986ec229b4ebcb54ecb2"
+    },
+    {
+      "path": "rtl/ddr/maintenance_fi/rk_ddr_capacity_service.sv",
+      "role": "service",
+      "sha256": "6ed1fc827c5e0fafb1b28499c7f4362d1fd7d4a173a7bea465b244bc206d5ae6"
+    }
+  ],
+  "copy_policy": {
+    "candidate_rtl_byte_identical_to_reviewed_private_sources": true,
+    "old_logs_or_mapped_results_copied": false,
+    "source_manifests_or_default_selectors_changed": false,
+    "tests_or_builds_run_for_this_public_candidate": false
+  },
+  "current_status_snapshot": {
+    "basis": "Root orchestration status message received during this documentation update.",
+    "date": "2026-11-03",
+    "full_parent_or_physical_acceptance": false,
+    "full_synthesis": "RUNNING; no terminal full-synthesis review consumed.",
+    "time": "04:25 HKT",
+    "warm_controller_codegen": "Both profile codegen commands reported active after Verilator version checks returned rc0; no terminal generated-source warning reviews consumed."
+  },
+  "default_profile": {
+    "candidate_owner_and_service_listed": false,
+    "default_owner_path": "rtl/ddr/capacity/rk_ddr_capacity_owner.sv",
+    "default_owner_sha256": "c97a6f065e033203e79a9c4ea27fcc488fcfa5a403ddaa27c67bcec64455a67e",
+    "default_service_path": "rtl/ddr/maintenance_fi/rk_ddr_capacity_service.sv",
+    "default_service_sha256": "6ed1fc827c5e0fafb1b28499c7f4362d1fd7d4a173a7bea465b244bc206d5ae6",
+    "manifest_modified": false,
+    "manifest_path": "rtl/ddr/dual_host_maintenance_fi/sources.json",
+    "manifest_sha256": "9fe67e0f0db2f0c5bf80c7dffef05a237d8c5113f5d4eaee045a194a9ef3fa13"
+  },
+  "evidence": {
+    "binary_composition": {
+      "path": "build/capacity-service-admission-cofactor-candidate-v1/proof-v2/report.json",
+      "review_path": "build/capacity-service-admission-cofactor-review-v1/composition-review.json",
+      "review_sha256": "566eb9cf3e985fe6f2b9b55a189b3c0583d20b587aeff8782e856ad97719c2aa",
+      "review_status": "PASS_CAPACITY_SERVICE_ADMISSION_BINARY_COMPOSITION_SOURCE_REVIEW_ONLY",
+      "scope": "Binary owner reset invariant, actual BIST reset-to-done combinational implication with arbitrary child outputs, and service-contract-conditioned admission equality. No four-state/full-system/physical qualification.",
+      "sha256": "055bc687484bbf5dd026c5553cc787ad4fba45f3a61e5101c9577f3745f558bc",
+      "status": "PASS_CAPACITY_SERVICE_ADMISSION_BINARY_COMPOSITION_ONLY"
+    },
+    "paired_native_component": {
+      "owner_pair_result_count": 4,
+      "path": "build/capacity-service-admission-cofactor-native-v5/run-v1/report.json",
+      "review_path": "build/capacity-service-admission-cofactor-native-v5/results-review.json",
+      "review_sha256": "3f0712f274638548ae2d424f4d364b791e8c65e14d9a4bf23fb0dc4315ddcac7",
+      "review_status": "PASS_CAPACITY_SERVICE_ADMISSION_NATIVE_RESULTS_COMPONENT_ONLY",
+      "scope": "Current matched service/owner component and legacy service profiles only; matched service fixture ties other_diagnostic_pending=0; full-parent, other diagnostic input behaviors and hardware pending.",
+      "service_profiles": [
+        "base0_256",
+        "base1000_512"
+      ],
+      "service_result_count": 16,
+      "sha256": "7226c8a0bdf374f377f5beff9daee140ad9bc1b969aeb8c510c21b487670ce88",
+      "status": "PASS_CAPACITY_SERVICE_ADMISSION_COFACTOR_NATIVE_PAIRED_COMPONENT_ONLY"
+    },
+    "saved_matched_ooc_artifact_audit": {
+      "measurements": {
+        "owner_fault_state_pin_roots_equal": true,
+        "port_bits": 2919,
+        "resource_and_fanin": {
+          "baseline": {
+            "bist_cells": 1,
+            "bist_exclusive_state": "PROVEN_UNUSED_UNCONNECTED",
+            "bist_exclusive_tokens": 2,
+            "ctrl_rdata_admission_hits": 32,
+            "ctrl_rdata_bits": 32,
+            "lut": 2718,
+            "owner_cells": 1,
+            "owner_fault_pin_rows": 28,
+            "owner_ff": 66,
+            "owner_state_ff_cells": 66,
+            "owner_state_pin_rows": 462,
+            "protocol_root_count": 27,
+            "selected_lut_init": "4'h8",
+            "selected_state_ff_q": "diagnostic_owned_reg_n_0",
+            "top_input_bits": 1497,
+            "top_output_bits": 1421,
+            "total_ff": 1999
+          },
+          "candidate": {
+            "bist_cells": 1,
+            "bist_exclusive_state": "PROVEN_UNUSED_UNCONNECTED",
+            "bist_exclusive_tokens": 2,
+            "ctrl_rdata_admission_hits": 0,
+            "ctrl_rdata_bits": 32,
+            "lut": 2719,
+            "owner_cells": 1,
+            "owner_fault_pin_rows": 28,
+            "owner_ff": 66,
+            "owner_state_ff_cells": 66,
+            "owner_state_pin_rows": 462,
+            "protocol_root_count": 27,
+            "selected_lut_init": "4'h8",
+            "selected_state_ff_q": "diagnostic_owned_reg_n_0",
+            "top_input_bits": 1497,
+            "top_output_bits": 1421,
+            "total_ff": 1999
+          }
+        }
+      },
+      "path": "build/capacity-service-admission-cofactor-mapped-v3-results-audit-v1/run-v1/report.json",
+      "raw_producer_path": "build/capacity-service-admission-cofactor-mapped-v3/run-v1/report.json",
+      "raw_producer_sha256": "021735cd132c40a1eb044af524c8714ea932651430182287bde9e3e9d7156ad7",
+      "raw_producer_status": "FAIL_CAPACITY_SERVICE_ADMISSION_MATCHED_OOC",
+      "review_path": "build/capacity-service-admission-cofactor-mapped-v3-results-audit-v1/results-review.json",
+      "review_sha256": "fcaf42acaacd7a98f97307b5044b43fcaf8371c4ffe6de5909ddbc706166cc7a",
+      "review_status": "PASS_CAPACITY_SERVICE_ADMISSION_MATCHED_OOC_V3_SAVED_ARTIFACT_REVIEW_ONLY",
+      "scope": "Saved matched-component mapping artifacts only; original producer remains failed; no full-parent, timing or physical acceptance.",
+      "sha256": "03c69953909f0517985ca5b33d5462eac2a4272b289ab9eeaf20307c42c07a2b",
+      "status": "PASS_CAPACITY_SERVICE_ADMISSION_MATCHED_OOC_V3_SAVED_ARTIFACT_AUDIT_ONLY"
+    },
+    "saved_native_image_replay": {
+      "all_owned_process_groups_closed": true,
+      "case_count": 20,
+      "command_count": 20,
+      "distinct_image_count": 20,
+      "input_hash_count": 76,
+      "input_source_image_tool_snapshots_unchanged": true,
+      "producer_path": "build/capacity-service-admission-native-image-replay-v2/run-v1/report.json",
+      "producer_sha256": "0f0d5be4c793912b3b306ebae3a5dfc533c60c0ebfb2f4673c29eaf41862251f",
+      "producer_status": "PASS_CAPACITY_SERVICE_ADMISSION_NATIVE_IMAGE_REPLAY_COMPONENT_ONLY",
+      "recompilation": false,
+      "review_path": "build/capacity-service-admission-native-image-replay-v2/results-review.json",
+      "review_sha256": "f29eadd1ec8259c8d8e413a45c49802e3569988fb256517dc45fe81615282a9e",
+      "review_status": "PASS_CAPACITY_SERVICE_ADMISSION_NATIVE_IMAGE_REPLAY_RESULTS_COMPONENT_ONLY",
+      "scope": "Fresh saved-image component replay only, no recompilation, full-parent or hardware acceptance.",
+      "source_hash_count": 50,
+      "tool_hash_count": 6
+    }
+  },
+  "initial_status_at_source_copy": {
+    "fpga_execution": "not performed",
+    "full_model_codegen": "not started",
+    "full_parent_qualification": "pending",
+    "full_synthesis": "reported RUNNING; no terminal result consumed",
+    "new_image": "not produced or accepted",
+    "rk_hardware": "not tested",
+    "routed_timing": "not accepted",
+    "snapshot_basis": "Initial public source-file copy, before the current full-model codegen run was launched."
+  },
+  "schema": "rk-npu-service-admission-cofactor-source-candidate-v1",
+  "selection": {
+    "compile_pair_alternatives_not_alongside_baseline": true,
+    "model_profile_indices": {
+      "controller": {
+        "manifest_path": "build/capacity-service-admission-controller-prep-v1/source-manifest.json",
+        "owner_full_hdl_order": 154,
+        "owner_project_index": 53,
+        "service_full_hdl_order": 157,
+        "service_project_index": 56,
+        "source_count": 145
+      },
+      "warm": {
+        "manifest_path": "build/capacity-service-admission-warm-prep-v1/source-manifest.json",
+        "owner_full_hdl_order": 154,
+        "owner_project_index": 53,
+        "service_full_hdl_order": 157,
+        "service_project_index": 56,
+        "source_count": 91
+      }
+    },
+    "new_full_manifest_path": "build/capacity-service-admission-full-synth-v1/source-manifest.json",
+    "new_full_manifest_sha256": "75f52d69c0cd37826302c2c9488b451355f3c9807011a351842e19f712cf43fb",
+    "replace_full_hdl_orders_together": [
+      154,
+      157
+    ]
+  },
+  "source_delta": {
+    "numerical_command_word_response_state_latency_clock_changes": false,
+    "owner_module": "Adds the internal normal_service_admission_enable output; original free-input normal_admission_enable, fault encoder and registered state remain.",
+    "service_module": "Uses the qualified owner output under the existing diagnostic/BIST reset contract, retaining the original free-input output as an internal ASSERT_ON witness. External service ports are unchanged.",
+    "source_artifacts_only": true
+  },
+  "status": "SOURCE_CANDIDATE_ONLY_UNSELECTED"
+}
