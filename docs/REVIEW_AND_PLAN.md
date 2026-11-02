@@ -488,6 +488,7 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | Combined result/counter full design | Both model suites and placement structural checks pass. Raw route: 450,803/450,803 nets, zero route errors; setup −1.457 ns fails, hold +0.014 ns passes. Cleanup rejects new PDRC-61 | Preserve failed route; qualify control-path repairs, diagnose cleanup, then fresh full-parent/physical gates |
 | Snapshot-scope and result-publication source candidate | Component/native and scoped binary checks pass; combined full synthesis independently passes at 293,628 LUTs/89,807 FFs/516 DSPs | Retention/inventory, both codegens/C++ builds, strict checks, fresh16-job warm replay and all12 controller cases independently passed; placement structure passes; route/cleanup complete but setup −1.208 ns fails, hold +0.012 ns passes; next admission repair in component qualification |
 | Capacity-admission health cofactor v3 | Source, native, binary/four-state equation and matched OOC reviews pass; health path 4→1 levels, 2.492→1.117 ns estimated | Full synthesis, both model suites, retention/inventory, strict and placement structure passed. Route: all 450,829 nets routed, zero errors; setup −1.109 ns fails, hold +0.014 ns passes. Preserve failure; repair the shared diagnostic-completion/admission path |
+| Service admission cofactor | Binary composition review, sixteen service runs, four owner comparisons and twenty fresh saved-image replays passed independent review | Matched mapping remains pending after the first audit rejected an optimized output alias. Both full-model source profiles and the two-source full-design selection are prepared; fresh full models, synthesis and routed timing remain required |
 | Guarded O5 cleanup | Independent diagnostic passes: eight proven-dead buffers, zero PDRC-61; route and slacks unchanged | Recheck on the new source route; no timing acceptance |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |
@@ -557,6 +558,28 @@ for route, detailed audit, accepted image and concrete trial admission. The
 initial controls-script hash mismatch and its failed review remain preserved;
 the corrected binding passes fresh independent review. No new programming or
 application execution is claimed by this preparation.
+
+The next [service admission candidate](../build/capacity-service-admission-cofactor-candidate-v1/CONTRACT.json)
+adds a separate owner output for the actual service composition; the original
+free-input admission, fault priority and registered updates remain unchanged.
+Its [binary composition review](../build/capacity-service-admission-cofactor-review-v1/composition-review.json)
+proves the reachable ownership invariant, the actual BIST reset-to-done
+implication and equality of the two admission outputs under that composition.
+Two faulty or unqualified controls are rejected. The
+[fresh native review](../build/capacity-service-admission-cofactor-native-v5/results-review.json)
+accepts sixteen service runs and four owner comparisons in Icarus and Verilator,
+with assertions enabled in the integrated candidate. The matched service fixture
+holds `other_diagnostic_pending=0`; broader parent scenarios remain separate.
+The [fresh saved-image replay review](../build/capacity-service-admission-native-image-replay-v2/results-review.json)
+additionally binds all twenty executed images, six tools and fresh logs with
+unchanged before/after hashes. These are component results, not full-parent
+or FPGA qualification. The first matched mapping run fails after baseline
+synthesis because its audit expects a redundant owner reset-output alias to
+remain connected. The corrected audit must verify the canonical BIST reset
+and exclusivity nets; the failed producer remains preserved. No mapping gain
+or new image is accepted. Both fresh full-model source selections change only
+project indices 53/56, matching full-design orders 154/157; the other eighty
+project sources and all model assets retain their bytes.
 
 Earlier source-bound timing milestones follow. The private FI staging-enable, snapshot-capture
 and parent-abort/seal-factor candidate passes component native and independent
