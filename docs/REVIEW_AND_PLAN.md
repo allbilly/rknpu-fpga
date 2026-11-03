@@ -52,7 +52,10 @@ remain unchanged.
 | Full synthesis | [Independent resource review](../build/control-publication-full-synth-v1/results-review.json) passes: 293,732 LUTs, 89,855 FFs, 516 DSPs; required compute/interfaces retained | Physical implementation |
 | Full-context dependency audit | [Independent review](../build/control-publication-full-context-cone-audit-v1/results-review.json) accepts complete 164-bit layout and 95-bit adapter payload coverage, with zero target-root hits on all 518 D/CE pins | These are structural observations, not timing measurements; ancillary response fanout warnings are not response-path proof |
 | Fresh full-system models | Both fresh `codegen-v2` results pass independent warning/artifact review: [warm](../build/control-publication-warm-prep-v1/codegen-results-review.json), 435 files/202 warnings; [controller](../build/control-publication-controller-prep-v1/codegen-results-review.json), 502 files/649 warnings. Both fresh C++ builds pass independent review: [warm](../build/control-publication-warm-cpp-v1/build-results-review.json), [controller](../build/control-publication-controller-cpp-v1/build-results-review.json). The fresh [warm replay](../build/control-publication-warm-replay-v1/results-review.json) passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 whole-BO bytes under the original 1,800-second deadline. The fresh [controller replay](../build/control-publication-controller-replay-v1/results-review.json) passes all twelve original V4 cases and coordinator precheck, six complete BOs/532,480 bytes, seven SYS resets and 32,768 BIST writes/reads under the original per-case/aggregate deadlines | Actual MIG/PHY, FPGA and RK silicon qualification remain separate |
-| Structural implementation and timing | Fresh [constant retention](../build/control-publication-full-retained-prep-v1/retention-results-review.json) and [mapped inventory](../build/control-publication-full-retained-prep-v1/inventory-results-review.json) pass independent review: 35 zero proofs, three grounds, 197 interface register rows. Fresh [strict review](../build/control-publication-implementation-prep-v1/strict-results-review.json) passes the original clock/reset/electrical/DRC gates, 130 startup FFs/21 nets and seven assertion sources/75 segments | Placement is running; placement and routed timing remain unqualified |
+| Structural implementation and timing | Fresh [constant retention](../build/control-publication-full-retained-prep-v1/retention-results-review.json) and [mapped inventory](../build/control-publication-full-retained-prep-v1/inventory-results-review.json) pass independent review: 35 zero proofs, three grounds, 197 interface register rows. Fresh [strict review](../build/control-publication-implementation-prep-v1/strict-results-review.json) passes the original clock/reset/electrical/DRC gates, 130 startup FFs/21 nets and seven assertion sources/75 segments. Fresh [placement review](../build/control-publication-implementation-prep-v1/placement-results-review.json) passes structure but fails estimated setup −1.459 ns/TNS −3,976.327 ns across 7,244 endpoints and hold −0.392 ns/THS −143.799 ns across 1,415 endpoints; pulse slack is zero | Repair the remaining control path before a full route; no timing acceptance |
+| Layout START-publication repair | Separate [source candidate](../build/layout-start-publication-candidate-v1/source-candidate.json) passes [source review](../build/layout-start-publication-candidate-v1/source-review.json), [actual-RTL binary proof review](../build/layout-start-publication-proof-v1/proof-review.json) and [paired native review](../build/layout-start-publication-native-v2/independent-review.json). It separates disjoint response captures and publishes command metadata only on the original accepted start; 65 extra source bits, unchanged ports/main state/failure priority. Native coverage retains original errors and adds held-start, invalid metadata churn and response-fault priority controls | Mapped evidence pending; the worst-100 census shows this leaf alone leaves other failing families, so no full build selected |
+| Shared CTRL read predecode | [V2 source](../build/ctrl-read-predecode-candidate-v2/source-candidate.json) passes [source review](../build/ctrl-read-predecode-candidate-v2/source-review.json) and [read-cone proof review](../build/ctrl-read-predecode-proof-v2/proof-review.json), with an explicit [census clarification](../build/ctrl-read-predecode-proof-v2/proof-census-clarification.json). Exact vendor decode is captured as one-hot at the original accepted-address edge; live values, aliases, permissions, AW priority and response timing remain. The proof uses common symbolic register data and does not prove the whole controller or register bank | Selected-X/Z actual-vendor native and matched mapping pending; no full build selected |
+| Descriptor publication bank | Separate [source](../build/descriptor-publication-bank-candidate-v1/source-candidate.json) passes [source review](../build/descriptor-publication-bank-candidate-v1/source-review.json). Local raw writes capture an unpublished bank; only original accepted writes publish. Original validity flags expose zero after reset/ACK, with unchanged read-snapshot order; 99 extra source bits | Fresh proof, native and mapping required; arbitrary corrupted selector/valid state is outside the source claim |
 | Image and board tests | No new accepted image | Image audit, audited volatile load, capacity/recovery, framework/TinyStories, ECC and PCIe gates below |
 
 The previous invariant parent passed its model/structural checks but failed
@@ -60,6 +63,25 @@ unrouted setup at −1.710 ns and hold at −0.700 ns. Its completion-marker
 collector failure and earlier codegen pre-tool failures remain preserved.
 The current repair has no inherited timing or physical acceptance. Historical
 TinyStories full32 passes remain bound to their original image.
+
+The new placement's worst setup path is C1 CTRL address[3] through monitor
+health/fault and job-start gating into `layout_engine/word_data_reg[18]/CE`:
+23 LUT levels, 8.707 ns data delay, 85.667% estimated net delay. The original
+readiness-root audit does not prove independence from the different
+`start_valid` root. The next candidate must check both roots, including every
+command-bank and response-payload D/CE pin and the single publication selector.
+The completed placement and all earlier failures remain preserved.
+
+The fresh [saved-checkpoint query](../build/control-publication-placement-worst-paths-v1/report.json)
+records 100 worst UI setup endpoints: 47 layout response-data enables, 31
+control-bank fields, 16 EW crossing descriptor bits, two FI-management state
+bits, three backend response-status bits and one layout-owner bit. Sixty-six
+paths traverse the CTRL read decoder; the other 34 arise from reset/control
+or host-response logic. This is a worst-100 diagnostic, not a census of all
+failing endpoints. Qualify the shared decode and descriptor-publication repairs
+alongside the layout repair before selecting another complete source trial;
+do not infer timing closure from a leaf proof or reuse the old full-model
+passes for changed RTL.
 
 Preceding service-admission trial: qualify the service-admission repair in the combined PCIe/JTAG
 image. The [published source pair](../rtl/ddr/capacity/service_admission_cofactor/README.md)

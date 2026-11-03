@@ -46,8 +46,28 @@ pass independent review, retaining all 35 zero proofs, three grounds and 197
 interface register rows. Fresh
 [strict structural review](build/control-publication-implementation-prep-v1/strict-results-review.json)
 passes the original clock/reset/electrical/DRC gates, 130 startup FFs/21 nets
-and seven assertion sources/75 segments. Placement is running; placement
-timing and routed timing remain unqualified. There is no new
+and seven assertion sources/75 segments. Fresh
+[placement review](build/control-publication-implementation-prep-v1/placement-results-review.json)
+passes structural checks but fails unrouted setup at −1.459 ns and hold at
+−0.392 ns. Its worst path crosses monitor health and job-start gating into
+a layout response-data register enable. A separate, unselected
+[layout START-publication candidate](build/layout-start-publication-candidate-v1/source-candidate.json)
+passes independently reviewed actual-RTL binary proof and paired native tests;
+mapped qualification remains pending.
+It separates disjoint response captures and publishes locally captured command
+metadata through one selector, adding 65 source storage bits with no intended
+handshake or latency change. The worst-100 path census also finds other
+control/reset and host-response paths, so this leaf alone is not selected for
+a full build. A separate
+[CTRL read predecode candidate](build/ctrl-read-predecode-candidate-v2/source-candidate.json)
+passes source and explicitly scoped read-cone proof review; native and matched
+mapping checks remain pending. It captures the original decoder at the
+existing address edge, preserving live read values and AXI response timing.
+A separate [descriptor publication candidate](build/descriptor-publication-bank-candidate-v1/source-candidate.json)
+passes source review and is awaiting proof/native/mapping checks. It keeps
+rejected writes private and exposes the original zeros after ACK without
+clearing wide data through the long ACK predicate. No new full source or
+route is selected. There is no new
 accepted image or FPGA result. See the current table in the
 [active plan](docs/REVIEW_AND_PLAN.md#current-progress).
 
