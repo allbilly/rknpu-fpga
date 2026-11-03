@@ -68,8 +68,12 @@ retained. Both model codegens and fresh C++ builds pass independent review.
 Fresh [constant retention](build/parent-readiness-invariant-retained-prep-v1/retention-results-review.json)
 and [mapped inventory](build/parent-readiness-invariant-retained-prep-v1/inventory-results-review.json)
 pass the original 35 zero proofs/three grounds and 197 retained-register rows.
-Both full-parent model replays and strict constrained implementation checks are
-running. Routed full-design timing and new-image FPGA tests remain pending. The
+The fresh [warm replay](build/parent-readiness-invariant-warm-replay-v1/results-review.json)
+passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 whole-BO
+bytes. [Strict structural review](build/parent-readiness-invariant-implementation-prep-v1/strict-results-review.json)
+passes the original clock/reset/electrical/DRC and startup/assertion protections.
+Placement and the twelve-case controller replay are running. Routed full-design
+timing and new-image FPGA tests remain pending. The
 [public default regression](build/parent-readiness-public-regression-v1/report.json)
 passes 582 unit-test executions and the native suites with all 44,025 tracked
 files unchanged; those targets do not select this candidate. This source has

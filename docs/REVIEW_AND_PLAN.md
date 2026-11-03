@@ -144,18 +144,27 @@ is preserved, and reviewed runner v2 checks the actual before/after tool maps.
 Fresh [warm](../build/parent-readiness-invariant-warm-cpp-v1/build-results-review.json)
 and [controller](../build/parent-readiness-invariant-controller-cpp-v1/build-results-review.json)
 C++ build reviews accept all 425/492 archive members against fresh objects,
-three runtime objects and two PCHs each. Both full-parent model replays are
-running with the original fixtures, validators and 1,800-second case budgets;
-no replay result is accepted yet.
+three runtime objects and two PCHs each. The fresh
+[warm replay review](../build/parent-readiness-invariant-warm-replay-v1/results-review.json)
+accepts sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete
+BO bytes across the original two eight-job phases/17 fixtures, under the
+original 1,800-second deadline. Its fresh 33,756,027-byte trace and complete
+BO captures before ACK pass independent audit. The twelve-case controller replay is still
+running with its original fixtures, V4 validators and budgets. These remain
+model-only results; they do not qualify actual MIG/PHY or FPGA execution.
 
 Fresh [retention](../build/parent-readiness-invariant-retained-prep-v1/retention-results-review.json)
 passes all 35 zero proofs and exactly three protected grounds. Fresh
 [mapped inventory](../build/parent-readiness-invariant-retained-prep-v1/inventory-results-review.json)
-passes the original 197 bridge/release/ready/PCIe register rows. The new strict
-constrained stage is running with the original clock/reset/electrical/DRC,
-startup and assertion-source protections. Placement awaits its independently
-reviewed strict result. Routed timing, image and hardware qualification remain
-pending for this source. The
+passes the original 197 bridge/release/ready/PCIe register rows. The fresh
+[strict structural review](../build/parent-readiness-invariant-implementation-prep-v1/strict-results-review.json)
+passes the original clock/reset/electrical/DRC checks, all 35 zero proofs/three
+protected grounds, 130 startup FFs/21 nets and seven assertion-source cells with
+75 segments. Placement is running from that exact reviewed constrained
+checkpoint. The new routing template and executor are source-reviewed only;
+final route admission awaits terminal placement review and actual checkpoint
+hashes. Routed timing, image and hardware qualification remain pending for
+this source. The
 [public default regression](../build/parent-readiness-public-regression-v1/report.json)
 passes 582 unit-test executions and the native suites at source `0de9634`, with
 all 44,025 tracked files unchanged. These default targets do not select the new
