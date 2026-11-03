@@ -1,0 +1,44 @@
+{
+  "schema": "rk-fault-classifier-cofactor-source-v1",
+  "status": "UNSELECTED_SOURCE_AND_COMPONENT_QUALIFIED_FULL_DESIGN_GATES_PENDING",
+  "source": "rtl/ddr/fault_classifier_cofactor/rk_ddr_memory_fabric_snapshot_capacity.sv",
+  "source_sha256": "bd5d99d7f44b9114d0e69687acfb2b729db6d44b8b5b8138f81332732ae89e56",
+  "baseline_source_manifest": "build/predecode-publication-full-synth-v1/source-manifest.json",
+  "baseline_manifest_sha256": "837eac2628486fcc6f30647c69c744a57453c98d99a69d5522cfce00bd6693c1",
+  "replacement_order": 112,
+  "unchanged_records": 200,
+  "parent_order_148_changed": false,
+  "compute_group": "FP16 C32/K16, 512 product lanes; INT8/INT4 unsupported",
+  "new_ports": 0,
+  "new_state": 0,
+  "latency_change": false,
+  "caller_contract": "job_abort = external_block; job_seal = dma_done && !external_block; job_seal_intent = dma_done && 1",
+  "changes": [
+    "Timeout classifier priority mask uses the existing raw-seal control-misuse cofactor.",
+    "Pending classifier uses the existing cofactored immediate-fault Boolean."
+  ],
+  "workspace_local_reviews": [
+    {
+      "path": "build/fault-classifier-seal-cofactor-candidate-v1/independent-review.json",
+      "sha256": "70dafe644271459dc17bd218c41f8de8f0fd80d355dea04cdedc1f5de8b62884",
+      "status": "PASS_UNSELECTED_BOTH_CLASSIFIER_EXTRACTED_CONE_INDEPENDENT_REVIEW_ONLY"
+    },
+    {
+      "path": "build/fault-classifier-seal-native-v1/independent-review.json",
+      "sha256": "2a14ae163fad676b110469645d1cec39b20120d90c13e00439edc4799b3e80bc",
+      "status": "PASS_PAIRED_BOTH_CLASSIFIER_ACTUAL_FABRIC_NATIVE_INDEPENDENT_REVIEW_ONLY"
+    }
+  ],
+  "verification_scope": {
+    "extracted_proof": "Binary SAT and 131072 mixed vectors: five four-state control inputs plus seven binary event/tag inputs, with abort-mask counterexample.",
+    "actual_fabric_native": "21 Icarus and 19 Verilator cases; 51 outputs paired, three candidate cofactor equations, 44 logical state fields; both current modules have 54 output ports.",
+    "not_established": [
+      "Fresh complete-parent models",
+      "Mapped implementation and routed timing",
+      "MIG PHY or FPGA execution",
+      "RK silicon numerical equivalence"
+    ]
+  },
+  "raw_encoder_or_runtime_cpu_fixup_changed": false,
+  "default_build_selection_changed": false
+}
