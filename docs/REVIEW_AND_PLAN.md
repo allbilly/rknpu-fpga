@@ -53,14 +53,24 @@ the other 198 records and original compute/interface/constraint recipe remain.
 | Fresh code generation, compilation and replay | [Warm](../build/predecode-publication-warm-prep-v1/codegen-results-review.json) and [controller](../build/predecode-publication-controller-prep-v1/codegen-results-review.json) codegen results pass artifact/warning review: 435/502 generated files and 201/648 warnings. Both fresh C++ builds pass independent review: [warm](../build/predecode-publication-warm-cpp-v1/build-results-review.json), [controller](../build/predecode-publication-controller-cpp-v1/build-results-review.json). The [warm replay review](../build/predecode-publication-warm-replay-v1/results-review.json) accepts sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete BO bytes before ACK; the model finished in approximately 1,688 seconds under its original 1,800-second deadline. The [controller review](../build/predecode-publication-controller-replay-v1/results-review.json) accepts the coordinator precheck and all twelve original V4 cases, six BOs/532,480 payload bytes, seven SYS resets and 32,768 BIST writes plus reads | Model evidence does not qualify the physical MIG/PHY or FPGA |
 | Full-context mapped audit | The [v2 failure review](../build/predecode-publication-full-context-audit-v2/failure-review.json) preserves an **unqualified** result and its query defects. A fresh [read-only probe review](../build/predecode-publication-extra-mapping-query-v1/run-v1/results-review.json) verifies zero cells/nets under the tied-off C0 CTRL subtree and all 32 live C1 RDATA paths from selection Q, with none from old address Q. Timing startpoints are FF clock pins, requiring cell-based fanin matching. The ECC-dependent RRESP bit remains connected. A [mapped error proof](../build/predecode-publication-adapter-error-proof-v3/independent-review.json) accepts one binary error next-state bit under the explicitly selected valid-response/ID-zero profile, with a real masked-ECC negative witness | Integrate these scoped results into the revised audit and run it. Neither named-subtree absence nor the conditional error proof establishes the whole producer protocol, routed timing or hardware behavior; the aggregate audit still has no pass |
 | Mapped descriptor publication logic | [Independent next-state review](../build/predecode-publication-selector-mapped-proof-v7/independent-review.json) accepts all eighteen selector/validity next-state bits across the actual AD/CD/LY exports. Actual-RTL reset/step proofs establish the selected source's zero protection state and CD/LY upper-address zeros before those constants enter the binary cut. A mutation of the actual mapped control cone produces the required blocked-publication counterexample | This resolves the scoped next-state equivalence question; it does not create named physical accept nets or establish whole-controller, four-state, timing or hardware equivalence. The aggregate mapped audit still needs its remaining evidence |
-| Retention and physical diagnostics | Fresh [retention](../build/predecode-publication-retained-diagnostic-v1/retention-results-review.json) and [inventory](../build/predecode-publication-retained-diagnostic-v1/inventory-results-review.json) reviews accept 35 zero witnesses, three protected single-driver grounds, 197 distinct register rows and four inventory families. Fresh [strict constrained optimization](../build/predecode-publication-timing-diagnostic-v1/strict-results-review.json) passes the original clock/reset/electrical/DRC checks, 130 startup FFs, 21 protected nets and 75 assertion segments | [Placement diagnostic](../build/predecode-publication-timing-diagnostic-v1/placement-v1/report.json) is running against that exact reviewed constrained checkpoint. Routed timing, detailed audit, image and board gates remain required |
+| Retention and physical diagnostics | Fresh [retention](../build/predecode-publication-retained-diagnostic-v1/retention-results-review.json), [inventory](../build/predecode-publication-retained-diagnostic-v1/inventory-results-review.json) and [strict constrained optimization](../build/predecode-publication-timing-diagnostic-v1/strict-results-review.json) reviews preserve all original 35/3 constant, 197-register/four-family, 130 startup FF, 21 net, 75 assertion-segment, clock/reset/electrical/DRC checks. Fresh [placement review](../build/predecode-publication-timing-diagnostic-v1/placement-results-review.json) accepts structure but fails estimated setup at −0.515 ns/TNS −438.895 ns across 2,462 endpoints and hold at −0.392 ns/THS −191.144 ns across 1,820 endpoints | The [guarded route diagnostic](../build/predecode-publication-route-diagnostic-v2/run-v1/report.json) is running from the exact reviewed placed checkpoint. Detailed audit, routed timing, image and board gates remain required |
 | New image and board | No accepted new image or hardware result | Image audit and audited volatile load, then capacity/recovery, framework/TinyStories, ECC and independent PCIe/JTAG gates below |
 
 Independent retention, inventory, strict-constraint and placement diagnostics
 run in parallel with the remaining mapped-audit work. Their original checks
 remain intact, and their results do not waive any image-acceptance gate.
 The read-only probe's worst unplaced path is −0.960 ns through C1 RDATA into
-layout control; placement and routing must measure the actual result.
+layout control. Placement improves setup from the preceding revision's
+−1.459 ns to −0.515 ns, but timing remains failed. Its worst path now reaches
+the layout bank's result-code payload through qualified seal/control checking
+and the fabric's timeout classifier: 21 LUT levels and 7.937 ns, with 85.36%
+estimated net delay. Routing must measure the actual result.
+
+The first route diagnostic stopped before physical optimization or routing:
+its runner passed cleanup metadata instead of the cleanup directory. That
+[failed attempt](../build/predecode-publication-route-diagnostic-v1/run-v1/report.json)
+is preserved. V2 passes the actual directory and tests both its serialized
+argv and the Tcl file-existence guard; no constraint or RTL change is involved.
 
 An [unselected DMA start cofactor](../build/dma-start-abort-cofactor-candidate-v1/independent-review.json)
 is prepared if further control-path repair is needed. It changes one parent
@@ -68,7 +78,17 @@ assignment, using the existing fault-without-abort output and an exact
 known-zero abort predicate. Its extracted source identity passes binary proof,
 65,536 four-state vectors and a missing-fault negative control. It adds no
 state or latency, but has no full-parent, mapped or timing qualification and
-does not change the source currently under placement.
+does not change the source currently under implementation.
+
+A separate [unselected timeout-seal cofactor](../build/timeout-seal-cofactor-candidate-v2/independent-review.json)
+targets the newly observed timeout-classifier path. It uses the existing raw
+seal predicate only in the timeout priority mask; the original event vector,
+cause encoder, state and interfaces remain unchanged. Binary proof and
+131,072 combinations of five four-state inputs and seven binary event/tag
+inputs pass, including a real abort-mask negative control. This is an
+extracted-source composition result under the documented caller wiring,
+with no full-parent, mapped, timing or hardware qualification. It remains
+unselected while the current source is routed.
 
 The [public default regression](../build/predecode-publication-public-regression-v1/results-review.json)
 passes 582 unittest executions in 28 suites plus its native targets, with all
