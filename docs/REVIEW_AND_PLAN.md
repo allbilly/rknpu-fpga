@@ -1,6 +1,6 @@
 # Implementation plan and acceptance gates
 
-Reviewed 2026-11-03 HKT. This is the active plan. The
+Reviewed 2026-11-04 HKT. This is the active plan. The
 [previous plan and dated implementation history](REVIEW_AND_PLAN_HISTORY.md)
 preserve earlier decisions, receipts and failures; dated instructions there
 are not current authorization or status.
@@ -40,7 +40,31 @@ not a complete RK3588 implementation or a completed soDLA fork.
 
 ## Current progress
 
-Current focus, 2026-11-03: qualify the combined
+Current focus, 2026-11-04: qualify the
+[fault-classifier cofactor source](../rtl/ddr/fault_classifier_cofactor/README.md),
+published at `a8ececc`. The fresh 201-record selection changes only order 112
+relative to the preceding predecode/publication selection; the other 200
+records, full C32/K16 compute and original implementation constraints remain.
+The preceding route failed setup at −0.499 ns. This new source has no routed
+timing or hardware acceptance yet.
+
+| Gate for the new classifier source | Verified state | Remaining work |
+|---|---|---|
+| Component behavior | Extracted binary identities and 131,072 selected mixed-state cases pass independent review. Paired actual-fabric tests pass 21 Icarus and 19 Verilator cases | Full-parent and mapped qualification |
+| Full synthesis | [Independent review](../build/fault-classifier-full-synth-v1/results-review.json) accepts 294,133 total LUTs, 90,243 FFs and 516 DSPs; all 512 products, sixteen kernels, both MIGs, PCIe and BSCAN2/3 remain | Retention, strict optimization, placement and routing |
+| Fresh model code generation | Both actual Verilator commands completed with unchanged source/tool closure and 435 warm / 502 controller generated files. Independent [warm](../build/fault-classifier-warm-prep-v1/codegen-results-review.json) and [controller](../build/fault-classifier-controller-prep-v1/codegen-results-review.json) reviews accept the artifacts and unchanged warning multisets | Fresh C++ builds and original replay suites |
+| Retention and mapped interface inventory | Fresh actual Vivado results pass independent [retention](../build/fault-classifier-retained-diagnostic-v1/retention-results-review.json) and [inventory](../build/fault-classifier-retained-diagnostic-v1/inventory-results-review.json) review: all 35 zero proofs, three protected single-driver grounds and 197 retained register rows/four families | Strict optimization, placement and routing |
+| Full-context mapped audit | No new-source aggregate result | Rebind and run the mapped audit against the new optimized checkpoint |
+| Timing and image | No accepted new route or bitstream | Close setup with original constraints, audit image, then audited volatile board load |
+| Physical plan gates | Earlier-image TinyStories remains historical application evidence | New-image capacity/recovery, framework/TinyStories, ECC and independent PCIe/JTAG tests; actual RK comparison remains separate |
+
+Code generation, retention and inventory proceed independently. Fresh model
+replays and the mapped audit remain required before image publication; running
+physical diagnostics early does not transfer an old-source pass or waive those
+gates. RAM and swap remain uncapped. The remaining numbered plan below retains
+its full scope.
+
+Preceding selection, 2026-11-03: the combined
 [predecode/publication source package](../rtl/ddr/control_predecode_publication/README.md)
 committed at `0d28748`. Its frozen [201-record selection](../build/predecode-publication-full-synth-v1/source-manifest.json)
 changes only orders 4/149/164 relative to the control-publication parent;
@@ -51,8 +75,8 @@ the other 198 records and original compute/interface/constraint recipe remain.
 | Component behavior | All three replacement modules have independently reviewed source, binary proofs and paired native tests. CTRL proof remains a read cone with common symbolic register data; selected live DATA X/Z is separately tested. Both fresh full-parent replay suites pass independent review | Mapped and physical qualification remain pending |
 | Combined synthesis/resources | [Saved-artifact review](../build/predecode-publication-full-synth-v1/saved-artifact-review.json) accepts fresh synthesis: 294,144 total LUTs, 288,418 logic LUTs, 90,243 FFs, 516 DSPs, 22 RAMB36 and one RAMB18. Required 512 products/16 kernels, both MIGs/two CACC pipelines, PCIe/GTX8/common2, BSCAN2/3 and 277 ports retained | The raw producer remains `FAIL_PREDECODE_PUBLICATION_FULL_SYNTH` on a BSCAN hierarchy-text parser mismatch. It is not relabeled as passing; mapped-path/timing acceptance is separate |
 | Fresh code generation, compilation and replay | [Warm](../build/predecode-publication-warm-prep-v1/codegen-results-review.json) and [controller](../build/predecode-publication-controller-prep-v1/codegen-results-review.json) codegen results pass artifact/warning review: 435/502 generated files and 201/648 warnings. Both fresh C++ builds pass independent review: [warm](../build/predecode-publication-warm-cpp-v1/build-results-review.json), [controller](../build/predecode-publication-controller-cpp-v1/build-results-review.json). The [warm replay review](../build/predecode-publication-warm-replay-v1/results-review.json) accepts sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete BO bytes before ACK; the model finished in approximately 1,688 seconds under its original 1,800-second deadline. The [controller review](../build/predecode-publication-controller-replay-v1/results-review.json) accepts the coordinator precheck and all twelve original V4 cases, six BOs/532,480 payload bytes, seven SYS resets and 32,768 BIST writes plus reads | Model evidence does not qualify the physical MIG/PHY or FPGA |
-| Full-context mapped audit | The [v2 failure review](../build/predecode-publication-full-context-audit-v2/failure-review.json) preserves an **unqualified** result and its query defects. A fresh [read-only probe review](../build/predecode-publication-extra-mapping-query-v1/run-v1/results-review.json) verifies zero cells/nets under the tied-off C0 CTRL subtree and all 32 live C1 RDATA paths from selection Q, with none from old address Q. Timing startpoints are FF clock pins, requiring cell-based fanin matching. The ECC-dependent RRESP bit remains connected. A [mapped error proof](../build/predecode-publication-adapter-error-proof-v3/independent-review.json) accepts one binary error next-state bit under the explicitly selected valid-response/ID-zero profile, with a real masked-ECC negative witness | Integrate these scoped results into the revised audit and run it. Neither named-subtree absence nor the conditional error proof establishes the whole producer protocol, routed timing or hardware behavior; the aggregate audit still has no pass |
-| Mapped descriptor publication logic | [Independent next-state review](../build/predecode-publication-selector-mapped-proof-v7/independent-review.json) accepts all eighteen selector/validity next-state bits across the actual AD/CD/LY exports. Actual-RTL reset/step proofs establish the selected source's zero protection state and CD/LY upper-address zeros before those constants enter the binary cut. A mutation of the actual mapped control cone produces the required blocked-publication counterexample | This resolves the scoped next-state equivalence question; it does not create named physical accept nets or establish whole-controller, four-state, timing or hardware equivalence. The aggregate mapped audit still needs its remaining evidence |
+| Full-context mapped audit | The [V5 saved-artifact review](../build/predecode-publication-full-context-audit-v5/saved-artifact-review.json) accepts a conditional structural diagnostic: thirty storage groups, 2,059 pin-policy rows and 7,317 fanin rows. It includes the selected response-profile and eighteen-bit mapped next-state proof bridges | The raw producer remains failed on its missing/violated `descriptor_ack_accept` → `descriptor_payload_select` fanin check; the saved-artifact review uses the separately scoped absorbed-function proof. This acceptance does not establish whole-protocol, four-state, timing, hardware or new classifier-source equivalence |
+| Mapped descriptor publication logic | [Independent next-state review](../build/predecode-publication-selector-mapped-proof-v7/independent-review.json) accepts all eighteen selector/validity next-state bits across the actual AD/CD/LY exports. Actual-RTL reset/step proofs establish the selected source's zero protection state and CD/LY upper-address zeros before those constants enter the binary cut. A mutation of the actual mapped control cone produces the required blocked-publication counterexample | This resolves the scoped next-state equivalence question; it does not create named physical accept nets or establish whole-controller, four-state, timing or hardware equivalence. The saved-artifact audit above retains those limits; it does not qualify the new classifier source |
 | Retention and physical diagnostics | Fresh [retention](../build/predecode-publication-retained-diagnostic-v1/retention-results-review.json), [inventory](../build/predecode-publication-retained-diagnostic-v1/inventory-results-review.json) and [strict constrained optimization](../build/predecode-publication-timing-diagnostic-v1/strict-results-review.json) reviews preserve the original checks. [Placement](../build/predecode-publication-timing-diagnostic-v1/placement-results-review.json) estimates setup −0.515 ns and hold −0.392 ns. The [guarded route failure review](../build/predecode-publication-route-diagnostic-v2/failure-review.json) verifies 451,891/451,891 routed nets, unchanged routing/slacks through guarded cleanup, and preserved protection/DRC checks. Final setup fails at −0.499 ns/TNS −223.350 ns across 1,228 endpoints; hold passes at +0.012 ns with no failing endpoints | Repair the remaining control-classifier path and rerun source-bound implementation checks. The guard stopped before image acceptance; no bitstream or new hardware result |
 | New image and board | No accepted new image or hardware result | Image audit and audited volatile load, then capacity/recovery, framework/TinyStories, ECC and independent PCIe/JTAG gates below |
 
