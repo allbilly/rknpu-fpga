@@ -1,0 +1,123 @@
+{
+  "baseline_full_manifest_path": "build/control-publication-full-synth-v1/source-manifest.json",
+  "baseline_full_manifest_sha256": "84b4eca7025c0b3afbeb76ab994b6a62fdc9ce55b426bb4e52fbf90067b8aea6",
+  "baseline_record_count": 201,
+  "other_selected_records_unchanged": 198,
+  "public_default_selectors_changed": false,
+  "replacement_orders": [
+    4,
+    149,
+    164
+  ],
+  "schema": "control-predecode-publication-source-candidate-v1",
+  "scope": {
+    "bank": "Legal-reset descriptor publication, rejection/ACK/read snapshots; actual-RTL binary and paired native component evidence. Arbitrary corrupted flags/selectors not claimed.",
+    "combined_full_parent_qualified": false,
+    "compute_dimensions_changed": false,
+    "cpu_arithmetic_or_layout_fixups_added": false,
+    "ctrl": "Exact captured read-decode/live-data relation with common symbolic register-data proof cutpoint and paired actual-vendor native tests; pre-first-address invalid-cycle RDATA and arbitrary corrupt selection not claimed. Both selected physical control-permission profiles covered. OOC saved artifacts reviewed; collector remains failed on stdout/file marker mismatch.",
+    "layout": "Legal-reset start publication and independent disjoint response captures; actual-RTL binary and paired native component evidence.",
+    "new_image_or_hardware_accepted": false,
+    "new_routed_timing_accepted": false,
+    "raw_final_commands_preserved": true
+  },
+  "sources": [
+    {
+      "baseline_path": "/home/fedora/rknpu-fpga/build/control-repair-three-fix-physical-prep-v1/source/hdl/004/mig_7series_v4_2_axi_ctrl_top.v",
+      "baseline_sha256": "1a0b8cbbcd037f1ad61dbaeac866b3b4f3020624f1b727c66b23390a47d08ce5",
+      "order": 4,
+      "path": "rtl/ddr/control_predecode_publication/mig_7series_v4_2_axi_ctrl_top.v",
+      "qualified_private_path": "build/ctrl-read-predecode-candidate-v2/mig_7series_v4_2_axi_ctrl_top.v",
+      "sha256": "b4b4c5813e3abd649f744713dc77aa9504bfbd645e03c672a76f1509e45411e0"
+    },
+    {
+      "baseline_path": "/home/fedora/rknpu-fpga/build/job-result-publication-bank-candidate-v1/rk_job_control_admission.sv",
+      "baseline_sha256": "56ffb71fe46924bdcb40335c1760b808adf61731e0fc56e2af29bd32d1e8df4f",
+      "order": 149,
+      "path": "rtl/ddr/control_predecode_publication/rk_job_control_admission.sv",
+      "qualified_private_path": "build/descriptor-publication-bank-candidate-v1/rk_job_control_admission.sv",
+      "sha256": "38f59a6c49b5de2b82f47bf2ed50af2fd9ba2525d687d381d6f9ad7780872b7b"
+    },
+    {
+      "baseline_path": "/home/fedora/rknpu-fpga/build/layout-local-capture-candidate-v1/rk_layout_dma.sv",
+      "baseline_sha256": "11469a5880b5e3a8ae8ca921da3cc5ad292bdaae842ac7356c78beb3e9089093",
+      "order": 164,
+      "path": "rtl/ddr/control_predecode_publication/rk_layout_dma.sv",
+      "qualified_private_path": "build/layout-start-publication-candidate-v1/rk_layout_dma.sv",
+      "sha256": "13b4fbb2eea26f9f26fd9b63159b329c567c4916f6b79719412a29e1f167d0f8"
+    }
+  ],
+  "status": "UNSELECTED_COMPONENT_QUALIFIED_REQUIRES_FRESH_COMBINED_FULL_SYNTHESIS_MODELS_AND_TIMING",
+  "workspace_local_evidence": {
+    "bank_binary_proof": {
+      "path": "build/descriptor-publication-bank-proof-v2/proof-review.json",
+      "sha256": "10f2cdae4c1e6cd0c7c7bc85e29bcad432fe655c42c67fe9b9b8633eb67834c9",
+      "status": "PASS_DESCRIPTOR_PUBLICATION_BANK_BINARY_PROOF_V2_REVIEW_ONLY"
+    },
+    "bank_native": {
+      "path": "build/descriptor-publication-bank-native-v1/results-review.json",
+      "sha256": "c6338ebfd90625fe672a5baace61015bce170e1ddebe308728347df0a2cbb0b5",
+      "status": "PASS_DESCRIPTOR_PUBLICATION_BANK_NATIVE_RESULTS_COMPONENT_ONLY"
+    },
+    "bank_native_warnings": {
+      "path": "build/descriptor-publication-bank-native-v1/warning-review.json",
+      "sha256": "8fd7e96b94126d4c92167f32c7428fb9b5ed72ff8005b327f42425ff6f239ee6",
+      "status": "PASS_DESCRIPTOR_PUBLICATION_BANK_NATIVE_EXACT_WARNING_REVIEW_ONLY"
+    },
+    "bank_source": {
+      "path": "build/descriptor-publication-bank-candidate-v1/source-review.json",
+      "sha256": "75eb4d88fbd97403ca7b0b5275dc592abcc522592ff5f5649d36dd289dd230f7",
+      "status": "PASS_DESCRIPTOR_PUBLICATION_BANK_SOURCE_REVIEW_ONLY"
+    },
+    "ctrl_native_combined": {
+      "path": "build/ctrl-read-predecode-native-v4/combined-results-review.json",
+      "sha256": "e573a9a5580c092dac65f184322aadef7b90bba009e69e4f47197a835628ceb6",
+      "status": "PASS_CTRL_READ_PREDECODE_V2_COMBINED_NATIVE_COMPONENT_ONLY"
+    },
+    "ctrl_native_data_metadata_clarification": {
+      "path": "build/ctrl-read-predecode-fourstate-data-addon-v1/metadata-clarification.json",
+      "sha256": "596156df05cf4fb41adc0b75d3ce42dd59c603fef99a6ec6b67c0c41c132c214",
+      "status": "CTRL_DATA_XZ_ADDON_METADATA_CLARIFICATION_ONLY"
+    },
+    "ctrl_native_data_xz": {
+      "path": "build/ctrl-read-predecode-fourstate-data-addon-v1/results-review.json",
+      "sha256": "dcc92124b8222edeaf13f8b9c10fdd1d0e868ae5ea1469fd933d06f4f6291e8b",
+      "status": "PASS_CTRL_READ_DATA_XZ_ADDON_INDEPENDENT_COMPONENT_ONLY"
+    },
+    "ctrl_ooc_saved_artifacts": {
+      "path": "build/ctrl-read-predecode-mapped-v2/saved-artifact-review.json",
+      "sha256": "3221bbb14a54bfe249424a7e366034c05a84db686d4124c22bf44256092261c6",
+      "status": "PASS_CTRL_READ_PREDECODE_MAPPED_V2_SAVED_ARTIFACT_DIAGNOSTIC_REVIEW_ONLY"
+    },
+    "ctrl_read_cone_census_clarification": {
+      "path": "build/ctrl-read-predecode-proof-v2/proof-census-clarification.json",
+      "sha256": "2922f4af403e01f4546bad81f2b1464f142e8f433e586c897d443fa9a905412b",
+      "status": "CTRL_READ_PREDECODE_V2_PROOF_CENSUS_CLARIFICATION_ONLY"
+    },
+    "ctrl_read_cone_proof": {
+      "path": "build/ctrl-read-predecode-proof-v2/proof-review.json",
+      "sha256": "dfd3fa01da6b2195977685147dc722f966a7daa20416be30f02cadcc5a70d981",
+      "status": "PASS_CTRL_READ_PREDECODE_V2_BINARY_READ_CONE_PROOF_REVIEW_ONLY"
+    },
+    "ctrl_source": {
+      "path": "build/ctrl-read-predecode-candidate-v2/source-review.json",
+      "sha256": "bef0ae4d400f1af1a5b81efcf1ca19488315ffd4d79fa32c916dbf123fb0f046",
+      "status": "PASS_CTRL_READ_PREDECODE_V2_SOURCE_REVIEW_ONLY"
+    },
+    "layout_binary_proof": {
+      "path": "build/layout-start-publication-proof-v1/proof-review.json",
+      "sha256": "d6cb7cd035b84b773586d1c14b6ffd8090c872d0f487e8b3861475c94bec772f",
+      "status": "PASS_LAYOUT_START_PUBLICATION_BINARY_PROOF_REVIEW_ONLY"
+    },
+    "layout_native": {
+      "path": "build/layout-start-publication-native-v2/independent-review.json",
+      "sha256": "f84df5c0a129ecc769ecd7e772f1a38b2b9446c6a77a9e2f91420abfda7ecba6",
+      "status": "PASS_LAYOUT_START_PUBLICATION_NATIVE_V2_INDEPENDENT_COMPONENT_ONLY"
+    },
+    "layout_source": {
+      "path": "build/layout-start-publication-candidate-v1/source-review.json",
+      "sha256": "735a21bd09d5b8bfb24b9647bbe790c3c436dde22b6c14bac9c768014b7a48ec",
+      "status": "PASS_LAYOUT_START_PUBLICATION_SOURCE_REVIEW_ONLY"
+    }
+  }
+}
