@@ -1,0 +1,11 @@
+# Control storage publication source candidates
+
+These byte-exact, unselected order106/order164 replacements address the measured control-to-register enable paths. [The manifest](source-candidate.json) records source identities, baselines and workspace-local component reviews. Apply only to the reviewed invariant-aware parent selection; default selectors are unchanged. Do not compile these modules alongside their baseline definitions.
+
+`rk_axi_mem` keeps speculative request and phase storage private until single-bit publication. Its two request banks retain the prior published address, lane and write data even when AXI VALID is low; response payload validity preserves the original clear-to-zero behavior. The logical state, all public ports and every handshake retain their cycle timing after reset. Source storage increases by 55 bits before synthesis/constant/FSM optimization; compute dimensions are unchanged.
+
+`rk_layout_dma` captures a prospective failure reason locally and masks it until sticky FAILED state. Request-ready cannot reach that payload expression or its enable. Command address/amount and word/index response captures use their state-local response-fault-prioritized conditions, which cannot coincide with timeout publication. Original failure calls, error priorities, packet/data operations and latency remain.
+
+Both components pass independently reviewed actual-RTL reset/induction proofs, real negative controls and paired Icarus/Verilator tests. Layout tests retain the original positive/negative/error cases and invalid-parameter fatals; adapter tests compare all public outputs, including payloads while VALID is low. The layout proof removes the identical initial parameter fatal only from formal copies for three separately validated legal parameter tuples; actual RTL retains it. Native X/Z tests do not establish arbitrary corrupted-internal-state equivalence.
+
+Standalone mapping, combined full-parent models, implementation timing, image audit and physical FPGA qualification remain pending. The previous invariant parent passed its models but failed unrouted setup at −1.710 ns; its placement collector also has a preserved completion-marker mismatch. No new timing or hardware acceptance is claimed by these files.

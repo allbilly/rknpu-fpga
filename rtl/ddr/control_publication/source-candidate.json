@@ -1,0 +1,54 @@
+{
+  "axi_source_storage_bits_added": 55,
+  "default_selectors_modified": false,
+  "evidence": {
+    "axi_native": {
+      "path": "build/axi-memory-publication-native-v5/independent-review.json",
+      "sha256": "d22ca5e097e8fa9441b79ef22852b58ccfb9ce7bde1bfd190b57118dc86ddf10",
+      "status": "PASS_AXI_MEMORY_PUBLICATION_NATIVE_V5_INDEPENDENT_COMPONENT_ONLY"
+    },
+    "axi_source_proof": {
+      "path": "build/axi-memory-publication-candidate-v1/source-proof-review.json",
+      "sha256": "0ac6d2c9bb1364a78ad4ab1251958bbb6c53020e336370816ce95c3c316f76b2",
+      "status": "PASS_AXI_MEMORY_PUBLICATION_SOURCE_BINARY_PROOF_REVIEW_ONLY"
+    },
+    "layout_native": {
+      "path": "build/layout-local-capture-native-v1/independent-review.json",
+      "sha256": "eb9bc31bde23f176ad692683c9e63f0cba4a1a42685e55179630fe87160a3737",
+      "status": "PASS_LAYOUT_LOCAL_CAPTURE_NATIVE_INDEPENDENT_COMPONENT_ONLY"
+    },
+    "layout_proof": {
+      "path": "build/layout-local-capture-candidate-v1/proof-review.json",
+      "sha256": "7deed289412b871c51f5406716a7710c3eea31007b37565010262a2a6c06daca",
+      "status": "PASS_LAYOUT_LOCAL_CAPTURE_BINARY_PROOF_REVIEW_ONLY"
+    },
+    "layout_source": {
+      "path": "build/layout-local-capture-candidate-v1/source-review.json",
+      "sha256": "e019bfa129e1a2c868cddc5c94131173bfa545fa0538fb3904e60b29e2756267",
+      "status": "PASS_LAYOUT_LOCAL_CAPTURE_SOURCE_REVIEW_ONLY"
+    }
+  },
+  "files": [
+    {
+      "baseline_path": "build/control-repair-three-fix-physical-prep-v1/source/hdl/106/rk_axi_mem.sv",
+      "baseline_sha256": "dc4cb342145781bd3632b25df95d2c5c15f39a0a03e6509265e1c8434efb149e",
+      "copied_from": "build/axi-memory-publication-candidate-v1/rk_axi_mem.sv",
+      "order": 106,
+      "path": "rtl/ddr/control_publication/rk_axi_mem.sv",
+      "sha256": "9b6349cf718ac26bdd883eb5b9aacece682885d362abd5a5bd187d84e1ebc549"
+    },
+    {
+      "baseline_path": "build/control-repair-three-fix-physical-prep-v1/source/hdl/164/rk_layout_dma.sv",
+      "baseline_sha256": "d9a931e6680b2b5eb93bb4bb48530f674353d23af68017941b7ec23a6dbf92f0",
+      "copied_from": "build/layout-local-capture-candidate-v1/rk_layout_dma.sv",
+      "order": 164,
+      "path": "rtl/ddr/control_publication/rk_layout_dma.sv",
+      "sha256": "11469a5880b5e3a8ae8ca921da3cc5ad292bdaae842ac7356c78beb3e9089093"
+    }
+  ],
+  "hardware_or_routed_timing_acceptance": false,
+  "latency_cycles_added": 0,
+  "layout_source_storage_bits_added": 0,
+  "schema": "control-publication-source-pair-v1",
+  "status": "UNSELECTED_COMPONENT_QUALIFIED_MAPPING_AND_FULL_PARENT_PENDING"
+}
