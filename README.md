@@ -35,7 +35,11 @@ review (435 warm and 502 controller files). Both fresh C++ builds also pass
 independent review. The fresh
 [warm replay](build/control-publication-warm-replay-v1/results-review.json)
 passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete
-BO bytes under independent model review. The controller replay is running.
+BO bytes under independent model review. The fresh
+[controller replay](build/control-publication-controller-replay-v1/results-review.json)
+also passes all twelve original V4 cases and the coordinator precheck, six
+complete BOs/532,480 bytes, seven SYS resets and 32,768 BIST writes/reads.
+These model results do not qualify the actual MIG/PHY or FPGA.
 Fresh [constant retention](build/control-publication-full-retained-prep-v1/retention-results-review.json)
 and [mapped inventory](build/control-publication-full-retained-prep-v1/inventory-results-review.json)
 pass independent review, retaining all 35 zero proofs, three grounds and 197
