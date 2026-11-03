@@ -128,13 +128,34 @@ is committed at `7471a71`; public default selectors remain unchanged.
 The new [full source snapshot](../build/parent-readiness-invariant-full-synth-v1/source-snapshot.json)
 freezes 1,358 inputs and exactly two changed HDL orders, 112/148, relative to
 the accepted service-admission parent. Other 199 selected inputs and the
-original resource/interface/electrical recipe are unchanged. Fresh full
-synthesis is running; both fresh warm/controller model codegens completed
-from that same snapshot and await independent warning/artifact review. The first codegen runner stopped before
-Verilator because it looked for the binary hash in the parent's source map;
-that failed pre-tool attempt is preserved, and reviewed runner v2 checks the
-actual before/after tool maps. C++ builds, full-parent replays, routed timing,
-image and hardware qualification remain pending. The
+original resource/interface/electrical recipe are unchanged. Fresh
+[full synthesis resource review](../build/parent-readiness-invariant-full-synth-v1/results-review.json)
+passes at 293,554 LUTs/89,807 FFs/516 DSPs, retaining all 512 products, 16 kernels,
+both MIGs, both CACC arithmetic pipelines, PCIe, BSCAN2/3 and 277 ports. The
+producer binds 1,359 inputs including the snapshot file; the immutable snapshot
+itself describes 1,358 entries. Distinct mapped CACC-context retention is still
+not claimed.
+
+Both fresh codegens pass independent warning/artifact review (435/502 generated
+files); their two new unused-output warnings per profile are explicitly
+classified. The first codegen runner stopped before Verilator because it
+looked for the binary hash in the parent's source map; that pre-tool failure
+is preserved, and reviewed runner v2 checks the actual before/after tool maps.
+Fresh [warm](../build/parent-readiness-invariant-warm-cpp-v1/build-results-review.json)
+and [controller](../build/parent-readiness-invariant-controller-cpp-v1/build-results-review.json)
+C++ build reviews accept all 425/492 archive members against fresh objects,
+three runtime objects and two PCHs each. Both full-parent model replays are
+running with the original fixtures, validators and 1,800-second case budgets;
+no replay result is accepted yet.
+
+Fresh [retention](../build/parent-readiness-invariant-retained-prep-v1/retention-results-review.json)
+passes all 35 zero proofs and exactly three protected grounds. Fresh
+[mapped inventory](../build/parent-readiness-invariant-retained-prep-v1/inventory-results-review.json)
+passes the original 197 bridge/release/ready/PCIe register rows. The new strict
+constrained stage is running with the original clock/reset/electrical/DRC,
+startup and assertion-source protections. Placement awaits its independently
+reviewed strict result. Routed timing, image and hardware qualification remain
+pending for this source. The
 [public default regression](../build/parent-readiness-public-regression-v1/report.json)
 passes 582 unit-test executions and the native suites at source `0de9634`, with
 all 44,025 tracked files unchanged. These default targets do not select the new

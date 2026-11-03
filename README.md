@@ -62,10 +62,14 @@ and [matched OOC reviews](build/parent-readiness-invariant-mapped-v1/results-rev
 pass. All three actual BRESP-D paths improve 6.625→6.041 ns (17→15 levels);
 memory readiness improves 5.410→4.847 ns (12→10), with 2,396 component FFs
 unchanged. This justifies a fresh full-parent trial, not timing acceptance.
-Fresh full synthesis is running from the reviewed 1,358-input immutable
-source snapshot at source commit `7471a71`. Both model codegens completed and
-await independent warning/artifact review. Routed
-full-design timing and new-image FPGA tests remain pending. The
+Fresh [full synthesis review](build/parent-readiness-invariant-full-synth-v1/results-review.json)
+passes at 293,554 LUTs/89,807 FFs/516 DSPs with all required compute and interfaces
+retained. Both model codegens and fresh C++ builds pass independent review.
+Fresh [constant retention](build/parent-readiness-invariant-retained-prep-v1/retention-results-review.json)
+and [mapped inventory](build/parent-readiness-invariant-retained-prep-v1/inventory-results-review.json)
+pass the original 35 zero proofs/three grounds and 197 retained-register rows.
+Both full-parent model replays and strict constrained implementation checks are
+running. Routed full-design timing and new-image FPGA tests remain pending. The
 [public default regression](build/parent-readiness-public-regression-v1/report.json)
 passes 582 unit-test executions and the native suites with all 44,025 tracked
 files unchanged; those targets do not select this candidate. This source has
