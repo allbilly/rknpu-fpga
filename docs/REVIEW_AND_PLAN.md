@@ -107,9 +107,34 @@ The [conditioned binary composition](../build/parent-readiness-cofactor-candidat
 and [selected four-state cone review](../build/parent-readiness-cofactor-candidate-v2/four-state-review.json)
 pass. The latter checks 198,093 legal contexts and excludes 12,291; exclusions
 are not equivalence passes. These do not prove four-state reachability or
-full-parent execution. Fresh coupled native and matched mapping results remain
-required before selecting v2 for a full build. No state, arithmetic or latency
-is added, and the parent has an explicit invariant assertion. The
+full-parent execution. Fresh
+[coupled native review](../build/parent-readiness-invariant-native-v3/results-review.json)
+now passes all 21 Icarus/19 Verilator original cases, direct comparisons of
+51 original outputs/44 state fields and all three added outputs. The actual
+fabric plus sticky-parent projection passes 1,018/711 post-reset cycles,
+32 four-state/8 binary transition vectors and exact expected-fatal
+unreachable-state controls; actual order148 is not compiled by that run.
+Fresh [matched OOC review](../build/parent-readiness-invariant-mapped-v1/results-review.json)
+retains 2,396 FFs, changes 3,821→3,818 LUTs, and improves all three actual
+BRESP error-bit D paths 6.625→6.041 ns (17→15 levels). Memory readiness improves
+5.410→4.847 ns (12→10), queued readiness 5.779→5.195 ns (13→11).
+These child-shell measurements still exclude full MIG address decode and
+physical routing. V2 is selected for a fresh full-parent trial. No state,
+arithmetic or latency is added, and the parent has an explicit invariant
+assertion.
+
+The [durable v2 source pair](../rtl/ddr/parent_readiness_invariant/README.md)
+is committed at `7471a71`; public default selectors remain unchanged.
+The new [full source snapshot](../build/parent-readiness-invariant-full-synth-v1/source-snapshot.json)
+freezes 1,358 inputs and exactly two changed HDL orders, 112/148, relative to
+the accepted service-admission parent. Other 199 selected inputs and the
+original resource/interface/electrical recipe are unchanged. Fresh full
+synthesis is running; both fresh warm/controller model codegens completed
+from that same snapshot and await independent warning/artifact review. The first codegen runner stopped before
+Verilator because it looked for the binary hash in the parent's source map;
+that failed pre-tool attempt is preserved, and reviewed runner v2 checks the
+actual before/after tool maps. C++ builds, full-parent replays, routed timing,
+image and hardware qualification remain pending. The
 [public default regression](../build/parent-readiness-public-regression-v1/report.json)
 passes 582 unit-test executions and the native suites at source `0de9634`, with
 all 44,025 tracked files unchanged. These default targets do not select the new

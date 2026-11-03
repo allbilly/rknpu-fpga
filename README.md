@@ -54,10 +54,18 @@ then found worse memory readiness (5.410→5.631 ns, 12→13 levels), and the
 [linked-netlist BRESP-D probe](build/parent-readiness-bresp-probe-v1/results-review.json)
 found all three measured register paths worse (7.260→7.356–7.360 ns,
 18→19 levels). This candidate is **not selected for a full build**.
-The next unselected invariant-aware candidate removes the fallback mux using
-the shared-reset `service_active`→`monitor_seen` relation. Its actual-fabric
-binary reset/induction proof and conditioned binary/four-state cone reviews
-pass; fresh coupled native and mapped results remain pending. The
+The [invariant-aware v2 pair](rtl/ddr/parent_readiness_invariant/README.md)
+removes that mux using the shared-reset `service_active`→`monitor_seen`
+relation. Its actual-fabric binary reset/induction, conditioned cone,
+[coupled native](build/parent-readiness-invariant-native-v3/results-review.json)
+and [matched OOC reviews](build/parent-readiness-invariant-mapped-v1/results-review.json)
+pass. All three actual BRESP-D paths improve 6.625→6.041 ns (17→15 levels);
+memory readiness improves 5.410→4.847 ns (12→10), with 2,396 component FFs
+unchanged. This justifies a fresh full-parent trial, not timing acceptance.
+Fresh full synthesis is running from the reviewed 1,358-input immutable
+source snapshot at source commit `7471a71`. Both model codegens completed and
+await independent warning/artifact review. Routed
+full-design timing and new-image FPGA tests remain pending. The
 [public default regression](build/parent-readiness-public-regression-v1/report.json)
 passes 582 unit-test executions and the native suites with all 44,025 tracked
 files unchanged; those targets do not select this candidate. This source has
