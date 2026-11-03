@@ -60,14 +60,21 @@ handshake or latency change. The worst-100 path census also finds other
 control/reset and host-response paths, so this leaf alone is not selected for
 a full build. A separate
 [CTRL read predecode candidate](build/ctrl-read-predecode-candidate-v2/source-candidate.json)
-passes source and explicitly scoped read-cone proof review; native and matched
-mapping checks remain pending. It captures the original decoder at the
+passes source, explicitly scoped read-cone proof and paired actual-vendor
+native review, including selected live DATA X/Z checks. Saved matched mapping
+improves the all-origin read-data endpoint maximum from 3.071 ns/five levels
+to 2.309 ns/three levels in both selected modes. The raw mapping collector
+remains failed on a stdout/file completion-marker mismatch; a separate
+artifact review accepts the saved diagnostic results. It captures the decoder at the
 existing address edge, preserving live read values and AXI response timing.
 A separate [descriptor publication candidate](build/descriptor-publication-bank-candidate-v1/source-candidate.json)
-passes source review and is awaiting proof/native/mapping checks. It keeps
+passes source, actual-RTL binary proof and paired native review. It keeps
 rejected writes private and exposes the original zeros after ACK without
-clearing wide data through the long ACK predicate. No new full source or
-route is selected. There is no new
+clearing wide data through the long ACK predicate. These three component-qualified
+sources are preserved together as an explicit, unselected
+[source package](rtl/ddr/control_predecode_publication/README.md). Fresh combined
+synthesis and full-context mapped review are next; combined models, routed
+timing and hardware remain required. No full route is selected. There is no new
 accepted image or FPGA result. See the current table in the
 [active plan](docs/REVIEW_AND_PLAN.md#current-progress).
 
