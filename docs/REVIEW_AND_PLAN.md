@@ -40,7 +40,28 @@ not a complete RK3588 implementation or a completed soDLA fork.
 
 ## Current progress
 
-Current focus: qualify the service-admission repair in the combined PCIe/JTAG
+Current focus, 2026-11-03: qualify the committed
+[control storage publication pair](../rtl/ddr/control_publication/README.md)
+at `beb009b` in the combined PCIe/JTAG image. Only full-source orders 106/164
+change relative to the invariant-aware parent; compute and interface scope
+remain unchanged.
+
+| Gate for this repair | Verified state | Remaining work |
+|---|---|---|
+| Component semantics | Actual-RTL reset/induction proofs, real negative controls and paired Icarus/Verilator reviews pass | Full-system model tests |
+| Full synthesis | [Independent resource review](../build/control-publication-full-synth-v1/results-review.json) passes: 293,732 LUTs, 89,855 FFs, 516 DSPs; required compute/interfaces retained | Physical implementation |
+| Full-context dependency audit | [Independent review](../build/control-publication-full-context-cone-audit-v1/results-review.json) accepts complete 164-bit layout and 95-bit adapter payload coverage, with zero target-root hits on all 518 D/CE pins | These are structural observations, not timing measurements; ancillary response fanout warnings are not response-path proof |
+| Fresh full-system models | Both fresh `codegen-v2` results pass independent warning/artifact review: [warm](../build/control-publication-warm-prep-v1/codegen-results-review.json), 435 files/202 warnings; [controller](../build/control-publication-controller-prep-v1/codegen-results-review.json), 502 files/649 warnings | Fresh C++ builds, warm and controller replays |
+| Structural implementation and timing | Pending for this repair | Retention/inventory, strict constraints, placement and routed timing under the original checks |
+| Image and board tests | No new accepted image | Image audit, audited volatile load, capacity/recovery, framework/TinyStories, ECC and PCIe gates below |
+
+The previous invariant parent passed its model/structural checks but failed
+unrouted setup at −1.710 ns and hold at −0.700 ns. Its completion-marker
+collector failure and earlier codegen pre-tool failures remain preserved.
+The current repair has no inherited timing or physical acceptance. Historical
+TinyStories full32 passes remain bound to their original image.
+
+Preceding service-admission trial: qualify the service-admission repair in the combined PCIe/JTAG
 image. The [published source pair](../rtl/ddr/capacity/service_admission_cofactor/README.md)
 passes binary composition and paired native checks. Its independently audited
 saved mapping removes all 32 diagnostic CTRL read-data admission dependencies
@@ -647,7 +668,7 @@ and separate SYS/ECC/PCIe qualification remain pending.
 | Combined result/counter full design | Both model suites and placement structural checks pass. Raw route: 450,803/450,803 nets, zero route errors; setup −1.457 ns fails, hold +0.014 ns passes. Cleanup rejects new PDRC-61 | Preserve failed route; qualify control-path repairs, diagnose cleanup, then fresh full-parent/physical gates |
 | Snapshot-scope and result-publication source candidate | Component/native and scoped binary checks pass; combined full synthesis independently passes at 293,628 LUTs/89,807 FFs/516 DSPs | Retention/inventory, both codegens/C++ builds, strict checks, fresh16-job warm replay and all12 controller cases independently passed; placement structure passes; route/cleanup complete but setup −1.208 ns fails, hold +0.012 ns passes; next admission repair in component qualification |
 | Capacity-admission health cofactor v3 | Source, native, binary/four-state equation and matched OOC reviews pass; health path 4→1 levels, 2.492→1.117 ns estimated | Full synthesis, both model suites, retention/inventory, strict and placement structure passed. Route: all 450,829 nets routed, zero errors; setup −1.109 ns fails, hold +0.014 ns passes. Preserve failure; repair the shared diagnostic-completion/admission path |
-| Service admission cofactor | Binary composition, sixteen service runs, four owner comparisons and twenty saved-image replays independently pass; saved matched mapping removes 32→0 admission dependencies with unchanged FF counts | Fresh synthesis, both model suites and retention/inventory/strict/placement structural reviews independently pass. Placement timing estimates fail setup −1.387 ns and hold −0.392 ns; guarded route is running. Routed timing and physical tests remain required |
+| Service admission cofactor | Binary composition, sixteen service runs, four owner comparisons and twenty saved-image replays independently pass; saved matched mapping removes 32→0 admission dependencies with unchanged FF counts | Fresh synthesis, both model suites and retention/inventory/strict/placement structural reviews independently pass. Guarded routing completed with zero route errors but setup −1.075 ns fails; hold +0.013 ns passes. This is a preceding source, not the current repair |
 | Guarded O5 cleanup | Independent diagnostic passes: eight proven-dead buffers, zero PDRC-61; route and slacks unchanged | Recheck on the new source route; no timing acceptance |
 | Combined-image application preparation | Outer runner is source-reviewed; admission/source-loading, mocked execution, ownership and actual direct host-build checks pass. RKHO transport/decoder and synthetic whole-BO auditor controls pass. | Admit the actual image and concrete trial, then perform new-image tests and independent physical review |
 | PCIe BRESP sink | [Exact component](../build/xdma-component-response-input-probe-v1/results-review.json) and [integrated strict-checkpoint](../build/integrated-xdma-response-sink-probe-v1/results-review.json) topology reviewed: no AXI-Lite BRESP sink; BVALID and RRESP controls remain connected | Run the read-only converter audit on the eventual routed image; retain host mask/status/readback checks |

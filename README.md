@@ -21,6 +21,22 @@ MACs per clock. INT8/INT4 arithmetic and doubled INT8 throughput are unsupported
 See the [precision and layout boundary](docs/CMAC_ENCODER_CONTRACT.md#precision-and-compute-group-terminology).
 
 **Latest timing work, 2026-11-03:** the
+[control storage publication pair](rtl/ddr/control_publication/README.md),
+committed at `beb009b`, now passes component proof/native reviews and fresh
+[full synthesis review](build/control-publication-full-synth-v1/results-review.json):
+293,732 LUTs, 89,855 FFs and 516 DSPs, retaining the full C32/K16 compute,
+both MIGs, PCIe and BSCAN2/3. The independently reviewed
+[full-context cone audit](build/control-publication-full-context-cone-audit-v1/results-review.json)
+finds zero target readiness/valid fanout hits on all 328 layout and 190 AXI
+adapter payload D/CE pins. This is a structural diagnostic, not timing
+acceptance; ancillary response fanout warnings remain explicitly scoped.
+Both fresh model codegens completed and passed independent warning/artifact
+review (435 warm and 502 controller files). Fresh C++ builds/replays, structural
+implementation checks, placement and route remain required. There is no new
+accepted image or FPGA result. See the current table in the
+[active plan](docs/REVIEW_AND_PLAN.md#current-progress).
+
+**Preceding service-admission and invariant trials, 2026-11-03:** the
 [service-admission source candidate](rtl/ddr/capacity/service_admission_cofactor/README.md)
 removes all 32 diagnostic CTRL read-data dependencies from normal admission in
 independently audited component mapping, with unchanged state counts. Fresh
