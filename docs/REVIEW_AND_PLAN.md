@@ -40,7 +40,28 @@ not a complete RK3588 implementation or a completed soDLA fork.
 
 ## Current progress
 
-Current focus, 2026-11-03: qualify the committed
+Current focus, 2026-11-03: qualify the combined
+[predecode/publication source package](../rtl/ddr/control_predecode_publication/README.md)
+committed at `0d28748`. Its frozen [201-record selection](../build/predecode-publication-full-synth-v1/source-manifest.json)
+changes only orders 4/149/164 relative to the control-publication parent;
+the other 198 records and original compute/interface/constraint recipe remain.
+
+| Gate for the current combined source | Verified state | Remaining work |
+|---|---|---|
+| Component behavior | All three replacement modules have independently reviewed source, binary proofs and paired native tests. CTRL proof remains a read cone with common symbolic register data; selected live DATA X/Z is separately tested | Fresh combined full-parent models |
+| Combined synthesis/resources | [Saved-artifact review](../build/predecode-publication-full-synth-v1/saved-artifact-review.json) accepts fresh synthesis: 294,144 total LUTs, 288,418 logic LUTs, 90,243 FFs, 516 DSPs, 22 RAMB36 and one RAMB18. Required 512 products/16 kernels, both MIGs/two CACC pipelines, PCIe/GTX8/common2, BSCAN2/3 and 277 ports retained | The raw producer remains `FAIL_PREDECODE_PUBLICATION_FULL_SYNTH` on a BSCAN hierarchy-text parser mismatch. It is not relabeled as passing; mapped-path/timing acceptance is separate |
+| Fresh code generation | [Warm](../build/predecode-publication-warm-prep-v1/codegen-results-review.json) and [controller](../build/predecode-publication-controller-prep-v1/codegen-results-review.json) results pass artifact/warning review: 435/502 generated files and 201/648 warnings. Three new CTRL address-width diagnostics per profile are source-classified; four obsolete read-leaf diagnostics disappear | C++ source/runner reviews pass; fresh make dry-runs have started. No fresh replay pass yet |
+| Full-context mapped audit | Read-only audit source is being qualified against the exact new optimized DCP and saved-artifact review; all three control banks must be covered | Complete data/enable/reset-or-set pin and bit coverage, constants/aliases, required genuine paths and expected zero-root relationships; missing evidence stays unqualified |
+| Physical implementation | No placement, route, or timing result for this new source | Fresh retention/inventory, strict constraints, placement and complete routed timing/DRC/crossing gates |
+| New image and board | No accepted new image or hardware result | Image audit and audited volatile load, then capacity/recovery, framework/TinyStories, ECC and independent PCIe/JTAG gates below |
+
+The [public default regression](../build/predecode-publication-public-regression-v1/results-review.json)
+passes 582 unittest executions in 28 suites plus its native targets, with all
+44,044 recorded inputs unchanged. Those default targets do not select this
+new source variant. The README and RTL source bytes remain frozen as inputs
+to the fresh model qualification; current progress is recorded here.
+
+Preceding source qualification: the committed
 [control storage publication pair](../rtl/ddr/control_publication/README.md)
 at `beb009b` in the combined PCIe/JTAG image. Only full-source orders 106/164
 change relative to the invariant-aware parent; compute and interface scope
