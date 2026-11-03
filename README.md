@@ -31,8 +31,13 @@ finds zero target readiness/valid fanout hits on all 328 layout and 190 AXI
 adapter payload D/CE pins. This is a structural diagnostic, not timing
 acceptance; ancillary response fanout warnings remain explicitly scoped.
 Both fresh model codegens completed and passed independent warning/artifact
-review (435 warm and 502 controller files). Fresh C++ builds/replays, structural
-implementation checks, placement and route remain required. There is no new
+review (435 warm and 502 controller files). Both fresh C++ builds also pass
+independent review; the original warm and controller replays are running.
+Fresh [constant retention](build/control-publication-full-retained-prep-v1/retention-results-review.json)
+and [mapped inventory](build/control-publication-full-retained-prep-v1/inventory-results-review.json)
+pass independent review, retaining all 35 zero proofs, three grounds and 197
+interface register rows. Strict implementation checks, placement and route
+remain required. There is no new
 accepted image or FPGA result. See the current table in the
 [active plan](docs/REVIEW_AND_PLAN.md#current-progress).
 
