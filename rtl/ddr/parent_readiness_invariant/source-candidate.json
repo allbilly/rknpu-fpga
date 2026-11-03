@@ -1,0 +1,86 @@
+{
+  "added_latency_cycles": 0,
+  "added_state_bits": 0,
+  "evidence": {
+    "composition": {
+      "path": "/home/fedora/rknpu-fpga/build/parent-readiness-cofactor-candidate-v2/composition-review.json",
+      "sha256": "81ffac4f77419b312b22662efaab14fcf45d4212f684950766de2c871f692da5",
+      "status": "PASS_PARENT_READINESS_V2_CONDITIONED_BINARY_CONE_REVIEW_ONLY"
+    },
+    "four_state_cone": {
+      "path": "/home/fedora/rknpu-fpga/build/parent-readiness-cofactor-candidate-v2/four-state-review.json",
+      "sha256": "44609cc3fd5c44625de3a312e165a1774fa75b367bb970db78565d84dc89082e",
+      "status": "PASS_PARENT_READINESS_V2_CONDITIONED_FOUR_STATE_CONE_REVIEW_ONLY"
+    },
+    "invariant": {
+      "path": "/home/fedora/rknpu-fpga/build/parent-readiness-cofactor-candidate-v2/invariant-review.json",
+      "sha256": "91b3747bbc34cd150174167fb5344a561453bd05c79b248347073e0251b30f60",
+      "status": "PASS_PARENT_READINESS_V2_BINARY_INVARIANT_REVIEW_ONLY"
+    },
+    "mapping": {
+      "path": "/home/fedora/rknpu-fpga/build/parent-readiness-invariant-mapped-v1/results-review.json",
+      "sha256": "2a5f50a578354b88b296d3e87fc0a88d849e237ae29c22733d8fe193e3bc7c0f",
+      "status": "PASS_PARENT_READINESS_INVARIANT_MATCHED_OOC_DIAGNOSTIC_ONLY"
+    },
+    "native": {
+      "path": "/home/fedora/rknpu-fpga/build/parent-readiness-invariant-native-v3/results-review.json",
+      "sha256": "b838418004f668253ecfa1b3b04238b260046a230997268a81cf84fb19fcdb69",
+      "status": "PASS_PARENT_READINESS_INVARIANT_NATIVE_V3_RESULTS_COMPONENT_ONLY"
+    },
+    "source": {
+      "path": "/home/fedora/rknpu-fpga/build/parent-readiness-cofactor-candidate-v2/source-review.json",
+      "sha256": "c9f72a90b0500f29342d159ef6c1427a5b2cc3e7b2bb8d682ff8da97a8e2f270",
+      "status": "PASS_PARENT_READINESS_V2_SOURCE_REVIEW_ONLY"
+    }
+  },
+  "full_parent_or_routed_timing_or_hardware_acceptance": false,
+  "ooc_measurements": {
+    "baseline_lut": 3821,
+    "candidate_lut": 3818,
+    "core_ready_levels": [
+      13,
+      11
+    ],
+    "core_ready_ns": [
+      5.779,
+      5.195
+    ],
+    "each_of_three_bresp_bit1_D_levels": [
+      17,
+      15
+    ],
+    "each_of_three_bresp_bit1_D_ns": [
+      6.625,
+      6.041
+    ],
+    "ff_both": 2396,
+    "memory_ready_levels": [
+      12,
+      10
+    ],
+    "memory_ready_ns": [
+      5.41,
+      4.847
+    ]
+  },
+  "required_parent_invariant": "After a common reset edge, fabric.service_active===1 implies parent.monitor_seen===1; common clock, rst_n and monitor_healthy bindings are required.",
+  "schema": "parent-readiness-invariant-source-candidate-v1",
+  "source_selectors_modified": false,
+  "sources": [
+    {
+      "comparison_baseline_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/112/rk_ddr_memory_fabric_snapshot_capacity.sv",
+      "comparison_baseline_sha256": "025127ee6feb99c615fb4f1520baf1d217eaea2ed7c1cf67660c447eb45953bb",
+      "order": 112,
+      "path": "rtl/ddr/parent_readiness_invariant/rk_ddr_memory_fabric_snapshot_capacity.sv",
+      "sha256": "d1f25addfae2396efea89706e66fcf2423970e23129e3f895baf0485b7944e86"
+    },
+    {
+      "comparison_baseline_path": "rtl/ddr/pcie_snapshot_publication/source/hdl/148/rk_jtag_dual_ddr_async.sv",
+      "comparison_baseline_sha256": "9d20d4de7bc1a777be54840cbfb286cb688b509d73cacef258ef4ec669a587d5",
+      "order": 148,
+      "path": "rtl/ddr/parent_readiness_invariant/rk_jtag_dual_ddr_async.sv",
+      "sha256": "98bfdf47c30fc1fac086545ab4ac087238c55879580b6243d6730ad9dc129f82"
+    }
+  ],
+  "status": "SELECTED_FOR_FRESH_FULL_PARENT_TRIAL_ONLY_DEFAULTS_UNCHANGED"
+}
