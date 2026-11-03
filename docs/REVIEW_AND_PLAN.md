@@ -149,9 +149,13 @@ three runtime objects and two PCHs each. The fresh
 accepts sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 complete
 BO bytes across the original two eight-job phases/17 fixtures, under the
 original 1,800-second deadline. Its fresh 33,756,027-byte trace and complete
-BO captures before ACK pass independent audit. The twelve-case controller replay is still
-running with its original fixtures, V4 validators and budgets. These remain
-model-only results; they do not qualify actual MIG/PHY or FPGA execution.
+BO captures before ACK pass independent audit. The fresh
+[controller replay review](../build/parent-readiness-invariant-controller-replay-v1/results-review.json)
+now accepts all twelve original V4 cases and the coordinator precheck, six
+complete BO outputs/532,480 bytes, seven SYS-success markers and 32,768 BIST
+writes/reads. Original case/aggregate deadlines and two-worker process checks
+remain. These are model-only results; they do not qualify actual MIG/PHY or
+FPGA execution.
 
 Fresh [retention](../build/parent-readiness-invariant-retained-prep-v1/retention-results-review.json)
 passes all 35 zero proofs and exactly three protected grounds. Fresh
@@ -160,11 +164,36 @@ passes the original 197 bridge/release/ready/PCIe register rows. The fresh
 [strict structural review](../build/parent-readiness-invariant-implementation-prep-v1/strict-results-review.json)
 passes the original clock/reset/electrical/DRC checks, all 35 zero proofs/three
 protected grounds, 130 startup FFs/21 nets and seven assertion-source cells with
-75 segments. Placement is running from that exact reviewed constrained
-checkpoint. The new routing template and executor are source-reviewed only;
-final route admission awaits terminal placement review and actual checkpoint
-hashes. Routed timing, image and hardware qualification remain pending for
-this source. The
+75 segments. Placement completed both actual Vivado commands with closed
+groups and unchanged inputs, but its producer remains `FAIL_PLACEMENT`: the
+collector expected a renamed completion marker while the unchanged Tcl emitted
+the original marker. The
+[additive saved-artifact failure review](../build/parent-readiness-invariant-implementation-prep-v1/placement-failure-review.json)
+rehashes all 1,470 inputs/32 outputs and pre/post structural witnesses without
+relabeling that producer. Unrouted setup fails at −1.710 ns/TNS −5,373.013 ns
+across 8,648 endpoints; hold is −0.700 ns/THS −184.603 ns across 1,759 endpoints,
+with no pulse-width failure. The worst path is C1 CTRL address[2] through memory
+fault/request-ready and layout request-fire to `saved_code[1]/CE`: 24 LUT
+levels, 8.797 ns, 85.7% estimated net delay. No full route is selected yet.
+
+A separate unselected
+[layout error-code publication candidate](../build/layout-error-code-publication-candidate-v1/source-candidate.json)
+uses the existing sticky FAILED epoch to publish a locally captured prospective
+error payload. Original fail calls, state transitions, priority, raw memory
+protocol and logical/public error codes remain. It adds no state bits or
+latency; request-ready is absent from the new payload expression and local
+capture enable. [Source review](../build/layout-error-code-publication-candidate-v1/source-review.json)
+and [actual-RTL binary proof review](../build/layout-error-code-publication-candidate-v1/proof-review.json)
+pass: all public outputs and 22 logical state signals, reset base/induction at
+1-MiB/default timeout, 2-GiB/full aperture and short timeout, plus a real
+wrong-timeout-code counterexample. The first proof frontend failure is
+preserved; the exact initial parameter fatal is removed only in formal copies
+for three validated legal parameter tuples, never from actual RTL. Native
+four-state/invalid-parameter and matched storage-pin mapping checks remain
+required before selection or a new full-parent trial.
+
+The existing invariant routing template/executor is source-reviewed only;
+actual timing, image and hardware qualification remain pending. The
 [public default regression](../build/parent-readiness-public-regression-v1/report.json)
 passes 582 unit-test executions and the native suites at source `0de9634`, with
 all 44,025 tracked files unchanged. These default targets do not select the new

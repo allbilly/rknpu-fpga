@@ -72,8 +72,17 @@ The fresh [warm replay](build/parent-readiness-invariant-warm-replay-v1/results-
 passes sixteen jobs, twelve compute resets, one SYS reset and 1,441,792 whole-BO
 bytes. [Strict structural review](build/parent-readiness-invariant-implementation-prep-v1/strict-results-review.json)
 passes the original clock/reset/electrical/DRC and startup/assertion protections.
-Placement and the twelve-case controller replay are running. Routed full-design
-timing and new-image FPGA tests remain pending. The
+The fresh [controller replay](build/parent-readiness-invariant-controller-replay-v1/results-review.json)
+passes all twelve original cases, 532,480 complete BO bytes, seven SYS resets
+and 32,768 BIST writes/reads. Placement produced its checkpoint, but the
+[raw failure review](build/parent-readiness-invariant-implementation-prep-v1/placement-failure-review.json)
+preserves a collector completion-marker mismatch and failed unrouted timing:
+setup −1.710 ns, hold −0.700 ns. The worst path is now CTRL address through
+memory request readiness to layout error-code CE (24 LUT levels). A separate,
+unselected error-code publication candidate passes source and actual-RTL
+binary proof review; native and matched mapping checks remain pending.
+No full route is selected yet. Routed timing and new-image FPGA tests remain
+pending. The
 [public default regression](build/parent-readiness-public-regression-v1/report.json)
 passes 582 unit-test executions and the native suites with all 44,025 tracked
 files unchanged; those targets do not select this candidate. This source has
