@@ -1,0 +1,60 @@
+{
+  "schema": "rk-parent-timeout-tags-source-v1",
+  "status": "EXPLICIT_CANDIDATE_SELECTED_FOR_FRESH_FULL_TRIAL_ONLY",
+  "baseline_manifest": "build/pending-cause-parent-full-synth-prep-v1/source-manifest.json",
+  "baseline_manifest_sha256": "a752d323474d89f2e7a6c57de3ae1344045256e774b94f1e549816a0234f4fb7",
+  "sources": [
+    {
+      "order": 112,
+      "path": "rtl/ddr/parent_timeout_tags/rk_ddr_memory_fabric_snapshot_capacity.sv",
+      "sha256": "e4170f1adce3c76dbd597c82c9ff022099c56d35b1be4fa753a0213753760601",
+      "workspace_source": "/home/fedora/rknpu-fpga/build/parent-timeout-tags-candidate-v1/source/fabric-health/rk_ddr_memory_fabric_snapshot_capacity.sv"
+    },
+    {
+      "order": 148,
+      "path": "rtl/ddr/parent_timeout_tags/rk_jtag_dual_ddr_async.sv",
+      "sha256": "2b2d7460d7a0921810cdb2848b88486c41715e13ec64663a3715d6d830fff895",
+      "workspace_source": "/home/fedora/rknpu-fpga/build/parent-timeout-tags-candidate-v1/source/parent-start/rk_jtag_dual_ddr_async.sv"
+    }
+  ],
+  "replace_orders": [
+    112,
+    148
+  ],
+  "unchanged_records": 199,
+  "new_private_child_outputs": 2,
+  "external_top_ports_changed": false,
+  "new_state": 0,
+  "latency_changed": false,
+  "compute_group": "FP16 C32/K16, all512 parallel product lanes, two shared FP48 pipelines with sixteen logical contexts",
+  "caller_contract": "Shared clock/reset/monitor health; job_abort=external_block, job_seal=dma_done&&!external_block, job_seal_intent=dma_done&&1; actual reset-reachable active fabric implies parent monitor_seen",
+  "workspace_local_reviews": [
+    {
+      "path": "build/parent-start-factor-source-review-v1.json",
+      "sha256": "84a75d6587233127ac117b6c7d82853a3e0abfb9bcd29bbc5f8b5e22c6ee3214",
+      "status": "PASS_PARENT_START_FACTOR_SOURCE_AND_EXTRACTED_PROOF_ONLY"
+    },
+    {
+      "path": "build/fabric-health-factor-source-review-v1.json",
+      "sha256": "9ef58732157f728ad3394204d5ec722b86bfdacfd46f4f9c49ace3580993a941",
+      "status": "PASS_FABRIC_HEALTH_FACTOR_SOURCE_AND_EXTRACTED_PROOF_ONLY"
+    },
+    {
+      "path": "build/parent-timeout-tags-source-review-v1.json",
+      "sha256": "509953d7dcda974d21cd0883f71bfeda6c71c3224e4833579afcee3abcc9072b",
+      "status": "PASS_PARENT_TIMEOUT_TAG_SOURCE_STATE_AND_COMPOSITION_ONLY"
+    },
+    {
+      "path": "build/parent-timeout-tags-native-results-review-v1.json",
+      "sha256": "b0490a65e41da52c43c8ba0148f35dc7059ab029109b3b0e1abe28b6c2bbdb29",
+      "status": "PASS_PARENT_TIMEOUT_TAG_PAIRED_COMPONENT_NATIVE_RESULTS_ONLY"
+    },
+    {
+      "path": "build/parent-timeout-tags-mapped-results-review-v1.json",
+      "sha256": "a009e68229437bc098c9c18f300f395947c70b5a513c0ef338a797dbdb760d91",
+      "status": "PASS_PARENT_TIMEOUT_TAGS_MATCHED_MAPPING_RESULTS_DIAGNOSTIC_ONLY"
+    }
+  ],
+  "default_build_selection_changed": false,
+  "new_full_models_synthesis_route_image_hardware_required": true
+}
