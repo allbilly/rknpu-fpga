@@ -48,7 +48,10 @@ qualification; inspect the full result and event observations before ACK.
 Expected parent ECC faults remain visible in the result status.
 
 This client rejects images without the RKFI identity, ABI and line markers. The
-current capacity image does not contain this bank. The management leaf and its
+earlier capacity image does not contain this bank. The currently selected
+timeout-tag implementation includes SYS/FI sources, but has no accepted new
+image or physical FI result; see the [active plan](REVIEW_AND_PLAN.md#current-progress).
+The management leaf and its
 line/write guards are documented in the [maintenance/FI source profile](../rtl/ddr/maintenance_fi/README.md):
 [management registers](../rtl/ddr/maintenance_fi/rk_mig_fi_management_regs.sv),
 [FI write guard](../rtl/ddr/maintenance_fi/rk_mig_fi_write_guard.sv) and
@@ -70,3 +73,17 @@ ECC event test. The earlier [V1](../build/rkfi-host-rtl-prep-v1/run-v1/report.js
 and [V2](../build/rkfi-host-rtl-prep-v2/run-v1/report.json) fixture failures
 remain preserved. Coupled parent/MIG tests and physical ECC qualification
 remain separate gates.
+
+`tools/ddr/fi_evidence.py` provides a pure `validate_ecc_read` check for one
+isolated held read result before ACK. Save the original healthy held CLAIM
+receipt before acknowledging it and arming the test. Supply that receipt,
+the held read result, the expected sixteen raw words, line address and an
+explicit source-bound MC address. The check requires exactly one new CE or UE,
+exclusive valid lane-zero classification, new FI-clear/read-data-valid counts,
+complete raw bytes and retained diagnostic ownership/ordinary quarantine.
+It does not require the event's read-data-valid bit to coincide with ECC-valid.
+
+Expected UE bytes must come from the test's pinned offline fixture. This check
+does not repair data, issue ACK or reset, derive an address map, or establish
+physical injection, disarm and recovery. The caller must separately retain
+the wire trace and verify those lifecycle steps on the accepted image.

@@ -48,6 +48,19 @@ Construction performs no I/O; `probe()` selects USER3, seeds from its captured
 completion and checks RKPR, ABI and capability before reporting status and
 counters. Close the probe before returning the link to another interface.
 
+For repeated USER2/USER3 interleaving on the same borrowed link, use
+`SharedSysMailboxProbe` or `SharedSysMailboxAccess` from
+`tools.host.shared_sys_mailbox`. These adapters select USER3 inside every
+locked SYS transaction. They retain the original completion sequence and
+last response across instruction switches; they never reseed a prepared
+client to hide a stale response. The original adapters above remain suitable
+for a SYS-only interval followed by closing the adapter.
+
+Selecting a mailbox does not make an old runtime valid after whole reset.
+The fresh carrier/session and explicit BO reload requirements below still
+apply. The interleaving regression uses a fake link that routes DR shifts by
+the selected instruction; it is host protocol evidence only.
+
 An explicit whole-reset action uses:
 
 ```python
