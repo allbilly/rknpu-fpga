@@ -127,10 +127,28 @@ groups before releasing the lease. The
 [independent result review](../build/fpga-bringup/framework-factored-capacity-prep-v1/root-result-review.json)
 passes as `PASS_BASELINE_CAPACITY_PHYSICAL_RESULT_REQUIRES_ROOT_ACCEPTANCE`.
 The wire audit witnesses the RKMT CSR sequence, not 2 GiB of payload; capacity
-integrity rests on the BIST’s internal pattern and mismatch checks. Root acceptance `c828fa2d…` promotes this increment. The
-next increment is SYS reset; the [ZYNQ-NVDLA 50 MHz physical
+integrity rests on the BIST’s internal pattern and mismatch checks. Root
+acceptance `c828fa2d…` promotes this increment. The [ZYNQ-NVDLA 50 MHz physical
 result](../../ZYNQ-NVDLA/boards/ypcb/NV1024_50_ROUTED_TIMING_RESULT_20261104.md)
 remains the successful lower-clock board/flow precedent.
+
+The SYS-reset increment is now planned against the same 178-file baseline. The
+baseline has no whole-reset controller, USER3 maintenance mailbox, frame gate,
+retained mailbox or SYS-only parent. The smallest coherent profile replaces
+five baseline files (platform, top, endpoint witnesses, job-control admission,
+layout job control) and adds five modules (SYS controller, UI bridge, frame
+gate, retained mailbox, new SYS-only parent) plus USER3/retained-mailbox
+constraint helpers. Measured component cost is about **+2.3k LUT / +2.9k FF**,
+zero DSP/RAMB. The controller and bridge are in the 50 MHz `sys_clock` domain;
+the only new 133 MHz logic is the shallow frame-gate path. The baseline route
+has only 52 ps UI setup margin, so the increment needs a fresh
+synthesis/place/route with the original guards and no presumption of closure.
+Open items before implementation: no SYS-only parent exists yet; the fixed
+frame-gate hash `38bdf51c…` needs an independent review bound to that exact
+hash; the strict startup-cell count changes if two retained mailboxes embed
+their own startup chains; and lowering the MIG UI clock would invalidate the
+just-qualified 2 GiB capacity result and require a fresh BIST. None of these
+blocks preparation; none may be waived to obtain an image.
 
 Keep two release tracks: **inference** and **maintenance qualification**. Both
 retain the full compute and physical interface target. A track name does not
