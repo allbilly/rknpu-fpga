@@ -160,6 +160,32 @@ compiler cache from historical snapshot/run workspaces, with the file list kept
 in `/tmp/opencode/reclaimed-gch-*.tsv`. No report, log, checkpoint, simulation
 binary, source manifest, review or receipt was deleted.
 
+The continuation route finished at 2026-11-04T16:08:00Z with status
+`FAIL_PREDECODE_PUBLICATION_ROUTE_DIAGNOSTIC`: fully routed with zero routing
+errors, inputs unchanged, all owned groups closed, but setup **WNS −0.385 ns /
+TNS −65.466 ns / 654 endpoints**; hold passed at **WHS +0.012 ns / 0** and pulse
+width passed. This is a measured routed timing failure, not an interruption.
+The [producer](../build/parent-timeout-tags-route-continuation-v1/run-v1/report.json)
+and routed reports remain preserved. No clean checkpoint, image, bitstream,
+board, lease or flash action exists for this source.
+
+The worst path starts at the C1 MIG control read mux and runs 20 levels through
+`monitor_healthy` into the capacity/FI/control admission cone; data delay is
+7.774 ns, of which 6.691 ns (86.1%) is routing. All 100 enumerated worst paths
+share that cone. Physical-only recovery is not supported by the measured
+history (the closest targeted repair recovered 8 ps), so the next step is a
+bounded source change: [monitor order 110](../build/monitor-readback-pipeline-candidate-v1/CONTRACT.json)
+registers only the three readback comparisons (`READ_MASK`/`READ_ONOFF`/
+`READ_STATUS`) and holds the FSM for the detection cycle. IRQ, calibration,
+timeout, response-error and unexpected-response faults remain immediate. The
+[paired native package](../build/monitor-readback-pipeline-native-v1/REPORT.md)
+passes Icarus 43 cases/1,133 cycles and Verilator 29 cases/857 cycles. The
+candidate deliberately delays fault codes 6/7/8 by one clock, documents the
+parent fence interlock and first-cause limitations, and is **not** ECC
+diagnostic acceptance. A fresh [three-record full-source package](../build/timeout-tag-monitor-pipeline-full-synth-v1/source-manifest.json)
+has been prepared and its synthesis is running; no timing improvement is claimed
+until a fresh route passes.
+
 ### Preceding parent-only trial
 
 The preceding parent RTL used in the 201-record selection was
