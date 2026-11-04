@@ -62,26 +62,68 @@ before native execution; the snapshot file itself is directly bound in that
 execution’s input map. The earlier baseline metadata incident remains disclosed
 and does not qualify the new trial’s models, route or hardware.
 
-The next deliverable is a usable, source-bound image. Keep the full C32/K16
-compute and dual-DDR/PCIe/JTAG target; qualify its features through the release
-checkpoints below. Later physical checks must not be prerequisites for reporting
-an earlier, explicitly limited milestone. All numbered work packages remain in
-scope, and a limited release is not completion of this plan.
+### Incremental releases and implementation order
 
-| Release checkpoint | Required evidence | Current state |
-|---|---|---|
-| Prior working inference baseline | Source/image/target-bound TinyStories receipts | Historical `60e7abbb` / `1ca5ae19` result is preserved; it does not qualify changed RTL |
-| Current integrated image | Passing routed setup/hold/pulse checks, detailed image audit and emission | Route stopped at user request; both fresh model suites pass independent review |
-| Current-image inference | Audited volatile load, first/repeated BOS and full32 TinyStories with complete raw BO checks | Application runner prepared; no new-image hardware result |
-| Capacity and recovery | Full two-GiB two-pattern BIST, explicit SYS reset and recovered original raw jobs | Model coverage passes; physical tests remain |
-| ECC diagnostics | Physical CE/UE events, full line readback, quarantine, disarm and whole-domain recovery | Host interleaving/evidence checks prepared; physical qualification remains |
-| Wider execution and compatibility | Six framework shapes, independent PCIe/JTAG execution and audited RK3588 differentials | Remaining gates in packages 4, 6 and 7 |
+The next deliverable is a usable, source-bound inference image. Keep full
+C32/K16 compute, both DDR controllers and both PCIe/JTAG interfaces in every
+new image. The steps below increment supported capabilities and physical
+qualification; they do not introduce a smaller compute target. A limited
+release is useful progress, but does not complete the numbered work packages.
 
-Finish the active route before selecting another RTL change. If timing fails,
-use its actual critical paths to reassess the control architecture and timing
-budget before another local cofactor trial. Intermediate router estimates do
-not establish closure. Source-only preparation can continue in parallel, but
-must not delay an available current-image smoke or inference test.
+Most advanced RTL is already present in the selected trial. First qualify it
+incrementally on one accepted image. Do not rewrite working modules merely to
+make the stages look like new implementation. Where a stage exposes a real
+defect, isolate that feature's source change and requalify the changed image.
+
+| Step | Work added or qualified | Demonstration and exact exit condition | Starting evidence |
+|---|---|---|---|
+| 0. Preserve the working baseline | Pin the earlier inference image, complete source manifest, host/model inputs, tools and runnable commands; verify the archived receipt chain | Audited volatile replay of first/repeated BOS and full32 TinyStories on that exact image. Publish the image/source identity and actual results as the baseline release | Historical `60e7abbb` source tag / `1ca5ae19` bitstream passed. A fresh replay has not run; the source tag is not asserted to be a Git commit |
+| 1. Deliver the new inference image | On explicit resumption, run the selected timing repair in a fresh output directory; complete detailed audit, emission and exact image/target admission | Pass final routed setup, hold, pulse, DRC and electrical gates. Then pass scratch/raw K65/SUB(9), first/repeated BOS and full32 TinyStories with original command words and complete BO comparisons | Both fresh model suites and scoped mapped audits pass; route was interrupted. No accepted new image |
+| 2. Qualify DDR capacity | Run the existing CH1 two-pattern BIST on the accepted image; retain ordinary strict ECC monitoring | Cover all 33,554,432 distinct 64-byte lines: 67,108,864 completed writes and the same number of reads; terminal status `0x68`, no mismatch/fault. Recover through the separately audited reconfiguration path and rerun raw K65/SUB(9) | Earlier-image capacity evidence exists; current-image physical run remains |
+| 3. Qualify live SYS reset | Use the retained USER3 maintenance path and shared USER2/USER3 host adapters; introduce no fault injection yet | One explicit START/success/ACK, attempt and success epoch each advance once, full initialization completes, a fresh USER2 owner reloads BOs and original raw jobs pass. Repeat after a completed BIST to establish recovery without reprogramming | Controller model and offline host controls pass; physical lifecycle remains |
+| 4. Qualify diagnostic ownership with zero mask | Exercise RKFI claim, 64-byte line write/read and complete readback/ACK while all nine mask bytes remain known zero | Exact line bytes, no new CE/UE event, normal job/capacity admission denied while FI owns the path. SYS reset restores ownership, bootstrap disarm and successful original raw jobs | Callback client and controller models exist; physical ownership and zero-mask path remain |
+| 5. Qualify correctable errors | Arm only the pinned single-bit mask; use the actual vendor injection path | Exactly one valid CE and no UE, correct full 64-byte output, correct MC address/classification, ordinary quarantine retained. Disarm all nine bytes, SYS reset/bootstrap/reinitialize and rerun original raw jobs | Actual-controller CE model passes; pure held-result evidence checks exist; physical CE remains |
+| 6. Qualify uncorrectable errors | Start a fresh recovered epoch, then arm only the pinned two-bit mask | Exactly one valid UE and no CE, expected SLVERR and the complete pinned raw result, no false numerical success. Prove quarantine, disarm and full recovery as in step 5 | Actual-controller UE model passes; physical UE remains |
+| 7. Release broader framework support | Pin backend/dependencies and CI fixtures, then enable the existing full framework profile through the unchanged final encoder, one of the six captured shapes at a time | All six shapes and repeated pipelines pass complete intermediate/final BO checks, padding/gap checks, ACK and compute-reset lifecycle on the accepted image. Repeat TinyStories after any RTL change | Native six-shape coverage exists; current-image physical framework coverage remains |
+| 8. Qualify independent PCIe execution | First link/BAR/identity, then bounded BO upload/readback, then original raw jobs through the PCIe frontend | Actual PCIe allocation/address/visibility contracts pass; raw K65/SUB(9) and the same six framework shapes pass independently of JTAG. Repeat full32 TinyStories through PCIe before claiming PCIe application support | PCIe circuitry and native frontend tests exist; physical PCIe application execution remains |
+| 9. Qualify cross-interface lifecycle | Exercise explicit JTAG-to-PCIe and PCIe-to-JTAG ownership handoff with retained BOs | Non-owner requests fail; ownership epochs and complete BOs survive each allowed handoff. Exercise link/PERST/compute reset and supported clock-stop/recovery cases without stale completion or premature admission | Component/model evidence exists; continuous physical handoff and reset qualification remain |
+| 10. Establish RK3588 compatibility | Audit an actual RK3588 target and pin raw submissions, allocations, initialized BOs, complete outputs and reset provenance | Supported EW/GEMM comparisons pass the documented exact-byte or justified-tolerance contract, including special values, tails, alignment, aliasing and linked tasks. Unsupported behavior remains an explicit failure | Capture preparation exists; real RK outputs/target access remain missing |
+
+Step 0 produces a stable reference independently of the interrupted candidate.
+Step 1 produces the next usable inference release. Steps 2–6 qualify capacity,
+recovery and diagnostics individually; failure of a later step must not erase
+an earlier release's explicitly limited result. Framework and PCIe validation
+can use the stable inference release while diagnostic work proceeds on a
+separate candidate. RK capture preparation can proceed independently once a
+real target is available. Final system acceptance still requires the relevant
+checks together on the same final source/image, with full32 TinyStories rerun.
+
+Keep two release tracks: **inference** and **maintenance qualification**. Both
+retain the full compute and physical interface target. A track name does not
+assert that a new RTL profile already exists or that PCIe application execution
+has passed. If the integrated candidate cannot close timing, derive any staged
+source profile explicitly from the audited baseline: add SYS first, zero-mask
+FI ownership next, then injection. Record every selected source and require
+unsupported management fields to fail. Never disable normal ECC monitoring,
+fault admission, reset safety or timing checks to obtain the inference release.
+
+For each step, use one bounded feature change, its focused simulation/negative
+controls, applicable source-bound implementation checks and its physical exit
+test. Promote only after that exit test passes and the receipt is reviewed.
+Each promoted release records source manifest, tool version, clock constraints,
+bitstream hash, target, exact commands, complete raw outputs and remaining
+unsupported features. Host-only changes do not require a new route when the
+RTL/IP/constraints are unchanged, but do require fresh host tests and applicable
+physical replay. Scope reuse by actual input hashes; changed RTL never inherits
+an old timing or hardware pass. Commit source, tests and acceptance notes for
+each increment; preserve the preceding accepted image for explicit rollback.
+
+When builds resume, finish one fresh route for the current selection before
+selecting another RTL change. If it fails, identify the actual critical path
+and decide whether to change the control architecture or its staging before
+launching another implementation. Repeated local cofactor trials are not a
+release plan. Report routed timing and hardware exit results, rather than
+preparation counts or intermediate router estimates, as milestone completion.
 
 Paused at the user’s request on 2026-11-04 ("wrap up and stop"). The active
 route and full default regression were terminated, with no workspace build
@@ -95,9 +137,28 @@ any later execution needs explicit continuation and a fresh output directory.
 The reviewed host additions select USER3 for every shared-link SYS transaction
 and validate isolated held ECC-read evidence before ACK. Their focused offline
 controls pass (25 shared/SYS/native-link tests and 14 ECC-evidence tests, each
-in normal and optimized Python). The full `make -j2 test` was stopped before
-completion and has no full-suite pass. `make generated-check` passes. No new
+in normal and optimized Python). `make generated-check` passes. No new
 bitstream was emitted and no hardware or flash action occurred.
+
+Continued under the explicit user goal "continue to prepare rknpu to run on
+fpga". The predecessor package and its interrupted `run-v1` remain untouched.
+A fresh [route continuation](../build/parent-timeout-tags-route-continuation-v1/authorization.json)
+was derived with the same byte-identical recipe, 61-output contract, timing
+parent and placed checkpoint `76004097`; its new output directory is
+`build/parent-timeout-tags-route-continuation-v1/run-v1`. It started at
+2026-11-04T15:14:33Z and is a diagnostic route only: no image, board, lease or
+flash action is authorized by that receipt.
+
+The fresh [full default regression](../build/maintenance-host-controls-v1/full-test-continuation.log)
+completed `EXIT=0` with 556 PASS markers and 28 unittest suites `OK`, including
+both simulator legs and the previously interrupted four-state host test. This
+is software/simulation evidence only. The earlier interrupted regression log
+and stop receipt remain preserved; no old result was relabelled.
+
+Disk reclamation before the continuation removed only GCC precompiled-header
+compiler cache from historical snapshot/run workspaces, with the file list kept
+in `/tmp/opencode/reclaimed-gch-*.tsv`. No report, log, checkpoint, simulation
+binary, source manifest, review or receipt was deleted.
 
 ### Preceding parent-only trial
 
