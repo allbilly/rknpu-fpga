@@ -111,6 +111,21 @@ clock for that increment, and re-run timing and a physical smoke before adding
 the next feature. Slower bring-up is preferable to another week of full-speed
 control-path retries.
 
+The first increment is prepared without new RTL: the baseline source already
+contains the RKMT capacity service, BIST, owner and ECC monitor, and the
+registers expose the exact `0x524b4d54` / `0x00010000` / `0x00020040` contract
+used by `tools/ddr/capacity_client.py`. The
+[capacity package](../build/fpga-bringup/framework-factored-capacity-prep-v1/preparation.json)
+binds image `1ca5ae19…`, source `60e7abbb…`, top `ypcb_ddr_dual_top` and 242
+ports. It prepares two audited volatile loads, pre/post raw K65/SUB(9), the
+full CH1 `0x00000000..0x7fffffff` two-pattern BIST (67,108,864 writes and the
+same number of reads, terminal `0x68`, no mismatch/fault), ordinary strict ECC
+monitoring and no flash. Its preflight is
+`PREPARED_PENDING_ROOT_EXECUTION_APPROVAL`; no hardware was contacted. Board
+execution awaits explicit user approval, with the [ZYNQ-NVDLA 50 MHz physical
+result](../../ZYNQ-NVDLA/boards/ypcb/NV1024_50_ROUTED_TIMING_RESULT_20261104.md)
+as the successful board/flow precedent.
+
 Keep two release tracks: **inference** and **maintenance qualification**. Both
 retain the full compute and physical interface target. A track name does not
 assert that a new RTL profile already exists or that PCIe application execution
