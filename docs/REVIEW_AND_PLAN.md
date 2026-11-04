@@ -77,9 +77,9 @@ defect, isolate that feature's source change and requalify the changed image.
 
 | Step | Work added or qualified | Demonstration and exact exit condition | Starting evidence |
 |---|---|---|---|
-| 0. Preserve the working baseline | Pin the earlier inference image, complete source manifest, host/model inputs, tools and runnable commands; verify the archived receipt chain | Audited volatile replay of first/repeated BOS and full32 TinyStories on that exact image. Publish the image/source identity and actual results as the baseline release | Historical `60e7abbb` source tag / `1ca5ae19` bitstream passed. A fresh replay has not run; the source tag is not asserted to be a Git commit |
+| 0. Preserve the working baseline | Pin the earlier inference image, complete source manifest, host/model inputs, tools and runnable commands; verify the archived receipt chain | Audited volatile replay of first/repeated BOS and full32 TinyStories on that exact image. Publish the image/source identity and actual results as the baseline release | **Qualified:** [2026-10-30 physical run](../build/fpga-bringup/framework-factored-fullmodel-prep-v2/physical-test/physical-tests/report.json) loaded `1ca5ae19…` / source `60e7abbb…`, ran full32 TinyStories, wrote no flash, and passed three independent [phase audits](../build/fpga-bringup/framework-factored-fullmodel-prep-v2/phase-audit-index.json). The source tag is not asserted to be a Git commit |
 | 1. Deliver the new inference image | On explicit resumption, run the selected timing repair in a fresh output directory; complete detailed audit, emission and exact image/target admission | Pass final routed setup, hold, pulse, DRC and electrical gates. Then pass scratch/raw K65/SUB(9), first/repeated BOS and full32 TinyStories with original command words and complete BO comparisons | Both fresh model suites and scoped mapped audits pass; route was interrupted. No accepted new image |
-| 2. Qualify DDR capacity | Run the existing CH1 two-pattern BIST on the accepted image; retain ordinary strict ECC monitoring | Cover all 33,554,432 distinct 64-byte lines: 67,108,864 completed writes and the same number of reads; terminal status `0x68`, no mismatch/fault. Recover through the separately audited reconfiguration path and rerun raw K65/SUB(9) | Earlier-image capacity evidence exists; current-image physical run remains |
+| 2. Qualify DDR capacity | Run the existing CH1 two-pattern BIST on the accepted image; retain ordinary strict ECC monitoring | Cover all 33,554,432 distinct 64-byte lines: 67,108,864 completed writes and the same number of reads; terminal status `0x68`, no mismatch/fault. Recover through the separately audited reconfiguration path and rerun raw K65/SUB(9) | The accepted baseline source `60e7abbb` already contains the capacity owner/service, BIST, pattern/sweep and ECC monitor; no new RTL is required to start this step |
 | 3. Qualify live SYS reset | Use the retained USER3 maintenance path and shared USER2/USER3 host adapters; introduce no fault injection yet | One explicit START/success/ACK, attempt and success epoch each advance once, full initialization completes, a fresh USER2 owner reloads BOs and original raw jobs pass. Repeat after a completed BIST to establish recovery without reprogramming | Controller model and offline host controls pass; physical lifecycle remains |
 | 4. Qualify diagnostic ownership with zero mask | Exercise RKFI claim, 64-byte line write/read and complete readback/ACK while all nine mask bytes remain known zero | Exact line bytes, no new CE/UE event, normal job/capacity admission denied while FI owns the path. SYS reset restores ownership, bootstrap disarm and successful original raw jobs | Callback client and controller models exist; physical ownership and zero-mask path remain |
 | 5. Qualify correctable errors | Arm only the pinned single-bit mask; use the actual vendor injection path | Exactly one valid CE and no UE, correct full 64-byte output, correct MC address/classification, ordinary quarantine retained. Disarm all nine bytes, SYS reset/bootstrap/reinitialize and rerun original raw jobs | Actual-controller CE model passes; pure held-result evidence checks exist; physical CE remains |
@@ -97,6 +97,19 @@ can use the stable inference release while diagnostic work proceeds on a
 separate candidate. RK capture preparation can proceed independently once a
 real target is available. Final system acceptance still requires the relevant
 checks together on the same final source/image, with full32 TinyStories rerun.
+
+**Corrected release order.** The working release is the already-qualified
+`1ca5ae19` / `60e7abbb` baseline, not the newer full-feature timing candidate.
+Do not block inference or capacity progress on closing that candidate at
+133 MHz. Start Step 2 on the baseline image, then add one feature group at a
+time; each increment keeps the preceding working image available for rollback.
+The full-feature timeout-tag/monitor candidate and its synthesis/retained
+artifacts are preserved as a separate implementation experiment, not as the
+release gate. Where a later increment cannot close at the baseline clock, use
+the ZYNQ-NVDLA precedent: retain the full feature set, lower the control/host
+clock for that increment, and re-run timing and a physical smoke before adding
+the next feature. Slower bring-up is preferable to another week of full-speed
+control-path retries.
 
 Keep two release tracks: **inference** and **maintenance qualification**. Both
 retain the full compute and physical interface target. A track name does not
