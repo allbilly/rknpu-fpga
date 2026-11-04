@@ -45,28 +45,49 @@ Current focus, 2026-11-04: qualify the
 published at `a8ececc`. The fresh 201-record selection changes only order 112
 relative to the preceding predecode/publication selection; the other 200
 records, full C32/K16 compute and original implementation constraints remain.
-The preceding route failed setup at −0.499 ns. This new source has no routed
-timing or hardware acceptance yet.
+The preceding route failed setup at −0.499 ns. The classifier route below also
+fails setup; there is no routed timing or hardware acceptance.
 
 | Gate for the new classifier source | Verified state | Remaining work |
 |---|---|---|
-| Component behavior | Extracted binary identities and 131,072 selected mixed-state cases pass independent review. Paired actual-fabric tests pass 21 Icarus and 19 Verilator cases | Full-parent and mapped qualification |
-| Full synthesis | [Independent review](../build/fault-classifier-full-synth-v1/results-review.json) accepts 294,133 total LUTs, 90,243 FFs and 516 DSPs; all 512 products, sixteen kernels, both MIGs, PCIe and BSCAN2/3 remain | Retention, strict optimization, placement and routing |
+| Component behavior | Extracted binary identities and 131,072 selected mixed-state cases pass independent review. Paired actual-fabric tests pass 21 Icarus and 19 Verilator cases | Hardware and RK differential qualification |
+| Full synthesis | [Independent review](../build/fault-classifier-full-synth-v1/results-review.json) accepts 294,133 total LUTs, 90,243 FFs and 516 DSPs; all 512 products, sixteen kernels, both MIGs, PCIe and BSCAN2/3 remain | Complete routed timing and the physical gates below |
 | Fresh code generation and C++ builds | Both actual Verilator commands completed with unchanged source/tool closure and 435 warm / 502 controller generated files. Independent [warm](../build/fault-classifier-warm-prep-v1/codegen-results-review.json) and [controller](../build/fault-classifier-controller-prep-v1/codegen-results-review.json) reviews accept the artifacts and unchanged warning multisets. Both fresh C++ builds also pass independent review: [warm](../build/fault-classifier-warm-cpp-v1/build-results-review.json), [controller](../build/fault-classifier-controller-cpp-v1/build-results-review.json), including 425/492 generated objects and exact archive-member bytes | Replay evidence is separate; compilation does not establish model behavior |
-| Fresh full-parent replays | The [warm replay review](../build/fault-classifier-warm-replay-v1/results-review.json) accepts sixteen jobs, twelve compute resets, one SYS reset, seventeen fixtures and 1,441,792 complete BO bytes across the original two phases. The model finished in 1,137.086 seconds under the unchanged 1,800-second deadline | The controller precheck passed; its original twelve-case matrix is running. These models do not qualify physical MIG/PHY or FPGA execution |
-| Retention and physical diagnostics | Fresh actual Vivado results pass independent [retention](../build/fault-classifier-retained-diagnostic-v1/retention-results-review.json) and [inventory](../build/fault-classifier-retained-diagnostic-v1/inventory-results-review.json) review: all 35 zero proofs, three protected single-driver grounds and 197 retained register rows/four families. Fresh [strict optimization](../build/fault-classifier-timing-diagnostic-v1/strict-results-review.json) passes the original clock/reset/electrical/DRC and startup/assertion protections. [Placement review](../build/fault-classifier-timing-diagnostic-v1/placement-results-review.json) accepts structural checks but records failed unrouted setup −0.312 ns/961 endpoints and hold −0.392 ns/1,790 endpoints | The guarded route is running on that exact reviewed checkpoint. Its original timing/DRC/electrical/reset guards remain; no routed timing acceptance yet |
+| Fresh full-parent replays | The [warm replay review](../build/fault-classifier-warm-replay-v1/results-review.json) accepts sixteen jobs, twelve compute resets, one SYS reset, seventeen fixtures and 1,441,792 complete BO bytes across the original two phases. The model finished in 1,137.086 seconds under the unchanged 1,800-second deadline. The [controller review](../build/fault-classifier-controller-replay-v1/results-review.json) accepts all twelve original cases plus coordinator precheck, six BOs/532,480 bytes, seven SYS resets and 32,768 BIST writes and reads | Model evidence only; physical MIG/PHY and FPGA execution remain required |
+| Retention and physical diagnostics | Fresh retention, inventory, strict optimization and placement pass their independently reviewed structural checks. The [route failure review](../build/fault-classifier-route-prep-v1/failure-review.json) verifies 451,856/451,856 routed nets and guarded cleanup. Final setup fails at −0.418 ns/TNS −29.809 ns across 276 endpoints; hold passes at +0.013 ns with no failing endpoints | The original setup guard rejected the route before final pulse acceptance. Repair the remaining monitor-health to result-code path; no route or image acceptance |
 | Full-context mapped audit | Fresh native audit passes [independent review](../build/fault-classifier-full-context-audit-v1/results-review.json): thirty storage groups, 2,059 pin-policy rows and 7,317 fanin rows, with fresh scoped selector/error proofs bound to the new optimized checkpoint | Conditional structural evidence only; complete protocol, four-state behavior, distinct mapped CACC-context census, timing and hardware remain unqualified |
 | Timing and image | No accepted new route or bitstream | Close setup with original constraints, audit image, then audited volatile board load |
 | Physical plan gates | Earlier-image TinyStories remains historical application evidence | New-image capacity/recovery, framework/TinyStories, ECC and independent PCIe/JTAG tests; actual RK comparison remains separate |
 
-The warm producer leaves its `whole_bo_audit_passed` field false. The independent
-review records this reporting defect and verifies the actual passed wire audit
-and complete BO projections; the raw producer report remains unchanged.
+Both replay producers leave their `whole_bo_audit_passed` fields false. The
+independent reviews record this reporting defect and verify the actual passed
+wire/BO audits; the raw producer reports remain unchanged.
 
-Code generation, retention and inventory proceed independently. Fresh model
-replays and the mapped audit remain required before image publication; running
-physical diagnostics early does not transfer an old-source pass or waive those
-gates. RAM and swap remain uncapped. The remaining numbered plan below retains
+The separate [parent-only pending-cause candidate](../build/pending-cause-parent-invariant-candidate-v1/independent-review.json)
+changes only source order 148 relative to this classifier selection. Two actual
+fabric/shared-parent binary reset invariants and an extracted composition proof
+with 2,097,152 selected mixed-state vectors pass independent source review,
+including negative counterexamples. Its child RTL, state, ports and latency
+remain unchanged. Fresh full synthesis has a conditional
+[resource review](../build/pending-cause-parent-full-synth-prep-v1/results-review.json):
+294,082 total LUTs, 90,243 FFs and 516 DSPs, with the full compute and interfaces
+retained. The [matched coupled-cone review](../build/pending-cause-parent-mapped-results-review-v1.json)
+measures all three result-code D paths improving from 5.477 ns/fourteen levels
+to 5.232 ns/thirteen levels. The remaining component worst path crosses timeout
+classification. These unplaced diagnostics do not close routed timing. New
+models, full mapped qualification and routed timing remain required; the
+completed classifier model results are not transferred to this parent candidate.
+
+The [synthesis metadata incident](../build/pending-parent-synthesis-metadata-restoration-incident-v1.json)
+records transient deletion and exact-checksum restoration of two preparation
+JSON files during that trial. Current RTL, Tcl and script endpoint hashes match
+their launch values. Result review discloses the incident; matching before/after
+hash alone does not establish uninterrupted metadata preservation.
+
+Code generation, retention and inventory for the parent-only candidate proceed
+independently. That candidate requires fresh model replays and its own full-context
+mapped audit before image publication. Running physical diagnostics early does
+not transfer the completed classifier results or waive those gates. RAM and swap remain uncapped. The remaining numbered plan below retains
 its full scope.
 
 Preceding selection, 2026-11-03: the combined
