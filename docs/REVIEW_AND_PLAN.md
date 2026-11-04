@@ -79,7 +79,7 @@ defect, isolate that feature's source change and requalify the changed image.
 |---|---|---|---|
 | 0. Preserve the working baseline | Pin the earlier inference image, complete source manifest, host/model inputs, tools and runnable commands; verify the archived receipt chain | Audited volatile replay of first/repeated BOS and full32 TinyStories on that exact image. Publish the image/source identity and actual results as the baseline release | **Qualified:** [2026-10-30 physical run](../build/fpga-bringup/framework-factored-fullmodel-prep-v2/physical-test/physical-tests/report.json) loaded `1ca5ae19…` / source `60e7abbb…`, ran full32 TinyStories, wrote no flash, and passed three independent [phase audits](../build/fpga-bringup/framework-factored-fullmodel-prep-v2/phase-audit-index.json). The source tag is not asserted to be a Git commit |
 | 1. Deliver the new inference image | On explicit resumption, run the selected timing repair in a fresh output directory; complete detailed audit, emission and exact image/target admission | Pass final routed setup, hold, pulse, DRC and electrical gates. Then pass scratch/raw K65/SUB(9), first/repeated BOS and full32 TinyStories with original command words and complete BO comparisons | Both fresh model suites and scoped mapped audits pass; route was interrupted. No accepted new image |
-| 2. Qualify DDR capacity | Run the existing CH1 two-pattern BIST on the accepted image; retain ordinary strict ECC monitoring | Cover all 33,554,432 distinct 64-byte lines: 67,108,864 completed writes and the same number of reads; terminal status `0x68`, no mismatch/fault. Recover through the separately audited reconfiguration path and rerun raw K65/SUB(9) | The accepted baseline source `60e7abbb` already contains the capacity owner/service, BIST, pattern/sweep and ECC monitor; no new RTL is required to start this step |
+| 2. Qualify DDR capacity | Run the existing CH1 two-pattern BIST on the accepted image; retain ordinary strict ECC monitoring | Cover all 33,554,432 distinct 64-byte lines: 67,108,864 completed writes and the same number of reads; terminal status `0x68`, no mismatch/fault. Recover through the separately audited reconfiguration path and rerun raw K65/SUB(9) | **Physical pass on the baseline:** [report](../build/fpga-bringup/framework-factored-capacity-prep-v1/physical-test/report.json), 2026-11-04T18:37:52Z–18:44:47Z, two exact volatile loads, scratch 24 commands/768 bytes, pre/post raw K65/SUB(9) with complete BO readback, full 2 GiB BIST at 67,108,864 writes/reads, terminal `0x68`, zero faults/mismatch, nine groups closed, no flash/reset/capacity ACK. [Independent result review](../build/fpga-bringup/framework-factored-capacity-prep-v1/root-result-review.json) `7d44d5a6…` passes and requires root acceptance. The wire audit witnesses the RKMT CSR sequence, not 2 GiB of payload; capacity integrity rests on the BIST’s internal pattern/mismatch checks |
 | 3. Qualify live SYS reset | Use the retained USER3 maintenance path and shared USER2/USER3 host adapters; introduce no fault injection yet | One explicit START/success/ACK, attempt and success epoch each advance once, full initialization completes, a fresh USER2 owner reloads BOs and original raw jobs pass. Repeat after a completed BIST to establish recovery without reprogramming | Controller model and offline host controls pass; physical lifecycle remains |
 | 4. Qualify diagnostic ownership with zero mask | Exercise RKFI claim, 64-byte line write/read and complete readback/ACK while all nine mask bytes remain known zero | Exact line bytes, no new CE/UE event, normal job/capacity admission denied while FI owns the path. SYS reset restores ownership, bootstrap disarm and successful original raw jobs | Callback client and controller models exist; physical ownership and zero-mask path remain |
 | 5. Qualify correctable errors | Arm only the pinned single-bit mask; use the actual vendor injection path | Exactly one valid CE and no UE, correct full 64-byte output, correct MC address/classification, ordinary quarantine retained. Disarm all nine bytes, SYS reset/bootstrap/reinitialize and rerun original raw jobs | Actual-controller CE model passes; pure held-result evidence checks exist; physical CE remains |
@@ -111,20 +111,27 @@ clock for that increment, and re-run timing and a physical smoke before adding
 the next feature. Slower bring-up is preferable to another week of full-speed
 control-path retries.
 
-The first increment is prepared without new RTL: the baseline source already
-contains the RKMT capacity service, BIST, owner and ECC monitor, and the
-registers expose the exact `0x524b4d54` / `0x00010000` / `0x00020040` contract
-used by `tools/ddr/capacity_client.py`. The
+The first increment was executed on 2026-11-04 after independent root review
+`e7117629…` and exact one-trial approval `c81837fd…`. The
 [capacity package](../build/fpga-bringup/framework-factored-capacity-prep-v1/preparation.json)
-binds image `1ca5ae19…`, source `60e7abbb…`, top `ypcb_ddr_dual_top` and 242
-ports. It prepares two audited volatile loads, pre/post raw K65/SUB(9), the
-full CH1 `0x00000000..0x7fffffff` two-pattern BIST (67,108,864 writes and the
-same number of reads, terminal `0x68`, no mismatch/fault), ordinary strict ECC
-monitoring and no flash. Its preflight is
-`PREPARED_PENDING_ROOT_EXECUTION_APPROVAL`; no hardware was contacted. Board
-execution awaits explicit user approval, with the [ZYNQ-NVDLA 50 MHz physical
+bound image `1ca5ae19…`, source `60e7abbb…`, top `ypcb_ddr_dual_top`, 242 ports
+and the exact RKMT `0x524b4d54` / `0x00010000` / `0x00020040` contract. The
+[physical report](../build/fpga-bringup/framework-factored-capacity-prep-v1/physical-test/report.json)
+records two exact volatile loads, a 24-command/768-byte scratch check, pre/post
+raw K65 CMAC and SUB(9) EW with complete BO readback before ACK, and the full
+CH1 `0x00000000..0x7fffffff` two-pattern BIST: 33,554,432 lines per trial,
+67,108,864 completed writes and 67,108,864 completed reads, terminal `0x68`,
+zero fault codes/sources and no mismatch. It wrote no flash, issued no live
+reset or capacity ACK, ran no ECC/FI/PCIe action, and closed all nine owned
+groups before releasing the lease. The
+[independent result review](../build/fpga-bringup/framework-factored-capacity-prep-v1/root-result-review.json)
+passes as `PASS_BASELINE_CAPACITY_PHYSICAL_RESULT_REQUIRES_ROOT_ACCEPTANCE`.
+The wire audit witnesses the RKMT CSR sequence, not 2 GiB of payload; capacity
+integrity rests on the BIST’s internal pattern and mismatch checks. The next
+promotion step is root acceptance of that result review, followed by the SYS
+reset increment; the [ZYNQ-NVDLA 50 MHz physical
 result](../../ZYNQ-NVDLA/boards/ypcb/NV1024_50_ROUTED_TIMING_RESULT_20261104.md)
-as the successful board/flow precedent.
+remains the successful lower-clock board/flow precedent.
 
 Keep two release tracks: **inference** and **maintenance qualification**. Both
 retain the full compute and physical interface target. A track name does not
