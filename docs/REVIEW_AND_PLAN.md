@@ -40,21 +40,77 @@ not a complete RK3588 implementation or a completed soDLA fork.
 
 ## Current progress
 
-Current focus, 2026-11-04: the parent-only pending-cause candidate changes
-order 148 on top of the preceding classifier source. Child order 112 remains
-`bd5d99d7`; the full 201-record source is [manifest `a752d323`](../build/pending-cause-parent-full-synth-prep-v1/source-manifest.json)
-with frozen [snapshot `1b3b70f9`](../build/pending-cause-parent-full-synth-prep-v1/source-snapshot.json).
+Current focus, 2026-11-04: the parent RTL used in the 201-record selection was
+published at `1d1119c`. It changes order 148 on top of the classifier source; child order
+112 remains `bd5d99d7`. The selected source includes the SYS/FI and retained
+dual-host topology. Its full manifest is [a752d323](../build/pending-cause-parent-full-synth-prep-v1/source-manifest.json)
+with frozen [snapshot 1b3b70f9](../build/pending-cause-parent-full-synth-prep-v1/source-snapshot.json).
 
 | Gate | Current evidence | Remaining work |
 |---|---|---|
-| Parent source and reset invariants | The [parent source review](../build/pending-cause-parent-invariant-candidate-v1/independent-review.json) passes. Two actual-fabric binary reset invariants pass in the [invariant proof](../build/pending-cause-parent-invariant-candidate-v1/invariant-proof-v1/report.json). The same review binds the actual binary composition proof and 2,097,152 selected mixed-state vectors, including negative counterexamples | Scoped proof only; complete the fresh full-parent model and physical gates |
+| Parent source and reset invariants | The [parent source review](../build/pending-cause-parent-invariant-candidate-v1/independent-review.json) passes. Two actual-fabric binary reset invariants pass in the [invariant proof](../build/pending-cause-parent-invariant-candidate-v1/invariant-proof-v1/report.json). The source composition proof remains within its reported proof scope | Keep proof claims at their reviewed source/binary scope |
 | Full synthesis | The [resource review](../build/pending-cause-parent-full-synth-prep-v1/results-review.json) accepts 294,082 LUTs, 90,243 FFs and 516 DSPs, retaining 512 products, sixteen kernels, both MIGs, PCIe and BSCAN2/3 | Resource-only evidence; mapped, routed timing, image and hardware qualification remain open |
-| Fresh code generation and C++ builds | Independent [warm](../build/pending-parent-warm-prep-v1/codegen-results-review.json) and [controller](../build/pending-parent-controller-prep-v1/codegen-results-review.json) codegen reviews pass for 435/502 generated files, including 425/492 C++ files and 201/648 warnings. Fresh [warm](../build/pending-parent-warm-cpp-v1/build-results-review.json) and [controller](../build/pending-parent-controller-cpp-v1/build-results-review.json) C++ build reviews also pass | These steps do not establish replay behavior or FPGA execution |
-| Warm replay | The [warm replay review](../build/pending-parent-warm-replay-v1/results-review.json) accepts 16 jobs, 12 compute resets, one SYS reset, 17 fixtures and 1,441,792 complete BO bytes. It finished in 834.836 seconds under the original 1,800-second model deadline | Model evidence only; physical MIG/PHY and FPGA execution remain open |
-| Controller replay | The [controller producer](../build/pending-parent-controller-replay-v1/run-v1/report.json) and parallel case matrix remain `RUNNING`. The plan retains the original 12 cases, 1,800-second case budgets, 21,600-second aggregate budget, two jobs and coordinator-fault precheck first | Process exits are not final marker, trace or BO validation. Wait for terminal producer output and independent result review |
-| Retention, inventory and placement | Independent [retention](../build/pending-parent-retention-results-review-v1.json), [inventory](../build/pending-parent-inventory-results-review-v1.json), [strict](../build/pending-parent-timing-prep-v1/strict-results-review.json) and [placement](../build/pending-parent-timing-prep-v1/placement-results-review.json) reviews pass their structural checks. Placement remains unrouted with setup WNS −0.123 ns / TNS −10.887 ns over 192 endpoints and hold WHS −0.392 ns over 1,593 endpoints | Timing acceptance fails; keep the original timing and electrical guards |
+| Fresh code generation and C++ builds | Independent [warm](../build/pending-parent-warm-prep-v1/codegen-results-review.json) and [controller](../build/pending-parent-controller-prep-v1/codegen-results-review.json) codegen reviews pass for 435/502 generated files, including 425/492 C++ files and 201/648 warnings. Fresh [warm](../build/pending-parent-warm-cpp-v1/build-results-review.json) and [controller](../build/pending-parent-controller-cpp-v1/build-results-review.json) C++ build reviews also pass | These steps do not establish physical behavior |
+| Warm replay | The [warm replay review](../build/pending-parent-warm-replay-v1/results-review.json) accepts 16 jobs, 12 compute resets, one SYS reset, 17 fixtures and 1,441,792 complete BO bytes. It finished in 834.836 seconds under the original 1,800-second model deadline | Model evidence only; hardware behavior remains unqualified |
+| Controller replay | The [controller replay review](../build/pending-parent-controller-replay-v1/results-review.json) independently accepts the original 12 cases plus coordinator precheck, 532,480 BO bytes, seven SYS resets and 32,768 BIST writes and reads. Its process matrix is terminal; the independent review validates the final case/trace/BO results | Model evidence only; hardware behavior remains unqualified |
+| Retention, inventory, strict optimization and placement | Independent [retention](../build/pending-parent-retention-results-review-v1.json), [inventory](../build/pending-parent-inventory-results-review-v1.json), [strict](../build/pending-parent-timing-prep-v1/strict-results-review.json) and [placement](../build/pending-parent-timing-prep-v1/placement-results-review.json) reviews pass their structural checks. Placement is unrouted, with setup WNS −0.123 ns / TNS −10.887 ns over 192 endpoints and hold WHS −0.392 ns over 1,593 endpoints | Timing acceptance fails; keep the original timing and electrical guards |
 | Mapped probes and proofs | The [matched parent-only source-cut review](../build/pending-cause-parent-mapped-results-review-v1.json) measures 5.477 ns/14 levels baseline and 5.232 ns/13 levels candidate. The [selector proof](../build/pending-parent-selector-mapped-proof-results-review-v1.json), [adapter-error proof](../build/pending-parent-adapter-error-proof-results-review-v1.json), [mapped probe](../build/pending-parent-full-context-probe-results-review-v1.json) and [aggregate audit](../build/pending-parent-full-context-audit-results-review-v1.json) pass within their stated binary, source-cut and mapped-inventory scopes | No complete controller or producer-protocol proof, four-state equivalence, routed timing, image or hardware qualification is established |
-| Route, detail audit, image and physical stages | The [parent route diagnostic](../build/pending-parent-route-prep-v1/run-v1/report.json) is still running; its current record says timing and image are not accepted. [Detailed collector](../build/pending-parent-detail-source-review-v1.json), [image collector](../build/pending-parent-image-source-review-v1.json) and [image Tcl](../build/pending-parent-image-tcl-source-review-v1.json) pass source review. Each executor passes one positive and four negative synthetic controls; these are preparation results, not native audits or an emitted image | Complete routed timing and independent review, then detailed audits and image emission/audit. Parent-source SRAM, PCIe/JTAG and RK differential tests remain pending |
+| Route | The parent route terminated with a failure under the original setup guard. The [failure review](../build/pending-parent-route-failure-review-v1.json) binds completed route reports showing 451,854/451,854 routed nets and zero route errors | No route or timing acceptance; image and physical execution remain blocked |
+| SRAM loader and application runner preparation | The [SRAM loader source review](../build/pending-parent-sram-load-prep-v1/source-review.json) and [runner review](../build/pending-parent-sram-load-prep-v1/runner-review.json) pass. Its controls cover 19 synthetic cases and an actual 4,682-input read-only source preflight. The [application executor source preparation](../build/pending-parent-hardware-executor-prep-v1/source-preparation-results.json) and [peer review](../build/pending-parent-application-source-review-v1.json) pass 19 device-free controls, read-only catalog checks and admitted-import checks | Source preparation only; no image, board access or application trial occurred |
+| Detail, image and physical stages | [Detailed audit](../build/pending-parent-detailed-audit-prep-v1/CONTRACT.json) and [image-emitter preparation](../build/pending-parent-image-emitter-prep-v1/source-derivation.json) remain preparation-only | Complete detail review and emitter gates after routed timing passes. Parent-source SRAM, PCIe/JTAG, physical FI/ECC, SYS-reset recovery and RK differential tests remain pending |
+
+The route review reports clean/raw setup WNS −0.281 ns and TNS −5.655 ns,
+with 73 failing endpoints; hold WHS is +0.012 ns with no failing endpoints.
+WPWS is zero, but the guard stopped before final pulse-width acceptance. The
+new worst path is C1 `read_select[22]` through monitor health, external abort,
+fabric fault and job-begin readiness into DMA start-valid and the CMAC
+descriptor-held CE. It is 18 LUTs and 7.413 ns at 84.729% route. Cleanup
+removed 23 nets and eight proven-dead LUT1 cells; other cells, nets and IOs
+remained unchanged. The original setup guard remains authoritative.
+
+The new [SRAM loader](../build/pending-parent-sram-load-prep-v1/source-controls.json)
+and [application executor](../build/pending-parent-hardware-executor-prep-v1/source-preparation-results.json)
+preparations do not load or run a board. The earlier board-profile limitation
+in [WHOLE_RESET_CONTROL.md](WHOLE_RESET_CONTROL.md), which describes a profile
+with reset request tied low, predates this source selection. The current source
+selects SYS/FI and retained dual-host interfaces; their physical behavior still
+needs a current image and physical evidence.
+
+The separate [parent start-factor candidate](../build/parent-start-factor-source-review-v1.json)
+(parent SHA prefix `d6683f32`) remains unselected. Its exact extracted launch
+cone passes binary SAT and 2,097,152 selected mixed-state vectors, with three
+real negative controls. The [component native review](../build/parent-start-factor-native-results-review-v1.json)
+accepts the original 21 Icarus/19 Verilator cases plus launch-equation checks
+against actual fabric outputs; it does not compile the complete parent. The
+review also corrects the producer's zero-warning report: its Verilator compile
+log contains 51 warning headers, classified explicitly without waivers.
+
+A separate [shared health-admission factor](../build/fabric-health-factor-source-review-v1.json)
+(child SHA prefix `ccfa9e1b`) changes five existing qualified health gates.
+Its extracted identity passes binary SAT and 524,288 unique selected mixed-state
+vectors, including unknown abort and latched-fault controls, with three real
+negative controls. Its [paired component review](../build/fabric-health-factor-native-results-review-v1.json)
+accepts 21 Icarus/19 Verilator cases, original output/state comparisons and the
+added health/launch equations. The initial fixture-name elaboration failure
+is preserved separately; no simulation ran in that failed attempt.
+
+The [matched four-variant OOC review](../build/start-health-mapped-results-review-v1.json)
+finds launch delay improving from 5.221 ns/11 levels to about 4.70–4.74 ns/10
+levels, but all three alternatives worsen the result-code D path: baseline
+5.459 ns/14 levels becomes 5.837/15 for the parent, 5.801/15 for the fabric and
+6.178/16 for both. These are source-cut measurements with a launch output port,
+not the real descriptor CE or routed timing. The variants remain unselected.
+
+A separate [parallel cause-priority v2 review](../build/parent-cause-parallel-source-review-v2.json)
+accepts exact extracted binary proof and 3,047,424 selected mixed-state vectors,
+plus three actual negative controls. It retains the original error priority
+and passes dynamic code words through muxes to preserve selected Z bits. The
+first all-bitwise version failed that four-state case and remains preserved.
+The [fresh matched comparison](../build/cause-parallel-mapped-prep-v2/run-v1/report.json)
+is now running with the corrected priority variants and a fresh baseline.
+Its source/Tcl review passed; both launch and all three result-code paths must
+be assessed before selecting another full trial. No new full build, timing,
+image or hardware acceptance is claimed.
 
 The parent full-synthesis review conditionally accepts resource results while
 [disclosing the metadata restoration incident](../build/pending-parent-synthesis-metadata-restoration-incident-v1.json).
