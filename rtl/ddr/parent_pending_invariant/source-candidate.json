@@ -1,0 +1,55 @@
+{
+  "schema": "rk-parent-pending-invariant-source-v1",
+  "status": "EXPLICIT_SOURCE_CANDIDATE_FULL_DESIGN_QUALIFICATION_PENDING",
+  "source": "rtl/ddr/parent_pending_invariant/rk_jtag_dual_ddr_async.sv",
+  "source_sha256": "8103c242e0c8d3a38fd5ac33c4a8863e57a3452f0c6c8882f78e4ba1dfe4231d",
+  "replacement_order": 148,
+  "baseline_manifest": "build/fault-classifier-full-synth-v1/source-manifest.json",
+  "baseline_manifest_sha256": "0cd624fa6edfff901a696aac6344c2aff2638612680d4b7101d255d5386ad765",
+  "baseline_parent_sha256": "98bfdf47c30fc1fac086545ab4ac087238c55879580b6243d6730ad9dc129f82",
+  "unchanged_records": 200,
+  "required_child_source": "rtl/ddr/fault_classifier_cofactor/rk_ddr_memory_fabric_snapshot_capacity.sv",
+  "required_child_order": 112,
+  "required_child_sha256": "bd5d99d7f44b9114d0e69687acfb2b729db6d44b8b5b8138f81332732ae89e56",
+  "new_state": 0,
+  "new_ports": 0,
+  "latency_changed": false,
+  "compute_group": "FP16 C32/K16, 512 parallel product lanes",
+  "required_invariants": [
+    "service_active===1 implies monitor_seen===1 under the common clock/reset and shared monitor-health connection",
+    "latched_fault===1 and saved_fault_code===0 imply monitor_gap_pending===1"
+  ],
+  "caller_contract": "job_abort = external_block; job_seal = dma_done && !external_block; job_seal_intent = dma_done && 1",
+  "change": "Omit the redundant fabric_cause_pending alternative in the monitor_early_fault cause-reservation branch; preserve original monitor reservation, all later causes and first-fault priority.",
+  "workspace_local_reviews": [
+    {
+      "path": "build/pending-cause-parent-invariant-candidate-v1/independent-review.json",
+      "sha256": "276885dc19760002603bafbe0c4132f93cdc60ef7d464579b9f8325635cd3ce1",
+      "status": "PASS_PARENT_ONLY_PENDING_INVARIANT_AND_COMPOSITION_SOURCE_REVIEW_ONLY"
+    },
+    {
+      "path": "build/pending-cause-parent-mapped-results-review-v1.json",
+      "sha256": "88444a6609c171c97315a6b40182b3f0b9d2119251a6c3da34176e9108f58245",
+      "status": "PASS_MATCHED_PARENT_ONLY_CAUSE_MAPPING_RESULTS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "path": "build/pending-cause-parent-full-synth-prep-v1/results-review.json",
+      "sha256": "0aceab08e242f21112f2e7b63a51b7e0336811e2669247dde9cad99feb7fd9c2",
+      "status": "PASS_PARENT_PENDING_FULL_SYNTH_RESOURCE_RESULTS_ONLY_WITH_DISCLOSED_METADATA_INCIDENT"
+    },
+    {
+      "path": "build/pending-parent-warm-replay-v1/results-review.json",
+      "sha256": "52340fe80b6c1be2b134e9ff060865c00161031f4282649cb52167d9e76640c7",
+      "status": "PASS_CLASSIFIER_WARM_REPLAY_RESULTS_ONLY"
+    }
+  ],
+  "default_build_selection_changed": false,
+  "raw_encoder_or_runtime_cpu_fixup_changed": false,
+  "qualification_not_transferred": [
+    "full four-state or whole-parent equivalence",
+    "routed timing acceptance",
+    "emitted image or physical FPGA execution",
+    "RK silicon equivalence"
+  ],
+  "synthesis_incident": "build/pending-parent-synthesis-metadata-restoration-incident-v1.json"
+}
