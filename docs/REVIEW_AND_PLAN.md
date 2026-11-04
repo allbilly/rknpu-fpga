@@ -156,7 +156,8 @@ completed but failed setup at **WNS −1.510 ns / TNS −3,985 / 6,353
 endpoints**; hold passed at **+0.046 ns** and pulse at **+0.264 ns**. The
 worst path is the baseline endpoint `s_axil_awaddr → rsp_data` control path,
 not the new SYS gate, so the aggressive area transformation is the likely
-cause. A milder `FlowAreaOptimized_medium` synthesis retry is running. No
+cause. `FlowAreaOptimized_medium` is not a valid directive in this Vivado
+version; a valid `AreaOptimized_medium` synthesis retry is running. No
 accepted routed timing, DRC, image or hardware result is claimed. Open items: the strict startup/reset/mailbox
 constraint inventory must be adapted to the two retained startup chains rather
 than weakening it; a full SYS-only parent protocol test is still required; and
