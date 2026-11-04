@@ -147,9 +147,10 @@ Verilator elaborates the modified endpoint, the static profile check passes
 controller (Icarus 369/Verilator 329 checks), UI bridge (Icarus 102/Verilator
 77 checks), frame gate and retained mailbox component tests pass. Measured component cost is still about **+2.3k LUT / +2.9k FF**, zero
 DSP/RAMB. The first post-opt resource result was **299,792 LUTs**, 1,192 over the
-298,600-device gate (baseline 297,353). A fresh `AreaOptimized_high`
-synthesis/opt retry is running; no placement, route, image or hardware result
-is claimed. Open items: the strict startup/reset/mailbox
+298,600-device gate (baseline 297,353). Area-optimized synthesis lowered the
+pre-opt count to **293,519 LUTs**; a fresh run with the valid default
+`opt_design` is measuring the post-opt result. No placement, route, image or
+hardware result is claimed. Open items: the strict startup/reset/mailbox
 constraint inventory must be adapted to the two retained startup chains rather
 than weakening it; a full SYS-only parent protocol test is still required; and
 the fixed frame-gate hash `38bdf51c…` needs an independent review bound to
