@@ -132,23 +132,28 @@ acceptance `c828fa2d…` promotes this increment. The [ZYNQ-NVDLA 50 MHz physica
 result](../../ZYNQ-NVDLA/boards/ypcb/NV1024_50_ROUTED_TIMING_RESULT_20261104.md)
 remains the successful lower-clock board/flow precedent.
 
-The SYS-reset increment is now planned against the same 178-file baseline. The
-baseline has no whole-reset controller, USER3 maintenance mailbox, frame gate,
-retained mailbox or SYS-only parent. The smallest coherent profile replaces
-five baseline files (platform, top, endpoint witnesses, job-control admission,
-layout job control) and adds five modules (SYS controller, UI bridge, frame
-gate, retained mailbox, new SYS-only parent) plus USER3/retained-mailbox
-constraint helpers. Measured component cost is about **+2.3k LUT / +2.9k FF**,
-zero DSP/RAMB. The controller and bridge are in the 50 MHz `sys_clock` domain;
-the only new 133 MHz logic is the shallow frame-gate path. The baseline route
-has only 52 ps UI setup margin, so the increment needs a fresh
-synthesis/place/route with the original guards and no presumption of closure.
-Open items before implementation: no SYS-only parent exists yet; the fixed
-frame-gate hash `38bdf51c…` needs an independent review bound to that exact
-hash; the strict startup-cell count changes if two retained mailboxes embed
-their own startup chains; and lowering the MIG UI clock would invalidate the
-just-qualified 2 GiB capacity result and require a fresh BIST. None of these
-blocks preparation; none may be waived to obtain an image.
+The SYS-reset increment is now implemented against the same 178-file baseline
+in `build/framework-factored-sys-reset-v1`. It changes seven files (platform,
+top, endpoint witnesses, both job-control layers, mailbox helper) and adds six
+(whole-reset controller, UI bridge, frame gate, retained mailbox, USER3
+mailbox helper, bridge-level helper). The glue lives in the top rather than a
+separate parent: USER3 -> retained mailbox -> controller; USER2 -> retained
+mailbox -> frame gate -> the existing platform; the controller drives the
+platform's existing `reset_req_valid`/MIG coordinator. The endpoint exports
+registered drained/platform-ready/epoch-ready witnesses and uses the real
+`capacity_owner_done`. Vivado 2026.1 RTL elaboration passes with no errors,
+Verilator elaborates the modified endpoint, the static profile check passes
+(`PASS_SYS_RESET_STATIC_PROFILE`, 184 files, 7 changed, 6 added), and the
+controller (Icarus 369/Verilator 329 checks), UI bridge (Icarus 102/Verilator
+77 checks), frame gate and retained mailbox component tests pass. Measured component cost is still about **+2.3k LUT / +2.9k FF**, zero
+DSP/RAMB. A resource synthesis is running; no routed timing, DRC, image or
+hardware result is claimed. Open items: the strict startup/reset/mailbox
+constraint inventory must be adapted to the two retained startup chains rather
+than weakening it; a full SYS-only parent protocol test is still required; and
+the fixed frame-gate hash `38bdf51c…` needs an independent review bound to
+that exact hash. Lowering the MIG UI clock would invalidate the just-qualified
+2 GiB capacity result and require a fresh BIST. None of these may be waived to
+obtain an image.
 
 Keep two release tracks: **inference** and **maintenance qualification**. Both
 retain the full compute and physical interface target. A track name does not
