@@ -149,11 +149,11 @@ controller (Icarus 369/Verilator 329 checks), UI bridge (Icarus 102/Verilator
 DSP/RAMB. The first post-opt resource result was **299,792 LUTs**, 1,192 over the
 298,600-device gate (baseline 297,353). Area-optimized synthesis lowered the
 pre-opt count to **293,519 LUTs**, and the default `opt_design` measured
-**291,294 post-opt LUTs**, under the 298,600-device gate. The first post-opt
-run stopped before writing the checkpoint because a baseline V4 reference TSV
-was missing from the new package; that exact reference is restored and the
-synthesis is rerun for the checkpoint. No placement, route, image or hardware
-result is claimed. Open items: the strict startup/reset/mailbox
+**291,294 post-opt LUTs**, under the 298,600-device gate. The restored-reference run wrote the source-bound **post-opt checkpoint**
+`74529df9…` at **291,294 LUTs / 68,086 FFs / 516 DSPs**, with the 298,600-LUT
+gate passing. **Placement and route are now running** with the retained
+USER2/USER3 mailbox constraints and the adapted SYS/UI bridge CDC constraint.
+No routed timing, DRC, image or hardware result is claimed yet. Open items: the strict startup/reset/mailbox
 constraint inventory must be adapted to the two retained startup chains rather
 than weakening it; a full SYS-only parent protocol test is still required; and
 the fixed frame-gate hash `38bdf51c…` needs an independent review bound to
