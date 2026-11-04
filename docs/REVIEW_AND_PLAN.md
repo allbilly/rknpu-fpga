@@ -40,13 +40,33 @@ not a complete RK3588 implementation or a completed soDLA fork.
 
 ## Current progress
 
-Current focus, 2026-11-04: qualify the
-[fault-classifier cofactor source](../rtl/ddr/fault_classifier_cofactor/README.md),
-published at `a8ececc`. The fresh 201-record selection changes only order 112
-relative to the preceding predecode/publication selection; the other 200
-records, full C32/K16 compute and original implementation constraints remain.
-The preceding route failed setup at −0.499 ns. The classifier route below also
-fails setup; there is no routed timing or hardware acceptance.
+Current focus, 2026-11-04: the parent-only pending-cause candidate changes
+order 148 on top of the preceding classifier source. Child order 112 remains
+`bd5d99d7`; the full 201-record source is [manifest `a752d323`](../build/pending-cause-parent-full-synth-prep-v1/source-manifest.json)
+with frozen [snapshot `1b3b70f9`](../build/pending-cause-parent-full-synth-prep-v1/source-snapshot.json).
+
+| Gate | Current evidence | Remaining work |
+|---|---|---|
+| Parent source and reset invariants | The [parent source review](../build/pending-cause-parent-invariant-candidate-v1/independent-review.json) passes. Two actual-fabric binary reset invariants pass in the [invariant proof](../build/pending-cause-parent-invariant-candidate-v1/invariant-proof-v1/report.json). The same review binds the actual binary composition proof and 2,097,152 selected mixed-state vectors, including negative counterexamples | Scoped proof only; complete the fresh full-parent model and physical gates |
+| Full synthesis | The [resource review](../build/pending-cause-parent-full-synth-prep-v1/results-review.json) accepts 294,082 LUTs, 90,243 FFs and 516 DSPs, retaining 512 products, sixteen kernels, both MIGs, PCIe and BSCAN2/3 | Resource-only evidence; mapped, routed timing, image and hardware qualification remain open |
+| Fresh code generation and C++ builds | Independent [warm](../build/pending-parent-warm-prep-v1/codegen-results-review.json) and [controller](../build/pending-parent-controller-prep-v1/codegen-results-review.json) codegen reviews pass for 435/502 generated files, including 425/492 C++ files and 201/648 warnings. Fresh [warm](../build/pending-parent-warm-cpp-v1/build-results-review.json) and [controller](../build/pending-parent-controller-cpp-v1/build-results-review.json) C++ build reviews also pass | These steps do not establish replay behavior or FPGA execution |
+| Warm replay | The [warm replay review](../build/pending-parent-warm-replay-v1/results-review.json) accepts 16 jobs, 12 compute resets, one SYS reset, 17 fixtures and 1,441,792 complete BO bytes. It finished in 834.836 seconds under the original 1,800-second model deadline | Model evidence only; physical MIG/PHY and FPGA execution remain open |
+| Controller replay | The [controller producer](../build/pending-parent-controller-replay-v1/run-v1/report.json) and parallel case matrix remain `RUNNING`. The plan retains the original 12 cases, 1,800-second case budgets, 21,600-second aggregate budget, two jobs and coordinator-fault precheck first | Process exits are not final marker, trace or BO validation. Wait for terminal producer output and independent result review |
+| Retention, inventory and placement | Independent [retention](../build/pending-parent-retention-results-review-v1.json), [inventory](../build/pending-parent-inventory-results-review-v1.json), [strict](../build/pending-parent-timing-prep-v1/strict-results-review.json) and [placement](../build/pending-parent-timing-prep-v1/placement-results-review.json) reviews pass their structural checks. Placement remains unrouted with setup WNS −0.123 ns / TNS −10.887 ns over 192 endpoints and hold WHS −0.392 ns over 1,593 endpoints | Timing acceptance fails; keep the original timing and electrical guards |
+| Mapped probes and proofs | The [matched parent-only source-cut review](../build/pending-cause-parent-mapped-results-review-v1.json) measures 5.477 ns/14 levels baseline and 5.232 ns/13 levels candidate. The [selector proof](../build/pending-parent-selector-mapped-proof-results-review-v1.json), [adapter-error proof](../build/pending-parent-adapter-error-proof-results-review-v1.json), [mapped probe](../build/pending-parent-full-context-probe-results-review-v1.json) and [aggregate audit](../build/pending-parent-full-context-audit-results-review-v1.json) pass within their stated binary, source-cut and mapped-inventory scopes | No complete controller or producer-protocol proof, four-state equivalence, routed timing, image or hardware qualification is established |
+| Route, detail audit, image and physical stages | The [parent route diagnostic](../build/pending-parent-route-prep-v1/run-v1/report.json) is still running; its current record says timing and image are not accepted. [Detailed collector](../build/pending-parent-detail-source-review-v1.json), [image collector](../build/pending-parent-image-source-review-v1.json) and [image Tcl](../build/pending-parent-image-tcl-source-review-v1.json) pass source review. Each executor passes one positive and four negative synthetic controls; these are preparation results, not native audits or an emitted image | Complete routed timing and independent review, then detailed audits and image emission/audit. Parent-source SRAM, PCIe/JTAG and RK differential tests remain pending |
+
+The parent full-synthesis review conditionally accepts resource results while
+[disclosing the metadata restoration incident](../build/pending-parent-synthesis-metadata-restoration-incident-v1.json).
+Two preparation JSON files were transiently deleted and restored to exact
+checksums during the run. The review does not claim uninterrupted metadata
+presence. The results remain limited to resource diagnostics.
+
+### Preceding classifier source (historical; not the current parent-only source)
+
+The following table records the previous order-112 classifier source. Its
+results remain source-bound historical evidence and do not transfer to the
+parent-only order-148 candidate.
 
 | Gate for the new classifier source | Verified state | Remaining work |
 |---|---|---|
@@ -59,36 +79,10 @@ fails setup; there is no routed timing or hardware acceptance.
 | Timing and image | No accepted new route or bitstream | Close setup with original constraints, audit image, then audited volatile board load |
 | Physical plan gates | Earlier-image TinyStories remains historical application evidence | New-image capacity/recovery, framework/TinyStories, ECC and independent PCIe/JTAG tests; actual RK comparison remains separate |
 
-Both replay producers leave their `whole_bo_audit_passed` fields false. The
-independent reviews record this reporting defect and verify the actual passed
-wire/BO audits; the raw producer reports remain unchanged.
-
-The separate [parent-only pending-cause candidate](../build/pending-cause-parent-invariant-candidate-v1/independent-review.json)
-changes only source order 148 relative to this classifier selection. Two actual
-fabric/shared-parent binary reset invariants and an extracted composition proof
-with 2,097,152 selected mixed-state vectors pass independent source review,
-including negative counterexamples. Its child RTL, state, ports and latency
-remain unchanged. Fresh full synthesis has a conditional
-[resource review](../build/pending-cause-parent-full-synth-prep-v1/results-review.json):
-294,082 total LUTs, 90,243 FFs and 516 DSPs, with the full compute and interfaces
-retained. The [matched coupled-cone review](../build/pending-cause-parent-mapped-results-review-v1.json)
-measures all three result-code D paths improving from 5.477 ns/fourteen levels
-to 5.232 ns/thirteen levels. The remaining component worst path crosses timeout
-classification. These unplaced diagnostics do not close routed timing. New
-models, full mapped qualification and routed timing remain required; the
-completed classifier model results are not transferred to this parent candidate.
-
-The [synthesis metadata incident](../build/pending-parent-synthesis-metadata-restoration-incident-v1.json)
-records transient deletion and exact-checksum restoration of two preparation
-JSON files during that trial. Current RTL, Tcl and script endpoint hashes match
-their launch values. Result review discloses the incident; matching before/after
-hash alone does not establish uninterrupted metadata preservation.
-
-Code generation, retention and inventory for the parent-only candidate proceed
-independently. That candidate requires fresh model replays and its own full-context
-mapped audit before image publication. Running physical diagnostics early does
-not transfer the completed classifier results or waive those gates. RAM and swap remain uncapped. The remaining numbered plan below retains
-its full scope.
+The previous classifier replay producer reports retain their documented
+whole-BO audit reporting defect; the independent reviews checked the actual
+wire and BO audits. Those classifier results remain tied to that earlier
+source selection.
 
 Preceding selection, 2026-11-03: the combined
 [predecode/publication source package](../rtl/ddr/control_predecode_publication/README.md)
