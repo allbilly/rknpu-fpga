@@ -40,7 +40,29 @@ not a complete RK3588 implementation or a completed soDLA fork.
 
 ## Current progress
 
-Current focus, 2026-11-04: the parent RTL used in the 201-record selection was
+Selected trial, 2026-11-04: the public [timeout-tag control pair](../rtl/ddr/parent_timeout_tags/README.md),
+commit `488ae6e`, replaces only full-source orders 112 and 148. The other 199
+records and the original compute, clock/reset, electrical and implementation
+recipe remain. This trial follows the independently reviewed −0.281 ns route
+failure recorded below.
+
+| Gate for the selected timeout-tag pair | Verified state | Remaining work |
+|---|---|---|
+| Source and state invariants | [Review](../build/parent-timeout-tags-source-review-v1.json) binds both actual candidate children’s binary reset/induction proofs and the conditioned extracted parent composition, 2,097,152 selected mixed-state vectors and actual negative controls. The child adds two private tags; external top ports, state and latency remain | Full-parent and physical qualification |
+| Paired component tests | [Independent review](../build/parent-timeout-tags-native-results-review-v1.json) accepts 21 Icarus/19 Verilator cases for each child variant, original 51-output/44-state comparisons, correct 54→56 child-port census and scoped tag/launch equations. Exact warning inventories remain visible | Complete parents were not compiled by these component tests |
+| Matched OOC measurement | [Independent review](../build/parent-timeout-tags-mapped-results-review-v1.json) accepts a fresh baseline and all four variants. Selected combined launch improves 5.221→4.687 ns (11→10 levels); all three result-code D paths improve 5.459→5.173 ns (14→13) | These are source-cut measurements; launch is an output port, not the real descriptor CE. No routed timing acceptance |
+| Full source and synthesis | [Source](../build/timeout-tag-full-synth-source-review-v3.json) and [runner](../build/timeout-tag-full-synth-runner-review-v3.json) reviews pass. [Manifest 7631c0e7](../build/timeout-tag-control-full-synth-prep-v3/source-manifest.json) and [snapshot 36060eed](../build/timeout-tag-control-full-synth-prep-v3/source-snapshot.json) bind 4,880 static inputs; the actual native input map directly includes the snapshot plus controls/peers (4,884 total). [Fresh synthesis](../build/timeout-tag-control-full-synth-prep-v3/run-v1/report.json) is running | Review actual new resources/topology/warnings before implementation. Earlier resource results are not transferred |
+| Fresh full-parent models | Source payloads are prepared: [warm](../build/timeout-tag-warm-prep-v1/payload-crosswalk.json), 91 sources/23 assets/17 goldens; [controller](../build/timeout-tag-controller-prep-v1/payload-crosswalk.json), 145/9/4. Only project indices 11/order112 and 47/order148 change; other payloads remain byte-identical. Current profile manifests/plans and [source-only codegen controls](../build/timeout-tag-codegen-prep-v1/source-controls.json) are prepared | Fresh resource-gated codegen source/runner admission, actual generation, C++ builds and original warm/controller replays |
+| Timing, image and hardware | No new placement, accepted route, bitstream or physical result | Original strict/electrical/DRC guards, fresh detailed audits/image, then audited volatile FPGA tests and the full numbered plan below |
+
+RAM, memory-high and swap remain uncapped. The new source metadata is protected
+before native execution; the snapshot file itself is directly bound in that
+execution’s input map. The earlier baseline metadata incident remains disclosed
+and does not qualify the new trial’s models, route or hardware.
+
+### Preceding parent-only trial
+
+The preceding parent RTL used in the 201-record selection was
 published at `1d1119c`. It changes order 148 on top of the classifier source; child order
 112 remains `bd5d99d7`. The selected source includes the SYS/FI and retained
 dual-host topology. Its full manifest is [a752d323](../build/pending-cause-parent-full-synth-prep-v1/source-manifest.json)
@@ -106,11 +128,11 @@ accepts exact extracted binary proof and 3,047,424 selected mixed-state vectors,
 plus three actual negative controls. It retains the original error priority
 and passes dynamic code words through muxes to preserve selected Z bits. The
 first all-bitwise version failed that four-state case and remains preserved.
-The [fresh matched comparison](../build/cause-parallel-mapped-prep-v2/run-v1/report.json)
-is now running with the corrected priority variants and a fresh baseline.
-Its source/Tcl review passed; both launch and all three result-code paths must
-be assessed before selecting another full trial. No new full build, timing,
-image or hardware acceptance is claimed.
+The corrected-priority [matched review](../build/cause-parallel-mapped-results-review-v2.json)
+also finds result-code regressions: all three alternatives remain slower than
+the fresh baseline despite the combined launch improvement. Those priority
+variants remain unselected. The separate timeout-tag pair above improves both
+measured targets and is selected only for its fresh full trial.
 
 The parent full-synthesis review conditionally accepts resource results while
 [disclosing the metadata restoration incident](../build/pending-parent-synthesis-metadata-restoration-incident-v1.json).
