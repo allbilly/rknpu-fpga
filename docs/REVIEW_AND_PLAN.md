@@ -151,9 +151,13 @@ DSP/RAMB. The first post-opt resource result was **299,792 LUTs**, 1,192 over th
 pre-opt count to **293,519 LUTs**, and the default `opt_design` measured
 **291,294 post-opt LUTs**, under the 298,600-device gate. The restored-reference run wrote the source-bound **post-opt checkpoint**
 `74529df9…` at **291,294 LUTs / 68,086 FFs / 516 DSPs**, with the 298,600-LUT
-gate passing. **Placement and route are now running** with the retained
-USER2/USER3 mailbox constraints and the adapted SYS/UI bridge CDC constraint.
-No routed timing, DRC, image or hardware result is claimed yet. Open items: the strict startup/reset/mailbox
+gate passing. A diagnostic placement/route of the aggressive area-optimized netlist
+completed but failed setup at **WNS −1.510 ns / TNS −3,985 / 6,353
+endpoints**; hold passed at **+0.046 ns** and pulse at **+0.264 ns**. The
+worst path is the baseline endpoint `s_axil_awaddr → rsp_data` control path,
+not the new SYS gate, so the aggressive area transformation is the likely
+cause. A milder `FlowAreaOptimized_medium` synthesis retry is running. No
+accepted routed timing, DRC, image or hardware result is claimed. Open items: the strict startup/reset/mailbox
 constraint inventory must be adapted to the two retained startup chains rather
 than weakening it; a full SYS-only parent protocol test is still required; and
 the fixed frame-gate hash `38bdf51c…` needs an independent review bound to
