@@ -146,8 +146,10 @@ Verilator elaborates the modified endpoint, the static profile check passes
 (`PASS_SYS_RESET_STATIC_PROFILE`, 184 files, 7 changed, 6 added), and the
 controller (Icarus 369/Verilator 329 checks), UI bridge (Icarus 102/Verilator
 77 checks), frame gate and retained mailbox component tests pass. Measured component cost is still about **+2.3k LUT / +2.9k FF**, zero
-DSP/RAMB. A resource synthesis is running; no routed timing, DRC, image or
-hardware result is claimed. Open items: the strict startup/reset/mailbox
+DSP/RAMB. The first post-opt resource result was **299,792 LUTs**, 1,192 over the
+298,600-device gate (baseline 297,353). A fresh `AreaOptimized_high`
+synthesis/opt retry is running; no placement, route, image or hardware result
+is claimed. Open items: the strict startup/reset/mailbox
 constraint inventory must be adapted to the two retained startup chains rather
 than weakening it; a full SYS-only parent protocol test is still required; and
 the fixed frame-gate hash `38bdf51c…` needs an independent review bound to
