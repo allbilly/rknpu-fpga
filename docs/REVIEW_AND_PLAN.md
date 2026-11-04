@@ -157,8 +157,13 @@ endpoints**; hold passed at **+0.046 ns** and pulse at **+0.264 ns**. The
 worst path is the baseline endpoint `s_axil_awaddr → rsp_data` control path,
 not the new SYS gate, so the aggressive area transformation is the likely
 cause. `FlowAreaOptimized_medium` is not a valid directive in this Vivado
-version; a valid `AreaOptimized_medium` synthesis retry is running. No
-accepted routed timing, DRC, image or hardware result is claimed. Open items: the strict startup/reset/mailbox
+version. The valid `AreaOptimized_medium` synthesis produced a
+**279,927-LUT** post-opt checkpoint, comfortably under the device gate; its
+placement/route is running. The top-level `normal_shell_started_sync` chain
+was also given the `ASYNC_REG`/`SHREG_EXTRACT` attributes required by the SYS/UI
+bridge constraint helper, and a fresh checkpoint with that attribute is being
+synthesized. No accepted routed timing, DRC, image or hardware result is
+claimed. Open items: the strict startup/reset/mailbox
 constraint inventory must be adapted to the two retained startup chains rather
 than weakening it; a full SYS-only parent protocol test is still required; and
 the fixed frame-gate hash `38bdf51c…` needs an independent review bound to
