@@ -52,8 +52,8 @@ failure recorded below.
 | Paired component tests | [Independent review](../build/parent-timeout-tags-native-results-review-v1.json) accepts 21 Icarus/19 Verilator cases for each child variant, original 51-output/44-state comparisons, correct 54→56 child-port census and scoped tag/launch equations. Exact warning inventories remain visible | Complete parents were not compiled by these component tests |
 | Matched OOC measurement | [Independent review](../build/parent-timeout-tags-mapped-results-review-v1.json) accepts a fresh baseline and all four variants. Selected combined launch improves 5.221→4.687 ns (11→10 levels); all three result-code D paths improve 5.459→5.173 ns (14→13) | These are source-cut measurements; launch is an output port, not the real descriptor CE. No routed timing acceptance |
 | Full source and synthesis | [Source](../build/timeout-tag-full-synth-source-review-v3.json) and [runner](../build/timeout-tag-full-synth-runner-review-v3.json) reviews pass. [Manifest 7631c0e7](../build/timeout-tag-control-full-synth-prep-v3/source-manifest.json) and [snapshot 36060eed](../build/timeout-tag-control-full-synth-prep-v3/source-snapshot.json) bind 4,880 static inputs; the actual native input map directly includes the snapshot plus controls/peers (4,884 total). [Fresh synthesis](../build/timeout-tag-control-full-synth-prep-v3/run-v1/report.json) passes [independent resource review](../build/timeout-tag-full-synth-results-review-v3.json): 294,107 LUTs, 90,243 FFs and 516 DSPs; full original compute/interfaces retained. Its normalized warning multiset matches the preceding source | Resource evidence only; complete models and implementation remain required |
-| Fresh full-parent models | Source payloads are prepared: [warm](../build/timeout-tag-warm-prep-v1/payload-crosswalk.json), 91 sources/23 assets/17 goldens; [controller](../build/timeout-tag-controller-prep-v1/payload-crosswalk.json), 145/9/4. Only project indices 11/order112 and 47/order148 change; other payloads remain byte-identical. Fresh [warm](../build/timeout-tag-warm-codegen-results-review-v1.json) and [controller](../build/timeout-tag-controller-codegen-results-review-v1.json) generation reviews accept 435/502 files and 202/649 warnings, including one new unused old timeout-tag signal. Both C++ builds pass [warm](../build/timeout-tag-warm-cpp-build-results-review-v1.json)/[controller](../build/timeout-tag-controller-cpp-build-results-review-v1.json) artifact review. The [warm replay review](../build/timeout-tag-warm-replay-results-review-v1.json) accepts 16 jobs, 12 compute resets, one SYS reset, 17 fixtures and 1,441,792 complete BO bytes on the fresh binary. The [controller replay](../build/timeout-tag-controller-replay-v1/run-v1/report.json) remains running | Require actual terminal model/wire/BO validation and independent result reviews; compilation is not model or physical qualification |
-| Retained and strict diagnostics | Fresh [retention](../build/timeout-tag-retention-results-review-v1.json), [inventory](../build/timeout-tag-inventory-results-review-v1.json) and [strict](../build/timeout-tag-strict-results-review-v1.json) reviews pass the original 35 zero/3 ground/197 register and 130 startup-FF/21 net/7 assertion-source/75 segment checks. [Placement review](../build/timeout-tag-placement-results-review-v1.json) accepts the current strict/placed checkpoint lineage and structural checks. Unrouted setup is −0.328 ns/TNS −51.371 ns over 583 endpoints; hold is −0.392 ns over 1,413 endpoints. The [fresh guarded route](../build/parent-timeout-tags-route-prep-v1/run-v1/report.json) is running from exact placed DCP 76004097 | Structural evidence only; routed setup/hold/pulse acceptance remains required |
+| Fresh full-parent models | Source payloads are prepared: [warm](../build/timeout-tag-warm-prep-v1/payload-crosswalk.json), 91 sources/23 assets/17 goldens; [controller](../build/timeout-tag-controller-prep-v1/payload-crosswalk.json), 145/9/4. Only project indices 11/order112 and 47/order148 change; other payloads remain byte-identical. Fresh [warm](../build/timeout-tag-warm-codegen-results-review-v1.json) and [controller](../build/timeout-tag-controller-codegen-results-review-v1.json) generation reviews accept 435/502 files and 202/649 warnings, including one new unused old timeout-tag signal. Both C++ builds pass [warm](../build/timeout-tag-warm-cpp-build-results-review-v1.json)/[controller](../build/timeout-tag-controller-cpp-build-results-review-v1.json) artifact review. The [warm replay review](../build/timeout-tag-warm-replay-results-review-v1.json) accepts 16 jobs, 12 compute resets, one SYS reset, 17 fixtures and 1,441,792 complete BO bytes on the fresh binary. The [controller replay review](../build/timeout-tag-controller-replay-results-review-v1.json) accepts all twelve original cases and coordinator precheck, 532,480 complete BO bytes, seven SYS resets and 32,768 BIST writes and reads; both owned command groups closed under the original deadlines | Both fresh model suites pass; physical MIG/PHY and FPGA qualification remain required |
+| Retained and strict diagnostics | Fresh [retention](../build/timeout-tag-retention-results-review-v1.json), [inventory](../build/timeout-tag-inventory-results-review-v1.json) and [strict](../build/timeout-tag-strict-results-review-v1.json) reviews pass the original 35 zero/3 ground/197 register and 130 startup-FF/21 net/7 assertion-source/75 segment checks. [Placement review](../build/timeout-tag-placement-results-review-v1.json) accepts the current strict/placed checkpoint lineage and structural checks. Unrouted setup is −0.328 ns/TNS −51.371 ns over 583 endpoints; hold is −0.392 ns over 1,413 endpoints. The [fresh guarded route](../build/parent-timeout-tags-route-prep-v1/run-v1/report.json), from exact placed DCP 76004097, was stopped at the user’s request during routing; no terminal timing result was obtained | Structural evidence only; routed setup/hold/pulse acceptance remains required |
 | Mapped qualification | Fresh [probe review](../build/timeout-tag-full-context-probe-results-review-v1.json) accepts current 7631/cd176 exports. New [selector](../build/timeout-tag-selector-mapped-proof-results-review-v1.json) and [adapter-error](../build/timeout-tag-adapter-error-mapped-proof-results-review-v1.json) mapped proof results pass independent review within their stated cutpoints/profile. The [fresh aggregate audit review](../build/timeout-tag-full-context-audit-results-review-v1.json) accepts all 30 storage groups and 7,317 fanin rows with the current source/proof bindings | Conditional binary/source-profile evidence only; no full-protocol or timing qualification |
 | Image and hardware | No accepted new route, bitstream or physical result. Current route, detailed-audit and image-emitter collectors have fresh source reviews. The current-source pure SRAM loader also passes source/runner review and 19 synthetic admission controls; the [three-phase application preparation](../build/parent-timeout-tags-application-source-review-v1.json) passes current-source review, 19 device-free controls and the actual static catalog preflight. Actual native image/programming stages remain gated on reviewed current checkpoints, model results and exact target checks | Original strict/electrical/DRC guards, fresh detailed audits/image, then audited volatile FPGA tests and the full numbered plan below |
 
@@ -61,6 +61,43 @@ RAM, memory-high and swap remain uncapped. The new source metadata is protected
 before native execution; the snapshot file itself is directly bound in that
 execution’s input map. The earlier baseline metadata incident remains disclosed
 and does not qualify the new trial’s models, route or hardware.
+
+The next deliverable is a usable, source-bound image. Keep the full C32/K16
+compute and dual-DDR/PCIe/JTAG target; qualify its features through the release
+checkpoints below. Later physical checks must not be prerequisites for reporting
+an earlier, explicitly limited milestone. All numbered work packages remain in
+scope, and a limited release is not completion of this plan.
+
+| Release checkpoint | Required evidence | Current state |
+|---|---|---|
+| Prior working inference baseline | Source/image/target-bound TinyStories receipts | Historical `60e7abbb` / `1ca5ae19` result is preserved; it does not qualify changed RTL |
+| Current integrated image | Passing routed setup/hold/pulse checks, detailed image audit and emission | Route stopped at user request; both fresh model suites pass independent review |
+| Current-image inference | Audited volatile load, first/repeated BOS and full32 TinyStories with complete raw BO checks | Application runner prepared; no new-image hardware result |
+| Capacity and recovery | Full two-GiB two-pattern BIST, explicit SYS reset and recovered original raw jobs | Model coverage passes; physical tests remain |
+| ECC diagnostics | Physical CE/UE events, full line readback, quarantine, disarm and whole-domain recovery | Host interleaving/evidence checks prepared; physical qualification remains |
+| Wider execution and compatibility | Six framework shapes, independent PCIe/JTAG execution and audited RK3588 differentials | Remaining gates in packages 4, 6 and 7 |
+
+Finish the active route before selecting another RTL change. If timing fails,
+use its actual critical paths to reassess the control architecture and timing
+budget before another local cofactor trial. Intermediate router estimates do
+not establish closure. Source-only preparation can continue in parallel, but
+must not delay an available current-image smoke or inference test.
+
+Paused at the user’s request on 2026-11-04 ("wrap up and stop"). The active
+route and full default regression were terminated, with no workspace build
+processes left running. [Stop receipt](../build/maintenance-host-controls-v1/user-stop.json)
+preserves the actual state. The raw route producer reports
+`FAIL_PREDECODE_PUBLICATION_ROUTE_PROVENANCE` after interruption, with unchanged
+inputs; its interrupted command row still says `RUNNING`. This is not a new
+measured timing failure or an accepted route. Preserve the partial artifacts;
+any later execution needs explicit continuation and a fresh output directory.
+
+The reviewed host additions select USER3 for every shared-link SYS transaction
+and validate isolated held ECC-read evidence before ACK. Their focused offline
+controls pass (25 shared/SYS/native-link tests and 14 ECC-evidence tests, each
+in normal and optimized Python). The full `make -j2 test` was stopped before
+completion and has no full-suite pass. `make generated-check` passes. No new
+bitstream was emitted and no hardware or flash action occurred.
 
 ### Preceding parent-only trial
 
