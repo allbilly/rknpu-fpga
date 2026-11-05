@@ -158,8 +158,12 @@ worst path is the baseline endpoint `s_axil_awaddr → rsp_data` control path,
 not the new SYS gate, so the aggressive area transformation is the likely
 cause. `FlowAreaOptimized_medium` is not a valid directive in this Vivado
 version. The valid `AreaOptimized_medium` synthesis produced a
-**279,927-LUT** post-opt checkpoint, comfortably under the device gate; its
-placement/route is running. The top-level `normal_shell_started_sync` chain
+**279,927-LUT** post-opt checkpoint, but its placement/phys-opt estimate was
+≈−1.56 ns, so that netlist is not a timing path. The next candidate removes a
+redundant 604-bit `power_rst_n` payload gate from each retained mailbox; the
+inner mailbox already resets `req_valid`, so the wide payload gate is
+unnecessary. A default-synthesis run with the lean mailbox is measuring
+whether that recovers the 1,192-LUT overage without losing baseline timing. The top-level `normal_shell_started_sync` chain
 was also given the `ASYNC_REG`/`SHREG_EXTRACT` attributes required by the SYS/UI
 bridge constraint helper, and a fresh checkpoint with that attribute is being
 synthesized. No accepted routed timing, DRC, image or hardware result is
