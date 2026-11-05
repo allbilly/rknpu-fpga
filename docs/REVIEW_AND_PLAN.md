@@ -175,8 +175,16 @@ LUTs** (checkpoint `650b02b1…`). Placement succeeded at 292,293 LUTs, but the
 route failed setup at **WNS −1.434 ns / 4,878 endpoints** (hold +0.054, pulse
 +0.264). The critical path is the baseline MIG C1 → control-bank path, and the
 new USER2 mailbox/frame gate landed in that region; the control logic itself
-is unchanged. Two targeted placement directives (`AltSpreadLogic_high` and
-`ExtraTimingOpt`) are being compared from the same checkpoint. No accepted
+is unchanged. `AltSpreadLogic_high` improved the route only to **WNS −1.276 ns**;
+`ExtraTimingOpt` was ≈−1.09 ns at its last intermediate report. The baseline
+worst path is the same MIG C1 `addr_reg[2]_replica` source but ends at
+`result_code_reg[3]` with −0.033 ns; the new critical path ends at
+`job_tag_reg[12]/CE`, which is the job-control bank changed by the
+`descriptor_empty`/`session_quiet` additions. Those two job-control layers
+were reverted to the baseline bytes and the drain witness now uses the
+baseline `control_quiet`; this removes the staged-descriptor-empty term (a
+documented limitation: SYS reset must be issued only after raw jobs/readback
+are idle). A fresh default synthesis with that revert is running. No accepted
 timing, DRC, image or hardware result is claimed. A clearly labeled measurement run skipped
 only that post-opt heuristic, recorded the 572-LUT overage, and wrote checkpoint
 `03427983…` at 299,172 post-opt LUTs. The adapted SYS/UI bridge helper now
