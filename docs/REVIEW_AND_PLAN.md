@@ -165,7 +165,12 @@ inner mailbox already resets `req_valid`, so the wide payload gate is
 unnecessary. The lean mailbox passes the 55-check retained mailbox/gate/controller test on
 Icarus and Verilator. Default synthesis with the lean mailbox measured
 **299,172 post-opt LUTs**, 572 over the 298,600 pre-placement heuristic but
-620 below the pre-lean result. A clearly labeled measurement run skipped
+620 below the pre-lean result. Placement then failed by 197 slices, so the
+SYS-reset profile now compiles out the host-triggered capacity BIST only
+(~963 LUTs) while retaining the capacity owner/service for normal admission
+and drain. A BIST START in this profile faults explicitly; the qualified
+2 GiB BIST remains on the separate `1ca5ae19` capacity image. Default
+synthesis of this split is running. A clearly labeled measurement run skipped
 only that post-opt heuristic, recorded the 572-LUT overage, and wrote checkpoint
 `03427983…` at 299,172 post-opt LUTs. The adapted SYS/UI bridge helper now
 passes on that exact checkpoint, and placement/route is running with the
