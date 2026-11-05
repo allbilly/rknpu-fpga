@@ -221,9 +221,23 @@ criticals versus the baseline, all in the selected bridge's mixed reset
 domains. The bridge now takes a UI clock-local `ui_power_rst_n` for UI flops;
 the SYS readiness chain keeps the tested immediate client-reset invalidation,
 which is structurally audited and false-pathed by `bridge_levels_sys.tcl`. The
-bridge still passes Icarus 102 / Verilator 77 component checks. A fresh
-synthesis (`24f23fe7…`, 297,640 post-opt LUTs) and the corrected
-placement/route are running. No image or hardware result is claimed. No accepted
+bridge still passes Icarus 102 / Verilator 77 component checks. A fresh synthesis (`24f23fe7…`, 297,640 post-opt LUTs) and the corrected
+placement/route then closed the bridge-CDC-fixed profile: initial route
+**−0.630 ns**, corrective phys-opt **−0.174 ns**, corrective reroute plus
+`route_design -directive AggressiveExplore` **WNS +0.001 ns / TNS 0**, WHS
+**+0.051 ns**, WPWS **+0.264 ns**, 0 failing setup/hold/pulse endpoints,
+routed 292,430 LUTs, DRC inventory unchanged. `report_cdc` now shows CDC-7 0
+and CDC-10 10 versus the baseline's 9; the single extra is the intentional
+immediate UI-client-reset invalidation on `bridge/ready_sys_pipe_reg/CLR`,
+structurally audited and false-pathed. The bitstream was emitted from routed
+checkpoint `1dd1510d…`: **SHA-256 `415ab79f582a20dde0f6b8aa300b38e3b4e15a182ed2e4242e398a7349f869b7`**,
+18,735,214 bytes, source tag `b0fe4374`, USR_ACCESS `b0fe4374`, config IDCODE
+`0x03751093`, no IPROG. The read-only bitfile audit passes, and the independent
+review `58dc62ca…` passes `PASS_ROOT_REVIEWED_SYS_RESET_VOLATILE_TRIAL`. The
+physical package is `READY_REQUIRES_EXPLICIT_EXECUTION_FLAG` with one root
+approval and one volatile SYS reset. **Physical execution is blocked because
+the Xilinx DLC10 `03fd:0008` is no longer present on USB**; no hardware was
+accessed, no reset issued and no flash written. No accepted
 timing, DRC, image or hardware result is claimed. A clearly labeled measurement run skipped
 only that post-opt heuristic, recorded the 572-LUT overage, and wrote checkpoint
 `03427983…` at 299,172 post-opt LUTs. The adapted SYS/UI bridge helper now
