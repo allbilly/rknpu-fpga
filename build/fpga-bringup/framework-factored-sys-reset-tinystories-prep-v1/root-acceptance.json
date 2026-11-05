@@ -1,0 +1,203 @@
+{
+  "schema": "sys-reset-tinystories-root-acceptance-v1",
+  "status": "PASS_ROOT_ACCEPTED_SYS_RESET_TINYSTORIES_FULL32",
+  "accepted_by": "root",
+  "accepted_utc": "2026-11-05T17:35:28.077581+00:00",
+  "result_review_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/framework-factored-sys-reset-tinystories-prep-v1/root-result-review.json",
+  "result_review_sha256": "d358e446c9b74b828fede28bab3b35d4aa97bf81742c7330906d9f37e663cf62",
+  "scope": "Root acceptance of the independent full32 TinyStories DDR result on the already-loaded SYS-reset image. No programming, no second SYS reset, no flash, no capacity BIST/ECC/FI/PCIe, no CPU dense fallback. Not a PCIe, RK3588 or RK silicon-equivalence claim.",
+  "parent_report": {
+    "path": "/home/fedora/rknpu-fpga/build/fpga-bringup/framework-factored-sys-reset-tinystories-prep-v1/physical-test/physical-tests/report.json",
+    "sha256": "1197a17172b692be1b5c91b06e7d6ffd64b82ce1469c8bc59486a49e25062f47",
+    "status": "PASS_PHYSICAL_TINYSTORIES_THREE_PHASES_REQUIRES_ROOT_REVIEW",
+    "programming_issued": false,
+    "sys_reset_issued": false,
+    "flash_written": false,
+    "test_order": [
+      "one-complete-forward-position",
+      "repeated-complete-forward-position",
+      "greedy32"
+    ]
+  },
+  "image": {
+    "review_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/framework-factored-sys-reset-tinystories-prep-v1/physical-test/image-review.json",
+    "review_sha256": "e262e687a736e57008bfb0fe804e47fe59ec35ab1983d333dff10f02b8bc0128",
+    "bitstream_path": "/home/fedora/rknpu-fpga/build/framework-factored-sys-reset-v1/emission/full512-sys-reset.bit",
+    "bitstream_sha256": "415ab79f582a20dde0f6b8aa300b38e3b4e15a182ed2e4242e398a7349f869b7",
+    "bitstream_bytes": 18735214,
+    "source_manifest_sha256": "b0fe4374c69dba9ec72db8289f8258048eb79172f9f3face0edb4fe53311a4e2",
+    "source_tag": "b0fe4374",
+    "usr_access": "b0fe4374",
+    "dna_port": "004E544714C705C",
+    "raw_idcode": "23751093",
+    "part": "xc7k480tffg1156-2",
+    "top": "ypcb_ddr_dual_top",
+    "port_count": 242,
+    "product_dsps": 512,
+    "total_dsps": 516,
+    "bram_blocks": 0,
+    "memory_profile": "ddr",
+    "selected_physical_channel": 1,
+    "programming_scope": "volatile-sram",
+    "bound_files": 189
+  },
+  "source": {
+    "manifest_path": "/home/fedora/rknpu-fpga/build/framework-factored-sys-reset-v1/source-manifest.json",
+    "manifest_sha256": "b0fe4374c69dba9ec72db8289f8258048eb79172f9f3face0edb4fe53311a4e2",
+    "source_tag": "b0fe4374",
+    "file_count": 185,
+    "port_count": 242,
+    "top": "ypcb_ddr_dual_top",
+    "part": "xc7k480tffg1156-2",
+    "all_file_hashes_match": true
+  },
+  "load": {
+    "record_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/framework-factored-sys-reset-tinystories-prep-v1/physical-test/physical-tests/load-1/load.json",
+    "record_sha256": "fc3af6730f713d8ad1233ad8d60d704f370e0d26df5c558ff648f99891798722",
+    "status": "PASS",
+    "source": "prior approved physical trial; image remains loaded; this runner does not program or reset",
+    "hardware_programmed": true,
+    "flash_written": false,
+    "bitstream_sha256": "415ab79f582a20dde0f6b8aa300b38e3b4e15a182ed2e4242e398a7349f869b7",
+    "source_sha256": "b0fe4374c69dba9ec72db8289f8258048eb79172f9f3face0edb4fe53311a4e2",
+    "prior_load_receipt_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/framework-factored-sys-reset-prep-v1/physical-test/load-1/program.tsv",
+    "prior_load_receipt_sha256": "38d1d7b396c8f95224192bcd306e0762e158747e4c9a462caf01c26e87c79629",
+    "prior_load_receipt_matches_native": true,
+    "prior_trial_report_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/framework-factored-sys-reset-prep-v1/physical-test/report.json",
+    "prior_trial_report_sha256": "a112e32d957cfbc38d7f93aa0b329986dc66664bf485661b67af27ba9f00b1d9",
+    "prior_trial_report_status": "FAIL_SYS_RESET_SINGLE_VOLATILE_TRIAL",
+    "prior_physical_outcome_sha256": "2be19b09be123265056c5c4592dad639b330fbfa6caf8656993cfbcd0bd4fd06",
+    "prior_root_acceptance_sha256": "fe08e4ee1312b8b68943e1df231d98f5b69ca2851a6a47d20dec485ab2c27ab3"
+  },
+  "phase_audits": [
+    {
+      "name": "one-complete-forward-position",
+      "status": "PASS_INDEPENDENT_PHYSICAL_DDR_TINYSTORIES_BOS_CONTROL_ONLY",
+      "positions": 1,
+      "projections": 36,
+      "raw_jobs": 232,
+      "tasks": 348,
+      "audit_sha256": "a56c94b8820e83b0f0b8603bfaaf888b2e79fd8b180d35b8571325a17cf2e524",
+      "worker_report_sha256": "35f97461c002554bd47968da4ce0e1ef18b2914a115ac3be17a20ffc7a2f5b3a"
+    },
+    {
+      "name": "repeated-complete-forward-position",
+      "status": "PASS_INDEPENDENT_PHYSICAL_DDR_TINYSTORIES_REPEATED_BOS_CONTROL_ONLY",
+      "positions": 1,
+      "projections": 36,
+      "raw_jobs": 232,
+      "tasks": 348,
+      "audit_sha256": "f15e2e68d8e9f8abd678b450ee3fe48f93a013da90712895c2871622abf36ba7",
+      "worker_report_sha256": "207e69872cf2391ac715765ed346e0752bbbe6661e2ff7158951cb5040a14847"
+    },
+    {
+      "name": "greedy32",
+      "status": "PASS_INDEPENDENT_PHYSICAL_DDR_TINYSTORIES_32_POSITION_RAW_WIRE_MODEL_AUDIT",
+      "positions": 32,
+      "projections": 1152,
+      "raw_jobs": 7424,
+      "tasks": 11136,
+      "audit_sha256": "d3d662a87733460717bb67119ecf4dcdff10d4a65c4fff088455dd9ecc91acb1",
+      "worker_report_sha256": "9b18d48f31f466cad92a80856f6fef17975634c17c62e3875099b8d4c51741ce"
+    }
+  ],
+  "counts": {
+    "positions": 32,
+    "forward_positions": 32,
+    "projections": 1152,
+    "raw_jobs": 7424,
+    "tasks": 11136,
+    "weight_tiles_checked_before_use": 3712,
+    "logits_values": 16384,
+    "generated_token_count": 28,
+    "phase_positions": [
+      1,
+      1,
+      32
+    ],
+    "phase_projections": [
+      36,
+      36,
+      1152
+    ],
+    "phase_raw_jobs": [
+      232,
+      232,
+      7424
+    ],
+    "phase_tasks": [
+      348,
+      348,
+      11136
+    ]
+  },
+  "generated_text": "Once upon a time, there was a little girl named Lily. She loved to play outside in the park. One",
+  "generated_tokens": [
+    432,
+    383,
+    286,
+    261,
+    376,
+    298,
+    315,
+    421,
+    395,
+    317,
+    426,
+    338,
+    401,
+    396,
+    267,
+    337,
+    410,
+    408,
+    419,
+    292,
+    411,
+    322,
+    265,
+    282,
+    295,
+    433,
+    426,
+    385
+  ],
+  "policy": {
+    "programming_issued": false,
+    "sys_reset_issued": false,
+    "second_sys_reset": false,
+    "fabric_reset_issued": false,
+    "tap_reset_only": true,
+    "flash_written": false,
+    "capacity_bist_issued": false,
+    "ecc_injection_performed": false,
+    "fi_ce_ue_injection": false,
+    "pcie_tested": false,
+    "cpu_dense_fallback": false,
+    "volatile_sram_only": true,
+    "hardware_programmed_by_this_run": false,
+    "programming_scope": "already-loaded-volatile-sram",
+    "run_model_invoked_by_review": false,
+    "hardware_accessed_by_review": false
+  },
+  "prior_trial": {
+    "status": "FAIL_SYS_RESET_SINGLE_VOLATILE_TRIAL",
+    "report_sha256": "a112e32d957cfbc38d7f93aa0b329986dc66664bf485661b67af27ba9f00b1d9",
+    "physical_outcome_sha256": "2be19b09be123265056c5c4592dad639b330fbfa6caf8656993cfbcd0bd4fd06",
+    "root_acceptance_sha256": "fe08e4ee1312b8b68943e1df231d98f5b69ca2851a6a47d20dec485ab2c27ab3",
+    "failure_preserved": true,
+    "single_reset": true,
+    "second_sys_reset": false,
+    "relabeled": false
+  },
+  "limitations": [
+    "The prior SYS reset trial report remains FAIL_SYS_RESET_SINGLE_VOLATILE_TRIAL; it is preserved and not relabeled.",
+    "This TinyStories run is a continuation on the already-loaded SYS-reset image, not a second reset; hardware_programmed=true refers only to the earlier approved load.",
+    "No flash was written; the image remains volatile.",
+    "No capacity BIST, ECC/FI/CE/UE injection or PCIe action was performed; this is not a PCIe, RK3588 or RK silicon-equivalence claim.",
+    "This is the strict FP16 EW slice, not full RK3588 or a completed soDLA fork; explicit CPU host operators remain part of the hybrid model, with no CPU dense fallback.",
+    "The audit-tool replay used byte-exact audit-time parent snapshots because the live parent was finalized after the audits; all worker/scan/BO evidence files were unchanged.",
+    "The review and acceptance are read-only with respect to the board, FPGA, lease, hw_server, Vivado and flash; they validate recorded artifacts, not live silicon, electrical or timing behavior.",
+    "Numerical special-value policy remains candidate behavior until hardware differential tests establish it."
+  ]
+}

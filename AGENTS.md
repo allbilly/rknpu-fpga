@@ -11,3 +11,5 @@ Generated sources come from tools/gen_regfile.py and tools/gen_demo.py. Run make
 Do not copy old verification logs forward as evidence for modified RTL. Record the actual tool version, source revision, seeds and tests. Numerical special-value policy remains candidate behavior until hardware differential tests establish it.
 
 Never weaken electrical constraints, DRC or timing checks merely to produce a bitstream. Do not program the card or flash without an explicit requested action and an audited target.
+
+Default long-running work (builds, Vivado synthesis/implementation, simulations and test suites expected to exceed about 30 seconds) to the background: use shell `background: true` or launch the subagent in the background. Continue with independent work instead of waiting, and report the result when the background job completes. Keep only short commands needed for the immediate next step in the foreground. Backgrounding does not relax the evidence, logging or verification rules above.

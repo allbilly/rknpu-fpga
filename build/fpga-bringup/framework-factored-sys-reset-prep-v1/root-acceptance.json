@@ -1,0 +1,100 @@
+{
+  "accepted_by": "root",
+  "accepted_utc": "2026-11-05T14:40:15.240787+00:00",
+  "corrected_wire_audit": {
+    "acks": 1,
+    "cancels": 0,
+    "path": "/home/fedora/rknpu-fpga/build/fpga-bringup/framework-factored-sys-reset-prep-v1/re-audit/corrected-wire-audit.json",
+    "result_status": "PASS_INDEPENDENT_SYS_WHOLE_RESET_WIRE_ONLY",
+    "sha256": "5d57c729fae85714f39e82eaac4f0448160e8b38e24b0cfb9b08e25ed797010a",
+    "starts": 1,
+    "status": "PASS_INDEPENDENT_SYS_WHOLE_RESET_WIRE_ONLY",
+    "trace_sha256": "8feb9bdfd3d7c604b94679007d80e9e8be0311b96e186ebbbfcbc476cc76c654"
+  },
+  "image": {
+    "bitstream_bytes": 18735214,
+    "bitstream_sha256": "415ab79f582a20dde0f6b8aa300b38e3b4e15a182ed2e4242e398a7349f869b7",
+    "dna_port": "004E544714C705C",
+    "load_receipt_sha256": "38d1d7b396c8f95224192bcd306e0762e158747e4c9a462caf01c26e87c79629",
+    "raw_idcode": "23751093",
+    "source_manifest_sha256": "b0fe4374c69dba9ec72db8289f8258048eb79172f9f3face0edb4fe53311a4e2",
+    "source_tag": "b0fe4374",
+    "target": "localhost:3125/xilinx_tcf/Xilinx/80802026a77a01",
+    "tck_hz": 3000000
+  },
+  "limitations": [
+    "The original trial harness report remains FAIL; it did not reach its own PASS status.",
+    "The corrected parser and separate post-reset raw verification are supplemental evidence, not a rerun of the original trial.",
+    "Only one SYS START/success/ACK was issued; no second reset or recovery was attempted.",
+    "No full TinyStories/full-model inference was run on this SYS-reset image.",
+    "No flash was written; the image remains volatile.",
+    "Root acceptance is for the physical SYS-reset capability and post-reset raw jobs, not for a full-model inference run on this image.",
+    "The original one-trial harness report remains FAIL and must not be relabeled as PASS."
+  ],
+  "original_trial": {
+    "error": "ValueError('SYS register read/order differs at 0x18')",
+    "preserved": true,
+    "reason": "Independent parser expected error/phase reads before counters; the client reads counters first. Device receipt and trace are unchanged.",
+    "report_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/framework-factored-sys-reset-prep-v1/physical-test/report.json",
+    "report_sha256": "a112e32d957cfbc38d7f93aa0b329986dc66664bf485661b67af27ba9f00b1d9",
+    "status": "FAIL_SYS_RESET_SINGLE_VOLATILE_TRIAL"
+  },
+  "physical_outcome_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/framework-factored-sys-reset-prep-v1/physical-outcome.json",
+  "physical_outcome_sha256": "2be19b09be123265056c5c4592dad639b330fbfa6caf8656993cfbcd0bd4fd06",
+  "policy": {
+    "capacity_bist_issued": false,
+    "ecc_injection_performed": false,
+    "flash_written": false,
+    "pcie_tested": false,
+    "second_sys_reset": false,
+    "volatile_sram_only": true
+  },
+  "post_reset": {
+    "cmac": {
+      "audit_sha256": "33119b9167350b4da4b0fe4e4cb6b9c48e0a90b1aa1642093d43aff8e6c1569d",
+      "complete_bo_bytes": 20480,
+      "status": "PASS_INDEPENDENT_SINGLE_RAW_JOB_WIRE_ONLY"
+    },
+    "ew": {
+      "audit_sha256": "9a9c4024681f6cc2513a1a9b1ce70d4a0a77f2cec53eafe2b8f4a0780cdfcd21",
+      "complete_bo_bytes": 102400,
+      "report_sha256": "c88fc0632d248a3cb2d610903125037b13b6d280030c2c810266fdd2c3687036",
+      "status": "PASS_INDEPENDENT_SINGLE_RAW_JOB_WIRE_ONLY"
+    },
+    "namespaces": {
+      "cmac": 16,
+      "ew": 16
+    },
+    "reprogrammed": false,
+    "sys_register_writes": 0,
+    "sys_reset_reissued": false
+  },
+  "result_review_path": "/home/fedora/rknpu-fpga/build/fpga-bringup/framework-factored-sys-reset-prep-v1/root-result-review.json",
+  "result_review_sha256": "d4ce40efd2e3d5f1299c2ee72893402512feef4dd66ca4aa2d0160db4bc941a8",
+  "schema": "sys-reset-root-acceptance-v1",
+  "scope": "Root acceptance of one physical SYS reset and post-reset raw K65/SUB(9) on the exact emitted SYS-reset image. No flash, second reset, capacity BIST, ECC/FI, PCIe or full-model inference.",
+  "status": "PASS_ROOT_ACCEPTED_SYS_RESET_PHYSICAL_RESULT_WITH_ORIGINAL_TRIAL_HARNESS_FAILURE_PRESERVED",
+  "sys_reset": {
+    "ack_after_success": true,
+    "action_writes": [
+      [
+        12,
+        1398035028
+      ],
+      [
+        12,
+        1094929185
+      ]
+    ],
+    "attempts_after": 1,
+    "attempts_before": 0,
+    "cancels": 0,
+    "final_status": "0x00000a61",
+    "hardware_reset_count": 1,
+    "held_status": "0x00000bf4",
+    "retries": 0,
+    "single_start": true,
+    "success_epoch_after": 1,
+    "success_epoch_before": 0
+  }
+}
