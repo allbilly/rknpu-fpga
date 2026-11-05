@@ -192,9 +192,11 @@ that **94 of the worst 100** failing endpoints were SYS-domain
 pins through the frame gate's combinational `power_rst_n`. That was a real CDC
 integration error: the frame gate is entirely UI-domain logic but was powered
 from the SYS-domain startup reset. The gate now uses the UI clock-local
-`ui_power_rst_n`; the USER3 mailbox keeps the SYS startup and the USER2 mailbox
-keeps the UI startup. The 55-check retained mailbox/gate integration test still
-passes on Icarus with the package bytes. A baseline-control experiment (exact
+`ui_power_rst_n`, as does the `normal_shell_started_sync` chain; the USER3
+mailbox keeps the SYS startup and the USER2 mailbox keeps the UI startup. The
+55-check retained mailbox/gate integration test still passes on Icarus with the
+package bytes, the static profile check passes at 185 files / 5 changed / 7
+added, and Verilator top elaboration passes. A baseline-control experiment (exact
 baseline `post_opt.dcp` through the same fresh place/route flow) is also
 running to determine whether the baseline's +0.001 ns came from its repaired
 route rather than fresh placement. A fresh synthesis with the gate reset fix
