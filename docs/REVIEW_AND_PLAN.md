@@ -133,19 +133,22 @@ result](../../ZYNQ-NVDLA/boards/ypcb/NV1024_50_ROUTED_TIMING_RESULT_20261104.md)
 remains the successful lower-clock board/flow precedent.
 
 The SYS-reset increment is now implemented against the same 178-file baseline
-in `build/framework-factored-sys-reset-v1`. It changes seven files (platform,
-top, endpoint witnesses, both job-control layers, mailbox helper) and adds six
-(whole-reset controller, UI bridge, frame gate, retained mailbox, USER3
-mailbox helper, bridge-level helper). The glue lives in the top rather than a
-separate parent: USER3 -> retained mailbox -> controller; USER2 -> retained
-mailbox -> frame gate -> the existing platform; the controller drives the
-platform's existing `reset_req_valid`/MIG coordinator. The endpoint exports
-registered drained/platform-ready/epoch-ready witnesses and uses the real
-`capacity_owner_done`. Vivado 2026.1 RTL elaboration passes with no errors,
-Verilator elaborates the modified endpoint, the static profile check passes
-(`PASS_SYS_RESET_STATIC_PROFILE`, 184 files, 7 changed, 6 added), and the
-controller (Icarus 369/Verilator 329 checks), UI bridge (Icarus 102/Verilator
-77 checks), frame gate and retained mailbox component tests pass. Measured component cost is still about **+2.3k LUT / +2.9k FF**, zero
+in `build/framework-factored-sys-reset-v1`. The current profile has 185 files:
+five replacements (platform, top, endpoint witnesses, capacity service, mailbox
+helper) and seven additions (whole-reset controller, UI bridge, frame gate,
+retained mailbox, USER3 mailbox helper, bridge-level helpers). The glue lives in
+the top rather than a separate parent: USER3 -> retained mailbox -> controller;
+USER2 -> retained mailbox -> frame gate -> the existing platform; the controller
+drives the platform's existing `reset_req_valid`/MIG coordinator. The endpoint
+exports registered drained/platform-ready/epoch-ready witnesses and uses the
+real `capacity_owner_done`. The job-control edits were reverted to baseline
+bytes after they exposed a new control path. Vivado 2026.1 RTL elaboration
+passes with no errors, Verilator elaborates the modified endpoint and top, the
+static profile check passes (`PASS_SYS_RESET_STATIC_PROFILE`, 185 files, 5
+changed, 7 added), and the controller (Icarus 369/Verilator 329 checks), UI
+bridge (Icarus 102/Verilator 77 checks), frame gate, retained mailbox and
+55-check retained mailbox/gate integration test pass. Measured component cost
+is about **+2.3k LUT / +2.9k FF**, zero
 DSP/RAMB. The first post-opt resource result was **299,792 LUTs**, 1,192 over the
 298,600-device gate (baseline 297,353). Area-optimized synthesis lowered the
 pre-opt count to **293,519 LUTs**, and the default `opt_design` measured
