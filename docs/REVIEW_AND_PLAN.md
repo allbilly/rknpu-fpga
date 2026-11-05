@@ -184,7 +184,9 @@ worst path is the same MIG C1 `addr_reg[2]_replica` source but ends at
 were reverted to the baseline bytes and the drain witness now uses the
 baseline `control_quiet`; this removes the staged-descriptor-empty term (a
 documented limitation: SYS reset must be issued only after raw jobs/readback
-are idle). A fresh default synthesis with that revert is running. No accepted
+are idle). The reverted profile synthesized at **297,895 post-opt LUTs** (checkpoint
+`6cc9d896…`); placement/route is running. A baseline-style post-route
+`phys_opt_design`/reroute recipe is prepared if the remaining gap is small. No accepted
 timing, DRC, image or hardware result is claimed. A clearly labeled measurement run skipped
 only that post-opt heuristic, recorded the 572-LUT overage, and wrote checkpoint
 `03427983…` at 299,172 post-opt LUTs. The adapted SYS/UI bridge helper now
