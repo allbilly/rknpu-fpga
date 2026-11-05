@@ -1762,11 +1762,10 @@ backend revision pinned; keep portable fixture tests runnable without that
 external checkout. Report local and remote CI execution separately.
 The local `make backend-test` recipe passes all eleven pinned backend
 compiler/RTL cases; portable fixtures run under `make backend-layout-test`.
-The [source/RTL workflow](../.github/workflows/test.yml) registers the portable
-default regression and a separate compiler-to-EW-RTL job using the exact
-backend revision. Both preserve test receipts and logs. Local workflow
-validation and actual remote CI execution retain separate evidence; remote
-execution has not been triggered in this session.
+The former source/RTL GitHub Actions workflow was removed at the user's
+request; it is not part of the current push or test path. The local `make`
+recipes above remain the reproducible entry points. Remote CI execution is
+not claimed.
 
 Source preparation for this step can proceed while Vivado runs. Physical
 execution requires the reviewed intended image and serialized board access;

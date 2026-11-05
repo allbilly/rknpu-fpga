@@ -28,7 +28,7 @@ Receipts are preserved next to the image and under
 `build/fpga-bringup/framework-factored-sys-reset-tinystories-prep-v1/`.
 
 **Scope limit:** this image predates the 2026-11-06 MAX/special-value RTL
-change (commit `ed41392`). It does not contain FP16 MAX or the captured
+change (commit `664fb13`). It does not contain FP16 MAX or the captured
 `0x7c01` NaN policy. A fresh route, timing closure, image audit and physical
 run are required before claiming those features on hardware. No board
 programming or flash action is implied by this file.

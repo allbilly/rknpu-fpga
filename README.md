@@ -2155,7 +2155,7 @@ make synth-check    # Yosys XC7 mapping plus Icarus simulation of the mapped boa
 make test           # Software, strict core/DMA/board lint, Verilator and Icarus
 ```
 
-The RTL and synthesis reports record tool versions, exact commands, source SHA256 manifests, vector seeds and per-test results. A source edit during a run invalidates that run. This unpacked tree has no Git revision, so the content manifest identifies its source. `.github/workflows/test.yml` also runs the synthesis check; remote CI has not been executed. `make generated-check` detects stale generated register/ROM sources.
+The RTL and synthesis reports record tool versions, exact commands, source SHA256 manifests, vector seeds and per-test results. A source edit during a run invalidates that run. This unpacked tree has no Git revision, so the content manifest identifies its source. The former GitHub Actions workflow was removed at the user's request; remote CI is not part of the current test path. `make generated-check` detects stale generated register/ROM sources.
 
 The retained-mailbox component is available with `make host-retained-mailbox-test`
 and is included in `make test`. It checks that a normal USER2 frame remains
