@@ -185,8 +185,20 @@ were reverted to the baseline bytes and the drain witness now uses the
 baseline `control_quiet`; this removes the staged-descriptor-empty term (a
 documented limitation: SYS reset must be issued only after raw jobs/readback
 are idle). The reverted profile synthesized at **297,895 post-opt LUTs** (checkpoint
-`6cc9d896…`); placement/route is running. A baseline-style post-route
-`phys_opt_design`/reroute recipe is prepared if the remaining gap is small. No accepted
+`6cc9d896…`) and routed at **WNS −1.504 ns**, so the job-control revert was not
+the whole cause. Inspecting the best route (`ExtraTimingOpt`, −0.938 ns) showed
+that **94 of the worst 100** failing endpoints were SYS-domain
+`u_maintenance_mailbox/startup` paths into `clk_pll_i_1` endpoint backend CE
+pins through the frame gate's combinational `power_rst_n`. That was a real CDC
+integration error: the frame gate is entirely UI-domain logic but was powered
+from the SYS-domain startup reset. The gate now uses the UI clock-local
+`ui_power_rst_n`; the USER3 mailbox keeps the SYS startup and the USER2 mailbox
+keeps the UI startup. The 55-check retained mailbox/gate integration test still
+passes on Icarus with the package bytes. A baseline-control experiment (exact
+baseline `post_opt.dcp` through the same fresh place/route flow) is also
+running to determine whether the baseline's +0.001 ns came from its repaired
+route rather than fresh placement. A fresh synthesis with the gate reset fix
+follows. No accepted timing, DRC, image or hardware result is claimed. No accepted
 timing, DRC, image or hardware result is claimed. A clearly labeled measurement run skipped
 only that post-opt heuristic, recorded the 572-LUT overage, and wrote checkpoint
 `03427983…` at 299,172 post-opt LUTs. The adapted SYS/UI bridge helper now
