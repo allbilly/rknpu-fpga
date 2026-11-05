@@ -29,21 +29,31 @@ extern "C" uint16_t rk_half_alu(uint16_t a, uint16_t b, unsigned op) {
     const bool nb = (b & 0x7c00) == 0x7c00 && (b & 1023);
     const bool ia = (a & 0x7fff) == 0x7c00, ib = (b & 0x7fff) == 0x7c00;
     const bool za = !(a & 0x7fff), zb = !(b & 0x7fff);
-    if (na || nb || op > 2) return 0x7e00;
+    if (na || nb || op > 3) return 0x7c01;
+    if (op == 3) {
+        if (sa != sb) return sa ? b : a;
+        if (!sa) return (a & 0x7fff) >= (b & 0x7fff) ? a : b;
+        return (a & 0x7fff) <= (b & 0x7fff) ? a : b;
+    }
     const int ea = ((a >> 10) & 31) ? ((a >> 10) & 31) : 1;
     const int eb = ((b >> 10) & 31) ? ((b >> 10) & 31) : 1;
     const uint64_t ma = (a & 1023) | ((a & 0x7c00) ? 1024 : 0);
     const uint64_t mb = (b & 1023) | ((b & 0x7c00) ? 1024 : 0);
     if (op == 2) {
-        if ((ia && zb) || (ib && za)) return 0x7e00;
+        if ((ia && zb) || (ib && za)) return 0x7c01;
         if (ia || ib) return ((sa ^ sb) ? 0x8000 : 0) | 0x7c00;
         return pack(sa ^ sb, ma * mb, ea + eb - 50);
     }
-    if (ia && ib && sa != sb) return 0x7e00;
-    if (ia) return (sa ? 0x8000 : 0) | 0x7c00;
-    if (ib) return (sb ? 0x8000 : 0) | 0x7c00;
+    if (ia || ib) {
+        if (ia && ib) {
+            if (op == 1) return ((a >> 15) == (b >> 15)) ? 0x7c00 : 0x7c01;
+            return sa == sb ? ((sa ? 0x8000 : 0) | 0x7c00) : 0x7c01;
+        }
+        if (ia) return (sa ? 0x8000 : 0) | 0x7c00;
+        return (sb ? 0x8000 : 0) | 0x7c00;
+    }
     const int64_t ua = int64_t(ma << (ea - 1)), ub = int64_t(mb << (eb - 1));
     const int64_t v = (sa ? -ua : ua) + (sb ? -ub : ub);
-    if (!v) return (sa && sb) ? 0x8000 : 0;
+    if (!v) return 0;
     return pack(v < 0, uint64_t(v < 0 ? -v : v), -24);
 }

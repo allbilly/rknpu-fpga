@@ -12,6 +12,20 @@ retired from the continuation; its scripts and evidence remain historical.
 The initial source/preparation pass was followed on 2026-10-26 by explicit
 authorization to start FPGA testing as needed.
 
+**Latest RK3588 differential, 2026-11-06:** the real Rocket NPU on the
+RK3588 at `192.168.192.18` now matches the FPGA RTL EW slice exactly for
+FP16 ADD, SUB, MUL, NEG and MAX at eight lanes. MAX adds the reviewed
+`EW_CFG 0x108002c0` decode and a 3-bit operation field; the register decoder
+still rejects FDIV and other unsupported configurations. Captured NaN,
+signed-zero and infinity matrices also pin the RTL policy: NaN results are
+`0x7c01`, exact ADD/SUB cancellation is `+0`, SUB has a captured same-sign
+infinity quirk, and MAX prefers `+0` over `-0`. All nine special-matrix cases
+pass in RTL simulation with expected values taken from the real capture.
+Evidence is in `build/rk3588-kernel-comparison-v1/` with the exact scope and
+remaining gaps in its `README.md` and `result-ew8.json`. This is mainline
+Rocket and RTL simulation, not vendor RKNPU, physical FPGA execution, or a
+complete silicon specification.
+
 **Compute configuration:** the selected FP16 group is **C32/K16**: 32
 input/reduction channels and 16 output kernels, with 512 parallel product
 lanes. Here kernel K is GEMM's output dimension N, not GEMM's reduction K.

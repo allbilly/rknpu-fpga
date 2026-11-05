@@ -23,7 +23,7 @@ module rk_ew_core #(
 );
     logic cfg_valid, cfg_ready, engine_busy, reg_error, engine_error;
     logic [7:0] reg_error_code, engine_error_code;
-    logic [1:0] cfg_op;
+    logic [2:0] cfg_op;
     logic [16:0] cfg_count;
     logic [31:0] cfg_a, cfg_b, cfg_dst;
     logic [31:0] unused_next_address, unused_next_amount;

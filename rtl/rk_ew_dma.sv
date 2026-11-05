@@ -32,7 +32,7 @@ module rk_ew_dma #(
     logic [7:0] fault_code;
     logic cmd_ready, cmd_valid, cfg_valid, cfg_ready, reg_error, engine_error, engine_busy, engine_done;
     logic [7:0] reg_code, engine_code;
-    logic [1:0] cfg_op;
+    logic [2:0] cfg_op;
     logic [16:0] cfg_count;
     logic [31:0] cfg_a, cfg_b, cfg_dst, next_address, next_amount;
     logic e_req_valid, e_req_write, e_rsp_ready;

@@ -9,7 +9,8 @@ import struct
 from dataclasses import dataclass
 
 DPU, RDMA, PC, PC_REG, VERSION = 0x1001, 0x2001, 0x0081, 0x0101, 0x0041
-OPS = {'ADD': 0x108202c0, 'SUB': 0x108402c0, 'MUL': 0x108003c4}
+OPS = {'ADD': 0x108202c0, 'SUB': 0x108402c0, 'MUL': 0x108003c4,
+       'MAX': 0x108002c0}
 # target, byte offset, name, fixed value (None means a validated dynamic field)
 REGISTERS = (
     (DPU, 0x4004, 'dpu_pointer', 0x0000000e),
@@ -121,7 +122,7 @@ class Decoder:
             if name in ('width', 'rdma_width', 'wdma_width') and value > 7999:
                 raise ProfileError(2, 'width profile is 0..7999')
             if name == 'ew_config' and value not in OPS.values():
-                raise ProfileError(2, 'only ADD/SUB/MUL are implemented')
+                raise ProfileError(2, 'only ADD/SUB/MUL/MAX are implemented')
             self.values[name] = value
             return None
         if value != 0x18:
@@ -159,7 +160,7 @@ def make_commands(op: str, logical_count: int, a: int, b: int, dst: int) -> byte
     This helper is only for standalone, hardware-independent smoke tests.
     """
     if op not in OPS or not 1 <= logical_count <= 64000:
-        raise ValueError('op must be ADD/SUB/MUL and count must be 1..64000')
+        raise ValueError('op must be ADD/SUB/MUL/MAX and count must be 1..64000')
     dynamic = {'width': (logical_count + 7) // 8 - 1,
                'rdma_width': (logical_count + 7) // 8 - 1,
                'ew_config': OPS[op], 'src_a': a, 'src_b': b, 'dst': dst}

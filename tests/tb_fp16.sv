@@ -4,7 +4,7 @@ module tb_fp16;
     initial clk = 0;
     always #5 clk = ~clk;
     logic rst_n = 0, in_valid = 0, in_ready, out_valid, out_ready;
-    logic [1:0] in_op = 0;
+    logic [2:0] in_op = 0;
     logic [15:0] in_a = 0, in_b = 0, out_data;
     logic [63:0] vectors [0:65535];
     logic [31:0] lfsr;
@@ -44,7 +44,7 @@ module tb_fp16;
         rst_n = 1;
         for (integer i=0; i<count; i=i+1) begin
             @(negedge clk);
-            in_valid=1; in_op=vectors[i][49:48]; in_a=vectors[i][47:32]; in_b=vectors[i][31:16];
+            in_valid=1; in_op=vectors[i][50:48]; in_a=vectors[i][47:32]; in_b=vectors[i][31:16];
             do @(posedge clk); while (!in_ready);
         end
         @(negedge clk);

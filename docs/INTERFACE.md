@@ -55,7 +55,11 @@ addresses and linked tasks are accepted only through the separate DMA top.
 
 Both width registers hold count-minus-one in groups of eight. `width=0` means eight halfwords, not zero or one. Height/notch/channel fields are fixed by this first profile. There is no logical-unpadded length register; the sender must map and initialize enough bytes for the entire physical group count. Runtime arithmetic or layout repair by the host is not an acceptable way to extend the accelerator.
 
-`EW_CFG` supports ADD=0x108202c0, SUB=0x108402c0 and MUL=0x108003c4. SUB is A-B. Unsupported op fields, additional registers or precision configurations latch a fault; they never turn into an implicit no-op or CPU fallback.
+`EW_CFG` supports ADD=0x108202c0, SUB=0x108402c0, MUL=0x108003c4 and
+MAX=0x108002c0. SUB is A-B; MAX selects the larger numeric operand. Unsupported
+op fields, including the donor FDIV configuration, additional registers or
+precision configurations latch a fault; they never turn into an implicit no-op
+or CPU fallback.
 
 A new task must reprogram the complete profile. Values are last-write-wins before a trigger, but any invalid write is sticky and requires reset even if followed by a valid value. This deliberately narrow lifecycle is not a complete model of Rockchip's hardware register banking.
 
@@ -98,7 +102,18 @@ The hardware command port has no end-of-packet input. A missing trigger leaves a
 
 For finite operands, each mantissa is an integer of up to 11 bits. MUL forms the exact 22-bit mantissa product and rounds once on binary16 output. ADD/SUB first align finite values on the exact 2^-24 grid, use a signed integer sum, then normalize and round once. This favors reviewability over area and maximum clock frequency; it is not an optimized production FPU.
 
-The policy is round-to-nearest-even and gradual underflow. Exact cancellation gives +0 except the same-sign negative-zero case. Multiplication zero sign is the operand-sign XOR. Overflow yields signed infinity. NaN operands and invalid infinity combinations produce canonical quiet NaN 0x7e00; payloads and exception flags are not preserved/exposed.
+The policy is round-to-nearest-even and gradual underflow. Exact ADD/SUB
+cancellation gives +0, including the same-sign negative-zero case captured on
+RK3588. Multiplication zero sign is the operand-sign XOR. Overflow yields
+signed infinity. NaN operands and invalid infinity combinations produce the
+captured RK result 0x7c01; payloads and exception flags are not preserved or
+exposed. The RK capture also shows a SUB-only infinity quirk: same-sign
+infinities return +inf and opposite-sign infinities return NaN, unlike IEEE
+subtraction. MAX compares encoded binary16 order: a negative operand loses to a
+nonnegative one, equal-sign magnitudes choose the larger nonnegative or smaller
+negative value, and +0 wins over -0. These special-value results are bound to
+the captured cases in `build/rk3588-kernel-comparison-v1/`; they are not a
+complete silicon specification.
 
 `model/half.py` uses Python binary64 arithmetic followed by binary16 packing. Binary16 multiplication is exactly representable at binary64 precision; finite half addition fits the chosen reference precision as well. `model/half_datapath.cpp` uses integer alignment/rounding like the RTL and is checked against that independent oracle. C++ agreement does not prove correct SystemVerilog widths, handshake behavior or synthesis.
 

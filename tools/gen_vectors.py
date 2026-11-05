@@ -69,7 +69,7 @@ case('two_tasks', make_commands('ADD',8,A,B,D)+make_commands('MUL',8,D,B,A), blo
 raw = make_commands('ADD',32,A,B,D)
 for name, field, v, ec in (
     ('bad_width','width',8000,2), ('mismatched_width','rdma_width',0,6),
-    ('bad_fp32','data_format',0xa8000002,2), ('bad_max','ew_config',0x108002c0,2),
+    ('bad_fp32','data_format',0xa8000002,2), ('bad_fdiv','ew_config',0x108303c0,2),
     ('bad_chain','next_address',0x10008000,7), ('bad_alignment','dst',D+2,4),
     ('bad_overlap','dst',A+16,4), ('bad_end','dst',0xfffffff0,4)):
     case(name, mutate(raw,field,v), blobs(32), expected_error=ec, done=0)
@@ -110,6 +110,9 @@ for value in (8000, 0x2000, 0x10000):
 case('initialized_then_legacy',initialized_commands('ADD',33,A,B,D)+make_commands('MUL',8,D,B,A),blobs(33),done=2)
 case('legacy_then_initialized',make_commands('ADD',8,A,B,D)+initialized_commands('MUL',33,A,B,D),blobs(33),done=2)
 case('initialized_twice',initialized_commands('ADD',33,A,B,D)+initialized_commands('MUL',9,D,B,A),blobs(33),done=2)
+for n in (1, 7, 8, 9, 33):
+    case(f'max_{n}', make_commands('MAX',n,A,B,D), blobs(n))
+case('max_inplace', make_commands('MAX',33,A,B,A), blobs(33))
 # A no-effect first task allows the harness to check all memory remains unchanged
 # when a following partially reinitialized task fails. Completion is still real.
 zero = blobs(33)
@@ -127,7 +130,7 @@ rng.setstate(saved_rng_state)
 
 special = (0,0x8000,1,0x8001,0x03ff,0x0400,0x3bff,0x3c00,0x3c01,0x7bff,0xfbff,0x7c00,0xfc00,0x7d00,0x7e00)
 vectors=[]
-for opid, op in enumerate(('ADD','SUB','MUL')):
+for opid, op in enumerate(('ADD','SUB','MUL','MAX')):
     pairs = [(a,b) for a in special for b in special]
     pairs += [(rng.randrange(65536),rng.randrange(65536)) for _ in range(4096)]
     vectors += [(opid<<48)|(a<<32)|(b<<16)|alu(a,b,op) for a,b in pairs]

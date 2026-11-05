@@ -30,7 +30,7 @@ def check(a, b, op_id, name):
     if got != expected:
         raise AssertionError(f'{name}: {a:04x} {b:04x}: C++={got:04x} Python={expected:04x}')
     count += 1
-for op_id, name in enumerate(('ADD', 'SUB', 'MUL')):
+for op_id, name in enumerate(('ADD', 'SUB', 'MUL', 'MAX')):
     for a in special:
         for b in special:
             check(a, b, op_id, name)

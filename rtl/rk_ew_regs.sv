@@ -13,7 +13,7 @@ module rk_ew_regs #(
     input logic engine_error,
     output logic cfg_valid,
     input logic cfg_ready,
-    output logic [1:0] cfg_op,
+    output logic [2:0] cfg_op,
     output logic [16:0] cfg_count,
     output logic [31:0] cfg_a, cfg_b, cfg_dst,
     output logic [31:0] cfg_next_address, cfg_next_amount,
@@ -83,9 +83,10 @@ module rk_ew_regs #(
                     32'h10014070: begin // ew_config
                         seen[7] <= 1'b1;
                         case (value)
-                            32'h108202c0: cfg_op <= 2'd0;
-                            32'h108402c0: cfg_op <= 2'd1;
-                            32'h108003c4: cfg_op <= 2'd2;
+                            32'h108202c0: cfg_op <= 3'd0;
+                            32'h108402c0: cfg_op <= 3'd1;
+                            32'h108003c4: cfg_op <= 3'd2;
+                            32'h108002c0: cfg_op <= 3'd3;
                             default: begin error <= 1; error_code <= 8'd2; end
                         endcase
                     end

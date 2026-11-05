@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: MIT
 `timescale 1ns/1ps
-// Original, synthesis-oriented scalar binary16 ADD/SUB/MUL implementation.
-// Policy: round-to-nearest-even, gradual underflow, canonical quiet NaN 7e00.
-// This policy is not asserted to match every RK3588 special-value quirk.
+// Original, synthesis-oriented scalar binary16 ADD/SUB/MUL/MAX implementation.
+// Policy: round-to-nearest-even, gradual underflow, RK-captured NaN 7c01.
+// MAX uses IEEE maximum ordering, including +0 over -0. Captured RK behavior
+// also gives +0 for exact ADD/SUB cancellation and a SUB-only infinity quirk:
+// same-sign infinities return +inf, opposite-sign infinities return NaN.
 // The wide exact adder favors reviewability over Fmax/area. No real/shortreal,
 // DPI, vendor IP, or host arithmetic is present in the hardware datapath.
 module rk_fp16_alu (
@@ -10,7 +12,7 @@ module rk_fp16_alu (
     input  logic        rst_n,
     input  logic        in_valid,
     output logic        in_ready,
-    input  logic [1:0]  in_op, // 0 ADD, 1 SUB, 2 MUL; 3 is invalid
+    input  logic [2:0]  in_op, // 0 ADD, 1 SUB, 2 MUL, 3 MAX; 4..7 invalid
     input  logic [15:0] in_a,
     input  logic [15:0] in_b,
     output logic        out_valid,
@@ -66,7 +68,7 @@ module rk_fp16_alu (
     endfunction
 
     function automatic logic [15:0] calculate(
-        input logic [15:0] a, b, input logic [1:0] op
+        input logic [15:0] a, b, input logic [2:0] op
     );
         logic sa, sb, na, nb, ia, ib, za, zb, neg;
         logic [10:0] ma, mb;
@@ -94,17 +96,22 @@ module rk_fp16_alu (
             total = va + vb;
             neg = total[41];
             magnitude = neg ? $unsigned(-total) : $unsigned(total);
-            if (na || nb || op == 3) calculate = 16'h7e00;
-            else if (op == 2) begin
-                if ((ia && zb) || (ib && za)) calculate = 16'h7e00;
+            if (na || nb || op > 3) calculate = 16'h7c01;
+            else if (op == 3) begin
+                if (sa != sb) calculate = sa ? b : a;
+                else if (!sa) calculate = ({a[14:0]} >= {b[14:0]}) ? a : b;
+                else calculate = ({a[14:0]} <= {b[14:0]}) ? a : b;
+            end else if (op == 2) begin
+                if ((ia && zb) || (ib && za)) calculate = 16'h7c01;
                 else if (ia || ib) calculate = {sa ^ sb, 5'h1f, 10'b0};
                 else calculate = pack_half(sa ^ sb, {42'b0, product}, ea + eb - 50);
             end else begin
-                if (ia && ib && (sa != sb)) calculate = 16'h7e00;
-                else if (ia) calculate = {sa, 5'h1f, 10'b0};
+                if (ia && ib) begin
+                    if (op == 1) calculate = (sa != sb) ? 16'h7c00 : 16'h7c01;
+                    else calculate = (sa == sb) ? {sa, 5'h1f, 10'b0} : 16'h7c01;
+                end else if (ia) calculate = {sa, 5'h1f, 10'b0};
                 else if (ib) calculate = {sb, 5'h1f, 10'b0};
-                else if (magnitude == 0)
-                    calculate = {(sa && sb), 15'b0};
+                else if (magnitude == 0) calculate = 16'b0;
                 else calculate = pack_half(neg, {22'b0, magnitude}, -24);
             end
         end

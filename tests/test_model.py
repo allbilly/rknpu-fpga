@@ -72,7 +72,29 @@ class ProfileTests(unittest.TestCase):
     def test_unsupported_precision_and_op(self):
         base = make_commands('ADD', 8, A, B, D)
         self.assert_rejected(change(base, 'data_format', 0xa8000002), 2)
-        self.assert_rejected(change(base, 'ew_config', 0x108002c0), 2)  # MAX not implemented
+        self.assert_rejected(change(base, 'ew_config', 0x108303c0), 2)  # FDIV not implemented
+
+    def test_max_special_values(self):
+        # +0 wins over -0; equal signs choose the larger value.
+        self.assertEqual(alu(0x8000, 0x0000, 'MAX'), 0x0000)
+        self.assertEqual(alu(0x0000, 0x8000, 'MAX'), 0x0000)
+        self.assertEqual(alu(0x8000, 0x8000, 'MAX'), 0x8000)
+        self.assertEqual(alu(0xbc00, 0xc000, 'MAX'), 0xbc00)
+        self.assertEqual(alu(0xc000, 0xbc00, 'MAX'), 0xbc00)
+        self.assertEqual(alu(0xfc00, 0x7bff, 'MAX'), 0x7bff)
+        self.assertEqual(alu(0x7e00, 0x3c00, 'MAX'), 0x7c01)
+
+    def test_captured_rk_special_values(self):
+        # Real RK3588 Rocket captures: NaN results use 0x7c01, exact
+        # ADD/SUB cancellation is +0, and SUB has a non-IEEE infinity quirk.
+        for op in ('ADD', 'SUB', 'MUL', 'MAX'):
+            with self.subTest(op=op):
+                self.assertEqual(alu(0x7e00, 0x3c00, op), 0x7c01)
+        self.assertEqual(alu(0x8000, 0x8000, 'ADD'), 0x0000)
+        self.assertEqual(alu(0x8000, 0x0000, 'SUB'), 0x0000)
+        self.assertEqual(alu(0xfc00, 0xfc00, 'SUB'), 0x7c00)
+        self.assertEqual(alu(0x7c00, 0xfc00, 'SUB'), 0x7c01)
+        self.assertEqual(alu(0xfc00, 0x0000, 'MUL'), 0x7c01)
 
     def test_dimension_errors(self):
         base = make_commands('ADD', 16, A, B, D)

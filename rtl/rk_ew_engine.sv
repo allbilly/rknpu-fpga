@@ -10,7 +10,7 @@ module rk_ew_engine #(
     input logic clk, rst_n,
     input logic cfg_valid,
     output logic cfg_ready,
-    input logic [1:0] cfg_op,
+    input logic [2:0] cfg_op,
     input logic [16:0] cfg_count,
     input logic [31:0] cfg_a, cfg_b, cfg_dst,
     output logic busy, done, error,
@@ -31,7 +31,7 @@ module rk_ew_engine #(
     state_t state;
     logic [31:0] a_addr, b_addr, dst_addr;
     logic [16:0] remaining;
-    logic [1:0] op;
+    logic [2:0] op;
     logic [15:0] a_value, b_value, result;
     logic alu_in_valid, alu_in_ready, alu_out_valid, alu_out_ready;
     logic [15:0] alu_result;
@@ -81,7 +81,7 @@ module rk_ew_engine #(
             else stalled_cycles <= stalled_cycles + 1;
             case (state)
                 IDLE: if (cfg_valid && cfg_ready) begin
-                    if ((cfg_count == 0) || (cfg_count > 64000) || (cfg_op == 3)) begin
+                    if ((cfg_count == 0) || (cfg_count > 64000) || (cfg_op > 3'd3)) begin
                         error <= 1; error_code <= 8'd6;
                     end else begin
                         a_addr <= cfg_a; b_addr <= cfg_b; dst_addr <= cfg_dst;

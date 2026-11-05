@@ -26,7 +26,7 @@ module rk_ew_regs #(
     input logic engine_error,
     output logic cfg_valid,
     input logic cfg_ready,
-    output logic [1:0] cfg_op,
+    output logic [2:0] cfg_op,
     output logic [16:0] cfg_count,
     output logic [31:0] cfg_a, cfg_b, cfg_dst,
     output logic [31:0] cfg_next_address, cfg_next_amount,
@@ -83,8 +83,8 @@ for i, (target, addr, name, fixed) in enumerate(REGISTERS + INITIALIZATION_REGIS
     elif name == 'ew_config':
         lines.append('                        case (value)\n')
         for op, v in OPS.items():
-            opid = {'ADD': 0, 'SUB': 1, 'MUL': 2}[op]
-            lines.append(f"                            32'h{v:08x}: cfg_op <= 2'd{opid};\n")
+            opid = {'ADD': 0, 'SUB': 1, 'MUL': 2, 'MAX': 3}[op]
+            lines.append(f"                            32'h{v:08x}: cfg_op <= 3'd{opid};\n")
         lines.append("                            default: begin error <= 1; error_code <= 8'd2; end\n                        endcase\n")
     else:
         out = {'src_a': 'cfg_a', 'src_b': 'cfg_b', 'dst': 'cfg_dst'}[name]
