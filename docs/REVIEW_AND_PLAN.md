@@ -210,8 +210,20 @@ placement alone. The SYS-reset `place.tcl` and `route.tcl` now reproduce the
 baseline sequence exactly, with the audited SYS/UI bridge CDC constraints
 applied before placement and the initial route preserved before any corrective
 pass. A CDC-fixed, BIST-split synthesis passed the resource gate at **297,638
-post-opt LUTs**; a corrected-flow baseline control and the SYS placement/route
-are running. No accepted timing, DRC, image or hardware result is claimed. No accepted
+post-opt LUTs**. The corrected baseline sequence then closed timing on the
+SYS-reset netlist: initial route **−0.355 ns**, corrective route **−0.066 ns**
+(3 recovery endpoints), repair **−0.066 ns**, and a final `route_design
+-directive AggressiveExplore` reached **WNS +0.030 ns / TNS 0, WHS +0.055 ns,
+WPWS +0.264 ns**, 0 failing endpoints, DRC inventory unchanged, fully routed.
+That candidate (`post_route_aggr.dcp` `e0c09038…`, 292,093 routed LUTs) is
+preserved but **not accepted**: `report_cdc` showed +1 CDC-7 and +2 CDC-10
+criticals versus the baseline, all in the selected bridge's mixed reset
+domains. The bridge now takes a UI clock-local `ui_power_rst_n` for UI flops;
+the SYS readiness chain keeps the tested immediate client-reset invalidation,
+which is structurally audited and false-pathed by `bridge_levels_sys.tcl`. The
+bridge still passes Icarus 102 / Verilator 77 component checks. A fresh
+synthesis (`24f23fe7…`, 297,640 post-opt LUTs) and the corrected
+placement/route are running. No image or hardware result is claimed. No accepted
 timing, DRC, image or hardware result is claimed. A clearly labeled measurement run skipped
 only that post-opt heuristic, recorded the 572-LUT overage, and wrote checkpoint
 `03427983…` at 299,172 post-opt LUTs. The adapted SYS/UI bridge helper now
