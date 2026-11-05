@@ -165,10 +165,13 @@ inner mailbox already resets `req_valid`, so the wide payload gate is
 unnecessary. The lean mailbox passes the 55-check retained mailbox/gate/controller test on
 Icarus and Verilator. Default synthesis with the lean mailbox measured
 **299,172 post-opt LUTs**, 572 over the 298,600 pre-placement heuristic but
-620 below the pre-lean result. A clearly labeled measurement run now skips
-only that post-opt heuristic, records the overage, and writes the checkpoint;
-the actual placed/routed utilization remains the device-fit gate. No timing,
-DRC, image or hardware result is claimed. The top-level `normal_shell_started_sync` chain
+620 below the pre-lean result. A clearly labeled measurement run skipped
+only that post-opt heuristic, recorded the 572-LUT overage, and wrote checkpoint
+`03427983…` at 299,172 post-opt LUTs. The adapted SYS/UI bridge helper now
+passes on that exact checkpoint, and placement/route is running with the
+retained USER2/USER3 and bridge CDC constraints. The actual placed/routed
+utilization remains the device-fit gate. No timing, DRC, image or hardware
+result is claimed yet. The top-level `normal_shell_started_sync` chain
 was also given the `ASYNC_REG`/`SHREG_EXTRACT` attributes required by the SYS/UI
 bridge constraint helper, and a fresh checkpoint with that attribute is being
 synthesized. No accepted routed timing, DRC, image or hardware result is
