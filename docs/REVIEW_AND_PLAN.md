@@ -199,11 +199,19 @@ from the SYS-domain startup reset. The gate now uses the UI clock-local
 mailbox keeps the SYS startup and the USER2 mailbox keeps the UI startup. The
 55-check retained mailbox/gate integration test still passes on Icarus with the
 package bytes, the static profile check passes at 185 files / 5 changed / 7
-added, and Verilator top elaboration passes. A baseline-control experiment (exact
-baseline `post_opt.dcp` through the same fresh place/route flow) is also
-running to determine whether the baseline's +0.001 ns came from its repaired
-route rather than fresh placement. A fresh synthesis with the gate reset fix
-follows. No accepted timing, DRC, image or hardware result is claimed. No accepted
+added, and Verilator top elaboration passes. The baseline-control experiment finished and invalidated the
+implementation recipe, not the RTL: the exact baseline `post_opt.dcp` through
+our `place Explore -> phys_opt AggressiveExplore -> route MoreGlobalIterations`
+flow routed at **WNS −0.437 ns** (hold +0.049, pulse +0.264), whereas the
+accepted baseline came from `place Explore -> phys_opt Explore -> route
+Explore -> conditional post-route phys_opt AggressiveExplore + reroute`. The
+baseline's +0.001 ns therefore depends on that sequence, not on fresh Explore
+placement alone. The SYS-reset `place.tcl` and `route.tcl` now reproduce the
+baseline sequence exactly, with the audited SYS/UI bridge CDC constraints
+applied before placement and the initial route preserved before any corrective
+pass. A CDC-fixed, BIST-split synthesis passed the resource gate at **297,638
+post-opt LUTs**; a corrected-flow baseline control and the SYS placement/route
+are running. No accepted timing, DRC, image or hardware result is claimed. No accepted
 timing, DRC, image or hardware result is claimed. A clearly labeled measurement run skipped
 only that post-opt heuristic, recorded the 572-LUT overage, and wrote checkpoint
 `03427983…` at 299,172 post-opt LUTs. The adapted SYS/UI bridge helper now
