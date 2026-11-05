@@ -162,8 +162,10 @@ version. The valid `AreaOptimized_medium` synthesis produced a
 ≈−1.56 ns, so that netlist is not a timing path. The next candidate removes a
 redundant 604-bit `power_rst_n` payload gate from each retained mailbox; the
 inner mailbox already resets `req_valid`, so the wide payload gate is
-unnecessary. A default-synthesis run with the lean mailbox is measuring
-whether that recovers the 1,192-LUT overage without losing baseline timing. The top-level `normal_shell_started_sync` chain
+unnecessary. The lean mailbox passes the 55-check retained mailbox/gate/controller test on
+Icarus and Verilator. A default-synthesis run with the lean mailbox is
+measuring whether that recovers the 1,192-LUT overage without losing baseline
+timing. The top-level `normal_shell_started_sync` chain
 was also given the `ASYNC_REG`/`SHREG_EXTRACT` attributes required by the SYS/UI
 bridge constraint helper, and a fresh checkpoint with that attribute is being
 synthesized. No accepted routed timing, DRC, image or hardware result is
