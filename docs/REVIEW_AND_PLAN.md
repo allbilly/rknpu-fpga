@@ -170,7 +170,8 @@ SYS-reset profile now compiles out the host-triggered capacity BIST only
 (~963 LUTs) while retaining the capacity owner/service for normal admission
 and drain. A BIST START in this profile faults explicitly; the qualified
 2 GiB BIST remains on the separate `1ca5ae19` capacity image. Default
-synthesis of this split is running. A clearly labeled measurement run skipped
+synthesis of this split passed the resource gate at **297,990 post-opt
+LUTs** (checkpoint `650b02b1…`), and placement/route is running. A clearly labeled measurement run skipped
 only that post-opt heuristic, recorded the 572-LUT overage, and wrote checkpoint
 `03427983…` at 299,172 post-opt LUTs. The adapted SYS/UI bridge helper now
 passes on that exact checkpoint, and placement/route is running with the
