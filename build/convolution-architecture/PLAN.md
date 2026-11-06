@@ -678,6 +678,13 @@ receipt are `build/convolution-first-case/post-main-merge/make-test.log` and
 `make-test.rc`. This remains simulation evidence, not full-top or physical
 qualification.
 
+After integration as main commit `6a40c18`, the focused `make
+conv-first-case-test` target was rerun on main and passed with exit code 0;
+both simulators again passed all 11 modes with all 28 source/fixture hashes
+matching. Its mainline report and command log are
+`build/convolution-first-case/report.json` and
+`build/convolution-first-case/post-main-merge/main-integration-focused.log`.
+
 ### Gate 2: stride and padding (first spatial skeleton)
 
 Scope:

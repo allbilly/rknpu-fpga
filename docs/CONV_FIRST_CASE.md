@@ -55,6 +55,14 @@ expected sources and the full `make test` passed with exit code 0, including
 and exit receipt are `build/convolution-first-case/post-main-merge/make-test.log`
 and `make-test.rc`.
 
+After the slice was merged into main as `6a40c18`, `make conv-first-case-test`
+was rerun on that exact main revision and passed with exit code 0. Icarus and
+Verilator each passed all 11 modes, all 28 source/fixture hashes matched, and
+the raw-mode result remained 54 commands, 264 reads and 200 writes. The fresh
+mainline report is `build/convolution-first-case/report.json`; command output
+and exit receipt are in `post-main-merge/main-integration-focused.log` and
+`main-integration-focused.rc`.
+
 The full-BO comparison seeds the model's output allocation from the captured
 1600-byte post-run BO and requires exact equality after execution. Capture
 provenance says only plane 0 (400 bytes) is defined; planes 1..3 are preserved
