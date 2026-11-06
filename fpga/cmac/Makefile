@@ -77,6 +77,9 @@ array-dsp-vivado:
 	cd $(ROOT) && $(PYTHON) tools/cmac/vivado_dsp_array.py run --area-report "$(AREA_REPORT)" --native-report "$(NATIVE_REPORT)" --board-report "$(BOARD_REPORT)" --mapped-report "$(MAPPED_REPORT)"
 ATOMIC_C ?= 32
 ATOMIC_K ?= 16
+# K16 is the reference profile. ARRAY_PROFILE=framework selects the tracked
+# two-stage DSP-prefix CMAC chain; legacy selects the original combinational one.
+ARRAY_PROFILE ?= legacy
 .PHONY: cmac-vectors cmac-test cmac-stream-test cmac-nvdla-model cmac-nvdla-rtl cmac-map cmac-mapped-test
 cmac-vectors:
 	cd $(ROOT) && { test -f build/rknpu-cmac-array/c$(ATOMIC_C)k$(ATOMIC_K)/vectors_report.json || $(PYTHON) tools/cmac/gen_array_vectors.py --channels $(ATOMIC_C) --kernels $(ATOMIC_K); }
@@ -110,14 +113,18 @@ cmac-hier-o2-test:
 	cd $(ROOT) && $(PYTHON) tools/cmac/rebuild_hier_array.py --source-report "$(SOURCE_REPORT)"
 cmac-mapped-test:
 	cd $(ROOT) && $(PYTHON) tools/cmac/test_mapped_array.py --mapping-report "$(MAPPING_REPORT)" --native-report "$(NATIVE_REPORT)" --suite $(or $(SUITE),smoke)
-.PHONY: cacc-array-vectors cacc-array-test cmac-cacc-test
+.PHONY: cacc-array-vectors cacc-array-test cmac-cacc-test cmac-k8-lower-slice-vectors cmac-k8-lower-slice-test
 cacc-array-vectors:
 	cd $(ROOT) && { test -f build/rknpu-cmac-array/c32k16/vectors_report.json || $(PYTHON) tools/cmac/gen_array_vectors.py --channels 32 --kernels 16; }
 	cd $(ROOT) && { test -f build/rknpu-cacc-array/c32k16/vectors_report.json || $(PYTHON) tools/cmac/gen_cacc_array_vectors.py; }
 cacc-array-test: cacc-array-vectors
 	cd $(ROOT) && $(PYTHON) tools/cmac/test_cacc_array.py --tool $(TOOL)
 cmac-cacc-test: cacc-array-vectors
-	cd $(ROOT) && $(PYTHON) tools/cmac/test_cmac_cacc.py --kernels $(ATOMIC_K)
+	cd $(ROOT) && $(PYTHON) tools/cmac/test_cmac_cacc.py --kernels $(ATOMIC_K) --array $(ARRAY_PROFILE)
+cmac-k8-lower-slice-vectors: cacc-array-vectors
+	cd $(ROOT) && { test -f build/rknpu-cmac-array/c32k8-lower-slice/vectors_report.json || $(PYTHON) tools/cmac/gen_cmac_array_vectors_k8.py; }
+cmac-k8-lower-slice-test: cmac-k8-lower-slice-vectors
+	cd $(ROOT) && $(PYTHON) tools/cmac/test_cmac_k8_lower_slice.py --tool $(TOOL)
 .PHONY: frame-output-vectors frame-output-test array-datapath-test
 frame-output-vectors: cacc-array-vectors
 	cd $(ROOT) && { test -f build/rknpu-frame-output/vectors_report.json || $(PYTHON) tools/cmac/gen_frame_output_vectors.py; }

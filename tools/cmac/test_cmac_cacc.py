@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the connected FP16 CMAC/CACC array without changing raw-core tests."""
+"""Run the connected FP16 CMAC/CACC array at K=1, 8 or 16 without changing raw-core tests."""
 import argparse
 import hashlib
 import json
@@ -10,7 +10,9 @@ import time
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from evidence import ROOT, fingerprint, timestamp
 p = argparse.ArgumentParser(description=__doc__)
-p.add_argument('--kernels', type=int, choices=(1, 16), default=1)
+p.add_argument('--kernels', type=int, choices=(1, 8, 16), default=1)
+p.add_argument('--array', choices=('legacy', 'framework'), default='legacy',
+               help='legacy: rtl/cmac combinational CMAC; framework: selected two-stage DSP-prefix CMAC')
 a = p.parse_args()
 cmac = ROOT / 'build/rknpu-cmac-array/c32k16'
 cacc = ROOT / 'build/rknpu-cacc-array/c32k16'
@@ -23,17 +25,29 @@ for vr in manifests:
     verify(vr['artifacts'])
 assert manifests[0]['frames'] == manifests[1]['frames']
 donor = ROOT / 'rtl/vendor/nvdla'
-sources = [donor / n for n in ('compat/nv_assert_never.v', 'compat/nv_assert_no_x.v', 'compat/NV_DW_lsd.v',
-                               'NV_DW02_tree.v', 'NV_NVDLA_CMAC_CORE_MAC_mul.v', 'NV_NVDLA_CACC_CALC_fp_48b.v')]
-sources += [ROOT / 'rtl/cmac' / n for n in ('rk_cmac_fp16_cell.sv', 'rk_cmac_fp16_array.sv', 'rk_nvdla_cacc.sv',
-                                         'rk_cacc_fp16_array.sv', 'rk_cmac_cacc_fp16_array.sv')]
+if a.array == 'framework':
+    sources = [donor / n for n in ('compat/nv_assert_never.v', 'compat/nv_assert_no_x.v', 'compat/NV_DW_lsd.v',
+                                   'NV_DW02_tree.v', 'NV_NVDLA_CMAC_CORE_MAC_mul.v', 'NV_NVDLA_CACC_CALC_fp_48b.v')]
+    sources += [ROOT / 'rtl/ddr/framework' / n for n in ('rk_cmac_cacc_fp16_array.sv',
+                  'rk_cmac_fp16_array_dsp_prefix_pipe.sv', 'rk_cmac_fp16_shared_data.sv',
+                  'rk_cmac_fp16_cell_dsp_prefix_pipe.sv')]
+    sources += [ROOT / 'rtl/cmac/experimental' / n for n in ('rk_cmac_fp16_rows.sv',
+                  'rk_cmac_fp16_discarded_carry.sv', 'rk_cmac_fp16_lane_dsp_prefix.sv')]
+    sources += [ROOT / 'rtl/cmac' / n for n in ('rk_nvdla_cacc.sv', 'rk_cacc_fp16_array.sv')]
+else:
+    sources = [donor / n for n in ('compat/nv_assert_never.v', 'compat/nv_assert_no_x.v', 'compat/NV_DW_lsd.v',
+                                   'NV_DW02_tree.v', 'NV_NVDLA_CMAC_CORE_MAC_mul.v', 'NV_NVDLA_CACC_CALC_fp_48b.v')]
+    sources += [ROOT / 'rtl/cmac' / n for n in ('rk_cmac_fp16_cell.sv', 'rk_cmac_fp16_array.sv', 'rk_nvdla_cacc.sv',
+                                             'rk_cacc_fp16_array.sv', 'rk_cmac_cacc_fp16_array.sv')]
 bench = ROOT / 'tests/cmac/tb_cmac_cacc_fp16_array.sv'
 tracked = sources + [bench, Path(__file__).resolve()]
 tracked += [donor / n for n in ('nv_assert_never.vlib', 'nv_assert_no_x.vlib', 'assertion_header.h', 'assertion_task.h')]
 tracked += [base / name for base in (cmac, cacc) for name in ('vectors.hex', 'vectors_report.json')]
-out = ROOT / f'build/rknpu-cmac-cacc-array/c32k{a.kernels}/iverilog-{time.time_ns()}'
+tag = 'framework-' if a.array == 'framework' else ''
+out = ROOT / f'build/rknpu-cmac-cacc-array/c32k{a.kernels}/{tag}iverilog-{time.time_ns()}'
 out.mkdir(parents=True, exist_ok=False)
-report = dict(status='RUNNING', started_utc=timestamp(), kernels=a.kernels, source=fingerprint(tracked), commands=[],
+report = dict(status='RUNNING', started_utc=timestamp(), kernels=a.kernels, array=a.array,
+              lower_slice_bits=a.kernels*32, source=fingerprint(tracked), commands=[],
               seed='0x3588cc16', scope='Connected CMAC/CACC internal FP16-to-FP32 pipeline only. No raw command, final FP16 writer, FPGA or RK proof.')
 for path in tracked:
     dest = out / 'snapshot' / path.relative_to(ROOT)

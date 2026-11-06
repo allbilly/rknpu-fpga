@@ -65,7 +65,9 @@ module tb_cmac_cacc_fp16_array #(parameter integer ATOMIC_K=1);
         @(negedge clk);out_ready=0;outputs=outputs+ATOMIC_K;
     endtask
     initial begin
-        if(ATOMIC_K!=1&&ATOMIC_K!=16) $fatal(1,"unsupported test K");
+        // K16 is the reference profile; K8 is the reduced arithmetic profile.
+        // K1 remains the original reduced-kernel seam check.
+        if(ATOMIC_K!=1&&ATOMIC_K!=8&&ATOMIC_K!=16) $fatal(1,"unsupported test K");
         if(!$value$plusargs("CMAC=%s",cmac_path)||!$value$plusargs("CACC=%s",cacc_path)||!$value$plusargs("COUNT=%d",count)) $fatal(1,"missing vectors");
         if(count<1||count>512) $fatal(1,"invalid count");
         $readmemh(cmac_path,cmac_vectors,0,count-1);$readmemh(cacc_path,cacc_vectors,0,count-1);
