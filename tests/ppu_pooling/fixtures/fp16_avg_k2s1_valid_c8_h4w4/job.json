@@ -1,0 +1,39 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "in.bin",
+      "name": "in",
+      "size": 4096
+    },
+    {
+      "direction": "inout",
+      "input": "out_init.bin",
+      "name": "out",
+      "output": "out.bin",
+      "size": 4096
+    }
+  ],
+  "case": "fp16_avg_k2s1_valid_c8_h4w4",
+  "description": "FP16 average pooling, 2x2 kernel, stride 1, no padding, C8 H4 W4 -> H3 W3; FP17 reciprocals 1/2; fractional means exercise FP16 output rounding.",
+  "patches": [
+    {
+      "buffer": "out",
+      "kind": "value32",
+      "regcmd_index": 15
+    },
+    {
+      "buffer": "in",
+      "kind": "value32",
+      "regcmd_index": 22
+    }
+  ],
+  "source_example": "/home/fedora/rk3588/examples/expt/pooling.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 28
+    }
+  ],
+  "timeout_ns": 6000000000
+}

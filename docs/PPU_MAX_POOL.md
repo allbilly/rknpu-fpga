@@ -1,18 +1,21 @@
 # Standalone PPU FP16 max-pooling increment
 
-Status: **two bounded capture candidates, simulation-only**. The pre-existing
-RK3588 capture is only fixture evidence: no board was accessed for this RTL
+Status: **two max-pool and one separate average capture candidates,
+simulation-only**. The pre-existing RK3588 capture is only fixture evidence:
+no board was accessed for this RTL
 increment, no bitstream was built, no Vivado full-top implementation was run
 and no FPGA execution is claimed.
 
-The first leaf implements only FP16 maximum pooling with a 2x2 kernel, stride 1,
-valid padding, eight channels per 16-byte C1HWC2 atom. The next isolated leaf
+The first two leaves implement only FP16 maximum pooling with a 2x2 kernel,
+stride 1, valid padding, eight channels per 16-byte C1HWC2 atom. The next isolated leaf
 replays exactly one separate capture with a 2x2 kernel, stride 1, one-cell
 padding, C8 H2 W2 negative input and captured `-infinity` padding. They are
 independent of the NVDLA PDP. No mode/register decoder, DMA, AXI memory path or
-full-top integration connects either leaf; unsupported pooling modes are not
-admitted. Neither leaf implements average/min/global pooling, `INDEX_EN`,
-convolution or any CMAC/K8 change.
+full-top integration connects these leaves; unsupported pooling modes are not
+admitted. A separate [capture-bounded FP16 average leaf](PPU_AVERAGE.md) covers
+only `fp16_avg_k2s1_valid_c8_h4w4`; it does not generalize to another average
+mode, shape, rounding policy or PPU integration. These leaves do not implement
+`INDEX_EN`, convolution or any CMAC/K8 change.
 
 ## Evidence and scope
 
@@ -96,9 +99,9 @@ tail differences. Reports, compile/run logs and observed BOs are in
 source/fixture hashes, tool version, seeds `0x3588` / `0x600d` and
 `hardware_accessed=false`.
 
-This is one isolated datapath candidate, not PPU mode admission. No other
-padding configuration, shape, stride, kernel, data class, index mode, average,
-minimum or global pooling operation is connected to or admitted by this leaf.
+Each max leaf is an isolated datapath candidate, not PPU mode admission. No other
+padding configuration, shape, stride, kernel, data class, index mode, minimum
+or global pooling operation is connected to or admitted by these max leaves.
 There is no register decode or silent-ignore path: those interfaces do not
 exist here and must be separately designed with source evidence, explicit
 unsupported-field failures and tests before integration.
@@ -239,6 +242,9 @@ make ppu-max-four-state-test   # Icarus Verilog
 make ppu-max-test              # Verilator
 make ppu-max-pad1-four-state-test # Icarus Verilog, exact padded device capture
 make ppu-max-pad1-test            # Verilator, exact padded device capture
+make ppu-avg-contract-test         # strict shape/mode rejection controls
+make ppu-avg-test                  # Verilator, one capture-bounded FP16 average case
+make ppu-avg-four-state-test       # Icarus, same FP16 average case
 make ppu-max-lint
 ```
 
@@ -249,6 +255,8 @@ python3 tools/ppu/run_pool_max.py --simulator iverilog
 python3 tools/ppu/run_pool_max.py --simulator verilator
 python3 tools/ppu/run_pool_pad1.py --simulator iverilog
 python3 tools/ppu/run_pool_pad1.py --simulator verilator
+python3 tools/ppu/run_pool_avg.py --simulator iverilog
+python3 tools/ppu/run_pool_avg.py --simulator verilator
 ```
 
 Each run writes `report.json`, compile/run logs and observed BOs. Reports are
@@ -259,8 +267,9 @@ scoped to simulation; they set `hardware_accessed=false`,
 
 Not implemented or not qualified by this increment:
 
-- average, minimum and global pooling; reciprocals, `use_cnt` and their
-  rounding policy;
+- average outside the one source- and capture-bounded case documented in
+  [PPU_AVERAGE.md](PPU_AVERAGE.md), minimum and global pooling; other
+  reciprocals, `use_cnt` values and rounding policies;
 - `INDEX_EN` metadata, including the index region and position-tracking rules;
 - padding modes other than the one captured pad-1 case above, non-unit/other
   strides, kernels other than 2x2, output upsampling, notches and arbitrary
