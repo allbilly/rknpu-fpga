@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 `timescale 1ns/1ps
-module tb_cmac_array_dma;
+module tb_cmac_array_dma #(parameter integer ATOMIC_C=32,parameter integer ATOMIC_K=16);
     logic clk,rst_n=0,start_valid=0;
     logic [31:0] start_address=32'h100e0000,start_amount=45;
     logic [63:0] commands[0:48];
@@ -25,7 +25,7 @@ module tb_cmac_array_dma;
     assign mem_rsp_valid=rst_n&&pending&&delay_left==0&&mode!=4;
     assign mem_rsp_rdata=response_data;
     assign mem_rsp_error=pending_error;
-    rk_cmac_array_dma #(.TIMEOUT_CYCLES(128)) dut(.*);
+    rk_cmac_array_dma #(.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K),.TIMEOUT_CYCLES(128)) dut(.*);
     always @(posedge clk or negedge rst_n) begin: memory_slave
         logic response_fire,expected_ack,expected_frame,expected_done;
         logic [15:0] read_value;
@@ -47,7 +47,7 @@ module tb_cmac_array_dma;
             end
             response_fire=mem_rsp_valid&&mem_rsp_ready;
             expected_ack=response_fire&&pending_write&&!pending_error;
-            expected_frame=expected_ack&&write_responses%16==15;
+            expected_frame=expected_ack&&write_responses%ATOMIC_K==ATOMIC_K-1;
             expected_done=expected_frame&&write_responses==write_count-1;
             if(mem_req_valid&&mem_req_ready) begin
                 if(pending||mem_req_addr[0]) $fatal(1,"invalid request ownership/alignment");
@@ -129,7 +129,7 @@ module tb_cmac_array_dma;
             $fatal(1,"raw replay simulation-cycle watchdog");
         end
         repeat(8) begin tick();if(error||busy||done||mem_req_valid||!start_ready) $fatal(1,"raw replay failed to drain");end
-        if(command_requests!=196||command_responses!=196||command_handshakes!=49||read_requests!=read_count||read_responses!=read_count||write_requests!=write_count||write_responses!=write_count||acks!=write_count||jobs!=1||frames!=write_count/16)
+        if(command_requests!=196||command_responses!=196||command_handshakes!=49||read_requests!=read_count||read_responses!=read_count||write_requests!=write_count||write_responses!=write_count||acks!=write_count||jobs!=1||frames!=write_count/ATOMIC_K)
             $fatal(1,"raw replay transaction counts");
         for(integer i=0;i<2048;i=i+1) begin
             if(i<rows*ao*2&&i%32<16) begin
@@ -150,7 +150,8 @@ module tb_cmac_array_dma;
     initial begin
         if(!$value$plusargs("DIRECTORY=%s",directory)||!$value$plusargs("MODE=%d",mode)||!$value$plusargs("ROWS=%d",rows)||
            !$value$plusargs("AI=%d",ai)||!$value$plusargs("AO=%d",ao)||!$value$plusargs("READS=%d",read_count)||!$value$plusargs("WRITES=%d",write_count)) $fatal(1,"missing corpus");
-        if(rows<1||ai<32||ao<32||rows*ai>1024||ai*ao>8192||rows*ao*2>2048||read_count<1||read_count>16384||write_count<1||write_count>1024||mode<0||mode>15) $fatal(1,"invalid corpus or mode");
+        if(ATOMIC_C!=32||(ATOMIC_K!=8&&ATOMIC_K!=16)) $fatal(1,"unsupported DMA atomic geometry");
+        if(rows<1||ai<32||ao<32||rows*ai>1024||ai*ao>8192||rows*ao*2>2048||read_count<1||read_count>16384||write_count<1||write_count>1024||write_count%ATOMIC_K!=0||mode<0||mode>15) $fatal(1,"invalid corpus or mode");
         $readmemh({directory,"/commands.hex"},commands,0,48);
         $readmemh({directory,"/input.hex"},input_memory,0,rows*ai-1);
         $readmemh({directory,"/weight.hex"},weight_memory,0,ai*ao-1);
@@ -179,14 +180,14 @@ module tb_cmac_array_dma;
                          mode==8||mode==13 ? 8'd3 :
                          mode>=10&&mode<=12 ? 8'd7 : 8'd8);
             if(mode==2&&(command_requests!=196||read_requests!=read_count||
-                         write_requests!=write_count||acks!=write_count-1||frames!=write_count/16-1))
+                         write_requests!=write_count||acks!=write_count-1||frames!=write_count/ATOMIC_K-1))
                 $fatal(1,"failed final write counted as completion");
             if(mode!=2&&(write_requests!=0||acks!=0||frames!=0))
                 $fatal(1,"early DMA fault produced output");
             if(mode>=10&&mode<=12&&(command_requests!=0||read_requests!=0))
                 $fatal(1,"invalid descriptor performed memory access");
         end
-        $display("PASS DMA C32 K16 core mode=%0d command_reads=%0d command_words=%0d reads=%0d writes=%0d acknowledgments=%0d jobs=%0d seed=3588ad16",mode,command_requests,command_handshakes,read_requests,write_requests,acks,jobs);
+        $display("PASS DMA C32 K%0d core mode=%0d command_reads=%0d command_words=%0d reads=%0d writes=%0d acknowledgments=%0d jobs=%0d seed=3588ad16",ATOMIC_K,mode,command_requests,command_handshakes,read_requests,write_requests,acks,jobs);
         $finish;
     end
     initial begin #10000000;$fatal(1,"raw core watchdog");end

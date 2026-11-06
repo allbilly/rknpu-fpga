@@ -131,7 +131,12 @@ leaves the following untouched:
 - `rtl/rk_cmac_profile.sv` and the logical host kernel-group field
   `0x10014024=16`;
 - backend `(N/8, K/32, 8, 32)` packing and OC8 output-atom placement;
-- DMA amount/tail audit for the K8 frame format;
+- DMA amount/tail audit beyond the single unchanged-amount case now covered by
+  [CMAC_K8_CORE.md](CMAC_K8_CORE.md);
 - real conv-simple/conv-fp16/conv-gemm/GEMM capture replay;
 - full-top synthesis, placement, route, timing, DRC, bitstream, board and RK
   execution.
+
+The later core/DMA/AXI parameter increment is recorded in
+[CMAC_K8_CORE.md](CMAC_K8_CORE.md); it does not expand this arithmetic
+increment's scope.

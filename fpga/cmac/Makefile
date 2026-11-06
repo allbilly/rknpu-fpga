@@ -155,9 +155,11 @@ array-core-model: array-core-vectors
 .PHONY: array-core-replay
 array-core-replay:
 	cd $(ROOT) && $(PYTHON) tools/cmac/replay_array_core.py --compiled-report "$(COMPILED_REPORT)" --suite $(or $(SUITE),full)
-.PHONY: array-dma-test array-dma-replay
+.PHONY: array-dma-test array-dma-k8-test array-dma-replay
 array-dma-test: array-core-vectors
 	cd $(ROOT) && $(PYTHON) tools/cmac/test_array_dma.py --suite $(or $(SUITE),smoke)
+array-dma-k8-test: array-core-k8-vectors
+	cd $(ROOT) && $(PYTHON) tools/cmac/test_array_dma_k8.py --suite $(or $(SUITE),protocol)
 array-dma-replay:
 	cd $(ROOT) && $(PYTHON) tools/cmac/replay_array_dma.py --compiled-report "$(COMPILED_REPORT)" --suite $(or $(SUITE),protocol)
 .PHONY: array-axi-test

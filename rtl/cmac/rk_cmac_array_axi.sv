@@ -1,9 +1,12 @@
 // SPDX-License-Identifier: MIT
 `timescale 1ns/1ps
-// Candidate C32/K16 parallel raw-command endpoint; not the legacy C64 core.
+// Candidate C32/K16-reference parallel raw-command endpoint, parameterized
+// for the K8 core geometry; not the legacy C64 core.
 // Single-clock internal endpoint. Joint asynchronous reset assertion;
 // platform must synchronize reset deassertion. No PCIe, CDC, MIG or ECC.
 module rk_cmac_array_axi #(
+    parameter int unsigned ATOMIC_C = 32,
+    parameter int unsigned ATOMIC_K = 16,
     parameter int unsigned TIMEOUT_CYCLES = 65536
 ) (
     input logic clk, rst_n, memory_ready,
@@ -65,7 +68,7 @@ module rk_cmac_array_axi #(
     // The controller samples this count only on done/error. One terminal task.
     assign core_completed_tasks = core_done && !core_error ? 32'd1 : 32'd0;
     rk_cmac_job_control control(.*);
-    rk_cmac_array_dma #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) engine (
+    rk_cmac_array_dma #(.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K),.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) engine (
         .clk(clk), .rst_n(rst_n), .start_valid(core_start_valid), .start_ready(core_start_ready),
         .start_address(core_start_address), .start_amount(core_start_amount), .busy(core_busy),
         .done(core_done), .acknowledged(unused_acknowledged), .error(core_error),

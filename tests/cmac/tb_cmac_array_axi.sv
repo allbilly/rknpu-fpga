@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module tb_cmac_array_axi;
+module tb_cmac_array_axi #(parameter integer ATOMIC_C=32,parameter integer ATOMIC_K=16);
     localparam logic [31:0] BASE=32'h10000000;
     localparam integer WORDS=524288;
     logic clk;
@@ -19,7 +19,7 @@ module tb_cmac_array_axi;
     logic m_axi_rlast, m_axi_rvalid, m_axi_rready;
     logic [511:0] m_axi_wdata, m_axi_rdata;
     logic [63:0] m_axi_wstrb;
-    rk_cmac_array_axi #(.TIMEOUT_CYCLES(128)) dut(.*);
+    rk_cmac_array_axi #(.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K),.TIMEOUT_CYCLES(128)) dut(.*);
 
     logic [15:0] memory [0:WORDS-1];
     `include "tests/memory_check.svh"
@@ -106,6 +106,7 @@ module tb_cmac_array_axi;
     logic [15:0] reset_scratch, reset_output;
     integer expected_tasks, expected_transactions, expected_error, repeats, polls, requested_fault, expected_checks;
     initial begin
+        if (ATOMIC_C!=32 || (ATOMIC_K!=8 && ATOMIC_K!=16)) $fatal(1,"unsupported AXI atomic geometry");
         if (!$value$plusargs("WRITES=%d",expected_writes)) $fatal(1,"missing write count");
         if (!$value$plusargs("CASE=%s",prefix) || !$value$plusargs("START=%h",start_address) ||
             !$value$plusargs("AMOUNT=%d",start_amount) || !$value$plusargs("NTASKS=%d",expected_tasks) ||
@@ -188,7 +189,7 @@ module tb_cmac_array_axi;
         if (expected_error==0) begin
             verify_memory({prefix,"/check.txt"},output_path,expected_checks);
         end
-        $display("PASS C32 K16 host_axi %s repeats=%0d fault_mode=%0d error=%0d status/tag/task/IRQ and memory checks seed=3588ae16",prefix,repeats,requested_fault,expected_error);
+        $display("PASS C32 K%0d host_axi %s repeats=%0d fault_mode=%0d error=%0d status/tag/task/IRQ and memory checks seed=3588ae16",ATOMIC_K,prefix,repeats,requested_fault,expected_error);
         $finish;
     end
     initial begin #30000000; $fatal(1,"host AXI global timeout"); end

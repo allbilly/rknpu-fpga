@@ -1,9 +1,12 @@
 // SPDX-License-Identifier: MIT
 `timescale 1ns/1ps
-// C32/K16 CMAC descriptor path. Backend amount=45 counts the body;
-// all 49 final QWORDs are fetched unchanged, including the CMAC-specific tail.
+// C32/K16-reference CMAC descriptor path; ATOMIC_C/ATOMIC_K select the core
+// geometry. Backend amount=45 counts the body; all 49 final QWORDs are fetched
+// unchanged, including the CMAC-specific tail.
 // Not an EW chain parser, RK DRM ABI, PCIe shell or runtime gather fallback.
-module rk_cmac_array_dma #(parameter int unsigned TIMEOUT_CYCLES=65536) (
+module rk_cmac_array_dma #(
+    parameter int unsigned ATOMIC_C=32,ATOMIC_K=16,TIMEOUT_CYCLES=65536
+) (
     input logic clk,rst_n,start_valid,
     output logic start_ready,
     input logic [31:0] start_address,start_amount,
@@ -61,7 +64,7 @@ module rk_cmac_array_dma #(parameter int unsigned TIMEOUT_CYCLES=65536) (
 `endif
     end
     assign fetch_progress=(state==FETCH_REQ&&mem_req_ready)||(state==FETCH_WAIT&&mem_rsp_valid);
-    rk_cmac_array_core #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) core(
+    rk_cmac_array_core #(.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K),.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) core(
         .clk,.rst_n,.cmd_valid(state==SEND&&framing_ok&&!error),.cmd_ready(core_ready),.cmd_data(word_data),
         .cancel(fault),.cancel_code(saved_code),
         .busy(core_busy),.done(core_done),.acknowledged(core_ack),.frame_done(core_frame_done),
