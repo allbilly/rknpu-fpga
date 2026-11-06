@@ -1,0 +1,39 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "in.bin",
+      "name": "in",
+      "size": 4096
+    },
+    {
+      "direction": "inout",
+      "input": "out_init.bin",
+      "name": "out",
+      "output": "out.bin",
+      "size": 4096
+    }
+  ],
+  "case": "fp16_max_k2s2_index_c8_h2w2",
+  "description": "FP16 maximum pooling with INDEX_EN, 2x2 kernel, stride 2, no padding, C8 H2 W2 -> H1 W1; index area at out_area*2*16 with (row<<3)|column positions.",
+  "patches": [
+    {
+      "buffer": "out",
+      "kind": "value32",
+      "regcmd_index": 13
+    },
+    {
+      "buffer": "in",
+      "kind": "value32",
+      "regcmd_index": 20
+    }
+  ],
+  "source_example": "/home/fedora/rk3588/examples/expt/pooling.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 26
+    }
+  ],
+  "timeout_ns": 6000000000
+}

@@ -1,0 +1,124 @@
+{
+  "case": "fp16_max_k2s2_index_c8_h2w2",
+  "status": "READY_CAPTURE_BOUNDED_CANDIDATE",
+  "description": "FP16 maximum pooling with INDEX_EN, 2x2 kernel, stride 2, no padding, C8 H2 W2 -> H1 W1.",
+  "source": {
+    "example": "/home/fedora/rk3588/examples/expt/pooling.py",
+    "example_sha256": "2ba6c5ae06ffac0daeb0d64d13320ada4c4f26593b86248da7ea1e24e20e4f6e",
+    "lines": [761, 793, 837, 856],
+    "bundle_manifest": "build/rk3588-example-captures/pooling/manifest.json",
+    "bundle_manifest_sha256": "42b7ae1c9cbe80d48b9f59ed2f675bdc280d6daa7b22e720a7eee8794db0afd7",
+    "case_bundle": "build/rk3588-example-captures/pooling/cases/fp16_max_k2s2_index_c8_h2w2",
+    "case_job_sha256": "ea4a1bc2c6915e58c36eab10767121c71eb8acd01f53a5b453fd677116f555c3",
+    "regcmd_sha256": "d5463e486464246469833cc394ae15260bba53d1fbaed8bbb8316771b97eb77b",
+    "regcmd_text_sha256": "6ed061963a44fd5d121b4ba46898da13dfe6962fe927f0a22fe5e683ae93a89f",
+    "numerical_contract": "Source maximum_with_index_reference selects the first row-major argmax and encodes local (row << 3) | column positions. This fixed capture has finite FP16 values and unique maxima for every lane; no generic NaN, infinity, signed-zero or tie policy is inferred.",
+    "tolerance_abs": 0.0
+  },
+  "device_capture": {
+    "capture_json_sha256": "cddf244b12d98279fc3365685e85a14c1ad14ee1f4a7460d64704e53ceed2719",
+    "started_utc": "2026-11-05T20:32:46Z",
+    "status": "OK",
+    "submit_ret": 0,
+    "device": "/dev/accel/accel0",
+    "kernel": "6.18.24-current-rockchip64",
+    "runner": "rocket_run.py 1.0.0",
+    "runner_sha256": "824f129261a2a0337b3da6720a46d1f9cff23e5d31efff9a0fa085f72f1b43cf"
+  },
+  "command_stream": {
+    "source_regcmd_sha256": "d5463e486464246469833cc394ae15260bba53d1fbaed8bbb8316771b97eb77b",
+    "device_patched_regcmd_sha256": "eaf62447c60fd3d978ea87e79a25e7a12eead91d3556a7a9aee38f708656f325",
+    "qwords": 26,
+    "note": "The original stream is retained byte-for-byte. Capture metadata separately binds the address-patched stream. This standalone leaf does not decode or execute either stream."
+  },
+  "ppu": {
+    "dtype": "float16",
+    "method": "maximum",
+    "method_selector": 1,
+    "channels": 8,
+    "kernel": [2, 2],
+    "stride": [2, 2],
+    "padding": [0, 0, 0, 0],
+    "index_en": true,
+    "use_cnt": 0,
+    "in_shape": [2, 2],
+    "out_shape": [1, 1]
+  },
+  "layout": {
+    "atom_bytes": 16,
+    "input": {
+      "line_stride_bytes": 32,
+      "surface_stride_bytes": 64,
+      "surfaces": 1,
+      "logical_bytes": 64,
+      "buffer_bytes": 4096
+    },
+    "output": {
+      "line_stride_bytes": 16,
+      "surface_stride_bytes": 16,
+      "surfaces": 1,
+      "value_bytes": 16,
+      "index_offset": 32,
+      "index_bytes": 16,
+      "index_surfaces": 1,
+      "logical_bytes": 48,
+      "buffer_bytes": 4096
+    }
+  },
+  "input_value_contract": {
+    "logical_fp16_lanes": 32,
+    "finite_lanes": 32,
+    "positive_zero_lanes": 24,
+    "negative_zero_lanes": 0,
+    "nan_or_infinity_lanes": 0,
+    "nonzero_lanes": 8,
+    "unique_maximum_per_channel": true,
+    "maximum_values_by_channel": [100, 101, 102, 103, 104, 105, 106, 107],
+    "index_values_by_channel": [0, 1, 8, 9, 0, 1, 8, 9]
+  },
+  "comparison": {
+    "scope": "full 4096-byte output BO including value/index gap and untouched tail",
+    "logical_value_bytes": 16,
+    "logical_index_offset": 32,
+    "logical_index_bytes": 16,
+    "logical_output_bytes": 48,
+    "mismatches_expected": 0,
+    "tolerance": 0.0,
+    "device_output_sha256": "011231103b526b363a612647ff1825583fee0a52f375366de1fbf16e0bb89f35",
+    "source_expected_sha256": "011231103b526b363a612647ff1825583fee0a52f375366de1fbf16e0bb89f35"
+  },
+  "files": {
+    "capture.json": {
+      "bytes": 5039,
+      "sha256": "cddf244b12d98279fc3365685e85a14c1ad14ee1f4a7460d64704e53ceed2719"
+    },
+    "device_out.bin": {
+      "bytes": 4096,
+      "sha256": "011231103b526b363a612647ff1825583fee0a52f375366de1fbf16e0bb89f35"
+    },
+    "expected.bin": {
+      "bytes": 4096,
+      "sha256": "011231103b526b363a612647ff1825583fee0a52f375366de1fbf16e0bb89f35"
+    },
+    "in.bin": {
+      "bytes": 4096,
+      "sha256": "ffceeac7421c945addac9bbf0d30a2f6a2cb83487a33357bed5ebbdeab545f2a"
+    },
+    "job.json": {
+      "bytes": 846,
+      "sha256": "ea4a1bc2c6915e58c36eab10767121c71eb8acd01f53a5b453fd677116f555c3"
+    },
+    "out_init.bin": {
+      "bytes": 4096,
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+    },
+    "regcmd.bin": {
+      "bytes": 208,
+      "sha256": "d5463e486464246469833cc394ae15260bba53d1fbaed8bbb8316771b97eb77b"
+    },
+    "regcmd.txt": {
+      "bytes": 1561,
+      "sha256": "6ed061963a44fd5d121b4ba46898da13dfe6962fe927f0a22fe5e683ae93a89f"
+    }
+  }
+}
