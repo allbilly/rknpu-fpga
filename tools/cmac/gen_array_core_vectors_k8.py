@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Derive one C32/K8 raw-command core case from the C32/K16 reference case.
 
-The host command stream is unchanged: it still describes one logical OC16 job
-with 0x10014024=16. The K8 weight image is repacked as (N/8, K/32, 8, 32),
-the front-end read order is regenerated for two OC8 frames per OC16 block, and
-the expected writes are re-chunked into 8-halfword OC8 frames. Numerical
-values come from the existing K16 case; this is a lower-slice derivation, not
-a new RK oracle or a runtime CPU layout fixup.
+The host command stream and the original (N/16, K/32, 16, 32) weight BO are
+unchanged: the host still describes one logical OC16 job with 0x10014024=16.
+The K8 front reads the low and high OC8 halves directly from that original
+buffer, so this derivation regenerates only the K8 read order and re-chunks
+the expected writes into 8-halfword OC8 frames. Numerical values come from
+the existing K16 case; this is a lower-slice derivation, not a new RK oracle
+or a runtime CPU layout fixup.
 """
 import hashlib
 import json
@@ -57,20 +58,15 @@ assert len(weights16) == ai * ao
 assert len(reads16) == case['reads']
 assert len(writes16) == case['writes'] == rows * ao
 
-# K16 weight layout per logical OC16 block is (K/32, 16, 32). K8 is
-# (N/8, K/32, 8, 32): for each OC8 block, IC32 group then eight kernels.
-weights8 = [0] * (ai * ao)
-for n8 in range(ao // ATOMIC_K):
-    for j in range(ai // 32):
-        for kernel in range(ATOMIC_K):
-            for channel in range(32):
-                k16_kernel = (n8 % 2) * ATOMIC_K + kernel
-                source = (n8 // 2) * 16 * ai + j * 16 * 32 + k16_kernel * 32 + channel
-                target = n8 * (ai // 32) * (ATOMIC_K * 32) + j * ATOMIC_K * 32 + kernel * 32 + channel
-                weights8[target] = weights16[source]
+# The weight BO is the original K16 (N/16, K/32, 16, 32) image. No
+# (N/8, K/32, 8, 32) repack is produced or required.
+weights8 = weights16
+assert len(weights8) == ai * ao
 
 # K8 front traversal: row -> physical OC8 group -> IC32 group. Each frame
-# reads 32 input halfwords and ATOMIC_K*32 weight halfwords.
+# reads 32 input halfwords and ATOMIC_K*32 weight halfwords. The weight base
+# is the original OC16 block base plus the OC8 half's 8-kernel offset, then
+# a full 16-kernel IC32 group stride.
 reads8 = []
 for row in range(rows):
     for oc in range(0, ao, ATOMIC_K):
@@ -78,7 +74,8 @@ for row in range(rows):
             ic = group * 32
             reads8 += [((0x10010000 + 2 * (row * ai + ic + lane)) << 16) |
                        inputs[row * ai + ic + lane] for lane in range(32)]
-            weight_base = oc * ai + group * ATOMIC_K * 32
+            weight_base = (oc // 16) * 16 * ai + (oc % 16) * 32 + group * 16 * 32
+            assert weight_base + ATOMIC_K * 32 <= len(weights8)
             reads8 += [((0x10020000 + 2 * (weight_base + lane)) << 16) |
                        weights8[weight_base + lane] for lane in range(ATOMIC_K * 32)]
 
@@ -119,6 +116,8 @@ for name, (values, width) in files.items():
     path = out_dir / name
     path.write_text(''.join(f'{value:0{width}x}\n' for value in values))
     artifacts.append(path)
+for name in ('commands.hex', 'input.hex', 'weight.hex'):
+    assert (out_dir / name).read_bytes() == (source_dir / name).read_bytes(), name
 derivation = out_dir / 'derivation.json'
 derivation.write_text(json.dumps({
     'source_case': CASE,
@@ -132,22 +131,26 @@ derivation.write_text(json.dumps({
     'read_count': len(reads8),
     'write_count': len(writes8),
     'commands_sha256': hashlib.sha256(struct.pack('<49Q', *commands)).hexdigest(),
-    'weight_layout': '(N/8, K/32, 8, 32)',
+    'weight_source': f'{SOURCE.relative_to(ROOT)}/{CASE}/weight.hex',
+    'weight_layout': 'original K16/OC16 (N/16, K/32, 16, 32); K8 reads OC8 halves directly',
+    'repacked_weight_required': False,
     'write_layout': '8 halfwords at OC16 base+0 and OC16 base+16 bytes; 64-byte block stride preserved',
-    'scope': 'Test-only lower-slice derivation from the unchanged C32/K16 core case; no new RK semantics.',
+    'scope': 'Test-only lower-slice derivation from the unchanged C32/K16 core case; original weight BO, no repack and no new RK semantics.',
 }, indent=2) + '\n')
 artifacts.append(derivation)
 report = dict(status='GENERATED_C32_K8_RAW_CORE_LOWER_SLICE_ONLY', created_utc=timestamp(),
               case=dict(name=CASE, atomic_c=ATOMIC_C, atomic_k=ATOMIC_K,
                         rows=rows, ai=ai, ao=ao, operand_frames=operand_frames,
                         output_frames=output_frames, reads=len(reads8), writes=len(writes8),
+                        weight_layout='original K16/OC16 (N/16, K/32, 16, 32); K8 reads OC8 halves directly',
+                        repacked_weight_required=False,
                         commands_sha256=hashlib.sha256(struct.pack('<49Q', *commands)).hexdigest()),
               source=fingerprint([Path(__file__).resolve(), SOURCE / 'vectors_report.json',
                                   source_dir / 'commands.hex', source_dir / 'input.hex',
                                   source_dir / 'weight.hex', source_dir / 'reads.hex',
                                   source_dir / 'writes.hex']),
               artifacts=fingerprint(artifacts),
-              scope='Test-only C32/K8 raw-command core derivation from the unchanged C32/K16 reference case. No new RK oracle, RTL, FPGA or RK pass.')
+              scope='Test-only C32/K8 raw-command core derivation from the unchanged C32/K16 reference case using the original OC16 weight BO. No repack, new RK oracle, RTL, FPGA or RK pass.')
 (OUT / 'vectors_report.json').write_text(json.dumps(report, indent=2) + '\n')
 print(OUT / 'vectors_report.json')
 print(f'Derived {CASE}: operand_frames={operand_frames} reads={len(reads8)} writes={len(writes8)}')

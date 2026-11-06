@@ -3,8 +3,10 @@
 // Raw terminal RK command words -> C32 x atomic-K physical operand frames.
 // Reuses the strict profile decoder unchanged: the host still describes one
 // logical OC16 job (0x10014024=16). K8 derives two OC8 frames per OC16 block
-// internally. This bounded frame buffer is not a complete CBUF/CSC
-// implementation or an execution/completion endpoint.
+// internally and reads them directly from the original OC16 weight buffer:
+// no repacked K8 weight image or runtime CPU layout fixup is required. This
+// bounded frame buffer is not a complete CBUF/CSC implementation or an
+// execution/completion endpoint.
 module rk_cmac_array_front #(
     parameter int unsigned ATOMIC_C=32,ATOMIC_K=16,TIMEOUT_CYCLES=65536
 ) (
@@ -35,13 +37,18 @@ module rk_cmac_array_front #(
     typedef enum logic [2:0] {IDLE,DATA_REQ,DATA_WAIT,WEIGHT_REQ,WEIGHT_WAIT,EMIT} state_t;
     localparam int unsigned WEIGHT_WORDS=ATOMIC_K*ATOMIC_C;
     localparam int unsigned READ_INDEX_WIDTH=$clog2(WEIGHT_WORDS);
+    // The original backend weight tile always stores 16 kernels per IC32
+    // group: (N/16, K/32, 16, 32). A K8 frame consumes the low or high eight
+    // kernels of that group, so the group stride stays 16*32 halfwords for
+    // both K8 and K16.
+    localparam int unsigned WEIGHT_GROUP_BYTES=16*ATOMIC_C*2;
     state_t state;
     wire config_valid,decode_error;
     wire [7:0] decode_code;
     wire [31:0] config_rows,config_input_channels,config_output_channels;
     wire [31:0] config_input_base,config_weight_base,config_output_base;
     logic [31:0] rows,ai,ao,row_index,oc,ic;
-    logic [31:0] input_row_base,input_group_base,weight_origin,weight_atom_base,weight_group_base;
+    logic [31:0] input_row_base,input_group_base,weight_origin,weight_group_base;
     logic [31:0] output_row_base,output_atom_base,stalled_cycles;
     logic [READ_INDEX_WIDTH-1:0] read_index;
     logic fault,response_data_legal;
@@ -57,6 +64,13 @@ module rk_cmac_array_front #(
     // block base stays at the unchanged 64-byte stride.
     wire [31:0] atom_advance=(oc_in_block+ATOMIC_K==32'd16) ?
         32'd64-(oc_in_block<<1) : ATOMIC_K*2;
+    // Original OC16 weight atom base: 16*ai halfwords per OC16 block plus
+    // 32 halfwords per kernel inside that block. For K8 this selects the
+    // low or high OC8 half of the same original block; for K16 the kernel
+    // offset is zero and the result is the unchanged block stride.
+    wire [31:0] next_oc=oc+ATOMIC_K;
+    wire [31:0] next_weight_atom_base=weight_origin+(next_oc>>4)*(ai<<5)+
+        ((next_oc&32'd15)<<6);
     initial begin
         if(TIMEOUT_CYCLES==0) $fatal(1,"TIMEOUT_CYCLES must be positive");
         if(ATOMIC_C!=32||(ATOMIC_K!=8&&ATOMIC_K!=16))
@@ -95,7 +109,7 @@ module rk_cmac_array_front #(
     always_ff @(posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             state<=IDLE;fault<=0;saved_code<=0;stream_done<=0;rows<=0;ai<=0;ao<=0;row_index<=0;oc<=0;ic<=0;
-            input_row_base<=0;input_group_base<=0;weight_origin<=0;weight_atom_base<=0;weight_group_base<=0;
+            input_row_base<=0;input_group_base<=0;weight_origin<=0;weight_group_base<=0;
             output_row_base<=0;output_atom_base<=0;stalled_cycles<=0;read_index<=0;mem_req_addr<=0;
             frame_data<=0;frame_weight<=0;
         end else begin
@@ -108,7 +122,7 @@ module rk_cmac_array_front #(
                         rows<=config_rows;ai<=config_input_channels;ao<=config_output_channels;
                         row_index<=0;oc<=0;ic<=0;read_index<=0;
                         input_row_base<=config_input_base;input_group_base<=config_input_base;
-                        weight_origin<=config_weight_base;weight_atom_base<=config_weight_base;weight_group_base<=config_weight_base;
+                        weight_origin<=config_weight_base;weight_group_base<=config_weight_base;
                         output_row_base<=config_output_base;output_atom_base<=config_output_base;
                         mem_req_addr<=config_input_base;state<=DATA_REQ;
                     end
@@ -133,20 +147,19 @@ module rk_cmac_array_front #(
                         read_index<=0;
                         if(!frame_last) begin
                             ic<=ic+32;input_group_base<=input_group_base+64;
-                            weight_group_base<=weight_group_base+(ATOMIC_K*ATOMIC_C*2);
+                            weight_group_base<=weight_group_base+WEIGHT_GROUP_BYTES;
                             mem_req_addr<=input_group_base+64;state<=DATA_REQ;
                         end else if(frame_last_output) begin state<=IDLE;stream_done<=1;end
                         else begin
                             ic<=0;state<=DATA_REQ;
                             if(oc!=ao-ATOMIC_K) begin
                                 oc<=oc+ATOMIC_K;input_group_base<=input_row_base;mem_req_addr<=input_row_base;
-                                weight_atom_base<=weight_atom_base+ai*(ATOMIC_K*2);
-                                weight_group_base<=weight_atom_base+ai*(ATOMIC_K*2);
+                                weight_group_base<=next_weight_atom_base;
                                 output_atom_base<=output_atom_base+atom_advance;
                             end else begin
                                 oc<=0;row_index<=row_index+1;
                                 input_row_base<=input_row_base+(ai<<1);input_group_base<=input_row_base+(ai<<1);mem_req_addr<=input_row_base+(ai<<1);
-                                weight_atom_base<=weight_origin;weight_group_base<=weight_origin;
+                                weight_group_base<=weight_origin;
                                 output_row_base<=output_row_base+(ao<<2);output_atom_base<=output_row_base+(ao<<2);
                             end
                         end

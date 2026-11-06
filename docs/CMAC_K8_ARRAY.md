@@ -130,7 +130,10 @@ leaves the following untouched:
   `rk_cmac_async_engine` parameter plumbing;
 - `rtl/rk_cmac_profile.sv` and the logical host kernel-group field
   `0x10014024=16`;
-- backend `(N/8, K/32, 8, 32)` packing and OC8 output-atom placement;
+- backend `(N/8, K/32, 8, 32)` packing; the later core slice reads the
+  original OC16 weight BO directly and does not require this repack. OC8
+  output-atom placement remains an internal frame schedule, not a BO layout
+  change;
 - DMA amount/tail audit beyond the single unchanged-amount case now covered by
   [CMAC_K8_CORE.md](CMAC_K8_CORE.md);
 - real conv-simple/conv-fp16/conv-gemm/GEMM capture replay;

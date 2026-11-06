@@ -3,10 +3,11 @@
 
 The host command stream remains the 49-QWORD m2_n17_k65_finite case with
 0x10014024=16. The DMA and AXI geometry parameters are propagated into the
-core; the memory model returns the unchanged K16 input image and the derived
-K8 (N/8, K/32, 8, 32) weight image. The bench captures every write, compares
-the exact address/data sequence against the K8 core expectation, and checks
-that every output gap halfword remains the sentinel.
+core; the memory model returns the unchanged K16 input image and the original
+K16/OC16 (N/16, K/32, 16, 32) weight BO, not a repacked K8 image. The bench
+captures every write, compares the exact address/data sequence against the K8
+core expectation, and checks that every output gap halfword remains the
+sentinel.
 """
 import argparse
 import hashlib
@@ -48,6 +49,10 @@ assert (case8['rows'], case8['ai'], case8['ao']) == (2, 96, 32)
 assert (case8['atomic_c'], case8['atomic_k']) == (32, 8)
 assert (case8['operand_frames'], case8['output_frames'], case8['reads'],
         case8['writes']) == (24, 8, 6912, 64)
+assert case8['repacked_weight_required'] is False
+assert 'original K16/OC16' in case8['weight_layout']
+assert (k8 / case_name / 'weight.hex').read_bytes() == \
+       (k16 / case_name / 'weight.hex').read_bytes(), 'K8 path must use the original weight BO'
 commands = [int(line, 16) for line in (k16 / case_name / 'commands.hex').read_text().splitlines()]
 assert len(commands) == 49
 assert commands[32] == 0x1001000000104024, 'host kernel_group field must remain 16'
@@ -99,7 +104,7 @@ report = dict(status='RUNNING', started_utc=timestamp(), suite=a.suite,
               operand_frames=24, output_frames=8, reads=6912, writes=64,
               commands_sha256=commands_sha, source=fingerprint(tracked), commands=[], results=[],
               seed='0x3588ad16',
-              scope='One unchanged K16-format raw command BO through the C32/K8 DMA and core. Synthetic operands and K16-derived goldens, not RK captures, AXI host replay, DDR, FPGA or RK validation.')
+              scope='One unchanged K16-format raw command BO and original K16/OC16 weight BO through the C32/K8 DMA and core. Synthetic operands and K16-derived goldens, not RK captures, AXI host replay, DDR, FPGA or RK validation.')
 for path in tracked:
     dest = out / 'snapshot' / path.relative_to(ROOT)
     dest.parent.mkdir(parents=True, exist_ok=True)
