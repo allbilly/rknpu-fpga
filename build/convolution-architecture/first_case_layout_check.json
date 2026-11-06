@@ -1,0 +1,88 @@
+{
+  "case": "conv_1x1_valid_c8_h5_w5_oc8",
+  "scope": "host-side layout verification only; no device, board or RTL execution",
+  "files": {
+    "a.bin": {
+      "bytes": 800,
+      "sha256": "fa1cfc610a9d473bbef852dac62bef6d63f67727b0d8a20587962b0418739c71"
+    },
+    "w.bin": {
+      "bytes": 256,
+      "sha256": "52a1b39b6ef32d87bed51b67d32b67073f2aefae3fc96d265a0a82b6ba838418"
+    },
+    "expected.bin": {
+      "bytes": 400,
+      "sha256": "7a364a2c20910f0b00f4f522856009ed69d5a477ea4b9fdee5ac146193d2058c"
+    },
+    "regcmd.bin": {
+      "bytes": 432,
+      "sha256": "a66063b1df7be1c913ee9851a65270a0644a98312db640fbc58216a97855ac6c"
+    },
+    "rk_out.bin": {
+      "bytes": 1600,
+      "sha256": "82f8bdb91b780e54f6d90b1ea4281d01913f7561d688f0e5a75df89b5f604f0e"
+    }
+  },
+  "checks": {
+    "input_layout": "[c1=2][H=5][width_stride=5][c2=8]",
+    "weight_layout": "[oc=8][align_c=16]",
+    "output_layout": "[c1=4][out_width_stride=25][c2=8]",
+    "input_alignment_padding_zero": true,
+    "weight_alignment_padding_zero": true,
+    "logical_oracle_equals_expected": true,
+    "raw_plane0_equals_rk_capture": true,
+    "k8_oc16_reduced_offsets_ok": true,
+    "rk_out_planes_1_to_3_undefined": true
+  },
+  "counts": {
+    "input_halfwords": 400,
+    "weight_halfwords": 128,
+    "expected_halfwords": 200,
+    "raw_halfwords": 800,
+    "defined_raw_halfwords": 200,
+    "frames_first_case": 25
+  },
+  "first_atom_mapping": {
+    "input_source_bytes": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14
+    ],
+    "weight_source_bytes_k0": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14
+    ],
+    "frame_data_lanes_real": 8,
+    "frame_data_lanes_padded": 24,
+    "frame_weight_halfwords_real": 64,
+    "frame_weight_halfwords_padded": 448,
+    "output_atom_bytes": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14
+    ],
+    "output_atom_address": 0
+  },
+  "verdict": "PASS",
+  "limits": [
+    "Host-side NumPy FP64 accumulation is the donor oracle, not RK silicon arithmetic.",
+    "Only raw plane 0 (400 B) is defined; planes 1..3 are allocator/device padding.",
+    "This does not validate RTL, timing, FPGA execution or a bitstream."
+  ]
+}

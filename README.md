@@ -15,6 +15,12 @@ untouched bytes, in Icarus and Verilator. These remain simulation-only leaves;
 unsupported modes are not connected or admitted, and no average/min/global,
 `INDEX_EN`, register decode, DMA or full-top integration is implemented.
 
+**First convolution RTL slice:** the captured FP16 valid 1x1 C8/H5/W5/OC8
+case now runs through a strict raw-command decoder, hardware C/OC padding and
+the convolution-specific 400-byte output-plane schedule in Icarus and Verilator.
+See [the bounded contract and test](docs/CONV_FIRST_CASE.md); no physical or
+full-top qualification is claimed.
+
 **Current direction, 2026-10-23:** use Vivado for implementation, with the
 OpenTPU Vivado workflow as the reference. OpenXC7 placement/routing work is
 retired from the continuation; its scripts and evidence remain historical.
