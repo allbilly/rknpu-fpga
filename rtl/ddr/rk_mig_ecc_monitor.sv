@@ -43,6 +43,12 @@ module rk_mig_ecc_monitor #(
     logic [31:0] cycles, captured_mask, captured_onoff;
     logic b_complete, r_complete, fault_now;
     logic [7:0] current_fault_code;
+    // Readback data is sampled on its handshake. Data comparisons and the
+    // matching FSM edge consume this registered copy on the following UI
+    // clock, so the MIG control read cone cannot reach health/admission.
+    // IRQ, calibration, handshake and response-code faults stay immediate.
+    logic read_sample_valid;
+    logic [31:0] read_sample_data;
 
     initial begin
         if (TIMEOUT_CYCLES == 0) $fatal(1, "ECC monitor timeout must be positive");
@@ -61,8 +67,19 @@ module rk_mig_ecc_monitor #(
                         transaction == WRITE && !aw_pending && !w_pending;
     assign r_complete = m_axi_ctrl_rvalid && m_axi_ctrl_rready &&
                         transaction == READ && !ar_pending;
+    wire read_sample_capture = r_complete &&
+        (state == READ_MASK || state == READ_ONOFF || state == READ_STATUS);
     assign monitor_healthy = joint_rst_n && healthy && !fault && !fault_now;
     assign check_ready = monitor_healthy && state == READY && !snapshot_valid;
+
+    always_ff @(posedge clk) begin
+        if (!joint_rst_n) begin
+            read_sample_valid <= 0; read_sample_data <= 0;
+        end else begin
+            read_sample_valid <= read_sample_capture;
+            if (read_sample_capture) read_sample_data <= m_axi_ctrl_rdata;
+        end
+    end
 
     always_comb begin
         current_fault_code = 0;
@@ -74,9 +91,9 @@ module rk_mig_ecc_monitor #(
                  (m_axi_ctrl_rvalid && (transaction != READ || ar_pending))) current_fault_code = 8'd5;
         else if ((b_complete && m_axi_ctrl_bresp !== 2'b00) ||
                  (r_complete && m_axi_ctrl_rresp !== 2'b00)) current_fault_code = 8'd4;
-        else if (r_complete && state == READ_MASK && m_axi_ctrl_rdata !== 32'h3) current_fault_code = 8'd6;
-        else if (r_complete && state == READ_ONOFF && m_axi_ctrl_rdata !== 32'h1) current_fault_code = 8'd7;
-        else if (r_complete && state == READ_STATUS && m_axi_ctrl_rdata !== 32'h0) current_fault_code = 8'd8;
+        else if (read_sample_valid && state == READ_MASK && read_sample_data !== 32'h3) current_fault_code = 8'd6;
+        else if (read_sample_valid && state == READ_ONOFF && read_sample_data !== 32'h1) current_fault_code = 8'd7;
+        else if (read_sample_valid && state == READ_STATUS && read_sample_data !== 32'h0) current_fault_code = 8'd8;
         else if (transaction != NONE && !b_complete && !r_complete &&
                  cycles >= TIMEOUT_CYCLES-1) current_fault_code = 8'd3;
         fault_now = current_fault_code != 0;
@@ -115,21 +132,21 @@ module rk_mig_ecc_monitor #(
                         m_axi_ctrl_araddr <= 32'h4; ar_pending <= 1;
                         transaction <= READ; state <= READ_MASK;
                     end
-                    READ_MASK: if (r_complete) begin
-                        captured_mask <= m_axi_ctrl_rdata;
+                    READ_MASK: if (read_sample_valid) begin
+                        captured_mask <= read_sample_data;
                         m_axi_ctrl_araddr <= 32'h8; ar_pending <= 1;
                         transaction <= READ; state <= READ_ONOFF;
                     end
-                    READ_ONOFF: if (r_complete) begin
-                        captured_onoff <= m_axi_ctrl_rdata;
+                    READ_ONOFF: if (read_sample_valid) begin
+                        captured_onoff <= read_sample_data;
                         m_axi_ctrl_araddr <= 0; ar_pending <= 1;
                         transaction <= READ; state <= READ_STATUS;
                     end
-                    READ_STATUS: if (r_complete) begin
+                    READ_STATUS: if (read_sample_valid) begin
                         healthy <= 1;
                         if (checking) begin
                             snapshot_irq_mask <= captured_mask; snapshot_onoff <= captured_onoff;
-                            snapshot_status <= m_axi_ctrl_rdata; snapshot_valid <= 1; state <= RESULT;
+                            snapshot_status <= read_sample_data; snapshot_valid <= 1; state <= RESULT;
                         end else state <= READY;
                     end
                     READY: if (check_valid && check_ready) begin
