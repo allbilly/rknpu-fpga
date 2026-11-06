@@ -1,0 +1,22 @@
+--- a/hdl/150/rk_jtag_dual_ddr_async.sv
++++ b/hdl/150/rk_jtag_dual_ddr_async.sv
+@@ -15,7 +15,9 @@
+     parameter int unsigned SYS_HOLD_CYCLES = 64,
+     parameter int unsigned UI_FRESH_CYCLES = 4,
+     parameter int unsigned SYNC_STAGES = 3,
+-    parameter int unsigned RESET_WAIT_TIMEOUT_CYCLES = 65536
++    parameter int unsigned RESET_WAIT_TIMEOUT_CYCLES = 65536,
++    parameter int unsigned ATOMIC_C = 32,
++    parameter int unsigned ATOMIC_K = 16
+ ) (
+     input logic sys_clk, cfg_reset, reset_req_valid,
+     output logic reset_req_ready,
+@@ -508,7 +510,7 @@
+         end
+     end
+     rk_layout_compute_dispatch #(.BASE(BASE),.BYTES(BYTES),.TIMEOUT_CYCLES(TIMEOUT_CYCLES),.MAX_TASKS(MAX_TASKS),
+-        .SYNC_STAGES(SYNC_STAGES)) engine (
++        .SYNC_STAGES(SYNC_STAGES),.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K)) engine (
+         .ui_start_offer(core_start_valid),.ui_start_kind(core_start_kind),.ui_ew_start_ready(ew_dma_start_ready),
+         .ui_cmac_start_ready(cmac_dma_start_ready),.ui_layout_start_ready(layout_dma_start_ready),
+         .ui_ew_start_slot_ready(ew_dma_start_slot_ready),.ui_cmac_start_slot_ready(cmac_dma_start_slot_ready),

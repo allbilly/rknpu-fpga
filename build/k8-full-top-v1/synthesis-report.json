@@ -1,0 +1,53 @@
+{
+  "bitstream_emitted": false,
+  "census": [
+    {
+      "auxiliary_dsps": 7,
+      "front_aux_dsps": 3,
+      "kernels": 8,
+      "product_dsps": 256,
+      "scalar_ports": 242,
+      "stage": "pre_opt",
+      "total_dsps": 263
+    },
+    {
+      "auxiliary_dsps": 7,
+      "front_aux_dsps": 3,
+      "kernels": 8,
+      "product_dsps": 256,
+      "scalar_ports": 242,
+      "stage": "post_opt",
+      "total_dsps": 263
+    }
+  ],
+  "hardware_accessed": false,
+  "parameters": {
+    "ATOMIC_C": 32,
+    "ATOMIC_K": 8
+  },
+  "part": "xc7k480tffg1156-2",
+  "place_route_executed": false,
+  "resource_gate_margin": 131508,
+  "resource_gate_total_luts": 298600,
+  "resources": {
+    "dsp": 263,
+    "ff": 49988,
+    "logic_luts": 162950,
+    "lutram": 3568,
+    "ramb18": 0,
+    "ramb36": 0,
+    "srl": 574,
+    "total_luts": 167092
+  },
+  "schema": "k8-full-top-synthesis-v1",
+  "scope": "Constrained post-opt synthesis only; no place/route, bitstream, board or hardware claim.",
+  "source_manifest_sha256": "5e0e41b3eef984d1a43d4384ee63bec5b2dcbd70a6144f92e40ec893aeeb4400",
+  "source_tag": "5e0e41b3",
+  "status": "PASS_K8_FULL_TOP_SYNTHESIS_RESOURCE_GATE",
+  "synthesis_log_sha256": "b2ef0540fe9b043f4e27414f8f57fb2e076933b806e9a2eff07c3c54e56f004f",
+  "synthesis_script_sha256": "e43eeec2deebf691c8cb007400c2ca41b427d6fd4fb56f336903eeae25e3b737",
+  "tool": "2026.1",
+  "top": "ypcb_ddr_dual_top",
+  "utc": "2026-11-06T12:31:51.070178+00:00",
+  "utilization_report_sha256": "52d0a2f47cc534869de0d7abc8af45d2125cc1fe35bd679416aedfa6442d7298"
+}
