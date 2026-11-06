@@ -6,19 +6,21 @@ included in a source checkout. Portable records are linked through
 regression preparation reviews remain workspace-local; the current-image
 TinyStories archive is linked below.
 
-**Standalone PPU pooling increments, 2026-11-07:** two max-pooling leaves and a
-separate [capture-bounded FP16 average leaf](docs/PPU_AVERAGE.md) cover three
-source-backed RK3588 cases. The standalone
+**Standalone PPU pooling increments, 2026-11-07:** two max-pooling leaves, a
+separate [capture-bounded FP16 average leaf](docs/PPU_AVERAGE.md), and the
+[capture-bounded FP16 minimum leaf](docs/PPU_MIN_POOL.md) cover four source-backed
+RK3588 cases. The standalone
 [FP16 2x2/stride-1 max-pooling candidates](docs/PPU_MAX_POOL.md) replay two
 captured RK3588 cases through separate valid/ready leaves: the original valid
 C8 H4 W4 case and the exact C8 H2 W2, pad-1, finite-negative case with captured
 `-infinity` padding. Both compare the complete 4096-byte device BO, including
 untouched bytes, in Icarus and Verilator. The average leaf covers only FP16
 2x2/stride-1 valid C8 H4W4 -> H3W3, `INDEX_EN=0`, `USE_CNT=0`, and applies the
-source's FP32-mean/FP16-output tolerance to the captured device bytes. All are
-simulation-only leaves: unsupported modes are not connected or admitted, and
-no other average/min/global mode, `INDEX_EN`, register decode, DMA or full-top
-integration is implemented.
+source's FP32-mean/FP16-output tolerance to the captured device bytes. The
+minimum leaf covers only FP16 2x2/stride-1 valid C8 H4W4 -> H3W3 and compares
+exactly against source and device outputs. All are simulation-only leaves:
+unsupported modes are not connected or admitted, and no other average/min/global
+mode, `INDEX_EN`, register decode, DMA or full-top integration is implemented.
 
 **First convolution RTL slice:** the captured FP16 valid 1x1 C8/H5/W5/OC8
 case now runs through a strict raw-command decoder, hardware C/OC padding and

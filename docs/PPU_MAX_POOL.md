@@ -1,7 +1,8 @@
 # Standalone PPU FP16 max-pooling increment
 
-Status: **two max-pool and one separate average capture candidates,
-simulation-only**. The pre-existing RK3588 capture is only fixture evidence:
+Status: **two max-pool, one separate average, and one minimum-pool
+capture candidate, simulation-only**. See the separate
+[capture-bounded FP16 minimum leaf](PPU_MIN_POOL.md). The pre-existing RK3588 capture is only fixture evidence:
 no board was accessed for this RTL
 increment, no bitstream was built, no Vivado full-top implementation was run
 and no FPGA execution is claimed.
@@ -245,6 +246,9 @@ make ppu-max-pad1-test            # Verilator, exact padded device capture
 make ppu-avg-contract-test         # strict shape/mode rejection controls
 make ppu-avg-test                  # Verilator, one capture-bounded FP16 average case
 make ppu-avg-four-state-test       # Icarus, same FP16 average case
+make ppu-min-contract-test         # strict captured minimum case controls
+make ppu-min-test                  # Verilator, one capture-bounded FP16 minimum case
+make ppu-min-four-state-test       # Icarus, same FP16 minimum case
 make ppu-max-lint
 ```
 
@@ -268,7 +272,8 @@ scoped to simulation; they set `hardware_accessed=false`,
 Not implemented or not qualified by this increment:
 
 - average outside the one source- and capture-bounded case documented in
-  [PPU_AVERAGE.md](PPU_AVERAGE.md), minimum and global pooling; other
+  [PPU_AVERAGE.md](PPU_AVERAGE.md), minimum outside the case in
+  [PPU_MIN_POOL.md](PPU_MIN_POOL.md), and global pooling; other
   reciprocals, `use_cnt` values and rounding policies;
 - `INDEX_EN` metadata, including the index region and position-tracking rules;
 - padding modes other than the one captured pad-1 case above, non-unit/other

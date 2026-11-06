@@ -16,11 +16,12 @@ STARTUP_DEMO_RTL = $(DMA_DEMO_RTL) rtl/rk_startup_reset.sv fpga/ypcb_ew_startup_
 PPU_MAX_RTL = rtl/ppu/rk_ppu_pool_max2x2s1_c8.sv
 PPU_MAX_PAD1_RTL = rtl/ppu/rk_ppu_pool_max2x2s1_pad1_neg_c8_h2w2.sv
 PPU_AVG_RTL = rtl/ppu/rk_ppu_pool_avg2x2s1_fp16_capture.sv
+PPU_MIN_RTL = rtl/ppu/rk_ppu_pool_min2x2s1_fp16_capture.sv
 
-.PHONY: all test model-test generated generated-check vectors rtl-test four-state-test cmac-vectors cmac-test cmac-four-state-test conv-first-case-test ppu-max-test ppu-max-four-state-test ppu-max-pad1-test ppu-max-pad1-four-state-test ppu-avg-test ppu-avg-four-state-test ppu-avg-contract-test ppu-max-lint synth-check host-synth-check host-mapped-check openxc7-check lint demo-replay fpga clean
+.PHONY: all test model-test generated generated-check vectors rtl-test four-state-test cmac-vectors cmac-test cmac-four-state-test conv-first-case-test ppu-max-test ppu-max-four-state-test ppu-max-pad1-test ppu-max-pad1-four-state-test ppu-avg-test ppu-avg-four-state-test ppu-avg-contract-test ppu-min-test ppu-min-four-state-test ppu-min-contract-test ppu-max-lint synth-check host-synth-check host-mapped-check openxc7-check lint demo-replay fpga clean
 all: model-test
 # "test" deliberately requires RTL simulation; missing tools do NOT yield a pass.
-test: model-test lint rtl-test four-state-test cmac-test cmac-four-state-test conv-first-case-test ppu-max-test ppu-max-four-state-test ppu-max-pad1-test ppu-max-pad1-four-state-test ppu-avg-test ppu-avg-four-state-test ppu-avg-contract-test host-jtag-test host-jtag-four-state-test host-jtag-preparation-test debug-control-test full512-startup-control-test tinystories-preparation-test tinystories-memory-test ddr-endpoint-controls ddr-host-controls ddr-dual-controls ddr-capacity-controls ddr-capacity-parent-controls backend-layout-test host-frame-mailbox-test host-frame-mailbox-admission-test host-frame-owner-test host-frame-frontend-test host-transport-epoch-test host-pcie-bridge-reset-test host-pcie-components-test host-retained-mailbox-test ddr-session-quiet-test ddr-whole-reset-control-test ddr-fi-client-controls ddr-dual-host-npu-test process-controls
+test: model-test lint rtl-test four-state-test cmac-test cmac-four-state-test conv-first-case-test ppu-max-test ppu-max-four-state-test ppu-max-pad1-test ppu-max-pad1-four-state-test ppu-avg-test ppu-avg-four-state-test ppu-avg-contract-test ppu-min-test ppu-min-four-state-test ppu-min-contract-test host-jtag-test host-jtag-four-state-test host-jtag-preparation-test debug-control-test full512-startup-control-test tinystories-preparation-test tinystories-memory-test ddr-endpoint-controls ddr-host-controls ddr-dual-controls ddr-capacity-controls ddr-capacity-parent-controls backend-layout-test host-frame-mailbox-test host-frame-mailbox-admission-test host-frame-owner-test host-frame-frontend-test host-transport-epoch-test host-pcie-bridge-reset-test host-pcie-components-test host-retained-mailbox-test ddr-session-quiet-test ddr-whole-reset-control-test ddr-fi-client-controls ddr-dual-host-npu-test process-controls
 build/half_datapath.so: model/half_datapath.cpp
 	mkdir -p build
 	$(CXX) $(CXXFLAGS) $(SHARED_FLAGS) $< -o $@
@@ -71,11 +72,18 @@ ppu-avg-four-state-test: generated-check
 	$(PYTHON) tools/ppu/run_pool_avg.py --simulator iverilog
 ppu-avg-contract-test: generated-check
 	$(PYTHON) -m unittest discover -s tests/ppu_pooling -p 'test_pool_avg_contract.py' -v
+ppu-min-test: generated-check
+	$(PYTHON) tools/ppu/run_pool_min.py --simulator verilator
+ppu-min-four-state-test: generated-check
+	$(PYTHON) tools/ppu/run_pool_min.py --simulator iverilog
+ppu-min-contract-test: generated-check
+	$(PYTHON) -m unittest discover -s tests/ppu_pooling -p 'test_pool_min_contract.py' -v
 ppu-max-lint: generated-check
 	@command -v verilator >/dev/null || { echo 'UNAVAILABLE: Verilator is required for RTL lint.' >&2; exit 2; }
 	verilator --lint-only -Wall --top-module rk_ppu_pool_max2x2s1_c8 $(PPU_MAX_RTL)
 	verilator --lint-only -Wall --top-module rk_ppu_pool_max2x2s1_pad1_neg_c8_h2w2 $(PPU_MAX_PAD1_RTL)
 	verilator --lint-only -Wall --top-module rk_ppu_pool_avg2x2s1_fp16_capture $(PPU_AVG_RTL)
+	verilator --lint-only -Wall --top-module rk_ppu_pool_min2x2s1_fp16_capture $(PPU_MIN_RTL)
 
 # Characterization only: this never emits .bit or substitutes for physical signoff.
 openxc7-check: generated-check
@@ -94,6 +102,7 @@ lint: generated-check
 	verilator --lint-only -Wall --top-module ypcb_ew_startup_top $(STARTUP_DEMO_RTL)
 	verilator --lint-only -Wall --top-module rk_ppu_pool_max2x2s1_c8 $(PPU_MAX_RTL)
 	verilator --lint-only -Wall --top-module rk_ppu_pool_avg2x2s1_fp16_capture $(PPU_AVG_RTL)
+	verilator --lint-only -Wall --top-module rk_ppu_pool_min2x2s1_fp16_capture $(PPU_MIN_RTL)
 
 # Source snapshots and review templates only; neither target starts Vivado.
 .PHONY: fpga-prepare fpga-prepare-startup
