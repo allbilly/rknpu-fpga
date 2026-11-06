@@ -181,10 +181,45 @@ change:
 No clock, XDC, CDC, reset, DRC or electrical constraint was weakened. These
 are post-opt synthesis estimates, not routed timing signoff.
 
-## Readiness
+## Full-top K8 place/route
 
-The source profile is ready for a full-top K8 place/route run with the accepted
-constraints, provided that run keeps the unchanged clock/DRC/electrical gates
-and completes the timing-repair qualification described in
-[K16 control timing repair](K16_CONTROL_TIMING_REPAIR.md). No place/route,
-bitstream or hardware result exists yet.
+The guarded place/route and final audit completed on 2026-11-06 with Vivado
+2026.1. The run used the source-bound post-opt checkpoint and the accepted
+place/route/corrective/final-audit scripts byte-identically; clocks, XDC,
+electrical policy, CDC checks, DRC rules and timing constraints were not
+weakened. All four stages returned exit code 0 and the wrapper printed
+`READY_FRESH_PLACE_ROUTE_CORRECTIVE_AND_FINAL_AUDIT`.
+
+| Result | Value |
+|---|---:|
+| Global setup WNS / TNS | **+0.108 ns / 0.000 ns** |
+| Global hold WHS / THS | **+0.052 ns / 0.000 ns** |
+| Pulse width WPWS / TPWS | **+0.264 ns / 0.000 ns** |
+| Failing setup / hold / pulse endpoints | **0 / 0 / 0** |
+| 133.333 MHz C1 UI (`clk_pll_i_1`) WNS / WHS | **+0.108 ns / +0.052 ns** |
+| 50 MHz CMAC (`sys_clock`) WNS / WHS | **+0.790 ns / +0.054 ns** |
+| Fully routed nets / routable nets | **251,328 / 251,328** |
+| Routing-error nets | **0** |
+| Default DRC | **0 errors; warning-only** |
+
+The default DRC report contains 1,054 warning checks: DPIP-1 (526), DPOP-1
+(263), DPOP-2 (263), and REQP-1709 (2). The timing report says all user
+specified constraints are met. `check_timing` found zero unconstrained
+internal endpoints, no-clock pins or combinational loops. It also reports 18
+DDR DQS inputs and two DDR reset outputs without explicit I/O delays, and
+three LED outputs with no output delay that are false-pathed; these are visible
+and were not altered. The CDC report was generated but is not represented as an
+independent CDC signoff here.
+
+The routed checkpoint is `build/k8-full-top-v1/impl-place/post_route_aggr.dcp`
+in the `k8-full-top` worktree, SHA-256
+`a65d0e9195e22e927d61fe9411c8d6fc8082914b09247041c00dab1a5e99056a`. It was
+derived from post-opt DCP `57be9e5b...` and source manifest
+`5e0e41b3...`; the complete machine-readable result is
+`build/k8-full-top-v1/implementation-report.json` in the main workspace. This
+route profile is the 185-file K8 source snapshot from revision `a61b96f`; the
+separately merged standalone PPU leaf is **not included** in this routed image.
+
+No bitstream was emitted and no board was accessed or programmed. This is
+routed implementation evidence, not FPGA or RK3588 execution. Fresh bitstream
+emission and image audit remain separate gates.
