@@ -95,3 +95,7 @@ fallback's complete DDR composition or timing.
 The separate [same-executable controller union](../build/full512-ddr-preparation/shared-data-fault-model-v1/root-full33-union.json)
 passes all 12 CMAC and 21 EW numerical/fault/recovery cases. Those logical
 results do not close this timing gate or establish physical DDR inference.
+
+The later K16 FDIV/MAX image failure at -0.121 ns is a separate control-path
+case; its two source-local pipeline cuts and their remaining full-top K8
+qualification are recorded in [K16 control timing repair](K16_CONTROL_TIMING_REPAIR.md).

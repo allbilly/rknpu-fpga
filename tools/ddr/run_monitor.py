@@ -143,7 +143,7 @@ def profile_plan(simulator, name, producer, output, tools, vendor_sources=()):
                  '-MAKEFLAGS', 'CXX='+shlex.quote(tools['cxx']['path']),
                  '--Mdir', str(directory/name), '-o', 'sim', '-I'+str(directory), *sources]
         run = [str(producer/image)]
-    expected = (f"PASS mig_ecc_monitor cases={29 if simulator == 'iverilog' else 23} scope=independent_control_slave_only"
+    expected = (f"PASS mig_ecc_monitor cases={30 if simulator == 'iverilog' else 24} scope=independent_control_slave_only"
                 if name == 'portable' else
                 'PASS mig_ecc_vendor scenarios=21 raw_event_vectors=16 held_snapshots=2 no_MIG_memory_or_retirement_proof')
     return dict(build=build, run=run, image=image, result=expected)

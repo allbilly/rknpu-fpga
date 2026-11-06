@@ -5,6 +5,8 @@
 // This is not DDR retirement or host ACK. The containing DDR owner must hold
 // admission through fence/ECC/readback/ACK after consuming numerical status.
 module rk_dual_async_dispatch #(
+    parameter int unsigned ATOMIC_C=32,
+    parameter int unsigned ATOMIC_K=16,
     parameter int unsigned TIMEOUT_CYCLES=65536,
     parameter int unsigned MAX_TASKS=4095,
     parameter int unsigned SYNC_STAGES=3
@@ -125,7 +127,8 @@ module rk_dual_async_dispatch #(
         .ui_mem_rsp_valid(ui_mem_rsp_valid&&owned&&!owner_cmac),
         .ui_mem_rsp_rdata,.ui_mem_rsp_error,.ui_mem_rsp_ready(ew_response_ready)
     );
-    rk_cmac_async_engine #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES),
+    rk_cmac_async_engine #(.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K),
+        .TIMEOUT_CYCLES(TIMEOUT_CYCLES),
         .JOB_SYNC_STAGES(SYNC_STAGES),.MEMORY_SYNC_STAGES(SYNC_STAGES),
         .PERMIT_SYNC_STAGES(SYNC_STAGES)) cmac (
         .ui_quiet(cm_ui_quiet),.ui_idle_quiet(cm_ui_idle_quiet),.core_quiet(cm_core_quiet),.core_restart_ready(cm_core_ready),

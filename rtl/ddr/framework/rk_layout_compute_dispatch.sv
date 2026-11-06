@@ -6,6 +6,8 @@
 module rk_layout_compute_dispatch #(
     parameter logic [31:0] BASE=32'h10000000,
     parameter logic [32:0] BYTES=33'd1048576,
+    parameter integer ATOMIC_C=32,
+    parameter integer ATOMIC_K=16,
     parameter integer TIMEOUT_CYCLES=65536,
     parameter integer MAX_TASKS=4095,
     parameter integer SYNC_STAGES=3
@@ -93,7 +95,8 @@ module rk_layout_compute_dispatch #(
             if(ui_result_valid&&ui_result_ready&&!ui_result_error&&!ui_fault)owned<=0;
         end
     end
-    rk_dual_async_dispatch #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES),.MAX_TASKS(MAX_TASKS),.SYNC_STAGES(SYNC_STAGES)) numerical (
+    rk_dual_async_dispatch #(.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K),
+        .TIMEOUT_CYCLES(TIMEOUT_CYCLES),.MAX_TASKS(MAX_TASKS),.SYNC_STAGES(SYNC_STAGES)) numerical (
         .ui_quiet(numerical_ui_quiet),.core_quiet(numerical_core_quiet),.core_restart_ready(numerical_core_ready),
         .ui_clk,.ui_rst_n,.ui_admission_enable(ui_admission_enable&&!ui_fault),.ui_rearm_permit,
         .ui_start_valid(ui_start_valid&&!owned&&selection_known&&!selected_layout),.ui_start_cmac(ui_start_kind[0]),

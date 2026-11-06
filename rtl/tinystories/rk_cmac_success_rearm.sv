@@ -4,6 +4,8 @@
 // only the owned CMAC engine, then publish completion. A fault never rearms.
 // Shared RAM/mailbox/job-control resets remain exclusively global.
 module rk_cmac_success_rearm #(
+    parameter int unsigned ATOMIC_C=32,
+    parameter int unsigned ATOMIC_K=16,
     parameter int unsigned TIMEOUT_CYCLES=65536
 ) (
     input wire clk,rst_n,start_valid,
@@ -52,7 +54,8 @@ module rk_cmac_success_rearm #(
     // channels are only quiescent when RESET_ENGINE becomes reachable.
     assign mem_req_valid=rst_n&&child_req;
     assign mem_rsp_ready=rst_n&&child_rsp_ready;
-    rk_cmac_array_dma #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) engine(
+    rk_cmac_array_dma #(.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K),
+        .TIMEOUT_CYCLES(TIMEOUT_CYCLES)) engine(
         .clk,.rst_n(child_rst_n),.start_valid(start_valid&&state==IDLE&&allowed),
         .start_ready(child_ready),.start_address,.start_amount,.busy(child_busy),.done(child_done),
         .acknowledged(unused_acknowledged),.frame_done(unused_frame_done),.error(child_error),.error_code(child_code),
