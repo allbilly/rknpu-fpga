@@ -131,6 +131,21 @@ module tb_mig_ecc_monitor;
         request_check();await_snapshot();
         if (ar_count!=9 || write_count!=1) $fatal(1,"Check did not perform fresh reads");
         cases=cases+1;
+        // Data is captured on the response handshake, before the registered
+        // sample edge. A source change after the handshake must not alter the
+        // published snapshot or health.
+        healthy_start();request_check();
+        while (!(rvalid && read_address==0)) step();
+        step();
+        @(negedge clk);status_value=5;
+        await_snapshot();
+        if (snapshot_status!==32'h0 || fault || !monitor_healthy)
+            $fatal(1,"Late readback change replaced sampled status");
+        @(negedge clk);snapshot_ready=1;step();
+        @(negedge clk);snapshot_ready=0;
+        status_value=0;
+        request_check();await_snapshot();
+        cases=cases+1;
         // IRQ must withdraw healthy before the clock edge, preserving a held snapshot.
         @(negedge clk);mig_interrupt=1;#1;
         if (monitor_healthy) $fatal(1,"IRQ health not immediate");

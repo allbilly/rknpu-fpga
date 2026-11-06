@@ -1,0 +1,31 @@
+{
+  "schema": "k8-full-top-source-profile-v1",
+  "status": "PASS_K8_FULL_TOP_SOURCE_PROFILE",
+  "source_manifest_path": "/home/fedora/.local/share/opencode/worktree/c66387/k8-full-top/build/k8-full-top-v1/source-manifest.json",
+  "source_manifest_sha256": "5e0e41b3eef984d1a43d4384ee63bec5b2dcbd70a6144f92e40ec893aeeb4400",
+  "source_tag": "5e0e41b3",
+  "file_count": 185,
+  "changed_from_accepted": 14,
+  "top": "ypcb_ddr_dual_top",
+  "part": "xc7k480tffg1156-2",
+  "port_count": 242,
+  "parameters": {
+    "ATOMIC_C": 32,
+    "ATOMIC_K": 8,
+    "tracked_default_ATOMIC_C": 32,
+    "tracked_default_ATOMIC_K": 16
+  },
+  "source_commit": "01c63c1fe47e1576b2039469967e06b94bc93bc6",
+  "source_commit_base": "a9b5d028e9212776223df4b24cfabfde688f29db",
+  "timing_repair_commit": "3707873549b9bc97900f8ba559ee202e575e0021",
+  "derived_from": {
+    "profile": "build/fdv-max-image-v1/source-profile.json",
+    "profile_sha256": "16c2bcade550a91f14ca6147cd98e251b6a99be39ba4eaa49b2d093dbc52d3a4",
+    "source_manifest": "build/fdv-max-image-v1/source-manifest.json",
+    "source_manifest_sha256": "81816f842db7d97b1bec640e3fbd4be997f1f1dfe5314c9309ae7992cf2127b0",
+    "file_count": 185,
+    "source_commit": "58c0e7f50bdcb54dc7c7db733507c4d1575a019f"
+  },
+  "hardware_accessed": false,
+  "scope": "Static source binding and parameter selection only. Fresh synthesis is a separate gate; no place/route, bitstream, board or hardware claim."
+}

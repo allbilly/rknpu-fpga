@@ -1,0 +1,23 @@
+--- a/hdl/117/platform.sv
++++ b/hdl/117/platform.sv
+@@ -1,7 +1,10 @@
+ // Prepared source wiring only; no physical or full512 qualification.
+ `timescale 1ns/1ps
+ // Host frames are synchronous to frame_clk; reset/recovery owns the whole epoch.
+-module rk_original_mig_ew_platform (
++module rk_original_mig_ew_platform #(
++    parameter int unsigned ATOMIC_C = 32,
++    parameter int unsigned ATOMIC_K = 16
++) (
+     output wire admission_blocked,
+     output wire c0_aresetn,
+     output wire c0_clients_rst_n,
+@@ -338,7 +341,7 @@
+         .c1_ui_clk_sync_rst(c0_ui_clk_sync_rst),
+         .sys_rst(mig_sys_rst_n)
+     );
+-    rk_jtag_dual_ddr_async endpoint (
++    rk_jtag_dual_ddr_async #(.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K)) endpoint (
+         .admission_blocked(admission_blocked),
+         .c0_aresetn(c0_aresetn),
+         .c0_clients_rst_n(c0_clients_rst_n),
