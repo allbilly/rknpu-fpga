@@ -91,8 +91,8 @@ Verified with Icarus Verilog 13.0 and Verilator 5.048 (2026-04-26 build):
 Both runs produce the device BO SHA256
 `a18647840e9e8c3abb2f004ee47e6d629d735755b8dbdd5e5b340e314f03411e` with zero
 tail differences. Reports, compile/run logs and observed BOs are in
-`build/ppu-pooling/iverilog-pad1-runner-v2/` and
-`build/ppu-pooling/verilator-pad1-runner-v2/`; each report records
+`build/ppu-pooling/iverilog-pad1-commit-a60e864/` and
+`build/ppu-pooling/verilator-pad1-commit-a60e864/`; each report records
 source/fixture hashes, tool version, seeds `0x3588` / `0x600d` and
 `hardware_accessed=false`.
 
