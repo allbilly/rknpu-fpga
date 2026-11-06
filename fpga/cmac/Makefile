@@ -145,6 +145,11 @@ array-core-vectors: array-front-vectors frame-output-vectors
 	cd $(ROOT) && { test -f build/rknpu-array-core-vectors/vectors_report.json || $(PYTHON) tools/cmac/gen_array_core_vectors.py; }
 array-core-test: array-core-vectors
 	cd $(ROOT) && $(PYTHON) tools/cmac/test_array_core.py --suite $(or $(SUITE),full)
+.PHONY: array-core-k8-vectors array-core-k8-test
+array-core-k8-vectors: array-core-vectors
+	cd $(ROOT) && { test -f build/rknpu-array-core-vectors-k8/vectors_report.json || $(PYTHON) tools/cmac/gen_array_core_vectors_k8.py; }
+array-core-k8-test: array-core-k8-vectors
+	cd $(ROOT) && $(PYTHON) tools/cmac/test_array_core_k8.py --tool $(TOOL) --suite $(or $(SUITE),protocol)
 array-core-model: array-core-vectors
 	cd $(ROOT) && $(PYTHON) tools/cmac/check_array_core_model.py
 .PHONY: array-core-replay

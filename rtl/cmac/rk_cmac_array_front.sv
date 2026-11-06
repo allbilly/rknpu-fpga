@@ -1,9 +1,13 @@
 // SPDX-License-Identifier: MIT
 `timescale 1ns/1ps
-// Raw terminal RK command words -> C32/K16 physical operand frames.
-// Reuses the strict profile decoder unchanged. This bounded frame buffer is
-// not a complete CBUF/CSC implementation or an execution/completion endpoint.
-module rk_cmac_array_front #(parameter int unsigned TIMEOUT_CYCLES=65536) (
+// Raw terminal RK command words -> C32 x atomic-K physical operand frames.
+// Reuses the strict profile decoder unchanged: the host still describes one
+// logical OC16 job (0x10014024=16). K8 derives two OC8 frames per OC16 block
+// internally. This bounded frame buffer is not a complete CBUF/CSC
+// implementation or an execution/completion endpoint.
+module rk_cmac_array_front #(
+    parameter int unsigned ATOMIC_C=32,ATOMIC_K=16,TIMEOUT_CYCLES=65536
+) (
     input wire clk,rst_n,cmd_valid,
     output wire cmd_ready,
     input wire [63:0] cmd_data,
@@ -21,14 +25,16 @@ module rk_cmac_array_front #(parameter int unsigned TIMEOUT_CYCLES=65536) (
     input wire mem_rsp_error,
     output wire frame_valid,
     input wire frame_ready,
-    output logic [511:0] frame_data,
-    output logic [8191:0] frame_weight,
-    output wire [31:0] frame_data_mask,
-    output wire [511:0] frame_weight_mask,
+    output logic [ATOMIC_C*16-1:0] frame_data,
+    output logic [ATOMIC_K*ATOMIC_C*16-1:0] frame_weight,
+    output wire [ATOMIC_C-1:0] frame_data_mask,
+    output wire [ATOMIC_K*ATOMIC_C-1:0] frame_weight_mask,
     output wire [31:0] frame_output_address,frame_row,frame_oc,frame_ic,
     output wire frame_first,frame_last,frame_last_output
 );
     typedef enum logic [2:0] {IDLE,DATA_REQ,DATA_WAIT,WEIGHT_REQ,WEIGHT_WAIT,EMIT} state_t;
+    localparam int unsigned WEIGHT_WORDS=ATOMIC_K*ATOMIC_C;
+    localparam int unsigned READ_INDEX_WIDTH=$clog2(WEIGHT_WORDS);
     state_t state;
     wire config_valid,decode_error;
     wire [7:0] decode_code;
@@ -37,7 +43,7 @@ module rk_cmac_array_front #(parameter int unsigned TIMEOUT_CYCLES=65536) (
     logic [31:0] rows,ai,ao,row_index,oc,ic;
     logic [31:0] input_row_base,input_group_base,weight_origin,weight_atom_base,weight_group_base;
     logic [31:0] output_row_base,output_atom_base,stalled_cycles;
-    logic [8:0] read_index;
+    logic [READ_INDEX_WIDTH-1:0] read_index;
     logic fault,response_data_legal;
     logic [7:0] saved_code,normalized_cancel;
     // Once the raw trigger is accepted, downstream ownership may rise before
@@ -45,7 +51,17 @@ module rk_cmac_array_front #(parameter int unsigned TIMEOUT_CYCLES=65536) (
     wire config_ready=rst_n&&!error&&state==IDLE;
     wire memory_state=state==DATA_REQ||state==DATA_WAIT||state==WEIGHT_REQ||state==WEIGHT_WAIT;
     wire progress=(mem_req_valid&&mem_req_ready)||(mem_rsp_valid&&mem_rsp_ready);
-    initial if(TIMEOUT_CYCLES==0) $fatal(1,"TIMEOUT_CYCLES must be positive");
+    wire [31:0] oc_in_block=oc&32'd15;
+    // K16 advances one OC16 block (64 bytes) at a time. K8 advances 16 bytes
+    // for the first OC8 half and 48 bytes for the second, so the next OC16
+    // block base stays at the unchanged 64-byte stride.
+    wire [31:0] atom_advance=(oc_in_block+ATOMIC_K==32'd16) ?
+        32'd64-(oc_in_block<<1) : ATOMIC_K*2;
+    initial begin
+        if(TIMEOUT_CYCLES==0) $fatal(1,"TIMEOUT_CYCLES must be positive");
+        if(ATOMIC_C!=32||(ATOMIC_K!=8&&ATOMIC_K!=16))
+            $fatal(1,"unsupported front atomic C/K");
+    end
     always @* begin
         case(cancel_code)
             1,2,3,4,5,6,7,8:normalized_cancel=cancel_code;
@@ -70,7 +86,7 @@ module rk_cmac_array_front #(parameter int unsigned TIMEOUT_CYCLES=65536) (
     assign frame_ic=ic;
     assign frame_first=ic==0;
     assign frame_last=ic==ai-32;
-    assign frame_last_output=row_index==rows-1&&oc==ao-16;
+    assign frame_last_output=row_index==rows-1&&oc==ao-ATOMIC_K;
     rk_cmac_profile profile(
         .clk,.rst_n,.cmd_valid,.cmd_ready,.cmd_data,
         .engine_busy(state!=IDLE||downstream_busy),.engine_error(fault||cancel),
@@ -103,11 +119,11 @@ module rk_cmac_array_front #(parameter int unsigned TIMEOUT_CYCLES=65536) (
                             1'b0: if(!response_data_legal) begin fault<=1;saved_code<=6;end
                             else if(state==DATA_WAIT) begin
                                 frame_data[read_index[4:0]*16+:16]<=mem_rsp_rdata;
-                                if(read_index==31) begin read_index<=0;mem_req_addr<=weight_group_base;state<=WEIGHT_REQ;end
+                                if(read_index==ATOMIC_C-1) begin read_index<=0;mem_req_addr<=weight_group_base;state<=WEIGHT_REQ;end
                                 else begin read_index<=read_index+1'b1;mem_req_addr<=mem_req_addr+2;state<=DATA_REQ;end
                             end else begin
                                 frame_weight[read_index*16+:16]<=mem_rsp_rdata;
-                                if(read_index==511) state<=EMIT;
+                                if(read_index==WEIGHT_WORDS-1) state<=EMIT;
                                 else begin read_index<=read_index+1'b1;mem_req_addr<=mem_req_addr+2;state<=WEIGHT_REQ;end
                             end
                             default:begin fault<=1;saved_code<=5;end
@@ -116,15 +132,17 @@ module rk_cmac_array_front #(parameter int unsigned TIMEOUT_CYCLES=65536) (
                     EMIT: if(frame_ready) begin
                         read_index<=0;
                         if(!frame_last) begin
-                            ic<=ic+32;input_group_base<=input_group_base+64;weight_group_base<=weight_group_base+1024;
+                            ic<=ic+32;input_group_base<=input_group_base+64;
+                            weight_group_base<=weight_group_base+(ATOMIC_K*ATOMIC_C*2);
                             mem_req_addr<=input_group_base+64;state<=DATA_REQ;
                         end else if(frame_last_output) begin state<=IDLE;stream_done<=1;end
                         else begin
                             ic<=0;state<=DATA_REQ;
-                            if(oc!=ao-16) begin
-                                oc<=oc+16;input_group_base<=input_row_base;mem_req_addr<=input_row_base;
-                                weight_atom_base<=weight_atom_base+(ai<<5);weight_group_base<=weight_atom_base+(ai<<5);
-                                output_atom_base<=output_atom_base+64;
+                            if(oc!=ao-ATOMIC_K) begin
+                                oc<=oc+ATOMIC_K;input_group_base<=input_row_base;mem_req_addr<=input_row_base;
+                                weight_atom_base<=weight_atom_base+ai*(ATOMIC_K*2);
+                                weight_group_base<=weight_atom_base+ai*(ATOMIC_K*2);
+                                output_atom_base<=output_atom_base+atom_advance;
                             end else begin
                                 oc<=0;row_index<=row_index+1;
                                 input_row_base<=input_row_base+(ai<<1);input_group_base<=input_row_base+(ai<<1);mem_req_addr<=input_row_base+(ai<<1);

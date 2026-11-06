@@ -1,8 +1,12 @@
 // SPDX-License-Identifier: MIT
 `timescale 1ns/1ps
-// Strict terminal RK command stream -> physical C32/K16 arithmetic -> memory.
-// This is the bounded profile, not complete CBUF/CSC or a PCIe/DDR endpoint.
-module rk_cmac_array_core #(parameter int unsigned TIMEOUT_CYCLES=65536) (
+// Strict terminal RK command stream -> physical C32 x atomic-K arithmetic ->
+// memory. This is the bounded profile, not complete CBUF/CSC or a PCIe/DDR
+// endpoint. K16 is the reference; K8 splits the logical OC16 host job into two
+// OC8 frames inside the front/arithmetic/writer chain.
+module rk_cmac_array_core #(
+    parameter int unsigned ATOMIC_C=32,ATOMIC_K=16,TIMEOUT_CYCLES=65536
+) (
     input wire clk,rst_n,cmd_valid,
     output wire cmd_ready,
     input wire [63:0] cmd_data,
@@ -25,9 +29,11 @@ module rk_cmac_array_core #(parameter int unsigned TIMEOUT_CYCLES=65536) (
     wire arb_busy,arb_error,arb_req_valid,arb_rsp_ready;
     wire [7:0] front_code,data_code,arb_code;
     wire frame_valid,frame_ready,frame_first,frame_last,frame_last_output;
-    wire [511:0] frame_data,frame_weight_mask;
-    wire [8191:0] frame_weight;
-    wire [31:0] frame_data_mask,frame_output_address,unused_row,unused_oc,unused_ic;
+    wire [ATOMIC_C*16-1:0] frame_data;
+    wire [ATOMIC_K*ATOMIC_C*16-1:0] frame_weight;
+    wire [ATOMIC_C-1:0] frame_data_mask;
+    wire [ATOMIC_K*ATOMIC_C-1:0] frame_weight_mask;
+    wire [31:0] frame_output_address,unused_row,unused_oc,unused_ic;
     wire rd_req,rd_ready,rd_rsp,rd_rsp_ready,rd_error;
     wire wr_req,wr_ready,wr_rsp,wr_rsp_ready,wr_error,wr_write;
     wire [31:0] rd_address,wr_address;
@@ -56,7 +62,7 @@ module rk_cmac_array_core #(parameter int unsigned TIMEOUT_CYCLES=65536) (
     assign done=data_done&&!error;
     assign mem_req_valid=arb_req_valid&&!error;
     assign mem_rsp_ready=arb_rsp_ready&&!error;
-    rk_cmac_array_front #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) front(
+    rk_cmac_array_front #(.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K),.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) front(
         .clk,.rst_n,.cmd_valid(cmd_valid&&!error),.cmd_ready(front_ready),.cmd_data,
         .downstream_busy(data_busy),.cancel(child_cancel),.cancel_code(child_code),
         .busy(front_busy),.error(front_error),.stream_done(unused_stream_done),.error_code(front_code),
@@ -65,7 +71,7 @@ module rk_cmac_array_core #(parameter int unsigned TIMEOUT_CYCLES=65536) (
         .frame_valid,.frame_ready(frame_ready&&!error),.frame_data,.frame_weight,.frame_data_mask,.frame_weight_mask,
         .frame_output_address,.frame_row(unused_row),.frame_oc(unused_oc),.frame_ic(unused_ic),
         .frame_first,.frame_last,.frame_last_output);
-    rk_cmac_array_datapath #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) datapath(
+    rk_cmac_array_datapath #(.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K),.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) datapath(
         .clk,.rst_n,.in_valid(frame_valid&&!error),.in_ready(frame_ready),
         .in_data(frame_data),.in_weight(frame_weight),.in_data_mask(frame_data_mask),.in_weight_mask(frame_weight_mask),
         .in_first(frame_first),.in_last(frame_last),.in_last_frame(frame_last_output),.in_output_address(frame_output_address),

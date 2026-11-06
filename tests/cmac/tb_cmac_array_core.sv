@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 `timescale 1ns/1ps
-module tb_cmac_array_core;
+module tb_cmac_array_core #(parameter integer ATOMIC_K=16);
     logic clk,rst_n=0,cmd_valid=0,cancel=0;
     logic [63:0] cmd_data=0,commands[0:48];
     logic [7:0] cancel_code=0;
@@ -23,7 +23,7 @@ module tb_cmac_array_core;
     assign mem_rsp_valid=rst_n&&pending&&delay_left==0&&mode!=4;
     assign mem_rsp_rdata=response_data;
     assign mem_rsp_error=pending_error;
-    rk_cmac_array_core #(.TIMEOUT_CYCLES(128)) dut(.*);
+    rk_cmac_array_core #(.ATOMIC_K(ATOMIC_K),.TIMEOUT_CYCLES(128)) dut(.*);
     always @(posedge clk or negedge rst_n) begin: memory_slave
         logic response_fire,expected_ack,expected_frame,expected_done;
         logic [15:0] read_value;
@@ -37,7 +37,7 @@ module tb_cmac_array_core;
             rng<=rng*32'd1664525+32'd1013904223;
             response_fire=mem_rsp_valid&&mem_rsp_ready;
             expected_ack=response_fire&&pending_write&&!pending_error;
-            expected_frame=expected_ack&&write_responses%16==15;
+            expected_frame=expected_ack&&write_responses%ATOMIC_K==ATOMIC_K-1;
             expected_done=expected_frame&&write_responses==write_count-1;
             if(mem_req_valid&&mem_req_ready) begin
                 if(pending||mem_req_addr[0]) $fatal(1,"invalid request ownership/alignment");
@@ -113,7 +113,7 @@ module tb_cmac_array_core;
             $fatal(1,"raw replay simulation-cycle watchdog");
         end
         repeat(8) begin tick();if(error||busy||done||mem_req_valid||!cmd_ready) $fatal(1,"raw replay failed to drain");end
-        if(read_requests!=read_count||read_responses!=read_count||write_requests!=write_count||write_responses!=write_count||acks!=write_count||jobs!=1||frames!=write_count/16)
+        if(read_requests!=read_count||read_responses!=read_count||write_requests!=write_count||write_responses!=write_count||acks!=write_count||jobs!=1||frames!=write_count/ATOMIC_K)
             $fatal(1,"raw replay transaction counts");
         for(integer i=0;i<2048;i=i+1) begin
             if(i<rows*ao*2&&i%32<16) begin
@@ -134,7 +134,8 @@ module tb_cmac_array_core;
     initial begin
         if(!$value$plusargs("DIRECTORY=%s",directory)||!$value$plusargs("MODE=%d",mode)||!$value$plusargs("ROWS=%d",rows)||
            !$value$plusargs("AI=%d",ai)||!$value$plusargs("AO=%d",ao)||!$value$plusargs("READS=%d",read_count)||!$value$plusargs("WRITES=%d",write_count)) $fatal(1,"missing corpus");
-        if(rows<1||ai<32||ao<32||rows*ai>1024||ai*ao>8192||rows*ao*2>2048||read_count<1||read_count>16384||write_count<1||write_count>1024||mode<0||mode>9||mode==8) $fatal(1,"invalid corpus or mode");
+        if(ATOMIC_K!=8&&ATOMIC_K!=16) $fatal(1,"unsupported raw core atomic K");
+        if(rows<1||ai<32||ao<32||rows*ai>1024||ai*ao>8192||rows*ao*2>2048||read_count<1||read_count>16384||write_count<1||write_count>1024||write_count%ATOMIC_K!=0||mode<0||mode>9||mode==8) $fatal(1,"invalid corpus or mode");
         $readmemh({directory,"/commands.hex"},commands,0,48);
         $readmemh({directory,"/input.hex"},input_memory,0,rows*ai-1);
         $readmemh({directory,"/weight.hex"},weight_memory,0,ai*ao-1);
@@ -154,10 +155,10 @@ module tb_cmac_array_core;
                 else begin reset_all();submit();finish_job();end
             end else begin
                 expect_fault(mode==1||mode==2 ? 8'd5 : mode==9 ? 8'd6 : 8'd8);
-                if(mode==2&&(write_requests!=write_count||acks!=write_count-1||frames!=write_count/16-1)) $fatal(1,"failed final write counted as completion");
+                if(mode==2&&(write_requests!=write_count||acks!=write_count-1||frames!=write_count/ATOMIC_K-1)) $fatal(1,"failed final write counted as completion");
             end
         end
-        $display("PASS raw C32 K16 core mode=%0d reads=%0d writes=%0d acknowledgments=%0d jobs=%0d seed=3588ac16",mode,read_requests,write_requests,acks,jobs);
+        $display("PASS raw C32 K%0d core mode=%0d reads=%0d writes=%0d acknowledgments=%0d jobs=%0d seed=3588ac16",ATOMIC_K,mode,read_requests,write_requests,acks,jobs);
         $finish;
     end
     initial begin #10000000;$fatal(1,"raw core watchdog");end

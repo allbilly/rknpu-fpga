@@ -1,15 +1,18 @@
 // SPDX-License-Identifier: MIT
 `timescale 1ns/1ps
-// Internal C32/K16 arithmetic-to-memory path. The future raw-command CSC
+// Internal C32 x atomic-K arithmetic-to-memory path. The raw-command front
 // supplies physical operand frames and output atom addresses; this module
-// deliberately has no alternate host/tensor execution interface.
-module rk_cmac_array_datapath #(parameter int unsigned TIMEOUT_CYCLES=65536) (
+// deliberately has no alternate host/tensor execution interface. K16 is the
+// reference profile; K8 keeps the same C32 lanes and halves the kernels.
+module rk_cmac_array_datapath #(
+    parameter int unsigned ATOMIC_C=32,ATOMIC_K=16,TIMEOUT_CYCLES=65536
+) (
     input wire clk,rst_n,in_valid,
     output wire in_ready,
-    input wire [511:0] in_data,
-    input wire [8191:0] in_weight,
-    input wire [31:0] in_data_mask,
-    input wire [511:0] in_weight_mask,
+    input wire [ATOMIC_C*16-1:0] in_data,
+    input wire [ATOMIC_K*ATOMIC_C*16-1:0] in_weight,
+    input wire [ATOMIC_C-1:0] in_data_mask,
+    input wire [ATOMIC_K*ATOMIC_C-1:0] in_weight_mask,
     input wire in_first,in_last,in_last_frame,
     input wire [31:0] in_output_address,
     input wire cancel,
@@ -27,12 +30,14 @@ module rk_cmac_array_datapath #(parameter int unsigned TIMEOUT_CYCLES=65536) (
 );
     wire arithmetic_ready,arithmetic_valid,arithmetic_busy,arithmetic_error;
     wire writer_ready,writer_busy,writer_ack,writer_frame_done,writer_done,writer_error,writer_req,writer_rsp;
-    wire [511:0] result_values;
+    wire [ATOMIC_K*32-1:0] result_values;
     wire [32:0] result_tag;
     wire [7:0] arithmetic_code,writer_code;
     logic active,closing,fault;
     logic [7:0] saved_code,normalized_cancel;
     wire child_cancel=cancel||fault;
+    initial if(ATOMIC_C!=32||(ATOMIC_K!=8&&ATOMIC_K!=16))
+        $fatal(1,"unsupported datapath atomic C/K");
     always @* begin
         case(cancel_code)
             1,2,3,4,5,6,7,8:normalized_cancel=cancel_code;
@@ -49,14 +54,14 @@ module rk_cmac_array_datapath #(parameter int unsigned TIMEOUT_CYCLES=65536) (
     assign done=writer_done&&!error;
     assign mem_req_valid=writer_req&&!error;
     assign mem_rsp_ready=writer_rsp&&!error;
-    rk_cmac_cacc_fp16_array arithmetic(
+    rk_cmac_cacc_fp16_array #(.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K)) arithmetic(
         .clk,.rst_n,.in_valid(in_valid&&!error&&!closing),.in_ready(arithmetic_ready),
         .in_data,.in_weight,.in_data_mask,.in_weight_mask,.in_first,.in_last,
         .in_tag({in_output_address,in_last_frame}),.out_valid(arithmetic_valid),
         .out_ready(writer_ready&&!error),.out_values(result_values),.out_tag(result_tag),
         .cancel(child_cancel),.cancel_code(fault ? saved_code : normalized_cancel),
         .busy(arithmetic_busy),.error(arithmetic_error),.error_code(arithmetic_code));
-    rk_cmac_frame_output #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) writer(
+    rk_cmac_frame_output #(.ATOMIC_K(ATOMIC_K),.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) writer(
         .clk,.rst_n,.in_valid(arithmetic_valid&&!error),.in_ready(writer_ready),
         .in_values(result_values),.in_address(result_tag[32:1]),.in_last(result_tag[0]),
         .cancel(child_cancel),.cancel_code(fault ? saved_code : normalized_cancel),

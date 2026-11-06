@@ -120,7 +120,9 @@ this increment does not rebind the production profile.
 
 ## Remaining work
 
-This increment deliberately leaves the following untouched:
+The core-level K8 front/datapath/OC8-writer slice is documented separately in
+[CMAC_K8_CORE.md](CMAC_K8_CORE.md). This arithmetic increment deliberately
+leaves the following untouched:
 
 - `rtl/cmac/rk_cmac_array_datapath.sv`, `rk_cmac_array_front.sv`,
   `rk_cmac_frame_output.sv`, `rk_cmac_array_dma.sv`, `rk_cmac_array_core.sv`,
