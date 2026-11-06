@@ -1,0 +1,58 @@
+{
+  "accepted_185_manifest": "build/framework-factored-sys-reset-v1/source-manifest.json",
+  "accepted_185_manifest_sha256": "b0fe4374c69dba9ec72db8289f8258048eb79172f9f3face0edb4fe53311a4e2",
+  "accepted_files_byte_identical": 180,
+  "added": [
+    "constraint-helpers/bridge_levels.tcl",
+    "constraint-helpers/bridge_levels_sys.tcl",
+    "constraint-helpers/mailbox_sys.tcl",
+    "hdl/sys_reset/rk_retained_jtag_mailbox.sv",
+    "hdl/sys_reset/rk_whole_reset_control.sv",
+    "hdl/sys_reset/rk_whole_reset_frame_gate.sv",
+    "hdl/sys_reset/rk_whole_reset_ui_bridge.sv"
+  ],
+  "changed_vs_178_baseline": [
+    "constraint-helpers/mailbox_ui.tcl",
+    "hdl/101/rk_fp16_alu.sv",
+    "hdl/102/rk_ew_regs.sv",
+    "hdl/103/rk_ew_engine.sv",
+    "hdl/104/rk_ew_core.sv",
+    "hdl/105/rk_ew_dma.sv",
+    "hdl/117/platform.sv",
+    "hdl/120/top.sv",
+    "hdl/150/rk_jtag_dual_ddr_async.sv",
+    "hdl/155/rk_ddr_capacity_service.sv"
+  ],
+  "check_log_path": "/home/fedora/rknpu-fpga/build/fdv-max-image-v1/check_profile.log",
+  "check_log_sha256": "9e8bb315296730c72791091dc621f3736d5b0bfe741f9f450b6ca7612d67e049",
+  "ew_rebind_hashes": {
+    "hdl/101/rk_fp16_alu.sv": "303075d4321852c863d396c53a383db4821d8337cfc3b765109faade37205b88",
+    "hdl/102/rk_ew_regs.sv": "f59d479cdc766636dd5bef8d778a2eab3e6516217225c11e36a446d3a942f4d1",
+    "hdl/103/rk_ew_engine.sv": "8ee67b2b35c26a4ece06749a707678e512599d7965ae3bef8e7b9467a57a95dd",
+    "hdl/104/rk_ew_core.sv": "e6ec2ac82b8f10d3a5a4787e9e86886f52d8b45314e9475888dab08955b2036f",
+    "hdl/105/rk_ew_dma.sv": "1bc1780ff550903a66ecf2c8e89794f1edcb9ea570a85fbbb9a22673ea94f41e"
+  },
+  "ew_rebound_files": [
+    "hdl/101/rk_fp16_alu.sv",
+    "hdl/102/rk_ew_regs.sv",
+    "hdl/103/rk_ew_engine.sv",
+    "hdl/104/rk_ew_core.sv",
+    "hdl/105/rk_ew_dma.sv"
+  ],
+  "file_count": 185,
+  "hardware_accessed": false,
+  "removed": [],
+  "schema": "fdv-max-source-profile-v1",
+  "scope": "Static source binding only. Fresh synthesis/implementation and image emission are separate gates.",
+  "source_commit": "58c0e7f50bdcb54dc7c7db733507c4d1575a019f",
+  "source_commit_subject": "rtl: implement captured RK3588 FP16 FDIV",
+  "source_manifest_path": "/home/fedora/rknpu-fpga/build/fdv-max-image-v1/source-manifest.json",
+  "source_manifest_sha256": "81816f842db7d97b1bec640e3fbd4be997f1f1dfe5314c9309ae7992cf2127b0",
+  "source_tag": "81816f84",
+  "status": "PASS_FDIV_MAX_SOURCE_PROFILE",
+  "tool": {
+    "python": "Python 3.14.5",
+    "vivado": "vivado v2026.1 (64-bit)"
+  },
+  "utc": "2026-11-06T02:59:55.235480+00:00"
+}

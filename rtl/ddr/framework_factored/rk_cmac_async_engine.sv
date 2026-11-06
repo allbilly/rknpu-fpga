@@ -4,6 +4,8 @@
 // Terminal core status is not DDR retirement/ECC proof or host ACK.
 // Both crossing resets belong to one coordinated whole-transaction epoch.
 module rk_cmac_async_engine #(
+    parameter int unsigned ATOMIC_C = 32,
+    parameter int unsigned ATOMIC_K = 16,
     parameter int unsigned TIMEOUT_CYCLES = 65536,
     parameter int unsigned JOB_SYNC_STAGES = 3,
     parameter int unsigned MEMORY_SYNC_STAGES = 3,
@@ -134,7 +136,8 @@ module rk_cmac_async_engine #(
     // Rearm only the successful numerical child after the crossing is drained.
     // DDR ownership, ECC/fence state and the job/memory crossings are never
     // reset here. A later UI health fault still invalidates the containing job.
-    rk_cmac_success_rearm #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) engine (
+    rk_cmac_success_rearm #(.ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K),
+        .TIMEOUT_CYCLES(TIMEOUT_CYCLES)) engine (
         .clk(core_clk), .rst_n(dma_rst_n), .start_valid(dma_start_valid), .start_ready(dma_start_ready),
         .start_address(crossing_address), .start_amount(crossing_amount),
         .rearm_allowed(core_permitted), .memory_pending(memory_pending || mem_rsp_valid),

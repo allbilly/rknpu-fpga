@@ -45,6 +45,7 @@ module rk_ddr_capacity_owner #(
     logic [1:0] aw_take, w_take, b_take, ar_take, r_take;
     logic diagnostic_owned, start_pending, accepted_done;
     logic health_good, physical_quiet, logical_quiet, quiet_now;
+    logic logical_quiet_fault;
     logic protocol_bad, invalid_seed, fault_now;
     logic [7:0] current_fault;
     logic [31:0] quiet_count, wait_count;
@@ -80,6 +81,14 @@ module rk_ddr_capacity_owner #(
         normal_host_busy === 1'b0 && normal_engine_pending === 1'b0 &&
         normal_pending_response === 1'b0 && normal_unrouted_request === 1'b0;
     assign quiet_now = physical_quiet && logical_quiet;
+    // The diagnostic-fault witness is registered: the normal AXI-Lite read
+    // response cone (normal_pending_response) may only reach admission through
+    // a flop. Quiescence counting keeps the immediate logical_quiet witness;
+    // only the already-selected diagnostic fault detect gains one UI clock.
+    always_ff @(posedge clk) begin
+        if (!joint_rst_n) logical_quiet_fault <= 0;
+        else logical_quiet_fault <= logical_quiet;
+    end
     always_comb begin
         invalid_seed = 0;
 `ifndef SYNTHESIS
@@ -103,7 +112,7 @@ module rk_ddr_capacity_owner #(
         if ((state != NORMAL || request_accept) && !health_good) current_fault = 1;
         else if (request_accept && invalid_seed) current_fault = 1;
         else if (protocol_bad) current_fault = 2;
-        else if (diagnostic_owned && !logical_quiet) current_fault = 4;
+        else if (diagnostic_owned && !logical_quiet_fault) current_fault = 4;
         else if (diagnostic_owned && diagnostic_fault !== 1'b0) current_fault = 5;
         else if ((state == RUN || state == RESULT) && diagnostic_monitor_healthy !== 1'b1)
             current_fault = 5;

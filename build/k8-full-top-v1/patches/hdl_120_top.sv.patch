@@ -1,0 +1,26 @@
+--- a/hdl/120/top.sv
++++ b/hdl/120/top.sv
+@@ -1,7 +1,12 @@
+ // Boot-only strict EW/DDR preparation; no PCIe or full512 in this shell.
+ // Reconfiguration resets the whole epoch; no TAP reset or health signal initiates recovery.
+ `timescale 1ns/1ps
+-module ypcb_ddr_dual_top #(parameter bit LED_ACTIVE_LOW=1'b0) (
++module ypcb_ddr_dual_top #(
++    parameter bit LED_ACTIVE_LOW=1'b0,
++    parameter int unsigned ATOMIC_C=32,
++    // Build-local K8 profile default. Tracked RTL retains ATOMIC_K=16.
++    parameter int unsigned ATOMIC_K=8
++) (
+     input wire SYS_CLK,
+     output wire [14:0] c0_ddr3_addr,
+     output wire [2:0] c0_ddr3_ba,
+@@ -192,7 +197,8 @@
+         .m_rsp_valid(platform_rsp_valid),.m_rsp_data(platform_rsp_data),
+         .m_rsp_status(platform_rsp_status),.m_rsp_seq(platform_rsp_seq),
+         .sealed_quiet(sealed_quiet),.gate_fault(maintenance_gate_fault));
+-    (* KEEP_HIERARCHY="TRUE" *) rk_original_mig_ew_platform platform(
++    (* KEEP_HIERARCHY="TRUE" *) rk_original_mig_ew_platform #(
++        .ATOMIC_C(ATOMIC_C),.ATOMIC_K(ATOMIC_K)) platform(
+         .admission_blocked(admission_blocked),
+         .c0_aresetn(c0_aresetn),
+         .c0_clients_rst_n(c0_clients_rst_n),

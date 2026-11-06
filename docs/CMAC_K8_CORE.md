@@ -244,8 +244,10 @@ after the reports are written.
   the original OC16 BO is read directly. The OC8 output-atom placement remains
   an internal frame schedule and does not change the output BO layout.
 - Real conv-simple/conv-fp16/conv-gemm/GEMM capture replay.
-- Full-top synthesis, placement, route, timing, DRC, bitstream and hardware.
+- Full-top placement, route, timing, DRC, bitstream and hardware.
 
-This slice is **not** ready for full-top synthesis. It is ready for the next
-isolated profile-decode and broader K8 corpus increments. No FPGA, RK silicon,
-board or bitstream execution is claimed.
+The build-local full-top K8 source profile and its post-opt synthesis resource
+gate are recorded in [K8 full-top source integration](K8_FULL_TOP_INTEGRATION.md).
+That source/synthesis increment does not change this core slice's simulation
+evidence or add a place/route/hardware claim. No FPGA, RK silicon, board or
+bitstream execution is claimed.

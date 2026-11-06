@@ -1,0 +1,86 @@
+{
+  "case": "fp16_max_k2s1_valid_c8_h4w4",
+  "status": "READY",
+  "description": "FP16 maximum pooling, 2x2 kernel, stride 1, no padding, C8 H4 W4 -> H3 W3.",
+  "source_example": "/home/fedora/rk3588/examples/expt/pooling.py:799-818",
+  "source_bundle": "build/rk3588-example-captures/pooling/cases/fp16_max_k2s1_valid_c8_h4w4",
+  "device_capture": {
+    "path": "build/rk3588-example-captures/results/pooling-20261105T203205Z/pooling/fp16_max_k2s1_valid_c8_h4w4",
+    "capture_json_sha256": "8e6f0fda3787bcc568b0759d50d14506d19ee4fda12c636227371d172fc441f0",
+    "started_utc": "2026-11-05T20:32:43Z",
+    "status": "OK",
+    "device": "/dev/accel/accel0",
+    "device_path": "/sys/devices/platform/rknn",
+    "kernel": "6.18.24-current-rockchip64",
+    "board_compatible": [
+      "xunlong,orangepi-5",
+      "rockchip,rk3588s"
+    ],
+    "runner": "rocket_run.py 1.0.0",
+    "runner_sha256": "824f129261a2a0337b3da6720a46d1f9cff23e5d31efff9a0fa085f72f1b43cf"
+  },
+  "command_stream": {
+    "regcmd_bin_sha256": "75f7c70eb3eafc8345a634633f9c45df231dad1195f79ad1f9a2ea7038a4cebf",
+    "regcmd_patched_sha256": "32a8fe3772f79dd74bc1ed6952055d5b2720ccdfbb4bdd11c516ada15142f649",
+    "job_json_sha256": "371916d2ea8d236e8f45bb1ed66bff5477c4f4b9d33f48e8a8810b3025f68208"
+  },
+  "ppu": {
+    "dtype": "float16",
+    "method": "maximum",
+    "method_selector": 1,
+    "channels": 8,
+    "kernel": [2, 2],
+    "stride": [1, 1],
+    "padding": [0, 0, 0, 0],
+    "index_en": false,
+    "use_cnt": 0,
+    "in_shape": [4, 4],
+    "out_shape": [3, 3]
+  },
+  "layout": {
+    "atom_bytes": 16,
+    "atom_channels": 8,
+    "packing": "C1HWC2 (surface, y, x, 16-byte atom), little-endian",
+    "input": {
+      "line_stride_bytes": 64,
+      "surface_stride_bytes": 256,
+      "surfaces": 1,
+      "logical_bytes": 256,
+      "buffer_bytes": 4096
+    },
+    "output": {
+      "line_stride_bytes": 48,
+      "surface_stride_bytes": 144,
+      "surfaces": 1,
+      "value_bytes": 144,
+      "index_bytes": 0,
+      "logical_bytes": 144,
+      "buffer_bytes": 4096
+    }
+  },
+  "files": {
+    "in.bin": {
+      "bytes": 4096,
+      "sha256": "8035f829849d56a1a91332b6153c1bef9f1a56ea59470da42689c63a2ec910b2",
+      "role": "submitted input BO"
+    },
+    "out_init.bin": {
+      "bytes": 4096,
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "role": "initialized output BO"
+    },
+    "device_out.bin": {
+      "bytes": 4096,
+      "sha256": "39d178de3e4a7dd020c66d23437b18082ec2c00541efbc979b773f8bee45ce60",
+      "role": "RK3588 device output BO"
+    }
+  },
+  "comparison": {
+    "scope": "full 4096-byte output BO, including the untouched tail",
+    "logical_value_bytes": 144,
+    "logical_value_lanes_fp16": 72,
+    "mismatches_expected": 0,
+    "tolerance": 0.0,
+    "note": "The device output SHA256 equals the bundle's host expected.bin SHA256 for this case; the testbench compares the real device BO."
+  }
+}

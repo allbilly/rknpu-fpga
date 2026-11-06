@@ -7,7 +7,7 @@ from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / 'rtl/ddr/maintenance_fi/sources.json'
-MANIFEST_SHA256 = '3bf70b1d645be1136b1c7df4dc0195eb215df96d334eed4d0e44c79ed2c6acb7'
+MANIFEST_SHA256 = 'acefcb663a13eb13fc481df3c6a691d1be03689f5d678a18f29e0211abe0b785'
 
 
 def source_paths():
