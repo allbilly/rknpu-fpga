@@ -16,7 +16,12 @@ module tb_conv_array_core;
     logic [15:0] pending_data;
     logic [7:0] delay_left;
     logic [31:0] rng;
-    integer mode, command_count, read_requests, read_responses;
+    logic request_stalled, request_hold_write;
+    logic [31:0] request_hold_address;
+    logic [15:0] request_hold_data;
+    logic response_stalled, response_hold_error;
+    logic [15:0] response_hold_data;
+    integer mode, report_mode, command_count, read_requests, read_responses;
     integer weight_reads, input_reads, write_requests, write_responses;
     integer acknowledgments, frame_acks, done_count, observed_frames;
     integer age, index_value;
@@ -26,10 +31,43 @@ module tb_conv_array_core;
 
     rk_conv_array_core #(.TIMEOUT_CYCLES(32)) dut(.*);
 
-    assign mem_req_ready = rst_n && !pending && rng[2:0] != 0;
-    assign mem_rsp_valid = rst_n && pending && delay_left == 0 && mode != 10;
+    assign mem_req_ready = rst_n && !pending && rng[2:0] != 0 &&
+                           !(mode>=23 && mode<=25) && mode!=30;
+    assign mem_rsp_valid = rst_n && pending && delay_left == 0 &&
+                           mode!=10 && mode!=29 && !(mode==28 && pending_write);
     assign mem_rsp_rdata = pending_data;
     assign mem_rsp_error = pending_error;
+
+    // Assert the master/adapter ready-valid stability contract under stalls.
+    // Fault cancellation may withdraw the current transaction.
+    always @(posedge clk or negedge rst_n) begin : bus_stability_checks
+        if (!rst_n) begin
+            request_stalled<=0; request_hold_write<=0;
+            request_hold_address<=0; request_hold_data<=0;
+            response_stalled<=0; response_hold_error<=0; response_hold_data<=0;
+        end else begin
+            if (request_stalled && !error &&
+                (!mem_req_valid || mem_req_write!==request_hold_write ||
+                 mem_req_addr!==request_hold_address || mem_req_wdata!==request_hold_data))
+                $fatal(1,"memory request changed while backpressured");
+            request_stalled<=mem_req_valid && !mem_req_ready;
+            if (mem_req_valid && !mem_req_ready) begin
+                request_hold_write<=mem_req_write;
+                request_hold_address<=mem_req_addr;
+                request_hold_data<=mem_req_wdata;
+            end
+
+            if (response_stalled && !error &&
+                (!mem_rsp_valid || mem_rsp_rdata!==response_hold_data ||
+                 mem_rsp_error!==response_hold_error))
+                $fatal(1,"memory response changed while backpressured");
+            response_stalled<=mem_rsp_valid && !mem_rsp_ready;
+            if (mem_rsp_valid && !mem_rsp_ready) begin
+                response_hold_data<=mem_rsp_rdata;
+                response_hold_error<=mem_rsp_error;
+            end
+        end
+    end
 
     function automatic logic [15:0] model_read(input logic [31:0] address);
         integer idx;
@@ -62,7 +100,8 @@ module tb_conv_array_core;
                 pending_write<=mem_req_write;
                 pending_address<=mem_req_addr;
                 pending_data<=mem_req_wdata;
-                pending_error<=mode==9 && read_requests==0 && !mem_req_write;
+                pending_error<=(mode==9 && read_requests==0 && !mem_req_write) ||
+                               (mode==27 && write_requests==0 && mem_req_write);
                  delay_left<={5'b0,rng[5:3]}+8'd1;
                 if (mem_req_write) begin
                     if (command_count!=54 || write_requests>=200 ||
@@ -181,6 +220,21 @@ module tb_conv_array_core;
                     6: if (i==27) word=(word&~(64'hffffffff<<16))|(64'h1000<<16);
                     7: if (i==8) word=word^(64'h1<<16);              // unsupported channel shape
                     8: if (i==53) last_word=1'b0;                   // missing final boundary
+                    11: if (i==21) word[47]=1'bx;                    // X input base
+                    12: if (i==21) word[47]=1'bz;                    // Z input base
+                    13: if (i==27) word[47]=1'bx;                    // X weight base
+                    14: if (i==27) word[47]=1'bz;                    // Z weight base
+                    15: if (i==35) word[47]=1'bx;                    // X output base
+                    16: if (i==35) word[47]=1'bz;                    // Z output base
+                    17: if (i==21) word[47:16]=32'hfffffd00;         // input endpoint overflow
+                    18: if (i==27) word[47:16]=32'hffffff10;         // weight endpoint overflow
+                    19: if (i==35) word[47:16]=32'hfffffa00;         // output endpoint overflow
+                    20: if (i==27) word[47:16]=32'h00001100;         // input/weight overlap
+                    21: if (i==35) word[47:16]=32'h00001100;         // input/output overlap
+                    22: if (i==27) word[47:16]=32'h00003000;         // weight/output overlap
+                    23: if (i==21) word[47:16]=32'hfffffce0;         // input ends at 2^32
+                    24: if (i==27) word[47:16]=32'hffffff00;         // weight ends at 2^32
+                    25: if (i==35) word[47:16]=32'hfffff9c0;         // output ends at 2^32
                     default: begin end
                 endcase
                 @(negedge clk); cmd_data=word; cmd_last=last_word; cmd_valid=1;
@@ -240,10 +294,42 @@ module tb_conv_array_core;
                        i,output_memory[i],captured_output[i]);
     endtask
 
+    task automatic expect_boundary_endpoint_valid;
+        begin
+            repeat (6) tick();
+            if (error || !busy || !mem_req_valid || mem_req_ready ||
+                read_requests!=0 || write_requests!=0)
+                $fatal(1,"exclusive 2^32 endpoint rejected or request escaped mode=%0d",mode);
+            case (mode)
+                23: if (dut.input_base!==32'hfffffce0 ||
+                        dut.weight_base!==32'h00002000 || dut.output_base!==32'h00003000)
+                        $fatal(1,"input endpoint bases mismatch");
+                24: if (dut.input_base!==32'h00001000 ||
+                        dut.weight_base!==32'hffffff00 || dut.output_base!==32'h00003000)
+                        $fatal(1,"weight endpoint bases mismatch");
+                25: if (dut.input_base!==32'h00001000 ||
+                        dut.weight_base!==32'h00002000 || dut.output_base!==32'hfffff9c0)
+                        $fatal(1,"output endpoint bases mismatch");
+                default: $fatal(1,"bad endpoint mode");
+            endcase
+        end
+    endtask
+
+    task automatic send_extra_qword;
+        begin
+            @(negedge clk); cmd_data=commands[0]; cmd_last=0; cmd_valid=1;
+            while (!cmd_ready) tick();
+            tick();
+            command_count=command_count+1;
+            @(negedge clk); cmd_valid=0; cmd_last=0;
+        end
+    endtask
+
     initial begin
         if (!$value$plusargs("FIXTURE=%s",fixture) || !$value$plusargs("MODE=%d",mode))
             $fatal(1,"missing test arguments");
-        if (mode<0 || mode>10) $fatal(1,"unsupported test mode");
+        if (mode<0 || mode>30 || mode==26) $fatal(1,"unsupported test mode");
+        report_mode=mode;
         $readmemh({fixture,"/commands.hex"},commands);
         $readmemh({fixture,"/input.hex"},input_memory);
         $readmemh({fixture,"/weight.hex"},weight_memory);
@@ -256,16 +342,45 @@ module tb_conv_array_core;
             1,7: expect_profile_error(2);
             2: expect_profile_error(1);
             3,4,8: expect_profile_error(3);
-            5,6: expect_profile_error(4);
-            9,10: begin
+            5,6,11,12,13,14,15,16,17,18,19,20,21,22: expect_profile_error(4);
+            23,24,25: expect_boundary_endpoint_valid();
+            9,10,27,28,29: begin
                 for (age=0;age<1000 && !error;age=age+1) tick();
-                if (!error || error_code!==(mode==9 ? 8'd5 : 8'd8) || write_requests!=0 || done)
+                if (!error || error_code!==((mode==9 || mode==27) ? 8'd5 : 8'd8) || done)
                     $fatal(1,"memory fault test mismatch mode=%0d code=%0d",mode,error_code);
+                case (mode)
+                    9: if (read_requests!=1 || write_requests!=0)
+                           $fatal(1,"first-read error coverage mismatch");
+                    10,29: if (read_requests!=1 || write_requests!=0)
+                               $fatal(1,"first-read timeout coverage mismatch");
+                    27: if (read_requests<72 || read_requests>264 ||
+                            write_requests!=1 || write_responses!=1)
+                            $fatal(1,"write-response error coverage mismatch r=%0d w=%0d wrsp=%0d err=%b code=%0d",
+                                   read_requests,write_requests,write_responses,error,error_code);
+                    28: if (read_requests<72 || read_requests>264 ||
+                            write_requests!=1 || write_responses!=0)
+                            $fatal(1,"write-response timeout coverage mismatch r=%0d w=%0d wrsp=%0d err=%b code=%0d",
+                                   read_requests,write_requests,write_responses,error,error_code);
+                    default: $fatal(1,"bad memory fault mode");
+                endcase
                 repeat (8) begin tick(); if (!error || busy || mem_req_valid || done) $fatal(1,"memory fault escaped"); end
+                if (mode==29) begin
+                    // Reset core and memory adapter together after a stale
+                    // timed-out response, then replay the same raw task.
+                    mode=0;
+                    reset_all();
+                    send_task();
+                    run_valid_case();
+                end
+            end
+            30: begin
+                send_extra_qword();
+                expect_profile_error(7);
+                if (command_count!=55) $fatal(1,"extra QWORD count mismatch");
             end
             default: $fatal(1,"unexpected mode");
         endcase
-        $display("PASS CONV_C8_H5_W5_OC8 mode=%0d seed=%08x commands=%0d reads=%0d writes=%0d",mode,32'hc08c8a25,command_count,read_requests,write_requests);
+        $display("PASS CONV_C8_H5_W5_OC8 mode=%0d seed=%08x commands=%0d reads=%0d writes=%0d",report_mode,32'hc08c8a25,command_count,read_requests,write_requests);
         $finish;
     end
 

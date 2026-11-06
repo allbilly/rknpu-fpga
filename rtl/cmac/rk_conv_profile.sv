@@ -25,7 +25,7 @@ module rk_conv_profile (
     logic [7:0] saved_code;
     logic [15:0] expected_target, expected_offset;
     logic [31:0] expected_value;
-    logic field_exists, address_field;
+    logic field_exists, address_field, address_value_known;
     logic [32:0] input_end, weight_end, output_end;
     logic ranges_legal;
     logic word_fields_legal, word_value_legal, boundary_legal;
@@ -111,11 +111,16 @@ module rk_conv_profile (
         word_fields_legal = field_exists &&
                             cmd_data[63:48] === expected_target &&
                             cmd_data[15:0] === expected_offset;
+        // Address register values are raw four-state inputs in simulation.
+        // Do not let X/Z bits turn the 33-bit range predicates unknown and
+        // thereby fall through the final `if (!ranges_legal)` check.
+        address_value_known = (^cmd_data[47:16]) !== 1'bx;
         word_value_legal = address_field || cmd_data[47:16] === expected_value;
         boundary_legal = cmd_last === (word_index == 6'd53);
         if (!word_fields_legal) word_error_code = word_index >= 50 ? 8'd3 : 8'd1;
         else if (!word_value_legal) word_error_code = word_index >= 50 ? 8'd3 : 8'd2;
-        else if (address_field && cmd_data[19:16] !== 4'b0000) word_error_code = 8'd4;
+        else if (address_field && (!address_value_known || cmd_data[19:16] !== 4'b0000))
+            word_error_code = 8'd4;
         else if (!boundary_legal) word_error_code = 8'd3;
         else word_error_code = 8'd0;
     end

@@ -24,6 +24,12 @@ EXPECTED = {
     "out.bin": (1600, "82f8bdb91b780e54f6d90b1ea4281d01913f7561d688f0e5a75df89b5f604f0e"),
 }
 DONOR = ROOT / "rtl/vendor/nvdla"
+# Icarus compatibility wrappers include these original donor assertion files;
+# bind their transitive compile inputs even though Verilator uses local shims.
+INCLUDE_INPUTS = [
+    "rtl/vendor/nvdla/nv_assert_never.vlib",
+    "rtl/vendor/nvdla/nv_assert_no_x.vlib",
+]
 
 RTL = [
     "compat/nv_assert_never.v",
@@ -52,6 +58,7 @@ RTL += [
     "tests/conv/tb_conv_array_core.sv",
 ]
 RUNNER = "tools/conv/test_first_case.py"
+BUS_TEST = "tests/conv/tb_conv_bus_contract.sv"
 
 
 def sha256(data: bytes) -> str:
@@ -91,8 +98,12 @@ def source_manifest() -> list[dict[str, str]]:
         if len(payload) != size or sha256(payload) != digest:
             raise RuntimeError(f"fixture mismatch: {name}")
         result.append({"path": str((FIXTURE / name).relative_to(ROOT)), "sha256": digest})
+    for relative in INCLUDE_INPUTS:
+        result.append({"path": relative, "sha256": sha256((ROOT / relative).read_bytes())})
     runner = ROOT / RUNNER
     result.append({"path": RUNNER, "sha256": sha256(runner.read_bytes())})
+    bus_test = ROOT / BUS_TEST
+    result.append({"path": BUS_TEST, "sha256": sha256(bus_test.read_bytes())})
     return result
 
 
@@ -100,8 +111,13 @@ def expected_result(mode: int) -> str:
     if mode == 0:
         return ("PASS CONV_C8_H5_W5_OC8 mode=0 seed=c08c8a25 "
                 "commands=54 reads=264 writes=200")
-    reads, writes = (1, 0) if mode in (9, 10) else (0, 0)
-    commands = {1: 8, 2: 6, 3: 53, 5: 22, 7: 9}.get(mode, 54)
+    reads, writes = {
+        9: (1, 0), 10: (1, 0),
+        29: (264, 200),
+    }.get(mode, (0, 0))
+    commands = {1: 8, 2: 6, 3: 53, 5: 22, 7: 9,
+                11: 22, 12: 22, 13: 28, 14: 28, 15: 36, 16: 36,
+                30: 55}.get(mode, 54)
     return (f"PASS CONV_C8_H5_W5_OC8 mode={mode} seed=c08c8a25 "
             f"commands={commands} reads={reads} writes={writes}")
 
@@ -123,7 +139,9 @@ def main() -> None:
         "runs": [],
     }
     selected = ("iverilog", "verilator") if args.simulator == "all" else (args.simulator,)
-    modes = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    modes = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+             11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
+             27, 28, 29, 30)
     try:
         for simulator in selected:
             run_dir = out / f"{simulator}-{time.time_ns()}"
@@ -165,13 +183,62 @@ def main() -> None:
                 execute = [str(binary_dir / "sim_conv")]
                 report_run["cxx_version"] = subprocess.check_output(["c++", "--version"], text=True).splitlines()[0]
             for mode in modes:
+                # Verilator is intentionally a two-state simulator, so X/Z
+                # rejection is asserted only by the four-state Icarus run.
+                if simulator == "verilator" and 11 <= mode <= 16:
+                    continue
                 text = run(execute + [f"+FIXTURE={data_dir}", f"+MODE={mode}"], ROOT,
                            run_dir / f"mode-{mode}.log", 60)
                 lines = [line for line in text.splitlines() if line.startswith("PASS CONV_")]
                 wanted = expected_result(mode)
+                if mode in (27, 28):
+                    matched = len(lines) == 1 and re.fullmatch(
+                        rf"PASS CONV_C8_H5_W5_OC8 mode={mode} seed=c08c8a25 "
+                        r"commands=54 reads=(\d+) writes=1", lines[0])
+                    if not matched or not 72 <= int(matched.group(1)) <= 264:
+                        raise RuntimeError(f"unexpected {simulator} write-fault mode {mode} result: {lines}\n{text[-3000:]}")
+                    wanted = lines[0]
                 if lines != [wanted]:
                     raise RuntimeError(f"unexpected {simulator} mode {mode} result: {lines}, expected {wanted}\n{text[-3000:]}")
                 report_run["cases"].append({"mode": mode, "status": "PASS", "result": lines[0]})
+
+            # Isolate the memory arbiter to exercise client-side response
+            # backpressure, which the fixed convolution consumer normally
+            # accepts immediately.
+            bus_dir = run_dir / "bus-contract"
+            bus_dir.mkdir()
+            bus_sources = [str(ROOT / "rtl/cmac/rk_cmac_rw_arbiter.sv"),
+                           str(ROOT / BUS_TEST)]
+            if simulator == "iverilog":
+                bus_binary = bus_dir / "sim_bus_contract"
+                bus_command = ["iverilog", "-g2012", "-s", "tb_conv_bus_contract",
+                               "-o", str(bus_binary), *bus_sources]
+                bus_compile = run(bus_command, ROOT, bus_dir / "compile.log", 120)
+                if re.search(r"warning:|sorry:", bus_compile, re.I):
+                    raise RuntimeError(f"unexpected Icarus bus-contract warning; see {bus_dir / 'compile.log'}")
+                bus_execute = ["vvp", str(bus_binary)]
+            else:
+                bus_obj = bus_dir / "obj_dir"
+                bus_command = ["verilator", "--binary", "--timing", "--assert", "-Wall", "-Wno-fatal",
+                               "--timescale-override", "1ns/1ps", "--top-module", "tb_conv_bus_contract",
+                               "--Mdir", str(bus_obj), "-o", "sim_bus_contract", *bus_sources]
+                bus_compile = run(bus_command, ROOT, bus_dir / "compile.log", 300)
+                bus_warning_headers = [line for line in bus_compile.splitlines()
+                                       if line.startswith("%Warning-")]
+                report_run["bus_contract_compile_warning_headers"] = len(bus_warning_headers)
+                bus_obj_dir = bus_dir / "obj_dir"
+                bus_execute = [str(bus_obj_dir / "sim_bus_contract")]
+            bus_text = run(bus_execute, ROOT, bus_dir / "run.log", 30)
+            bus_lines = [line for line in bus_text.splitlines()
+                         if line == "PASS_CONV_BUS_REQUEST_AND_RESPONSE_STABILITY"]
+            if bus_lines != ["PASS_CONV_BUS_REQUEST_AND_RESPONSE_STABILITY"]:
+                raise RuntimeError(f"bus contract test failed for {simulator}: {bus_text[-3000:]}")
+            report_run["bus_contract"] = {
+                "status": "PASS",
+                "result": bus_lines[0],
+                "covers": ["read/write request stability under backpressure",
+                           "read/write response valid and status stability under backpressure"],
+            }
             report["runs"].append(report_run)
         report["status"] = "PASS_CAPTURED_CONV_C8_H5_W5_OC8_RAW_STREAM_AND_WHOLE_BO"
     except Exception as exc:
