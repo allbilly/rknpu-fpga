@@ -1,0 +1,129 @@
+{
+  "case": "fp16_max_k2s2_c3_tail_h2w2",
+  "status": "READY_CAPTURE_BOUNDED_CANDIDATE",
+  "description": "FP16 maximum pooling, 2x2 kernel, stride 2, C3 H2 W2 -> H1 W1; physical atom tail lanes are -99.",
+  "source": {
+    "example": "/home/fedora/rk3588/examples/expt/pooling.py",
+    "example_sha256": "2ba6c5ae06ffac0daeb0d64d13320ada4c4f26593b86248da7ea1e24e20e4f6e",
+    "lines": [731, 758, 1162, 1182],
+    "bundle_manifest": "build/rk3588-example-captures/pooling/manifest.json",
+    "bundle_manifest_sha256": "42b7ae1c9cbe80d48b9f59ed2f675bdc280d6daa7b22e720a7eee8794db0afd7",
+    "case_bundle": "build/rk3588-example-captures/pooling/cases/fp16_max_k2s2_c3_tail_h2w2",
+    "case_job_sha256": "123858efe2af5c00ac2969e03f2b2b2965226fc029fe2da821fd959a028f9126",
+    "regcmd_sha256": "9dc604e7342f0759b63222d24bbf4721cc50a6b6ec4becad1ffdb0c92205a55c",
+    "regcmd_text_sha256": "01cab3533240e4ffc5a681a5d5135d452ddcf2cee72cabc23286e4ca53ae83d9",
+    "numerical_contract": "Source pool_reference takes the exact FP16 maximum over the four spatial inputs for each of C=3 logical channels. The physical eight-lane atom tail is fixed at FP16 -99 by the source case and is compared exactly. This capture does not define general MAX special-value policy.",
+    "tolerance_abs": 0.0
+  },
+  "device_capture": {
+    "capture_json_sha256": "7a001ad5c299414b591c9f60aea01383b5433cb1b6f975e39b423a8b68f2016d",
+    "started_utc": "2026-11-05T20:32:47Z",
+    "status": "OK",
+    "submit_ret": 0,
+    "device": "/dev/accel/accel0",
+    "kernel": "6.18.24-current-rockchip64",
+    "runner": "rocket_run.py 1.0.0",
+    "runner_sha256": "824f129261a2a0337b3da6720a46d1f9cff23e5d31efff9a0fa085f72f1b43cf"
+  },
+  "command_stream": {
+    "source_regcmd_sha256": "9dc604e7342f0759b63222d24bbf4721cc50a6b6ec4becad1ffdb0c92205a55c",
+    "device_patched_regcmd_sha256": "2aea54d33e144aaf796b6523f66a40f7567c9997d4b69edc73f989587f5c8178",
+    "qwords": 26,
+    "note": "The original command stream is retained byte-for-byte. Capture metadata separately binds the address-patched stream. This standalone datapath does not decode or execute either stream."
+  },
+  "ppu": {
+    "dtype": "float16",
+    "method": "maximum",
+    "method_selector": 1,
+    "channels": 3,
+    "kernel": [2, 2],
+    "stride": [2, 2],
+    "padding": [0, 0, 0, 0],
+    "index_en": false,
+    "use_cnt": 0,
+    "in_shape": [2, 2],
+    "out_shape": [1, 1]
+  },
+  "layout": {
+    "atom_bytes": 16,
+    "atom_channels": 8,
+    "input": {
+      "line_stride_bytes": 32,
+      "surface_stride_bytes": 64,
+      "surfaces": 1,
+      "logical_channels": 3,
+      "logical_bytes": 64,
+      "tail_lanes_per_atom": 5,
+      "tail_value_fp16": -99.0,
+      "buffer_bytes": 4096
+    },
+    "output": {
+      "line_stride_bytes": 16,
+      "surface_stride_bytes": 16,
+      "surfaces": 1,
+      "value_bytes": 16,
+      "index_bytes": 0,
+      "logical_bytes": 16,
+      "buffer_bytes": 4096
+    }
+  },
+  "input_value_contract": {
+    "logical_fp16_lanes": 12,
+    "physical_fp16_lanes": 32,
+    "finite_lanes": 32,
+    "logical_channels_by_position": [
+      [1.0, 50.0, 3.0],
+      [20.0, 2.0, 60.0],
+      [4.0, 5.0, 6.0],
+      [7.0, 8.0, 9.0]
+    ],
+    "tail_lanes_fp16": 20,
+    "tail_value_fp16": -99.0,
+    "maximum_values_by_channel": [20.0, 50.0, 60.0],
+    "output_tail_lanes_fp16": 5
+  },
+  "comparison": {
+    "scope": "complete 4096-byte output BO including physical output tail",
+    "logical_value_bytes": 16,
+    "logical_fp16_lanes_physical": 8,
+    "logical_channels": 3,
+    "mismatches_expected": 0,
+    "tolerance": 0.0,
+    "device_output_sha256": "e418e3dc9a8d3e678e369b58d817b8aadd073cd46dca3a7d251c90031a54af14",
+    "source_expected_sha256": "e418e3dc9a8d3e678e369b58d817b8aadd073cd46dca3a7d251c90031a54af14"
+  },
+  "files": {
+    "capture.json": {
+      "bytes": 5024,
+      "sha256": "7a001ad5c299414b591c9f60aea01383b5433cb1b6f975e39b423a8b68f2016d"
+    },
+    "device_out.bin": {
+      "bytes": 4096,
+      "sha256": "e418e3dc9a8d3e678e369b58d817b8aadd073cd46dca3a7d251c90031a54af14"
+    },
+    "expected.bin": {
+      "bytes": 4096,
+      "sha256": "e418e3dc9a8d3e678e369b58d817b8aadd073cd46dca3a7d251c90031a54af14"
+    },
+    "in.bin": {
+      "bytes": 4096,
+      "sha256": "3c0a48b29e8a1b468b099de58fec3d16e73eaff64aca711ea9f0b60887cfe9be"
+    },
+    "job.json": {
+      "bytes": 826,
+      "sha256": "123858efe2af5c00ac2969e03f2b2b2965226fc029fe2da821fd959a028f9126"
+    },
+    "out_init.bin": {
+      "bytes": 4096,
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+    },
+    "regcmd.bin": {
+      "bytes": 208,
+      "sha256": "9dc604e7342f0759b63222d24bbf4721cc50a6b6ec4becad1ffdb0c92205a55c"
+    },
+    "regcmd.txt": {
+      "bytes": 1562,
+      "sha256": "01cab3533240e4ffc5a681a5d5135d452ddcf2cee72cabc23286e4ca53ae83d9"
+    }
+  }
+}

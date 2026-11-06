@@ -1,7 +1,7 @@
 # Standalone PPU FP16 max-pooling increment
 
-Status: **two max-pool, one separate average, and one minimum-pool
-capture candidate, simulation-only**. See the separate
+Status: **two unindexed max-pool, one average, one minimum-pool, one indexed
+max-pool and one C3-tail capture candidate, simulation-only**. See the separate
 [capture-bounded FP16 minimum leaf](PPU_MIN_POOL.md). The pre-existing RK3588 capture is only fixture evidence:
 no board was accessed for this RTL
 increment, no bitstream was built, no Vivado full-top implementation was run
@@ -104,7 +104,10 @@ source/fixture hashes, tool version, seeds `0x3588` / `0x600d` and
 
 Each max leaf is an isolated datapath candidate, not PPU mode admission. No other
 padding configuration, shape, stride, kernel, data class, index mode, minimum
-or global pooling operation is connected to or admitted by these max leaves.
+or global pooling operation is connected to or admitted by these unindexed max
+leaves. Separate single-capture candidates cover one indexed C8 case
+([PPU_MAX_INDEX.md](PPU_MAX_INDEX.md)) and one C3 physical-tail case
+([PPU_C3_TAIL.md](PPU_C3_TAIL.md)); neither broadens these leaves.
 There is no register decode or silent-ignore path: those interfaces do not
 exist here and must be separately designed with source evidence, explicit
 unsupported-field failures and tests before integration.
@@ -255,6 +258,9 @@ make ppu-min-four-state-test       # Icarus, same FP16 minimum case
 make ppu-index-contract-test       # strict captured indexed-max case controls
 make ppu-index-test                # Verilator, one capture-bounded max+index case
 make ppu-index-four-state-test     # Icarus, same max+index case
+make ppu-c3-tail-contract-test     # strict captured C3 physical-tail controls
+make ppu-c3-tail-test              # Verilator, one capture-bounded C3 tail case
+make ppu-c3-tail-four-state-test   # Icarus, same C3 tail case
 make ppu-max-lint
 ```
 
@@ -267,6 +273,8 @@ python3 tools/ppu/run_pool_pad1.py --simulator iverilog
 python3 tools/ppu/run_pool_pad1.py --simulator verilator
 python3 tools/ppu/run_pool_avg.py --simulator iverilog
 python3 tools/ppu/run_pool_avg.py --simulator verilator
+python3 tools/ppu/run_pool_c3_tail.py --simulator iverilog
+python3 tools/ppu/run_pool_c3_tail.py --simulator verilator
 ```
 
 Each run writes `report.json`, compile/run logs and observed BOs. Reports are
@@ -287,7 +295,9 @@ Not implemented or not qualified by this increment:
 - padding modes other than the one captured pad-1 case above, non-unit/other
   strides, kernels other than 2x2, output upsampling, notches and arbitrary
   dimensions;
-- channel tails, more than one surface, C3/C16 and INT8/INT16 data;
+- channel tails outside the one fixed C3 case in
+  [PPU_C3_TAIL.md](PPU_C3_TAIL.md), more than one surface, other C3 shapes,
+  C16 and INT8/INT16 data;
 - PPU register decode, completion/error status, `PPU_MISC_CTRL` classification,
   CSB readback and explicit unsupported-field failures;
 - DMA/PPU_RDMA, AXI/DDR memory access, line/surface stride generation,
