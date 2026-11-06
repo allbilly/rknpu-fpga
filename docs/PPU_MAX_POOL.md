@@ -1,14 +1,18 @@
 # Standalone PPU FP16 max-pooling increment
 
-Status: **one-mode candidate, simulation-only**. No board was accessed, no
-bitstream was built, no Vivado full-top implementation was run and no FPGA or
-RK3588 execution is claimed.
+Status: **two bounded capture candidates, simulation-only**. The pre-existing
+RK3588 capture is only fixture evidence: no board was accessed for this RTL
+increment, no bitstream was built, no Vivado full-top implementation was run
+and no FPGA execution is claimed.
 
-This is the first PPU increment. It implements only FP16 maximum pooling with
-a 2x2 kernel, stride 1, valid padding, eight channels per 16-byte C1HWC2 atom.
-It is independent of the NVDLA PDP. It does not implement average/min/global
-pooling, `INDEX_EN`, PPU register decode, DMA/AXI memory access, full-top
-integration, convolution or any CMAC/K8 change.
+The first leaf implements only FP16 maximum pooling with a 2x2 kernel, stride 1,
+valid padding, eight channels per 16-byte C1HWC2 atom. The next isolated leaf
+replays exactly one separate capture with a 2x2 kernel, stride 1, one-cell
+padding, C8 H2 W2 negative input and captured `-infinity` padding. They are
+independent of the NVDLA PDP. No mode/register decoder, DMA, AXI memory path or
+full-top integration connects either leaf; unsupported pooling modes are not
+admitted. Neither leaf implements average/min/global pooling, `INDEX_EN`,
+convolution or any CMAC/K8 change.
 
 ## Evidence and scope
 
@@ -48,6 +52,56 @@ backpressure:
 The full 4096-byte output BO matches, not just the 144-byte value surface.
 The untouched tail (bytes `0x90..0xfff`) remains equal to `out_init.bin`.
 No tolerance is used for max: all 72 output halfwords are exact.
+
+## Second increment: one captured padded negative case
+
+`rtl/ppu/rk_ppu_pool_max2x2s1_pad1_neg_c8_h2w2.sv` is a separate fixed-case
+leaf for `fp16_max_k2s1_pad1_neg_c8_h2w2`. It buffers exactly four row-major
+input atoms and emits the 3x3 surface. Out-of-range window positions are
+explicitly the captured FP16 `-infinity` value `0xfc00`; captured input lanes
+are finite negative half values. The comparison is intentionally limited to
+those finite-negative inputs and that observed padding value. It does not
+define or promote a general PPU MAX policy for NaNs, signed zero, infinities in
+the input, subnormals or other special values. It is a single-frame leaf: after
+the four atoms are accepted and nine outputs emitted, reset is required before
+another frame.
+
+Capture provenance is bound in
+`tests/ppu_pooling/fixtures/fp16_max_k2s1_pad1_neg_c8_h2w2/manifest.json`:
+
+- device capture `build/rk3588-example-captures/results/pooling-20261105T203205Z/pooling/fp16_max_k2s1_pad1_neg_c8_h2w2`, status `OK`, device `/dev/accel/accel0`, Rocket `rocket_run.py 1.0.0`, kernel `6.18.24-current-rockchip64`;
+- PPU method maximum, FP16 C8, kernel `[2,2]`, stride `[1,1]`, padding `[1,1,1,1]`, input `[2,2]`, output `[3,3]`, `INDEX_EN=0`, `use_cnt=0`; the capture description and command stream identify padding bits `0xfc00`;
+- input BO SHA256 `c3a1ca7552e9f762be8c2f037f9313fd0681ec76aa3b8567d5fed477f311b834` and initialized output BO SHA256 `ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7`;
+- exact device `out.bin` SHA256 `a18647840e9e8c3abb2f004ee47e6d629d735755b8dbdd5e5b340e314f03411e`; the fixture does not substitute the bundle's `expected.bin` for device output.
+
+The captured input is four 16-byte atoms with 32-byte input line stride and 64
+logical bytes. The output is nine atoms at 48-byte line stride: 144 value bytes
+and 72 FP16 lanes in a 4096-byte output BO. Both simulators run always-ready
+and deterministic output-backpressure modes, assert output stability while
+stalled, compare every output byte and lane against device `out.bin`, and check
+the entire tail (`0x90..0xfff`) remains equal to `out_init.bin`.
+
+Verified with Icarus Verilog 13.0 and Verilator 5.048 (2026-04-26 build):
+
+| Simulator | Runs | Input atoms | Output atoms | Full BO mismatches | Lane mismatches | Stall cycles (always / backpressure) |
+|---|---:|---:|---:|---:|---:|---:|
+| Icarus Verilog | 2 | 4 | 9 | 0 | 0 | 0 / 1 |
+| Verilator | 2 | 4 | 9 | 0 | 0 | 0 / 1 |
+
+Both runs produce the device BO SHA256
+`a18647840e9e8c3abb2f004ee47e6d629d735755b8dbdd5e5b340e314f03411e` with zero
+tail differences. Reports, compile/run logs and observed BOs are in
+`build/ppu-pooling/iverilog-pad1-commit-a60e864/` and
+`build/ppu-pooling/verilator-pad1-commit-a60e864/`; each report records
+source/fixture hashes, tool version, seeds `0x3588` / `0x600d` and
+`hardware_accessed=false`.
+
+This is one isolated datapath candidate, not PPU mode admission. No other
+padding configuration, shape, stride, kernel, data class, index mode, average,
+minimum or global pooling operation is connected to or admitted by this leaf.
+There is no register decode or silent-ignore path: those interfaces do not
+exist here and must be separately designed with source evidence, explicit
+unsupported-field failures and tests before integration.
 
 ## Interface
 
@@ -183,6 +237,8 @@ dual-host pin.
 make generated-check
 make ppu-max-four-state-test   # Icarus Verilog
 make ppu-max-test              # Verilator
+make ppu-max-pad1-four-state-test # Icarus Verilog, exact padded device capture
+make ppu-max-pad1-test            # Verilator, exact padded device capture
 make ppu-max-lint
 ```
 
@@ -191,6 +247,8 @@ Or directly:
 ```sh
 python3 tools/ppu/run_pool_max.py --simulator iverilog
 python3 tools/ppu/run_pool_max.py --simulator verilator
+python3 tools/ppu/run_pool_pad1.py --simulator iverilog
+python3 tools/ppu/run_pool_pad1.py --simulator verilator
 ```
 
 Each run writes `report.json`, compile/run logs and observed BOs. Reports are
@@ -204,8 +262,9 @@ Not implemented or not qualified by this increment:
 - average, minimum and global pooling; reciprocals, `use_cnt` and their
   rounding policy;
 - `INDEX_EN` metadata, including the index region and position-tracking rules;
-- padding, non-unit/other strides, kernels other than 2x2, output upsampling,
-  notches and arbitrary dimensions;
+- padding modes other than the one captured pad-1 case above, non-unit/other
+  strides, kernels other than 2x2, output upsampling, notches and arbitrary
+  dimensions;
 - channel tails, more than one surface, C3/C16 and INT8/INT16 data;
 - PPU register decode, completion/error status, `PPU_MISC_CTRL` classification,
   CSB readback and explicit unsupported-field failures;
@@ -213,14 +272,16 @@ Not implemented or not qualified by this increment:
   descriptor/task handling and backpressure across memory faults;
 - full-top integration, clock/reset domain integration, CDC and interrupt
   wiring;
-- PPU special-value captures (NaN, infinity, signed zero, subnormal), INT8/
-  INT16 arithmetic and index aliasing;
+- PPU special-value captures beyond the observed `-infinity` padding (NaN,
+  input infinity, signed zero, subnormal), INT8/INT16 arithmetic and index
+  aliasing;
 - synthesis, placement, routing, timing, DRC, area signoff and bitstream;
 - actual FPGA replay and RK3588 differential testing for this core.
 
 ## Artifact retention
 
-The tracked increment contains only the core, testbench, fixture BOs/manifest,
-runner and this document. Build reports/logs/observed BOs are under
+The tracked increment contains separate standalone cores and testbenches,
+fixture BOs/manifests, runners, Makefile targets and this document. Build
+reports/logs/observed BOs are under
 `build/ppu-pooling/`; simulator object trees and executables are pruned after
 each passing run. No multi-GB compiler or simulator byproduct is retained.

@@ -1,0 +1,86 @@
+{
+  "case": "fp16_max_k2s1_pad1_neg_c8_h2w2",
+  "status": "READY",
+  "description": "One captured FP16 max-pool case: 2x2 kernel, stride 1, one-cell pad, C8 H2 W2 -> H3 W3; all input lanes are finite negative and padding is 0xfc00 (-infinity).",
+  "source_example": "/home/fedora/rk3588/examples/expt/pooling.py:731-758, 761-793",
+  "device_capture": {
+    "path": "build/rk3588-example-captures/results/pooling-20261105T203205Z/pooling/fp16_max_k2s1_pad1_neg_c8_h2w2",
+    "capture_json_sha256": "1de073278d704cc72e606fcd009c13df5e97069fa68c8a45c3bbba426c883c96",
+    "started_utc": "2026-11-05T20:32:45Z",
+    "status": "OK",
+    "device": "/dev/accel/accel0",
+    "device_path": "/sys/devices/platform/rknn",
+    "kernel": "6.18.24-current-rockchip64",
+    "board_compatible": [
+      "xunlong,orangepi-5",
+      "rockchip,rk3588s"
+    ],
+    "runner": "rocket_run.py 1.0.0",
+    "runner_sha256": "824f129261a2a0337b3da6720a46d1f9cff23e5d31efff9a0fa085f72f1b43cf"
+  },
+  "command_stream": {
+    "source_regcmd_sha256": "2dda5674abe0ffe92df36d2a004b6972f551e49cd2fb89387b28b9f1de665334",
+    "device_patched_regcmd_sha256": "70c6b4e1412f451da2193a6a56fcb1994aec4dee43ed82f5dd24d0fb56ae771d",
+    "job_json_sha256": "f881d9ce3617e003fcfbaf33b1eb4f21c2b2e760fef63dd9f7b4bd281b35e8c1"
+  },
+  "ppu": {
+    "dtype": "float16",
+    "method": "maximum",
+    "channels": 8,
+    "kernel": [2, 2],
+    "stride": [1, 1],
+    "padding": [1, 1, 1, 1],
+    "padding_value_fp16_bits": "fc00",
+    "index_en": false,
+    "use_cnt": 0,
+    "in_shape": [2, 2],
+    "out_shape": [3, 3],
+    "input_value_contract": "The 32 captured input halfwords are finite negative FP16 values. No general MAX special-value policy is inferred."
+  },
+  "layout": {
+    "atom_bytes": 16,
+    "atom_channels": 8,
+    "packing": "C1HWC2 (surface, y, x, 16-byte atom), little-endian",
+    "input": {
+      "line_stride_bytes": 32,
+      "surface_stride_bytes": 64,
+      "surfaces": 1,
+      "logical_bytes": 64,
+      "buffer_bytes": 4096
+    },
+    "output": {
+      "line_stride_bytes": 48,
+      "surface_stride_bytes": 144,
+      "surfaces": 1,
+      "value_bytes": 144,
+      "index_bytes": 0,
+      "logical_bytes": 144,
+      "buffer_bytes": 4096
+    }
+  },
+  "files": {
+    "in.bin": {
+      "bytes": 4096,
+      "sha256": "c3a1ca7552e9f762be8c2f037f9313fd0681ec76aa3b8567d5fed477f311b834",
+      "role": "submitted input BO from the pooling case bundle"
+    },
+    "out_init.bin": {
+      "bytes": 4096,
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "role": "initialized output BO from the pooling case bundle"
+    },
+    "device_out.bin": {
+      "bytes": 4096,
+      "sha256": "a18647840e9e8c3abb2f004ee47e6d629d735755b8dbdd5e5b340e314f03411e",
+      "role": "exact device out.bin from the successful RK3588 capture, not the bundle expected.bin"
+    }
+  },
+  "comparison": {
+    "scope": "complete 4096-byte device output BO, including untouched bytes after the 144-byte output surface",
+    "logical_value_bytes": 144,
+    "logical_value_lanes_fp16": 72,
+    "mismatches_expected": 0,
+    "tolerance": 0.0,
+    "device_output_sha256": "a18647840e9e8c3abb2f004ee47e6d629d735755b8dbdd5e5b340e314f03411e"
+  }
+}

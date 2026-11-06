@@ -6,12 +6,14 @@ included in a source checkout. Portable records are linked through
 regression preparation reviews remain workspace-local; the current-image
 TinyStories archive is linked below.
 
-**First PPU increment, 2026-11-06:** the standalone
-[FP16 2x2/stride-1 max-pooling slice](docs/PPU_MAX_POOL.md) replays the real
-RK3588 case `fp16_max_k2s1_valid_c8_h4w4` through a valid/ready core and
-matches the complete 4096-byte device BO (144 value bytes, 72 FP16 lanes) in
-Icarus and Verilator. It is simulation-only and does not implement
-avg/min/global, `INDEX_EN`, register decode, DMA or full-top integration.
+**PPU max-pooling increments, 2026-11-06:** the standalone
+[FP16 2x2/stride-1 max-pooling candidates](docs/PPU_MAX_POOL.md) replay two
+captured RK3588 cases through separate valid/ready leaves: the original valid
+C8 H4 W4 case and the exact C8 H2 W2, pad-1, finite-negative case with captured
+`-infinity` padding. Both compare the complete 4096-byte device BO, including
+untouched bytes, in Icarus and Verilator. These remain simulation-only leaves;
+unsupported modes are not connected or admitted, and no average/min/global,
+`INDEX_EN`, register decode, DMA or full-top integration is implemented.
 
 **Current direction, 2026-10-23:** use Vivado for implementation, with the
 OpenTPU Vivado workflow as the reference. OpenXC7 placement/routing work is
