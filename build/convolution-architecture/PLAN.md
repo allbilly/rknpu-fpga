@@ -1,9 +1,11 @@
 # Convolution architecture and staged implementation plan
 
-Status: **architecture/planning increment only**. No RTL, board, bitstream,
-Vivado full-top, or RK silicon claim is made here. The execution boundary stays
-the raw final command QWORD stream; no tensor-operation shortcut and no runtime
-CPU layout repair is proposed.
+Status: **architecture plus the capture-backed Gate 1A RTL increment** for
+`conv_1x1_valid_c8_h5_w5_oc8`. The implemented slice accepts the original raw
+54-QWORD task and captured BO layouts; no board, bitstream, full-top Vivado,
+other convolution shape, or RK silicon claim is made. The execution boundary
+stays the raw final command QWORD stream; no tensor-operation shortcut and no
+runtime CPU layout repair is proposed.
 
 Evidence base:
 `rknpu-fpga@a9b5d02` (this worktree, on top of main),
@@ -13,6 +15,10 @@ Capture families: `conv-simple`, `conv-fp16`, `conv-gemm-vendor`.
 Team reports: `team/gap-matrix/GAP_MATRIX.md`,
 `team/nvdla-crosswalk/FIELD_CROSSWALK.md`,
 `team/nvdla-reference/REFERENCE_MAPPING.md`.
+
+Gate 1A source was developed in the isolated worktree based at
+`rknpu-fpga@9c00eeb`; the local run report records that base revision and
+content hashes for the actual RTL, testbench, runner and frozen BO/QWORD inputs.
 
 ## 0. Executive answer
 
@@ -388,9 +394,10 @@ raw 54-QWORD stream
   rk_cmac_rw_arbiter -> one-outstanding halfword memory port
 ```
 
-The first functional build may use the existing K8 (256-product) arithmetic
-slice because it is already simulation-tested; the area-first build
-parameterizes K2/K4. The layout contract is identical.
+The Gate 1A capture replay instantiates the existing full C32/K16
+512-product CMAC/CACC array. K8/4/2 arithmetic slices remain possible future
+area variants, but are not the implementation measured by this first-case
+replay.
 
 ### 3.3 Feature fetch
 
@@ -447,7 +454,7 @@ Modes, selected by the decoded profile:
 
 ### 3.7 MAC frame sequence
 
-1x1, one OC16 block, K8 reference:
+1x1, one OC16 block, implemented C32/K16 array:
 
 ```
 load expanded weight tile W[16][32] once
@@ -621,10 +628,13 @@ Exit:
 1A (primary):
 - New `rk_conv_profile` for the exact 54-QWORD first-case stream.
 - New feature fetch (C1C2), weight expander (8x16 -> 16x32), frame scheduler.
-- Reuse C32/K8 CMAC/CACC and converter/writer leaves; new conv atom writer.
-- Replay the captured `a.bin`/`w.bin`/`regcmd.bin`; compare defined plane 0
-  (400 B) after donor unpack to `expected.bin` within `atol=0.2`; also check
-  the raw plane-0 address/atom order against the captured `out.bin`.
+- Reuse the full C32/K16 CMAC/CACC and converter/writer leaves; new conv atom
+  writer.
+- Replay the captured `a.bin`/`w.bin`/`regcmd.bin` unchanged. Compare all 200
+  written FP16 values exactly against both the raw captured plane 0 and
+  `expected.bin`; compare the complete 1600-byte output BO, seeding the three
+  capture-undefined planes from the captured post-run allocation and requiring
+  them to remain untouched.
 
 1B (1x1 FP32/OC16):
 - Add FP32 atom writer (`c2=4`), two-atom scatter per OC8 frame, OC16 block.
@@ -640,9 +650,33 @@ Exit:
 Exit:
 - Exact frame/address match for every Gate-1 case (25 atoms for 1A, 64 for
   1B, 16 for 1C).
-- Numeric match within capture tolerance.
+- Exact numeric match for 1A; later cases use their documented capture oracle
+  and tolerance only where their source evidence requires it.
 - Every unsupported field/shape is an explicit failure; no CPU fixup.
 - OOC synthesis report for C32/K8 and C32/K4/K2; no full-top.
+
+Gate 1A now has an RTL implementation in `rtl/cmac/rk_conv_profile.sv`,
+`rk_conv_array_front.sv`, `rk_conv_output_atom.sv` and
+`rk_conv_array_core.sv`, with capture replay and strict negative/memory-fault
+tests in `tests/conv/tb_conv_array_core.sv` and
+`tools/conv/test_first_case.py`. The front expands the unchanged C8/OC8 BOs to
+C32/K16 frames in hardware and the sink uses the 400-byte conv plane stride,
+not the K8 GEMM schedule. The dual-simulator run is recorded at
+`build/convolution-first-case/report.json`; broader Gate 1 OOC synthesis and
+Gate 1B/1C remain outstanding. No full-top or physical qualification follows
+from this simulation result.
+
+The initial pre-merge `make test` run passed the convolution target, then
+stopped at the stale dual-host frontend/backend manifest pin; that failure and
+its log remain preserved in the worktree history. After merging current main
+(merge `3e379c9`), `core_source_paths()` returned all 72 expected sources and
+the full `make test` completed with exit code 0, including the reviewed
+dual-host native test and both process-control runs. The convolution replay
+report records Icarus 13.0 and Verilator 5.048, 11/11 passing modes on each,
+and matching hashes for all 28 source/fixture inputs. The terminal log and exit
+receipt are `build/convolution-first-case/post-main-merge/make-test.log` and
+`make-test.rc`. This remains simulation evidence, not full-top or physical
+qualification.
 
 ### Gate 2: stride and padding (first spatial skeleton)
 
@@ -724,19 +758,17 @@ Exit:
 - Each feature has its own numerical/shape contract, negative tests and
   source evidence. Unsupported entries remain explicit failures.
 
-## 6. Proposed implementation files (not created in this increment)
+## 6. Gate 1A implementation files and later planned blocks
 
 ```
-rtl/conv/rk_conv_profile.sv          # strict raw CNA/CORE/DPU decoder
-rtl/conv/rk_conv_front.sv            # feature/weight fetch + frame scheduler
-rtl/conv/rk_conv_weight_expand.sv    # RK weight -> OC16 x C32 frame
-rtl/conv/rk_conv_line_buffer.sv      # spatial row buffer (gate 2+)
-rtl/conv/rk_conv_output_atom.sv      # flat_1x1 / NC1HWC2 atom writer
-rtl/conv/rk_conv_core.sv             # profile + front + CMAC/CACC + output
-rtl/conv/rk_conv_dma.sv              # 54-QWORD conv framing (new amount/tail)
-tools/conv/gen_first_case_golden.py  # frame/address golden
-tools/conv/test_conv_first_case.py   # Icarus/Verilator replay
-tools/conv/test_conv_profile.py      # decoder/negative tests
+rtl/cmac/rk_conv_profile.sv          # implemented strict 54-QWORD decoder
+rtl/cmac/rk_conv_array_front.sv      # implemented C8/OC8 fetch/expansion/schedule
+rtl/cmac/rk_conv_output_atom.sv      # implemented FP16 conv atom sink
+rtl/cmac/rk_conv_array_core.sv       # implemented raw-stream first-case core
+tests/conv/tb_conv_array_core.sv     # capture replay, negatives, memory faults
+tools/conv/test_first_case.py        # dual-simulator runner and source manifest
+rtl/conv/rk_conv_line_buffer.sv      # future spatial row buffer (gate 2+)
+rtl/conv/rk_conv_dma.sv              # future raw DMA framing (not implemented)
 ```
 
 Reuse as leaves: `rtl/cmac/rk_cmac_fp16_array.sv`,
