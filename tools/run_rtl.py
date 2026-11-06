@@ -136,6 +136,10 @@ try:
     count = int((ROOT / 'build/vectors/alu_count.txt').read_text())
     run('alu', alu + [f'+VECTORS={ROOT}/build/vectors/alu.hex', f'+COUNT={count}'])
     report['alu_vectors'] = count
+    capture_count = int((ROOT / 'build/vectors/fdiv_capture_count.txt').read_text())
+    run('fdiv_capture', alu + [f'+VECTORS={ROOT}/build/vectors/fdiv_capture.hex',
+                               f'+COUNT={capture_count}'])
+    report['fdiv_capture_vectors'] = capture_count
     # This address-only unit is not connected to the raw-command execution path.
     # Its measured Icarus run exceeds the default 180-second process allowance;
     # the HDL's 10 ms timeout and every existing test's timeout are unchanged.

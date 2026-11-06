@@ -10,7 +10,22 @@ from dataclasses import dataclass
 
 DPU, RDMA, PC, PC_REG, VERSION = 0x1001, 0x2001, 0x0081, 0x0101, 0x0041
 OPS = {'ADD': 0x108202c0, 'SUB': 0x108402c0, 'MUL': 0x108003c4,
-       'MAX': 0x108002c0}
+       'MAX': 0x108002c0, 'FDIV': 0x108303c0}
+# FDIV uses the captured scale-only output converter and RDMA mode word. The
+# other operations keep the existing fixed fields; mixing the two profiles is
+# rejected at the enable word rather than silently accepted.
+PROFILE_FIELDS = {
+    'ADD': {'out_convert': 0x00010001, 'rdma_mode': 0x00017849},
+    'SUB': {'out_convert': 0x00010001, 'rdma_mode': 0x00017849},
+    'MUL': {'out_convert': 0x00010001, 'rdma_mode': 0x00017849},
+    'MAX': {'out_convert': 0x00010001, 'rdma_mode': 0x00017849},
+    'FDIV': {'out_convert': 0x00000001, 'rdma_mode': 0x00017841},
+}
+PROFILE_FIELD_NAMES = ('out_convert', 'rdma_mode')
+PROFILE_FIELD_ALLOWED = {
+    name: sorted({values[name] for values in PROFILE_FIELDS.values()})
+    for name in PROFILE_FIELD_NAMES
+}
 # target, byte offset, name, fixed value (None means a validated dynamic field)
 REGISTERS = (
     (DPU, 0x4004, 'dpu_pointer', 0x0000000e),
@@ -21,7 +36,7 @@ REGISTERS = (
     (DPU, 0x4038, 'notch', 0),
     (DPU, 0x403c, 'channels', 0x00070007),
     (DPU, 0x4070, 'ew_config', None),
-    (DPU, 0x4084, 'out_convert', 0x00010001),
+    (DPU, 0x4084, 'out_convert', None),
     (RDMA, 0x5004, 'rdma_pointer', 0x0000000e),
     (RDMA, 0x500c, 'rdma_width', None),
     (RDMA, 0x5010, 'rdma_height', 0),
@@ -30,7 +45,7 @@ REGISTERS = (
     (DPU, 0x4020, 'dst', None),
     (RDMA, 0x5018, 'src_a', None),
     (RDMA, 0x5038, 'src_b', None),
-    (RDMA, 0x5044, 'rdma_mode', 0x00017849),
+    (RDMA, 0x5044, 'rdma_mode', None),
     (PC_REG, 0x0010, 'next_address', 0),
     (PC_REG, 0x0014, 'next_amount', 0),
     (VERSION, 0x0000, 'version_marker', 0),
@@ -119,10 +134,12 @@ class Decoder:
                     raise ProfileError(7, name)
             elif fixed is not None and value != fixed:
                 raise ProfileError(7 if name.startswith('next_') else 2, name)
+            if name in PROFILE_FIELD_ALLOWED and value not in PROFILE_FIELD_ALLOWED[name]:
+                raise ProfileError(2, f'{name} is not a supported profile value')
             if name in ('width', 'rdma_width', 'wdma_width') and value > 7999:
                 raise ProfileError(2, 'width profile is 0..7999')
             if name == 'ew_config' and value not in OPS.values():
-                raise ProfileError(2, 'only ADD/SUB/MUL/MAX are implemented')
+                raise ProfileError(2, 'only ADD/SUB/MUL/MAX/FDIV are implemented')
             self.values[name] = value
             return None
         if value != 0x18:
@@ -133,6 +150,10 @@ class Decoder:
         if missing:
             raise ProfileError(3, ', '.join(missing))
         v = self.values
+        op_name = next(k for k, x in OPS.items() if x == v['ew_config'])
+        for name, expected in PROFILE_FIELDS[op_name].items():
+            if v[name] != expected:
+                raise ProfileError(2, f'{op_name} requires {name}={expected:#010x}')
         if v['width'] != v['rdma_width'] or initialized and v['width'] != v['wdma_width']:
             raise ProfileError(6)
         if self.pc_dma and v['next_amount'] and not v['next_address']:
@@ -147,8 +168,8 @@ class Decoder:
             a, d = v[name], v['dst']
             if a != d and a < d + size and d < a + size:
                 raise ProfileError(4, 'partial output/input alias; exact in-place is supported')
-        result = Config(next(k for k, x in OPS.items() if x == v['ew_config']),
-                        count, v['src_a'], v['src_b'], v['dst'], v['next_address'], v['next_amount'])
+        result = Config(op_name, count, v['src_a'], v['src_b'], v['dst'],
+                        v['next_address'], v['next_amount'])
         self.values = {}  # Each task must supply a complete configuration.
         return result
 
@@ -160,10 +181,11 @@ def make_commands(op: str, logical_count: int, a: int, b: int, dst: int) -> byte
     This helper is only for standalone, hardware-independent smoke tests.
     """
     if op not in OPS or not 1 <= logical_count <= 64000:
-        raise ValueError('op must be ADD/SUB/MUL/MAX and count must be 1..64000')
+        raise ValueError('op must be ADD/SUB/MUL/MAX/FDIV and count must be 1..64000')
     dynamic = {'width': (logical_count + 7) // 8 - 1,
                'rdma_width': (logical_count + 7) // 8 - 1,
                'ew_config': OPS[op], 'src_a': a, 'src_b': b, 'dst': dst}
+    dynamic.update(PROFILE_FIELDS[op])
     words = [encode(t, addr, fixed if fixed is not None else dynamic[name])
              for t, addr, name, fixed in REGISTERS]
     words.append(encode(*ENABLE, 0x18))

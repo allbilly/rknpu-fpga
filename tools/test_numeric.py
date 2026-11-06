@@ -30,7 +30,7 @@ def check(a, b, op_id, name):
     if got != expected:
         raise AssertionError(f'{name}: {a:04x} {b:04x}: C++={got:04x} Python={expected:04x}')
     count += 1
-for op_id, name in enumerate(('ADD', 'SUB', 'MUL', 'MAX')):
+for op_id, name in enumerate(('ADD', 'SUB', 'MUL', 'MAX', 'FDIV')):
     for a in special:
         for b in special:
             check(a, b, op_id, name)
@@ -40,7 +40,19 @@ for op_id, name in enumerate(('ADD', 'SUB', 'MUL', 'MAX')):
             check(a, b, op_id, name)
     for _ in range(100000):
         check(rng.randrange(65536), rng.randrange(65536), op_id, name)
+# The Python model is itself checked against these real-device lanes by
+# tests/test_fdiv.py; bind the C++ integer datapath to the same evidence.
+captures = json.loads((ROOT / 'tests/fdiv_capture_vectors.json').read_text())
+for lane in captures['lanes']:
+    got = f(lane['a'], lane['b'], 4)
+    expected = alu(lane['a'], lane['b'], 'FDIV')
+    if got != expected or got != lane['y']:
+        raise AssertionError(
+            f"FDIV capture {lane['source']} lane {lane['index']}: "
+            f"C++={got:04x} Python={expected:04x} device={lane['y']:04x}")
+    count += 1
 report = {'test': 'integer_datapath_vs_independent_python_binary16_oracle',
+          'fdiv_capture_lanes': len(captures['lanes']),
           'cases': count, 'status': 'PASS', 'seed': '0x3588',
           'source_revision': revision, 'started_utc': started_utc, 'finished_utc': timestamp(),
           'seconds': round(time.monotonic() - start, 3),

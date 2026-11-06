@@ -2,7 +2,8 @@ import random
 import struct
 import unittest
 from model.half import alu, to_bits
-from model.profile import Decoder, ENABLE, OPS, REGISTERS, ProfileError, decode, encode, make_commands
+from model.profile import (Decoder, ENABLE, OPS, PROFILE_FIELDS, REGISTERS,
+                           ProfileError, decode, encode, make_commands)
 from model.sim import Memory, RKEmulator
 
 A, B, D = 0x10000000, 0x10020000, 0x10040000
@@ -57,6 +58,20 @@ class ProfileTests(unittest.TestCase):
                 with self.subTest(register=name):
                     self.assert_rejected(change(base, name, value ^ 1), 7 if name.startswith('next_') else 2)
 
+    def test_profile_dependent_fields(self):
+        # out_convert and rdma_mode are only valid with the matching operation.
+        for op in OPS:
+            base = make_commands(op, 8, A, B, D)
+            for name, value in PROFILE_FIELDS[op].items():
+                with self.subTest(op=op, register=name):
+                    self.assert_rejected(change(base, name, value ^ 1), 2)
+        fdiv = make_commands('FDIV', 8, A, B, D)
+        add = make_commands('ADD', 8, A, B, D)
+        self.assert_rejected(change(fdiv, 'out_convert', PROFILE_FIELDS['ADD']['out_convert']), 2)
+        self.assert_rejected(change(fdiv, 'rdma_mode', PROFILE_FIELDS['ADD']['rdma_mode']), 2)
+        self.assert_rejected(change(add, 'out_convert', PROFILE_FIELDS['FDIV']['out_convert']), 2)
+        self.assert_rejected(change(add, 'rdma_mode', PROFILE_FIELDS['FDIV']['rdma_mode']), 2)
+
     def test_missing_each_register(self):
         base = words(make_commands('ADD', 8, A, B, D))
         for i in range(len(REGISTERS)):
@@ -72,7 +87,14 @@ class ProfileTests(unittest.TestCase):
     def test_unsupported_precision_and_op(self):
         base = make_commands('ADD', 8, A, B, D)
         self.assert_rejected(change(base, 'data_format', 0xa8000002), 2)
-        self.assert_rejected(change(base, 'ew_config', 0x108303c0), 2)  # FDIV not implemented
+        # FDIV is supported, but only with its own fixed field values.
+        self.assert_rejected(change(base, 'ew_config', OPS['FDIV']), 2)
+        self.assert_rejected(change(base, 'ew_config', 0x108503c0), 2)
+        fdiv = make_commands('FDIV', 8, A, B, D)
+        dec = Decoder()
+        results = [dec.feed(w) for w in words(fdiv)]
+        self.assertTrue(all(x is None for x in results[:-1]))
+        self.assertEqual(results[-1].op, 'FDIV')
 
     def test_max_special_values(self):
         # +0 wins over -0; equal signs choose the larger value.
@@ -95,6 +117,26 @@ class ProfileTests(unittest.TestCase):
         self.assertEqual(alu(0xfc00, 0xfc00, 'SUB'), 0x7c00)
         self.assertEqual(alu(0x7c00, 0xfc00, 'SUB'), 0x7c01)
         self.assertEqual(alu(0xfc00, 0x0000, 'MUL'), 0x7c01)
+
+    def test_fdiv_captured_special_values(self):
+        # Real 4x4 zero/infinity matrix and the special-path sign(a) rule.
+        self.assertEqual(alu(0x0000, 0x0000, 'FDIV'), 0x7c01)
+        self.assertEqual(alu(0x0000, 0x8000, 'FDIV'), 0x7c00)
+        self.assertEqual(alu(0x8000, 0x0000, 'FDIV'), 0xfc00)
+        self.assertEqual(alu(0x8000, 0x8000, 'FDIV'), 0xfc00)
+        self.assertEqual(alu(0x0000, 0x7c00, 'FDIV'), 0x0000)
+        self.assertEqual(alu(0x8000, 0x7c00, 'FDIV'), 0x8000)
+        self.assertEqual(alu(0x7c00, 0x7c00, 'FDIV'), 0x7c00)
+        self.assertEqual(alu(0xfc00, 0x7c00, 'FDIV'), 0xfc00)
+        self.assertEqual(alu(0x3c00, 0x8000, 'FDIV'), 0x7c00)
+        self.assertEqual(alu(0xbc00, 0x8000, 'FDIV'), 0xfc00)
+        self.assertEqual(alu(0x3c00, 0xfc00, 'FDIV'), 0x0000)
+        self.assertEqual(alu(0xbc00, 0xfc00, 'FDIV'), 0x8000)
+        self.assertEqual(alu(0x7e00, 0x3c00, 'FDIV'), 0x7c01)
+        self.assertEqual(alu(0x3c00, 0x7c01, 'FDIV'), 0x7c01)
+        # Finite overflow/underflow use sign(a)^sign(b), unlike special paths.
+        self.assertEqual(alu(0x7bff, 0xb800, 'FDIV'), 0xfc00)
+        self.assertEqual(alu(0x0001, 0xc000, 'FDIV'), 0x8000)
 
     def test_dimension_errors(self):
         base = make_commands('ADD', 16, A, B, D)

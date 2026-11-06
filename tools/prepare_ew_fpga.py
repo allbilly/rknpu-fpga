@@ -38,7 +38,7 @@ PROFILES = {
 BOARD_CHECKS = ('target_identity', 'clock_input', 'led_pins_and_polarity',
                 'reset_contract', 'configuration_bank')
 BOARD_RESULTS = {
-    'alu': [r'PASS ALU: 12963 vectors, [1-9][0-9]* cycles'],
+    'alu': [r'PASS ALU: 21605 vectors, [1-9][0-9]* cycles'],
     'dma_demo': [re.escape(s) for s in (
         'PASS DMA board workload: verbatim SUB(9), two tasks, 324 requests, 336 memory checks',
         'PASS DMA demo reset during command fetch and restart',
@@ -221,7 +221,7 @@ def simulation_evidence(report, expected_simulator, revision, profile, artifact_
                 'Incorrect selected board/reset executable: ' + name)
         if name == 'alu':
             require(cmd['argv'][len(expected_argv):] ==
-                    [f'+VECTORS={execution_root}/build/vectors/alu.hex', '+COUNT=12963'] and
+                    [f'+VECTORS={execution_root}/build/vectors/alu.hex', '+COUNT=21605'] and
                     'build/vectors/alu.hex' in stimuli, 'Incorrect ALU stimulus binding')
         else:
             require(cmd['argv'] == expected_argv, 'Unexpected selected board/reset runtime arguments')

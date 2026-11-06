@@ -66,8 +66,8 @@ def packed(words):
     return b''.join(struct.pack('<Q', word) for word in words)
 
 
-def synthetic_words(next_address=0, next_amount=0, dst=D):
-    body = [word for (word,) in struct.iter_unpack('<Q', make_commands('ADD', 8, A, B, dst))
+def synthetic_words(next_address=0, next_amount=0, dst=D, op='ADD'):
+    body = [word for (word,) in struct.iter_unpack('<Q', make_commands(op, 8, A, B, dst))
             if decode(word)[:2] not in TAIL_KEYS]
     return body + [encode(*TAIL_KEYS[0], next_address), encode(*TAIL_KEYS[1], next_amount),
                    encode(*TAIL_KEYS[2], 0), encode(*TAIL_KEYS[3], 0x18)]
@@ -85,6 +85,7 @@ def all_cases():
                           error=error, tasks=tasks, repeats=1) | kwargs)
 
     add('terminal')
+    add('fdiv', synthetic_words(op='FDIV'))
     add('unmapped_guard', synthetic_words(C+0x1000))
     add('inplace', synthetic_words(dst=A))
     add('restart', repeats=2)

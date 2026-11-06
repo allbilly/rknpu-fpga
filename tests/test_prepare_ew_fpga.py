@@ -48,7 +48,7 @@ def mock_simulator(simulator, revision, artifact_root, profile='startup'):
     write('build/vectors/alu.hex', 'MOCK INPUT; NOT NUMERICAL EVIDENCE\n')
     stimuli = manifest({'build/vectors/alu.hex': artifacts['build/vectors/alu.hex']})
     results = {
-        'alu': ['PASS ALU: 12963 vectors, 17262 cycles'],
+        'alu': ['PASS ALU: 21605 vectors, 17262 cycles'],
         'dma_demo': ['PASS DMA board workload: verbatim SUB(9), two tasks, 324 requests, 336 memory checks',
                      'PASS DMA demo reset during command fetch and restart',
                      'PASS DMA demo reset during data execution and restart',
@@ -77,7 +77,7 @@ def mock_simulator(simulator, revision, artifact_root, profile='startup'):
         argv += [str(root / source) for source in prep.board_test_sources(name)]
         command(top + '_build', argv, 'MOCK compiler output')['output'] = binding
         if name == 'alu':
-            execute += [f'+VECTORS={root}/build/vectors/alu.hex', '+COUNT=12963']
+            execute += [f'+VECTORS={root}/build/vectors/alu.hex', '+COUNT=21605']
         command(name, execute, '\n'.join(results[name]))
         tests.append(dict(name=name, status='PASS', results=results[name], execution=binding | {'command': name}))
     record = dict(status='PASS', finished_utc='MOCK_UNIT_CONTROL_ONLY', simulator=simulator,

@@ -14,17 +14,21 @@ authorization to start FPGA testing as needed.
 
 **Latest RK3588 differential, 2026-11-06:** the real Rocket NPU on the
 RK3588 at `192.168.192.18` now matches the FPGA RTL EW slice exactly for
-FP16 ADD, SUB, MUL, NEG and MAX at eight lanes. MAX adds the reviewed
-`EW_CFG 0x108002c0` decode and a 3-bit operation field; the register decoder
-still rejects FDIV and other unsupported configurations. Captured NaN,
-signed-zero and infinity matrices also pin the RTL policy: NaN results are
-`0x7c01`, exact ADD/SUB cancellation is `+0`, SUB has a captured same-sign
-infinity quirk, and MAX prefers `+0` over `-0`. All nine special-matrix cases
-pass in RTL simulation with expected values taken from the real capture.
-Evidence is in `build/rk3588-kernel-comparison-v1/` with the exact scope and
-remaining gaps in its `README.md` and `result-ew8.json`. This is mainline
-Rocket and RTL simulation, not vendor RKNPU, physical FPGA execution, or a
-complete silicon specification.
+FP16 ADD, SUB, MUL, NEG, MAX and FDIV at eight lanes. MAX uses
+`EW_CFG 0x108002c0`; FDIV adds `EW_CFG 0x108303c0`, operation field 4 and its
+captured `OUT_CVT_SCALE=0x00000001` / `RDMA_MODE=0x00017841` pair. The FDIV
+finite path uses the captured three-guard-bit, ties-to-even quotient (not
+infinite-precision RNE) and the special path uses `sign(a)`; all 1,452 real
+device lanes, including all 20 A/7 one-ULP-low records, match the RTL and model
+bit-for-bit. Captured NaN, signed-zero and infinity matrices also pin the RTL
+policy: NaN results are `0x7c01`, exact ADD/SUB cancellation is `+0`, SUB has a
+captured same-sign infinity quirk, and MAX prefers `+0` over `-0`. All nine
+special-matrix cases pass in RTL simulation with expected values taken from the
+real capture. Evidence is in `build/rk3588-kernel-comparison-v1/` and
+`build/rk3588-example-captures/team/fdiv-analysis/`, with the exact scope and
+remaining gaps in [FDIV.md](docs/FDIV.md). This is mainline Rocket and RTL
+simulation, not vendor RKNPU, physical FPGA execution, or a complete silicon
+specification.
 
 **Compute configuration:** the selected FP16 group is **C32/K16**: 32
 input/reduction channels and 16 output kernels, with 512 parallel product
@@ -2112,7 +2116,7 @@ The command profile comes from `allbilly/rk3588/examples/elementwise.py`, includ
 |---|---|---|
 | RK command decoder | `rtl/rk_ew_regs.sv` | Strict, complete one-task profile; unsupported fields fail |
 | Execution controller | `rtl/rk_ew_engine.sv` | One outstanding memory request; ordered completion; sticky faults |
-| FP16 datapath | `rtl/rk_fp16_alu.sv` | ADD, SUB, MUL; integer-built normalization/rounding |
+| FP16 datapath | `rtl/rk_fp16_alu.sv` | ADD, SUB, MUL, MAX and FDIV; integer-built normalization/rounding |
 | Candidate CMAC address leaf | `rtl/rk_cmac_address.sv` | Packed address/tag sequencing, also used by the separate product path |
 | Candidate CMAC product path | `rtl/rk_cmac_product_front.sv` | Raw terminal commands to reads and tagged exact products; no accumulation, output writes, host or board integration |
 | Integration top | `rtl/rk_ew_core.sv` | Raw command input and byte-addressed device memory |
@@ -2280,11 +2284,11 @@ The inspected `NV_NVDLA_CMAC_CORE_mac.scala` uses signed-integer multiplication 
 
 ## Explicit limitations
 
-The EW endpoint accepts only ADD/SUB/MUL in the fixed FP16, contiguous, eight-element-group profile, optionally with the complete 13-register bypass/unity initialization group. The separate CMAC product path has its own narrow terminal profile. For EW, the count is `8*(width+1)`; padded elements really are read and written. Width 0..7999 gives 8..64000 physical elements per task, subject to mapped memory capacity. DPU/RDMA widths and the optional WDMA width must agree. Sixteen-byte buffer alignment and 32-bit device addresses are required. Exact in-place output is allowed; partial output/input overlap is rejected.
+The EW endpoint accepts ADD/SUB/MUL/MAX/FDIV in the fixed FP16, contiguous, eight-element-group profile, optionally with the complete 13-register bypass/unity initialization group. The separate CMAC product path has its own narrow terminal profile. For EW, the count is `8*(width+1)`; padded elements really are read and written. Width 0..7999 gives 8..64000 physical elements per task, subject to mapped memory capacity. DPU/RDMA widths and the optional WDMA width must agree. Sixteen-byte buffer alignment and 32-bit device addresses are required. Exact in-place output is allowed; partial output/input overlap is rejected.
 
 No complete GEMM/convolution, CNA/CBUF/CSC/CMAC/CACC engine, PPU, LUT, quantized path, FP32 output tensor, general conversion pipeline, three-core scheduling, ping-pong overlap, hardware register readback, DRM ABI, PCIe transport, DDR controller, or tinygrad runtime hook is implemented. The partial CMAC path supplies tagged products only. The fixed 4 KiB self-test RAM is **not** a reduced RK CBUF. Its six trace-only windows expose 672 bytes, not the full original BO allocations; see `docs/DMA_BOARD_DEMO.md`.
 
-The FP16 numerical policy is round-to-nearest-even, gradual underflow, infinities, signed zero and canonical quiet NaN `0x7e00`. Its match to RK3588 exceptional-value behavior is not established. The test vectors are synthetic; they must not be relabeled hardware goldens. In particular, the rounded FP16 MUL result must **not** be substituted for a wider CMAC product/accumulation pipeline.
+The FP16 numerical policy is round-to-nearest-even, gradual underflow, infinities, signed zero and the captured RK NaN encoding `0x7c01`; ADD/SUB/MUL/MAX also reproduce captured zero and infinity quirks. FDIV is the separate candidate three-guard-bit rule documented in [FDIV.md](docs/FDIV.md). The newest special-value and FDIV differentials are real captures, but the remaining unmeasured boundaries and the complete special-value space are not established. Synthetic vectors must not be relabeled hardware goldens. In particular, the rounded FP16 MUL result must **not** be substituted for a wider CMAC product/accumulation pipeline.
 
 ## Next acceptance gate
 

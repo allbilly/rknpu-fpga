@@ -55,11 +55,15 @@ addresses and linked tasks are accepted only through the separate DMA top.
 
 Both width registers hold count-minus-one in groups of eight. `width=0` means eight halfwords, not zero or one. Height/notch/channel fields are fixed by this first profile. There is no logical-unpadded length register; the sender must map and initialize enough bytes for the entire physical group count. Runtime arithmetic or layout repair by the host is not an acceptable way to extend the accelerator.
 
-`EW_CFG` supports ADD=0x108202c0, SUB=0x108402c0, MUL=0x108003c4 and
-MAX=0x108002c0. SUB is A-B; MAX selects the larger numeric operand. Unsupported
-op fields, including the donor FDIV configuration, additional registers or
-precision configurations latch a fault; they never turn into an implicit no-op
-or CPU fallback.
+`EW_CFG` supports ADD=0x108202c0, SUB=0x108402c0, MUL=0x108003c4,
+MAX=0x108002c0 and FDIV=0x108303c0. SUB is A-B; MAX selects the larger numeric
+operand. FDIV uses the captured FDIV-specific fixed fields `OUT_CVT_SCALE`
+(DPU `0x4084`) = `0x00000001` and `RDMA_MODE` (RDMA `0x5044`) = `0x00017841`;
+the other operations retain `0x00010001` and `0x00017849`. The register decoder
+and profile accept only the matching pair for the selected operation. A field
+from the other profile, an unsupported op field, additional registers or a
+precision configuration latches a fault; none turns into an implicit no-op or
+CPU fallback.
 
 A new task must reprogram the complete profile. Values are last-write-wins before a trigger, but any invalid write is sticky and requires reset even if followed by a valid value. This deliberately narrow lifecycle is not a complete model of Rockchip's hardware register banking.
 
@@ -100,7 +104,7 @@ The hardware command port has no end-of-packet input. A missing trigger leaves a
 
 ## FP16 arithmetic
 
-For finite operands, each mantissa is an integer of up to 11 bits. MUL forms the exact 22-bit mantissa product and rounds once on binary16 output. ADD/SUB first align finite values on the exact 2^-24 grid, use a signed integer sum, then normalize and round once. This favors reviewability over area and maximum clock frequency; it is not an optimized production FPU.
+For finite operands, each mantissa is an integer of up to 11 bits. MUL forms the exact 22-bit mantissa product and rounds once on binary16 output. ADD/SUB first align finite values on the exact 2^-24 grid, use a signed integer sum, then normalize and round once. FDIV uses a multi-cycle restoring divider: the exact quotient is truncated three bits below the destination ULP (no sticky bit) and then rounded to nearest with ties-to-even. It is the captured `RK_FDIV_3G_RNE` candidate, not infinite-precision RNE; the A/7 capture subset is one ULP low in the narrow `0.5 < fraction < 0.625`, even-significand window. The final quantum is `2^-24` for subnormal results. ADD/SUB/MUL/MAX remain one-cycle operations; FDIV special cases also complete in one cycle, while finite FDIV takes fourteen division steps plus one pack cycle. This favors reviewability over area and maximum clock frequency; it is not an optimized production FPU. The full candidate contract and evidence boundary are in [FDIV.md](FDIV.md).
 
 The policy is round-to-nearest-even and gradual underflow. Exact ADD/SUB
 cancellation gives +0, including the same-sign negative-zero case captured on
@@ -111,10 +115,14 @@ exposed. The RK capture also shows a SUB-only infinity quirk: same-sign
 infinities return +inf and opposite-sign infinities return NaN, unlike IEEE
 subtraction. MAX compares encoded binary16 order: a negative operand loses to a
 nonnegative one, equal-sign magnitudes choose the larger nonnegative or smaller
-negative value, and +0 wins over -0. These special-value results are bound to
-the captured cases in `build/rk3588-kernel-comparison-v1/`; they are not a
+negative value, and +0 wins over -0. FDIV uses the captured special-value
+precedence: any NaN or the raw `+0/+0` pattern returns `0x7c01`; divide-by-zero,
+infinity numerator/infinity divisor and zero numerator use `sign(a)`; finite
+overflow, underflow and ordinary finite results use `sign(a)^sign(b)`. These
+special-value results are bound to the captured cases in
+`build/rk3588-kernel-comparison-v1/` and the FDIV fixture; they are not a
 complete silicon specification.
 
-`model/half.py` uses Python binary64 arithmetic followed by binary16 packing. Binary16 multiplication is exactly representable at binary64 precision; finite half addition fits the chosen reference precision as well. `model/half_datapath.cpp` uses integer alignment/rounding like the RTL and is checked against that independent oracle. C++ agreement does not prove correct SystemVerilog widths, handshake behavior or synthesis.
+`model/half.py` uses Python binary64 arithmetic followed by binary16 packing for ADD/SUB/MUL/MAX. Binary16 multiplication is exactly representable at binary64 precision; finite half addition fits the chosen reference precision as well. FDIV uses the captured integer three-guard-bit rule rather than a binary64 division because the truncation window is not IEEE RNE. `model/half_datapath.cpp` uses integer alignment/rounding like the RTL and is checked against that independent oracle. C++ agreement does not prove correct SystemVerilog widths, handshake behavior or synthesis.
 
 Do not use this rounded half-output multiplier as a CMAC substitute. A wider product/accumulator and its reduction/rounding order need a separate RK-evidenced contract.

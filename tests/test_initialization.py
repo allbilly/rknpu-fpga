@@ -30,7 +30,7 @@ class InitializationTests(unittest.TestCase):
         self.assertEqual(bytes(output), before)
 
     def test_complete_profiles(self):
-        for op in ('ADD', 'SUB', 'MUL'):
+        for op in ('ADD', 'SUB', 'MUL', 'MAX', 'FDIV'):
             for count in (1, 7, 8, 9, 33, 63999, 64000):
                 with self.subTest(op=op, count=count):
                     cfg = decode_all(initialized_commands(op, count, A, B, D))

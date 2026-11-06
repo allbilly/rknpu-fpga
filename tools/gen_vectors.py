@@ -125,15 +125,35 @@ cases[-1]['transactions'] = 24
 invalid_bs = encode(0x1001,0x4040,0x52)
 case('init_invalid_then_valid',initialized_commands('ADD',33,A,B,D,[invalid_bs]+init),blobs(33),expected_error=2,done=0)
 case('init_width_last_write',initialized_commands('ADD',33,A,B,D,[encode(0x1001,0x405c,0)]+init),blobs(33))
+# FDIV uses the captured profile fields. Add positive end-to-end cases and
+# explicit wrong-combination rejections without perturbing earlier vectors.
+for n in (1, 7, 8, 9, 33, 257, 1024):
+    case(f'fdiv_{n}', make_commands('FDIV',n,A,B,D), blobs(n))
+case('fdiv_inplace', make_commands('FDIV',33,A,B,A), blobs(33))
+case('initialized_fdiv_33', initialized_commands('FDIV',33,A,B,D), blobs(33))
+fdiv_raw = make_commands('FDIV',32,A,B,D)
+for field, value in (('out_convert',0x00010001), ('rdma_mode',0x00017849)):
+    case(f'fdiv_wrong_{field}', mutate(fdiv_raw,field,value), blobs(32),
+         expected_error=2,done=0)
+case('fdiv_bad_op', mutate(fdiv_raw,'ew_config',0x108503c0), blobs(32),
+     expected_error=2,done=0)
 rng.setstate(saved_rng_state)
 (OUT/'cases.json').write_text(json.dumps(cases,indent=2)+'\n')
 
 special = (0,0x8000,1,0x8001,0x03ff,0x0400,0x3bff,0x3c00,0x3c01,0x7bff,0xfbff,0x7c00,0xfc00,0x7d00,0x7e00)
 vectors=[]
-for opid, op in enumerate(('ADD','SUB','MUL','MAX')):
+for opid, op in enumerate(('ADD','SUB','MUL','MAX','FDIV')):
     pairs = [(a,b) for a in special for b in special]
     pairs += [(rng.randrange(65536),rng.randrange(65536)) for _ in range(4096)]
     vectors += [(opid<<48)|(a<<32)|(b<<16)|alu(a,b,op) for a,b in pairs]
 (OUT/'alu.hex').write_text(''.join(f'{x:016x}\n' for x in vectors))
 (OUT/'alu_count.txt').write_text(str(len(vectors))+'\n')
-print(f'Generated {len(cases)} RTL scenarios and {len(vectors)} ALU vectors (synthetic oracle).')
+# Real-device FDIV capture replay: 24 special rows, 40 finite rows, the
+# 256-cell class grid and all 1132 ew-fp16 finite lanes (including A/7).
+capture = json.loads((ROOT/'tests/fdiv_capture_vectors.json').read_text())
+capture_vectors = [(4<<48)|(lane['a']<<32)|(lane['b']<<16)|lane['y']
+                   for lane in capture['lanes']]
+(OUT/'fdiv_capture.hex').write_text(''.join(f'{x:016x}\n' for x in capture_vectors))
+(OUT/'fdiv_capture_count.txt').write_text(str(len(capture_vectors))+'\n')
+print(f'Generated {len(cases)} RTL scenarios, {len(vectors)} ALU vectors and '
+      f'{len(capture_vectors)} captured FDIV lanes.')

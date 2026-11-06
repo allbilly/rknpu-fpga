@@ -25,6 +25,7 @@ module rk_ew_regs #(
     logic [12:0] width, rdma_width, wdma_width;
     logic [32:0] byte_count, end_a, end_b, end_dst;
     logic bad_addr;
+    logic [31:0] out_convert, rdma_mode;
     wire [31:0] value = cmd_data[47:16];
     wire [31:0] key = {cmd_data[63:48], cmd_data[15:0]};
     assign cfg_count = ({4'b0, width} + 17'd1) << 3;
@@ -41,6 +42,7 @@ module rk_ew_regs #(
         if (!rst_n) begin
             seen <= 0; init_seen <= 0; width <= 0; rdma_width <= 0; wdma_width <= 0;
             cfg_a <= 0; cfg_b <= 0; cfg_dst <= 0; cfg_op <= 0;
+            out_convert <= 0; rdma_mode <= 0;
             cfg_next_address <= 0; cfg_next_amount <= 0;
             cfg_valid <= 0; error <= 0; error_code <= 0;
         end else begin
@@ -87,12 +89,14 @@ module rk_ew_regs #(
                             32'h108402c0: cfg_op <= 3'd1;
                             32'h108003c4: cfg_op <= 3'd2;
                             32'h108002c0: cfg_op <= 3'd3;
+                            32'h108303c0: cfg_op <= 3'd4;
                             default: begin error <= 1; error_code <= 8'd2; end
                         endcase
                     end
                     32'h10014084: begin // out_convert
                         seen[8] <= 1'b1;
-                        if (value != 32'h00010001) begin error <= 1; error_code <= 8'd2; end
+                        out_convert <= value;
+                        if (!(value == 32'h00000001 || value == 32'h00010001)) begin error <= 1; error_code <= 8'd2; end
                     end
                     32'h20015004: begin // rdma_pointer
                         seen[9] <= 1'b1;
@@ -129,7 +133,8 @@ module rk_ew_regs #(
                     end
                     32'h20015044: begin // rdma_mode
                         seen[17] <= 1'b1;
-                        if (value != 32'h00017849) begin error <= 1; error_code <= 8'd2; end
+                        rdma_mode <= value;
+                        if (!(value == 32'h00017841 || value == 32'h00017849)) begin error <= 1; error_code <= 8'd2; end
                     end
                     32'h01010010: begin // next_address
                         seen[18] <= 1'b1;
@@ -201,6 +206,7 @@ module rk_ew_regs #(
                     32'h00810008: begin
                         if (value != 32'h18) begin error <= 1; error_code <= 8'd2; end
                         else if (!(&seen) || ((|init_seen) && !(&init_seen))) begin error <= 1; error_code <= 8'd3; end
+                        else if (!((cfg_op == 3'd4) ? ((out_convert == 32'h00000001) && (rdma_mode == 32'h00017841)) : ((out_convert == 32'h00010001) && (rdma_mode == 32'h00017849)))) begin error <= 1; error_code <= 8'd2; end
                         else if ((width != rdma_width) || ((|init_seen) && (width != wdma_width))) begin error <= 1; error_code <= 8'd6; end
                         else if (PC_DMA && cfg_next_amount != 0 && cfg_next_address == 0) begin error <= 1; error_code <= 8'd7; end
                         else if (bad_addr) begin error <= 1; error_code <= 8'd4; end

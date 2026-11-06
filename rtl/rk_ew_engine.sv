@@ -81,7 +81,7 @@ module rk_ew_engine #(
             else stalled_cycles <= stalled_cycles + 1;
             case (state)
                 IDLE: if (cfg_valid && cfg_ready) begin
-                    if ((cfg_count == 0) || (cfg_count > 64000) || (cfg_op > 3'd3)) begin
+                    if ((cfg_count == 0) || (cfg_count > 64000) || (cfg_op > 3'd4)) begin
                         error <= 1; error_code <= 8'd6;
                     end else begin
                         a_addr <= cfg_a; b_addr <= cfg_b; dst_addr <= cfg_dst;

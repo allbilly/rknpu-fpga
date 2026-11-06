@@ -9,7 +9,16 @@ import argparse
 import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from model.profile import REGISTERS, INITIALIZATION_REGISTERS, OPS
+from model.profile import (REGISTERS, INITIALIZATION_REGISTERS, OPS,
+                           PROFILE_FIELDS, PROFILE_FIELD_ALLOWED)
+
+legacy_fields = PROFILE_FIELDS['ADD']
+assert all(PROFILE_FIELDS[op] == legacy_fields for op in ('SUB', 'MUL', 'MAX'))
+fdiv_fields = PROFILE_FIELDS['FDIV']
+allowed_terms = {
+    name: ' || '.join(f"value == 32'h{v:08x}" for v in PROFILE_FIELD_ALLOWED[name])
+    for name in PROFILE_FIELD_ALLOWED
+}
 
 head = '''// SPDX-License-Identifier: MIT
 `timescale 1ns/1ps
@@ -38,6 +47,7 @@ module rk_ew_regs #(
     logic [12:0] width, rdma_width, wdma_width;
     logic [32:0] byte_count, end_a, end_b, end_dst;
     logic bad_addr;
+    logic [31:0] out_convert, rdma_mode;
     wire [31:0] value = cmd_data[47:16];
     wire [31:0] key = {cmd_data[63:48], cmd_data[15:0]};
     assign cfg_count = ({4'b0, width} + 17'd1) << 3;
@@ -54,6 +64,7 @@ module rk_ew_regs #(
         if (!rst_n) begin
             seen <= 0; init_seen <= 0; width <= 0; rdma_width <= 0; wdma_width <= 0;
             cfg_a <= 0; cfg_b <= 0; cfg_dst <= 0; cfg_op <= 0;
+            out_convert <= 0; rdma_mode <= 0;
             cfg_next_address <= 0; cfg_next_amount <= 0;
             cfg_valid <= 0; error <= 0; error_code <= 0;
         end else begin
@@ -74,6 +85,9 @@ for i, (target, addr, name, fixed) in enumerate(REGISTERS + INITIALIZATION_REGIS
         lines.append(f'                        cfg_{name} <= value;\n')
         invalid = '(|value[3:0])' if name == 'next_address' else '(value > 65535)'
         lines.append(f"                        if ((!PC_DMA && value != 0) || (PC_DMA && {invalid})) begin error <= 1; error_code <= 8'd7; end\n")
+    elif name in PROFILE_FIELD_ALLOWED:
+        lines.append(f"                        {name} <= value;\n")
+        lines.append(f"                        if (!({allowed_terms[name]})) begin error <= 1; error_code <= 8'd2; end\n")
     elif fixed is not None:
         code = 7 if name.startswith('next_') else 2
         lines.append(f"                        if (value != 32'h{fixed:08x}) begin error <= 1; error_code <= 8'd{code}; end\n")
@@ -83,16 +97,22 @@ for i, (target, addr, name, fixed) in enumerate(REGISTERS + INITIALIZATION_REGIS
     elif name == 'ew_config':
         lines.append('                        case (value)\n')
         for op, v in OPS.items():
-            opid = {'ADD': 0, 'SUB': 1, 'MUL': 2, 'MAX': 3}[op]
+            opid = {'ADD': 0, 'SUB': 1, 'MUL': 2, 'MAX': 3, 'FDIV': 4}[op]
             lines.append(f"                            32'h{v:08x}: cfg_op <= 3'd{opid};\n")
         lines.append("                            default: begin error <= 1; error_code <= 8'd2; end\n                        endcase\n")
     else:
         out = {'src_a': 'cfg_a', 'src_b': 'cfg_b', 'dst': 'cfg_dst'}[name]
         lines.append(f'                        {out} <= value;\n')
     lines.append('                    end\n')
-lines.append('''                    32'h00810008: begin
+legacy_ok = (f"(out_convert == 32'h{legacy_fields['out_convert']:08x}) && "
+             f"(rdma_mode == 32'h{legacy_fields['rdma_mode']:08x})")
+fdiv_ok = (f"(out_convert == 32'h{fdiv_fields['out_convert']:08x}) && "
+           f"(rdma_mode == 32'h{fdiv_fields['rdma_mode']:08x})")
+profile_ok = f"((cfg_op == 3'd4) ? ({fdiv_ok}) : ({legacy_ok}))"
+lines.append(f'''                    32'h00810008: begin
                         if (value != 32'h18) begin error <= 1; error_code <= 8'd2; end
                         else if (!(&seen) || ((|init_seen) && !(&init_seen))) begin error <= 1; error_code <= 8'd3; end
+                        else if (!{profile_ok}) begin error <= 1; error_code <= 8'd2; end
                         else if ((width != rdma_width) || ((|init_seen) && (width != wdma_width))) begin error <= 1; error_code <= 8'd6; end
                         else if (PC_DMA && cfg_next_amount != 0 && cfg_next_address == 0) begin error <= 1; error_code <= 8'd7; end
                         else if (bad_addr) begin error <= 1; error_code <= 8'd4; end

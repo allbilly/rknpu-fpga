@@ -87,21 +87,25 @@ defect, isolate that feature's source change and requalify the changed image.
 | 7. Release broader framework support | Pin backend/dependencies and CI fixtures, then enable the existing full framework profile through the unchanged final encoder, one of the six captured shapes at a time | All six shapes and repeated pipelines pass complete intermediate/final BO checks, padding/gap checks, ACK and compute-reset lifecycle on the accepted image. Repeat TinyStories after any RTL change | Native six-shape coverage exists; current-image physical framework coverage remains |
 | 8. Qualify independent PCIe execution | First link/BAR/identity, then bounded BO upload/readback, then original raw jobs through the PCIe frontend | Actual PCIe allocation/address/visibility contracts pass; raw K65/SUB(9) and the same six framework shapes pass independently of JTAG. Repeat full32 TinyStories through PCIe before claiming PCIe application support | PCIe circuitry and native frontend tests exist; physical PCIe application execution remains |
 | 9. Qualify cross-interface lifecycle | Exercise explicit JTAG-to-PCIe and PCIe-to-JTAG ownership handoff with retained BOs | Non-owner requests fail; ownership epochs and complete BOs survive each allowed handoff. Exercise link/PERST/compute reset and supported clock-stop/recovery cases without stale completion or premature admission | Component/model evidence exists; continuous physical handoff and reset qualification remain |
-| 10. Establish RK3588 compatibility | Audit an actual RK3588 target and pin raw submissions, allocations, initialized BOs, complete outputs and reset provenance | Supported EW/GEMM comparisons pass the documented exact-byte or justified-tolerance contract, including special values, tails, alignment, aliasing and linked tasks. Unsupported behavior remains an explicit failure | **EW differential active:** the RK3588 at `192.168.192.18` runs mainline Rocket (`/dev/accel/accel0`); real outputs match FPGA RTL exactly for FP16 ADD/SUB/MUL/NEG/MAX at eight lanes, and 152 captured NaN/zero/infinity cases pass. Vendor RKNPU is absent, so the vendor ABI is not qualified. GEMM/conv, physical FPGA replay, tails/aliasing and the complete special-value space remain |
+| 10. Establish RK3588 compatibility | Audit an actual RK3588 target and pin raw submissions, allocations, initialized BOs, complete outputs and reset provenance | Supported EW/GEMM comparisons pass the documented exact-byte or justified-tolerance contract, including special values, tails, alignment, aliasing and linked tasks. Unsupported behavior remains an explicit failure | **EW differential active:** the RK3588 at `192.168.192.18` runs mainline Rocket (`/dev/accel/accel0`); real outputs match FPGA RTL exactly for FP16 ADD/SUB/MUL/NEG/MAX at eight lanes and all 1,452 captured FDIV lanes, including the 20 A/7 one-ULP-low records. Vendor RKNPU is absent, so the vendor ABI is not qualified. GEMM/conv, physical FPGA replay, tails/aliasing and the remaining unmeasured FDIV boundaries remain |
 
 **RK3588 differential update, 2026-11-06.** The available RK3588 exposes
 mainline Rocket, not the vendor `rknpu` driver. Real raw submissions were
 compared against the FPGA RTL EW testbench for the donor elementwise
-operations: ADD, SUB, MUL, NEG and MAX now match exactly at eight lanes.
-MAX adds `EW_CFG 0x108002c0` and a three-bit operation field; FDIV and other
-configurations still fault. Captured special-value matrices (56 NaN/zero/sign
-pairs and 96 infinity/tie pairs) established `0x7c01` NaN results, `+0` for
-exact ADD/SUB cancellation, the captured SUB infinity quirk and MAX signed-zero
-ordering; nine relocation/matrix cases pass in RTL simulation with real
-captured expected outputs. Evidence and caveats are in
-`build/rk3588-kernel-comparison-v1/`. This is not physical FPGA execution,
-vendor RKNPU qualification, GEMM/conv coverage, or an exhaustive
-special-value/subnormal contract.
+operations: ADD, SUB, MUL, NEG and MAX now match exactly at eight lanes, and
+the captured FDIV matrices (including the A/7 lanes) match above.
+MAX adds `EW_CFG 0x108002c0`; FDIV adds `EW_CFG 0x108303c0` and its captured
+`OUT_CVT_SCALE`/`RDMA_MODE` pair. Unsupported op fields still fault. Captured
+special-value matrices (56 NaN/zero/sign pairs and 96 infinity/tie pairs)
+established `0x7c01` NaN results, `+0` for exact ADD/SUB cancellation, the
+captured SUB infinity quirk and MAX signed-zero ordering; nine relocation/matrix
+cases pass in RTL simulation with real captured expected outputs. The FDIV
+finite path uses the captured three-guard-bit, ties-to-even quotient and
+reproduces all 1,452 real device lanes, including 20 A/7 one-ULP-low records.
+Evidence and caveats are in `build/rk3588-kernel-comparison-v1/` and
+[FDIV.md](FDIV.md). This is not physical FPGA execution, vendor RKNPU
+qualification, GEMM/conv coverage, or an exhaustive special-value/subnormal
+contract.
 
 Step 0 produces a stable reference independently of the interrupted candidate.
 Step 1 produces the next usable inference release. Steps 2–6 qualify capacity,
