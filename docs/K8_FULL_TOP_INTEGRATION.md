@@ -1,8 +1,9 @@
 # C32/K8 full-top source integration
 
-Status: **source profile and post-opt synthesis resource gate PASS; place/route
-not run**. This note records the full-top source selection only. No place,
-route, bitstream, board access, programming or FPGA execution is claimed.
+Status: **source profile, post-opt synthesis, full-top routed implementation,
+offline bitstream emission and read-only bitfile audit PASS**. This is a C32/K8
+image artifact result only: no board access, programming, flash or FPGA execution
+is claimed.
 
 ## Timing-repair merge
 
@@ -220,6 +221,61 @@ derived from post-opt DCP `57be9e5b...` and source manifest
 route profile is the 185-file K8 source snapshot from revision `a61b96f`; the
 separately merged standalone PPU leaf is **not included** in this routed image.
 
-No bitstream was emitted and no board was accessed or programmed. This is
-routed implementation evidence, not FPGA or RK3588 execution. Fresh bitstream
-emission and image audit remain separate gates.
+## Offline image emission and audit
+
+The emitted image is bound to K8 worktree revision `a61b96f0a60a2ccb1c8d13e99e113eb75ec097ba`, profile tag `5e0e41b3`, source manifest SHA-256 `5e0e41b3eef984d1a43d4384ee63bec5b2dcbd70a6144f92e40ec893aeeb4400` (profile JSON SHA-256 `cf277100f603cb79b0e8953d055a3ac24ba7bae88fadbd8ef445e238d9a1d9f3`). The implementation report SHA-256 is `f4c26f069f12fc528d17453b36156d8d565883a2b0ae0275f55f8868285d87e7`. Vivado was `2026.1`, SW Build `6511674`.
+
+The complete source-bound receipt package is discoverable in the main workspace at `build/k8-full-top-v1/emission-run-k8-v1/`. It is a byte-preserving copy of the original worktree-local package; its `checksums.sha256` verifies the preserved files.
+
+The exact final route artifacts cited by that report are:
+
+| Artifact | SHA-256 |
+|---|---|
+| `final_timing.rpt` | `1552131176c039831e4dba038a206abd587de66a6a71a5ddbc2fa862c19e0685` |
+| `final_default_drc.rpt` | `e8790396632bf4735c6d543d5d40ab4394501e0d2b78b75784660fdb8d4f59c0` |
+| `final_route_status.rpt` | `a9ac05277e4f99601858c6a3900fa80c08e50193153ef73ad232024acb676c3f` |
+| `final_pulse_width.rpt` | `e378ba550ab9053224c7afc8d63bbffa04a025c6f352ea890be76f9e66fdc986` |
+| `final_check_timing.rpt` | `df6cfb918523427e0479e029c60d29e706e34e5fa61546772df18ace5f7d9464` |
+| `final_cdc.rpt` | `811d776f6da5cf8f54ab63909e642cdbcf390c975bf7c397f9ccff4d6897de74` |
+| `final-audit.log` | `6ab6683fcf32336494da99cd38f0824868481d8033a421850bb3c7652eab9a6d` |
+
+Default DRC has zero errors and critical warnings. The accepted warning inventory
+is exact and unchanged by the emitter: `DPIP-1` 526, `DPOP-1` 263, `DPOP-2`
+263, `REQP-1709` 2 (1,054 total). The bitstream-check DRC report independently
+matches the same rules, severities and counts. The design/part, all 242 ports,
+configuration voltage/CFGBVS, zero waivers, zero black boxes, full-route status,
+two BSCAN chains, capacity owner and startup-reset inventory were retained and
+checked; setup/hold/pulse and electrical acceptance were not relaxed.
+
+Build-local `emit_sys.tcl`, `run_emission.sh` and `audit_sys_bitfile.py` emit
+only into the fresh `emission-run-k8-v1` directory and reject a pre-existing
+directory. They are source-bound to the original K8 worktree revision and are
+not a command to re-emit from current `main`; their revision/profile/checkpoint
+gates must be satisfied by any future run. Emission used the source-manifest
+tag as `USR_ACCESS`. The resulting
+bitstream is 18,735,214 bytes, SHA-256
+`1f9128afae59c617d5c21a5672d9a1ababae51528718d8308f4bf1c64e7e373a`; the emitted
+image checkpoint SHA-256 is
+`95180728ee7d23d8f77e984f6c8bc7680f45fff640c3b10726007e5951affa44`. The
+independent read-only audit passes container, source tag, IDCODE `0x03751093`,
+`USR_ACCESS=0x5e0e41b3`, packet bounds and no-IPROG checks (545 packets and
+4,683,168 FDRI words). The preserved receipts and complete checksum list are
+under `build/k8-full-top-v1/emission-run-k8-v1/`, including `emission-report.json`,
+`bitfile-audit.json` and `checksums.sha256` (SHA-256
+`f11bfa5ebbcfd31c2269d199745e516dbf016247c84ca415888980c2d1b16c30`).
+
+The first post-emission receipt collectors incorrectly counted the echoed Tcl
+command as a second marker substring. Vivado had returned 0, completed
+`write_bitstream`, and logged exactly one standalone PASS line. The original
+runner, auditor and preparations are preserved with the recovery receipt; only
+the two collectors were corrected to count exact marker lines, then the
+independent bitfile audit passed. Vivado was not rerun for this receipt
+correction.
+
+Audit scope remains strictly offline: software CRC validation is
+`NOT_CHECKED`; programming and physical hardware are `NOT_RUN`; hardware access,
+programming and flash are all false. This does not qualify FPGA behavior, timing
+on hardware, or an inference release. The separately merged standalone PPU
+leaf is not in this image. The source-level and application limits in
+[K16 control timing repair](K16_CONTROL_TIMING_REPAIR.md) and the rest of this
+document remain applicable.
