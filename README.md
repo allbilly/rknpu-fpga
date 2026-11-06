@@ -6,10 +6,11 @@ included in a source checkout. Portable records are linked through
 regression preparation reviews remain workspace-local; the current-image
 TinyStories archive is linked below.
 
-**Standalone PPU pooling increments, 2026-11-07:** two max-pooling leaves, a
-separate [capture-bounded FP16 average leaf](docs/PPU_AVERAGE.md), and the
-[capture-bounded FP16 minimum leaf](docs/PPU_MIN_POOL.md) cover four source-backed
-RK3588 cases. The standalone
+**Standalone PPU pooling increments, 2026-11-07:** two unindexed max-pooling
+leaves, one separate [capture-bounded FP16 average leaf](docs/PPU_AVERAGE.md),
+one [capture-bounded FP16 minimum leaf](docs/PPU_MIN_POOL.md), and one
+[capture-bounded FP16 max-with-index leaf](docs/PPU_MAX_INDEX.md) cover five
+source-backed RK3588 cases. The standalone
 [FP16 2x2/stride-1 max-pooling candidates](docs/PPU_MAX_POOL.md) replay two
 captured RK3588 cases through separate valid/ready leaves: the original valid
 C8 H4 W4 case and the exact C8 H2 W2, pad-1, finite-negative case with captured
@@ -18,9 +19,11 @@ untouched bytes, in Icarus and Verilator. The average leaf covers only FP16
 2x2/stride-1 valid C8 H4W4 -> H3W3, `INDEX_EN=0`, `USE_CNT=0`, and applies the
 source's FP32-mean/FP16-output tolerance to the captured device bytes. The
 minimum leaf covers only FP16 2x2/stride-1 valid C8 H4W4 -> H3W3 and compares
-exactly against source and device outputs. All are simulation-only leaves:
+exactly against source and device outputs. The index leaf covers only FP16 C8
+H2W2 -> H1W1, 2x2/stride-2, `INDEX_EN=1`; it checks value bytes 0–15 and index
+bytes 32–47 while preserving the intervening gap. All are simulation-only leaves:
 unsupported modes are not connected or admitted, and no other average/min/global
-mode, `INDEX_EN`, register decode, DMA or full-top integration is implemented.
+mode, indexed shape, register decode, DMA or full-top integration is implemented.
 
 **First convolution RTL slice:** the captured FP16 valid 1x1 C8/H5/W5/OC8
 case now runs through a strict raw-command decoder, hardware C/OC padding and

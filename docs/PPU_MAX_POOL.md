@@ -15,8 +15,10 @@ independent of the NVDLA PDP. No mode/register decoder, DMA, AXI memory path or
 full-top integration connects these leaves; unsupported pooling modes are not
 admitted. A separate [capture-bounded FP16 average leaf](PPU_AVERAGE.md) covers
 only `fp16_avg_k2s1_valid_c8_h4w4`; it does not generalize to another average
-mode, shape, rounding policy or PPU integration. These leaves do not implement
-`INDEX_EN`, convolution or any CMAC/K8 change.
+mode, shape, rounding policy or PPU integration. These unindexed max leaves do
+not implement `INDEX_EN`; one separate capture-bounded indexed case is documented
+in [PPU_MAX_INDEX.md](PPU_MAX_INDEX.md). No leaf here implements convolution or
+any CMAC/K8 change.
 
 ## Evidence and scope
 
@@ -173,8 +175,9 @@ signed-zero or subnormal payload is present, so only the finite-ordering path
 is device-observed for this mode. The signed-zero and NaN choices are
 **candidate PPU behavior** until a PPU special-value capture exists. This
 increment does not establish subnormal, NaN-payload, exception flag or
-infinity behavior for the RK PPU. It does not implement `INDEX_EN`, which is a
-separate metadata feature and remains unqualified.
+infinity behavior for the RK PPU. This valid-padding max leaf does not implement
+`INDEX_EN`; see [PPU_MAX_INDEX.md](PPU_MAX_INDEX.md) for the separate one-case
+indexed candidate and its narrower scope.
 
 ## Architecture and estimated area
 
@@ -249,6 +252,9 @@ make ppu-avg-four-state-test       # Icarus, same FP16 average case
 make ppu-min-contract-test         # strict captured minimum case controls
 make ppu-min-test                  # Verilator, one capture-bounded FP16 minimum case
 make ppu-min-four-state-test       # Icarus, same FP16 minimum case
+make ppu-index-contract-test       # strict captured indexed-max case controls
+make ppu-index-test                # Verilator, one capture-bounded max+index case
+make ppu-index-four-state-test     # Icarus, same max+index case
 make ppu-max-lint
 ```
 
@@ -275,7 +281,9 @@ Not implemented or not qualified by this increment:
   [PPU_AVERAGE.md](PPU_AVERAGE.md), minimum outside the case in
   [PPU_MIN_POOL.md](PPU_MIN_POOL.md), and global pooling; other
   reciprocals, `use_cnt` values and rounding policies;
-- `INDEX_EN` metadata, including the index region and position-tracking rules;
+- `INDEX_EN` outside the one fixed case in
+  [PPU_MAX_INDEX.md](PPU_MAX_INDEX.md), including other index layouts and
+  position-tracking rules;
 - padding modes other than the one captured pad-1 case above, non-unit/other
   strides, kernels other than 2x2, output upsampling, notches and arbitrary
   dimensions;
