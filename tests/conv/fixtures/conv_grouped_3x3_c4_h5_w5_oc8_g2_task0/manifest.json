@@ -1,0 +1,147 @@
+{
+  "case": "conv_grouped_3x3_c4_h5_w5_oc8_g2_task0",
+  "command": {
+    "address_qwords": [
+      21,
+      27,
+      35
+    ],
+    "addresses": {
+      "a": 4096,
+      "w": 8192,
+      "out": 12288
+    },
+    "captured_patched_sha256": "dccca5714aa2a34122c2121ed36157a82aa0cbfd8305c4de0fdbe102ef20e68c",
+    "qwords": 54,
+    "template_sha256": "29b60f0bc2baa4b802823dacba0770c7d36e46f0c4b7bf1994eba762ee55a08f"
+  },
+  "device": {
+    "board": "Orange Pi 5 / RK3588S",
+    "capture_finished_utc": "2026-11-05T21:14:25Z",
+    "capture_started_utc": "2026-11-05T21:14:24Z",
+    "device": "/dev/accel/accel0",
+    "kernel": "6.18.24-current-rockchip64",
+    "runner": "rocket_run.py 1.0.0",
+    "status": "OK",
+    "submit_ret": 0,
+    "task_count": 1
+  },
+  "files": {
+    "a.bin": {
+      "bytes": 800,
+      "sha256": "3db3c4abd528172b0d92e945f806807d3f851109ea8ebc1d74020df0ffcc6270"
+    },
+    "device_capture.json": {
+      "bytes": 5589,
+      "sha256": "a95d7e5e52a06774834fdb7ecb9f9103e17419538d4766f6b4039c3be01d2e1c"
+    },
+    "device_out.bin": {
+      "bytes": 768,
+      "sha256": "2b9b1524c7cff40fffa54127df398f69a91297b9049a97f54fd06c880c38a9a5"
+    },
+    "expected.bin": {
+      "bytes": 72,
+      "sha256": "68bec39a92255048678a37a33125a1668466128c08eca7cf760aa29fb65ac84a"
+    },
+    "job.json": {
+      "bytes": 983,
+      "sha256": "6149b7d8c348b71e9e1b1e660e0b10b5f7c48b8fe64db00e1313791a2315f257"
+    },
+    "provenance.json": {
+      "bytes": 5664,
+      "sha256": "83c1287081e727ef7438e48f816f64572fd1f3d461ad84029a5bee36a29b28cd"
+    },
+    "regcmd.bin": {
+      "bytes": 432,
+      "sha256": "29b60f0bc2baa4b802823dacba0770c7d36e46f0c4b7bf1994eba762ee55a08f"
+    },
+    "source_input_nchw.bin": {
+      "bytes": 200,
+      "sha256": "831d50cc1eae9d6d1b841ddb281fd9556a54071b8accc51d0b86d30190a41cef"
+    },
+    "source_weight_nchw.bin": {
+      "bytes": 288,
+      "sha256": "02331a1da3d6be10d3cbfac7db54d6d77f319420d0f9715c946e8bb0c4d2530b"
+    },
+    "w.bin": {
+      "bytes": 1152,
+      "sha256": "b2c597d0e016672b647cbe27baee81efa346068fd1994a4de61077565720870c"
+    }
+  },
+  "layout": {
+    "input_bytes": 800,
+    "input_c1_plane_stride_bytes": 400,
+    "input_packed": "NC1HWC2 with C2=8: first C1 plane has C0..C1 and six zero lanes; second C1 plane is all zero; each pixel advances 16 bytes in a plane",
+    "input_pixel_stride_bytes": 16,
+    "input_real_value_bytes": 200,
+    "output_bytes": 768,
+    "output_layout": "NC1HWC2, c2=8, output width stride=12 atoms, align_out_c=32",
+    "output_logical_bytes": 72,
+    "output_logical_elements": 36,
+    "weight_bytes": 1152,
+    "weight_halfwords_per_kernel_position": 64,
+    "weights_packed": "kh-major [ky][kx][OC][align_C=16]"
+  },
+  "numeric": {
+    "defined_elements_exact": true,
+    "device_defined_output_sha256": "68bec39a92255048678a37a33125a1668466128c08eca7cf760aa29fb65ac84a",
+    "device_output_bo_bytes": 768,
+    "device_output_bo_sha256": "2b9b1524c7cff40fffa54127df398f69a91297b9049a97f54fd06c880c38a9a5",
+    "hardware_special_value_policy": "not established beyond this pinned finite capture",
+    "padding_is_not_numerical_oracle": true,
+    "source_expected_sha256": "68bec39a92255048678a37a33125a1668466128c08eca7cf760aa29fb65ac84a",
+    "tolerance_atol": 0.2
+  },
+  "scope": "One promoted FP16 grouped-task C2/H5/W5/OC4 explicit packed C2 input; raw 54-QWORD command and three declared address relocations.",
+  "shape": {
+    "batch": 1,
+    "dtype": "float16",
+    "groups": 1,
+    "input_channels": 2,
+    "input_height": 5,
+    "input_width": 5,
+    "kernel": [
+      3,
+      3
+    ],
+    "output_channels": 4,
+    "output_height": 3,
+    "output_width": 3,
+    "padding": "valid",
+    "stride": [
+      1,
+      1
+    ]
+  },
+  "source": {
+    "builder": "make_conv2d_regs / write_regs_to_npu_task",
+    "example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+    "oracle": "compute_expected_nchw; float64 accumulation of FP16 operands rounded once to FP16",
+    "seed": 42,
+    "sha256": "f70e9810868bf95dd8e89ed83a3af3be00cc890fad8209756e09735cb9795c51",
+    "source_lines": {
+      "builder": [
+        445,
+        629
+      ],
+      "input_pack": [
+        388,
+        401
+      ],
+      "oracle": [
+        1010,
+        1021
+      ],
+      "task_tail": [
+        631,
+        676
+      ],
+      "weight_pack": [
+        346,
+        386
+      ]
+    },
+    "source_revision": "273d015e08af40c81d2cd9ab84198486b03a17f1"
+  },
+  "status": "READY_CAPTURE_BOUNDED_CANDIDATE"
+}

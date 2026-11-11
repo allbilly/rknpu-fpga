@@ -1,0 +1,48 @@
+{
+  "checker": "check_numeric.py",
+  "checked_utc": "2026-11-05T20:53:48Z",
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "conv_simple_fp16_1x1_c4_h8_w8_oc16",
+      "status": "PASS",
+      "check": "FP16 conv_simple_fp16_1x1_c4_h8_w8_oc16: independent naive conv == expected.bin (float32)"
+    },
+    {
+      "case": "conv_simple_fp16_3x3_c4_h8_w8_oc16",
+      "status": "PASS",
+      "check": "FP16 conv_simple_fp16_3x3_c4_h8_w8_oc16: independent naive conv == expected.bin (float16)"
+    },
+    {
+      "case": "conv_simple_fp16_5x5_c4_h8_w8_oc16",
+      "status": "PASS",
+      "check": "FP16 conv_simple_fp16_5x5_c4_h8_w8_oc16: independent naive conv == expected.bin (float16)"
+    },
+    {
+      "case": "conv_simple_fp16_1x1_c32_h8_w8_oc32",
+      "status": "PASS",
+      "check": "FP16 conv_simple_fp16_1x1_c32_h8_w8_oc32: independent naive conv == expected.bin (float32)"
+    },
+    {
+      "case": "conv_simple_fp16_3x3_c16_h8_w8_oc32",
+      "status": "PASS",
+      "check": "FP16 conv_simple_fp16_3x3_c16_h8_w8_oc32: independent naive conv == expected.bin (float16)"
+    },
+    {
+      "case": "simple_conv_int8_5x5_c8_h8_w8_oc32",
+      "status": "PASS",
+      "check": "INT8 simple_conv_int8_5x5_c8_h8_w8_oc32: independent int64 naive conv == expected.bin prefix"
+    },
+    {
+      "case": "simple_conv_int8_depthwise_3x3_c64_h8_w8_oc64_g64",
+      "status": "PASS",
+      "check": "INT8 simple_conv_int8_depthwise_3x3_c64_h8_w8_oc64_g64: independent int64 naive conv == expected.bin prefix"
+    }
+  ],
+  "environment": {
+    "python": "3.14.8",
+    "numpy": "2.4.6",
+    "platform": "Linux-7.2.9-200.fc44.x86_64-x86_64-with-glibc2.43"
+  },
+  "note": "Independent reconstruction from packed raw files, naive convolution, repacked raw output compared byte-for-byte with expected.bin.  Host-side only; not a device capture."
+}

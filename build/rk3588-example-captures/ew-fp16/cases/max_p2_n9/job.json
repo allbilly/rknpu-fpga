@@ -1,0 +1,49 @@
+{
+  "case": "max_p2_n9",
+  "source_example": "/home/fedora/rk3588/examples/elementwise.py",
+  "description": "FP16 elementwise MAX, logical N=9, 16 physical lanes (8-lane padding), pattern p2",
+  "timeout_ns": 6000000000,
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 22
+    }
+  ],
+  "buffers": [
+    {
+      "name": "a",
+      "size": 4096,
+      "input": "a.bin",
+      "direction": "in"
+    },
+    {
+      "name": "b",
+      "size": 4096,
+      "input": "b.bin",
+      "direction": "in"
+    },
+    {
+      "name": "out",
+      "size": 4096,
+      "direction": "out",
+      "output": "out.bin"
+    }
+  ],
+  "patches": [
+    {
+      "regcmd_index": 14,
+      "buffer": "out",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 15,
+      "buffer": "a",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 16,
+      "buffer": "b",
+      "kind": "value32"
+    }
+  ]
+}

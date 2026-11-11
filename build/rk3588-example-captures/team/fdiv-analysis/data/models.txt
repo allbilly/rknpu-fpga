@@ -1,0 +1,116 @@
+fdiv8          lanes=    8 finite_nonzero=   8 exact_rne_mismatch=0
+special        lanes=   24 finite_nonzero=  11 exact_rne_mismatch=0
+finite_sweep   lanes=   32 finite_nonzero=  32 exact_rne_mismatch=0
+fdiv_p1_n1     lanes=    1 finite_nonzero=   1 exact_rne_mismatch=0
+fdiv_p1_n7     lanes=    7 finite_nonzero=   7 exact_rne_mismatch=0
+fdiv_p1_n8     lanes=    8 finite_nonzero=   8 exact_rne_mismatch=0
+fdiv_p1_n9     lanes=    9 finite_nonzero=   9 exact_rne_mismatch=0
+fdiv_p1_n33    lanes=   33 finite_nonzero=  33 exact_rne_mismatch=1
+fdiv_p1_n1024  lanes= 1024 finite_nonzero=1024 exact_rne_mismatch=19
+fdiv_p2_n8     lanes=    8 finite_nonzero=   7 exact_rne_mismatch=0
+fdiv_p2_n9     lanes=    9 finite_nonzero=   8 exact_rne_mismatch=0
+fdiv_p2_n33    lanes=   33 finite_nonzero=  30 exact_rne_mismatch=0
+
+TOTAL finite-nonzero device lanes: 1178
+
+Model mismatch counts over all finite-nonzero lanes:
+  exact_rne      mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+  truncP0_rne    mismatches= 183  first=[('special', 16, 30037, 30036), ('finite_sweep', 4, 30037, 30036), ('finite_sweep', 11, 2, 1)]
+  truncP0_rna    mismatches= 183  first=[('special', 16, 30037, 30036), ('finite_sweep', 4, 30037, 30036), ('finite_sweep', 11, 2, 1)]
+  roundP0_rnd    mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+  truncP1_rne    mismatches= 135  first=[('special', 16, 30037, 30036), ('finite_sweep', 4, 30037, 30036), ('finite_sweep', 17, 17067, 17066)]
+  truncP1_rna    mismatches=  26  first=[('special', 17, 0, 1), ('special', 23, 32768, 32769), ('finite_sweep', 6, 0, 1)]
+  roundP1_rnd    mismatches= 209  first=[('special', 13, 13653, 13654), ('special', 14, 14677, 14678), ('special', 16, 30037, 30036)]
+  truncP2_rne    mismatches=  90  first=[('special', 16, 30037, 30036), ('finite_sweep', 4, 30037, 30036), ('finite_sweep', 17, 17067, 17066)]
+  truncP2_rna    mismatches=  26  first=[('special', 17, 0, 1), ('special', 23, 32768, 32769), ('finite_sweep', 6, 0, 1)]
+  roundP2_rnd    mismatches=  20  first=[('fdiv_p1_n1024', 33, 17627, 17628), ('fdiv_p1_n1024', 81, 18907, 18908), ('fdiv_p1_n1024', 121, 19547, 19548)]
+  truncP3_rne    mismatches=   0
+  truncP3_rna    mismatches=  26  first=[('special', 17, 0, 1), ('special', 23, 32768, 32769), ('finite_sweep', 6, 0, 1)]
+  roundP3_rnd    mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+  truncP4_rne    mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+  truncP4_rna    mismatches=  26  first=[('special', 17, 0, 1), ('special', 23, 32768, 32769), ('finite_sweep', 6, 0, 1)]
+  roundP4_rnd    mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+  truncP5_rne    mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+  truncP5_rna    mismatches=  26  first=[('special', 17, 0, 1), ('special', 23, 32768, 32769), ('finite_sweep', 6, 0, 1)]
+  roundP5_rnd    mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+  truncP6_rne    mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+  truncP6_rna    mismatches=  26  first=[('special', 17, 0, 1), ('special', 23, 32768, 32769), ('finite_sweep', 6, 0, 1)]
+  roundP6_rnd    mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+  truncP7_rne    mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+  truncP7_rna    mismatches=  26  first=[('special', 17, 0, 1), ('special', 23, 32768, 32769), ('finite_sweep', 6, 0, 1)]
+  roundP7_rnd    mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+  truncP8_rne    mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+  truncP8_rna    mismatches=  26  first=[('special', 17, 0, 1), ('special', 23, 32768, 32769), ('finite_sweep', 6, 0, 1)]
+  roundP8_rnd    mismatches=  20  first=[('fdiv_p1_n33', 17, 16676, 16677), ('fdiv_p1_n1024', 17, 16676, 16677), ('fdiv_p1_n1024', 49, 18212, 18213)]
+
+Lanes where truncP3_rne != exact_rne (predicted anomaly set):
+count=20
+  fdiv_p1_n33[17] A=0x4c80 B=0x4700 obs=0x4124 rne=0x4125 truncP3=0x4124 OK
+  fdiv_p1_n1024[17] A=0x4c80 B=0x4700 obs=0x4124 rne=0x4125 truncP3=0x4124 OK
+  fdiv_p1_n1024[49] A=0x5240 B=0x4700 obs=0x4724 rne=0x4725 truncP3=0x4724 OK
+  fdiv_p1_n1024[57] A=0x5340 B=0x4700 obs=0x4824 rne=0x4825 truncP3=0x4824 OK
+  fdiv_p1_n1024[129] A=0x5810 B=0x4700 obs=0x4ca4 rne=0x4ca5 truncP3=0x4ca4 OK
+  fdiv_p1_n1024[185] A=0x59d0 B=0x4700 obs=0x4ea4 rne=0x4ea5 truncP3=0x4ea4 OK
+  fdiv_p1_n1024[273] A=0x5c48 B=0x4700 obs=0x50e4 rne=0x50e5 truncP3=0x50e4 OK
+  fdiv_p1_n1024[329] A=0x5d28 B=0x4700 obs=0x51e4 rne=0x51e5 truncP3=0x51e4 OK
+  fdiv_p1_n1024[385] A=0x5e08 B=0x4700 obs=0x52e4 rne=0x52e5 truncP3=0x52e4 OK
+  fdiv_p1_n1024[441] A=0x5ee8 B=0x4700 obs=0x53e4 rne=0x53e5 truncP3=0x53e4 OK
+  fdiv_p1_n1024[449] A=0x5f08 B=0x4700 obs=0x5404 rne=0x5405 truncP3=0x5404 OK
+  fdiv_p1_n1024[505] A=0x5fe8 B=0x4700 obs=0x5484 rne=0x5485 truncP3=0x5484 OK
+  fdiv_p1_n1024[561] A=0x6064 B=0x4700 obs=0x5504 rne=0x5505 truncP3=0x5504 OK
+  fdiv_p1_n1024[617] A=0x60d4 B=0x4700 obs=0x5584 rne=0x5585 truncP3=0x5584 OK
+  fdiv_p1_n1024[673] A=0x6144 B=0x4700 obs=0x5604 rne=0x5605 truncP3=0x5604 OK
+  fdiv_p1_n1024[729] A=0x61b4 B=0x4700 obs=0x5684 rne=0x5685 truncP3=0x5684 OK
+  fdiv_p1_n1024[785] A=0x6224 B=0x4700 obs=0x5704 rne=0x5705 truncP3=0x5704 OK
+  fdiv_p1_n1024[841] A=0x6294 B=0x4700 obs=0x5784 rne=0x5785 truncP3=0x5784 OK
+  fdiv_p1_n1024[913] A=0x6324 B=0x4700 obs=0x5814 rne=0x5815 truncP3=0x5814 OK
+  fdiv_p1_n1024[969] A=0x6394 B=0x4700 obs=0x5854 rne=0x5855 truncP3=0x5854 OK
+
+All lanes with 3-extra-bit pattern 100 + nonzero tail:
+  finite_sweep[16] A=0x7bff B=0x4900 obs=0x6e66 rne=0x6e66 truncP3=0x6e66 n_even=False
+  fdiv_p1_n33[17] A=0x4c80 B=0x4700 obs=0x4124 rne=0x4125 truncP3=0x4124 n_even=True
+  fdiv_p1_n33[27] A=0x4f00 B=0x4500 obs=0x459a rne=0x459a truncP3=0x459a n_even=False
+  fdiv_p1_n1024[17] A=0x4c80 B=0x4700 obs=0x4124 rne=0x4125 truncP3=0x4124 n_even=True
+  fdiv_p1_n1024[27] A=0x4f00 B=0x4500 obs=0x459a rne=0x459a truncP3=0x459a n_even=False
+  fdiv_p1_n1024[49] A=0x5240 B=0x4700 obs=0x4724 rne=0x4725 truncP3=0x4724 n_even=True
+  fdiv_p1_n1024[57] A=0x5340 B=0x4700 obs=0x4824 rne=0x4825 truncP3=0x4824 n_even=True
+  fdiv_p1_n1024[75] A=0x54c0 B=0x4500 obs=0x4b9a rne=0x4b9a truncP3=0x4b9a n_even=False
+  fdiv_p1_n1024[91] A=0x55c0 B=0x4500 obs=0x4c9a rne=0x4c9a truncP3=0x4c9a n_even=False
+  fdiv_p1_n1024[129] A=0x5810 B=0x4700 obs=0x4ca4 rne=0x4ca5 truncP3=0x4ca4 n_even=True
+  fdiv_p1_n1024[131] A=0x5820 B=0x4500 obs=0x4e9a rne=0x4e9a truncP3=0x4e9a n_even=False
+  fdiv_p1_n1024[163] A=0x5920 B=0x4500 obs=0x501a rne=0x501a truncP3=0x501a n_even=False
+  fdiv_p1_n1024[185] A=0x59d0 B=0x4700 obs=0x4ea4 rne=0x4ea5 truncP3=0x4ea4 n_even=True
+  fdiv_p1_n1024[203] A=0x5a60 B=0x4500 obs=0x511a rne=0x511a truncP3=0x511a n_even=False
+  fdiv_p1_n1024[243] A=0x5ba0 B=0x4500 obs=0x521a rne=0x521a truncP3=0x521a n_even=False
+  fdiv_p1_n1024[273] A=0x5c48 B=0x4700 obs=0x50e4 rne=0x50e5 truncP3=0x50e4 n_even=True
+  fdiv_p1_n1024[283] A=0x5c70 B=0x4500 obs=0x531a rne=0x531a truncP3=0x531a n_even=False
+  fdiv_p1_n1024[329] A=0x5d28 B=0x4700 obs=0x51e4 rne=0x51e5 truncP3=0x51e4 n_even=True
+  fdiv_p1_n1024[347] A=0x5d70 B=0x4500 obs=0x545a rne=0x545a truncP3=0x545a n_even=False
+  fdiv_p1_n1024[385] A=0x5e08 B=0x4700 obs=0x52e4 rne=0x52e5 truncP3=0x52e4 n_even=True
+  fdiv_p1_n1024[387] A=0x5e10 B=0x4500 obs=0x54da rne=0x54da truncP3=0x54da n_even=False
+  fdiv_p1_n1024[427] A=0x5eb0 B=0x4500 obs=0x555a rne=0x555a truncP3=0x555a n_even=False
+  fdiv_p1_n1024[441] A=0x5ee8 B=0x4700 obs=0x53e4 rne=0x53e5 truncP3=0x53e4 n_even=True
+  fdiv_p1_n1024[449] A=0x5f08 B=0x4700 obs=0x5404 rne=0x5405 truncP3=0x5404 n_even=True
+  fdiv_p1_n1024[467] A=0x5f50 B=0x4500 obs=0x55da rne=0x55da truncP3=0x55da n_even=False
+  fdiv_p1_n1024[505] A=0x5fe8 B=0x4700 obs=0x5484 rne=0x5485 truncP3=0x5484 n_even=True
+  fdiv_p1_n1024[507] A=0x5ff0 B=0x4500 obs=0x565a rne=0x565a truncP3=0x565a n_even=False
+  fdiv_p1_n1024[547] A=0x6048 B=0x4500 obs=0x56da rne=0x56da truncP3=0x56da n_even=False
+  fdiv_p1_n1024[561] A=0x6064 B=0x4700 obs=0x5504 rne=0x5505 truncP3=0x5504 n_even=True
+  fdiv_p1_n1024[587] A=0x6098 B=0x4500 obs=0x575a rne=0x575a truncP3=0x575a n_even=False
+  fdiv_p1_n1024[617] A=0x60d4 B=0x4700 obs=0x5584 rne=0x5585 truncP3=0x5584 n_even=True
+  fdiv_p1_n1024[627] A=0x60e8 B=0x4500 obs=0x57da rne=0x57da truncP3=0x57da n_even=False
+  fdiv_p1_n1024[673] A=0x6144 B=0x4700 obs=0x5604 rne=0x5605 truncP3=0x5604 n_even=True
+  fdiv_p1_n1024[675] A=0x6148 B=0x4500 obs=0x583a rne=0x583a truncP3=0x583a n_even=False
+  fdiv_p1_n1024[715] A=0x6198 B=0x4500 obs=0x587a rne=0x587a truncP3=0x587a n_even=False
+  fdiv_p1_n1024[729] A=0x61b4 B=0x4700 obs=0x5684 rne=0x5685 truncP3=0x5684 n_even=True
+  fdiv_p1_n1024[755] A=0x61e8 B=0x4500 obs=0x58ba rne=0x58ba truncP3=0x58ba n_even=False
+  fdiv_p1_n1024[785] A=0x6224 B=0x4700 obs=0x5704 rne=0x5705 truncP3=0x5704 n_even=True
+  fdiv_p1_n1024[795] A=0x6238 B=0x4500 obs=0x58fa rne=0x58fa truncP3=0x58fa n_even=False
+  fdiv_p1_n1024[835] A=0x6288 B=0x4500 obs=0x593a rne=0x593a truncP3=0x593a n_even=False
+  fdiv_p1_n1024[841] A=0x6294 B=0x4700 obs=0x5784 rne=0x5785 truncP3=0x5784 n_even=True
+  fdiv_p1_n1024[875] A=0x62d8 B=0x4500 obs=0x597a rne=0x597a truncP3=0x597a n_even=False
+  fdiv_p1_n1024[913] A=0x6324 B=0x4700 obs=0x5814 rne=0x5815 truncP3=0x5814 n_even=True
+  fdiv_p1_n1024[915] A=0x6328 B=0x4500 obs=0x59ba rne=0x59ba truncP3=0x59ba n_even=False
+  fdiv_p1_n1024[955] A=0x6378 B=0x4500 obs=0x59fa rne=0x59fa truncP3=0x59fa n_even=False
+  fdiv_p1_n1024[969] A=0x6394 B=0x4700 obs=0x5854 rne=0x5855 truncP3=0x5854 n_even=True
+  fdiv_p1_n1024[995] A=0x63c8 B=0x4500 obs=0x5a3a rne=0x5a3a truncP3=0x5a3a n_even=False

@@ -1,0 +1,132 @@
+{
+  "case": "fp16_avg_global_k3x5_valid_c8_h3w5",
+  "status": "READY_CAPTURE_BOUNDED_CANDIDATE",
+  "description": "Captured RK3588 FP16 global average pooling, valid 3x5 kernel/stride, C8 H3 W5 -> H1 W1.",
+  "source": {
+    "example": "/home/fedora/rk3588/examples/expt/pooling.py",
+    "example_sha256": "2ba6c5ae06ffac0daeb0d64d13320ada4c4f26593b86248da7ea1e24e20e4f6e",
+    "lines": [
+      820,
+      835
+    ],
+    "bundle_manifest": "build/rk3588-example-captures/pooling/manifest.json",
+    "bundle_manifest_sha256": "42b7ae1c9cbe80d48b9f59ed2f675bdc280d6daa7b22e720a7eee8794db0afd7",
+    "case_bundle": "build/rk3588-example-captures/pooling/cases/fp16_avg_global_k3x5_valid_c8_h3w5",
+    "case_job_sha256": "fedaaaee5d1b128bab8c248b38021c3056e96d0d435dc759d43cc4f8cb34965a",
+    "regcmd_sha256": "0357cf3b6ad80c02f1bb414383471854ce6be9fb13f650f26f0586a275db3797",
+    "regcmd_text_sha256": "a28ced988ebc3f9bee932ad0a9068d57403fa8dda00ed71241841cfdf9a2834b",
+    "numerical_contract": "Donor pool_reference converts the input window to float32, takes the mean over both spatial axes, then casts to FP16; source atol=0.0625. The captured device matches all eight fixture outputs exactly. No broader hardware rounding/special-value claim.",
+    "tolerance_abs": 0.0625
+  },
+  "device_capture": {
+    "path": "build/rk3588-example-captures/results/pooling-20261105T203205Z/pooling/fp16_avg_global_k3x5_valid_c8_h3w5",
+    "capture_json_sha256": "4cd6122cc2fff3c3c33ec9748d7e1cd75abded40f2c7e76d9df6143bb1457702",
+    "started_utc": "2026-11-05T20:32:44Z",
+    "status": "OK",
+    "submit_ret": 0,
+    "device": "/dev/accel/accel0",
+    "device_path": "/sys/devices/platform/rknn",
+    "board_compatible": [
+      "xunlong,orangepi-5",
+      "rockchip,rk3588s"
+    ],
+    "kernel": "6.18.24-current-rockchip64",
+    "runner": "rocket_run.py 1.0.0",
+    "runner_sha256": "824f129261a2a0337b3da6720a46d1f9cff23e5d31efff9a0fa085f72f1b43cf",
+    "patched_regcmd_sha256": "8a7d7cf5959520d9a5e73ab95e6576a8a80dd56ab2aa02aa1f15939364be5dc3"
+  },
+  "ppu": {
+    "dtype": "float16",
+    "method": "average",
+    "method_selector": 0,
+    "channels": 8,
+    "kernel": [
+      3,
+      5
+    ],
+    "stride": [
+      3,
+      5
+    ],
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "index_en": false,
+    "use_cnt": 0,
+    "in_shape": [
+      3,
+      5
+    ],
+    "out_shape": [
+      1,
+      1
+    ],
+    "recip_kernel_width": "0x7266",
+    "recip_kernel_height": "0x7555"
+  },
+  "layout": {
+    "packing": "C1HWC2, little-endian, one 16-byte atom with eight FP16 lanes",
+    "atom_bytes": 16,
+    "input": {
+      "line_stride_bytes": 80,
+      "surface_stride_bytes": 240,
+      "surfaces": 1,
+      "logical_bytes": 240,
+      "buffer_bytes": 4096
+    },
+    "output": {
+      "line_stride_bytes": 16,
+      "surface_stride_bytes": 16,
+      "surfaces": 1,
+      "value_bytes": 16,
+      "index_bytes": 0,
+      "logical_bytes": 16,
+      "buffer_bytes": 4096
+    }
+  },
+  "comparison": {
+    "scope": "All 4096 output BO bytes are checked: the eight logical FP16 outputs must match captured device bytes and source expected bytes; bytes 16..4095 must exactly match out_init.bin.",
+    "logical_value_lanes_fp16": 8,
+    "tail_start": 16,
+    "source_expected_sha256": "1df313040ac62a607b10c0a212f431d30057f4242c8d5d57be8788273f06fe0d",
+    "device_output_sha256": "1df313040ac62a607b10c0a212f431d30057f4242c8d5d57be8788273f06fe0d",
+    "source_expected_equals_device_output": true
+  },
+  "files": {
+    "capture.json": {
+      "bytes": 5040,
+      "sha256": "4cd6122cc2fff3c3c33ec9748d7e1cd75abded40f2c7e76d9df6143bb1457702"
+    },
+    "device_out.bin": {
+      "bytes": 4096,
+      "sha256": "1df313040ac62a607b10c0a212f431d30057f4242c8d5d57be8788273f06fe0d"
+    },
+    "expected.bin": {
+      "bytes": 4096,
+      "sha256": "1df313040ac62a607b10c0a212f431d30057f4242c8d5d57be8788273f06fe0d"
+    },
+    "in.bin": {
+      "bytes": 4096,
+      "sha256": "da2a872c57b565078489e1f401a27b7c57f1bb6e38819e0b4aa179e665fc7e0f"
+    },
+    "job.json": {
+      "bytes": 836,
+      "sha256": "fedaaaee5d1b128bab8c248b38021c3056e96d0d435dc759d43cc4f8cb34965a"
+    },
+    "out_init.bin": {
+      "bytes": 4096,
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+    },
+    "regcmd.bin": {
+      "bytes": 224,
+      "sha256": "0357cf3b6ad80c02f1bb414383471854ce6be9fb13f650f26f0586a275db3797"
+    },
+    "regcmd.txt": {
+      "bytes": 1673,
+      "sha256": "a28ced988ebc3f9bee932ad0a9068d57403fa8dda00ed71241841cfdf9a2834b"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "in.bin",
+      "name": "in",
+      "size": 4096
+    },
+    {
+      "direction": "inout",
+      "input": "out_init.bin",
+      "name": "out",
+      "output": "out.bin",
+      "size": 4096
+    }
+  ],
+  "case": "fp16_max_k2s1_pad1_neg_c8_h2w2",
+  "description": "FP16 negative maximum pooling, 2x2 kernel, stride 1, padding 1, C8 H2 W2 -> H3 W3; 0xFC00 (-inf) padding value; all input values negative.",
+  "patches": [
+    {
+      "buffer": "out",
+      "kind": "value32",
+      "regcmd_index": 13
+    },
+    {
+      "buffer": "in",
+      "kind": "value32",
+      "regcmd_index": 20
+    }
+  ],
+  "source_example": "/home/fedora/rk3588/examples/expt/pooling.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 26
+    }
+  ],
+  "timeout_ns": 6000000000
+}

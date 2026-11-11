@@ -1,0 +1,14 @@
+FDIV systematic operand-class bundle local validation
+status: PASS
+checked_utc: 2026-11-05T20:47:02Z
+scope: device-free local parser only; not hardware, SystemVerilog or a numerical oracle
+checks: 2150
+cases: 8 declared, 8 manifest entries, status READY required
+buffers: 16 input files x 64 bytes, output declared 64 bytes
+regcmd: 8 files x 22 QWORDs (176 bytes), exact template matched
+patches: 24 value32 patches, indices 14/15/16, placeholders zero
+task bounds: offset 0 + 22 QWORDs within each 22-QWORD stream
+pair order: 256/256 unique row-major pairs, A outer, B inner; 32 lanes per case
+manifest_sha256: a28f6c7bae6dce9b533523fac069ce59a25d455c515a5821ed2b54e7f4e8505b
+
+All local structural checks passed. No output.bin or expected.bin was created.

@@ -1,0 +1,49 @@
+{
+  "case": "conv_simple_fp16_5x5_c4_h8_w8_oc16",
+  "source_example": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+  "description": "FP16 5x5 valid conv, C4/H8/W8 -> OC16; <=4-channel NHWC path, generic kh/kw builder, planner NONE/setup.  Not in the example's LIST_SHAPES.",
+  "timeout_ns": 6000000000,
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 51
+    }
+  ],
+  "buffers": [
+    {
+      "name": "input",
+      "size": 512,
+      "input": "input.bin",
+      "direction": "in"
+    },
+    {
+      "name": "weight",
+      "size": 6400,
+      "input": "weight.bin",
+      "direction": "in"
+    },
+    {
+      "name": "out",
+      "size": 512,
+      "direction": "out",
+      "output": "out.bin"
+    }
+  ],
+  "patches": [
+    {
+      "regcmd_index": 18,
+      "buffer": "input",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 24,
+      "buffer": "weight",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 32,
+      "buffer": "out",
+      "kind": "value32"
+    }
+  ]
+}

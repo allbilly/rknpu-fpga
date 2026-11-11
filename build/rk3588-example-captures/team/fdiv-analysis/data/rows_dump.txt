@@ -1,0 +1,60 @@
+=== special (24 lanes) ===
+[ 0] A=0x3c00(norm_p,1) B=0x0000(zero_p,+0) -> obs=0x7c00(inf_p,+inf) ieee=0x7c00
+[ 1] A=0xbc00(norm_n,-1) B=0x0000(zero_p,+0) -> obs=0xfc00(inf_n,-inf) ieee=0xfc00
+[ 2] A=0x0000(zero_p,+0) B=0x0000(zero_p,+0) -> obs=0x7c01(snan,nan) ieee=0x7c01
+[ 3] A=0x8000(zero_n,-0) B=0x0000(zero_p,+0) -> obs=0xfc00(inf_n,-inf) ieee=0x7c01
+[ 4] A=0x7c00(inf_p,+inf) B=0x7c00(inf_p,+inf) -> obs=0x7c00(inf_p,+inf) ieee=0x7c01
+[ 5] A=0xfc00(inf_n,-inf) B=0x7c00(inf_p,+inf) -> obs=0xfc00(inf_n,-inf) ieee=0x7c01
+[ 6] A=0x7c00(inf_p,+inf) B=0x3c00(norm_p,1) -> obs=0x7c00(inf_p,+inf) ieee=0x7c00
+[ 7] A=0x3c00(norm_p,1) B=0x7c00(inf_p,+inf) -> obs=0x0000(zero_p,+0) ieee=0x0000
+[ 8] A=0xbc00(norm_n,-1) B=0x7c00(inf_p,+inf) -> obs=0x8000(zero_n,-0) ieee=0x8000
+[ 9] A=0x7c00(inf_p,+inf) B=0x0000(zero_p,+0) -> obs=0x7c00(inf_p,+inf) ieee=0x7c00
+[10] A=0x0000(zero_p,+0) B=0x7c00(inf_p,+inf) -> obs=0x0000(zero_p,+0) ieee=0x0000
+[11] A=0x7e00(qnan,nan) B=0x3c00(norm_p,1) -> obs=0x7c01(snan,nan) ieee=0x7c01
+[12] A=0x3c00(norm_p,1) B=0x7e00(qnan,nan) -> obs=0x7c01(snan,nan) ieee=0x7c01
+[13] A=0x3c00(norm_p,1) B=0x4200(norm_p,3) -> obs=0x3555(norm_p,0.333251953) ieee=0x3555 q=0.333333333 frac=1/3 e=-2 ue=-12 n=1365 r=0.333333 m=2 rne=0x3555 m3=0x3555
+[14] A=0x4000(norm_p,2) B=0x4200(norm_p,3) -> obs=0x3955(norm_p,0.666503906) ieee=0x3955 q=0.666666667 frac=2/3 e=-1 ue=-11 n=1365 r=0.333333 m=2 rne=0x3955 m3=0x3955
+[15] A=0x3c00(norm_p,1) B=0x4900(norm_p,10) -> obs=0x2e66(norm_p,0.0999755859) ieee=0x2e66 q=0.1 frac=1/10 e=-4 ue=-14 n=1638 r=0.400000 m=3 rne=0x2e66 m3=0x2e66
+[16] A=0x7bff(norm_p,65504) B=0x4200(norm_p,3) -> obs=0x7555(norm_p,21840) ieee=0x7555 q=21834.6667 frac=65504/3 e=14 ue=4 n=1364 r=0.666667 m=5 rne=0x7555 m3=0x7555
+[17] A=0x0001(sub_p,5.96046448e-08) B=0x4000(norm_p,2) -> obs=0x0000(zero_p,+0) ieee=0x0000 q=2.98023224e-08 frac=1/33554432 e=-25 ue=-24 n=0 r=0.500000 m=4 rne=0x0000 m3=0x0000
+[18] A=0x0400(norm_p,6.10351562e-05) B=0x4000(norm_p,2) -> obs=0x0200(sub_p,3.05175781e-05) ieee=0x0200 q=3.05175781e-05 frac=1/32768 e=-15 ue=-24 n=512 r=0.000000 m=0 rne=0x0200 m3=0x0200
+[19] A=0x7bff(norm_p,65504) B=0x3c00(norm_p,1) -> obs=0x7bff(norm_p,65504) ieee=0x7bff q=65504 frac=65504/1 e=15 ue=5 n=2047 r=0.000000 m=0 rne=0x7bff m3=0x7bff
+[20] A=0x7bff(norm_p,65504) B=0x0400(norm_p,6.10351562e-05) -> obs=0x7c00(inf_p,+inf) ieee=0x7c00 q=1.07321754e+09 frac=1073217536/1 e=29 ue=19 n=2047 r=0.000000 m=0 rne=0x7c00 m3=0x7c00
+[21] A=0x3c00(norm_p,1) B=0x0001(sub_p,5.96046448e-08) -> obs=0x7c00(inf_p,+inf) ieee=0x7c00 q=16777216 frac=16777216/1 e=24 ue=14 n=1024 r=0.000000 m=0 rne=0x7c00 m3=0x7c00
+[22] A=0x0001(sub_p,5.96046448e-08) B=0x7bff(norm_p,65504) -> obs=0x0000(zero_p,+0) ieee=0x0000 q=9.09939008e-13 frac=1/1098974756864 e=-40 ue=-24 n=0 r=0.000015 m=0 rne=0x0000 m3=0x0000
+[23] A=0x8001(sub_n,-5.96046448e-08) B=0x4000(norm_p,2) -> obs=0x8000(zero_n,-0) ieee=0x8000 q=-2.98023224e-08 frac=-1/33554432 e=-25 ue=-24 n=0 r=0.500000 m=4 rne=0x8000 m3=0x8000
+
+=== finite_sweep (32 lanes) ===
+[ 0] A=0x3c00(norm_p,1) B=0x4200(norm_p,3) -> obs=0x3555(norm_p,0.333251953) ieee=0x3555 q=0.333333333 frac=1/3 e=-2 ue=-12 n=1365 r=0.333333 m=2 rne=0x3555 m3=0x3555
+[ 1] A=0x4000(norm_p,2) B=0x4200(norm_p,3) -> obs=0x3955(norm_p,0.666503906) ieee=0x3955 q=0.666666667 frac=2/3 e=-1 ue=-11 n=1365 r=0.333333 m=2 rne=0x3955 m3=0x3955
+[ 2] A=0x3c00(norm_p,1) B=0x4900(norm_p,10) -> obs=0x2e66(norm_p,0.0999755859) ieee=0x2e66 q=0.1 frac=1/10 e=-4 ue=-14 n=1638 r=0.400000 m=3 rne=0x2e66 m3=0x2e66
+[ 3] A=0x4900(norm_p,10) B=0x3c00(norm_p,1) -> obs=0x4900(norm_p,10) ieee=0x4900 q=10 frac=10/1 e=3 ue=-7 n=1280 r=0.000000 m=0 rne=0x4900 m3=0x4900
+[ 4] A=0x7bff(norm_p,65504) B=0x4200(norm_p,3) -> obs=0x7555(norm_p,21840) ieee=0x7555 q=21834.6667 frac=65504/3 e=14 ue=4 n=1364 r=0.666667 m=5 rne=0x7555 m3=0x7555
+[ 5] A=0x4200(norm_p,3) B=0x7bff(norm_p,65504) -> obs=0x0300(sub_p,4.57763672e-05) ieee=0x0300 q=4.57987298e-05 frac=3/65504 e=-15 ue=-24 n=768 r=0.375183 m=3 rne=0x0300 m3=0x0300
+[ 6] A=0x0001(sub_p,5.96046448e-08) B=0x4000(norm_p,2) -> obs=0x0000(zero_p,+0) ieee=0x0000 q=2.98023224e-08 frac=1/33554432 e=-25 ue=-24 n=0 r=0.500000 m=4 rne=0x0000 m3=0x0000
+[ 7] A=0x0400(norm_p,6.10351562e-05) B=0x4200(norm_p,3) -> obs=0x0155(sub_p,2.03251839e-05) ieee=0x0155 q=2.03450521e-05 frac=1/49152 e=-16 ue=-24 n=341 r=0.333333 m=2 rne=0x0155 m3=0x0155
+[ 8] A=0x3c01(norm_p,1.00097656) B=0x4001(norm_p,2.00195312) -> obs=0x3800(norm_p,0.5) ieee=0x3800 q=0.5 frac=1/2 e=-1 ue=-11 n=1024 r=0.000000 m=0 rne=0x3800 m3=0x3800
+[ 9] A=0x7bff(norm_p,65504) B=0x7bff(norm_p,65504) -> obs=0x3c00(norm_p,1) ieee=0x3c00 q=1 frac=1/1 e=0 ue=-10 n=1024 r=0.000000 m=0 rne=0x3c00 m3=0x3c00
+[10] A=0x0001(sub_p,5.96046448e-08) B=0x0001(sub_p,5.96046448e-08) -> obs=0x3c00(norm_p,1) ieee=0x3c00 q=1 frac=1/1 e=0 ue=-10 n=1024 r=0.000000 m=0 rne=0x3c00 m3=0x3c00
+[11] A=0x0003(sub_p,1.78813934e-07) B=0x4000(norm_p,2) -> obs=0x0002(sub_p,1.1920929e-07) ieee=0x0002 q=8.94069672e-08 frac=3/33554432 e=-24 ue=-24 n=1 r=0.500000 m=4 rne=0x0002 m3=0x0002
+[12] A=0x0005(sub_p,2.98023224e-07) B=0x4000(norm_p,2) -> obs=0x0002(sub_p,1.1920929e-07) ieee=0x0002 q=1.49011612e-07 frac=5/33554432 e=-23 ue=-24 n=2 r=0.500000 m=4 rne=0x0002 m3=0x0002
+[13] A=0x0400(norm_p,6.10351562e-05) B=0x4000(norm_p,2) -> obs=0x0200(sub_p,3.05175781e-05) ieee=0x0200 q=3.05175781e-05 frac=1/32768 e=-15 ue=-24 n=512 r=0.000000 m=0 rne=0x0200 m3=0x0200
+[14] A=0x0401(norm_p,6.10947609e-05) B=0x4000(norm_p,2) -> obs=0x0200(sub_p,3.05175781e-05) ieee=0x0200 q=3.05473804e-05 frac=1025/33554432 e=-15 ue=-24 n=512 r=0.500000 m=4 rne=0x0200 m3=0x0200
+[15] A=0x7bff(norm_p,65504) B=0x4000(norm_p,2) -> obs=0x77ff(norm_p,32752) ieee=0x77ff q=32752 frac=32752/1 e=14 ue=4 n=2047 r=0.000000 m=0 rne=0x77ff m3=0x77ff
+[16] A=0x7bff(norm_p,65504) B=0x4900(norm_p,10) -> obs=0x6e66(norm_p,6552) ieee=0x6e66 q=6550.4 frac=32752/5 e=12 ue=2 n=1637 r=0.600000 m=4 rne=0x6e66 m3=0x6e66
+[17] A=0x4900(norm_p,10) B=0x4200(norm_p,3) -> obs=0x42ab(norm_p,3.33398438) ieee=0x42ab q=3.33333333 frac=10/3 e=1 ue=-9 n=1706 r=0.666667 m=5 rne=0x42ab m3=0x42ab
+[18] A=0x4800(norm_p,8) B=0x4200(norm_p,3) -> obs=0x4155(norm_p,2.66601562) ieee=0x4155 q=2.66666667 frac=8/3 e=1 ue=-9 n=1365 r=0.333333 m=2 rne=0x4155 m3=0x4155
+[19] A=0x4200(norm_p,3) B=0x4800(norm_p,8) -> obs=0x3600(norm_p,0.375) ieee=0x3600 q=0.375 frac=3/8 e=-2 ue=-12 n=1536 r=0.000000 m=0 rne=0x3600 m3=0x3600
+[20] A=0x3c00(norm_p,1) B=0x4600(norm_p,6) -> obs=0x3155(norm_p,0.166625977) ieee=0x3155 q=0.166666667 frac=1/6 e=-3 ue=-13 n=1365 r=0.333333 m=2 rne=0x3155 m3=0x3155
+[21] A=0x4600(norm_p,6) B=0x4200(norm_p,3) -> obs=0x4000(norm_p,2) ieee=0x4000 q=2 frac=2/1 e=1 ue=-9 n=1024 r=0.000000 m=0 rne=0x4000 m3=0x4000
+[22] A=0x3c00(norm_p,1) B=0x3c01(norm_p,1.00097656) -> obs=0x3bfe(norm_p,0.999023438) ieee=0x3bfe q=0.99902439 frac=1024/1025 e=-1 ue=-11 n=2046 r=0.001951 m=0 rne=0x3bfe m3=0x3bfe
+[23] A=0x3c01(norm_p,1.00097656) B=0x3c00(norm_p,1) -> obs=0x3c01(norm_p,1.00097656) ieee=0x3c01 q=1.00097656 frac=1025/1024 e=0 ue=-10 n=1025 r=0.000000 m=0 rne=0x3c01 m3=0x3c01
+[24] A=0x4001(norm_p,2.00195312) B=0x4200(norm_p,3) -> obs=0x3957(norm_p,0.667480469) ieee=0x3957 q=0.667317708 frac=1025/1536 e=-1 ue=-11 n=1366 r=0.666667 m=5 rne=0x3957 m3=0x3957
+[25] A=0x3c00(norm_p,1) B=0x4201(norm_p,3.00195312) -> obs=0x3554(norm_p,0.333007812) ieee=0x3554 q=0.333116461 frac=512/1537 e=-2 ue=-12 n=1364 r=0.445023 m=3 rne=0x3554 m3=0x3554
+[26] A=0x3555(norm_p,0.333251953) B=0x3c00(norm_p,1) -> obs=0x3555(norm_p,0.333251953) ieee=0x3555 q=0.333251953 frac=1365/4096 e=-2 ue=-12 n=1365 r=0.000000 m=0 rne=0x3555 m3=0x3555
+[27] A=0x3c00(norm_p,1) B=0x3555(norm_p,0.333251953) -> obs=0x4200(norm_p,3) ieee=0x4200 q=3.0007326 frac=4096/1365 e=1 ue=-9 n=1536 r=0.375092 m=3 rne=0x4200 m3=0x4200
+[28] A=0x8001(sub_n,-5.96046448e-08) B=0x4000(norm_p,2) -> obs=0x8000(zero_n,-0) ieee=0x8000 q=-2.98023224e-08 frac=-1/33554432 e=-25 ue=-24 n=0 r=0.500000 m=4 rne=0x8000 m3=0x8000
+[29] A=0x8001(sub_n,-5.96046448e-08) B=0x4200(norm_p,3) -> obs=0x8000(zero_n,-0) ieee=0x8000 q=-1.98682149e-08 frac=-1/50331648 e=-26 ue=-24 n=0 r=0.333333 m=2 rne=0x8000 m3=0x8000
+[30] A=0x8003(sub_n,-1.78813934e-07) B=0x4000(norm_p,2) -> obs=0x8002(sub_n,-1.1920929e-07) ieee=0x8002 q=-8.94069672e-08 frac=-3/33554432 e=-24 ue=-24 n=1 r=0.500000 m=4 rne=0x8002 m3=0x8002
+[31] A=0xbc00(norm_n,-1) B=0x4000(norm_p,2) -> obs=0xb800(norm_n,-0.5) ieee=0xb800 q=-0.5 frac=-1/2 e=-1 ue=-11 n=1024 r=0.000000 m=0 rne=0xb800 m3=0xb800
+

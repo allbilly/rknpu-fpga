@@ -1,0 +1,136 @@
+{
+  "case": "fp16_max_k16s16_c8_h16w16",
+  "command_stream": {
+    "provenance": "Emitted by pooling.py:make_pool_regcmds from the source case parameters; generated fixture, not a device capture.",
+    "qwords": 26,
+    "relocatable_qwords": [
+      13,
+      20
+    ],
+    "simulation_addresses": {
+      "in": 4096,
+      "out": 8192
+    },
+    "simulation_patched_regcmd_sha256": "d7861431aec8e7ff7a863c7f034764e1fba851f7e7534564cedec0a547cea05b",
+    "source_regcmd_sha256": "3ea7770b72662ac711aab211ae473b10b3dcb7c5df7b80bba1c09bdf9feb4ce7"
+  },
+  "comparison": {
+    "expected_output_sha256": "845129fcf69341334b529643595524b1a6a3b85a9a0e4dbbf007bec09947b1dd",
+    "logical_output_bytes": 16,
+    "mismatches_expected": 0,
+    "scope": "complete 4096-byte output BO; bytes 0-15 are 8 FP16 maxima and bytes 16-4095 retain initialization",
+    "tolerance": 0.0
+  },
+  "description": "Capture-bounded geometry and emitter-derived command words for the donor kernel_stride_16 FP16 C8 maximum probe. Not an RK command/output capture.",
+  "device_capture": null,
+  "files": {
+    "expected.bin": {
+      "bytes": 4096,
+      "sha256": "845129fcf69341334b529643595524b1a6a3b85a9a0e4dbbf007bec09947b1dd"
+    },
+    "in.bin": {
+      "bytes": 4096,
+      "sha256": "75ea304686b6585dc0a896d73307d59477f730e7d74675adf78e8ef25fdea944"
+    },
+    "job.json": {
+      "bytes": 832,
+      "sha256": "9e665c0d3069b40be0c63ec025d6ad33ac7c0db2e8d66be8f24ce13cf45573ea"
+    },
+    "out_init.bin": {
+      "bytes": 4096,
+      "sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8"
+    },
+    "regcmd.bin": {
+      "bytes": 208,
+      "sha256": "3ea7770b72662ac711aab211ae473b10b3dcb7c5df7b80bba1c09bdf9feb4ce7"
+    },
+    "regcmd.txt": {
+      "bytes": 1349,
+      "sha256": "b019b5522e10f0a1e669978faf19d6b7e24186ff5e223a699d8a8750aaf4b8fb"
+    }
+  },
+  "input_value_contract": {
+    "finite_lanes": 2048,
+    "logical_fp16_lanes": 2048,
+    "maximum_values_by_channel": [
+      2040,
+      2041,
+      2042,
+      2043,
+      2044,
+      2045,
+      2046,
+      2047
+    ],
+    "nan_or_infinity_lanes": 0,
+    "negative_lanes": 0,
+    "negative_zero_lanes": 0,
+    "positive_zero_lanes": 1,
+    "subnormal_lanes": 0,
+    "unique_maximum_per_channel": true,
+    "values_exactly": "row-major arange(2048, dtype=float16)"
+  },
+  "layout": {
+    "atom_bytes": 16,
+    "input": {
+      "buffer_bytes": 4096,
+      "line_stride_bytes": 256,
+      "logical_bytes": 4096,
+      "surface_stride_bytes": 4096,
+      "surfaces": 1
+    },
+    "output": {
+      "buffer_bytes": 4096,
+      "line_stride_bytes": 16,
+      "logical_bytes": 16,
+      "surface_stride_bytes": 16,
+      "surfaces": 1
+    }
+  },
+  "ppu": {
+    "channels": 8,
+    "dtype": "float16",
+    "in_shape": [
+      16,
+      16
+    ],
+    "index_en": false,
+    "kernel": [
+      16,
+      16
+    ],
+    "method": "maximum",
+    "method_selector": 1,
+    "out_shape": [
+      1,
+      1
+    ],
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "stride": [
+      16,
+      16
+    ],
+    "use_cnt": 0
+  },
+  "source": {
+    "case_lines": [
+      1077,
+      1091
+    ],
+    "claim": "Donor findings report kernel/stride 16 as proven in isolation; this workspace has no raw command or output capture for that probe.",
+    "emitter_lines": [
+      271,
+      373
+    ],
+    "example": "/home/fedora/rk3588/examples/expt/pooling.py",
+    "example_sha256": "2ba6c5ae06ffac0daeb0d64d13320ada4c4f26593b86248da7ea1e24e20e4f6e",
+    "findings": "/home/fedora/rk3588/examples/expt/ppu_pooling_findings.md",
+    "findings_sha256": "083d8d14495dfc8362cfe1f7c39d6f2558fdefa5fde912ba916ed85f59c3aacb"
+  },
+  "status": "SOURCE_DERIVED_SIMULATION_CANDIDATE"
+}

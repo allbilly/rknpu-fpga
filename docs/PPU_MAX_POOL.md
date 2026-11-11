@@ -10,10 +10,13 @@ and no FPGA execution is claimed.
 The first two leaves implement only FP16 maximum pooling with a 2x2 kernel,
 stride 1, valid padding, eight channels per 16-byte C1HWC2 atom. The next isolated leaf
 replays exactly one separate capture with a 2x2 kernel, stride 1, one-cell
-padding, C8 H2 W2 negative input and captured `-infinity` padding. They are
-independent of the NVDLA PDP. No mode/register decoder, DMA, AXI memory path or
-full-top integration connects these leaves; unsupported pooling modes are not
-admitted. A separate [capture-bounded FP16 average leaf](PPU_AVERAGE.md) covers
+padding, C8 H2 W2 negative input and captured `-infinity` padding. The leaves
+are independent of the NVDLA PDP and remain fixed-case datapaths without a
+register interface. Separate strict raw-command profiles and an owned serialized
+DMA now connect only the captured C3-tail, valid-C8 and padded-negative-C8 max
+cases; see [C3](PPU_C3_RAW_PROFILE.md), [valid C8](PPU_C8_RAW_PROFILE.md) and
+[padded C8](PPU_PAD1_RAW_PROFILE.md). No other pooling mode is admitted. A
+separate [capture-bounded FP16 average leaf](PPU_AVERAGE.md) covers
 only `fp16_avg_k2s1_valid_c8_h4w4`; it does not generalize to another average
 mode, shape, rounding policy or PPU integration. These unindexed max leaves do
 not implement `INDEX_EN`; one separate capture-bounded indexed case is documented
@@ -102,15 +105,20 @@ tail differences. Reports, compile/run logs and observed BOs are in
 source/fixture hashes, tool version, seeds `0x3588` / `0x600d` and
 `hardware_accessed=false`.
 
-Each max leaf is an isolated datapath candidate, not PPU mode admission. No other
-padding configuration, shape, stride, kernel, data class, index mode, minimum
-or global pooling operation is connected to or admitted by these unindexed max
-leaves. Separate single-capture candidates cover one indexed C8 case
+Each max leaf is an isolated datapath candidate, not a general PPU mode decoder.
+The standalone raw-command paths described here admit only the exact profiles
+linked above. No other padding configuration, shape, stride, kernel, data class,
+index mode, minimum or global pooling operation is connected to these standalone
+leaves.
+Separate single-capture candidates cover one indexed C8 case
 ([PPU_MAX_INDEX.md](PPU_MAX_INDEX.md)) and one C3 physical-tail case
 ([PPU_C3_TAIL.md](PPU_C3_TAIL.md)); neither broadens these leaves.
-There is no register decode or silent-ignore path: those interfaces do not
-exist here and must be separately designed with source evidence, explicit
-unsupported-field failures and tests before integration.
+The source-emitted 16x16 global MAX candidate is separately scoped in
+[PPU_GLOBAL_MAX.md](PPU_GLOBAL_MAX.md) and does not broaden these standalone leaves.
+No standalone leaf decodes register writes. The three integrated profiles each
+validate every captured command QWORD and reject unsupported fields explicitly;
+any additional mode requires its own source evidence, numerical/shape contract
+and tests before admission.
 
 ## Interface
 
@@ -287,21 +295,24 @@ Not implemented or not qualified by this increment:
 
 - average outside the one source- and capture-bounded case documented in
   [PPU_AVERAGE.md](PPU_AVERAGE.md), minimum outside the case in
-  [PPU_MIN_POOL.md](PPU_MIN_POOL.md), and global pooling; other
+  [PPU_MIN_POOL.md](PPU_MIN_POOL.md), and global pooling outside the one
+  source-emitted simulation candidate in [PPU_GLOBAL_MAX.md](PPU_GLOBAL_MAX.md); other
   reciprocals, `use_cnt` values and rounding policies;
 - `INDEX_EN` outside the one fixed case in
   [PPU_MAX_INDEX.md](PPU_MAX_INDEX.md), including other index layouts and
   position-tracking rules;
-- padding modes other than the one captured pad-1 case above, non-unit/other
-  strides, kernels other than 2x2, output upsampling, notches and arbitrary
-  dimensions;
+- padding modes other than the one captured pad-1 case above, stride/kernel
+  combinations other than the two exact bounded profiles (2x2/stride-1 and
+  the source-emitted 16x16/stride-16 global case), output upsampling, notches
+  and arbitrary dimensions;
 - channel tails outside the one fixed C3 case in
   [PPU_C3_TAIL.md](PPU_C3_TAIL.md), more than one surface, other C3 shapes,
   C16 and INT8/INT16 data;
 - PPU register decode, completion/error status, `PPU_MISC_CTRL` classification,
   CSB readback and explicit unsupported-field failures;
-- DMA/PPU_RDMA, AXI/DDR memory access, line/surface stride generation,
-  descriptor/task handling and backpressure across memory faults;
+- general DMA/PPU_RDMA, AXI/DDR memory access, line/surface stride generation,
+  descriptor/task handling and backpressure across memory faults beyond the
+  separately documented capture-bounded/source-emitted raw-DMA candidates;
 - full-top integration, clock/reset domain integration, CDC and interrupt
   wiring;
 - PPU special-value captures beyond the observed `-infinity` padding (NaN,

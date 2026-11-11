@@ -1,0 +1,22 @@
+HOSTNAME=orangepi5
+KERNEL=6.18.24-current-rockchip64
+UNAME=Linux orangepi5 6.18.24-current-rockchip64 #2 SMP PREEMPT Wed Apr 22 11:22:34 UTC 2026 aarch64 GNU/Linux
+PYTHON=Python 3.14.4
+USER=uid=1002(opencode-agent) gid=1002(opencode-agent) groups=1002(opencode-agent),100(users),990(render)
+BOARD_UTC=2026-11-05T20:17:00Z
+crw-rw---- 1 root render 261, 0 Nov  5 04:39 /dev/accel/accel0
+UEVENT:
+MODALIAS=platform:rknn
+DRIVER_LINK:
+/sys/devices/platform/rknn/driver
+DRIVER_NAME:
+driver
+ROCKET_MODULE:
+rocket                 32768  0
+gpu_sched              45056  2 rocket,panthor
+drm_shmem_helper       24576  3 rocket,simpledrm,panthor
+RKNPU_DEV:
+ls: cannot access '/dev/rknpu*': No such file or directory
+ACCEL_CLASS:
+total 0
+lrwxrwxrwx 1 root root 0 Oct  4 14:00 accel0 -> ../../devices/platform/rknn/accel/accel0

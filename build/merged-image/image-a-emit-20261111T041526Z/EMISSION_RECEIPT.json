@@ -1,0 +1,43 @@
+{
+  "area": {
+    "bram_tiles": 28,
+    "lut_percent": 57.91,
+    "slice_luts": 172923,
+    "slice_registers": 44446
+  },
+  "bitstream": "build/merged-image/image-a-emit-20261111T041526Z/host-merged.bit",
+  "bitstream_bytes": 18735212,
+  "bitstream_sha256": "5b03e7388ea0d0a95462dcd7d9279277c6264085d8a801f484ea928a12ac2bfb",
+  "gates": {
+    "bitstream_drc_blocking": 0,
+    "cfgbvs": "GND",
+    "config_voltage": 1.8,
+    "errors_in_routes": 0,
+    "no_clock": 0,
+    "pins_checked": [
+      "SYS_CLK AA28",
+      "led[0] P30",
+      "led[1] M30",
+      "led[2] N30"
+    ],
+    "routed_fully": true,
+    "unconstrained_internal_endpoints": 0,
+    "waivers": 0
+  },
+  "generated_utc": "2026-11-11T04:31:50Z",
+  "hardware_accessed": false,
+  "image_profile": "image-a",
+  "note": "Emitted from the independently verified routed checkpoint through fpga/merged/emit_routed.tcl, which applies the same reviewed emission gate family the build template carries. NOT programmed; candidate image pending human review.",
+  "programmed": false,
+  "routed_checkpoint": "build/merged-image/image-a-20261111T022739Z/implementation/routed.dcp",
+  "schema": "rk3588-merged-image-emission/v1",
+  "source_manifest_sha256": "396e6429d8432c979c9b4aa866612a8596637269a58523e88fac498deb7d5e28",
+  "status": "EMITTED_REVIEW_PENDING",
+  "timing": {
+    "failing_hold": 0,
+    "failing_setup": 0,
+    "whs_ns": 0.084,
+    "wns_ns": 158.03
+  },
+  "usr_access_tag": "396e6429"
+}

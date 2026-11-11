@@ -1,0 +1,49 @@
+{
+  "case": "int16_add_to_int32_c8_w1",
+  "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+  "description": "INT16 ADD on eight lanes with external INT32 writeback (16-to-32 regroup, DST_SURF_STRIDE=16, SURFACE_ADD=32)",
+  "timeout_ns": 6000000000,
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 31
+    }
+  ],
+  "buffers": [
+    {
+      "name": "a",
+      "size": 4096,
+      "input": "a.bin",
+      "direction": "in"
+    },
+    {
+      "name": "b",
+      "size": 4096,
+      "input": "b.bin",
+      "direction": "in"
+    },
+    {
+      "name": "out",
+      "size": 4096,
+      "direction": "out",
+      "output": "out.bin"
+    }
+  ],
+  "patches": [
+    {
+      "regcmd_index": 23,
+      "buffer": "out",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 24,
+      "buffer": "a",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 25,
+      "buffer": "b",
+      "kind": "value32"
+    }
+  ]
+}

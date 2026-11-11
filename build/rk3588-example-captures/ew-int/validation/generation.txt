@@ -1,0 +1,20 @@
+family: /home/fedora/rknpu-fpga/build/rk3588-example-captures/ew-int
+READY: 15  BLOCKED: 3
+  READY  int8_add_c8_w1: 18 QWORDs, 8 lanes, hash 2443f3b6a3ce79d6
+  READY  int8_max_c8_w1: 18 QWORDs, 8 lanes, hash 255f930665b56ebd
+  READY  int8_min_c8_w1: 18 QWORDs, 8 lanes, hash 82ef8cc8d125c808
+  READY  int8_mul_c8_w1: 18 QWORDs, 8 lanes, hash edca5b835cdb78e0
+  READY  int16_add_c8_w1: 18 QWORDs, 8 lanes, hash a0725fc0fca16c69
+  READY  int16_minus_c8_w1: 18 QWORDs, 8 lanes, hash 168e9e2d5d607271
+  READY  int16_mul_c8_w1: 18 QWORDs, 8 lanes, hash 11d2b629e53d614b
+  READY  int32_add_c8_w2: 18 QWORDs, 8 lanes, hash ad55427dd1add872
+  READY  int32_max_c8_w2: 18 QWORDs, 8 lanes, hash 694a44020f2f6654
+  READY  int32_mul_int16_operand_c8_w2: 18 QWORDs, 8 lanes, hash e7c0fcc3e62e6d5f
+  READY  int8_add_c9_w1_layout: 44 QWORDs, 9 lanes, hash 9cd9ad2f24d342fe
+  READY  int16_add_c9_w1_layout: 44 QWORDs, 9 lanes, hash 31ad2df554858934
+  READY  int16_minus_c9_w1_layout: 44 QWORDs, 9 lanes, hash e6e1ad1d55380d3b
+  READY  int32_add_c9_w1_layout: 44 QWORDs, 9 lanes, hash 0c74ad851671498b
+  READY  int16_add_to_int32_c8_w1: 31 QWORDs, 8 lanes, hash 44a8caf2f5f53531
+  BLOCKED int32_div_c8_w2: The source proves DIV/FLOOR/CEIL use floating-point semantics and are not intege...
+  BLOCKED fp16_four_input_sum_c8_w1: The only multi-input sum in either source is FP16, with FP32 BRDMA/NRDMA operand...
+  BLOCKED fp16_bs_bn_relu_prelu_c8_w1: ReLU-X and PReLU are emitted only in the FP16 BS/BN auxiliary stages. No integer...

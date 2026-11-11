@@ -1,0 +1,177 @@
+{
+  "validator": "validate.py",
+  "validated_utc": "2026-11-05T21:58:49Z",
+  "status": "PASS",
+  "ready_cases": 7,
+  "blocked_cases": 5,
+  "checks": [
+    {
+      "case": "conv_simple_fp16_1x1_c4_h8_w8_oc16",
+      "status": "READY",
+      "tasks": 1,
+      "regcmd_words": 51,
+      "regcmd_file_words": 52,
+      "regcmd_fetch_words": 52,
+      "regcmd_size_bytes": 416,
+      "regcmd_padding_words": 1,
+      "buffers": 3,
+      "patches": 3,
+      "address_indices": [
+        18,
+        24,
+        32
+      ],
+      "expected_bytes": 4096,
+      "out_bytes": 4096,
+      "hash": "0f3cd3fdabb8f89ade94a9994867fcc62311707568703434ab685c967feb5316"
+    },
+    {
+      "case": "conv_simple_fp16_3x3_c4_h8_w8_oc16",
+      "status": "READY",
+      "tasks": 1,
+      "regcmd_words": 51,
+      "regcmd_file_words": 52,
+      "regcmd_fetch_words": 52,
+      "regcmd_size_bytes": 416,
+      "regcmd_padding_words": 1,
+      "buffers": 3,
+      "patches": 3,
+      "address_indices": [
+        18,
+        24,
+        32
+      ],
+      "expected_bytes": 1152,
+      "out_bytes": 1152,
+      "hash": "52bcc4185b2d12126f519f6674968afe16ac091e3db1aae3cff5887d3f157b3b"
+    },
+    {
+      "case": "conv_simple_fp16_5x5_c4_h8_w8_oc16",
+      "status": "READY",
+      "tasks": 1,
+      "regcmd_words": 51,
+      "regcmd_file_words": 52,
+      "regcmd_fetch_words": 52,
+      "regcmd_size_bytes": 416,
+      "regcmd_padding_words": 1,
+      "buffers": 3,
+      "patches": 3,
+      "address_indices": [
+        18,
+        24,
+        32
+      ],
+      "expected_bytes": 512,
+      "out_bytes": 512,
+      "hash": "6559066d05c0b0f5cdca3ddbbd4770d4e3bf28a7c4ebae7ec1c7ea00a6147776"
+    },
+    {
+      "case": "conv_simple_fp16_1x1_c32_h8_w8_oc32",
+      "status": "READY",
+      "tasks": 1,
+      "regcmd_words": 51,
+      "regcmd_file_words": 52,
+      "regcmd_fetch_words": 52,
+      "regcmd_size_bytes": 416,
+      "regcmd_padding_words": 1,
+      "buffers": 3,
+      "patches": 3,
+      "address_indices": [
+        18,
+        24,
+        32
+      ],
+      "expected_bytes": 8192,
+      "out_bytes": 8192,
+      "hash": "7fe54a433361b87a1c8f772eba278db745faf1382f01f6a1ba1180de2e36a71d"
+    },
+    {
+      "case": "conv_simple_fp16_3x3_c16_h8_w8_oc32",
+      "status": "READY",
+      "tasks": 1,
+      "regcmd_words": 51,
+      "regcmd_file_words": 52,
+      "regcmd_fetch_words": 52,
+      "regcmd_size_bytes": 416,
+      "regcmd_padding_words": 1,
+      "buffers": 3,
+      "patches": 3,
+      "address_indices": [
+        18,
+        24,
+        32
+      ],
+      "expected_bytes": 2304,
+      "out_bytes": 2304,
+      "hash": "2ddb968b07d32213f6601a62d0a8d6cf681243174acdab4c29a0689964fda20a"
+    },
+    {
+      "case": "simple_conv_int8_5x5_c8_h8_w8_oc32",
+      "status": "READY",
+      "tasks": 1,
+      "regcmd_words": 69,
+      "regcmd_file_words": 70,
+      "regcmd_fetch_words": 70,
+      "regcmd_size_bytes": 560,
+      "regcmd_padding_words": 1,
+      "buffers": 4,
+      "patches": 4,
+      "address_indices": [
+        20,
+        26,
+        36,
+        61
+      ],
+      "expected_bytes": 512,
+      "out_bytes": 1024,
+      "hash": "562ee1daafdcd64ddb31f05393e0513d1b4350ea208141f6509463fed455d3a4"
+    },
+    {
+      "case": "simple_conv_int8_depthwise_3x3_c64_h8_w8_oc64_g64",
+      "status": "READY",
+      "tasks": 1,
+      "regcmd_words": 69,
+      "regcmd_file_words": 70,
+      "regcmd_fetch_words": 70,
+      "regcmd_size_bytes": 560,
+      "regcmd_padding_words": 1,
+      "buffers": 4,
+      "patches": 4,
+      "address_indices": [
+        20,
+        26,
+        36,
+        61
+      ],
+      "expected_bytes": 2304,
+      "out_bytes": 4608,
+      "hash": "8996b0b08f9061eff1c307ebc24ccac7e8e6a6d242d616c2a4f0fd055b4f969e"
+    },
+    {
+      "case": "conv_simple_fp16_3x3_c8_h8_w8_oc16_stride2",
+      "status": "BLOCKED",
+      "blocker_chars": 433
+    },
+    {
+      "case": "conv_simple_fp16_3x3_c8_h8_w8_oc16_samepad",
+      "status": "BLOCKED",
+      "blocker_chars": 562
+    },
+    {
+      "case": "conv_simple_fp16_3x3_c8_h8_w8_oc16_unpadded_pack",
+      "status": "BLOCKED",
+      "blocker_chars": 872
+    },
+    {
+      "case": "conv_simple_fp16_grouped_3x3_c8_h8_w8_oc8_g2",
+      "status": "BLOCKED",
+      "blocker_chars": 808
+    },
+    {
+      "case": "simple_conv_int8_addition_c8_h8_w8_oc32",
+      "status": "BLOCKED",
+      "blocker_chars": 580
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,39 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "in.bin",
+      "name": "in",
+      "size": 4096
+    },
+    {
+      "direction": "inout",
+      "input": "out_init.bin",
+      "name": "out",
+      "output": "out.bin",
+      "size": 4096
+    }
+  ],
+  "case": "fp16_max_k3s2_pad1_c8_h4w4",
+  "description": "FP16 maximum pooling, 3x3 kernel, stride 2, padding 1 on all sides, C8 H4 W4 -> H2 W2; 0xFC00 (-inf) padding value. Same geometry/input as the source padded INDEX_EN probe with INDEX_EN removed so all expected values come from the source host-side maximum reference.",
+  "patches": [
+    {
+      "buffer": "out",
+      "kind": "value32",
+      "regcmd_index": 13
+    },
+    {
+      "buffer": "in",
+      "kind": "value32",
+      "regcmd_index": 20
+    }
+  ],
+  "source_example": "/home/fedora/rk3588/examples/expt/pooling.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 26
+    }
+  ],
+  "timeout_ns": 6000000000
+}

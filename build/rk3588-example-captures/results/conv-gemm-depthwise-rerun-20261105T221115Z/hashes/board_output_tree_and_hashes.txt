@@ -1,0 +1,17 @@
+--- full output tree ---
+conv_depthwise_3x3_c3_oc3_h11w28_task0/capture.json 5802
+conv_depthwise_3x3_c3_oc3_h11w28_task0/output.bin 15104
+conv_depthwise_3x3_c3_oc3_h11w28_task1/capture.json 5800
+conv_depthwise_3x3_c3_oc3_h11w28_task1/output.bin 15104
+--- board run root ---
+total 20
+drwxrwxr-x 4 opencode-agent opencode-agent 4096 Nov  6 06:12 conv-gemm-depthwise-rerun
+-rw-rw-r-- 1 opencode-agent opencode-agent  128 Nov  6 06:12 preflight-pgrep.txt
+-rw-rw-r-- 1 opencode-agent opencode-agent  379 Nov  6 06:12 run-window.txt
+-rw-rw-r-- 1 opencode-agent opencode-agent  128 Nov  6 06:12 runner.log
+drwxrwxr-x 4 opencode-agent opencode-agent 4096 Nov  6 06:12 staging
+--- output hashes ---
+7252e44d205393ad1c15cea73d92f59285512db6e1c3f0b81173aa8aada23cb7  /home/opencode-agent/rk3588-example-captures/runs/20261105T221115Z/conv-gemm-depthwise-rerun/conv_depthwise_3x3_c3_oc3_h11w28_task0/capture.json
+431f470ed23f321f115a9af03db2edba170d5ac3e036efb08c10834aba0faacf  /home/opencode-agent/rk3588-example-captures/runs/20261105T221115Z/conv-gemm-depthwise-rerun/conv_depthwise_3x3_c3_oc3_h11w28_task0/output.bin
+cd0c6592a53cd85f32a7946c11c036e03177bc63fb43b872e597c87a494a5e7b  /home/opencode-agent/rk3588-example-captures/runs/20261105T221115Z/conv-gemm-depthwise-rerun/conv_depthwise_3x3_c3_oc3_h11w28_task1/capture.json
+431f470ed23f321f115a9af03db2edba170d5ac3e036efb08c10834aba0faacf  /home/opencode-agent/rk3588-example-captures/runs/20261105T221115Z/conv-gemm-depthwise-rerun/conv_depthwise_3x3_c3_oc3_h11w28_task1/output.bin

@@ -64,8 +64,8 @@ def main():
     wrapper_text = WRAPPER.read_text()
     ref_leaf = rename_exact(leaf_text, [('module rk_job_control_admission #(', f'module {leaf_name} #(', 1)], 'leaf')
     ref_wrapper = rename_exact(wrapper_text,
-        [('module rk_layout_job_control (', f'module {wrapper_name} (', 1),
-         ('rk_job_control_admission #(.DEVICE_ID(ID)) control (', f'{leaf_name} #(.DEVICE_ID(ID)) control (', 1)], 'wrapper')
+        [('module rk_layout_job_control #(', f'module {wrapper_name} #(', 1),
+         ('rk_job_control_admission #(.DEVICE_ID(ID)) control (', f'{leaf_name} #(.DEVICE_ID(ID)) control (', 2)], 'wrapper')
     leaf_copy, wrapper_copy = refs / 'rk_job_control_admission_reference.sv', refs / 'rk_layout_job_control_reference.sv'
     leaf_copy.write_text(ref_leaf)
     wrapper_copy.write_text(ref_wrapper)

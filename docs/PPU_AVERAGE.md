@@ -1,9 +1,11 @@
 # Capture-bounded FP16 average PPU leaf
 
-Status: **one fixed standalone candidate, simulation-only**. The source is
-`rtl/ppu/rk_ppu_pool_avg2x2s1_fp16_capture.sv`. It does not connect to the raw
-command decoder, backend, PPU registers, DMA/RDMA, AXI, a full top or an FPGA.
-No board or hardware was accessed for this RTL increment.
+Status: **one fixed standalone leaf plus a separate capture-bounded raw-command
+profile/DMA candidate, simulation-only**. The standalone source is
+`rtl/ppu/rk_ppu_pool_avg2x2s1_fp16_capture.sv`; its strict raw-command route is
+documented in [PPU_AVG_RAW_PROFILE.md](PPU_AVG_RAW_PROFILE.md). Neither supports
+other PPU shapes or qualifies a full top, FPGA or RK silicon. No board or
+hardware was accessed for this RTL increment.
 
 ## Fixed case and evidence
 
@@ -58,7 +60,7 @@ simulation data for exponent-31 inputs rather than assigning them an inferred
 special-value result. The module accepts one frame and refuses a seventeenth
 input atom until reset.
 
-## Interface and tests
+## Standalone leaf interface and tests
 
 The leaf uses a single-clock valid/ready stream of 16-byte atoms. It consumes
 exactly 16 raster-order atoms and emits nine raster-order atoms. Output data and

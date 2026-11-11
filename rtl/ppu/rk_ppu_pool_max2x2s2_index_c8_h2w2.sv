@@ -18,6 +18,7 @@ module rk_ppu_pool_max2x2s2_index_c8_h2w2 (
     input  logic         out_ready,
     output logic [127:0] out_value_atom,
     output logic [127:0] out_index_atom,
+    output logic [7:0]   out_unique,
     output logic         out_last
 );
     logic [127:0] input_atom [0:2];
@@ -25,6 +26,7 @@ module rk_ppu_pool_max2x2s2_index_c8_h2w2 (
     logic frame_done_q;
     logic [127:0] value_atom_q;
     logic [127:0] index_atom_q;
+    logic [7:0] unique_mask_q;
     logic out_valid_q;
     logic out_last_q;
 
@@ -33,6 +35,7 @@ module rk_ppu_pool_max2x2s2_index_c8_h2w2 (
     logic [31:0] pair_final [0:7];
     logic [127:0] value_atom_next;
     logic [127:0] index_atom_next;
+    logic [7:0] unique_mask_next;
 
     // Return {16-bit source position, selected FP16 value}. On equal finite
     // values choose the earlier input, matching row-major np.argmax for this
@@ -61,7 +64,8 @@ module rk_ppu_pool_max2x2s2_index_c8_h2w2 (
         end
     endfunction
 
-    always_comb begin
+    always_comb begin : COMPUTE_OUTPUT
+        integer match_count;
         for (integer lane = 0; lane < 8; lane = lane + 1) begin
             pair01[lane] = fp16_max_pick(
                 input_atom[0][lane*16 +: 16], 16'd0,
@@ -77,6 +81,16 @@ module rk_ppu_pool_max2x2s2_index_c8_h2w2 (
             );
             value_atom_next[lane*16 +: 16] = pair_final[lane][15:0];
             index_atom_next[lane*16 +: 16] = pair_final[lane][31:16];
+            match_count = 0;
+            if (input_atom[0][lane*16 +: 16] == pair_final[lane][15:0])
+                match_count = match_count + 1;
+            if (input_atom[1][lane*16 +: 16] == pair_final[lane][15:0])
+                match_count = match_count + 1;
+            if (input_atom[2][lane*16 +: 16] == pair_final[lane][15:0])
+                match_count = match_count + 1;
+            if (in_atom[lane*16 +: 16] == pair_final[lane][15:0])
+                match_count = match_count + 1;
+            unique_mask_next[lane] = (match_count == 1);
         end
     end
 
@@ -84,6 +98,7 @@ module rk_ppu_pool_max2x2s2_index_c8_h2w2 (
     assign out_valid      = out_valid_q;
     assign out_value_atom = value_atom_q;
     assign out_index_atom = index_atom_q;
+    assign out_unique     = unique_mask_q;
     assign out_last       = out_last_q;
 
     always_ff @(posedge clk) begin
@@ -92,6 +107,7 @@ module rk_ppu_pool_max2x2s2_index_c8_h2w2 (
             frame_done_q  <= 1'b0;
             value_atom_q  <= 128'b0;
             index_atom_q  <= 128'b0;
+            unique_mask_q <= 8'b0;
             out_valid_q   <= 1'b0;
             out_last_q    <= 1'b0;
         end else begin
@@ -103,6 +119,7 @@ module rk_ppu_pool_max2x2s2_index_c8_h2w2 (
                 if (input_count_q == 2'd3) begin
                     value_atom_q <= value_atom_next;
                     index_atom_q <= index_atom_next;
+                    unique_mask_q <= unique_mask_next;
                     out_valid_q  <= 1'b1;
                     out_last_q   <= 1'b1;
                     frame_done_q <= 1'b1;

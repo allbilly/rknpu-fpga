@@ -1,0 +1,19 @@
+{
+  "source_case": "conv_grouped_3x3_c4_h5_w5_oc8_g2",
+  "source_case_dir": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/conv-fp16/cases/conv_grouped_3x3_c4_h5_w5_oc8_g2",
+  "source_task_index": 1,
+  "source_regcmd_sha256": "2f811ac2ad59aefdb18596234e001e4d0d4822bf1a0f5848af508495a0373bf0",
+  "source_regcmd_bytes": [
+    432,
+    864
+  ],
+  "source_job_sha256": "79b0aeaae127fe7eab682766ddc21026c94f7c845323cf15127d7d191c6b3911",
+  "derived_job_sha256": "d3b76f7ad49bd3d224c55fba82efdf4a111f646d56a21245f42434842d9c4f22",
+  "derived_regcmd_sha256": "29b60f0bc2baa4b802823dacba0770c7d36e46f0c4b7bf1994eba762ee55a08f",
+  "oracle_copy": "expected_out1.bin",
+  "notes": [
+    "regcmd.bin is the 54-QWORD task slice copied to offset 0",
+    "task1 patch indices 75/81/89 are rebound to 21/27/35",
+    "terminal PC tail and declared regcmd_words=54 are preserved"
+  ]
+}

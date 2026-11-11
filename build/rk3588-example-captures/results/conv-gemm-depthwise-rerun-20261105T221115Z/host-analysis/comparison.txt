@@ -1,0 +1,9 @@
+result: PASS
+cases: 2
+total output bytes read back: 30208
+logical FP16 exact: 1404/1404
+max abs diff: 0.0
+padding/tail nonzero elements: 0
+
+conv_depthwise_3x3_c3_oc3_h11w28_task0: submit_ret=0 status=OK output=15104B sha256=431f470ed23f321f115a9af03db2edba170d5ac3e036efb08c10834aba0faacf exact=702/702 max_abs=0.0 over_tol=0 logical_pad=12B(nonzero=0) nonlogical_channels=6136B(nonzero=0) second_surface=7552B(nonzero=0)
+conv_depthwise_3x3_c3_oc3_h11w28_task1: submit_ret=0 status=OK output=15104B sha256=431f470ed23f321f115a9af03db2edba170d5ac3e036efb08c10834aba0faacf exact=702/702 max_abs=0.0 over_tol=0 logical_pad=12B(nonzero=0) nonlogical_channels=6136B(nonzero=0) second_surface=7552B(nonzero=0)

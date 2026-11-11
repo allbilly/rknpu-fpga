@@ -1,0 +1,119 @@
+{
+  "case": "conv_grouped_3x3_c4_oc4_g2_h5w5",
+  "status": "READY_CAPTURE_BOUNDED_CANDIDATE",
+  "description": "FP16 grouped 3x3 conv, C4/OC4/G2, H5/W5 -> H3/W3, single task",
+  "source_example": "/home/fedora/rk3588/examples/conv_gemm.py",
+  "source_bundle": "build/rk3588-example-captures/conv-gemm-vendor/cases/conv_grouped_3x3_c4_oc4_g2_h5w5",
+  "device_capture": {
+    "capture_json_sha256": "a5f0221208a911ed19a47c0e90dbef35a0d8cf825e885ded455d04e1f139d707",
+    "device": "/dev/accel/accel0",
+    "kernel": "6.18.24-current-rockchip64",
+    "board_compatible": [
+      "xunlong,orangepi-5",
+      "rockchip,rk3588s"
+    ],
+    "submit_ret": 0,
+    "errors": []
+  },
+  "command_stream": {
+    "qwords": 52,
+    "regcmd_sha256": "8835296d0dab69d22d88bb1716d7b0f84163d6c1a39fd1716657032acb062701",
+    "address_qwords": [
+      18,
+      24,
+      32
+    ],
+    "buffers": [
+      "input",
+      "weight",
+      "output"
+    ],
+    "addresses": {
+      "input": 4096,
+      "output": 12288,
+      "weight": 8192
+    }
+  },
+  "shape": "b1_c4_h5_w5_oc4_wic2_k3x3_g2",
+  "dtype": {
+    "output": "float16"
+  },
+  "layout": {
+    "align_c": 16,
+    "align_out_c": 16,
+    "grouped_spatial": true,
+    "hardware_output_bytes": 384,
+    "hardware_output_dtype": "fp16",
+    "hardware_output_elements": 192,
+    "out_width_stride": 12,
+    "unpack_c2": 8,
+    "unpack_function": "_unpack_grouped_spatial_output",
+    "use_nhwc": false,
+    "width_stride": 5
+  },
+  "packing": {
+    "align_c": 16,
+    "align_out_c": 16,
+    "grouped_spatial": true,
+    "hardware_output_bytes": 384,
+    "hardware_output_dtype": "fp16",
+    "hardware_output_elements": 192,
+    "out_width_stride": 12,
+    "unpack_c2": 8,
+    "unpack_function": "_unpack_grouped_spatial_output",
+    "use_nhwc": false,
+    "width_stride": 5
+  },
+  "oracle_kind": "conv_host_oracle_repack",
+  "oracle_contract": {
+    "kind": "conv_host_oracle_repack",
+    "values": 192,
+    "c2": 8,
+    "stride": 12,
+    "provenance": "logical NCHW host oracle repacked, not recomputed from operands"
+  },
+  "output": {
+    "bytes": 4096,
+    "device_sha256": "2a752d2822f12947c3c18a99c331890836a2ecd03910eeddafaa04d069e7ef8b",
+    "recomputed_sha256": "9c48c0baf04d7b84c3f9e4cb03a81a1fc61c968540d7039073bd0421e3eb2973"
+  },
+  "comparison": {
+    "exact": true,
+    "mode": "exact",
+    "compared_bytes": 384
+  },
+  "files": {
+    "capture.json": {
+      "bytes": 5601,
+      "sha256": "a5f0221208a911ed19a47c0e90dbef35a0d8cf825e885ded455d04e1f139d707"
+    },
+    "device_out.bin": {
+      "bytes": 4096,
+      "sha256": "2a752d2822f12947c3c18a99c331890836a2ecd03910eeddafaa04d069e7ef8b"
+    },
+    "expected.bin": {
+      "bytes": 72,
+      "sha256": "83418d07885e24eff2c77070749f26ccd6696e4ae246f1af34efcdb36c90fe7c"
+    },
+    "input.bin": {
+      "bytes": 4096,
+      "sha256": "4876805b7749d079367fe465fb90dd238de319edc25a772a8ea57af7256548b2"
+    },
+    "job.json": {
+      "bytes": 944,
+      "sha256": "841ade2e661215cd32307013c4aaffa1cd0d0f90ad83434a36d9fb26ef12f721"
+    },
+    "oracle_recomputed.bin": {
+      "bytes": 384,
+      "sha256": "9c48c0baf04d7b84c3f9e4cb03a81a1fc61c968540d7039073bd0421e3eb2973"
+    },
+    "regcmd.bin": {
+      "bytes": 416,
+      "sha256": "8835296d0dab69d22d88bb1716d7b0f84163d6c1a39fd1716657032acb062701"
+    },
+    "weight.bin": {
+      "bytes": 4096,
+      "sha256": "461509868f1cdea3647b21b13a2f8d30266183fbbf8a5f3d02b44d78652fd973"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "case": "fdiv_class_rows_12_13",
+  "source_example": "/home/fedora/rk3588/examples/elementwise.py",
+  "description": "FP16 FDIV raw operand-class truth table, 32 lanes, width=3; lanes 0-15 A12=0x3800 (+0.5); lanes 16-31 A13=0xb800 (-0.5); B classes 0-15 in order in each 16-lane half",
+  "timeout_ns": 6000000000,
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 22
+    }
+  ],
+  "buffers": [
+    {
+      "name": "a",
+      "size": 64,
+      "input": "input-a.bin",
+      "direction": "in"
+    },
+    {
+      "name": "b",
+      "size": 64,
+      "input": "input-b.bin",
+      "direction": "in"
+    },
+    {
+      "name": "out",
+      "size": 64,
+      "direction": "out",
+      "output": "output.bin"
+    }
+  ],
+  "patches": [
+    {
+      "regcmd_index": 14,
+      "buffer": "out",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 15,
+      "buffer": "a",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 16,
+      "buffer": "b",
+      "kind": "value32"
+    }
+  ]
+}

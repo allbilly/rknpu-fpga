@@ -1,0 +1,21 @@
+=== board identity / post-run state 2026-11-05T20:05:54Z ===
+orangepi5
+6.18.24-current-rockchip64
+Python 3.14.4
+crw-rw---- 1 root render 261, 0 Nov  5 04:39 /dev/accel/accel0
+rocket                 32768  0
+gpu_sched              45056  2 rocket,panthor
+drm_shmem_helper       24576  3 rocket,simpledrm,panthor
+ls: cannot access '/dev/rknpu*': No such file or directory
+--- pgrep after ---
+2023819 /usr/bin/python3 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+3551274 bash -c hostname; uname -r; python3 --version; ls -l /dev/accel/accel0; readlink -f /sys/dev/char/$(stat -c '%t:%T' /dev/accel/accel0 | sed 's/^0*//;s/:0*/:/')/device/driver 2>/dev/null || true; lsmod | grep -E 'rocket|rknpu' || true; ls /dev/rknpu* 2>&1 || true; echo '--- pgrep after ---'; pgrep -af 'rk3588|rocket|capture|python3' || true; echo '--- lock ---'; ls -l /home/opencode-agent/rk3588-npu.lock; echo '--- queue/results ---'; ls -d /home/opencode-agent/rk3588-example-captures/queue-ew-int-20261105T200154Z /home/opencode-agent/rk3588-example-captures/results/ew-int-20261105T200154Z; find /home/opencode-agent/rk3588-example-captures/results/ew-int-20261105T200154Z -name capture.json | wc -l; find /home/opencode-agent/rk3588-example-captures/results/ew-int-20261105T200154Z -name out.bin | wc -l; find /home/opencode-agent/rk3588-example-captures/results/ew-int-20261105T200154Z -name out.bin -printf '%s\n' | awk '{s+=$1} END {print "out_bytes=" s}'; cat /home/opencode-agent/rk3588-example-captures/ew-int-run-20261105T200154Z-rerun.exit
+--- lock ---
+-rw-rw-r-- 1 opencode-agent opencode-agent 0 Nov  6 04:02 /home/opencode-agent/rk3588-npu.lock
+--- queue/results ---
+/home/opencode-agent/rk3588-example-captures/queue-ew-int-20261105T200154Z
+/home/opencode-agent/rk3588-example-captures/results/ew-int-20261105T200154Z
+15
+15
+out_bytes=61440
+0

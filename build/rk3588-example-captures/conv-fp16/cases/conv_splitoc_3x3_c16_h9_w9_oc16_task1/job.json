@@ -1,0 +1,49 @@
+{
+  "case": "conv_splitoc_3x3_c16_h9_w9_oc16_task1",
+  "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+  "description": "One-task promotion of conv_splitoc_3x3_c16_h9_w9_oc16 task 1/2 (output channels 8..15): C16 9x9 -> OC8 7x7, stride 1, groups=1, full_data_bank=True preserved. The original two-task case is BLOCKED because Rocket executed only task 0.",
+  "timeout_ns": 6000000000,
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 54
+    }
+  ],
+  "buffers": [
+    {
+      "name": "a0",
+      "size": 2592,
+      "input": "a0.bin",
+      "direction": "in"
+    },
+    {
+      "name": "w1",
+      "size": 2304,
+      "input": "w1.bin",
+      "direction": "in"
+    },
+    {
+      "name": "out1",
+      "size": 3328,
+      "direction": "out",
+      "output": "out1.bin"
+    }
+  ],
+  "patches": [
+    {
+      "regcmd_index": 21,
+      "buffer": "a0",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 27,
+      "buffer": "w1",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 35,
+      "buffer": "out1",
+      "kind": "value32"
+    }
+  ]
+}

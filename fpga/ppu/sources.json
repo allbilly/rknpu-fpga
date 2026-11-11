@@ -1,0 +1,30 @@
+{
+  "profile": "ypcb_ppu_i8",
+  "description": "First board image containing captured pooling RTL: signed-INT8 C16 H2 W2 maximum self-test over the strict raw descriptor path and a single BRAM aperture. AXI-Lite/BRAM transport only; no PCIe, MIG, DDR controller or host driver. Not a qualification image.",
+  "top": "ypcb_ppu_i8_top",
+  "part": "xc7k480tffg1156-2",
+  "clock_period_ns": 20,
+  "constraints": "fpga/ypcb_ppu_i8.xdc",
+  "sources": [
+    "rtl/ppu/rk_ppu_pool_int_k2s2.sv",
+    "rtl/ppu/rk_ppu_pool_i8_k2s2_profile.sv",
+    "rtl/ppu/rk_ppu_pool_i8_k2s2_dma.sv",
+    "rtl/ppu/rk_ppu_pool_demo_rom.sv",
+    "rtl/ppu/rk_ppu_pool_self_test.sv",
+    "rtl/rk_bram.sv",
+    "rtl/rk_startup_reset.sv",
+    "fpga/ypcb_ppu_i8_top.sv"
+  ],
+  "generated": [
+    {
+      "path": "rtl/ppu/rk_ppu_pool_demo_rom.sv",
+      "generator": "tools/ppu/gen_pool_demo.py",
+      "fixture": "tests/ppu_pooling/fixtures/int8_max_k2s2_valid_c16_h2w2"
+    }
+  ],
+  "benches": {
+    "board": "tests/tb_ypcb_ppu_i8.sv",
+    "dma": "tests/ppu_pooling/tb_ppu_pool_i8_k2s2_dma.sv",
+    "leaf": "tests/ppu_pooling/tb_ppu_pool_int_k2s2.sv"
+  }
+}

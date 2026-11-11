@@ -1,0 +1,119 @@
+{
+  "case": "gemm_m1_n16_k32",
+  "status": "READY_CAPTURE_BOUNDED_CANDIDATE",
+  "description": "FP16 GEMM 1x16x32, single task; FP32 output; shape exercised through the public run_gemm/make_gemm_regs path (not present in the tiny main test_cases table)",
+  "source_example": "/home/fedora/rk3588/examples/gemm.py",
+  "source_bundle": "build/rk3588-example-captures/conv-gemm-vendor/cases/gemm_m1_n16_k32",
+  "device_capture": {
+    "capture_json_sha256": "ceeacba7a6d6cadef995cb671c5c857e419a96a3e971f201056fcf9c1275edb6",
+    "device": "/dev/accel/accel0",
+    "kernel": "6.18.24-current-rockchip64",
+    "board_compatible": [
+      "xunlong,orangepi-5",
+      "rockchip,rk3588s"
+    ],
+    "submit_ret": 0,
+    "errors": []
+  },
+  "command_stream": {
+    "qwords": 50,
+    "regcmd_sha256": "c9d5f2ffa4ea3adf09610d386281e7c1e8a0ed481e055ee078680ee693c48e5f",
+    "address_qwords": [
+      18,
+      24,
+      31
+    ],
+    "buffers": [
+      "input",
+      "weight",
+      "output"
+    ],
+    "addresses": {
+      "input": 4096,
+      "output": 12288,
+      "weight": 8192
+    }
+  },
+  "shape": "m1_n16_k32",
+  "dtype": {
+    "output": "float32"
+  },
+  "layout": {
+    "align_in": 32,
+    "align_out": 32,
+    "input_row_bytes": 64,
+    "k": 32,
+    "m": 1,
+    "main_table_case": false,
+    "n": 16,
+    "output_bytes": 128,
+    "output_elements": 32,
+    "output_row_bytes": 128
+  },
+  "packing": {
+    "align_in": 32,
+    "align_out": 32,
+    "input_row_bytes": 64,
+    "k": 32,
+    "m": 1,
+    "main_table_case": false,
+    "n": 16,
+    "output_bytes": 128,
+    "output_elements": 32,
+    "output_row_bytes": 128
+  },
+  "oracle_kind": "gemm",
+  "oracle_contract": {
+    "kind": "gemm",
+    "values": 32,
+    "width": 32
+  },
+  "output": {
+    "bytes": 4096,
+    "device_sha256": "d17a7aaab556c9870463fe4b276c1d23b3213f1815d8b9388c3361f622d3ead8",
+    "recomputed_sha256": "e636f2abea457ff336c0da592ce470697cd5307737a412e6ff239b0061f7c3ec"
+  },
+  "comparison": {
+    "exact": true,
+    "mode": "exact",
+    "compared_bytes": 128
+  },
+  "files": {
+    "capture.json": {
+      "bytes": 5643,
+      "sha256": "ceeacba7a6d6cadef995cb671c5c857e419a96a3e971f201056fcf9c1275edb6"
+    },
+    "device_out.bin": {
+      "bytes": 4096,
+      "sha256": "d17a7aaab556c9870463fe4b276c1d23b3213f1815d8b9388c3361f622d3ead8"
+    },
+    "expected.bin": {
+      "bytes": 64,
+      "sha256": "04f0395621307c4901f8a3691e68e9f263b637759479cf93765a796a63beab1b"
+    },
+    "expected_surface.bin": {
+      "bytes": 4096,
+      "sha256": "d17a7aaab556c9870463fe4b276c1d23b3213f1815d8b9388c3361f622d3ead8"
+    },
+    "input.bin": {
+      "bytes": 4096,
+      "sha256": "c3e5ee59ccc4820f1cc7e236beeb36721904182390fda1837eda669e7edda228"
+    },
+    "job.json": {
+      "bytes": 1018,
+      "sha256": "e8687db24df06910064589aec533e36e10a385cbd65c5328e69b729a96d7d9f8"
+    },
+    "oracle_recomputed.bin": {
+      "bytes": 128,
+      "sha256": "e636f2abea457ff336c0da592ce470697cd5307737a412e6ff239b0061f7c3ec"
+    },
+    "regcmd.bin": {
+      "bytes": 400,
+      "sha256": "c9d5f2ffa4ea3adf09610d386281e7c1e8a0ed481e055ee078680ee693c48e5f"
+    },
+    "weight.bin": {
+      "bytes": 4096,
+      "sha256": "35aa2e72a6b51590c5dda06abd6a30df45baebb08a97ecef07ac59c25feed369"
+    }
+  }
+}

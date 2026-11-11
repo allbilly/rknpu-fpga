@@ -4,7 +4,15 @@
 // Facts: tinygrad 078eee94d8f1912bb63ce786c250d2c24984844a emit_cmac_stage
 // and its actual standalone final writer. HALF output, no ReLU, terminal only.
 // The separate DMA integration must account for 45 body + 4 tail QWORDs.
-module rk_cmac_profile (
+module rk_cmac_profile #(
+    // Output format selects the three register values that the source emits
+    // differently for FP16 and FP32 results. `gemm.py` sets
+    //   out_precision = 2 if out_fp16 else 5        -> DPU_DATA_FORMAT
+    //   size_e        = 1 if out_fp16 else 3        -> DPU_BS_OW_CFG
+    //   OUT_CVT_SCALE = (1<<16)|1 if out_fp16 else 0
+    // so the differing values are derived, never transplanted from a capture.
+    parameter bit OUTPUT_FP16 = 1'b1
+) (
     input logic clk, rst_n,
     input logic cmd_valid,
     output logic cmd_ready,
@@ -25,6 +33,17 @@ module rk_cmac_profile (
     logic fixed_field;
     logic [31:0] fixed_value;
     logic shape_valid, address_valid;
+    // 0xA8000002 for FP32 output, 0x48000002 for FP16.
+    localparam logic [31:0] DATA_FORMAT_VALUE =
+        (OUTPUT_FP16 ? (32'd2 << 29) : (32'd5 << 29)) | (32'd2 << 26) | 32'd2;
+    // 0x36E for FP32 output, 0x126 for FP16 (size_e = 1 or 3).
+    localparam logic [31:0] BS_OW_CFG_VALUE =
+        (OUTPUT_FP16 ? 32'd1 : 32'd3) << 8 |
+        (OUTPUT_FP16 ? 32'd1 : 32'd3) << 5 |
+        (OUTPUT_FP16 ? 32'd1 : 32'd3) << 2 | 32'd2;
+    // Conversion is enabled only for FP16 output.
+    localparam logic [31:0] OUT_CVT_SCALE_VALUE =
+        OUTPUT_FP16 ? 32'h0001_0001 : 32'h0000_0000;
     logic [31:0] rows, ai, ao, grains, banks, stride, notch;
     logic [63:0] input_bytes, weight_bytes, output_bytes;
     logic [63:0] input_end, weight_end, output_end;
@@ -66,7 +85,7 @@ module rk_cmac_profile (
             32'h08013018: index=27;
             32'h08013030: begin index=28; fixed_field=1; fixed_value=0; end
             32'h1001400c: begin index=29; fixed_field=1; fixed_value=32'h1e4; end
-            32'h10014010: begin index=30; fixed_field=1; fixed_value=32'h48000002; end
+            32'h10014010: begin index=30; fixed_field=1; fixed_value=DATA_FORMAT_VALUE; end
             32'h10014020: index=31;
             32'h10014024: begin index=32; fixed_field=1; fixed_value=16; end
             32'h10014030: begin index=33; fixed_field=1; fixed_value=0; end
@@ -74,12 +93,12 @@ module rk_cmac_profile (
             32'h10014038: index=35;
             32'h1001403c: index=36;
             32'h10014040: begin index=37; fixed_field=1; fixed_value=32'h53; end
-            32'h10014050: begin index=38; fixed_field=1; fixed_value=32'h126; end
+            32'h10014050: begin index=38; fixed_field=1; fixed_value=BS_OW_CFG_VALUE; end
             32'h10014058: index=39;
             32'h1001405c: index=40;
             32'h10014060: begin index=41; fixed_field=1; fixed_value=32'h53; end
             32'h10014070: begin index=42; fixed_field=1; fixed_value=32'h383; end
-            32'h10014084: begin index=43; fixed_field=1; fixed_value=32'h10001; end
+            32'h10014084: begin index=43; fixed_field=1; fixed_value=OUT_CVT_SCALE_VALUE; end
             32'h100140c0: begin index=44; fixed_field=1; fixed_value=32'h40; end
             32'h00010000: begin index=45; fixed_field=1; fixed_value=0; end
             32'h01010014: begin index=46; fixed_field=1; fixed_value=0; end

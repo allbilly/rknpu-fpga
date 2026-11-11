@@ -1,0 +1,225 @@
+finite nonzero lanes: 1024  rne mismatches: 19
+
+ALL MISMATCHES (all B=7?):
+ i=  17 A=0x4c80=   18.0 B=0x4700= 7.0 obs=0x4124 rne=0x4125 n=1316 rem=0.571429 e=1 ue=-9 n&3=0
+ i=  49 A=0x5240=   50.0 B=0x4700= 7.0 obs=0x4724 rne=0x4725 n=1828 rem=0.571429 e=2 ue=-8 n&3=0
+ i=  57 A=0x5340=   58.0 B=0x4700= 7.0 obs=0x4824 rne=0x4825 n=1060 rem=0.571429 e=3 ue=-7 n&3=0
+ i= 129 A=0x5810=  130.0 B=0x4700= 7.0 obs=0x4ca4 rne=0x4ca5 n=1188 rem=0.571429 e=4 ue=-6 n&3=0
+ i= 185 A=0x59d0=  186.0 B=0x4700= 7.0 obs=0x4ea4 rne=0x4ea5 n=1700 rem=0.571429 e=4 ue=-6 n&3=0
+ i= 273 A=0x5c48=  274.0 B=0x4700= 7.0 obs=0x50e4 rne=0x50e5 n=1252 rem=0.571429 e=5 ue=-5 n&3=0
+ i= 329 A=0x5d28=  330.0 B=0x4700= 7.0 obs=0x51e4 rne=0x51e5 n=1508 rem=0.571429 e=5 ue=-5 n&3=0
+ i= 385 A=0x5e08=  386.0 B=0x4700= 7.0 obs=0x52e4 rne=0x52e5 n=1764 rem=0.571429 e=5 ue=-5 n&3=0
+ i= 441 A=0x5ee8=  442.0 B=0x4700= 7.0 obs=0x53e4 rne=0x53e5 n=2020 rem=0.571429 e=5 ue=-5 n&3=0
+ i= 449 A=0x5f08=  450.0 B=0x4700= 7.0 obs=0x5404 rne=0x5405 n=1028 rem=0.571429 e=6 ue=-4 n&3=0
+ i= 505 A=0x5fe8=  506.0 B=0x4700= 7.0 obs=0x5484 rne=0x5485 n=1156 rem=0.571429 e=6 ue=-4 n&3=0
+ i= 561 A=0x6064=  562.0 B=0x4700= 7.0 obs=0x5504 rne=0x5505 n=1284 rem=0.571429 e=6 ue=-4 n&3=0
+ i= 617 A=0x60d4=  618.0 B=0x4700= 7.0 obs=0x5584 rne=0x5585 n=1412 rem=0.571429 e=6 ue=-4 n&3=0
+ i= 673 A=0x6144=  674.0 B=0x4700= 7.0 obs=0x5604 rne=0x5605 n=1540 rem=0.571429 e=6 ue=-4 n&3=0
+ i= 729 A=0x61b4=  730.0 B=0x4700= 7.0 obs=0x5684 rne=0x5685 n=1668 rem=0.571429 e=6 ue=-4 n&3=0
+ i= 785 A=0x6224=  786.0 B=0x4700= 7.0 obs=0x5704 rne=0x5705 n=1796 rem=0.571429 e=6 ue=-4 n&3=0
+ i= 841 A=0x6294=  842.0 B=0x4700= 7.0 obs=0x5784 rne=0x5785 n=1924 rem=0.571429 e=6 ue=-4 n&3=0
+ i= 913 A=0x6324=  914.0 B=0x4700= 7.0 obs=0x5814 rne=0x5815 n=1044 rem=0.571429 e=7 ue=-3 n&3=0
+ i= 969 A=0x6394=  970.0 B=0x4700= 7.0 obs=0x5854 rne=0x5855 n=1108 rem=0.571429 e=7 ue=-3 n&3=0
+
+B=7 lanes, all (A = 2,10,18,...):
+count=128 mismatches=19
+ A=   2 n= 1170 n&15= 2 rem=0.2857143 obs=0x3492 rne=0x3492 
+ A=  10 n= 1462 n&15= 6 rem=0.8571429 obs=0x3db7 rne=0x3db7 
+ A=  18 n= 1316 n&15= 4 rem=0.5714286 obs=0x4124 rne=0x4125 FAIL
+ A=  26 n= 1901 n&15=13 rem=0.7142857 obs=0x436e rne=0x436e 
+ A=  34 n= 1243 n&15=11 rem=0.4285714 obs=0x44db rne=0x44db 
+ A=  42 n= 1536 n&15= 0 rem=0.0000000 obs=0x4600 rne=0x4600 
+ A=  50 n= 1828 n&15= 4 rem=0.5714286 obs=0x4724 rne=0x4725 FAIL
+ A=  58 n= 1060 n&15= 4 rem=0.5714286 obs=0x4824 rne=0x4825 FAIL
+ A=  66 n= 1206 n&15= 6 rem=0.8571429 obs=0x48b7 rne=0x48b7 
+ A=  74 n= 1353 n&15= 9 rem=0.1428571 obs=0x4949 rne=0x4949 
+ A=  82 n= 1499 n&15=11 rem=0.4285714 obs=0x49db rne=0x49db 
+ A=  90 n= 1645 n&15=13 rem=0.7142857 obs=0x4a6e rne=0x4a6e 
+ A=  98 n= 1792 n&15= 0 rem=0.0000000 obs=0x4b00 rne=0x4b00 
+ A= 106 n= 1938 n&15= 2 rem=0.2857143 obs=0x4b92 rne=0x4b92 
+ A= 114 n= 1042 n&15= 2 rem=0.2857143 obs=0x4c12 rne=0x4c12 
+ A= 122 n= 1115 n&15=11 rem=0.4285714 obs=0x4c5b rne=0x4c5b 
+ A= 130 n= 1188 n&15= 4 rem=0.5714286 obs=0x4ca4 rne=0x4ca5 FAIL
+ A= 138 n= 1261 n&15=13 rem=0.7142857 obs=0x4cee rne=0x4cee 
+ A= 146 n= 1334 n&15= 6 rem=0.8571429 obs=0x4d37 rne=0x4d37 
+ A= 154 n= 1408 n&15= 0 rem=0.0000000 obs=0x4d80 rne=0x4d80 
+ A= 162 n= 1481 n&15= 9 rem=0.1428571 obs=0x4dc9 rne=0x4dc9 
+ A= 170 n= 1554 n&15= 2 rem=0.2857143 obs=0x4e12 rne=0x4e12 
+ A= 178 n= 1627 n&15=11 rem=0.4285714 obs=0x4e5b rne=0x4e5b 
+ A= 186 n= 1700 n&15= 4 rem=0.5714286 obs=0x4ea4 rne=0x4ea5 FAIL
+ A= 194 n= 1773 n&15=13 rem=0.7142857 obs=0x4eee rne=0x4eee 
+ A= 202 n= 1846 n&15= 6 rem=0.8571429 obs=0x4f37 rne=0x4f37 
+ A= 210 n= 1920 n&15= 0 rem=0.0000000 obs=0x4f80 rne=0x4f80 
+ A= 218 n= 1993 n&15= 9 rem=0.1428571 obs=0x4fc9 rne=0x4fc9 
+ A= 226 n= 1033 n&15= 9 rem=0.1428571 obs=0x5009 rne=0x5009 
+ A= 234 n= 1069 n&15=13 rem=0.7142857 obs=0x502e rne=0x502e 
+ A= 242 n= 1106 n&15= 2 rem=0.2857143 obs=0x5052 rne=0x5052 
+ A= 250 n= 1142 n&15= 6 rem=0.8571429 obs=0x5077 rne=0x5077 
+ A= 258 n= 1179 n&15=11 rem=0.4285714 obs=0x509b rne=0x509b 
+ A= 266 n= 1216 n&15= 0 rem=0.0000000 obs=0x50c0 rne=0x50c0 
+ A= 274 n= 1252 n&15= 4 rem=0.5714286 obs=0x50e4 rne=0x50e5 FAIL
+ A= 282 n= 1289 n&15= 9 rem=0.1428571 obs=0x5109 rne=0x5109 
+ A= 290 n= 1325 n&15=13 rem=0.7142857 obs=0x512e rne=0x512e 
+ A= 298 n= 1362 n&15= 2 rem=0.2857143 obs=0x5152 rne=0x5152 
+ A= 306 n= 1398 n&15= 6 rem=0.8571429 obs=0x5177 rne=0x5177 
+ A= 314 n= 1435 n&15=11 rem=0.4285714 obs=0x519b rne=0x519b 
+ A= 322 n= 1472 n&15= 0 rem=0.0000000 obs=0x51c0 rne=0x51c0 
+ A= 330 n= 1508 n&15= 4 rem=0.5714286 obs=0x51e4 rne=0x51e5 FAIL
+ A= 338 n= 1545 n&15= 9 rem=0.1428571 obs=0x5209 rne=0x5209 
+ A= 346 n= 1581 n&15=13 rem=0.7142857 obs=0x522e rne=0x522e 
+ A= 354 n= 1618 n&15= 2 rem=0.2857143 obs=0x5252 rne=0x5252 
+ A= 362 n= 1654 n&15= 6 rem=0.8571429 obs=0x5277 rne=0x5277 
+ A= 370 n= 1691 n&15=11 rem=0.4285714 obs=0x529b rne=0x529b 
+ A= 378 n= 1728 n&15= 0 rem=0.0000000 obs=0x52c0 rne=0x52c0 
+ A= 386 n= 1764 n&15= 4 rem=0.5714286 obs=0x52e4 rne=0x52e5 FAIL
+ A= 394 n= 1801 n&15= 9 rem=0.1428571 obs=0x5309 rne=0x5309 
+ A= 402 n= 1837 n&15=13 rem=0.7142857 obs=0x532e rne=0x532e 
+ A= 410 n= 1874 n&15= 2 rem=0.2857143 obs=0x5352 rne=0x5352 
+ A= 418 n= 1910 n&15= 6 rem=0.8571429 obs=0x5377 rne=0x5377 
+ A= 426 n= 1947 n&15=11 rem=0.4285714 obs=0x539b rne=0x539b 
+ A= 434 n= 1984 n&15= 0 rem=0.0000000 obs=0x53c0 rne=0x53c0 
+ A= 442 n= 2020 n&15= 4 rem=0.5714286 obs=0x53e4 rne=0x53e5 FAIL
+ A= 450 n= 1028 n&15= 4 rem=0.5714286 obs=0x5404 rne=0x5405 FAIL
+ A= 458 n= 1046 n&15= 6 rem=0.8571429 obs=0x5417 rne=0x5417 
+ A= 466 n= 1065 n&15= 9 rem=0.1428571 obs=0x5429 rne=0x5429 
+ A= 474 n= 1083 n&15=11 rem=0.4285714 obs=0x543b rne=0x543b 
+ A= 482 n= 1101 n&15=13 rem=0.7142857 obs=0x544e rne=0x544e 
+ A= 490 n= 1120 n&15= 0 rem=0.0000000 obs=0x5460 rne=0x5460 
+ A= 498 n= 1138 n&15= 2 rem=0.2857143 obs=0x5472 rne=0x5472 
+ A= 506 n= 1156 n&15= 4 rem=0.5714286 obs=0x5484 rne=0x5485 FAIL
+ A= 514 n= 1174 n&15= 6 rem=0.8571429 obs=0x5497 rne=0x5497 
+ A= 522 n= 1193 n&15= 9 rem=0.1428571 obs=0x54a9 rne=0x54a9 
+ A= 530 n= 1211 n&15=11 rem=0.4285714 obs=0x54bb rne=0x54bb 
+ A= 538 n= 1229 n&15=13 rem=0.7142857 obs=0x54ce rne=0x54ce 
+ A= 546 n= 1248 n&15= 0 rem=0.0000000 obs=0x54e0 rne=0x54e0 
+ A= 554 n= 1266 n&15= 2 rem=0.2857143 obs=0x54f2 rne=0x54f2 
+ A= 562 n= 1284 n&15= 4 rem=0.5714286 obs=0x5504 rne=0x5505 FAIL
+ A= 570 n= 1302 n&15= 6 rem=0.8571429 obs=0x5517 rne=0x5517 
+ A= 578 n= 1321 n&15= 9 rem=0.1428571 obs=0x5529 rne=0x5529 
+ A= 586 n= 1339 n&15=11 rem=0.4285714 obs=0x553b rne=0x553b 
+ A= 594 n= 1357 n&15=13 rem=0.7142857 obs=0x554e rne=0x554e 
+ A= 602 n= 1376 n&15= 0 rem=0.0000000 obs=0x5560 rne=0x5560 
+ A= 610 n= 1394 n&15= 2 rem=0.2857143 obs=0x5572 rne=0x5572 
+ A= 618 n= 1412 n&15= 4 rem=0.5714286 obs=0x5584 rne=0x5585 FAIL
+ A= 626 n= 1430 n&15= 6 rem=0.8571429 obs=0x5597 rne=0x5597 
+ A= 634 n= 1449 n&15= 9 rem=0.1428571 obs=0x55a9 rne=0x55a9 
+ A= 642 n= 1467 n&15=11 rem=0.4285714 obs=0x55bb rne=0x55bb 
+ A= 650 n= 1485 n&15=13 rem=0.7142857 obs=0x55ce rne=0x55ce 
+ A= 658 n= 1504 n&15= 0 rem=0.0000000 obs=0x55e0 rne=0x55e0 
+ A= 666 n= 1522 n&15= 2 rem=0.2857143 obs=0x55f2 rne=0x55f2 
+ A= 674 n= 1540 n&15= 4 rem=0.5714286 obs=0x5604 rne=0x5605 FAIL
+ A= 682 n= 1558 n&15= 6 rem=0.8571429 obs=0x5617 rne=0x5617 
+ A= 690 n= 1577 n&15= 9 rem=0.1428571 obs=0x5629 rne=0x5629 
+ A= 698 n= 1595 n&15=11 rem=0.4285714 obs=0x563b rne=0x563b 
+ A= 706 n= 1613 n&15=13 rem=0.7142857 obs=0x564e rne=0x564e 
+ A= 714 n= 1632 n&15= 0 rem=0.0000000 obs=0x5660 rne=0x5660 
+ A= 722 n= 1650 n&15= 2 rem=0.2857143 obs=0x5672 rne=0x5672 
+ A= 730 n= 1668 n&15= 4 rem=0.5714286 obs=0x5684 rne=0x5685 FAIL
+ A= 738 n= 1686 n&15= 6 rem=0.8571429 obs=0x5697 rne=0x5697 
+ A= 746 n= 1705 n&15= 9 rem=0.1428571 obs=0x56a9 rne=0x56a9 
+ A= 754 n= 1723 n&15=11 rem=0.4285714 obs=0x56bb rne=0x56bb 
+ A= 762 n= 1741 n&15=13 rem=0.7142857 obs=0x56ce rne=0x56ce 
+ A= 770 n= 1760 n&15= 0 rem=0.0000000 obs=0x56e0 rne=0x56e0 
+ A= 778 n= 1778 n&15= 2 rem=0.2857143 obs=0x56f2 rne=0x56f2 
+ A= 786 n= 1796 n&15= 4 rem=0.5714286 obs=0x5704 rne=0x5705 FAIL
+ A= 794 n= 1814 n&15= 6 rem=0.8571429 obs=0x5717 rne=0x5717 
+ A= 802 n= 1833 n&15= 9 rem=0.1428571 obs=0x5729 rne=0x5729 
+ A= 810 n= 1851 n&15=11 rem=0.4285714 obs=0x573b rne=0x573b 
+ A= 818 n= 1869 n&15=13 rem=0.7142857 obs=0x574e rne=0x574e 
+ A= 826 n= 1888 n&15= 0 rem=0.0000000 obs=0x5760 rne=0x5760 
+ A= 834 n= 1906 n&15= 2 rem=0.2857143 obs=0x5772 rne=0x5772 
+ A= 842 n= 1924 n&15= 4 rem=0.5714286 obs=0x5784 rne=0x5785 FAIL
+ A= 850 n= 1942 n&15= 6 rem=0.8571429 obs=0x5797 rne=0x5797 
+ A= 858 n= 1961 n&15= 9 rem=0.1428571 obs=0x57a9 rne=0x57a9 
+ A= 866 n= 1979 n&15=11 rem=0.4285714 obs=0x57bb rne=0x57bb 
+ A= 874 n= 1997 n&15=13 rem=0.7142857 obs=0x57ce rne=0x57ce 
+ A= 882 n= 2016 n&15= 0 rem=0.0000000 obs=0x57e0 rne=0x57e0 
+ A= 890 n= 2034 n&15= 2 rem=0.2857143 obs=0x57f2 rne=0x57f2 
+ A= 898 n= 1026 n&15= 2 rem=0.2857143 obs=0x5802 rne=0x5802 
+ A= 906 n= 1035 n&15=11 rem=0.4285714 obs=0x580b rne=0x580b 
+ A= 914 n= 1044 n&15= 4 rem=0.5714286 obs=0x5814 rne=0x5815 FAIL
+ A= 922 n= 1053 n&15=13 rem=0.7142857 obs=0x581e rne=0x581e 
+ A= 930 n= 1062 n&15= 6 rem=0.8571429 obs=0x5827 rne=0x5827 
+ A= 938 n= 1072 n&15= 0 rem=0.0000000 obs=0x5830 rne=0x5830 
+ A= 946 n= 1081 n&15= 9 rem=0.1428571 obs=0x5839 rne=0x5839 
+ A= 954 n= 1090 n&15= 2 rem=0.2857143 obs=0x5842 rne=0x5842 
+ A= 962 n= 1099 n&15=11 rem=0.4285714 obs=0x584b rne=0x584b 
+ A= 970 n= 1108 n&15= 4 rem=0.5714286 obs=0x5854 rne=0x5855 FAIL
+ A= 978 n= 1117 n&15=13 rem=0.7142857 obs=0x585e rne=0x585e 
+ A= 986 n= 1126 n&15= 6 rem=0.8571429 obs=0x5867 rne=0x5867 
+ A= 994 n= 1136 n&15= 0 rem=0.0000000 obs=0x5870 rne=0x5870 
+ A=1002 n= 1145 n&15= 9 rem=0.1428571 obs=0x5879 rne=0x5879 
+ A=1010 n= 1154 n&15= 2 rem=0.2857143 obs=0x5882 rne=0x5882 
+ A=1018 n= 1163 n&15=11 rem=0.4285714 obs=0x588b rne=0x588b 
+
+mismatch divisor histogram: Counter({Fraction(7, 1): 19})
+
+B=7 discriminator scan:
+  A mod   2: fail=[0] ok=[0]
+  A mod   3: fail=[0, 1, 2] ok=[0, 1, 2]
+  A mod   4: fail=[2] ok=[2]
+  A mod   7: fail=[1, 2, 4] ok=[0, 1, 2, 3, 4, 5, 6]
+  A mod   8: fail=[2] ok=[2]
+  A mod  16: fail=[2, 10] ok=[2, 10]
+  A mod  32: fail=[2, 10, 18, 26] ok=[2, 10, 18, 26]
+  A mod  64: fail=[2, 10, 18, 26, 34, 42, 50, 58] ok=[2, 10, 18, 26, 34, 42, 50, 58]
+  A mod 128: fail=[2, 18, 34, 50, 58, 66, 74, 90, 106, 122] ok=[2, 10, 18, 26, 34, 42, 50, 58, 66, 74, 82, 90, 98, 106, 114, 122]
+  A mod 256: fail=[18, 50, 58, 74, 106, 130, 146, 162, 186, 194, 202, 218, 250] ok=[2, 10, 18, 26, 34, 42, 50, 58, 66, 74, 82, 90, 98, 106, 114, 122, 130, 138, 146, 154, 162, 170, 178, 186, 194, 202, 210, 218, 226, 234, 242, 250]
+  n mod   2: fail=[0] ok=[0, 1]
+  n mod   4: fail=[0] ok=[0, 1, 2, 3]
+  n mod   8: fail=[4] ok=[0, 1, 2, 3, 5, 6]
+  n mod  16: fail=[4] ok=[0, 2, 6, 9, 11, 13]
+  n mod  32: fail=[4, 20] ok=[0, 2, 6, 9, 11, 13, 16, 18, 22, 25, 27, 29]
+  n mod  64: fail=[4, 20, 36] ok=[0, 2, 9, 11, 13, 18, 22, 27, 29, 32, 38, 41, 45, 48, 50, 54, 57, 59]
+  n mod 128: fail=[4, 20, 36, 84, 100] ok=[0, 2, 9, 11, 18, 22, 27, 29, 38, 41, 45, 48, 54, 57, 59, 64, 66, 73, 75, 77, 82, 91, 93, 96, 102, 109, 112, 114, 118, 121]
+
+Truncate-then-RNE hypothesis scan (all 1024 lanes):
+  P= 0 mismatches=171
+  P= 1 mismatches=128
+  P= 2 mismatches=85
+  P= 3 mismatches=0
+  P= 4 mismatches=19
+  P= 5 mismatches=19
+  P= 6 mismatches=19
+  P= 7 mismatches=19
+  P= 8 mismatches=19
+  P= 9 mismatches=19
+  P=10 mismatches=19
+  P=11 mismatches=19
+  P=12 mismatches=19
+  P=13 mismatches=19
+  P=14 mismatches=19
+  P=15 mismatches=19
+  P=16 mismatches=19
+  P=17 mismatches=19
+  P=18 mismatches=19
+  P=19 mismatches=19
+  P=20 mismatches=19
+  P=21 mismatches=19
+  P=22 mismatches=19
+  P=23 mismatches=19
+  P=24 mismatches=19
+
+reciprocal-then-multiply hypothesis (half-rounded 1/b, half-rounded product):
+  mismatches=155 first=[9, 11, 13, 25, 27, 42, 45, 58, 61, 67, 75, 82, 85, 89, 91, 114, 115, 117, 131, 137]
+
+Failure quotient binary expansions (first 24 significant bits):
+ i=  17 e=  1 1.111111111111111111111111
+ i=  49 e=  2 1.111111111111111111111111
+ i=  57 e=  3 1.111111111111111111111111
+ i= 129 e=  4 1.111111111111111111111111
+ i= 185 e=  4 1.111111111111111111111111
+ i= 273 e=  5 1.111111111111111111111111
+ i= 329 e=  5 1.111111111111111111111111
+ i= 385 e=  5 1.111111111111111111111111
+ i= 441 e=  5 1.111111111111111111111111
+ i= 449 e=  6 1.111111111111111111111111
+ i= 505 e=  6 1.111111111111111111111111
+ i= 561 e=  6 1.111111111111111111111111
+ i= 617 e=  6 1.111111111111111111111111
+ i= 673 e=  6 1.111111111111111111111111
+ i= 729 e=  6 1.111111111111111111111111
+ i= 785 e=  6 1.111111111111111111111111
+ i= 841 e=  6 1.111111111111111111111111
+ i= 913 e=  7 1.111111111111111111111111
+ i= 969 e=  7 1.111111111111111111111111

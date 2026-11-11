@@ -1,0 +1,9 @@
+RUN_UTC=2026-11-05T20:14:43Z
+HOSTNAME=orangepi5
+Linux orangepi5 6.18.24-current-rockchip64 #2 SMP PREEMPT Wed Apr 22 11:22:34 UTC 2026 aarch64 GNU/Linux
+PYTHON=Python 3.14.4
+crw-rw---- 1 root render 261, 0 Nov  5 04:39 /dev/accel/accel0
+PGREP_BEFORE:
+2023819 /usr/bin/python3 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+3563629 bash -c Q=/home/opencode-agent/rk3588-example-captures/queue-ew-fp16-20261105T201400Z; { echo RUN_UTC=$(date -u +%Y-%m-%dT%H:%M:%SZ); echo HOSTNAME=$(hostname); uname -a; echo PYTHON=$(python3 -V 2>&1); ls -l /dev/accel/accel0; echo PGREP_BEFORE:; pgrep -af 'rk3588|rocket|capture|python3' || true; flock -n /home/opencode-agent/rk3588-npu.lock true && echo LOCK_FREE_BEFORE=yes || echo LOCK_FREE_BEFORE=no; } > $Q/logs/preflight.txt 2>&1; cat $Q/logs/preflight.txt
+LOCK_FREE_BEFORE=yes

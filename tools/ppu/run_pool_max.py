@@ -66,8 +66,9 @@ def fixture_check() -> dict:
         if actual['bytes'] != expected['bytes'] or actual['sha256'] != expected['sha256']:
             raise RuntimeError(f'fixture {name} does not match manifest: {actual} != {expected}')
         files[name] = actual
-    if manifest['case'] != CASE or manifest['status'] != 'READY':
-        raise RuntimeError('fixture manifest is not the selected READY case')
+    if (manifest['case'] != CASE or
+            manifest['status'] != 'READY_CAPTURE_BOUNDED_CANDIDATE'):
+        raise RuntimeError('fixture manifest is not the selected capture-bounded candidate')
     if manifest['layout']['input']['line_stride_bytes'] != 64:
         raise RuntimeError('unexpected captured input line stride')
     if manifest['layout']['output']['line_stride_bytes'] != 48:

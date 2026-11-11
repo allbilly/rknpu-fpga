@@ -24,6 +24,7 @@ module tb_ppu_pool_max2x2s2_index_c8_h2w2;
     logic out_ready;
     wire [127:0] out_value_atom;
     wire [127:0] out_index_atom;
+    wire [7:0] out_unique;
     wire out_last;
 
     logic [7:0] in_bo [0:BO_BYTES-1];
@@ -49,6 +50,7 @@ module tb_ppu_pool_max2x2s2_index_c8_h2w2;
     logic force_first_stall;
     logic stalled;
     logic [127:0] held_value;
+    logic [7:0] held_unique;
     logic [127:0] held_index;
     logic held_last;
     string in_path, init_path, device_path, observed_path, case_name;
@@ -57,7 +59,7 @@ module tb_ppu_pool_max2x2s2_index_c8_h2w2;
         .clk(clk), .rst_n(rst_n), .in_valid(in_valid), .in_ready(in_ready),
         .in_atom(in_atom), .out_valid(out_valid), .out_ready(out_ready),
         .out_value_atom(out_value_atom), .out_index_atom(out_index_atom),
-        .out_last(out_last)
+        .out_unique(out_unique), .out_last(out_last)
     );
 
     always @(negedge clk) begin
@@ -82,11 +84,13 @@ module tb_ppu_pool_max2x2s2_index_c8_h2w2;
             if (out_valid && !out_ready)
                 output_stall_cycles <= output_stall_cycles + 1;
             if (stalled && (!out_valid || out_value_atom !== held_value ||
-                            out_index_atom !== held_index || out_last !== held_last))
+                            out_index_atom !== held_index || out_unique !== held_unique ||
+                            out_last !== held_last))
                 $fatal(1, "Paired output changed under backpressure");
             stalled <= out_valid && !out_ready;
             held_value <= out_value_atom;
             held_index <= out_index_atom;
+            held_unique <= out_unique;
             held_last <= out_last;
             if (out_valid && out_ready) begin
                 if (output_beats != 0) $fatal(1, "More than one output atom pair");
@@ -120,6 +124,7 @@ module tb_ppu_pool_max2x2s2_index_c8_h2w2;
         stalled = 0;
         held_value = 0;
         held_index = 0;
+        held_unique = 0;
         held_last = 0;
         captured_value = 0;
         captured_index = 0;
@@ -155,6 +160,8 @@ module tb_ppu_pool_max2x2s2_index_c8_h2w2;
         wait (output_beats == 1);
         if (input_beats != INPUT_BEATS) $fatal(1, "Wrong input atom count");
         if (captured_last !== 1'b1) $fatal(1, "Single result must assert out_last");
+        if (out_unique !== 8'hff)
+            $fatal(1, "captured index case must have a unique maximum in every lane");
         if ((stall_mode == 0 && output_stall_cycles != 0) ||
             (stall_mode == 1 && output_stall_cycles == 0))
             $fatal(1, "Unexpected output stall coverage: %0d", output_stall_cycles);

@@ -1,0 +1,181 @@
+// SPDX-License-Identifier: MIT
+`timescale 1ns/1ps
+// Strict raw-command profile for the RK3588-captured C8 global-average task
+// fp16_avg_global_k3x5_valid_c8_h3w5. Only QWORDs 15 and 22 relocate.
+module rk_ppu_pool_global_avg_raw_profile (
+    input  logic        clk,
+    input  logic        rst_n,
+    input  logic        cmd_valid,
+    output logic        cmd_ready,
+    input  logic [63:0] cmd_data,
+    input  logic        cmd_last,
+    output logic        profile_valid,
+    input  logic        profile_ready,
+    output logic [31:0] rdma_src_base,
+    output logic [31:0] ppu_dst_base,
+    output logic [31:0] rdma_transfer_bytes,
+    output logic [31:0] output_write_bytes,
+    output logic        busy,
+    output logic        error,
+    output logic [3:0]  error_code
+);
+    localparam logic [15:0] TARGET_PPU      = 16'h4001;
+    localparam logic [15:0] TARGET_PPU_RDMA = 16'h8001;
+    localparam logic [15:0] TARGET_PC       = 16'h0081;
+
+    typedef enum logic [2:0] {ST_EMPTY, ST_COLLECT, ST_PUBLISH, ST_DONE, ST_FAULT} state_t;
+    state_t state_q;
+    logic [4:0] word_index_q;
+    logic [31:0] src_base_q, dst_base_q;
+    logic src_seen_q, dst_seen_q;
+    logic [15:0] expected_target, expected_offset;
+    logic [31:0] expected_value;
+    logic [32:0] src_end, dst_end;
+
+    function automatic logic [15:0] target_for(input logic [4:0] index);
+        case (index)
+            5'd0, 5'd2, 5'd3, 5'd4, 5'd5, 5'd6, 5'd7, 5'd8,
+            5'd9, 5'd10, 5'd11, 5'd12, 5'd13, 5'd14, 5'd15, 5'd16,
+            5'd17, 5'd18: target_for = TARGET_PPU;
+            5'd1, 5'd19, 5'd20, 5'd21, 5'd22, 5'd23, 5'd24, 5'd25, 5'd26:
+                target_for = TARGET_PPU_RDMA;
+            5'd27: target_for = TARGET_PC;
+            default: target_for = 16'hxxxx;
+        endcase
+    endfunction
+
+    function automatic logic [15:0] offset_for(input logic [4:0] index);
+        case (index)
+            5'd0: offset_for = 16'h6004;
+            5'd1: offset_for = 16'h7004;
+            5'd2: offset_for = 16'h600c;
+            5'd3: offset_for = 16'h6010;
+            5'd4: offset_for = 16'h6014;
+            5'd5: offset_for = 16'h6018;
+            5'd6: offset_for = 16'h601c;
+            5'd7: offset_for = 16'h6020;
+            5'd8: offset_for = 16'h6024;
+            5'd9: offset_for = 16'h6034;
+            5'd10: offset_for = 16'h6038;
+            5'd11: offset_for = 16'h603c;
+            5'd12: offset_for = 16'h6040;
+            5'd13: offset_for = 16'h6044;
+            5'd14: offset_for = 16'h6048;
+            5'd15: offset_for = 16'h6070;
+            5'd16: offset_for = 16'h607c;
+            5'd17: offset_for = 16'h6084;
+            5'd18: offset_for = 16'h60dc;
+            5'd19: offset_for = 16'h700c;
+            5'd20: offset_for = 16'h7010;
+            5'd21: offset_for = 16'h7014;
+            5'd22: offset_for = 16'h701c;
+            5'd23: offset_for = 16'h7024;
+            5'd24: offset_for = 16'h7028;
+            5'd25: offset_for = 16'h7030;
+            5'd26: offset_for = 16'h7008;
+            5'd27: offset_for = 16'h0008;
+            default: offset_for = 16'hxxxx;
+        endcase
+    endfunction
+
+    function automatic logic [31:0] value_for(input logic [4:0] index);
+        case (index)
+            5'd0, 5'd1: value_for = 32'h0000000e;
+            5'd2, 5'd19: value_for = 32'h00000004;
+            5'd3, 5'd20: value_for = 32'h00000002;
+            5'd4, 5'd7, 5'd21: value_for = 32'h00000007;
+            5'd5, 5'd6: value_for = 32'h00000000;
+            5'd8: value_for = 32'h00000010;
+            5'd9: value_for = 32'h00240204;
+            5'd10: value_for = 32'h00007266;
+            5'd11: value_for = 32'h00007555;
+            5'd12, 5'd13, 5'd14: value_for = 32'h00000000;
+            5'd16: value_for = 32'h00000010;
+            5'd17: value_for = 32'h00000012;
+            5'd18: value_for = 32'h00000003;
+            5'd23: value_for = 32'h00000050;
+            5'd24: value_for = 32'h000000f0;
+            5'd25: value_for = 32'h00000002;
+            5'd26: value_for = 32'h00000001;
+            5'd27: value_for = 32'h00000060;
+            default: value_for = 32'hxxxxxxxx;
+        endcase
+    endfunction
+
+    always_comb begin
+        expected_target = target_for(word_index_q);
+        expected_offset = offset_for(word_index_q);
+        expected_value = value_for(word_index_q);
+        src_end = {1'b0, src_base_q} + 33'd240;
+        dst_end = {1'b0, dst_base_q} + 33'd16;
+    end
+
+    assign cmd_ready = rst_n && (state_q == ST_EMPTY || state_q == ST_COLLECT);
+    assign profile_valid = rst_n && state_q == ST_PUBLISH;
+    assign rdma_src_base = src_base_q;
+    assign ppu_dst_base = dst_base_q;
+    assign rdma_transfer_bytes = 32'd240;
+    assign output_write_bytes = 32'd16;
+    assign busy = (state_q == ST_COLLECT) || (state_q == ST_PUBLISH);
+
+    always_ff @(posedge clk) begin
+        if (!rst_n) begin
+            state_q <= ST_EMPTY;
+            word_index_q <= 5'd0;
+            src_base_q <= 32'd0;
+            dst_base_q <= 32'd0;
+            src_seen_q <= 1'b0;
+            dst_seen_q <= 1'b0;
+            error <= 1'b0;
+            error_code <= 4'd0;
+        end else if (cmd_valid && cmd_ready) begin
+            if (cmd_data[63:48] !== expected_target ||
+                cmd_data[15:0] !== expected_offset) begin
+                error <= 1'b1;
+                error_code <= 4'd1;
+                state_q <= ST_FAULT;
+            end else if (cmd_last !== (word_index_q == 5'd27)) begin
+                error <= 1'b1;
+                error_code <= 4'd1;
+                state_q <= ST_FAULT;
+            end else if (word_index_q == 5'd15 || word_index_q == 5'd22) begin
+                if ((^cmd_data[47:16]) === 1'bx || cmd_data[47:16] == 32'd0 ||
+                    cmd_data[19:16] !== 4'd0) begin
+                    error <= 1'b1;
+                    error_code <= 4'd3;
+                    state_q <= ST_FAULT;
+                end else begin
+                    if (word_index_q == 5'd15) begin
+                        dst_base_q <= cmd_data[47:16];
+                        dst_seen_q <= 1'b1;
+                    end else begin
+                        src_base_q <= cmd_data[47:16];
+                        src_seen_q <= 1'b1;
+                    end
+                    word_index_q <= word_index_q + 1'b1;
+                    state_q <= ST_COLLECT;
+                end
+            end else if (cmd_data[47:16] !== expected_value) begin
+                error <= 1'b1;
+                error_code <= 4'd2;
+                state_q <= ST_FAULT;
+            end else if (word_index_q == 5'd27) begin
+                if (!src_seen_q || !dst_seen_q || src_end > 33'h100000000 ||
+                    dst_end > 33'h100000000 ||
+                    (({1'b0, src_base_q} < dst_end) &&
+                     ({1'b0, dst_base_q} < src_end))) begin
+                    error <= 1'b1;
+                    error_code <= 4'd3;
+                    state_q <= ST_FAULT;
+                end else begin
+                    state_q <= ST_PUBLISH;
+                end
+            end else begin
+                word_index_q <= word_index_q + 1'b1;
+                state_q <= ST_COLLECT;
+            end
+        end else if (profile_valid && profile_ready) begin
+            state_q <= ST_DONE;
+        end
+    end
+endmodule

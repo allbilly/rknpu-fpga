@@ -1,0 +1,49 @@
+{
+  "case": "conv_splitoc_3x3_c16_h9_w9_oc16_task1",
+  "description": "One-task promotion of the split-OC FP16 C16 9x9 -> OC8 7x7 task 1/2. The parent two-task job is blocked because Rocket left task 1 output all zero.",
+  "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+  "timeout_ns": 6000000000,
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 54
+    }
+  ],
+  "buffers": [
+    {
+      "name": "a",
+      "size": 2592,
+      "input": "a.bin",
+      "direction": "in"
+    },
+    {
+      "name": "w",
+      "size": 2304,
+      "input": "w.bin",
+      "direction": "in"
+    },
+    {
+      "name": "out",
+      "size": 3328,
+      "direction": "out",
+      "output": "out.bin"
+    }
+  ],
+  "patches": [
+    {
+      "regcmd_index": 21,
+      "buffer": "a",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 27,
+      "buffer": "w",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 35,
+      "buffer": "out",
+      "kind": "value32"
+    }
+  ]
+}

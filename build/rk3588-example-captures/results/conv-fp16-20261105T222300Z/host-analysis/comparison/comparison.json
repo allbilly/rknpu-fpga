@@ -1,0 +1,894 @@
+{
+  "run_id": "20261105T222300Z",
+  "atol": 0.2,
+  "case_count": 9,
+  "cases_exact_all": 9,
+  "cases_tolerance_all": 9,
+  "all_ok": true,
+  "cases": [
+    {
+      "case": "conv_1x1_valid_c8_h5_w5_oc8",
+      "capture_status": "OK",
+      "submit_ret": 0,
+      "task_count": 1,
+      "device_path": "/dev/accel/accel0",
+      "device": {
+        "board_compatible": [
+          "xunlong,orangepi-5",
+          "rockchip,rk3588s"
+        ],
+        "kernel": "6.18.24-current-rockchip64",
+        "major": 261,
+        "minor": 0,
+        "path": "/dev/accel/accel0",
+        "sysfs_device": "/sys/devices/platform/rknn"
+      },
+      "tool": {
+        "hostname": "orangepi5",
+        "kernel": "6.18.24-current-rockchip64",
+        "name": "rocket_run.py",
+        "python": "3.14.4",
+        "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+        "version": "1.0.0"
+      },
+      "capture_json_sha256": "2d51b9104b4fe6bd250c41d60fe13c4c9b408e543d449e35d4a844f918027758",
+      "outputs": [
+        {
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "layout": "flat_1x1",
+          "out_c": 8,
+          "out_h": 5,
+          "out_w": 5,
+          "out_width_stride": 25,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "raw_bytes": 1600,
+          "declared_raw_bytes": 1600,
+          "buffer_size": 1600,
+          "expected_bytes": 400,
+          "size_ok": true,
+          "expected_size_ok": true,
+          "layout_ok": true,
+          "output_sha256": "82f8bdb91b780e54f6d90b1ea4281d01913f7561d688f0e5a75df89b5f604f0e",
+          "capture_output_sha256": "82f8bdb91b780e54f6d90b1ea4281d01913f7561d688f0e5a75df89b5f604f0e",
+          "capture_hash_matches": true,
+          "capture_output_size": 1600,
+          "capture_size_matches": true,
+          "expected_sha256": "7a364a2c20910f0b00f4f522856009ed69d5a477ea4b9fdee5ac146193d2058c",
+          "defined_sha256": "7a364a2c20910f0b00f4f522856009ed69d5a477ea4b9fdee5ac146193d2058c",
+          "exact_bytes_equal": true,
+          "exact_byte_mismatches": 0,
+          "exact_element_mismatches": 0,
+          "tolerance_atol": 0.2,
+          "nonzero_diff_elements": 0,
+          "over_tolerance_elements": 0,
+          "nonfinite_elements": 0,
+          "max_abs_diff": 0.0,
+          "defined_elements": 200,
+          "padding_total": {
+            "elements": 600,
+            "nonzero_bits": 175,
+            "nonzero_values": 150,
+            "nan": 0,
+            "inf": 100,
+            "max_abs_finite": 0.311767578125
+          },
+          "padding_channel": {
+            "elements": 600,
+            "nonzero_bits": 175,
+            "nonzero_values": 150,
+            "nan": 0,
+            "inf": 100,
+            "max_abs_finite": 0.311767578125
+          },
+          "padding_tail": {
+            "elements": 0,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          }
+        }
+      ],
+      "exact_all": true,
+      "tolerance_all": true,
+      "diagnostic_evidence": []
+    },
+    {
+      "case": "conv_3x3_valid_c4_h9_w9_oc4",
+      "capture_status": "OK",
+      "submit_ret": 0,
+      "task_count": 1,
+      "device_path": "/dev/accel/accel0",
+      "device": {
+        "board_compatible": [
+          "xunlong,orangepi-5",
+          "rockchip,rk3588s"
+        ],
+        "kernel": "6.18.24-current-rockchip64",
+        "major": 261,
+        "minor": 0,
+        "path": "/dev/accel/accel0",
+        "sysfs_device": "/sys/devices/platform/rknn"
+      },
+      "tool": {
+        "hostname": "orangepi5",
+        "kernel": "6.18.24-current-rockchip64",
+        "name": "rocket_run.py",
+        "python": "3.14.4",
+        "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+        "version": "1.0.0"
+      },
+      "capture_json_sha256": "bfbb87b83326f0c3adc295e9d5bdc5f52bd4726946b86e2268c93ed5d80d521b",
+      "outputs": [
+        {
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "layout": "nc1hwc2",
+          "out_c": 4,
+          "out_h": 7,
+          "out_w": 7,
+          "out_width_stride": 52,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "raw_bytes": 3328,
+          "declared_raw_bytes": 3328,
+          "buffer_size": 3328,
+          "expected_bytes": 392,
+          "size_ok": true,
+          "expected_size_ok": true,
+          "layout_ok": true,
+          "output_sha256": "8a7b397bfd07a78c83474b1793f851657032633917265fc0c67fdf852772a69e",
+          "capture_output_sha256": "8a7b397bfd07a78c83474b1793f851657032633917265fc0c67fdf852772a69e",
+          "capture_hash_matches": true,
+          "capture_output_size": 3328,
+          "capture_size_matches": true,
+          "expected_sha256": "41228d27327f99473bfa826bea316bc389afcd404d6a15e6f17dc9431c855b59",
+          "defined_sha256": "41228d27327f99473bfa826bea316bc389afcd404d6a15e6f17dc9431c855b59",
+          "exact_bytes_equal": true,
+          "exact_byte_mismatches": 0,
+          "exact_element_mismatches": 0,
+          "tolerance_atol": 0.2,
+          "nonzero_diff_elements": 0,
+          "over_tolerance_elements": 0,
+          "nonfinite_elements": 0,
+          "max_abs_diff": 0.0,
+          "defined_elements": 196,
+          "padding_total": {
+            "elements": 1468,
+            "nonzero_bits": 539,
+            "nonzero_values": 490,
+            "nan": 0,
+            "inf": 196,
+            "max_abs_finite": 3.458984375
+          },
+          "padding_channel": {
+            "elements": 1372,
+            "nonzero_bits": 539,
+            "nonzero_values": 490,
+            "nan": 0,
+            "inf": 196,
+            "max_abs_finite": 3.458984375
+          },
+          "padding_tail": {
+            "elements": 96,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          }
+        }
+      ],
+      "exact_all": true,
+      "tolerance_all": true,
+      "diagnostic_evidence": []
+    },
+    {
+      "case": "conv_3x3_stride2_c4_h11_w11_oc4",
+      "capture_status": "OK",
+      "submit_ret": 0,
+      "task_count": 1,
+      "device_path": "/dev/accel/accel0",
+      "device": {
+        "board_compatible": [
+          "xunlong,orangepi-5",
+          "rockchip,rk3588s"
+        ],
+        "kernel": "6.18.24-current-rockchip64",
+        "major": 261,
+        "minor": 0,
+        "path": "/dev/accel/accel0",
+        "sysfs_device": "/sys/devices/platform/rknn"
+      },
+      "tool": {
+        "hostname": "orangepi5",
+        "kernel": "6.18.24-current-rockchip64",
+        "name": "rocket_run.py",
+        "python": "3.14.4",
+        "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+        "version": "1.0.0"
+      },
+      "capture_json_sha256": "eae0e8be6058a9b7bd06c3d4cbe2c8b9d7f823d7e87f79a14ede8e597a3267f8",
+      "outputs": [
+        {
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "layout": "nc1hwc2",
+          "out_c": 4,
+          "out_h": 5,
+          "out_w": 5,
+          "out_width_stride": 28,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "raw_bytes": 1792,
+          "declared_raw_bytes": 1792,
+          "buffer_size": 1792,
+          "expected_bytes": 200,
+          "size_ok": true,
+          "expected_size_ok": true,
+          "layout_ok": true,
+          "output_sha256": "ccb23f0dc8ba83e6f30e678026bfad54ec695e435626b705c1e31c782171fd23",
+          "capture_output_sha256": "ccb23f0dc8ba83e6f30e678026bfad54ec695e435626b705c1e31c782171fd23",
+          "capture_hash_matches": true,
+          "capture_output_size": 1792,
+          "capture_size_matches": true,
+          "expected_sha256": "68dae872fad0dfb71ea7b0f32c7768fd5daca405b206c7e9d9121ce93d2305c6",
+          "defined_sha256": "68dae872fad0dfb71ea7b0f32c7768fd5daca405b206c7e9d9121ce93d2305c6",
+          "exact_bytes_equal": true,
+          "exact_byte_mismatches": 0,
+          "exact_element_mismatches": 0,
+          "tolerance_atol": 0.2,
+          "nonzero_diff_elements": 0,
+          "over_tolerance_elements": 0,
+          "nonfinite_elements": 0,
+          "max_abs_diff": 0.0,
+          "defined_elements": 100,
+          "padding_total": {
+            "elements": 796,
+            "nonzero_bits": 275,
+            "nonzero_values": 250,
+            "nan": 0,
+            "inf": 100,
+            "max_abs_finite": 3.458984375
+          },
+          "padding_channel": {
+            "elements": 700,
+            "nonzero_bits": 275,
+            "nonzero_values": 250,
+            "nan": 0,
+            "inf": 100,
+            "max_abs_finite": 3.458984375
+          },
+          "padding_tail": {
+            "elements": 96,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          }
+        }
+      ],
+      "exact_all": true,
+      "tolerance_all": true,
+      "diagnostic_evidence": []
+    },
+    {
+      "case": "conv_3x3_pad1_zero_frame_c4_h9_w9_oc4",
+      "capture_status": "OK",
+      "submit_ret": 0,
+      "task_count": 1,
+      "device_path": "/dev/accel/accel0",
+      "device": {
+        "board_compatible": [
+          "xunlong,orangepi-5",
+          "rockchip,rk3588s"
+        ],
+        "kernel": "6.18.24-current-rockchip64",
+        "major": 261,
+        "minor": 0,
+        "path": "/dev/accel/accel0",
+        "sysfs_device": "/sys/devices/platform/rknn"
+      },
+      "tool": {
+        "hostname": "orangepi5",
+        "kernel": "6.18.24-current-rockchip64",
+        "name": "rocket_run.py",
+        "python": "3.14.4",
+        "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+        "version": "1.0.0"
+      },
+      "capture_json_sha256": "cdc608c97d665351f0d4b6cb936ac6498ed739118af035c1d8d192daac387626",
+      "outputs": [
+        {
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "layout": "nc1hwc2",
+          "out_c": 4,
+          "out_h": 9,
+          "out_w": 9,
+          "out_width_stride": 84,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "raw_bytes": 5376,
+          "declared_raw_bytes": 5376,
+          "buffer_size": 5376,
+          "expected_bytes": 648,
+          "size_ok": true,
+          "expected_size_ok": true,
+          "layout_ok": true,
+          "output_sha256": "2e637665c52998bc134e7b1f41c0267742e75aaa4847f01eb4efd9e8ae831167",
+          "capture_output_sha256": "2e637665c52998bc134e7b1f41c0267742e75aaa4847f01eb4efd9e8ae831167",
+          "capture_hash_matches": true,
+          "capture_output_size": 5376,
+          "capture_size_matches": true,
+          "expected_sha256": "cb4c8e96cae4d40c0bbbfd0d8bb58221d9ccdcf60767edb8b3cdafd9503ade29",
+          "defined_sha256": "cb4c8e96cae4d40c0bbbfd0d8bb58221d9ccdcf60767edb8b3cdafd9503ade29",
+          "exact_bytes_equal": true,
+          "exact_byte_mismatches": 0,
+          "exact_element_mismatches": 0,
+          "tolerance_atol": 0.2,
+          "nonzero_diff_elements": 0,
+          "over_tolerance_elements": 0,
+          "nonfinite_elements": 0,
+          "max_abs_diff": 0.0,
+          "defined_elements": 324,
+          "padding_total": {
+            "elements": 2364,
+            "nonzero_bits": 891,
+            "nonzero_values": 810,
+            "nan": 0,
+            "inf": 324,
+            "max_abs_finite": 3.458984375
+          },
+          "padding_channel": {
+            "elements": 2268,
+            "nonzero_bits": 891,
+            "nonzero_values": 810,
+            "nan": 0,
+            "inf": 324,
+            "max_abs_finite": 3.458984375
+          },
+          "padding_tail": {
+            "elements": 96,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          }
+        }
+      ],
+      "exact_all": true,
+      "tolerance_all": true,
+      "diagnostic_evidence": []
+    },
+    {
+      "case": "conv_depthwise_3x3_c3_h11_w28_oc3",
+      "capture_status": "OK",
+      "submit_ret": 0,
+      "task_count": 1,
+      "device_path": "/dev/accel/accel0",
+      "device": {
+        "board_compatible": [
+          "xunlong,orangepi-5",
+          "rockchip,rk3588s"
+        ],
+        "kernel": "6.18.24-current-rockchip64",
+        "major": 261,
+        "minor": 0,
+        "path": "/dev/accel/accel0",
+        "sysfs_device": "/sys/devices/platform/rknn"
+      },
+      "tool": {
+        "hostname": "orangepi5",
+        "kernel": "6.18.24-current-rockchip64",
+        "name": "rocket_run.py",
+        "python": "3.14.4",
+        "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+        "version": "1.0.0"
+      },
+      "capture_json_sha256": "ea56570b2a1f62205078bb94432e12d2ad02af95e471e7bee2766cc74c435b6a",
+      "outputs": [
+        {
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "layout": "nc1hwc2",
+          "out_c": 3,
+          "out_h": 9,
+          "out_w": 26,
+          "out_width_stride": 236,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "raw_bytes": 15104,
+          "declared_raw_bytes": 15104,
+          "buffer_size": 15104,
+          "expected_bytes": 1404,
+          "size_ok": true,
+          "expected_size_ok": true,
+          "layout_ok": true,
+          "output_sha256": "431f470ed23f321f115a9af03db2edba170d5ac3e036efb08c10834aba0faacf",
+          "capture_output_sha256": "431f470ed23f321f115a9af03db2edba170d5ac3e036efb08c10834aba0faacf",
+          "capture_hash_matches": true,
+          "capture_output_size": 15104,
+          "capture_size_matches": true,
+          "expected_sha256": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b",
+          "defined_sha256": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b",
+          "exact_bytes_equal": true,
+          "exact_byte_mismatches": 0,
+          "exact_element_mismatches": 0,
+          "tolerance_atol": 0.2,
+          "nonzero_diff_elements": 0,
+          "over_tolerance_elements": 0,
+          "nonfinite_elements": 0,
+          "max_abs_diff": 0.0,
+          "defined_elements": 702,
+          "padding_total": {
+            "elements": 6850,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          },
+          "padding_channel": {
+            "elements": 6786,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          },
+          "padding_tail": {
+            "elements": 64,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          }
+        }
+      ],
+      "exact_all": true,
+      "tolerance_all": true,
+      "diagnostic_evidence": []
+    },
+    {
+      "case": "conv_grouped_3x3_c4_h5_w5_oc8_g2_task0",
+      "capture_status": "OK",
+      "submit_ret": 0,
+      "task_count": 1,
+      "device_path": "/dev/accel/accel0",
+      "device": {
+        "board_compatible": [
+          "xunlong,orangepi-5",
+          "rockchip,rk3588s"
+        ],
+        "kernel": "6.18.24-current-rockchip64",
+        "major": 261,
+        "minor": 0,
+        "path": "/dev/accel/accel0",
+        "sysfs_device": "/sys/devices/platform/rknn"
+      },
+      "tool": {
+        "hostname": "orangepi5",
+        "kernel": "6.18.24-current-rockchip64",
+        "name": "rocket_run.py",
+        "python": "3.14.4",
+        "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+        "version": "1.0.0"
+      },
+      "capture_json_sha256": "18226bd92804cb7b65379ca052373a309081ce1576c2376a060c03304aed88ed",
+      "outputs": [
+        {
+          "buffer": "out0",
+          "output": "out0.bin",
+          "expected": "expected_out0.bin",
+          "layout": "nc1hwc2",
+          "out_c": 4,
+          "out_h": 3,
+          "out_w": 3,
+          "out_width_stride": 12,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "raw_bytes": 768,
+          "declared_raw_bytes": 768,
+          "buffer_size": 768,
+          "expected_bytes": 72,
+          "size_ok": true,
+          "expected_size_ok": true,
+          "layout_ok": true,
+          "output_sha256": "74fa89a3e6a4d0d13aa936639c92eb7de9e52ebf1b233d24081264c30f87667b",
+          "capture_output_sha256": "74fa89a3e6a4d0d13aa936639c92eb7de9e52ebf1b233d24081264c30f87667b",
+          "capture_hash_matches": true,
+          "capture_output_size": 768,
+          "capture_size_matches": true,
+          "expected_sha256": "68bec39a92255048678a37a33125a1668466128c08eca7cf760aa29fb65ac84a",
+          "defined_sha256": "68bec39a92255048678a37a33125a1668466128c08eca7cf760aa29fb65ac84a",
+          "exact_bytes_equal": true,
+          "exact_byte_mismatches": 0,
+          "exact_element_mismatches": 0,
+          "tolerance_atol": 0.2,
+          "nonzero_diff_elements": 0,
+          "over_tolerance_elements": 0,
+          "nonfinite_elements": 0,
+          "max_abs_diff": 0.0,
+          "defined_elements": 36,
+          "padding_total": {
+            "elements": 348,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          },
+          "padding_channel": {
+            "elements": 252,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          },
+          "padding_tail": {
+            "elements": 96,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          }
+        }
+      ],
+      "exact_all": true,
+      "tolerance_all": true,
+      "diagnostic_evidence": [
+        {
+          "evidence_file": "evidence_diagnostic_out0.bin",
+          "target_file": "out0.bin",
+          "evidence_sha256": "2b9b1524c7cff40fffa54127df398f69a91297b9049a97f54fd06c880c38a9a5",
+          "target_sha256": "74fa89a3e6a4d0d13aa936639c92eb7de9e52ebf1b233d24081264c30f87667b",
+          "raw_bytes_equal": false,
+          "raw_byte_mismatches": 72,
+          "first_mismatch_offset": 8,
+          "evidence_defined_exact": true,
+          "evidence_defined_element_mismatches": 0,
+          "evidence_defined_byte_diffs": 0,
+          "evidence_padding_byte_diffs": 72
+        }
+      ]
+    },
+    {
+      "case": "conv_grouped_3x3_c4_h5_w5_oc8_g2_task1",
+      "capture_status": "OK",
+      "submit_ret": 0,
+      "task_count": 1,
+      "device_path": "/dev/accel/accel0",
+      "device": {
+        "board_compatible": [
+          "xunlong,orangepi-5",
+          "rockchip,rk3588s"
+        ],
+        "kernel": "6.18.24-current-rockchip64",
+        "major": 261,
+        "minor": 0,
+        "path": "/dev/accel/accel0",
+        "sysfs_device": "/sys/devices/platform/rknn"
+      },
+      "tool": {
+        "hostname": "orangepi5",
+        "kernel": "6.18.24-current-rockchip64",
+        "name": "rocket_run.py",
+        "python": "3.14.4",
+        "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+        "version": "1.0.0"
+      },
+      "capture_json_sha256": "66a1865895c91a7d91b6eaeac6101c78a47b3acf9cab6ccd7b8fda351ee64d6d",
+      "outputs": [
+        {
+          "buffer": "out1",
+          "output": "out1.bin",
+          "expected": "expected_out1.bin",
+          "layout": "nc1hwc2",
+          "out_c": 4,
+          "out_h": 3,
+          "out_w": 3,
+          "out_width_stride": 12,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "raw_bytes": 768,
+          "declared_raw_bytes": 768,
+          "buffer_size": 768,
+          "expected_bytes": 72,
+          "size_ok": true,
+          "expected_size_ok": true,
+          "layout_ok": true,
+          "output_sha256": "6346cb4bb5e76e8fccde6b3c9d42808dc5becd92f85498511679bd4999953acb",
+          "capture_output_sha256": "6346cb4bb5e76e8fccde6b3c9d42808dc5becd92f85498511679bd4999953acb",
+          "capture_hash_matches": true,
+          "capture_output_size": 768,
+          "capture_size_matches": true,
+          "expected_sha256": "4fe930c07e85b5d36be8049d579376e17750961bb2b4259fbf4101867923d9bf",
+          "defined_sha256": "4fe930c07e85b5d36be8049d579376e17750961bb2b4259fbf4101867923d9bf",
+          "exact_bytes_equal": true,
+          "exact_byte_mismatches": 0,
+          "exact_element_mismatches": 0,
+          "tolerance_atol": 0.2,
+          "nonzero_diff_elements": 0,
+          "over_tolerance_elements": 0,
+          "nonfinite_elements": 0,
+          "max_abs_diff": 0.0,
+          "defined_elements": 36,
+          "padding_total": {
+            "elements": 348,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          },
+          "padding_channel": {
+            "elements": 252,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          },
+          "padding_tail": {
+            "elements": 96,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          }
+        }
+      ],
+      "exact_all": true,
+      "tolerance_all": true,
+      "diagnostic_evidence": [
+        {
+          "evidence_file": "evidence_diagnostic_out1.bin",
+          "target_file": "out1.bin",
+          "evidence_sha256": "1bb2e0e5a2ec708d27d4bac96123d5c447a2a79214cbe2fe09bcac1b31b4024a",
+          "target_sha256": "6346cb4bb5e76e8fccde6b3c9d42808dc5becd92f85498511679bd4999953acb",
+          "raw_bytes_equal": false,
+          "raw_byte_mismatches": 72,
+          "first_mismatch_offset": 8,
+          "evidence_defined_exact": true,
+          "evidence_defined_element_mismatches": 0,
+          "evidence_defined_byte_diffs": 0,
+          "evidence_padding_byte_diffs": 72
+        }
+      ]
+    },
+    {
+      "case": "conv_splitoc_3x3_c16_h9_w9_oc16_task0",
+      "capture_status": "OK",
+      "submit_ret": 0,
+      "task_count": 1,
+      "device_path": "/dev/accel/accel0",
+      "device": {
+        "board_compatible": [
+          "xunlong,orangepi-5",
+          "rockchip,rk3588s"
+        ],
+        "kernel": "6.18.24-current-rockchip64",
+        "major": 261,
+        "minor": 0,
+        "path": "/dev/accel/accel0",
+        "sysfs_device": "/sys/devices/platform/rknn"
+      },
+      "tool": {
+        "hostname": "orangepi5",
+        "kernel": "6.18.24-current-rockchip64",
+        "name": "rocket_run.py",
+        "python": "3.14.4",
+        "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+        "version": "1.0.0"
+      },
+      "capture_json_sha256": "92c3b1cdb19f538e117b9014379f2eebe558d0014c7ec3f9edfd76efd78dad25",
+      "outputs": [
+        {
+          "buffer": "out0",
+          "output": "out0.bin",
+          "expected": "expected_out0.bin",
+          "layout": "nc1hwc2",
+          "out_c": 8,
+          "out_h": 7,
+          "out_w": 7,
+          "out_width_stride": 52,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "raw_bytes": 3328,
+          "declared_raw_bytes": 3328,
+          "buffer_size": 3328,
+          "expected_bytes": 784,
+          "size_ok": true,
+          "expected_size_ok": true,
+          "layout_ok": true,
+          "output_sha256": "48ad9ce497eb9d44359343b570a836e5faea05430fc217f668a8c50a78cec108",
+          "capture_output_sha256": "48ad9ce497eb9d44359343b570a836e5faea05430fc217f668a8c50a78cec108",
+          "capture_hash_matches": true,
+          "capture_output_size": 3328,
+          "capture_size_matches": true,
+          "expected_sha256": "c539835d0b1d1819b717b7033c7fe003f8eb920c8fd51ec2b4ee32a96ff0016b",
+          "defined_sha256": "c539835d0b1d1819b717b7033c7fe003f8eb920c8fd51ec2b4ee32a96ff0016b",
+          "exact_bytes_equal": true,
+          "exact_byte_mismatches": 0,
+          "exact_element_mismatches": 0,
+          "tolerance_atol": 0.2,
+          "nonzero_diff_elements": 0,
+          "over_tolerance_elements": 0,
+          "nonfinite_elements": 0,
+          "max_abs_diff": 0.0,
+          "defined_elements": 392,
+          "padding_total": {
+            "elements": 1272,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          },
+          "padding_channel": {
+            "elements": 1176,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          },
+          "padding_tail": {
+            "elements": 96,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          }
+        }
+      ],
+      "exact_all": true,
+      "tolerance_all": true,
+      "diagnostic_evidence": [
+        {
+          "evidence_file": "evidence_diagnostic_out0.bin",
+          "target_file": "out0.bin",
+          "evidence_sha256": "48ad9ce497eb9d44359343b570a836e5faea05430fc217f668a8c50a78cec108",
+          "target_sha256": "48ad9ce497eb9d44359343b570a836e5faea05430fc217f668a8c50a78cec108",
+          "raw_bytes_equal": true,
+          "raw_byte_mismatches": 0,
+          "first_mismatch_offset": null,
+          "evidence_defined_exact": true,
+          "evidence_defined_element_mismatches": 0,
+          "evidence_defined_byte_diffs": 0,
+          "evidence_padding_byte_diffs": 0
+        }
+      ]
+    },
+    {
+      "case": "conv_splitoc_3x3_c16_h9_w9_oc16_task1",
+      "capture_status": "OK",
+      "submit_ret": 0,
+      "task_count": 1,
+      "device_path": "/dev/accel/accel0",
+      "device": {
+        "board_compatible": [
+          "xunlong,orangepi-5",
+          "rockchip,rk3588s"
+        ],
+        "kernel": "6.18.24-current-rockchip64",
+        "major": 261,
+        "minor": 0,
+        "path": "/dev/accel/accel0",
+        "sysfs_device": "/sys/devices/platform/rknn"
+      },
+      "tool": {
+        "hostname": "orangepi5",
+        "kernel": "6.18.24-current-rockchip64",
+        "name": "rocket_run.py",
+        "python": "3.14.4",
+        "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+        "version": "1.0.0"
+      },
+      "capture_json_sha256": "1461b70f77d954309e02b0fe5c26dd51253723c9f645c304933564d12f07f265",
+      "outputs": [
+        {
+          "buffer": "out1",
+          "output": "out1.bin",
+          "expected": "expected_out1.bin",
+          "layout": "nc1hwc2",
+          "out_c": 8,
+          "out_h": 7,
+          "out_w": 7,
+          "out_width_stride": 52,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "raw_bytes": 3328,
+          "declared_raw_bytes": 3328,
+          "buffer_size": 3328,
+          "expected_bytes": 784,
+          "size_ok": true,
+          "expected_size_ok": true,
+          "layout_ok": true,
+          "output_sha256": "f83443a0c459a8926272001d29c2018cb4d06d1869496be663f0b6a746c853be",
+          "capture_output_sha256": "f83443a0c459a8926272001d29c2018cb4d06d1869496be663f0b6a746c853be",
+          "capture_hash_matches": true,
+          "capture_output_size": 3328,
+          "capture_size_matches": true,
+          "expected_sha256": "d1947de80b07b957d81b8a1a93e7e445906fb6a12985a7f773ab479cde838027",
+          "defined_sha256": "d1947de80b07b957d81b8a1a93e7e445906fb6a12985a7f773ab479cde838027",
+          "exact_bytes_equal": true,
+          "exact_byte_mismatches": 0,
+          "exact_element_mismatches": 0,
+          "tolerance_atol": 0.2,
+          "nonzero_diff_elements": 0,
+          "over_tolerance_elements": 0,
+          "nonfinite_elements": 0,
+          "max_abs_diff": 0.0,
+          "defined_elements": 392,
+          "padding_total": {
+            "elements": 1272,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          },
+          "padding_channel": {
+            "elements": 1176,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          },
+          "padding_tail": {
+            "elements": 96,
+            "nonzero_bits": 0,
+            "nonzero_values": 0,
+            "nan": 0,
+            "inf": 0,
+            "max_abs_finite": 0.0
+          }
+        }
+      ],
+      "exact_all": true,
+      "tolerance_all": true,
+      "diagnostic_evidence": [
+        {
+          "evidence_file": "evidence_diagnostic_out1.bin",
+          "target_file": "out1.bin",
+          "evidence_sha256": "f83443a0c459a8926272001d29c2018cb4d06d1869496be663f0b6a746c853be",
+          "target_sha256": "f83443a0c459a8926272001d29c2018cb4d06d1869496be663f0b6a746c853be",
+          "raw_bytes_equal": true,
+          "raw_byte_mismatches": 0,
+          "first_mismatch_offset": null,
+          "evidence_defined_exact": true,
+          "evidence_defined_element_mismatches": 0,
+          "evidence_defined_byte_diffs": 0,
+          "evidence_padding_byte_diffs": 0
+        }
+      ]
+    }
+  ]
+}

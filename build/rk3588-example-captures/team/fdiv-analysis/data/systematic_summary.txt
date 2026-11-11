@@ -1,0 +1,110 @@
+run 20261105T204746Z host=orangepi5 device=/dev/accel/accel0
+256 lanes; output bytes=512; all_json=True all_tsv=True hashes=True
+contract mismatches: 0/256
+  finite-finite: 0/100
+  special: 0/156
+old pre-grid contract mismatches: 40/256
+IEEE bit mismatches: 43/256; NaN quiet-bit violations: 61
+special cells: {
+  "zero_p/zero_p": "0x7c01",
+  "zero_p/zero_n": "0x7c00",
+  "zero_n/zero_p": "0xfc00",
+  "zero_n/zero_n": "0xfc00",
+  "inf_p/inf_p": "0x7c00",
+  "inf_p/inf_n": "0x7c00",
+  "inf_n/inf_p": "0xfc00",
+  "inf_n/inf_n": "0xfc00",
+  "one_p/zero_n": "0x7c00",
+  "one_n/zero_n": "0xfc00",
+  "one_n/inf_n": "0x8000",
+  "zero_n/inf_n": "0x8000",
+  "zero_p/one_n": "0x0000",
+  "zero_n/one_n": "0x8000"
+}
+
+Old-contract failures:
+  zero_p/zero_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=zero-zero-inf-sign-a
+  zero_p/inf_n obs=0x0000 old=0x8000 new=0x0000 rule=inf-den-sign-a
+  zero_p/one_n obs=0x0000 old=0x8000 new=0x0000 rule=zero-num-sign-a
+  zero_p/half_n obs=0x0000 old=0x8000 new=0x0000 rule=zero-num-sign-a
+  zero_p/two_n obs=0x0000 old=0x8000 new=0x0000 rule=zero-num-sign-a
+  zero_n/zero_n obs=0xfc00 old=0x7c00 new=0xfc00 rule=zero-zero-inf-sign-a
+  zero_n/inf_n obs=0x8000 old=0x0000 new=0x8000 rule=inf-den-sign-a
+  zero_n/one_n obs=0x8000 old=0x0000 new=0x8000 rule=zero-num-sign-a
+  zero_n/half_n obs=0x8000 old=0x0000 new=0x8000 rule=zero-num-sign-a
+  zero_n/two_n obs=0x8000 old=0x0000 new=0x8000 rule=zero-num-sign-a
+  inf_p/zero_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=div-zero-sign-a
+  inf_p/inf_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=inf-num-sign-a
+  inf_p/one_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=inf-num-sign-a
+  inf_p/half_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=inf-num-sign-a
+  inf_p/two_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=inf-num-sign-a
+  inf_n/zero_n obs=0xfc00 old=0x7c00 new=0xfc00 rule=div-zero-sign-a
+  inf_n/inf_n obs=0xfc00 old=0x7c00 new=0xfc00 rule=inf-num-sign-a
+  inf_n/one_n obs=0xfc00 old=0x7c00 new=0xfc00 rule=inf-num-sign-a
+  inf_n/half_n obs=0xfc00 old=0x7c00 new=0xfc00 rule=inf-num-sign-a
+  inf_n/two_n obs=0xfc00 old=0x7c00 new=0xfc00 rule=inf-num-sign-a
+  sub_min/zero_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=div-zero-sign-a
+  sub_min/inf_n obs=0x0000 old=0x8000 new=0x0000 rule=inf-den-sign-a
+  sub_max/zero_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=div-zero-sign-a
+  sub_max/inf_n obs=0x0000 old=0x8000 new=0x0000 rule=inf-den-sign-a
+  norm_min/zero_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=div-zero-sign-a
+  norm_min/inf_n obs=0x0000 old=0x8000 new=0x0000 rule=inf-den-sign-a
+  fin_max/zero_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=div-zero-sign-a
+  fin_max/inf_n obs=0x0000 old=0x8000 new=0x0000 rule=inf-den-sign-a
+  one_p/zero_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=div-zero-sign-a
+  one_p/inf_n obs=0x0000 old=0x8000 new=0x0000 rule=inf-den-sign-a
+  one_n/zero_n obs=0xfc00 old=0x7c00 new=0xfc00 rule=div-zero-sign-a
+  one_n/inf_n obs=0x8000 old=0x0000 new=0x8000 rule=inf-den-sign-a
+  half_p/zero_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=div-zero-sign-a
+  half_p/inf_n obs=0x0000 old=0x8000 new=0x0000 rule=inf-den-sign-a
+  half_n/zero_n obs=0xfc00 old=0x7c00 new=0xfc00 rule=div-zero-sign-a
+  half_n/inf_n obs=0x8000 old=0x0000 new=0x8000 rule=inf-den-sign-a
+  two_p/zero_n obs=0x7c00 old=0xfc00 new=0x7c00 rule=div-zero-sign-a
+  two_p/inf_n obs=0x0000 old=0x8000 new=0x0000 rule=inf-den-sign-a
+  two_n/zero_n obs=0xfc00 old=0x7c00 new=0xfc00 rule=div-zero-sign-a
+  two_n/inf_n obs=0x8000 old=0x0000 new=0x8000 rule=inf-den-sign-a
+
+IEEE mismatches:
+  zero_p/zero_n obs=0x7c00 ieee_class=nan ieee_bits=None
+  zero_p/inf_n obs=0x0000 ieee_class=zero ieee_bits=0x8000
+  zero_p/one_n obs=0x0000 ieee_class=zero ieee_bits=0x8000
+  zero_p/half_n obs=0x0000 ieee_class=zero ieee_bits=0x8000
+  zero_p/two_n obs=0x0000 ieee_class=zero ieee_bits=0x8000
+  zero_n/zero_p obs=0xfc00 ieee_class=nan ieee_bits=None
+  zero_n/zero_n obs=0xfc00 ieee_class=nan ieee_bits=None
+  zero_n/inf_n obs=0x8000 ieee_class=zero ieee_bits=0x0000
+  zero_n/one_n obs=0x8000 ieee_class=zero ieee_bits=0x0000
+  zero_n/half_n obs=0x8000 ieee_class=zero ieee_bits=0x0000
+  zero_n/two_n obs=0x8000 ieee_class=zero ieee_bits=0x0000
+  inf_p/zero_n obs=0x7c00 ieee_class=inf ieee_bits=0xfc00
+  inf_p/inf_p obs=0x7c00 ieee_class=nan ieee_bits=None
+  inf_p/inf_n obs=0x7c00 ieee_class=nan ieee_bits=None
+  inf_p/one_n obs=0x7c00 ieee_class=inf ieee_bits=0xfc00
+  inf_p/half_n obs=0x7c00 ieee_class=inf ieee_bits=0xfc00
+  inf_p/two_n obs=0x7c00 ieee_class=inf ieee_bits=0xfc00
+  inf_n/zero_n obs=0xfc00 ieee_class=inf ieee_bits=0x7c00
+  inf_n/inf_p obs=0xfc00 ieee_class=nan ieee_bits=None
+  inf_n/inf_n obs=0xfc00 ieee_class=nan ieee_bits=None
+  inf_n/one_n obs=0xfc00 ieee_class=inf ieee_bits=0x7c00
+  inf_n/half_n obs=0xfc00 ieee_class=inf ieee_bits=0x7c00
+  inf_n/two_n obs=0xfc00 ieee_class=inf ieee_bits=0x7c00
+  sub_min/zero_n obs=0x7c00 ieee_class=inf ieee_bits=0xfc00
+  sub_min/inf_n obs=0x0000 ieee_class=zero ieee_bits=0x8000
+  sub_max/zero_n obs=0x7c00 ieee_class=inf ieee_bits=0xfc00
+  sub_max/inf_n obs=0x0000 ieee_class=zero ieee_bits=0x8000
+  norm_min/zero_n obs=0x7c00 ieee_class=inf ieee_bits=0xfc00
+  norm_min/inf_n obs=0x0000 ieee_class=zero ieee_bits=0x8000
+  fin_max/zero_n obs=0x7c00 ieee_class=inf ieee_bits=0xfc00
+  fin_max/inf_n obs=0x0000 ieee_class=zero ieee_bits=0x8000
+  one_p/zero_n obs=0x7c00 ieee_class=inf ieee_bits=0xfc00
+  one_p/inf_n obs=0x0000 ieee_class=zero ieee_bits=0x8000
+  one_n/zero_n obs=0xfc00 ieee_class=inf ieee_bits=0x7c00
+  one_n/inf_n obs=0x8000 ieee_class=zero ieee_bits=0x0000
+  half_p/zero_n obs=0x7c00 ieee_class=inf ieee_bits=0xfc00
+  half_p/inf_n obs=0x0000 ieee_class=zero ieee_bits=0x8000
+  half_n/zero_n obs=0xfc00 ieee_class=inf ieee_bits=0x7c00
+  half_n/inf_n obs=0x8000 ieee_class=zero ieee_bits=0x0000
+  two_p/zero_n obs=0x7c00 ieee_class=inf ieee_bits=0xfc00
+  two_p/inf_n obs=0x0000 ieee_class=zero ieee_bits=0x8000
+  two_n/zero_n obs=0xfc00 ieee_class=inf ieee_bits=0x7c00
+  two_n/inf_n obs=0x8000 ieee_class=zero ieee_bits=0x0000

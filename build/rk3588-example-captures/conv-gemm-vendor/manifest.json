@@ -1,0 +1,1444 @@
+{
+  "cases": [
+    {
+      "case": "gemm_m2_n2_k1",
+      "case_dir": "cases/gemm_m2_n2_k1",
+      "description": "FP16 GEMM 2x2x1, exact smallest shape in gemm.py main table; FP32 output",
+      "expected_oracle": {
+        "dtype": "float32",
+        "shape": [
+          2,
+          2
+        ]
+      },
+      "gemm_layout": {
+        "align_in": 32,
+        "align_out": 32,
+        "input_row_bytes": 64,
+        "k": 1,
+        "m": 2,
+        "main_table_case": true,
+        "n": 2,
+        "output_bytes": 256,
+        "output_elements": 64,
+        "output_row_bytes": 128
+      },
+      "hashes": {
+        "expected.bin": "b2a2444f8ae1d63b919c5055f851e122e2e9c9f161d2450cec40d40314cb2e1e",
+        "expected_surface.bin": "e42209d157a68cc4d55b7fed4ec475f0c05f68dc3c025ce1f4c93879d2a84576",
+        "input.bin": "a196d4ed4332a5bc77c977c7337a0d665a8b70db1a68e327d324d3e945585ba0",
+        "job.json": "4b3e5d6c3080a2a12c9e2bd209bb9df6901bb8b117f52efa7214e16e7f2bda0d",
+        "regcmd.bin": "be934aee058c2f5d3272eaccdb19ce947225e4a706deebc16a8a0c28bd917c82",
+        "weight.bin": "e8376298d4dd2074e26b661832c49364b6c311dd567e570acff0e1e932c3ac53"
+      },
+      "oracle": {
+        "dtype": "float32",
+        "expected_surface_file": "expected_surface.bin",
+        "expected_surface_shape": [
+          2,
+          32
+        ],
+        "file": "expected.bin",
+        "kind": "host-numpy",
+        "labelled": "host-side NumPy FP64 matmul rounded to FP32; not a device capture",
+        "layout": "logical MxN; raw output surface is Mx32 FP32 with row stride 32",
+        "shape": [
+          2,
+          2
+        ],
+        "source_function": "gemm.py:run_gemm",
+        "tolerance_abs": 0.1
+      },
+      "patches": [
+        {
+          "buffer": "input",
+          "kind": "value32",
+          "regcmd_index": 18
+        },
+        {
+          "buffer": "weight",
+          "kind": "value32",
+          "regcmd_index": 24
+        },
+        {
+          "buffer": "output",
+          "kind": "value32",
+          "regcmd_index": 31
+        }
+      ],
+      "rocket_tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 50
+        }
+      ],
+      "shape": "m2_n2_k1",
+      "sizes": {
+        "expected_logical_bytes": 16,
+        "expected_surface_bytes": 4096,
+        "input_buffer_bytes": 4096,
+        "output_buffer_bytes": 4096,
+        "regcmd_bytes": 400,
+        "weight_buffer_bytes": 4096
+      },
+      "source_example": "/home/fedora/rk3588/examples/gemm.py",
+      "source_example_sha256": "df0f4b98a1fa265b549ae0be682de1b68b9e23bb8cc8cd110a06e2f4b19e6fe6",
+      "source_lines": [
+        "gemm.py:249-407 make_gemm_regs",
+        "gemm.py:465-524 run_gemm",
+        "gemm.py:546-596 main test_cases"
+      ],
+      "status": "READY",
+      "vendor_task_descriptor": {
+        "enable_mask": 13,
+        "int_clear": 131071,
+        "int_mask": 768,
+        "op_idx": 0,
+        "parity_pad_qwords": 1,
+        "regcfg_amount_qwords": 45,
+        "rocket_drops": [
+          "op_idx",
+          "enable_mask",
+          "int_mask",
+          "int_clear",
+          "flags",
+          "regcfg_offset"
+        ],
+        "rocket_regcmd_count_qwords": 50,
+        "terminal_tail_style": "nop_separator",
+        "vendor_fetch_qwords": 50,
+        "vendor_pc_data_extra_qwords": 4
+      }
+    },
+    {
+      "case": "gemm_m1_n16_k32",
+      "case_dir": "cases/gemm_m1_n16_k32",
+      "description": "FP16 GEMM 1x16x32, single task; FP32 output; shape exercised through the public run_gemm/make_gemm_regs path (not present in the tiny main test_cases table)",
+      "expected_oracle": {
+        "dtype": "float32",
+        "shape": [
+          1,
+          16
+        ]
+      },
+      "gemm_layout": {
+        "align_in": 32,
+        "align_out": 32,
+        "input_row_bytes": 64,
+        "k": 32,
+        "m": 1,
+        "main_table_case": false,
+        "n": 16,
+        "output_bytes": 128,
+        "output_elements": 32,
+        "output_row_bytes": 128
+      },
+      "hashes": {
+        "expected.bin": "04f0395621307c4901f8a3691e68e9f263b637759479cf93765a796a63beab1b",
+        "expected_surface.bin": "d17a7aaab556c9870463fe4b276c1d23b3213f1815d8b9388c3361f622d3ead8",
+        "input.bin": "c3e5ee59ccc4820f1cc7e236beeb36721904182390fda1837eda669e7edda228",
+        "job.json": "e8687db24df06910064589aec533e36e10a385cbd65c5328e69b729a96d7d9f8",
+        "regcmd.bin": "c9d5f2ffa4ea3adf09610d386281e7c1e8a0ed481e055ee078680ee693c48e5f",
+        "weight.bin": "35aa2e72a6b51590c5dda06abd6a30df45baebb08a97ecef07ac59c25feed369"
+      },
+      "oracle": {
+        "dtype": "float32",
+        "expected_surface_file": "expected_surface.bin",
+        "expected_surface_shape": [
+          1,
+          32
+        ],
+        "file": "expected.bin",
+        "kind": "host-numpy",
+        "labelled": "host-side NumPy FP64 matmul rounded to FP32; not a device capture",
+        "layout": "logical MxN; raw output surface is Mx32 FP32 with row stride 32",
+        "shape": [
+          1,
+          16
+        ],
+        "source_function": "gemm.py:run_gemm",
+        "tolerance_abs": 0.1
+      },
+      "patches": [
+        {
+          "buffer": "input",
+          "kind": "value32",
+          "regcmd_index": 18
+        },
+        {
+          "buffer": "weight",
+          "kind": "value32",
+          "regcmd_index": 24
+        },
+        {
+          "buffer": "output",
+          "kind": "value32",
+          "regcmd_index": 31
+        }
+      ],
+      "rocket_tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 50
+        }
+      ],
+      "shape": "m1_n16_k32",
+      "sizes": {
+        "expected_logical_bytes": 64,
+        "expected_surface_bytes": 4096,
+        "input_buffer_bytes": 4096,
+        "output_buffer_bytes": 4096,
+        "regcmd_bytes": 400,
+        "weight_buffer_bytes": 4096
+      },
+      "source_example": "/home/fedora/rk3588/examples/gemm.py",
+      "source_example_sha256": "df0f4b98a1fa265b549ae0be682de1b68b9e23bb8cc8cd110a06e2f4b19e6fe6",
+      "source_lines": [
+        "gemm.py:249-407 make_gemm_regs",
+        "gemm.py:465-524 run_gemm",
+        "gemm.py:577-582 host seed-42 generator (commented sweep pattern)"
+      ],
+      "status": "READY",
+      "vendor_task_descriptor": {
+        "enable_mask": 13,
+        "int_clear": 131071,
+        "int_mask": 768,
+        "op_idx": 0,
+        "parity_pad_qwords": 1,
+        "regcfg_amount_qwords": 45,
+        "rocket_drops": [
+          "op_idx",
+          "enable_mask",
+          "int_mask",
+          "int_clear",
+          "flags",
+          "regcfg_offset"
+        ],
+        "rocket_regcmd_count_qwords": 50,
+        "terminal_tail_style": "nop_separator",
+        "vendor_fetch_qwords": 50,
+        "vendor_pc_data_extra_qwords": 4
+      }
+    },
+    {
+      "case": "gemm_m2_n16_k32",
+      "case_dir": "cases/gemm_m2_n16_k32",
+      "description": "FP16 GEMM 2x16x32, single task; FP32 output; shape exercised through the public run_gemm/make_gemm_regs path (not present in the tiny main test_cases table)",
+      "expected_oracle": {
+        "dtype": "float32",
+        "shape": [
+          2,
+          16
+        ]
+      },
+      "gemm_layout": {
+        "align_in": 32,
+        "align_out": 32,
+        "input_row_bytes": 64,
+        "k": 32,
+        "m": 2,
+        "main_table_case": false,
+        "n": 16,
+        "output_bytes": 256,
+        "output_elements": 64,
+        "output_row_bytes": 128
+      },
+      "hashes": {
+        "expected.bin": "7568aace7dbbdf7b1dc634d09e173b82e9d7b4e95c74b2bb0c3360f41bb4a862",
+        "expected_surface.bin": "ed9c5a8d38a4b54b3b7063ce65ec1160f788bdc3143fe6205d6734cc020867af",
+        "input.bin": "0b11fd4232b60aeefb86fb2e8107b05e387f5fc9c68e06ec2f8b980d136e64c6",
+        "job.json": "06c6b19d04bd54b213a76c7887b02dd58a3613a10a4c3a4f4a3811bb59aa2d7a",
+        "regcmd.bin": "be934aee058c2f5d3272eaccdb19ce947225e4a706deebc16a8a0c28bd917c82",
+        "weight.bin": "190f806198cf6866fa92a55b9e14a72c4b1ab19147900b29b746868dabce98d0"
+      },
+      "oracle": {
+        "dtype": "float32",
+        "expected_surface_file": "expected_surface.bin",
+        "expected_surface_shape": [
+          2,
+          32
+        ],
+        "file": "expected.bin",
+        "kind": "host-numpy",
+        "labelled": "host-side NumPy FP64 matmul rounded to FP32; not a device capture",
+        "layout": "logical MxN; raw output surface is Mx32 FP32 with row stride 32",
+        "shape": [
+          2,
+          16
+        ],
+        "source_function": "gemm.py:run_gemm",
+        "tolerance_abs": 0.1
+      },
+      "patches": [
+        {
+          "buffer": "input",
+          "kind": "value32",
+          "regcmd_index": 18
+        },
+        {
+          "buffer": "weight",
+          "kind": "value32",
+          "regcmd_index": 24
+        },
+        {
+          "buffer": "output",
+          "kind": "value32",
+          "regcmd_index": 31
+        }
+      ],
+      "rocket_tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 50
+        }
+      ],
+      "shape": "m2_n16_k32",
+      "sizes": {
+        "expected_logical_bytes": 128,
+        "expected_surface_bytes": 4096,
+        "input_buffer_bytes": 4096,
+        "output_buffer_bytes": 4096,
+        "regcmd_bytes": 400,
+        "weight_buffer_bytes": 4096
+      },
+      "source_example": "/home/fedora/rk3588/examples/gemm.py",
+      "source_example_sha256": "df0f4b98a1fa265b549ae0be682de1b68b9e23bb8cc8cd110a06e2f4b19e6fe6",
+      "source_lines": [
+        "gemm.py:249-407 make_gemm_regs",
+        "gemm.py:465-524 run_gemm",
+        "gemm.py:577-582 host seed-42 generator (commented sweep pattern)"
+      ],
+      "status": "READY",
+      "vendor_task_descriptor": {
+        "enable_mask": 13,
+        "int_clear": 131071,
+        "int_mask": 768,
+        "op_idx": 0,
+        "parity_pad_qwords": 1,
+        "regcfg_amount_qwords": 45,
+        "rocket_drops": [
+          "op_idx",
+          "enable_mask",
+          "int_mask",
+          "int_clear",
+          "flags",
+          "regcfg_offset"
+        ],
+        "rocket_regcmd_count_qwords": 50,
+        "terminal_tail_style": "nop_separator",
+        "vendor_fetch_qwords": 50,
+        "vendor_pc_data_extra_qwords": 4
+      }
+    },
+    {
+      "case": "gemm_m4_n32_k64",
+      "case_dir": "cases/gemm_m4_n32_k64",
+      "description": "FP16 GEMM 4x32x64, single task; FP32 output; shape exercised through the public run_gemm/make_gemm_regs path (not present in the tiny main test_cases table)",
+      "expected_oracle": {
+        "dtype": "float32",
+        "shape": [
+          4,
+          32
+        ]
+      },
+      "gemm_layout": {
+        "align_in": 64,
+        "align_out": 32,
+        "input_row_bytes": 128,
+        "k": 64,
+        "m": 4,
+        "main_table_case": false,
+        "n": 32,
+        "output_bytes": 512,
+        "output_elements": 128,
+        "output_row_bytes": 128
+      },
+      "hashes": {
+        "expected.bin": "3bc693423d76e5db3b7d3dc6e00047f7a2567977419b34fff68fc7c3080e7030",
+        "expected_surface.bin": "b2b470c35f0f1b028a3b5d9c705a816f3d9acff675eb0f3e6cac0c8aea80fad2",
+        "input.bin": "1c32e6f4f36dbfb69737b8aa8296e35ea3f80d7cb171bf697b9dd0f5869038c3",
+        "job.json": "ba6a136f752456c37e99f23125895a893c291fe4491ae92f2f80ad9078bae4b6",
+        "regcmd.bin": "e8688afc46fefc1697db1fbce7f0f96f1f0091411c86a182580a0b5cbc786a93",
+        "weight.bin": "01751d1268fb2be8f3f9399252e3243929d3fda71a35a6057d5ac6dda87d4fcd"
+      },
+      "oracle": {
+        "dtype": "float32",
+        "expected_surface_file": "expected_surface.bin",
+        "expected_surface_shape": [
+          4,
+          32
+        ],
+        "file": "expected.bin",
+        "kind": "host-numpy",
+        "labelled": "host-side NumPy FP64 matmul rounded to FP32; not a device capture",
+        "layout": "logical MxN; raw output surface is Mx32 FP32 with row stride 32",
+        "shape": [
+          4,
+          32
+        ],
+        "source_function": "gemm.py:run_gemm",
+        "tolerance_abs": 0.1
+      },
+      "patches": [
+        {
+          "buffer": "input",
+          "kind": "value32",
+          "regcmd_index": 18
+        },
+        {
+          "buffer": "weight",
+          "kind": "value32",
+          "regcmd_index": 24
+        },
+        {
+          "buffer": "output",
+          "kind": "value32",
+          "regcmd_index": 31
+        }
+      ],
+      "rocket_tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 50
+        }
+      ],
+      "shape": "m4_n32_k64",
+      "sizes": {
+        "expected_logical_bytes": 512,
+        "expected_surface_bytes": 4096,
+        "input_buffer_bytes": 4096,
+        "output_buffer_bytes": 4096,
+        "regcmd_bytes": 400,
+        "weight_buffer_bytes": 4096
+      },
+      "source_example": "/home/fedora/rk3588/examples/gemm.py",
+      "source_example_sha256": "df0f4b98a1fa265b549ae0be682de1b68b9e23bb8cc8cd110a06e2f4b19e6fe6",
+      "source_lines": [
+        "gemm.py:249-407 make_gemm_regs",
+        "gemm.py:465-524 run_gemm",
+        "gemm.py:577-582 host seed-42 generator (commented sweep pattern)"
+      ],
+      "status": "READY",
+      "vendor_task_descriptor": {
+        "enable_mask": 13,
+        "int_clear": 131071,
+        "int_mask": 768,
+        "op_idx": 0,
+        "parity_pad_qwords": 1,
+        "regcfg_amount_qwords": 45,
+        "rocket_drops": [
+          "op_idx",
+          "enable_mask",
+          "int_mask",
+          "int_clear",
+          "flags",
+          "regcfg_offset"
+        ],
+        "rocket_regcmd_count_qwords": 50,
+        "terminal_tail_style": "nop_separator",
+        "vendor_fetch_qwords": 50,
+        "vendor_pc_data_extra_qwords": 4
+      }
+    },
+    {
+      "case": "conv_1x1_c1_oc6_h4w4",
+      "case_dir": "cases/conv_1x1_c1_oc6_h4w4",
+      "conv_layout": {
+        "align_c": 8,
+        "align_out_c": 16,
+        "grouped_spatial": false,
+        "hardware_output_bytes": 512,
+        "hardware_output_dtype": "fp16",
+        "hardware_output_elements": 256,
+        "out_width_stride": 16,
+        "unpack_c2": 8,
+        "unpack_function": "_unpack_flat_1x1_output",
+        "use_nhwc": true,
+        "width_stride": 4
+      },
+      "description": "FP16 1x1 conv, C1/H4/W4 -> OC6, NHWC pack, single task",
+      "expected_oracle": {
+        "dtype": "float16",
+        "shape": [
+          1,
+          6,
+          4,
+          4
+        ]
+      },
+      "hashes": {
+        "expected.bin": "87b3ba4e28b377918654caa83c7f59e77949db05520da17fed2519b59e0af4dc",
+        "input.bin": "8f7a3a8fc188458c60712179a841a5b1624910d57d58cf45fba9bc85a2798523",
+        "job.json": "bd8cd836079d638e44645e1a88c3f69c6657054e21b2096c88f57f3b843bf200",
+        "regcmd.bin": "af8cc5d2d9e88404a63724297025efe2b20def625fd05b303c0e9b755fe02ecd",
+        "weight.bin": "d225696e41ac2e41bc045c9ee341674db50b27d184d17658298fd5b6805a1632"
+      },
+      "oracle": {
+        "dtype": "float16",
+        "file": "expected.bin",
+        "kind": "host-numpy",
+        "labelled": "host-side NumPy FP64 accumulation rounded to FP16; not a device capture",
+        "layout": "NCHW logical output; unpack output.bin with conv_gemm.py _unpack_flat_1x1_output",
+        "shape": [
+          1,
+          6,
+          4,
+          4
+        ],
+        "source_function": "host-side FP64 sliding-window einsum equivalent to conv_gemm.py:compute_expected_nchw",
+        "tolerance_abs": 0.2
+      },
+      "patches": [
+        {
+          "buffer": "input",
+          "kind": "value32",
+          "regcmd_index": 18
+        },
+        {
+          "buffer": "weight",
+          "kind": "value32",
+          "regcmd_index": 24
+        },
+        {
+          "buffer": "output",
+          "kind": "value32",
+          "regcmd_index": 32
+        }
+      ],
+      "repeat_submissions": 1,
+      "rocket_tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 52
+        }
+      ],
+      "shape": "b1_c1_h4_w4_oc6_wic1_k1x1_g1",
+      "sizes": {
+        "expected_logical_bytes": 192,
+        "input_buffer_bytes": 4096,
+        "output_buffer_bytes": 4096,
+        "regcmd_bytes": 416,
+        "weight_buffer_bytes": 4096
+      },
+      "source_example": "/home/fedora/rk3588/examples/conv_gemm.py",
+      "source_example_sha256": "eeb584b025c16091e0f0aff20c23989f7ec99ce9c32b3431ea220eaa578440ae",
+      "source_lines": [
+        "conv_gemm.py:1243 shape table",
+        "conv_gemm.py:457-591 make_conv2d_regs",
+        "conv_gemm.py:924-1095 _run_conv2d_inner"
+      ],
+      "source_shape_parameters": {
+        "batch": 1,
+        "groups": 1,
+        "in_c": 1,
+        "in_h": 4,
+        "in_w": 4,
+        "kh": 1,
+        "kw": 1,
+        "name": "conv2d_1x6_1x1_4x4",
+        "out_c": 6,
+        "weight_in_c": 1
+      },
+      "status": "READY",
+      "vendor_task_descriptor": {
+        "enable_mask": 13,
+        "int_clear": 131071,
+        "int_mask": 768,
+        "op_idx": 1,
+        "parity_pad_qwords": 1,
+        "regcfg_amount_qwords": 47,
+        "rocket_drops": [
+          "op_idx",
+          "enable_mask",
+          "int_mask",
+          "int_clear",
+          "flags",
+          "regcfg_offset"
+        ],
+        "rocket_regcmd_count_qwords": 52,
+        "terminal_tail_style": "pc_base_zero",
+        "vendor_fetch_qwords": 52,
+        "vendor_pc_data_extra_qwords": 4
+      }
+    },
+    {
+      "case": "conv_grouped_3x3_c4_oc4_g2_h5w5",
+      "case_dir": "cases/conv_grouped_3x3_c4_oc4_g2_h5w5",
+      "conv_layout": {
+        "align_c": 16,
+        "align_out_c": 16,
+        "grouped_spatial": true,
+        "hardware_output_bytes": 384,
+        "hardware_output_dtype": "fp16",
+        "hardware_output_elements": 192,
+        "out_width_stride": 12,
+        "unpack_c2": 8,
+        "unpack_function": "_unpack_grouped_spatial_output",
+        "use_nhwc": false,
+        "width_stride": 5
+      },
+      "description": "FP16 grouped 3x3 conv, C4/OC4/G2, H5/W5 -> H3/W3, single task",
+      "expected_oracle": {
+        "dtype": "float16",
+        "shape": [
+          1,
+          4,
+          3,
+          3
+        ]
+      },
+      "hashes": {
+        "expected.bin": "83418d07885e24eff2c77070749f26ccd6696e4ae246f1af34efcdb36c90fe7c",
+        "input.bin": "4876805b7749d079367fe465fb90dd238de319edc25a772a8ea57af7256548b2",
+        "job.json": "841ade2e661215cd32307013c4aaffa1cd0d0f90ad83434a36d9fb26ef12f721",
+        "regcmd.bin": "8835296d0dab69d22d88bb1716d7b0f84163d6c1a39fd1716657032acb062701",
+        "weight.bin": "461509868f1cdea3647b21b13a2f8d30266183fbbf8a5f3d02b44d78652fd973"
+      },
+      "oracle": {
+        "dtype": "float16",
+        "file": "expected.bin",
+        "kind": "host-numpy",
+        "labelled": "host-side NumPy FP64 accumulation rounded to FP16; not a device capture",
+        "layout": "NCHW logical output; unpack output.bin with conv_gemm.py _unpack_grouped_spatial_output",
+        "shape": [
+          1,
+          4,
+          3,
+          3
+        ],
+        "source_function": "host-side FP64 sliding-window einsum equivalent to conv_gemm.py:compute_expected_nchw",
+        "tolerance_abs": 0.2
+      },
+      "patches": [
+        {
+          "buffer": "input",
+          "kind": "value32",
+          "regcmd_index": 18
+        },
+        {
+          "buffer": "weight",
+          "kind": "value32",
+          "regcmd_index": 24
+        },
+        {
+          "buffer": "output",
+          "kind": "value32",
+          "regcmd_index": 32
+        }
+      ],
+      "repeat_submissions": 1,
+      "rocket_tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 52
+        }
+      ],
+      "shape": "b1_c4_h5_w5_oc4_wic2_k3x3_g2",
+      "sizes": {
+        "expected_logical_bytes": 72,
+        "input_buffer_bytes": 4096,
+        "output_buffer_bytes": 4096,
+        "regcmd_bytes": 416,
+        "weight_buffer_bytes": 4096
+      },
+      "source_example": "/home/fedora/rk3588/examples/conv_gemm.py",
+      "source_example_sha256": "eeb584b025c16091e0f0aff20c23989f7ec99ce9c32b3431ea220eaa578440ae",
+      "source_lines": [
+        "conv_gemm.py:1288 shape table",
+        "conv_gemm.py:457-591 make_conv2d_regs",
+        "conv_gemm.py:924-1095 _run_conv2d_inner"
+      ],
+      "source_shape_parameters": {
+        "batch": 1,
+        "groups": 2,
+        "in_c": 4,
+        "in_h": 5,
+        "in_w": 5,
+        "kh": 3,
+        "kw": 3,
+        "name": "conv2d_b1_c4_h5_w5_oc4_wic2_k3x3_g2",
+        "out_c": 4,
+        "weight_in_c": 2
+      },
+      "status": "READY",
+      "vendor_task_descriptor": {
+        "enable_mask": 13,
+        "int_clear": 131071,
+        "int_mask": 768,
+        "op_idx": 1,
+        "parity_pad_qwords": 1,
+        "regcfg_amount_qwords": 47,
+        "rocket_drops": [
+          "op_idx",
+          "enable_mask",
+          "int_mask",
+          "int_clear",
+          "flags",
+          "regcfg_offset"
+        ],
+        "rocket_regcmd_count_qwords": 52,
+        "terminal_tail_style": "pc_base_zero",
+        "vendor_fetch_qwords": 52,
+        "vendor_pc_data_extra_qwords": 4
+      }
+    },
+    {
+      "case": "conv_legacy_3x3_c4_oc4_h9w9",
+      "case_dir": "cases/conv_legacy_3x3_c4_oc4_h9w9",
+      "conv_layout": {
+        "align_c": 8,
+        "align_out_c": 16,
+        "grouped_spatial": false,
+        "hardware_output_bytes": 1664,
+        "hardware_output_dtype": "fp16",
+        "hardware_output_elements": 832,
+        "out_width_stride": 52,
+        "unpack_c2": 8,
+        "unpack_function": "_unpack_flat_1x1_output",
+        "use_nhwc": true,
+        "width_stride": 10
+      },
+      "description": "FP16 3x3 valid conv from conv_legacy.py, C4/H9/W9 -> OC4; seed-42 random inputs/weights keep the FP16 oracle finite",
+      "expected_oracle": {
+        "dtype": "float16",
+        "shape": [
+          1,
+          4,
+          7,
+          7
+        ]
+      },
+      "hashes": {
+        "expected.bin": "41228d27327f99473bfa826bea316bc389afcd404d6a15e6f17dc9431c855b59",
+        "input.bin": "dc0282b92c6804fc8165e33b2efd06a311665a43f0ca06a25ffafed7370932b8",
+        "job.json": "556fba03f56b873a20a85f805602e336fe9ba131b6a1a9bc4d215311ba7dc9f8",
+        "regcmd.bin": "12e5033f7c37041575780575aa6bcc21e0b2a29f079e0c2b07ecf13ac0af81f3",
+        "weight.bin": "c5b19d548663fe3d6d9c3ccdb5886011fd80d79ead5493bc1b9d99d7c92d8be7"
+      },
+      "oracle": {
+        "dtype": "float16",
+        "file": "expected.bin",
+        "kind": "host-numpy",
+        "labelled": "host-side NumPy FP64 accumulation rounded to the hardware output dtype; not a device capture",
+        "layout": "NCHW logical output; unpack output.bin with conv_legacy.py _unpack_flat_1x1_output",
+        "shape": [
+          1,
+          4,
+          7,
+          7
+        ],
+        "source_function": "host-side FP64 sliding-window einsum equivalent to conv_legacy.py:compute_expected_nchw",
+        "tolerance_abs": 0.2
+      },
+      "patches": [
+        {
+          "buffer": "input",
+          "kind": "value32",
+          "regcmd_index": 18
+        },
+        {
+          "buffer": "weight",
+          "kind": "value32",
+          "regcmd_index": 24
+        },
+        {
+          "buffer": "output",
+          "kind": "value32",
+          "regcmd_index": 32
+        }
+      ],
+      "repeat_submissions": 1,
+      "rocket_tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 52
+        }
+      ],
+      "shape": "b1_c4_h9_w9_oc4_wic4_k3x3_g1",
+      "sizes": {
+        "expected_logical_bytes": 392,
+        "input_buffer_bytes": 4096,
+        "output_buffer_bytes": 4096,
+        "regcmd_bytes": 416,
+        "weight_buffer_bytes": 4096
+      },
+      "source_example": "/home/fedora/rk3588/examples/conv_legacy.py",
+      "source_example_sha256": "b4cc1f57ef782fe3f89ec61d4b94f841b2a2820a912609f3755fbf517f9efad9",
+      "source_lines": [
+        "conv_legacy.py:855 shape table",
+        "conv_legacy.py:456-593 make_conv2d_regs",
+        "conv_legacy.py:648-828 run_conv2d"
+      ],
+      "source_shape_parameters": {
+        "batch": 1,
+        "groups": 1,
+        "in_c": 4,
+        "in_h": 9,
+        "in_w": 9,
+        "kh": 3,
+        "kw": 3,
+        "name": "conv2d_b1_c4_h9_w9_oc4_wic4_k3x3_g1",
+        "out_c": 4,
+        "weight_in_c": 4
+      },
+      "status": "READY",
+      "vendor_task_descriptor": {
+        "enable_mask": 13,
+        "int_clear": 131071,
+        "int_mask": 768,
+        "op_idx": 1,
+        "parity_pad_qwords": 1,
+        "regcfg_amount_qwords": 47,
+        "rocket_drops": [
+          "op_idx",
+          "enable_mask",
+          "int_mask",
+          "int_clear",
+          "flags",
+          "regcfg_offset"
+        ],
+        "rocket_regcmd_count_qwords": 52,
+        "terminal_tail_style": "pc_base_zero",
+        "vendor_fetch_qwords": 52,
+        "vendor_pc_data_extra_qwords": 4
+      }
+    },
+    {
+      "blocked_code": "MULTITASK_ROCKET_JOB_UNSUPPORTED",
+      "blocked_reason": "MULTITASK_ROCKET_JOB_UNSUPPORTED: Rocket board execution completes only the first task of a two-task job; task 1 alone passes exactly. The source double submit is split into _task0 and _task1 one-task cases.",
+      "case": "conv_depthwise_3x3_c3_oc3_h11w28",
+      "case_dir": "cases/conv_depthwise_3x3_c3_oc3_h11w28",
+      "conv_layout": {
+        "align_c": 8,
+        "align_out_c": 16,
+        "grouped_spatial": false,
+        "hardware_output_bytes": 7552,
+        "hardware_output_dtype": "fp16",
+        "hardware_output_elements": 3776,
+        "out_width_stride": 236,
+        "unpack_c2": 8,
+        "unpack_function": "_unpack_flat_1x1_output",
+        "use_nhwc": false,
+        "width_stride": 28
+      },
+      "description": "FP16 depthwise 3x3 conv from conv_legacy.py, C3/OC3/G3, H11/W28 -> H9/W26; source intentionally submits the same task twice; seed-42 random inputs/weights keep the FP16 oracle finite",
+      "evidence": [
+        "Source conv_legacy.py:648-828 run_conv2d and 436-443 _direct_submit_repeat intentionally submit twice.",
+        "Reported board result: only task 0 of the two-task job executes; task 1 alone passes exactly.",
+        "Preserved evidence/job.json two-task descriptors: [0,52) and [52,104); evidence/regcmd.bin is 832 bytes and the halves are byte-identical."
+      ],
+      "expected_oracle": {
+        "dtype": "float16",
+        "shape": [
+          1,
+          3,
+          9,
+          26
+        ]
+      },
+      "hashes": {
+        "BLOCKED.md": "298bf269d769d54de74f7acf47711dce7a01f24627b01e61a3b063c8be0f8ae5",
+        "evidence/expected.bin": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b",
+        "evidence/input.bin": "0fd41346970b0ddbc0f89d5b0899ae998a6b22a06b3f66b867d917c9ba4bc28f",
+        "evidence/job.json": "f07e7a200d449c43a23e2c6b9e4b992c92d272029b28e6ac4dcfae7618940ba4",
+        "evidence/regcmd.bin": "c746a698c98fa0c3c9ff1f2b488fa2b6d2a0da9e181ca1d4965d28d2693e1b01",
+        "evidence/weight.bin": "4e3f77532434f10413425550076b0901ca3ff4f0886ed1b1f60de9757063ba31",
+        "source_example": "b4cc1f57ef782fe3f89ec61d4b94f841b2a2820a912609f3755fbf517f9efad9"
+      },
+      "oracle": {
+        "dtype": "float16",
+        "file": "expected.bin",
+        "kind": "host-numpy",
+        "labelled": "host-side NumPy FP64 accumulation rounded to the hardware output dtype; not a device capture",
+        "layout": "NCHW logical output; unpack output.bin with conv_legacy.py _unpack_flat_1x1_output",
+        "note": "preserved evidence for the blocked two-task case; not a runnable READY submission",
+        "shape": [
+          1,
+          3,
+          9,
+          26
+        ],
+        "source_function": "host-side FP64 sliding-window einsum equivalent to conv_legacy.py:compute_expected_nchw",
+        "tolerance_abs": 0.2
+      },
+      "patches": [
+        {
+          "buffer": "input",
+          "kind": "value32",
+          "regcmd_index": 18
+        },
+        {
+          "buffer": "weight",
+          "kind": "value32",
+          "regcmd_index": 24
+        },
+        {
+          "buffer": "output",
+          "kind": "value32",
+          "regcmd_index": 32
+        },
+        {
+          "buffer": "input",
+          "kind": "value32",
+          "regcmd_index": 70
+        },
+        {
+          "buffer": "weight",
+          "kind": "value32",
+          "regcmd_index": 76
+        },
+        {
+          "buffer": "output",
+          "kind": "value32",
+          "regcmd_index": 84
+        }
+      ],
+      "repeat_submissions": 2,
+      "rocket_tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 52
+        },
+        {
+          "regcmd_offset_words": 52,
+          "regcmd_words": 52
+        }
+      ],
+      "shape": "b1_c3_h11_w28_oc3_wic1_k3x3_g3",
+      "sizes": {
+        "expected_logical_bytes": 1404,
+        "input_buffer_bytes": 4928,
+        "output_buffer_bytes": 7552,
+        "regcmd_bytes": 832,
+        "weight_buffer_bytes": 4096
+      },
+      "source_example": "/home/fedora/rk3588/examples/conv_legacy.py",
+      "source_example_sha256": "b4cc1f57ef782fe3f89ec61d4b94f841b2a2820a912609f3755fbf517f9efad9",
+      "source_lines": [
+        "conv_legacy.py:861 shape table",
+        "conv_legacy.py:456-593 make_conv2d_regs",
+        "conv_legacy.py:648-828 run_conv2d",
+        "conv_legacy.py:436-443 _direct_submit_repeat (=2 for depthwise spatial)"
+      ],
+      "source_shape_parameters": {
+        "batch": 1,
+        "groups": 3,
+        "in_c": 3,
+        "in_h": 11,
+        "in_w": 28,
+        "kh": 3,
+        "kw": 3,
+        "name": "conv2d_b1_c3_h11_w28_oc3_wic1_k3x3_g3",
+        "out_c": 3,
+        "weight_in_c": 1
+      },
+      "status": "BLOCKED",
+      "vendor_task_descriptor": {
+        "enable_mask": 13,
+        "int_clear": 131071,
+        "int_mask": 768,
+        "op_idx": 1,
+        "parity_pad_qwords": 1,
+        "regcfg_amount_qwords": 47,
+        "rocket_drops": [
+          "op_idx",
+          "enable_mask",
+          "int_mask",
+          "int_clear",
+          "flags",
+          "regcfg_offset"
+        ],
+        "rocket_regcmd_count_qwords": 52,
+        "terminal_tail_style": "pc_base_zero",
+        "vendor_fetch_qwords": 52,
+        "vendor_pc_data_extra_qwords": 4
+      }
+    },
+    {
+      "case": "conv_depthwise_3x3_c3_oc3_h11w28_task0",
+      "case_dir": "cases/conv_depthwise_3x3_c3_oc3_h11w28_task0",
+      "conv_layout": {
+        "align_c": 8,
+        "align_out_c": 16,
+        "grouped_spatial": false,
+        "hardware_output_bytes": 15104,
+        "hardware_output_dtype": "fp16",
+        "hardware_output_elements": 7552,
+        "out_width_stride": 236,
+        "unpack_c2": 8,
+        "unpack_function": "_unpack_flat_1x1_output",
+        "use_nhwc": false,
+        "width_stride": 28
+      },
+      "description": "Task 0 of the source depthwise double submit, isolated as a one-task Rocket job: FP16 depthwise 3x3 conv from conv_legacy.py, C3/OC3/G3, H11/W28 -> H9/W26; seed-42 random inputs/weights keep the FP16 oracle finite",
+      "expected_oracle": {
+        "dtype": "float16",
+        "shape": [
+          1,
+          3,
+          9,
+          26
+        ]
+      },
+      "hashes": {
+        "expected.bin": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b",
+        "input.bin": "0fd41346970b0ddbc0f89d5b0899ae998a6b22a06b3f66b867d917c9ba4bc28f",
+        "job.json": "2f7a414ca8bada02ef78b59d464a406c4be507fda4a91a1a604d59f89eb62c15",
+        "regcmd.bin": "906cacd0c93fa9f24cbf5d2c86cd191bb1c613418a26c6113a8131148cadc329",
+        "weight.bin": "4e3f77532434f10413425550076b0901ca3ff4f0886ed1b1f60de9757063ba31"
+      },
+      "oracle": {
+        "dtype": "float16",
+        "file": "expected.bin",
+        "kind": "host-numpy",
+        "labelled": "host-side NumPy FP64 accumulation rounded to the hardware output dtype; not a device capture",
+        "layout": "NCHW logical output; unpack output.bin with conv_legacy.py _unpack_flat_1x1_output",
+        "shape": [
+          1,
+          3,
+          9,
+          26
+        ],
+        "source_function": "host-side FP64 sliding-window einsum equivalent to conv_legacy.py:compute_expected_nchw",
+        "tolerance_abs": 0.2
+      },
+      "patches": [
+        {
+          "buffer": "input",
+          "kind": "value32",
+          "regcmd_index": 18
+        },
+        {
+          "buffer": "weight",
+          "kind": "value32",
+          "regcmd_index": 24
+        },
+        {
+          "buffer": "output",
+          "kind": "value32",
+          "regcmd_index": 32
+        }
+      ],
+      "repeat_submissions": 1,
+      "rocket_tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 52
+        }
+      ],
+      "shape": "b1_c3_h11_w28_oc3_wic1_k3x3_g3",
+      "sizes": {
+        "expected_logical_bytes": 1404,
+        "input_buffer_bytes": 4928,
+        "output_buffer_bytes": 15104,
+        "regcmd_bytes": 416,
+        "weight_buffer_bytes": 4096
+      },
+      "source_example": "/home/fedora/rk3588/examples/conv_legacy.py",
+      "source_example_sha256": "b4cc1f57ef782fe3f89ec61d4b94f841b2a2820a912609f3755fbf517f9efad9",
+      "source_lines": [
+        "conv_legacy.py:861 shape table",
+        "conv_legacy.py:456-593 make_conv2d_regs",
+        "conv_legacy.py:648-828 run_conv2d",
+        "conv_legacy.py:436-443 _direct_submit_repeat (=2 for depthwise spatial)"
+      ],
+      "source_shape_parameters": {
+        "batch": 1,
+        "groups": 3,
+        "in_c": 3,
+        "in_h": 11,
+        "in_w": 28,
+        "kh": 3,
+        "kw": 3,
+        "name": "conv2d_b1_c3_h11_w28_oc3_wic1_k3x3_g3",
+        "out_c": 3,
+        "weight_in_c": 1
+      },
+      "status": "READY",
+      "vendor_task_descriptor": {
+        "enable_mask": 13,
+        "int_clear": 131071,
+        "int_mask": 768,
+        "op_idx": 1,
+        "parity_pad_qwords": 1,
+        "regcfg_amount_qwords": 47,
+        "rocket_drops": [
+          "op_idx",
+          "enable_mask",
+          "int_mask",
+          "int_clear",
+          "flags",
+          "regcfg_offset"
+        ],
+        "rocket_regcmd_count_qwords": 52,
+        "terminal_tail_style": "pc_base_zero",
+        "vendor_fetch_qwords": 52,
+        "vendor_pc_data_extra_qwords": 4
+      }
+    },
+    {
+      "case": "conv_depthwise_3x3_c3_oc3_h11w28_task1",
+      "case_dir": "cases/conv_depthwise_3x3_c3_oc3_h11w28_task1",
+      "conv_layout": {
+        "align_c": 8,
+        "align_out_c": 16,
+        "grouped_spatial": false,
+        "hardware_output_bytes": 15104,
+        "hardware_output_dtype": "fp16",
+        "hardware_output_elements": 7552,
+        "out_width_stride": 236,
+        "unpack_c2": 8,
+        "unpack_function": "_unpack_flat_1x1_output",
+        "use_nhwc": false,
+        "width_stride": 28
+      },
+      "description": "Task 1 of the source depthwise double submit, isolated as a one-task Rocket job: FP16 depthwise 3x3 conv from conv_legacy.py, C3/OC3/G3, H11/W28 -> H9/W26; seed-42 random inputs/weights keep the FP16 oracle finite",
+      "expected_oracle": {
+        "dtype": "float16",
+        "shape": [
+          1,
+          3,
+          9,
+          26
+        ]
+      },
+      "hashes": {
+        "expected.bin": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b",
+        "input.bin": "0fd41346970b0ddbc0f89d5b0899ae998a6b22a06b3f66b867d917c9ba4bc28f",
+        "job.json": "6b127060700836a4fac42af1f24e01cac97fcb20f94ac9861589e527ad1fbf14",
+        "regcmd.bin": "906cacd0c93fa9f24cbf5d2c86cd191bb1c613418a26c6113a8131148cadc329",
+        "weight.bin": "4e3f77532434f10413425550076b0901ca3ff4f0886ed1b1f60de9757063ba31"
+      },
+      "oracle": {
+        "dtype": "float16",
+        "file": "expected.bin",
+        "kind": "host-numpy",
+        "labelled": "host-side NumPy FP64 accumulation rounded to the hardware output dtype; not a device capture",
+        "layout": "NCHW logical output; unpack output.bin with conv_legacy.py _unpack_flat_1x1_output",
+        "shape": [
+          1,
+          3,
+          9,
+          26
+        ],
+        "source_function": "host-side FP64 sliding-window einsum equivalent to conv_legacy.py:compute_expected_nchw",
+        "tolerance_abs": 0.2
+      },
+      "patches": [
+        {
+          "buffer": "input",
+          "kind": "value32",
+          "regcmd_index": 18
+        },
+        {
+          "buffer": "weight",
+          "kind": "value32",
+          "regcmd_index": 24
+        },
+        {
+          "buffer": "output",
+          "kind": "value32",
+          "regcmd_index": 32
+        }
+      ],
+      "repeat_submissions": 1,
+      "rocket_tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 52
+        }
+      ],
+      "shape": "b1_c3_h11_w28_oc3_wic1_k3x3_g3",
+      "sizes": {
+        "expected_logical_bytes": 1404,
+        "input_buffer_bytes": 4928,
+        "output_buffer_bytes": 15104,
+        "regcmd_bytes": 416,
+        "weight_buffer_bytes": 4096
+      },
+      "source_example": "/home/fedora/rk3588/examples/conv_legacy.py",
+      "source_example_sha256": "b4cc1f57ef782fe3f89ec61d4b94f841b2a2820a912609f3755fbf517f9efad9",
+      "source_lines": [
+        "conv_legacy.py:861 shape table",
+        "conv_legacy.py:456-593 make_conv2d_regs",
+        "conv_legacy.py:648-828 run_conv2d",
+        "conv_legacy.py:436-443 _direct_submit_repeat (=2 for depthwise spatial)"
+      ],
+      "source_shape_parameters": {
+        "batch": 1,
+        "groups": 3,
+        "in_c": 3,
+        "in_h": 11,
+        "in_w": 28,
+        "kh": 3,
+        "kw": 3,
+        "name": "conv2d_b1_c3_h11_w28_oc3_wic1_k3x3_g3",
+        "out_c": 3,
+        "weight_in_c": 1
+      },
+      "status": "READY",
+      "vendor_task_descriptor": {
+        "enable_mask": 13,
+        "int_clear": 131071,
+        "int_mask": 768,
+        "op_idx": 1,
+        "parity_pad_qwords": 1,
+        "regcfg_amount_qwords": 47,
+        "rocket_drops": [
+          "op_idx",
+          "enable_mask",
+          "int_mask",
+          "int_clear",
+          "flags",
+          "regcfg_offset"
+        ],
+        "rocket_regcmd_count_qwords": 52,
+        "terminal_tail_style": "pc_base_zero",
+        "vendor_fetch_qwords": 52,
+        "vendor_pc_data_extra_qwords": 4
+      }
+    },
+    {
+      "case": "conv_py_3x3_c32_oc128_h14w14_fullsetup",
+      "case_dir": "cases/conv_py_3x3_c32_oc128_h14w14_fullsetup",
+      "conv_layout": {
+        "align_c": 16,
+        "align_out_c": 128,
+        "grouped_spatial": false,
+        "hardware_output_bytes": 36864,
+        "hardware_output_dtype": "fp16",
+        "hardware_output_elements": 18432,
+        "out_width_stride": 144,
+        "unpack_c2": 8,
+        "unpack_function": "unpack_output",
+        "use_nhwc": false,
+        "width_stride": 14
+      },
+      "description": "FP16 3x3 valid conv from conv.py planner (full 108-QWORD setup row), C32/H14/W14 -> OC128/H12/W12, single setup/NONE task",
+      "expected_oracle": {
+        "dtype": "float16",
+        "shape": [
+          1,
+          128,
+          12,
+          12
+        ]
+      },
+      "hashes": {
+        "expected.bin": "29c1f68d3b70ba1186f9d6472c7d10642da6ff6f5fabe4300f84f81c900ce73b",
+        "input.bin": "5639a6c5a7b312e5993e49d4dba75aa0b5f351ca75bd87787bab95152b11b862",
+        "job.json": "12300e4fe72f35e9d3188b4233bd302d7a83ae0879eaa970a75502c63b62a06c",
+        "regcmd.bin": "ae7ac6a3233233102c0a77dac4383a91d1d9170e517d4771c2b629b5454c54ef",
+        "weight.bin": "31dc0c7149172bed83ec9aa7a6ac6a9703960203be50e450670143f9abda4703"
+      },
+      "oracle": {
+        "dtype": "float16",
+        "file": "expected.bin",
+        "kind": "host-numpy",
+        "labelled": "host-side NumPy FP64 accumulation rounded to the hardware output dtype; not a device capture",
+        "layout": "NCHW logical output; unpack output.bin with conv.py unpack_output",
+        "shape": [
+          1,
+          128,
+          12,
+          12
+        ],
+        "source_function": "host-side FP64 sliding-window einsum equivalent to conv.py:compute_expected_nchw",
+        "tolerance_abs": 0.12
+      },
+      "patches": [
+        {
+          "buffer": "input",
+          "kind": "value32",
+          "regcmd_index": 25
+        },
+        {
+          "buffer": "weight",
+          "kind": "value32",
+          "regcmd_index": 34
+        },
+        {
+          "buffer": "output",
+          "kind": "value32",
+          "regcmd_index": 61
+        }
+      ],
+      "planner": {
+        "family": "setup",
+        "phase_a_validated": true,
+        "rows": 1,
+        "split_method": "NONE"
+      },
+      "rocket_tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 112
+        }
+      ],
+      "shape": "b1_c32_h14_w14_oc128_wic32_k3x3_g1",
+      "sizes": {
+        "expected_logical_bytes": 36864,
+        "input_buffer_bytes": 12544,
+        "output_buffer_bytes": 36864,
+        "regcmd_bytes": 896,
+        "weight_buffer_bytes": 73728
+      },
+      "source_example": "/home/fedora/rk3588/examples/conv.py",
+      "source_example_sha256": "07c1595785a3e9cc0d2dd07e6e447a9b3b964fde87310a0d2e68c01d363d2a32",
+      "source_lines": [
+        "conv.py:536 supported LIST_SHAPES entry",
+        "conv.py:713-772 make_regs full setup row",
+        "conv.py:1446-1471 validate_phase_a_shape",
+        "conv.py:2763-2846 run_shape single setup/NONE path"
+      ],
+      "source_shape_parameters": {
+        "batch": 1,
+        "groups": 1,
+        "in_c": 32,
+        "in_h": 14,
+        "in_w": 14,
+        "kh": 3,
+        "kw": 3,
+        "name": "b1_c32_h14_w14_oc128_wic32_k3x3_g1_s1_pvalid",
+        "out_c": 128,
+        "stride": 1,
+        "weight_in_c": 32
+      },
+      "status": "READY",
+      "vendor_task_descriptor": {
+        "enable_mask": 13,
+        "int_clear": 131071,
+        "int_mask": 768,
+        "op_idx": 1,
+        "parity_pad_qwords": 0,
+        "regcfg_amount_qwords": 108,
+        "rocket_drops": [
+          "op_idx",
+          "enable_mask",
+          "int_mask",
+          "int_clear",
+          "flags",
+          "regcfg_offset"
+        ],
+        "rocket_regcmd_count_qwords": 112,
+        "terminal_tail_style": "pc_base_zero",
+        "vendor_fetch_qwords": 112,
+        "vendor_pc_data_extra_qwords": 4
+      }
+    },
+    {
+      "blocked_reason": "Vendor BY_K conv path uses explicit multi-core task distribution and a multi-task PC chain. Rocket has no core_mask/subcore_task fields and no bundle patch kind for the runtime regcmd address in PC_BASE_ADDRESS.",
+      "case": "conv_byk_c160_h14w14_oc320_k3x3",
+      "case_dir": "cases/conv_byk_c160_h14w14_oc320_k3x3",
+      "description": "Vendor EXACT11 BY_K 3x3 conv path: 11-row PC chain, three tasks distributed one each to cores 0/1/2.",
+      "evidence": [
+        "Source calls npu_submit(..., task_count=3, core_mask=0, subcores=((0,1),(0,1),(0,1),(0,0),(0,0))). `core_mask=0` is RKNPU_CORE_AUTO_MASK and the three subcore entries assign one task each to three physical cores.",
+        "Rocket presents one drm_sched_entity per file and picks one core; there is no UAPI way to express the 1/1/1 split.",
+        "The 11-row layout also writes PC_BASE_ADDRESS to the regcmd BO DMA address and PC_REGISTER_AMOUNTS to non-zero chain lengths; the bundle schema can patch only named buffer addresses, not a self-referential regcmd address."
+      ],
+      "hashes": {
+        "BLOCKED.md": "d0d01ebe5f8640ffc46a8e9b0c79cc5c9ba2abe2c5c70c60d1e4c81096f4e810",
+        "source_example": "07c1595785a3e9cc0d2dd07e6e447a9b3b964fde87310a0d2e68c01d363d2a32"
+      },
+      "oracle": {
+        "kind": "none",
+        "reason": "blocked path is not submitted; no device-free oracle is bound"
+      },
+      "shape": "b1_c160_h14_w14_oc320_wic160_k3x3_g1_s1_pvalid",
+      "source_example": "/home/fedora/rk3588/examples/conv.py",
+      "source_example_sha256": "07c1595785a3e9cc0d2dd07e6e447a9b3b964fde87310a0d2e68c01d363d2a32",
+      "source_lines": [
+        "conv.py:31 EXACT11_BYK_SHAPE",
+        "conv.py:1766-1797 run_exact11_byk_shape submit",
+        "conv.py:1501-1530 exact_byk_layout PC chain",
+        "conv.py:1251-1270 write_exact11_byk_tasks"
+      ],
+      "status": "BLOCKED"
+    },
+    {
+      "blocked_reason": "Vendor H40 spatial BY_Y conv path distributes six tasks over three cores and uses 17 PC-chain rows. Rocket cannot express the vendor core_mask/subcore_task split, and the PC_BASE_ADDRESS rows require runtime regcmd-address patching that the bundle schema does not have.",
+      "case": "conv_h40_c160_h40w40_oc320_k3x3",
+      "case_dir": "cases/conv_h40_c160_h40w40_oc320_k3x3",
+      "description": "Vendor H40 spatial BY_Y 3x3 conv path: 17 PC-chain rows, six tasks distributed two each to cores 0/1/2.",
+      "evidence": [
+        "Source calls npu_submit(..., task_count=6, core_mask=0, subcores=((0,2),(0,2),(0,2),(0,0),(0,0))). Two tasks are assigned to each of cores 0, 1 and 2.",
+        "The 17-row layout writes per-row PC_BASE_ADDRESS/PC_REGISTER_AMOUNTS links and masks 0x0d/0x60.",
+        "Rocket's drm_rocket_task has only regcmd and regcmd_count; the vendor task fields op_idx/enable_mask/int_mask/int_clear and submit core_mask/subcore_task are absent."
+      ],
+      "hashes": {
+        "BLOCKED.md": "86ede96d1811b96b7f7ef6a8d7233b842e6e5433059a7b3562e1fe7903af8771",
+        "source_example": "07c1595785a3e9cc0d2dd07e6e447a9b3b964fde87310a0d2e68c01d363d2a32"
+      },
+      "oracle": {
+        "kind": "none",
+        "reason": "blocked path is not submitted; no device-free oracle is bound"
+      },
+      "shape": "b1_c160_h40_w40_oc320_wic160_k3x3_g1_s1_pvalid",
+      "source_example": "/home/fedora/rk3588/examples/conv.py",
+      "source_example_sha256": "07c1595785a3e9cc0d2dd07e6e447a9b3b964fde87310a0d2e68c01d363d2a32",
+      "source_lines": [
+        "conv.py:36 H40_SPATIAL_BY_Y_SHAPE",
+        "conv.py:2331-2358 run_h40_exact17_shape submit",
+        "conv.py:1298-1325 write_h40_exact17_tasks PC chain",
+        "conv.py:46-49 H40_EXACT17_* tables"
+      ],
+      "status": "BLOCKED"
+    }
+  ],
+  "checked_vendor_only_fields": {
+    "compression": "No READY stream enables weight decompression. CNA_DCOMP_CTRL (0x1100) is absent from the conv_gemm/conv_legacy/gemm streams and is zero in the conv.py full-setup row; CNA_DCOMP_ADDR0 (0x1110) just carries the raw-weight buffer address. No unsupported compressed-weight field is exercised.",
+    "memory_sync": "No READY source path calls DRM_IOCTL_RKNPU_MEM_SYNC. The four listed examples use non-cacheable vendor BOs; Rocket uses ROCKET_PREP_BO/ROCKET_FINI_BO. The bundle worker owns that crosswalk, so no command-stream field is affected.",
+    "multi_core": "The two BLOCKED conv.py paths use core_mask=0 plus non-empty subcore_task entries on more than one core; Rocket has no corresponding task or submit field."
+  },
+  "family": "conv-gemm-vendor",
+  "generated_utc": "2026-11-05T20:33:06Z",
+  "readiness": {
+    "BLOCKED": 3,
+    "READY": 10,
+    "total": 13
+  },
+  "rocket_contract": {
+    "cores": "Rocket drm_sched_entity selects one core; no vendor core_mask/subcore_task",
+    "count_crosswalk": "vendor fetches 2*ceil((regcfg_amount + 4)/2) QWORDs, including one zero NOP when body+4 is odd; Rocket computes (regcmd_count + 1)/2 - 1 PC data units, so regcmd_count is that even vendor fetch length and regcmd.bin includes the parity NOP. Regcmd.bin never ends on an odd count.",
+    "max_regcmds": 131072,
+    "regcmd_alignment_bytes": 16,
+    "task_struct": "struct drm_rocket_task { __u32 regcmd; __u32 regcmd_count; }",
+    "vendor_pc_data_extra_qwords": 4
+  },
+  "schema": "rk3588-example-capture-manifest-v1",
+  "scope": "Device-free Rocket job bundles derived from vendor RKNPU ABI conv/GEMM examples. No board, vendor ioctl, FPGA or flash action is performed. READY means the command QWORD stream and task descriptor are expressible with Rocket's regcmd+count UAPI; it does not establish numerical correctness on RK3588 or FPGA.",
+  "source_revision": {
+    "examples": {
+      "conv.py": {
+        "lines": 2927,
+        "path": "/home/fedora/rk3588/examples/conv.py",
+        "sha256": "07c1595785a3e9cc0d2dd07e6e447a9b3b964fde87310a0d2e68c01d363d2a32"
+      },
+      "conv_gemm.py": {
+        "lines": 1417,
+        "path": "/home/fedora/rk3588/examples/conv_gemm.py",
+        "sha256": "eeb584b025c16091e0f0aff20c23989f7ec99ce9c32b3431ea220eaa578440ae"
+      },
+      "conv_legacy.py": {
+        "lines": 989,
+        "path": "/home/fedora/rk3588/examples/conv_legacy.py",
+        "sha256": "b4cc1f57ef782fe3f89ec61d4b94f841b2a2820a912609f3755fbf517f9efad9"
+      },
+      "gemm.py": {
+        "lines": 596,
+        "path": "/home/fedora/rk3588/examples/gemm.py",
+        "sha256": "df0f4b98a1fa265b549ae0be682de1b68b9e23bb8cc8cd110a06e2f4b19e6fe6"
+      }
+    },
+    "rk3588_git": "273d015e08af40c81d2cd9ab84198486b03a17f1",
+    "rknpu_fpga_git": "f9b00d8f9a48ab4dea20cb30148890cd9f1443ee"
+  },
+  "tool_versions": {
+    "generator": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/conv-gemm-vendor/tools/prepare_bundles.py",
+    "generator_sha256": "eaafe0e1b21eeec7d5315cc522bfbcf643bd6deba2b9cbd9db7ee45580f53657",
+    "numpy": "2.4.6",
+    "oracle_checker_sha256": "93d8d414c0ae46b1f503d9c93bff0a63ac679514e2e4565f5b89ccebc87d2622",
+    "python": "3.14.8",
+    "validator_sha256": "aed1d84ecdbbb39d0b30feddcea2692c128dc66d21cf8011f664e1272dcbce56"
+  }
+}

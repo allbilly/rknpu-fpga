@@ -1,0 +1,49 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "input.bin",
+      "name": "input",
+      "size": 4096
+    },
+    {
+      "direction": "in",
+      "input": "weight.bin",
+      "name": "weight",
+      "size": 4096
+    },
+    {
+      "direction": "out",
+      "name": "output",
+      "output": "output.bin",
+      "size": 4096
+    }
+  ],
+  "case": "gemm_m4_n32_k64",
+  "description": "FP16 GEMM 4x32x64, single task; FP32 output; shape exercised through the public run_gemm/make_gemm_regs path (not present in the tiny main test_cases table)",
+  "patches": [
+    {
+      "buffer": "input",
+      "kind": "value32",
+      "regcmd_index": 18
+    },
+    {
+      "buffer": "weight",
+      "kind": "value32",
+      "regcmd_index": 24
+    },
+    {
+      "buffer": "output",
+      "kind": "value32",
+      "regcmd_index": 31
+    }
+  ],
+  "source_example": "/home/fedora/rk3588/examples/gemm.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 50
+    }
+  ],
+  "timeout_ns": 6000000000
+}

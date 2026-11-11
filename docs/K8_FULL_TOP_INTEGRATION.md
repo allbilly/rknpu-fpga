@@ -104,8 +104,11 @@ are still required. The gate itself was not changed.
 | Check | Result |
 |---|---|
 | `make generated-check` | PASS |
-| framework 68-source profile | PASS |
-| framework_factored 68-source profile | PASS, per-file hashes |
+| framework 68-source profile at the pre-PPU K8 source snapshot | PASS |
+| framework_factored 68-source profile at the pre-PPU K8 source snapshot | PASS, per-file hashes |
+| current framework 83-source C3/C8/padded-C8/minimum/average/indexed/global-MAX candidate profile | PASS, source order and hashes; no synthesis/route qualification |
+| current framework_factored 83-source C3/C8/padded-C8/minimum/average/indexed/global-MAX candidate profile | PASS, source order and hashes; no synthesis/route qualification |
+| previous 81-source framework_factored Verilator lint/elaboration | Historical result only; predates global-MAX source additions and is stale for current RTL; no physical qualification |
 | dual_host 72-source profile | PASS |
 | dual_host_factored 72-source profile | PASS |
 | dual_host_shared_cacc 72-source profile | PASS |
@@ -219,7 +222,11 @@ derived from post-opt DCP `57be9e5b...` and source manifest
 `5e0e41b3...`; the complete machine-readable result is
 `build/k8-full-top-v1/implementation-report.json` in the main workspace. This
 route profile is the 185-file K8 source snapshot from revision `a61b96f`; the
-separately merged standalone PPU leaf is **not included** in this routed image.
+separately merged standalone PPU leaves, C3 raw-command DMA and RKPP bank are
+**not included** in this routed image. The current main-workspace framework
+candidate has a simulation-tested owned dispatch path, but the separate K8
+worktree/image has not been updated or requalified with it; see
+[the C3 raw-command profile evidence](PPU_C3_RAW_PROFILE.md).
 
 ## Offline image emission and audit
 
@@ -276,6 +283,6 @@ Audit scope remains strictly offline: software CRC validation is
 `NOT_CHECKED`; programming and physical hardware are `NOT_RUN`; hardware access,
 programming and flash are all false. This does not qualify FPGA behavior, timing
 on hardware, or an inference release. The separately merged standalone PPU
-leaf is not in this image. The source-level and application limits in
+leaves, the C3 raw-command DMA and RKPP bank are not in this image. The source-level and application limits in
 [K16 control timing repair](K16_CONTROL_TIMING_REPAIR.md) and the rest of this
 document remain applicable.

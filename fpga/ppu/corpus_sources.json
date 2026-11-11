@@ -1,0 +1,57 @@
+{
+  "profile": "ypcb_ppu_corpus",
+  "description": "Pooling-corpus host-drivable image: one AXI4-Lite page per frozen pooling fixture (19 READY cases of build/rk3588-example-captures/pooling/manifest.json), a shared 32 KiB memory aperture, one BRAM port, and the USER2 JTAG-mailbox transport. Each page replays the fixture through its unchanged captured raw command stream. Simulation and synthesis gates only; no board access, no PCIe/MIG/DDR.",
+  "top": "ypcb_ppu_corpus_jtag_top",
+  "part": "xc7k480tffg1156-2",
+  "clock_period_ns": 20.0,
+  "tck_period_ns": 166.666,
+  "jtag_chain": 2,
+  "memory_bytes": 32768,
+  "memory_base": "00000000",
+  "pages": 19,
+  "constraints": "fpga/ypcb_ppu_corpus.xdc",
+  "cdc": "fpga/host/mailbox_cdc.tcl",
+  "sources": [
+    "rtl/vendor/opentpu/otpu_jtag_mailbox.sv",
+    "rtl/host/rk_jtag_axil_bridge.sv",
+    "rtl/rk_bram.sv",
+    "rtl/rk_startup_reset.sv",
+    "rtl/rk_axil_mem_bridge.sv",
+    "rtl/rk_axil_error_slave.sv",
+    "rtl/ppu/rk_ppu_pool_avg_global3x5_c8_fp16_capture.sv",
+    "rtl/ppu/rk_ppu_pool_avg2x2s1_pad1_c8_h1w1.sv",
+    "rtl/ppu/rk_ppu_pool_avg2x2s1_fp16_capture.sv",
+    "rtl/ppu/rk_ppu_pool_max2x2s1_pad1_neg_c8_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_max2x2s1_c8.sv",
+    "rtl/ppu/rk_ppu_pool_max2x2s2_c3_tail_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_max2x2s2_index_c8_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_max3x3s2_pad1_c8_h4w4.sv",
+    "rtl/ppu/rk_ppu_pool_min2x2s1_fp16_capture.sv",
+    "rtl/ppu/rk_ppu_pool_avg_q16_i16_c8_k2s2.sv",
+    "rtl/ppu/rk_ppu_pool_avg_q16_i16_c8_k3x3.sv",
+    "rtl/ppu/rk_ppu_pool_avg_q16_i8_c16_k2s2.sv",
+    "rtl/ppu/rk_ppu_pool_avg_q16_i8_c16_k3x3.sv",
+    "rtl/ppu/rk_ppu_pool_max_k1s1_i8_c32.sv",
+    "rtl/ppu/rk_ppu_pool_max_k2s2_i8_c16_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_min_k2s2_i8_c16_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_max_k2s2_i16_c8_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_min_k2s2_i16_c8_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_int_k2s2.sv",
+    "rtl/ppu/rk_ppu_pool_int_avg.sv",
+    "rtl/ppu/rk_ppu_pool_corpus_axi.sv",
+    "rtl/ppu/rk_ppu_pool_corpus_case.sv",
+    "fpga/ypcb_ppu_corpus_top.sv",
+    "fpga/ypcb_ppu_corpus_jtag_top.sv"
+  ],
+  "generated": [
+    {
+      "path": "rtl/ppu/rk_ppu_pool_corpus_case.sv",
+      "generator": "tools/ppu/gen_pool_corpus_tables.py",
+      "source": "build/rk3588-example-captures/pooling/manifest.json"
+    }
+  ],
+  "benches": {
+    "board": "tests/tb_ypcb_ppu_corpus.sv"
+  },
+  "scope": "One image for the frozen pooling corpus; not the complete NPU framework and not a qualification image."
+}

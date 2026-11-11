@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Explicit 68-source public profile for the accepted factored framework bytes."""
+"""Explicit 83-source framework profile with six captures and one emitted PPU candidate."""
 import argparse
 import hashlib
 import json
@@ -15,11 +15,11 @@ MANIFEST=Path("rtl/ddr/framework_factored/sources.json")
 def source_paths(root=ROOT):
     root=Path(root).resolve()
     manifest=json.loads((root/MANIFEST).read_text())
-    return checked_source_paths(root,manifest=manifest)
+    return checked_source_paths(root,manifest=manifest,expected_count=83)
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--check",action="store_true",required=True,help="validate all 68 ordered paths and exact hashes")
+    parser.add_argument("--check",action="store_true",required=True,help="validate all 83 ordered paths and exact hashes")
     args=parser.parse_args()
     root=ROOT.resolve();manifest_path=root/MANIFEST
     manifest=json.loads(manifest_path.read_text())

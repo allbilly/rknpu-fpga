@@ -1,0 +1,19 @@
+POSTRUN_UTC=2026-11-05T20:19:37Z
+PGREP_ALL:
+2023819 /usr/bin/python3 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+3571324 bash -c Q=/home/opencode-agent/rk3588-example-captures/queue-ew-fp16-20261105T201400Z; { echo POSTRUN_UTC=$(date -u +%Y-%m-%dT%H:%M:%SZ); echo PGREP_ALL:; pgrep -af 'rk3588|rocket|capture|python3' || true; echo PGREP_EW_FP16:; pgrep -af 'ew_int_run|ew-fp16|queue-ew-fp16' || true; echo PS_CAPTURE:; ps -eo pid,lstart,cmd | grep -E 'ew_int_run|ew-fp16|rocket|capture' | grep -v grep || true; echo LOCK_TEST:; flock -n /home/opencode-agent/rk3588-npu.lock true && echo LOCK_FREE=yes || echo LOCK_FREE=no; echo OUT_SIZE_COUNTS:; find $Q/out -name out.bin -printf '%s\n' | sort -n | uniq -c; echo OUT_BYTES:; find $Q/out -name out.bin -printf '%s\n' | awk '{s+=$1} END {print s}'; echo CAPTURE_JSON_COUNT:; find $Q/out -name capture.json | wc -l; echo OUT_BIN_COUNT:; find $Q/out -name out.bin | wc -l; echo RUN_EXIT:; cat $Q/logs/run.exit; } > $Q/logs/postrun.txt 2>&1; cat $Q/logs/postrun.txt
+PGREP_EW_FP16:
+3571324 bash -c Q=/home/opencode-agent/rk3588-example-captures/queue-ew-fp16-20261105T201400Z; { echo POSTRUN_UTC=$(date -u +%Y-%m-%dT%H:%M:%SZ); echo PGREP_ALL:; pgrep -af 'rk3588|rocket|capture|python3' || true; echo PGREP_EW_FP16:; pgrep -af 'ew_int_run|ew-fp16|queue-ew-fp16' || true; echo PS_CAPTURE:; ps -eo pid,lstart,cmd | grep -E 'ew_int_run|ew-fp16|rocket|capture' | grep -v grep || true; echo LOCK_TEST:; flock -n /home/opencode-agent/rk3588-npu.lock true && echo LOCK_FREE=yes || echo LOCK_FREE=no; echo OUT_SIZE_COUNTS:; find $Q/out -name out.bin -printf '%s\n' | sort -n | uniq -c; echo OUT_BYTES:; find $Q/out -name out.bin -printf '%s\n' | awk '{s+=$1} END {print s}'; echo CAPTURE_JSON_COUNT:; find $Q/out -name capture.json | wc -l; echo OUT_BIN_COUNT:; find $Q/out -name out.bin | wc -l; echo RUN_EXIT:; cat $Q/logs/run.exit; } > $Q/logs/postrun.txt 2>&1; cat $Q/logs/postrun.txt
+PS_CAPTURE:
+LOCK_TEST:
+LOCK_FREE=yes
+OUT_SIZE_COUNTS:
+     54 4096
+OUT_BYTES:
+221184
+CAPTURE_JSON_COUNT:
+54
+OUT_BIN_COUNT:
+54
+RUN_EXIT:
+0

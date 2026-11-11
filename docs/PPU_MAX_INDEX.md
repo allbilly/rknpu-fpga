@@ -1,9 +1,11 @@
 # Capture-bounded FP16 maximum pooling with indices
 
-Status: **one fixed standalone candidate, simulation-only**. The leaf covers
-only `fp16_max_k2s2_index_c8_h2w2`; it is separate from the unindexed max,
-minimum and average leaves. There is no PPU register decoder, DMA/RDMA, AXI,
-full-top integration or FPGA execution.
+Status: **one fixed standalone leaf plus a distinct strict raw-command profile
+and owned-DMA candidate, simulation-only**. The leaf, command profile and
+integrated DMA cover only `fp16_max_k2s2_index_c8_h2w2`; see
+[PPU_INDEX_RAW_PROFILE.md](PPU_INDEX_RAW_PROFILE.md). There is no general PPU
+register decoder, AXI/RK integration, full-top physical qualification or FPGA
+execution.
 
 ## Captured contract
 
@@ -75,6 +77,8 @@ verilator --lint-only -Wall --top-module rk_ppu_pool_max2x2s2_index_c8_h2w2 \
   rtl/ppu/rk_ppu_pool_max2x2s2_index_c8_h2w2.sv
 ```
 
-This is standalone simulation evidence, not FPGA, RK silicon, register/DMA or
-full-top qualification. Other `INDEX_EN` shapes, tie and special-value cases
-remain unsupported.
+The standalone results above do not qualify the raw-command or owned-DMA path;
+their separate capture-bounded Icarus/Verilator evidence is in
+[PPU_INDEX_RAW_PROFILE.md](PPU_INDEX_RAW_PROFILE.md). Neither result set is FPGA
+or RK silicon execution. Other `INDEX_EN` shapes and special-value cases remain
+unsupported; the integrated profile additionally rejects tied maxima.

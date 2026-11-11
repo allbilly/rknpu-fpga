@@ -1,0 +1,39 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "in.bin",
+      "name": "in",
+      "size": 4096
+    },
+    {
+      "direction": "inout",
+      "input": "out_init.bin",
+      "name": "out",
+      "output": "out.bin",
+      "size": 4096
+    }
+  ],
+  "case": "int8_max_k1s1_valid_c32_h1w1",
+  "description": "INT8 maximum pooling, 1x1 kernel and stride, C32 H1 W1 -> H1 W1; two 16-byte C1HWC2 surfaces; vendor 1x1 token probe.",
+  "patches": [
+    {
+      "buffer": "out",
+      "kind": "value32",
+      "regcmd_index": 13
+    },
+    {
+      "buffer": "in",
+      "kind": "value32",
+      "regcmd_index": 20
+    }
+  ],
+  "source_example": "/home/fedora/rk3588/examples/expt/pooling.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 26
+    }
+  ],
+  "timeout_ns": 6000000000
+}

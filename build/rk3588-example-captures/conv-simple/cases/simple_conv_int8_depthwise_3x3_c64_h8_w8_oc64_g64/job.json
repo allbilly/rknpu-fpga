@@ -1,0 +1,60 @@
+{
+  "case": "simple_conv_int8_depthwise_3x3_c64_h8_w8_oc64_g64",
+  "source_example": "/home/fedora/rk3588/examples/kernel_6_18/simple_conv.py",
+  "description": "INT8 quantized depthwise 3x3 valid conv, C64/H8/W8 -> OC64, groups=64; exercises CORE DW_EN and the depthwise weight layout.",
+  "timeout_ns": 6000000000,
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 69
+    }
+  ],
+  "buffers": [
+    {
+      "name": "input",
+      "size": 8192,
+      "input": "input.bin",
+      "direction": "in"
+    },
+    {
+      "name": "weight",
+      "size": 1152,
+      "input": "weight.bin",
+      "direction": "in"
+    },
+    {
+      "name": "bias",
+      "size": 256,
+      "input": "bias.bin",
+      "direction": "in"
+    },
+    {
+      "name": "out",
+      "size": 4608,
+      "direction": "out",
+      "output": "out.bin"
+    }
+  ],
+  "patches": [
+    {
+      "regcmd_index": 20,
+      "buffer": "input",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 26,
+      "buffer": "weight",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 36,
+      "buffer": "out",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 61,
+      "buffer": "bias",
+      "kind": "value32"
+    }
+  ]
+}

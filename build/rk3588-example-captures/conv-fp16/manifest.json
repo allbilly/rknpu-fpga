@@ -1,0 +1,1572 @@
+{
+  "family": "conv-fp16",
+  "format": "rk3588-example-captures/1",
+  "generated_utc": "2026-11-05T22:05:40.310156+00:00",
+  "description": "Device-free FP16 convolution capture bundles for mainline Rocket on RK3588.",
+  "source_revision": {
+    "root": "/home/fedora/rk3588",
+    "git_revision": "273d015e08af40c81d2cd9ab84198486b03a17f1",
+    "selected_source": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+    "selected_source_sha256": "f70e9810868bf95dd8e89ed83a3af3be00cc890fad8209756e09735cb9795c51",
+    "inspected_sources": [
+      "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "/home/fedora/rk3588/examples/kernel_6_18/simple_conv_fp16.py",
+      "/home/fedora/rk3588/examples/kernel_6_18/conv_mesa_fp16.py",
+      "/home/fedora/rk3588/examples/kernel_6_18/conv_new.py",
+      "/home/fedora/rk3588/examples/kernel_6_18/conv_new_trscrs.py",
+      "/home/fedora/rk3588/examples/kernel_6_18/conv_0522.py",
+      "/home/fedora/rk3588/examples/kernel_6_18/conv_draft.py",
+      "/home/fedora/rk3588/examples/conv_tiles.py"
+    ]
+  },
+  "host": {
+    "python": "3.14.8",
+    "numpy": "2.4.6"
+  },
+  "preparation_tools": {
+    "gen_bundles.py": {
+      "size": 58899,
+      "sha256": "330e0a250bcb999abc221d3805a136a26dedfdb215836e621d14b46f8fbb8da3"
+    },
+    "validate_bundles.py": {
+      "size": 18501,
+      "sha256": "c343bba4503f15819a5e3706e5fcf9390401e0573274e7ce8ed64a763207ceb1"
+    },
+    "compare_oracle.py": {
+      "size": 6004,
+      "sha256": "d2866397392581a4a02dedb8a00cec957dd00a39961932e29810ffa61290b489"
+    },
+    "promote_split_cases.py": {
+      "size": 22367,
+      "sha256": "bfd615ba3b18373016c66587ff972b6c6dd6beb325e07773589b941fac453a96"
+    }
+  },
+  "counts": {
+    "ready": 9,
+    "blocked": 5,
+    "total": 14
+  },
+  "cases": [
+    {
+      "case": "conv_1x1_valid_c8_h5_w5_oc8",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "source_lines": [
+        "1187: shape table row",
+        "308-332: _conv_params (shape, alignment, stride, output geometry)",
+        "380-401: weight/input packing",
+        "445-629: make_conv2d_regs (register body)",
+        "631-676: write_regs_to_npu_task (terminal PC tail)",
+        "1010-1021: compute_expected_nchw oracle",
+        "conv_new_clean.run_conv2d direct pointwise path (lines 941-1007; _unpack_flat_1x1_output at 403-406)"
+      ],
+      "shape": {
+        "batch": 1,
+        "in_c": 8,
+        "in_h": 5,
+        "in_w": 5,
+        "out_c": 8,
+        "kh": 1,
+        "kw": 1,
+        "stride": 1,
+        "groups": 1,
+        "padded_zero_frame": false,
+        "effective_input_h": 5,
+        "effective_input_w": 5,
+        "out_h": 5,
+        "out_w": 5
+      },
+      "description": "FP16 1x1 valid convolution, C8 H5 W5 -> OC8, stride 1, groups 1.",
+      "branch": "conv_new_clean.run_conv2d direct pointwise path (lines 941-1007; _unpack_flat_1x1_output at 403-406)",
+      "task_count": 1,
+      "buffer_count": 3,
+      "patch_count": 3,
+      "oracle": {
+        "kind": "host_numpy_naive_conv",
+        "source": "conv_new_clean.compute_expected_nchw (lines 1010-1021)",
+        "independent_check": "tools/gen_bundles.py independent_naive_conv (float64 loop)",
+        "dtype": "float16",
+        "byte_order": "little",
+        "layout": "NCHW",
+        "accumulation": "float64 accumulation of float16 operands, rounded once to float16",
+        "tolerance_atol": 0.2,
+        "expected_files": [
+          "expected.bin"
+        ],
+        "combined_expected": null
+      },
+      "output_layouts": [
+        {
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "raw_bytes": 1600,
+          "out_c": 8,
+          "out_h": 5,
+          "out_w": 5,
+          "out_width_stride": 25,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "flat_1x1",
+          "task_index": 0
+        }
+      ],
+      "caveats": [
+        "The 1x1 direct path uses the flat_1x1 output layout and the source's 52-entry minimum feature_grains rule.",
+        "The output BO carries four aligned channel planes (32 channels); only the first eight are defined by the oracle."
+      ],
+      "files": {
+        "a.bin": {
+          "size": 800,
+          "sha256": "fa1cfc610a9d473bbef852dac62bef6d63f67727b0d8a20587962b0418739c71"
+        },
+        "expected.bin": {
+          "size": 400,
+          "sha256": "7a364a2c20910f0b00f4f522856009ed69d5a477ea4b9fdee5ac146193d2058c"
+        },
+        "job.json": {
+          "size": 922,
+          "sha256": "d9721fff29e361db65585f151519bb9a36ce3966b9d713ef34c01593e65992c9"
+        },
+        "provenance.json": {
+          "size": 3044,
+          "sha256": "0520dac01e644b5d67336c735ab8335b784fc9dff35a8de2d68cc8fc8fc8fe37"
+        },
+        "regcmd.bin": {
+          "size": 432,
+          "sha256": "a66063b1df7be1c913ee9851a65270a0644a98312db640fbc58216a97855ac6c"
+        },
+        "source_input_nchw.bin": {
+          "size": 400,
+          "sha256": "e9a8c0444d86badc484739c1bb890402b23053b0e26a996b36c6348a22b9b445"
+        },
+        "source_weight_nchw.bin": {
+          "size": 128,
+          "sha256": "9ec4c04138fdebbac569a5ebf08df8be31f30463d52f0c0b4679bdd672366ba0"
+        },
+        "w.bin": {
+          "size": 256,
+          "sha256": "52a1b39b6ef32d87bed51b67d32b67073f2aefae3fc96d265a0a82b6ba838418"
+        }
+      }
+    },
+    {
+      "case": "conv_3x3_valid_c4_h9_w9_oc4",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "source_lines": [
+        "1139: shape table row",
+        "308-332: _conv_params (shape, alignment, stride, output geometry)",
+        "380-401: weight/input packing",
+        "445-629: make_conv2d_regs (register body)",
+        "631-676: write_regs_to_npu_task (terminal PC tail)",
+        "1010-1021: compute_expected_nchw oracle",
+        "conv_new_clean.run_conv2d direct spatial path (lines 941-1007; _unpack_nc1hwc2_output at 408-418)"
+      ],
+      "shape": {
+        "batch": 1,
+        "in_c": 4,
+        "in_h": 9,
+        "in_w": 9,
+        "out_c": 4,
+        "kh": 3,
+        "kw": 3,
+        "stride": 1,
+        "groups": 1,
+        "padded_zero_frame": false,
+        "effective_input_h": 9,
+        "effective_input_w": 9,
+        "out_h": 7,
+        "out_w": 7
+      },
+      "description": "FP16 3x3 valid convolution, C4 H9 W9 -> OC4, stride 1, groups 1.",
+      "branch": "conv_new_clean.run_conv2d direct spatial path (lines 941-1007; _unpack_nc1hwc2_output at 408-418)",
+      "task_count": 1,
+      "buffer_count": 3,
+      "patch_count": 3,
+      "oracle": {
+        "kind": "host_numpy_naive_conv",
+        "source": "conv_new_clean.compute_expected_nchw (lines 1010-1021)",
+        "independent_check": "tools/gen_bundles.py independent_naive_conv (float64 loop)",
+        "dtype": "float16",
+        "byte_order": "little",
+        "layout": "NCHW",
+        "accumulation": "float64 accumulation of float16 operands, rounded once to float16",
+        "tolerance_atol": 0.2,
+        "expected_files": [
+          "expected.bin"
+        ],
+        "combined_expected": null
+      },
+      "output_layouts": [
+        {
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "raw_bytes": 3328,
+          "out_c": 4,
+          "out_h": 7,
+          "out_w": 7,
+          "out_width_stride": 52,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "nc1hwc2",
+          "task_index": 0
+        }
+      ],
+      "caveats": [
+        "Spatial direct path uses kh-major weight packing (lines 346-354) and NC1HWC2 output unpacking.",
+        "The output BO carries 32 aligned channels; only the first four are defined by the oracle."
+      ],
+      "files": {
+        "a.bin": {
+          "size": 2592,
+          "sha256": "e34d000a0337bbebbda204147bc518e158c2945fe37aa1d437b4ca2cd929f685"
+        },
+        "expected.bin": {
+          "size": 392,
+          "sha256": "41228d27327f99473bfa826bea316bc389afcd404d6a15e6f17dc9431c855b59"
+        },
+        "job.json": {
+          "size": 924,
+          "sha256": "f6a04534e30c2866c23b67fa030d6e05c2e5edaa91b7a5320ad1d882ab019d83"
+        },
+        "provenance.json": {
+          "size": 3047,
+          "sha256": "f48a65914a0d82109b5e745cd0371bb8c294bd92d05084bd1fe433f14d4fcfbe"
+        },
+        "regcmd.bin": {
+          "size": 432,
+          "sha256": "e9f7bb0ecbce9301dec9fee8fbc44bc4cbce2e9c9ebe8fd48dc94eac0672725a"
+        },
+        "source_input_nchw.bin": {
+          "size": 648,
+          "sha256": "03cca1086090e7509aecee27a67fa941becea85f35261bb0d62304cf2737ff25"
+        },
+        "source_weight_nchw.bin": {
+          "size": 288,
+          "sha256": "0c5db345afea6001761f56c955edb7b108f4cf6b47c063559fff58de3a82045e"
+        },
+        "w.bin": {
+          "size": 1152,
+          "sha256": "29d595e934ac0e492d8166f9edc03479b391473908d4ae7cfcdf00152b9835f3"
+        }
+      }
+    },
+    {
+      "case": "conv_3x3_stride2_c4_h11_w11_oc4",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "source_lines": [
+        "1139: shape table row",
+        "308-332: _conv_params (shape, alignment, stride, output geometry)",
+        "380-401: weight/input packing",
+        "445-629: make_conv2d_regs (register body)",
+        "631-676: write_regs_to_npu_task (terminal PC tail)",
+        "1010-1021: compute_expected_nchw oracle",
+        "conv_new_clean.run_conv2d direct spatial path with stride=2 (CNA_CONV_CON3 at builder line 505-507)"
+      ],
+      "shape": {
+        "batch": 1,
+        "in_c": 4,
+        "in_h": 11,
+        "in_w": 11,
+        "out_c": 4,
+        "kh": 3,
+        "kw": 3,
+        "stride": 2,
+        "groups": 1,
+        "padded_zero_frame": false,
+        "effective_input_h": 11,
+        "effective_input_w": 11,
+        "out_h": 5,
+        "out_w": 5
+      },
+      "description": "FP16 3x3 valid convolution with stride 2, C4 H11 W11 -> OC4 5x5, groups 1.",
+      "branch": "conv_new_clean.run_conv2d direct spatial path with stride=2 (CNA_CONV_CON3 at builder line 505-507)",
+      "task_count": 1,
+      "buffer_count": 3,
+      "patch_count": 3,
+      "oracle": {
+        "kind": "host_numpy_naive_conv",
+        "source": "conv_new_clean.compute_expected_nchw (lines 1010-1021)",
+        "independent_check": "tools/gen_bundles.py independent_naive_conv (float64 loop)",
+        "dtype": "float16",
+        "byte_order": "little",
+        "layout": "NCHW",
+        "accumulation": "float64 accumulation of float16 operands, rounded once to float16",
+        "tolerance_atol": 0.2,
+        "expected_files": [
+          "expected.bin"
+        ],
+        "combined_expected": null
+      },
+      "output_layouts": [
+        {
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "raw_bytes": 1792,
+          "out_c": 4,
+          "out_h": 5,
+          "out_w": 5,
+          "out_width_stride": 28,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "nc1hwc2",
+          "task_index": 0
+        }
+      ],
+      "caveats": [
+        "stride=2 is implemented in _conv_params (lines 308-313) and make_conv2d_regs (lines 505-507), but the donor shape table only exercises stride 1. This case is a source-supported but table-uncovered variant.",
+        "No padding is applied; the output is 5x5."
+      ],
+      "files": {
+        "a.bin": {
+          "size": 3872,
+          "sha256": "297b351178fc5ed99ce0f3e07a5067bddf8adedff18c065ab01bd13bd45ddd40"
+        },
+        "expected.bin": {
+          "size": 200,
+          "sha256": "68dae872fad0dfb71ea7b0f32c7768fd5daca405b206c7e9d9121ce93d2305c6"
+        },
+        "job.json": {
+          "size": 938,
+          "sha256": "97c55b562690d6f3f821b204c929262ab5bf3578d91de1f9646874e4d78e4755"
+        },
+        "provenance.json": {
+          "size": 3059,
+          "sha256": "d0b72f1d7ba0ebd6a57fe651702deb879f0c6ecd64b6445032b6c14891eac618"
+        },
+        "regcmd.bin": {
+          "size": 432,
+          "sha256": "a0a5a2530a1a141d2bbea0190ef20a50374061047682d993205cfc75843b3045"
+        },
+        "source_input_nchw.bin": {
+          "size": 968,
+          "sha256": "42c4854f18d4adcf864b243a6ae183bbf5d5abbbcbf9f8f2924b2bdb3c6bd2d3"
+        },
+        "source_weight_nchw.bin": {
+          "size": 288,
+          "sha256": "e5d35bea17b9207bdb09060449c496cc2ed5760bef49653f48a1144474caaefa"
+        },
+        "w.bin": {
+          "size": 1152,
+          "sha256": "ac58dbc36374ed4359f68f23fb97ce8bcb44acbbbdbfdddc4d791e5cc7107a6c"
+        }
+      }
+    },
+    {
+      "case": "conv_3x3_pad1_zero_frame_c4_h9_w9_oc4",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "source_lines": [
+        "1139: shape table row",
+        "308-332: _conv_params (shape, alignment, stride, output geometry)",
+        "380-401: weight/input packing",
+        "445-629: make_conv2d_regs (register body)",
+        "631-676: write_regs_to_npu_task (terminal PC tail)",
+        "1010-1021: compute_expected_nchw oracle",
+        "conv_new_clean.run_conv2d direct spatial path on an explicit 1-pixel zero frame (packed input is 11x11, valid 3x3 -> 9x9)"
+      ],
+      "shape": {
+        "batch": 1,
+        "in_c": 4,
+        "in_h": 9,
+        "in_w": 9,
+        "out_c": 4,
+        "kh": 3,
+        "kw": 3,
+        "stride": 1,
+        "groups": 1,
+        "padded_zero_frame": true,
+        "effective_input_h": 11,
+        "effective_input_w": 11,
+        "out_h": 9,
+        "out_w": 9
+      },
+      "description": "FP16 3x3 same-padded convolution (pad=1) realized as an explicit zero frame plus a valid 3x3 conv, C4 H9 W9 -> OC4 9x9.",
+      "branch": "conv_new_clean.run_conv2d direct spatial path on an explicit 1-pixel zero frame (packed input is 11x11, valid 3x3 -> 9x9)",
+      "task_count": 1,
+      "buffer_count": 3,
+      "patch_count": 3,
+      "oracle": {
+        "kind": "host_numpy_naive_conv",
+        "source": "conv_new_clean.compute_expected_nchw (lines 1010-1021)",
+        "independent_check": "tools/gen_bundles.py independent_naive_conv (float64 loop)",
+        "dtype": "float16",
+        "byte_order": "little",
+        "layout": "NCHW",
+        "accumulation": "float64 accumulation of float16 operands, rounded once to float16",
+        "tolerance_atol": 0.2,
+        "expected_files": [
+          "expected.bin"
+        ],
+        "combined_expected": null
+      },
+      "output_layouts": [
+        {
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "raw_bytes": 5376,
+          "out_c": 4,
+          "out_h": 9,
+          "out_w": 9,
+          "out_width_stride": 84,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "nc1hwc2",
+          "task_index": 0
+        }
+      ],
+      "caveats": [
+        "The clean FP16 builder does not emit CNA_PAD_CON0: the pad register is commented out at conv_new_clean.py lines 547-550 and geometry is valid-only. Padding is represented by zero-valued input bytes, not by a pad register.",
+        "The packed input BO is 4x11x11 (aligned to 16 channels); the source NCHW tensor is 4x9x9. The oracle is the same-padded conv on the zero frame.",
+        "A true CNA_PAD_CON0 FP16 case is BLOCKED; see manifest entry conv_3x3_pad_register_fp16_blocked."
+      ],
+      "files": {
+        "a.bin": {
+          "size": 3872,
+          "sha256": "9afbd76bcd10c0875e4dd22665da168df771d4e16a0d8443b60501da358ac8f0"
+        },
+        "expected.bin": {
+          "size": 648,
+          "sha256": "cb4c8e96cae4d40c0bbbfd0d8bb58221d9ccdcf60767edb8b3cdafd9503ade29"
+        },
+        "job.json": {
+          "size": 989,
+          "sha256": "77b5bb795894d4e9ee2f7b414177733112c7d2e2f836470c5ef8bd790888ad1f"
+        },
+        "provenance.json": {
+          "size": 3084,
+          "sha256": "e50bd168794491cd3cfa9a58be6254be4ea1a14cf5eb1cc8fdd4784b084cda82"
+        },
+        "regcmd.bin": {
+          "size": 432,
+          "sha256": "38d155c41490dcb1b68f94fa0e0b898ce36b244936fe250f998b3e05de04d0ac"
+        },
+        "source_input_nchw.bin": {
+          "size": 648,
+          "sha256": "03cca1086090e7509aecee27a67fa941becea85f35261bb0d62304cf2737ff25"
+        },
+        "source_input_padded_nchw.bin": {
+          "size": 968,
+          "sha256": "ce9931a0b7fcd604100d9051cddfc60a0f1ef0c8c8f0bdf71df5114eb7b5c63a"
+        },
+        "source_weight_nchw.bin": {
+          "size": 288,
+          "sha256": "0c5db345afea6001761f56c955edb7b108f4cf6b47c063559fff58de3a82045e"
+        },
+        "w.bin": {
+          "size": 1152,
+          "sha256": "29d595e934ac0e492d8166f9edc03479b391473908d4ae7cfcdf00152b9835f3"
+        }
+      }
+    },
+    {
+      "case": "conv_depthwise_3x3_c3_h11_w28_oc3",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "source_lines": [
+        "1145: shape table row",
+        "308-332: _conv_params (shape, alignment, stride, output geometry)",
+        "380-401: weight/input packing",
+        "445-629: make_conv2d_regs (register body)",
+        "631-676: write_regs_to_npu_task (terminal PC tail)",
+        "1010-1021: compute_expected_nchw oracle",
+        "conv_new_clean.run_conv2d direct depthwise path; depthwise_spatial_major weights (lines 366-369) and CNA_CONV_CON1 depthwise mode"
+      ],
+      "shape": {
+        "batch": 1,
+        "in_c": 3,
+        "in_h": 11,
+        "in_w": 28,
+        "out_c": 3,
+        "kh": 3,
+        "kw": 3,
+        "stride": 1,
+        "groups": 3,
+        "padded_zero_frame": false,
+        "effective_input_h": 11,
+        "effective_input_w": 28,
+        "out_h": 9,
+        "out_w": 26
+      },
+      "description": "FP16 depthwise 3x3 valid convolution, C3 H11 W28 -> OC3 9x26, groups=3.",
+      "branch": "conv_new_clean.run_conv2d direct depthwise path; depthwise_spatial_major weights (lines 366-369) and CNA_CONV_CON1 depthwise mode",
+      "task_count": 1,
+      "buffer_count": 3,
+      "patch_count": 3,
+      "oracle": {
+        "kind": "host_numpy_naive_conv",
+        "source": "conv_new_clean.compute_expected_nchw (lines 1010-1021)",
+        "independent_check": "tools/gen_bundles.py independent_naive_conv (float64 loop)",
+        "dtype": "float16",
+        "byte_order": "little",
+        "layout": "NCHW",
+        "accumulation": "float64 accumulation of float16 operands, rounded once to float16",
+        "tolerance_atol": 0.2,
+        "expected_files": [
+          "expected.bin"
+        ],
+        "combined_expected": null
+      },
+      "output_layouts": [
+        {
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "raw_bytes": 15104,
+          "out_c": 3,
+          "out_h": 9,
+          "out_w": 26,
+          "out_width_stride": 236,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "nc1hwc2",
+          "task_index": 0
+        }
+      ],
+      "caveats": [
+        "Depthwise uses CONV_MODE=3 and a spatial-major 3x3x8 weight stream; only 3 of 8 aligned channel lanes carry weights.",
+        "The output BO carries 32 aligned channels; only the first three are defined by the oracle."
+      ],
+      "files": {
+        "a.bin": {
+          "size": 4928,
+          "sha256": "0fd41346970b0ddbc0f89d5b0899ae998a6b22a06b3f66b867d917c9ba4bc28f"
+        },
+        "expected.bin": {
+          "size": 1404,
+          "sha256": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b"
+        },
+        "job.json": {
+          "size": 937,
+          "sha256": "0718f715323509b3705813825a736dc40bc2d76d5f122c4dc77a241faeafac4f"
+        },
+        "provenance.json": {
+          "size": 3089,
+          "sha256": "006f9e5891e53d7dd906769652d3e0de235a9346120b7aa7cbd5ce4fdc22c0bf"
+        },
+        "regcmd.bin": {
+          "size": 432,
+          "sha256": "576cdcee5b4233ebaf13f1db4310122655bc1308f7a7087427937a2c3f765f0c"
+        },
+        "source_input_nchw.bin": {
+          "size": 1848,
+          "sha256": "15e7c5a7e4e05710cb5864276e34820d23e3a2742b55da840fe7c1ca7164a7e4"
+        },
+        "source_weight_nchw.bin": {
+          "size": 54,
+          "sha256": "acf161e316221ce279e7164fd8cfa35de889add737bb6c79fc758c416464f8cf"
+        },
+        "w.bin": {
+          "size": 144,
+          "sha256": "dca94444c96b5d4fcd7c8191279e1845aa8dd2b7a7209de296a9a00172cb9f6f"
+        }
+      }
+    },
+    {
+      "case": "conv_grouped_3x3_c4_h5_w5_oc8_g2_task0",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "source_lines": [
+        "1177: shape table row",
+        "308-332: _conv_params (shape, alignment, stride, output geometry)",
+        "380-401: weight/input packing",
+        "445-629: make_conv2d_regs (register body)",
+        "631-676: write_regs_to_npu_task (terminal PC tail)",
+        "1010-1021: compute_expected_nchw oracle",
+        "conv_new_clean.run_conv2d grouped_serial path (lines 826-850): two per-group tasks with 2-channel input and 4-channel output"
+      ],
+      "shape": {
+        "batch": 1,
+        "in_c": 2,
+        "in_h": 5,
+        "in_w": 5,
+        "out_c": 4,
+        "kh": 3,
+        "kw": 3,
+        "stride": 1,
+        "groups": 1,
+        "padded_zero_frame": false,
+        "effective_input_h": 5,
+        "effective_input_w": 5,
+        "out_h": 3,
+        "out_w": 3,
+        "parent_case": "conv_grouped_3x3_c4_h5_w5_oc8_g2",
+        "parent_task_index": 0,
+        "parent_in_c": 4,
+        "parent_out_c": 8,
+        "parent_groups": 2
+      },
+      "description": "One-task promotion of conv_grouped_3x3_c4_h5_w5_oc8_g2 task 0/2 (group 0): C2 5x5 -> OC4 3x3, stride 1, groups=1. The original two-task case is BLOCKED because Rocket executed only task 0.",
+      "branch": "conv_new_clean.run_conv2d grouped_serial path (lines 826-850): two per-group tasks with 2-channel input and 4-channel output Promoted to one terminal task at offset 0.",
+      "task_count": 1,
+      "buffer_count": 3,
+      "patch_count": 3,
+      "tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 54
+        }
+      ],
+      "buffers": [
+        {
+          "name": "a0",
+          "size": 800,
+          "input": "a0.bin",
+          "direction": "in"
+        },
+        {
+          "name": "w0",
+          "size": 1152,
+          "input": "w0.bin",
+          "direction": "in"
+        },
+        {
+          "name": "out0",
+          "size": 768,
+          "direction": "out",
+          "output": "out0.bin"
+        }
+      ],
+      "expected_files": [
+        "expected_out0.bin"
+      ],
+      "oracle": {
+        "kind": "host_numpy_naive_conv",
+        "source": "conv_new_clean.compute_expected_nchw (lines 1010-1021)",
+        "independent_check": "tools/gen_bundles.py independent_naive_conv (float64 loop)",
+        "dtype": "float16",
+        "byte_order": "little",
+        "layout": "NCHW",
+        "accumulation": "float64 accumulation of float16 operands, rounded once to float16",
+        "tolerance_atol": 0.2,
+        "expected_files": [
+          "expected_out0.bin"
+        ]
+      },
+      "output_layouts": [
+        {
+          "buffer": "out0",
+          "output": "out0.bin",
+          "expected": "expected_out0.bin",
+          "raw_bytes": 768,
+          "out_c": 4,
+          "out_h": 3,
+          "out_w": 3,
+          "out_width_stride": 12,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "nc1hwc2",
+          "task_index": 0
+        }
+      ],
+      "caveats": [
+        "One-task promotion of conv_grouped_3x3_c4_h5_w5_oc8_g2 task 0/2; job.json has exactly one task at regcmd_offset_words=0, regcmd_words=54.",
+        "expected_out0.bin is a byte-identical copy of the parent task oracle (sha256 68bec39a92255048678a37a33125a1668466128c08eca7cf760aa29fb65ac84a).",
+        "The parent two-task case is BLOCKED with reason MULTITASK_ROCKET_JOB_UNSUPPORTED; do not merge the tasks back into one job.",
+        "Board diagnostic evidence: this one-task bundle matched its oracle exactly (0 mismatches, submit_ret=0); the original two-task control left task 1's output BO all zero."
+      ],
+      "promotion_evidence": {
+        "diagnostic_bundle": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/conv-fp16-task-diagnostic/bundles/diag_grouped_task0",
+        "diagnostic_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-task-diagnostic-20261105T211500Z",
+        "original_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-20261105T205900Z",
+        "evidence_file": "evidence_diagnostic_out0.bin",
+        "diagnostic_out_sha256": "2b9b1524c7cff40fffa54127df398f69a91297b9049a97f54fd06c880c38a9a5",
+        "exact_mismatch_elements": 0,
+        "over_atol_elements": 0,
+        "max_abs_diff": 0.0
+      },
+      "files": {
+        "a0.bin": {
+          "size": 800,
+          "sha256": "3db3c4abd528172b0d92e945f806807d3f851109ea8ebc1d74020df0ffcc6270"
+        },
+        "derivation.json": {
+          "size": 874,
+          "sha256": "90f8b0d4803ca478588d93fe60bc71944b2b203db0c173a7892888a2a6da0857"
+        },
+        "evidence_diagnostic_out0.bin": {
+          "size": 768,
+          "sha256": "2b9b1524c7cff40fffa54127df398f69a91297b9049a97f54fd06c880c38a9a5"
+        },
+        "expected_out0.bin": {
+          "size": 72,
+          "sha256": "68bec39a92255048678a37a33125a1668466128c08eca7cf760aa29fb65ac84a"
+        },
+        "job.json": {
+          "size": 1066,
+          "sha256": "089a41004111f00b10138c66d89cb502432f1b9902961d489e8686493b4b8b3f"
+        },
+        "provenance.json": {
+          "size": 5664,
+          "sha256": "83c1287081e727ef7438e48f816f64572fd1f3d461ad84029a5bee36a29b28cd"
+        },
+        "regcmd.bin": {
+          "size": 432,
+          "sha256": "29b60f0bc2baa4b802823dacba0770c7d36e46f0c4b7bf1994eba762ee55a08f"
+        },
+        "w0.bin": {
+          "size": 1152,
+          "sha256": "b2c597d0e016672b647cbe27baee81efa346068fd1994a4de61077565720870c"
+        }
+      }
+    },
+    {
+      "case": "conv_grouped_3x3_c4_h5_w5_oc8_g2_task1",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "source_lines": [
+        "1177: shape table row",
+        "308-332: _conv_params (shape, alignment, stride, output geometry)",
+        "380-401: weight/input packing",
+        "445-629: make_conv2d_regs (register body)",
+        "631-676: write_regs_to_npu_task (terminal PC tail)",
+        "1010-1021: compute_expected_nchw oracle",
+        "conv_new_clean.run_conv2d grouped_serial path (lines 826-850): two per-group tasks with 2-channel input and 4-channel output"
+      ],
+      "shape": {
+        "batch": 1,
+        "in_c": 2,
+        "in_h": 5,
+        "in_w": 5,
+        "out_c": 4,
+        "kh": 3,
+        "kw": 3,
+        "stride": 1,
+        "groups": 1,
+        "padded_zero_frame": false,
+        "effective_input_h": 5,
+        "effective_input_w": 5,
+        "out_h": 3,
+        "out_w": 3,
+        "parent_case": "conv_grouped_3x3_c4_h5_w5_oc8_g2",
+        "parent_task_index": 1,
+        "parent_in_c": 4,
+        "parent_out_c": 8,
+        "parent_groups": 2
+      },
+      "description": "One-task promotion of conv_grouped_3x3_c4_h5_w5_oc8_g2 task 1/2 (group 1): C2 5x5 -> OC4 3x3, stride 1, groups=1. The original two-task case is BLOCKED because Rocket executed only task 0.",
+      "branch": "conv_new_clean.run_conv2d grouped_serial path (lines 826-850): two per-group tasks with 2-channel input and 4-channel output Promoted to one terminal task at offset 0.",
+      "task_count": 1,
+      "buffer_count": 3,
+      "patch_count": 3,
+      "tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 54
+        }
+      ],
+      "buffers": [
+        {
+          "name": "a1",
+          "size": 800,
+          "input": "a1.bin",
+          "direction": "in"
+        },
+        {
+          "name": "w1",
+          "size": 1152,
+          "input": "w1.bin",
+          "direction": "in"
+        },
+        {
+          "name": "out1",
+          "size": 768,
+          "direction": "out",
+          "output": "out1.bin"
+        }
+      ],
+      "expected_files": [
+        "expected_out1.bin"
+      ],
+      "oracle": {
+        "kind": "host_numpy_naive_conv",
+        "source": "conv_new_clean.compute_expected_nchw (lines 1010-1021)",
+        "independent_check": "tools/gen_bundles.py independent_naive_conv (float64 loop)",
+        "dtype": "float16",
+        "byte_order": "little",
+        "layout": "NCHW",
+        "accumulation": "float64 accumulation of float16 operands, rounded once to float16",
+        "tolerance_atol": 0.2,
+        "expected_files": [
+          "expected_out1.bin"
+        ]
+      },
+      "output_layouts": [
+        {
+          "buffer": "out1",
+          "output": "out1.bin",
+          "expected": "expected_out1.bin",
+          "raw_bytes": 768,
+          "out_c": 4,
+          "out_h": 3,
+          "out_w": 3,
+          "out_width_stride": 12,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "nc1hwc2",
+          "task_index": 0
+        }
+      ],
+      "caveats": [
+        "One-task promotion of conv_grouped_3x3_c4_h5_w5_oc8_g2 task 1/2; job.json has exactly one task at regcmd_offset_words=0, regcmd_words=54.",
+        "expected_out1.bin is a byte-identical copy of the parent task oracle (sha256 4fe930c07e85b5d36be8049d579376e17750961bb2b4259fbf4101867923d9bf).",
+        "The parent two-task case is BLOCKED with reason MULTITASK_ROCKET_JOB_UNSUPPORTED; do not merge the tasks back into one job.",
+        "Board diagnostic evidence: this one-task bundle matched its oracle exactly (0 mismatches, submit_ret=0); the original two-task control left task 1's output BO all zero."
+      ],
+      "promotion_evidence": {
+        "diagnostic_bundle": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/conv-fp16-task-diagnostic/bundles/diag_grouped_task1",
+        "diagnostic_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-task-diagnostic-20261105T211500Z",
+        "original_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-20261105T205900Z",
+        "evidence_file": "evidence_diagnostic_out1.bin",
+        "diagnostic_out_sha256": "1bb2e0e5a2ec708d27d4bac96123d5c447a2a79214cbe2fe09bcac1b31b4024a",
+        "exact_mismatch_elements": 0,
+        "over_atol_elements": 0,
+        "max_abs_diff": 0.0
+      },
+      "files": {
+        "a1.bin": {
+          "size": 800,
+          "sha256": "ea7a9ade766ebe2d595ef3a352c055d8367d67ca49fe8996a36a543defb5fb20"
+        },
+        "derivation.json": {
+          "size": 876,
+          "sha256": "706fb299727b97d02829bb5de747e66169b1997b3a16cd3a8e56ecfca0380f37"
+        },
+        "evidence_diagnostic_out1.bin": {
+          "size": 768,
+          "sha256": "1bb2e0e5a2ec708d27d4bac96123d5c447a2a79214cbe2fe09bcac1b31b4024a"
+        },
+        "expected_out1.bin": {
+          "size": 72,
+          "sha256": "4fe930c07e85b5d36be8049d579376e17750961bb2b4259fbf4101867923d9bf"
+        },
+        "job.json": {
+          "size": 1066,
+          "sha256": "e966e2cbd6bda9f550e404261b1a91d2b650b8b9b934ccca030873ec0a4418bb"
+        },
+        "provenance.json": {
+          "size": 5666,
+          "sha256": "e3741718e5e391825a1fd67d468358e33885cb70497a41092c44885de781ff30"
+        },
+        "regcmd.bin": {
+          "size": 432,
+          "sha256": "29b60f0bc2baa4b802823dacba0770c7d36e46f0c4b7bf1994eba762ee55a08f"
+        },
+        "w1.bin": {
+          "size": 1152,
+          "sha256": "881c80ca94b42526d7e78fb0f0b6a90fbbf16f5e578a640cebf0690321193d5b"
+        }
+      }
+    },
+    {
+      "case": "conv_splitoc_3x3_c16_h9_w9_oc16_task0",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "source_lines": [
+        "1189: shape table row",
+        "308-332: _conv_params (shape, alignment, stride, output geometry)",
+        "380-401: weight/input packing",
+        "445-629: make_conv2d_regs (register body)",
+        "631-676: write_regs_to_npu_task (terminal PC tail)",
+        "1010-1021: compute_expected_nchw oracle",
+        "conv_new_clean.run_conv2d spatial_oc_serial path (lines 852-877): two 8-output-channel tasks sharing one input BO; full_data_bank=True at lines 868-873"
+      ],
+      "shape": {
+        "batch": 1,
+        "in_c": 16,
+        "in_h": 9,
+        "in_w": 9,
+        "out_c": 8,
+        "kh": 3,
+        "kw": 3,
+        "stride": 1,
+        "groups": 1,
+        "padded_zero_frame": false,
+        "effective_input_h": 9,
+        "effective_input_w": 9,
+        "out_h": 7,
+        "out_w": 7,
+        "parent_case": "conv_splitoc_3x3_c16_h9_w9_oc16",
+        "parent_task_index": 0,
+        "parent_in_c": 16,
+        "parent_out_c": 16,
+        "parent_groups": 1
+      },
+      "description": "One-task promotion of conv_splitoc_3x3_c16_h9_w9_oc16 task 0/2 (output channels 0..7): C16 9x9 -> OC8 7x7, stride 1, groups=1, full_data_bank=True preserved. The original two-task case is BLOCKED because Rocket executed only task 0.",
+      "branch": "conv_new_clean.run_conv2d spatial_oc_serial path (lines 852-877): two 8-output-channel tasks sharing one input BO; full_data_bank=True at lines 868-873 Promoted to one terminal task at offset 0.",
+      "task_count": 1,
+      "buffer_count": 3,
+      "patch_count": 3,
+      "tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 54
+        }
+      ],
+      "buffers": [
+        {
+          "name": "a0",
+          "size": 2592,
+          "input": "a0.bin",
+          "direction": "in"
+        },
+        {
+          "name": "w0",
+          "size": 2304,
+          "input": "w0.bin",
+          "direction": "in"
+        },
+        {
+          "name": "out0",
+          "size": 3328,
+          "direction": "out",
+          "output": "out0.bin"
+        }
+      ],
+      "expected_files": [
+        "expected_out0.bin"
+      ],
+      "oracle": {
+        "kind": "host_numpy_naive_conv",
+        "source": "conv_new_clean.compute_expected_nchw (lines 1010-1021)",
+        "independent_check": "tools/gen_bundles.py independent_naive_conv (float64 loop)",
+        "dtype": "float16",
+        "byte_order": "little",
+        "layout": "NCHW",
+        "accumulation": "float64 accumulation of float16 operands, rounded once to float16",
+        "tolerance_atol": 0.2,
+        "expected_files": [
+          "expected_out0.bin"
+        ]
+      },
+      "output_layouts": [
+        {
+          "buffer": "out0",
+          "output": "out0.bin",
+          "expected": "expected_out0.bin",
+          "raw_bytes": 3328,
+          "out_c": 8,
+          "out_h": 7,
+          "out_w": 7,
+          "out_width_stride": 52,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "nc1hwc2",
+          "task_index": 0
+        }
+      ],
+      "caveats": [
+        "One-task promotion of conv_splitoc_3x3_c16_h9_w9_oc16 task 0/2; job.json has exactly one task at regcmd_offset_words=0, regcmd_words=54.",
+        "expected_out0.bin is a byte-identical copy of the parent task oracle (sha256 c539835d0b1d1819b717b7033c7fe003f8eb920c8fd51ec2b4ee32a96ff0016b).",
+        "The parent two-task case is BLOCKED with reason MULTITASK_ROCKET_JOB_UNSUPPORTED; do not merge the tasks back into one job.",
+        "Board diagnostic evidence: this one-task bundle matched its oracle exactly (0 mismatches, submit_ret=0); the original two-task control left task 1's output BO all zero."
+      ],
+      "promotion_evidence": {
+        "diagnostic_bundle": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/conv-fp16-task-diagnostic/bundles/diag_splitoc_task0",
+        "diagnostic_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-task-diagnostic-20261105T211500Z",
+        "original_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-20261105T205900Z",
+        "evidence_file": "evidence_diagnostic_out0.bin",
+        "diagnostic_out_sha256": "48ad9ce497eb9d44359343b570a836e5faea05430fc217f668a8c50a78cec108",
+        "exact_mismatch_elements": 0,
+        "over_atol_elements": 0,
+        "max_abs_diff": 0.0
+      },
+      "files": {
+        "a0.bin": {
+          "size": 2592,
+          "sha256": "c611ec070e316cb26544280f6a5bf9ad249dd6279ffead9b8ed9657f4696f6b1"
+        },
+        "derivation.json": {
+          "size": 872,
+          "sha256": "a38365066d8f8540fcd93afd56569d104623742774d730f893026c83bdb3775d"
+        },
+        "evidence_diagnostic_out0.bin": {
+          "size": 3328,
+          "sha256": "48ad9ce497eb9d44359343b570a836e5faea05430fc217f668a8c50a78cec108"
+        },
+        "expected_out0.bin": {
+          "size": 784,
+          "sha256": "c539835d0b1d1819b717b7033c7fe003f8eb920c8fd51ec2b4ee32a96ff0016b"
+        },
+        "job.json": {
+          "size": 1111,
+          "sha256": "f6440e5dd31a12b1ed738c571f7c1ad1eff4e410560ea2f42db24ab1c249edec"
+        },
+        "provenance.json": {
+          "size": 5692,
+          "sha256": "bd7522735c4745d2eaa3a655124eeca5408d5839a229e90fcc6e360baac9fd70"
+        },
+        "regcmd.bin": {
+          "size": 432,
+          "sha256": "a60a4448d096c069a35f941e9718391964f4809aa227ae3d63784c860224e9db"
+        },
+        "w0.bin": {
+          "size": 2304,
+          "sha256": "a1573f16f711c8c54cccab46350b2973bd4452b05af5c0359a2bc41a34e8e26f"
+        }
+      }
+    },
+    {
+      "case": "conv_splitoc_3x3_c16_h9_w9_oc16_task1",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "source_lines": [
+        "1189: shape table row",
+        "308-332: _conv_params (shape, alignment, stride, output geometry)",
+        "380-401: weight/input packing",
+        "445-629: make_conv2d_regs (register body)",
+        "631-676: write_regs_to_npu_task (terminal PC tail)",
+        "1010-1021: compute_expected_nchw oracle",
+        "conv_new_clean.run_conv2d spatial_oc_serial path (lines 852-877): two 8-output-channel tasks sharing one input BO; full_data_bank=True at lines 868-873"
+      ],
+      "shape": {
+        "batch": 1,
+        "in_c": 16,
+        "in_h": 9,
+        "in_w": 9,
+        "out_c": 8,
+        "kh": 3,
+        "kw": 3,
+        "stride": 1,
+        "groups": 1,
+        "padded_zero_frame": false,
+        "effective_input_h": 9,
+        "effective_input_w": 9,
+        "out_h": 7,
+        "out_w": 7,
+        "parent_case": "conv_splitoc_3x3_c16_h9_w9_oc16",
+        "parent_task_index": 1,
+        "parent_in_c": 16,
+        "parent_out_c": 16,
+        "parent_groups": 1
+      },
+      "description": "One-task promotion of conv_splitoc_3x3_c16_h9_w9_oc16 task 1/2 (output channels 8..15): C16 9x9 -> OC8 7x7, stride 1, groups=1, full_data_bank=True preserved. The original two-task case is BLOCKED because Rocket executed only task 0.",
+      "branch": "conv_new_clean.run_conv2d spatial_oc_serial path (lines 852-877): two 8-output-channel tasks sharing one input BO; full_data_bank=True at lines 868-873 Promoted to one terminal task at offset 0.",
+      "task_count": 1,
+      "buffer_count": 3,
+      "patch_count": 3,
+      "tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 54
+        }
+      ],
+      "buffers": [
+        {
+          "name": "a0",
+          "size": 2592,
+          "input": "a0.bin",
+          "direction": "in"
+        },
+        {
+          "name": "w1",
+          "size": 2304,
+          "input": "w1.bin",
+          "direction": "in"
+        },
+        {
+          "name": "out1",
+          "size": 3328,
+          "direction": "out",
+          "output": "out1.bin"
+        }
+      ],
+      "expected_files": [
+        "expected_out1.bin"
+      ],
+      "oracle": {
+        "kind": "host_numpy_naive_conv",
+        "source": "conv_new_clean.compute_expected_nchw (lines 1010-1021)",
+        "independent_check": "tools/gen_bundles.py independent_naive_conv (float64 loop)",
+        "dtype": "float16",
+        "byte_order": "little",
+        "layout": "NCHW",
+        "accumulation": "float64 accumulation of float16 operands, rounded once to float16",
+        "tolerance_atol": 0.2,
+        "expected_files": [
+          "expected_out1.bin"
+        ]
+      },
+      "output_layouts": [
+        {
+          "buffer": "out1",
+          "output": "out1.bin",
+          "expected": "expected_out1.bin",
+          "raw_bytes": 3328,
+          "out_c": 8,
+          "out_h": 7,
+          "out_w": 7,
+          "out_width_stride": 52,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "nc1hwc2",
+          "task_index": 0
+        }
+      ],
+      "caveats": [
+        "One-task promotion of conv_splitoc_3x3_c16_h9_w9_oc16 task 1/2; job.json has exactly one task at regcmd_offset_words=0, regcmd_words=54.",
+        "expected_out1.bin is a byte-identical copy of the parent task oracle (sha256 d1947de80b07b957d81b8a1a93e7e445906fb6a12985a7f773ab479cde838027).",
+        "The parent two-task case is BLOCKED with reason MULTITASK_ROCKET_JOB_UNSUPPORTED; do not merge the tasks back into one job.",
+        "Board diagnostic evidence: this one-task bundle matched its oracle exactly (0 mismatches, submit_ret=0); the original two-task control left task 1's output BO all zero."
+      ],
+      "promotion_evidence": {
+        "diagnostic_bundle": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/conv-fp16-task-diagnostic/bundles/diag_splitoc_task1",
+        "diagnostic_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-task-diagnostic-20261105T211500Z",
+        "original_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-20261105T205900Z",
+        "evidence_file": "evidence_diagnostic_out1.bin",
+        "diagnostic_out_sha256": "f83443a0c459a8926272001d29c2018cb4d06d1869496be663f0b6a746c853be",
+        "exact_mismatch_elements": 0,
+        "over_atol_elements": 0,
+        "max_abs_diff": 0.0
+      },
+      "files": {
+        "a0.bin": {
+          "size": 2592,
+          "sha256": "c611ec070e316cb26544280f6a5bf9ad249dd6279ffead9b8ed9657f4696f6b1"
+        },
+        "derivation.json": {
+          "size": 874,
+          "sha256": "5507b6ca0d528d7d4c2c6074eaad1be2a88fb2de6995ace7777e65fee3e2b604"
+        },
+        "evidence_diagnostic_out1.bin": {
+          "size": 3328,
+          "sha256": "f83443a0c459a8926272001d29c2018cb4d06d1869496be663f0b6a746c853be"
+        },
+        "expected_out1.bin": {
+          "size": 784,
+          "sha256": "d1947de80b07b957d81b8a1a93e7e445906fb6a12985a7f773ab479cde838027"
+        },
+        "job.json": {
+          "size": 1112,
+          "sha256": "f391eccd600eeaf8f628eb42c83a5fad65ce1a743c94361cc21dce1162cd782d"
+        },
+        "provenance.json": {
+          "size": 5694,
+          "sha256": "63beb53742b2884c17d8bc8db728ca7522f6ab9e75b789b0d2b0fc75a7bdebc1"
+        },
+        "regcmd.bin": {
+          "size": 432,
+          "sha256": "a60a4448d096c069a35f941e9718391964f4809aa227ae3d63784c860224e9db"
+        },
+        "w1.bin": {
+          "size": 2304,
+          "sha256": "cbd5b615d0e2dcc2ce27c25d213b01bdb733cc3b3f465e1c81fc8158774a0c6e"
+        }
+      }
+    },
+    {
+      "case": "conv_grouped_3x3_c4_h5_w5_oc8_g2",
+      "status": "BLOCKED",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "source_lines": [
+        "1177: shape table row",
+        "308-332: _conv_params (shape, alignment, stride, output geometry)",
+        "380-401: weight/input packing",
+        "445-629: make_conv2d_regs (register body)",
+        "631-676: write_regs_to_npu_task (terminal PC tail)",
+        "1010-1021: compute_expected_nchw oracle",
+        "conv_new_clean.run_conv2d grouped_serial path (lines 826-850): two per-group tasks with 2-channel input and 4-channel output"
+      ],
+      "shape": {
+        "batch": 1,
+        "in_c": 4,
+        "in_h": 5,
+        "in_w": 5,
+        "out_c": 8,
+        "kh": 3,
+        "kw": 3,
+        "stride": 1,
+        "groups": 2,
+        "padded_zero_frame": false,
+        "effective_input_h": 5,
+        "effective_input_w": 5,
+        "out_h": 3,
+        "out_w": 3
+      },
+      "description": "FP16 grouped 3x3 valid convolution, C4 H5 W5 -> OC8 3x3, groups=2; encoded as two per-group tasks.",
+      "branch": "conv_new_clean.run_conv2d grouped_serial path (lines 826-850): two per-group tasks with 2-channel input and 4-channel output",
+      "task_count": 2,
+      "buffer_count": 6,
+      "patch_count": 6,
+      "oracle": {
+        "kind": "host_numpy_naive_conv",
+        "source": "conv_new_clean.compute_expected_nchw (lines 1010-1021)",
+        "independent_check": "tools/gen_bundles.py independent_naive_conv (float64 loop)",
+        "dtype": "float16",
+        "byte_order": "little",
+        "layout": "NCHW",
+        "accumulation": "float64 accumulation of float16 operands, rounded once to float16",
+        "tolerance_atol": 0.2,
+        "expected_files": [
+          "expected_out0.bin",
+          "expected_out1.bin"
+        ],
+        "combined_expected": "expected_combined.bin"
+      },
+      "output_layouts": [
+        {
+          "buffer": "out0",
+          "output": "out0.bin",
+          "expected": "expected_out0.bin",
+          "raw_bytes": 768,
+          "out_c": 4,
+          "out_h": 3,
+          "out_w": 3,
+          "out_width_stride": 12,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "nc1hwc2",
+          "task_index": 0
+        },
+        {
+          "buffer": "out1",
+          "output": "out1.bin",
+          "expected": "expected_out1.bin",
+          "raw_bytes": 768,
+          "out_c": 4,
+          "out_h": 3,
+          "out_w": 3,
+          "out_width_stride": 12,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "nc1hwc2",
+          "task_index": 1
+        }
+      ],
+      "caveats": [
+        "The donor submits each group as a separate npu_submit call on the same scratch BOs. The bundle uses two independent task descriptors in one job, each with its own input, weight and output BO because the bundle patch schema has no buffer+offset form.",
+        "The two tasks use terminal PC tails (PC_BASE_ADDRESS=0) exactly as the donor's last-task branch; they are not PC-linked.",
+        "Each output BO is 4x3x3 NC1HWC2 with 32 aligned channels; only four channels per group are defined."
+      ],
+      "files": {
+        "a0.bin": {
+          "size": 800,
+          "sha256": "3db3c4abd528172b0d92e945f806807d3f851109ea8ebc1d74020df0ffcc6270"
+        },
+        "a1.bin": {
+          "size": 800,
+          "sha256": "ea7a9ade766ebe2d595ef3a352c055d8367d67ca49fe8996a36a543defb5fb20"
+        },
+        "expected_combined.bin": {
+          "size": 144,
+          "sha256": "dad3833165b870962b9a4f7691da8d4de1d9cf8f0e38d6987ae3396e07e30d5a"
+        },
+        "expected_out0.bin": {
+          "size": 72,
+          "sha256": "68bec39a92255048678a37a33125a1668466128c08eca7cf760aa29fb65ac84a"
+        },
+        "expected_out1.bin": {
+          "size": 72,
+          "sha256": "4fe930c07e85b5d36be8049d579376e17750961bb2b4259fbf4101867923d9bf"
+        },
+        "job.json": {
+          "size": 1608,
+          "sha256": "79b0aeaae127fe7eab682766ddc21026c94f7c845323cf15127d7d191c6b3911"
+        },
+        "provenance.json": {
+          "size": 4195,
+          "sha256": "04d639e22a589044296dac357b98cae3aba742f2c5e4d6c076f0dea806dd6ab5"
+        },
+        "regcmd.bin": {
+          "size": 864,
+          "sha256": "2f811ac2ad59aefdb18596234e001e4d0d4822bf1a0f5848af508495a0373bf0"
+        },
+        "source_input_nchw.bin": {
+          "size": 200,
+          "sha256": "831d50cc1eae9d6d1b841ddb281fd9556a54071b8accc51d0b86d30190a41cef"
+        },
+        "source_weight_nchw.bin": {
+          "size": 288,
+          "sha256": "02331a1da3d6be10d3cbfac7db54d6d77f319420d0f9715c946e8bb0c4d2530b"
+        },
+        "w0.bin": {
+          "size": 1152,
+          "sha256": "b2c597d0e016672b647cbe27baee81efa346068fd1994a4de61077565720870c"
+        },
+        "w1.bin": {
+          "size": 1152,
+          "sha256": "881c80ca94b42526d7e78fb0f0b6a90fbbf16f5e578a640cebf0690321193d5b"
+        },
+        "evidence_task1_zero_output.bin": {
+          "size": 768,
+          "sha256": "ef115a0e0c15cdc41958ca46b5b14b456115f4baec5e3ca68599d2a8f435e3b8"
+        }
+      },
+      "blocker": "MULTITASK_ROCKET_JOB_UNSUPPORTED",
+      "evidence_preserved": true,
+      "promoted_to": [
+        "conv_grouped_3x3_c4_h5_w5_oc8_g2_task0",
+        "conv_grouped_3x3_c4_h5_w5_oc8_g2_task1"
+      ],
+      "board_evidence": {
+        "diagnostic_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-task-diagnostic-20261105T211500Z",
+        "original_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-20261105T205900Z",
+        "evidence_file": "evidence_task1_zero_output.bin",
+        "task1_zero_sha256": "ef115a0e0c15cdc41958ca46b5b14b456115f4baec5e3ca68599d2a8f435e3b8",
+        "observed": "Task 0 matched exactly; task 1's output BO was all zero. The identical task-1 command stream submitted alone (promoted one-task case) matched its oracle exactly.",
+        "grouped_control_task1_zero_sha256": "ef115a0e0c15cdc41958ca46b5b14b456115f4baec5e3ca68599d2a8f435e3b8"
+      },
+      "reason": "MULTITASK_ROCKET_JOB_UNSUPPORTED: the RK3588 Rocket v6.18 board path executed only task 0 of a two-task job. The original run's task 0 output matched exactly while task 1's output BO remained all zero. The four derived one-task bundles (including both task-1 streams) matched their expected_out0/expected_out1 oracles exactly as single-task jobs. This two-task job is retained as BLOCKED evidence and must not be submitted; use the promoted one-task cases.",
+      "reason_code": "MULTITASK_ROCKET_JOB_UNSUPPORTED"
+    },
+    {
+      "case": "conv_splitoc_3x3_c16_h9_w9_oc16",
+      "status": "BLOCKED",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "source_lines": [
+        "1189: shape table row",
+        "308-332: _conv_params (shape, alignment, stride, output geometry)",
+        "380-401: weight/input packing",
+        "445-629: make_conv2d_regs (register body)",
+        "631-676: write_regs_to_npu_task (terminal PC tail)",
+        "1010-1021: compute_expected_nchw oracle",
+        "conv_new_clean.run_conv2d spatial_oc_serial path (lines 852-877): two 8-output-channel tasks sharing one input BO; full_data_bank=True at lines 868-873"
+      ],
+      "shape": {
+        "batch": 1,
+        "in_c": 16,
+        "in_h": 9,
+        "in_w": 9,
+        "out_c": 16,
+        "kh": 3,
+        "kw": 3,
+        "stride": 1,
+        "groups": 1,
+        "padded_zero_frame": false,
+        "effective_input_h": 9,
+        "effective_input_w": 9,
+        "out_h": 7,
+        "out_w": 7
+      },
+      "description": "FP16 split-OC 3x3 valid convolution, C16 H9 W9 -> OC16 7x7; encoded as two 8-channel tasks.",
+      "branch": "conv_new_clean.run_conv2d spatial_oc_serial path (lines 852-877): two 8-output-channel tasks sharing one input BO; full_data_bank=True at lines 868-873",
+      "task_count": 2,
+      "buffer_count": 5,
+      "patch_count": 6,
+      "oracle": {
+        "kind": "host_numpy_naive_conv",
+        "source": "conv_new_clean.compute_expected_nchw (lines 1010-1021)",
+        "independent_check": "tools/gen_bundles.py independent_naive_conv (float64 loop)",
+        "dtype": "float16",
+        "byte_order": "little",
+        "layout": "NCHW",
+        "accumulation": "float64 accumulation of float16 operands, rounded once to float16",
+        "tolerance_atol": 0.2,
+        "expected_files": [
+          "expected_out0.bin",
+          "expected_out1.bin"
+        ],
+        "combined_expected": "expected_combined.bin"
+      },
+      "output_layouts": [
+        {
+          "buffer": "out0",
+          "output": "out0.bin",
+          "expected": "expected_out0.bin",
+          "raw_bytes": 3328,
+          "out_c": 8,
+          "out_h": 7,
+          "out_w": 7,
+          "out_width_stride": 52,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "nc1hwc2",
+          "task_index": 0
+        },
+        {
+          "buffer": "out1",
+          "output": "out1.bin",
+          "expected": "expected_out1.bin",
+          "raw_bytes": 3328,
+          "out_c": 8,
+          "out_h": 7,
+          "out_w": 7,
+          "out_width_stride": 52,
+          "align_out_c": 32,
+          "c1": 4,
+          "c2": 8,
+          "layout": "nc1hwc2",
+          "task_index": 1
+        }
+      ],
+      "caveats": [
+        "The donor loops over output-channel tiles in one process and reuses one output BO, unpacking after each submit. The bundle uses two output BOs so both tile results survive to the worker readback; the input BO is shared because both tasks read identical bytes.",
+        "The donor sets full_data_bank=True for this branch (lines 868-873), so CNA_CBUF_CON0 uses data_bank=11/weight_bank=1; the bundle preserves that.",
+        "The two tasks use terminal PC tails (PC_BASE_ADDRESS=0); they are not PC-linked.",
+        "This is split-OC, not split-K: there is no reduction accumulation between tasks."
+      ],
+      "files": {
+        "a0.bin": {
+          "size": 2592,
+          "sha256": "c611ec070e316cb26544280f6a5bf9ad249dd6279ffead9b8ed9657f4696f6b1"
+        },
+        "expected_combined.bin": {
+          "size": 1568,
+          "sha256": "0425ad4f77566c3994ff608a866ae2db8200a6a41cee3da03152338d2f8572db"
+        },
+        "expected_out0.bin": {
+          "size": 784,
+          "sha256": "c539835d0b1d1819b717b7033c7fe003f8eb920c8fd51ec2b4ee32a96ff0016b"
+        },
+        "expected_out1.bin": {
+          "size": 784,
+          "sha256": "d1947de80b07b957d81b8a1a93e7e445906fb6a12985a7f773ab479cde838027"
+        },
+        "job.json": {
+          "size": 1502,
+          "sha256": "92c6e5eaa08eeb53f0868d3943dd4484105a4b68bead966206257a69d2b670ea"
+        },
+        "provenance.json": {
+          "size": 4229,
+          "sha256": "4ee0a84705dcf986d76a3cebef862525a80b81033522cbdc486eb94815b8b1f7"
+        },
+        "regcmd.bin": {
+          "size": 864,
+          "sha256": "a1d6f3e7d7132e6b4a94bee2202b333094665955aa03fbb10e52c1beb6bfca33"
+        },
+        "source_input_nchw.bin": {
+          "size": 2592,
+          "sha256": "7e8f9416e986b1b6deef51b7ad614cd57aaaecc2ef804336721c49151c2228eb"
+        },
+        "source_weight_nchw.bin": {
+          "size": 4608,
+          "sha256": "8ee42ee9f4165cb6dc757f4454385e9a1dba0b60e5b78e41a531d0c5ebe96c85"
+        },
+        "w0.bin": {
+          "size": 2304,
+          "sha256": "a1573f16f711c8c54cccab46350b2973bd4452b05af5c0359a2bc41a34e8e26f"
+        },
+        "w1.bin": {
+          "size": 2304,
+          "sha256": "cbd5b615d0e2dcc2ce27c25d213b01bdb733cc3b3f465e1c81fc8158774a0c6e"
+        },
+        "evidence_task1_zero_output.bin": {
+          "size": 3328,
+          "sha256": "6bb4877dfebc6d4f819999f0f8b65d06aa540746bc63b7c1261282636efcaa15"
+        }
+      },
+      "blocker": "MULTITASK_ROCKET_JOB_UNSUPPORTED",
+      "evidence_preserved": true,
+      "promoted_to": [
+        "conv_splitoc_3x3_c16_h9_w9_oc16_task0",
+        "conv_splitoc_3x3_c16_h9_w9_oc16_task1"
+      ],
+      "board_evidence": {
+        "diagnostic_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-task-diagnostic-20261105T211500Z",
+        "original_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-20261105T205900Z",
+        "evidence_file": "evidence_task1_zero_output.bin",
+        "task1_zero_sha256": "6bb4877dfebc6d4f819999f0f8b65d06aa540746bc63b7c1261282636efcaa15",
+        "observed": "Task 0 matched exactly; task 1's output BO was all zero. The identical task-1 command stream submitted alone (promoted one-task case) matched its oracle exactly."
+      },
+      "reason": "MULTITASK_ROCKET_JOB_UNSUPPORTED: the RK3588 Rocket v6.18 board path executed only task 0 of a two-task job. The original run's task 0 output matched exactly while task 1's output BO remained all zero. The four derived one-task bundles (including both task-1 streams) matched their expected_out0/expected_out1 oracles exactly as single-task jobs. This two-task job is retained as BLOCKED evidence and must not be submitted; use the promoted one-task cases.",
+      "reason_code": "MULTITASK_ROCKET_JOB_UNSUPPORTED"
+    },
+    {
+      "case": "conv_tiles_vendor_abi_blocked",
+      "status": "BLOCKED",
+      "source_example": "/home/fedora/rk3588/examples/conv_tiles.py",
+      "source_lines": [
+        "26-43: tiling family constants and captured direct-spatial template",
+        "195-271: struct_rknpu_task / rknpu_mem_create / rknpu_submit and DRM_IOCTL_RKNPU_*",
+        "320-338: npu_submit() through DRM_IOCTL_RKNPU_SUBMIT",
+        "343: fd = os.open(\"/dev/dri/card1\", os.O_RDWR)"
+      ],
+      "shape": {
+        "description": "vendor tiled direct-spatial / grouped / OC-serial corpus",
+        "example_family": "DIRECT_SPATIAL_SIXDESC_C32_H14"
+      },
+      "description": "Tiled direct-spatial/split-family convolution corpus; vendor rknpu DRM submission path.",
+      "reason": "Vendor-only ABI: conv_tiles.py opens /dev/dri/card1 and submits through DRM_IOCTL_RKNPU_MEM_CREATE/MEM_MAP/MEM_SYNC/ACTION/SUBMIT with struct rknpu_submit and RKNPU_JOB_PC. It has no rocket_runtime or drm_rocket_task path. Re-hosting its register builder would require a new BO/submission adapter and fresh verification; producing a READY bundle would imply an unverified Rocket ABI. No registers were invented."
+    },
+    {
+      "case": "conv_3x3_pad_register_fp16_blocked",
+      "status": "BLOCKED",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+      "source_lines": [
+        "308-318: _conv_params computes valid-only output geometry",
+        "547-550: CNA_PAD_CON0 emission is commented out in the clean FP16 builder",
+        "1139: 3x3 shape row used as the intended base shape",
+        "/home/fedora/rk3588/examples/kernel_6_18/conv_mesa_fp16.py:1448-1450: the only inspected Rocket-capable builder that emits CNA_PAD_CON0",
+        "/home/fedora/rk3588/examples/kernel_6_18/conv_mesa_fp16.py:1345-1363,1495: that path uses uint8 zero-point/quantized register semantics"
+      ],
+      "shape": {
+        "in_c": 4,
+        "in_h": 9,
+        "in_w": 9,
+        "out_c": 4,
+        "kh": 3,
+        "kw": 3,
+        "stride": 1,
+        "groups": 1,
+        "padding": 1
+      },
+      "description": "True CNA_PAD_CON0 FP16 3x3 same-padding case.",
+      "reason": "No Rocket-capable FP16 builder emits and validates CNA_PAD_CON0. conv_new_clean.py comments the pad register out (lines 547-550) and computes valid-only geometry. conv_mesa_fp16.py does emit CNA_PAD_CON0, but its register path is the Mesa uint8 zero-point semantics (for example BS_OW_OP uses 0x80 - weights_zero_point and OUT_CVT/EW scales are quantized), so using it would change the numerical contract. A true pad-register FP16 case is therefore blocked pending source evidence and tests. The READY padded case uses an explicit zero frame instead."
+    },
+    {
+      "case": "conv_split_k_reduction_blocked",
+      "status": "BLOCKED",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_0522.py",
+      "source_lines": [
+        "362-386: split_method enum and _compute_k_step",
+        "460-489: _plan_conv_tiles returns SPLIT_BY_K/SPLIT_BY_YK tiles",
+        "491-514: _execute_conv_tiles clears the output before every tile; _tile_to_desc sets feature_off=weight_off=output_off=0",
+        "670-957: run_conv executes tiles but has no cross-tile accumulation for a reduction split"
+      ],
+      "shape": {
+        "in_c": 16,
+        "in_h": 9,
+        "in_w": 9,
+        "out_c": 16,
+        "kh": 3,
+        "kw": 3,
+        "stride": 1,
+        "groups": 1,
+        "split": "K"
+      },
+      "description": "Split-K reduction convolution, where partial K tiles would be summed.",
+      "reason": "Split-K reduction requires accumulation of partial products across tiles. Neither inspected Rocket path provides an accumulator or a second reduction pass: conv_0522._execute_conv_tiles clears the output BO before every tile and _tile_to_desc leaves all tile offsets at zero; conv_new_clean has no K-split for spatial conv. Only split-OC is encoded as READY. Adding split-K would require a new accumulation contract, not just more tasks."
+    }
+  ],
+  "split_promotion": {
+    "applied_utc": "2026-11-05T22:05:40.310156+00:00",
+    "blocker": "MULTITASK_ROCKET_JOB_UNSUPPORTED",
+    "diagnostic_bundles": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/conv-fp16-task-diagnostic/bundles",
+    "diagnostic_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-task-diagnostic-20261105T211500Z",
+    "original_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-20261105T205900Z",
+    "promoted_cases": [
+      "conv_grouped_3x3_c4_h5_w5_oc8_g2_task0",
+      "conv_grouped_3x3_c4_h5_w5_oc8_g2_task1",
+      "conv_splitoc_3x3_c16_h9_w9_oc16_task0",
+      "conv_splitoc_3x3_c16_h9_w9_oc16_task1"
+    ],
+    "blocked_parents": [
+      "conv_grouped_3x3_c4_h5_w5_oc8_g2",
+      "conv_splitoc_3x3_c16_h9_w9_oc16"
+    ],
+    "method": "The four one-task diagnostic bundles were copied into cases/ with one task at offset 0, byte-identical task slices, remapped patches 21/27/35, and byte-identical expected_out0/expected_out1 oracles. The two original two-task case directories are retained unchanged as BLOCKED evidence.",
+    "board_evidence": {
+      "all_four_one_task_exact": true,
+      "control_two_task_task1_zero": true,
+      "grouped_control_task1_zero_evidence": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-task-diagnostic-20261105T211500Z/board-out/conv_grouped_3x3_c4_h5_w5_oc8_g2/out1.bin",
+      "note": "The zero-output hash is bound per case in each BLOCKED parent's board_evidence.task1_zero_sha256 and evidence_task1_zero_output.bin."
+    }
+  }
+}

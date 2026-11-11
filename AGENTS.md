@@ -13,3 +13,13 @@ Do not copy old verification logs forward as evidence for modified RTL. Record t
 Never weaken electrical constraints, DRC or timing checks merely to produce a bitstream. Do not program the card or flash without an explicit requested action and an audited target.
 
 Default long-running work (builds, Vivado synthesis/implementation, simulations and test suites expected to exceed about 30 seconds) to the background: use shell `background: true` or launch the subagent in the background. Continue with independent work instead of waiting, and report the result when the background job completes. Keep only short commands needed for the immediate next step in the foreground. Backgrounding does not relax the evidence, logging or verification rules above.
+
+## Read-only RK3588 diagnostic target
+
+The documented RK3588/Orange Pi 5 is reachable as `opencode-agent@192.168.192.18` with the provisioned key `~/.ssh/opencode_agent`:
+
+```sh
+ssh -i ~/.ssh/opencode_agent opencode-agent@192.168.192.18
+```
+
+Use this target only for explicitly requested, read-only identity/driver checks unless the user separately authorizes a specific hardware operation. Do not submit accelerator work, reset it, or change its configuration by default. This RK3588 is not the K8 FPGA target; its driver or outputs do not qualify FPGA execution.

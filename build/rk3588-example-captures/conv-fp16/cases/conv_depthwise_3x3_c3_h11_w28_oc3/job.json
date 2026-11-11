@@ -1,0 +1,49 @@
+{
+  "case": "conv_depthwise_3x3_c3_h11_w28_oc3",
+  "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+  "description": "FP16 depthwise 3x3 valid convolution, C3 H11 W28 -> OC3 9x26, groups=3.",
+  "timeout_ns": 6000000000,
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 54
+    }
+  ],
+  "buffers": [
+    {
+      "name": "a",
+      "size": 4928,
+      "input": "a.bin",
+      "direction": "in"
+    },
+    {
+      "name": "w",
+      "size": 144,
+      "input": "w.bin",
+      "direction": "in"
+    },
+    {
+      "name": "out",
+      "size": 15104,
+      "direction": "out",
+      "output": "out.bin"
+    }
+  ],
+  "patches": [
+    {
+      "regcmd_index": 21,
+      "buffer": "a",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 27,
+      "buffer": "w",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 35,
+      "buffer": "out",
+      "kind": "value32"
+    }
+  ]
+}

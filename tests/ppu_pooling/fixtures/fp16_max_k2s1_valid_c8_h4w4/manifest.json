@@ -1,14 +1,14 @@
 {
   "case": "fp16_max_k2s1_valid_c8_h4w4",
-  "status": "READY",
+  "status": "READY_CAPTURE_BOUNDED_CANDIDATE",
   "description": "FP16 maximum pooling, 2x2 kernel, stride 1, no padding, C8 H4 W4 -> H3 W3.",
   "source_example": "/home/fedora/rk3588/examples/expt/pooling.py:799-818",
   "source_bundle": "build/rk3588-example-captures/pooling/cases/fp16_max_k2s1_valid_c8_h4w4",
   "device_capture": {
-    "path": "build/rk3588-example-captures/results/pooling-20261105T203205Z/pooling/fp16_max_k2s1_valid_c8_h4w4",
     "capture_json_sha256": "8e6f0fda3787bcc568b0759d50d14506d19ee4fda12c636227371d172fc441f0",
     "started_utc": "2026-11-05T20:32:43Z",
     "status": "OK",
+    "submit_ret": 0,
     "device": "/dev/accel/accel0",
     "device_path": "/sys/devices/platform/rknn",
     "kernel": "6.18.24-current-rockchip64",
@@ -20,22 +20,44 @@
     "runner_sha256": "824f129261a2a0337b3da6720a46d1f9cff23e5d31efff9a0fa085f72f1b43cf"
   },
   "command_stream": {
-    "regcmd_bin_sha256": "75f7c70eb3eafc8345a634633f9c45df231dad1195f79ad1f9a2ea7038a4cebf",
-    "regcmd_patched_sha256": "32a8fe3772f79dd74bc1ed6952055d5b2720ccdfbb4bdd11c516ada15142f649",
-    "job_json_sha256": "371916d2ea8d236e8f45bb1ed66bff5477c4f4b9d33f48e8a8810b3025f68208"
+    "source_regcmd_sha256": "75f7c70eb3eafc8345a634633f9c45df231dad1195f79ad1f9a2ea7038a4cebf",
+    "device_patched_regcmd_sha256": "32a8fe3772f79dd74bc1ed6952055d5b2720ccdfbb4bdd11c516ada15142f649",
+    "job_json_sha256": "371916d2ea8d236e8f45bb1ed66bff5477c4f4b9d33f48e8a8810b3025f68208",
+    "qwords": 26,
+    "address_relocations": [
+      13,
+      20
+    ]
   },
   "ppu": {
     "dtype": "float16",
     "method": "maximum",
     "method_selector": 1,
     "channels": 8,
-    "kernel": [2, 2],
-    "stride": [1, 1],
-    "padding": [0, 0, 0, 0],
+    "kernel": [
+      2,
+      2
+    ],
+    "stride": [
+      1,
+      1
+    ],
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
     "index_en": false,
     "use_cnt": 0,
-    "in_shape": [4, 4],
-    "out_shape": [3, 3]
+    "in_shape": [
+      4,
+      4
+    ],
+    "out_shape": [
+      3,
+      3
+    ]
   },
   "layout": {
     "atom_bytes": 16,
@@ -59,28 +81,71 @@
     }
   },
   "files": {
-    "in.bin": {
-      "bytes": 4096,
-      "sha256": "8035f829849d56a1a91332b6153c1bef9f1a56ea59470da42689c63a2ec910b2",
-      "role": "submitted input BO"
-    },
-    "out_init.bin": {
-      "bytes": 4096,
-      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
-      "role": "initialized output BO"
+    "capture.json": {
+      "bytes": 4961,
+      "sha256": "8e6f0fda3787bcc568b0759d50d14506d19ee4fda12c636227371d172fc441f0"
     },
     "device_out.bin": {
       "bytes": 4096,
-      "sha256": "39d178de3e4a7dd020c66d23437b18082ec2c00541efbc979b773f8bee45ce60",
-      "role": "RK3588 device output BO"
+      "sha256": "39d178de3e4a7dd020c66d23437b18082ec2c00541efbc979b773f8bee45ce60"
+    },
+    "in.bin": {
+      "bytes": 4096,
+      "sha256": "8035f829849d56a1a91332b6153c1bef9f1a56ea59470da42689c63a2ec910b2"
+    },
+    "job.json": {
+      "bytes": 772,
+      "sha256": "371916d2ea8d236e8f45bb1ed66bff5477c4f4b9d33f48e8a8810b3025f68208"
+    },
+    "out_init.bin": {
+      "bytes": 4096,
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+    },
+    "regcmd.bin": {
+      "bytes": 208,
+      "sha256": "75f7c70eb3eafc8345a634633f9c45df231dad1195f79ad1f9a2ea7038a4cebf"
+    },
+    "regcmd.txt": {
+      "bytes": 1561,
+      "sha256": "4006a819ced2d7810a04098d13e25645e99b675357c0864957dced5466a72428"
     }
   },
   "comparison": {
-    "scope": "full 4096-byte output BO, including the untouched tail",
+    "scope": "complete 4096-byte output BO including untouched tail",
     "logical_value_bytes": 144,
     "logical_value_lanes_fp16": 72,
     "mismatches_expected": 0,
     "tolerance": 0.0,
-    "note": "The device output SHA256 equals the bundle's host expected.bin SHA256 for this case; the testbench compares the real device BO."
+    "note": "The device output SHA256 equals the bundle's host expected.bin SHA256 for this case; the testbench compares the real device BO.",
+    "device_output_sha256": "39d178de3e4a7dd020c66d23437b18082ec2c00541efbc979b773f8bee45ce60",
+    "source_expected_sha256": "39d178de3e4a7dd020c66d23437b18082ec2c00541efbc979b773f8bee45ce60"
+  },
+  "source": {
+    "example": "/home/fedora/rk3588/examples/expt/pooling.py",
+    "example_sha256": "2ba6c5ae06ffac0daeb0d64d13320ada4c4f26593b86248da7ea1e24e20e4f6e",
+    "lines": [
+      271,
+      373,
+      796,
+      818
+    ],
+    "register_header": "/home/fedora/rk3588/experimental/rockchip.py",
+    "register_header_sha256": "6b5630f962e2f38dc96936ad8c39bb374124584bd68a136f34db8c92af421e4d",
+    "raw_emitter": "/home/fedora/rk3588/experimental/pool.py",
+    "raw_emitter_sha256": "dfe39e86686d1133e5731ecbc7056ae7d10163bc9af9db52aacf92f1f9482d70",
+    "capture_manifest_sha256": "8e6f0fda3787bcc568b0759d50d14506d19ee4fda12c636227371d172fc441f0",
+    "job_sha256": "371916d2ea8d236e8f45bb1ed66bff5477c4f4b9d33f48e8a8810b3025f68208",
+    "numerical_contract": "For each C8 channel and each valid 2x2 window, emit the exact maximum of the four input FP16 values. The source capture inputs contain 127 finite normal values and one +0; NaN, infinity, subnormal and -0 inputs are rejected by the DMA candidate. No rounding or channel mixing is performed.",
+    "tolerance_abs": 0.0
+  },
+  "input_value_contract": {
+    "logical_fp16_lanes": 128,
+    "finite_normal_lanes": 127,
+    "positive_zero_lanes": 1,
+    "negative_zero_lanes": 0,
+    "subnormal_lanes": 0,
+    "infinity_or_nan_lanes": 0,
+    "numeric_min": -4.0,
+    "numeric_max": 11.875
   }
 }

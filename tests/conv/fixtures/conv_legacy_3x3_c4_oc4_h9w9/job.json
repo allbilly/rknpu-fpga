@@ -1,0 +1,49 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "input.bin",
+      "name": "input",
+      "size": 4096
+    },
+    {
+      "direction": "in",
+      "input": "weight.bin",
+      "name": "weight",
+      "size": 4096
+    },
+    {
+      "direction": "out",
+      "name": "output",
+      "output": "output.bin",
+      "size": 4096
+    }
+  ],
+  "case": "conv_legacy_3x3_c4_oc4_h9w9",
+  "description": "FP16 3x3 valid conv from conv_legacy.py, C4/H9/W9 -> OC4; seed-42 random inputs/weights keep the FP16 oracle finite",
+  "patches": [
+    {
+      "buffer": "input",
+      "kind": "value32",
+      "regcmd_index": 18
+    },
+    {
+      "buffer": "weight",
+      "kind": "value32",
+      "regcmd_index": 24
+    },
+    {
+      "buffer": "output",
+      "kind": "value32",
+      "regcmd_index": 32
+    }
+  ],
+  "source_example": "/home/fedora/rk3588/examples/conv_legacy.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 52
+    }
+  ],
+  "timeout_ns": 6000000000
+}

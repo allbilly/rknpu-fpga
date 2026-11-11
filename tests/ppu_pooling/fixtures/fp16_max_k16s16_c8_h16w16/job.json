@@ -1,0 +1,42 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "in.bin",
+      "name": "in",
+      "size": 4096
+    },
+    {
+      "direction": "inout",
+      "input": "out_init.bin",
+      "name": "out",
+      "output": "out.bin",
+      "size": 4096
+    }
+  ],
+  "case": "fp16_max_k16s16_c8_h16w16",
+  "description": "FP16 C8 MAX, 16x16 kernel/stride, H16W16 -> H1W1; donor source emitter only, no raw device capture.",
+  "patches": [
+    {
+      "buffer": "out",
+      "kind": "value32",
+      "regcmd_index": 13
+    },
+    {
+      "buffer": "in",
+      "kind": "value32",
+      "regcmd_index": 20
+    }
+  ],
+  "simulation_addresses": {
+    "in": 4096,
+    "out": 8192
+  },
+  "source_example": "/home/fedora/rk3588/examples/expt/pooling.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 26
+    }
+  ]
+}

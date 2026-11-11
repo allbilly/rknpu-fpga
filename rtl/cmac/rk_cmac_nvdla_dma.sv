@@ -3,7 +3,12 @@
 // Staged standalone CMAC descriptor path. Backend amount=45 counts the body;
 // all 49 final QWORDs are fetched unchanged, including the CMAC-specific tail.
 // Not an EW chain parser, RK DRM ABI, PCIe shell or runtime gather fallback.
-module rk_cmac_nvdla_dma #(parameter int unsigned TIMEOUT_CYCLES=65536) (
+module rk_cmac_nvdla_dma #(
+    parameter int unsigned TIMEOUT_CYCLES = 65536,
+    // Selects the decoder's output registers and the numerical tail together:
+    // FP16 converts the CACC value, FP32 passes it through unchanged.
+    parameter bit OUTPUT_FP16 = 1'b1
+) (
     input logic clk,rst_n,start_valid,
     output logic start_ready,
     input logic [31:0] start_address,start_amount,
@@ -62,7 +67,8 @@ module rk_cmac_nvdla_dma #(parameter int unsigned TIMEOUT_CYCLES=65536) (
 `endif
     end
     assign fetch_progress=(state==FETCH_REQ&&mem_req_ready)||(state==FETCH_WAIT&&mem_rsp_valid);
-    rk_cmac_nvdla_core #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) core(
+    rk_cmac_nvdla_core #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES),
+                         .OUTPUT_FP16(OUTPUT_FP16)) core(
         .clk,.rst_n,.cmd_valid(state==SEND&&framing_ok&&!error),.cmd_ready(core_ready),.cmd_data(word_data),
         .busy(core_busy),.done(core_done),.acknowledged(core_ack),.address_done(core_address_done),
         .operand_done(core_operand_done),.error(core_error),.error_code(core_code),

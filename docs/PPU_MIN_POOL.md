@@ -1,9 +1,11 @@
 # Capture-bounded FP16 minimum-pooling leaf
 
-Status: **one fixed standalone candidate, simulation-only**. The leaf supports
-only the captured `fp16_min_k2s1_valid_c8_h4w4` datapath. It does not connect to
-the PPU register decoder, DMA/RDMA, AXI, a full top or the FPGA. The saved RK
-capture is fixture evidence; this RTL increment did not access a board.
+Status: **one fixed standalone leaf plus a separate capture-bounded raw-command
+profile/DMA candidate, simulation-only**. The leaf itself supports only the
+captured `fp16_min_k2s1_valid_c8_h4w4` datapath and has no register decoder or
+DMA/RDMA/AXI interface. Its separate strict raw-command route is documented in
+[PPU_MIN_RAW_PROFILE.md](PPU_MIN_RAW_PROFILE.md). The saved RK capture is
+fixture evidence; this RTL increment did not access a board.
 
 ## Captured contract
 

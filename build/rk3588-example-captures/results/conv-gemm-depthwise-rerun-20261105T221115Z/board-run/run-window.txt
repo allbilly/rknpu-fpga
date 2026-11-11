@@ -1,0 +1,4 @@
+start_utc=2026-11-05T22:12:57Z
+command=flock -x -w 900 /home/opencode-agent/rk3588-npu.lock python3 /home/opencode-agent/rk3588-example-captures/runs/20261105T221115Z/staging/runner/rocket_run.py --device /dev/accel/accel0 --out /home/opencode-agent/rk3588-example-captures/runs/20261105T221115Z/conv-gemm-depthwise-rerun <task0> <task1>
+end_utc=2026-11-05T22:12:57Z
+runner_rc=0

@@ -1,0 +1,134 @@
+{
+  "blocked_original": {
+    "blocked_code": "MULTITASK_ROCKET_JOB_UNSUPPORTED",
+    "blocked_reason": "MULTITASK_ROCKET_JOB_UNSUPPORTED: Rocket board execution completes only the first task of a two-task job; task 1 alone passes exactly. The source double submit is split into _task0 and _task1 one-task cases.",
+    "case": "conv_depthwise_3x3_c3_oc3_h11w28",
+    "hashes": {
+      "BLOCKED.md": "298bf269d769d54de74f7acf47711dce7a01f24627b01e61a3b063c8be0f8ae5",
+      "evidence/expected.bin": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b",
+      "evidence/input.bin": "0fd41346970b0ddbc0f89d5b0899ae998a6b22a06b3f66b867d917c9ba4bc28f",
+      "evidence/job.json": "f07e7a200d449c43a23e2c6b9e4b992c92d272029b28e6ac4dcfae7618940ba4",
+      "evidence/regcmd.bin": "c746a698c98fa0c3c9ff1f2b488fa2b6d2a0da9e181ca1d4965d28d2693e1b01",
+      "evidence/weight.bin": "4e3f77532434f10413425550076b0901ca3ff4f0886ed1b1f60de9757063ba31",
+      "source_example": "b4cc1f57ef782fe3f89ec61d4b94f841b2a2820a912609f3755fbf517f9efad9"
+    },
+    "sizes": {
+      "expected_logical_bytes": 1404,
+      "input_buffer_bytes": 4928,
+      "output_buffer_bytes": 7552,
+      "regcmd_bytes": 832,
+      "weight_buffer_bytes": 4096
+    },
+    "status": "BLOCKED"
+  },
+  "commands": [
+    "/usr/bin/python3 tools/validate_bundles.py",
+    "/usr/bin/python3 tools/check_oracles.py",
+    "python3 build/rk3588-example-captures/runner/validate_bundle.py <all 10 READY case dirs>"
+  ],
+  "family_validator": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "PASS: READY=10 BLOCKED=3 cases=13 max_regcmd_words=112 rocket_max=131072"
+  },
+  "manifest": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/conv-gemm-vendor/manifest.json",
+  "manifest_sha256": "2ad7501c16a7cdb17971c4374b2b06aba5bdc2cfc587bc307dfb9ae1756ff9aa",
+  "oracle_check": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "gemm_m2_n2_k1: max_abs_diff=0.0\ngemm_m1_n16_k32: max_abs_diff=0.0\ngemm_m2_n16_k32: max_abs_diff=0.0\ngemm_m4_n32_k64: max_abs_diff=0.0\nconv_1x1_c1_oc6_h4w4: max_abs_diff=0.0\nconv_grouped_3x3_c4_oc4_g2_h5w5: max_abs_diff=0.0\nconv_legacy_3x3_c4_oc4_h9w9: max_abs_diff=0.0\nconv_depthwise_3x3_c3_oc3_h11w28_task0: max_abs_diff=0.0\nconv_depthwise_3x3_c3_oc3_h11w28_task1: max_abs_diff=0.0\nconv_py_3x3_c32_oc128_h14w14_fullsetup: max_abs_diff=0.0\nPASS: 10 READY oracles match independent NumPy derivation"
+  },
+  "readiness": {
+    "BLOCKED": 3,
+    "READY": 10,
+    "total": 13
+  },
+  "scope": "host-side schema, range, hash and NumPy oracle checks only; no board, vendor ioctl, FPGA or silicon action",
+  "shared_validator": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "OK   build/rk3588-example-captures/conv-gemm-vendor/cases/gemm_m2_n2_k1  case='gemm_m2_n2_k1' tasks=1 buffers=3 patches=3\nOK   build/rk3588-example-captures/conv-gemm-vendor/cases/gemm_m1_n16_k32  case='gemm_m1_n16_k32' tasks=1 buffers=3 patches=3\nOK   build/rk3588-example-captures/conv-gemm-vendor/cases/gemm_m2_n16_k32  case='gemm_m2_n16_k32' tasks=1 buffers=3 patches=3\nOK   build/rk3588-example-captures/conv-gemm-vendor/cases/gemm_m4_n32_k64  case='gemm_m4_n32_k64' tasks=1 buffers=3 patches=3\nOK   build/rk3588-example-captures/conv-gemm-vendor/cases/conv_1x1_c1_oc6_h4w4  case='conv_1x1_c1_oc6_h4w4' tasks=1 buffers=3 patches=3\nOK   build/rk3588-example-captures/conv-gemm-vendor/cases/conv_grouped_3x3_c4_oc4_g2_h5w5  case='conv_grouped_3x3_c4_oc4_g2_h5w5' tasks=1 buffers=3 patches=3\nOK   build/rk3588-example-captures/conv-gemm-vendor/cases/conv_legacy_3x3_c4_oc4_h9w9  case='conv_legacy_3x3_c4_oc4_h9w9' tasks=1 buffers=3 patches=3\nOK   build/rk3588-example-captures/conv-gemm-vendor/cases/conv_depthwise_3x3_c3_oc3_h11w28_task0  case='conv_depthwise_3x3_c3_oc3_h11w28_task0' tasks=1 buffers=3 patches=3\nOK   build/rk3588-example-captures/conv-gemm-vendor/cases/conv_depthwise_3x3_c3_oc3_h11w28_task1  case='conv_depthwise_3x3_c3_oc3_h11w28_task1' tasks=1 buffers=3 patches=3\nOK   build/rk3588-example-captures/conv-gemm-vendor/cases/conv_py_3x3_c32_oc128_h14w14_fullsetup  case='conv_py_3x3_c32_oc128_h14w14_fullsetup' tasks=1 buffers=3 patches=3"
+  },
+  "split_cases": {
+    "conv_depthwise_3x3_c3_oc3_h11w28_task0": {
+      "conv_layout": {
+        "align_c": 8,
+        "align_out_c": 16,
+        "grouped_spatial": false,
+        "hardware_output_bytes": 15104,
+        "hardware_output_dtype": "fp16",
+        "hardware_output_elements": 7552,
+        "out_width_stride": 236,
+        "unpack_c2": 8,
+        "unpack_function": "_unpack_flat_1x1_output",
+        "use_nhwc": false,
+        "width_stride": 28
+      },
+      "hashes": {
+        "expected.bin": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b",
+        "input.bin": "0fd41346970b0ddbc0f89d5b0899ae998a6b22a06b3f66b867d917c9ba4bc28f",
+        "job.json": "2f7a414ca8bada02ef78b59d464a406c4be507fda4a91a1a604d59f89eb62c15",
+        "regcmd.bin": "906cacd0c93fa9f24cbf5d2c86cd191bb1c613418a26c6113a8131148cadc329",
+        "weight.bin": "4e3f77532434f10413425550076b0901ca3ff4f0886ed1b1f60de9757063ba31"
+      },
+      "output_buffer_declared": 15104,
+      "sizes": {
+        "expected_logical_bytes": 1404,
+        "input_buffer_bytes": 4928,
+        "output_buffer_bytes": 15104,
+        "regcmd_bytes": 416,
+        "weight_buffer_bytes": 4096
+      },
+      "status": "READY",
+      "tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 52
+        }
+      ]
+    },
+    "conv_depthwise_3x3_c3_oc3_h11w28_task1": {
+      "conv_layout": {
+        "align_c": 8,
+        "align_out_c": 16,
+        "grouped_spatial": false,
+        "hardware_output_bytes": 15104,
+        "hardware_output_dtype": "fp16",
+        "hardware_output_elements": 7552,
+        "out_width_stride": 236,
+        "unpack_c2": 8,
+        "unpack_function": "_unpack_flat_1x1_output",
+        "use_nhwc": false,
+        "width_stride": 28
+      },
+      "hashes": {
+        "expected.bin": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b",
+        "input.bin": "0fd41346970b0ddbc0f89d5b0899ae998a6b22a06b3f66b867d917c9ba4bc28f",
+        "job.json": "6b127060700836a4fac42af1f24e01cac97fcb20f94ac9861589e527ad1fbf14",
+        "regcmd.bin": "906cacd0c93fa9f24cbf5d2c86cd191bb1c613418a26c6113a8131148cadc329",
+        "weight.bin": "4e3f77532434f10413425550076b0901ca3ff4f0886ed1b1f60de9757063ba31"
+      },
+      "output_buffer_declared": 15104,
+      "sizes": {
+        "expected_logical_bytes": 1404,
+        "input_buffer_bytes": 4928,
+        "output_buffer_bytes": 15104,
+        "regcmd_bytes": 416,
+        "weight_buffer_bytes": 4096
+      },
+      "status": "READY",
+      "tasks": [
+        {
+          "regcmd_offset_words": 0,
+          "regcmd_words": 52
+        }
+      ]
+    }
+  },
+  "tools": {
+    "check_oracles.py": "93d8d414c0ae46b1f503d9c93bff0a63ac679514e2e4565f5b89ccebc87d2622",
+    "prepare_bundles.py": "eaafe0e1b21eeec7d5315cc522bfbcf643bd6deba2b9cbd9db7ee45580f53657",
+    "validate_bundles.py": "aed1d84ecdbbb39d0b30feddcea2692c128dc66d21cf8011f664e1272dcbce56"
+  },
+  "validated_utc": "2026-11-05T22:00:22Z"
+}

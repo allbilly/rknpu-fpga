@@ -1,0 +1,2 @@
+2023819 /usr/bin/python3 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+3545159 bash -c cd /home/opencode-agent/rk3588-example-captures && pgrep -af 'rk3588|rocket|capture|python3' > pgrep-before-ew-int-20261105T200154Z.txt 2>&1 || true; flock -x -w 900 /home/opencode-agent/rk3588-npu.lock python3 ew-int-tools/ew_int_run.py --queue queue-ew-int-20261105T200154Z --out results/ew-int-20261105T200154Z > ew-int-run-20261105T200154Z.log 2>&1; rc=$?; echo $rc > ew-int-run-20261105T200154Z.exit; echo EXIT=$rc; cat ew-int-run-20261105T200154Z.log

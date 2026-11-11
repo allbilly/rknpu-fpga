@@ -1,0 +1,196 @@
+{
+  "board": {
+    "compatible": [
+      "xunlong,orangepi-5",
+      "rockchip,rk3588s"
+    ],
+    "device": "/dev/accel/accel0",
+    "device_node": "crw-rw---- 1 root render 261, 0",
+    "hostname": "orangepi5",
+    "kernel": "6.18.24-current-rockchip64 #2 SMP PREEMPT Wed Apr 22 11:22:34 UTC 2026 aarch64",
+    "python": "3.14.4",
+    "sysfs": "/sys/devices/platform/rknn"
+  },
+  "cases": {
+    "conv_depthwise_3x3_c3_oc3_h11w28_task0": {
+      "addresses": {
+        "buffers": {
+          "input": 4096,
+          "output": 16384,
+          "weight": 12288
+        },
+        "regcmd": 0,
+        "tasks": [
+          0
+        ]
+      },
+      "capture_sha256": "7252e44d205393ad1c15cea73d92f59285512db6e1c3f0b81173aa8aada23cb7",
+      "durations_ns": {
+        "allocate_ns": 218747,
+        "copy_inputs_ns": 16333,
+        "descriptor_ns": 13708,
+        "fini_all_ns": 14583,
+        "fini_ns": 11958,
+        "open_device_ns": 220497,
+        "output_prep_ns": 235955,
+        "patch_ns": 53958,
+        "prep_all_ns": 26541,
+        "prep_ns": 22167,
+        "prepare_output_dir_ns": 82833,
+        "submit_ns": 25667,
+        "total_ns": 1643518,
+        "wait_read_ns": 254038,
+        "write_outputs_ns": 209705
+      },
+      "errors": [],
+      "expected_sha256": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b",
+      "input_sha256": "0fd41346970b0ddbc0f89d5b0899ae998a6b22a06b3f66b867d917c9ba4bc28f",
+      "job_sha256": "2f7a414ca8bada02ef78b59d464a406c4be507fda4a91a1a604d59f89eb62c15",
+      "logical_exact": [
+        702,
+        702
+      ],
+      "max_abs_diff": 0.0,
+      "output_sha256": "431f470ed23f321f115a9af03db2edba170d5ac3e036efb08c10834aba0faacf",
+      "output_size": 15104,
+      "over_tolerance_0_2": 0,
+      "padding": {
+        "beyond_declared_bo_tail_bytes": 0,
+        "logical_channel_padding_bytes": 12,
+        "logical_channel_padding_nonzero": 0,
+        "nonlogical_channels_bytes": 6136,
+        "nonlogical_channels_nonzero": 0,
+        "second_surface_bytes": 7552,
+        "second_surface_nonzero": 0
+      },
+      "regcmd_patched_sha256": "4e41d625037ae873e263c6b2e38d11ea3fcf23ab2470147a014f98ed8cedc302",
+      "regcmd_source_sha256": "906cacd0c93fa9f24cbf5d2c86cd191bb1c613418a26c6113a8131148cadc329",
+      "status": "OK",
+      "submit_errno": null,
+      "submit_ret": 0,
+      "task_regcmd_words": 52,
+      "weight_sha256": "4e3f77532434f10413425550076b0901ca3ff4f0886ed1b1f60de9757063ba31"
+    },
+    "conv_depthwise_3x3_c3_oc3_h11w28_task1": {
+      "addresses": {
+        "buffers": {
+          "input": 4096,
+          "output": 16384,
+          "weight": 12288
+        },
+        "regcmd": 0,
+        "tasks": [
+          0
+        ]
+      },
+      "capture_sha256": "cd0c6592a53cd85f32a7946c11c036e03177bc63fb43b872e597c87a494a5e7b",
+      "durations_ns": {
+        "allocate_ns": 142040,
+        "copy_inputs_ns": 13999,
+        "descriptor_ns": 13125,
+        "fini_all_ns": 11958,
+        "fini_ns": 9626,
+        "open_device_ns": 204455,
+        "output_prep_ns": 97124,
+        "patch_ns": 36166,
+        "prep_all_ns": 18667,
+        "prep_ns": 14874,
+        "prepare_output_dir_ns": 60666,
+        "submit_ns": 17208,
+        "total_ns": 1163734,
+        "wait_read_ns": 111415,
+        "write_outputs_ns": 162748
+      },
+      "errors": [],
+      "expected_sha256": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b",
+      "input_sha256": "0fd41346970b0ddbc0f89d5b0899ae998a6b22a06b3f66b867d917c9ba4bc28f",
+      "job_sha256": "6b127060700836a4fac42af1f24e01cac97fcb20f94ac9861589e527ad1fbf14",
+      "logical_exact": [
+        702,
+        702
+      ],
+      "max_abs_diff": 0.0,
+      "output_sha256": "431f470ed23f321f115a9af03db2edba170d5ac3e036efb08c10834aba0faacf",
+      "output_size": 15104,
+      "over_tolerance_0_2": 0,
+      "padding": {
+        "beyond_declared_bo_tail_bytes": 0,
+        "logical_channel_padding_bytes": 12,
+        "logical_channel_padding_nonzero": 0,
+        "nonlogical_channels_bytes": 6136,
+        "nonlogical_channels_nonzero": 0,
+        "second_surface_bytes": 7552,
+        "second_surface_nonzero": 0
+      },
+      "regcmd_patched_sha256": "4e41d625037ae873e263c6b2e38d11ea3fcf23ab2470147a014f98ed8cedc302",
+      "regcmd_source_sha256": "906cacd0c93fa9f24cbf5d2c86cd191bb1c613418a26c6113a8131148cadc329",
+      "status": "OK",
+      "submit_errno": null,
+      "submit_ret": 0,
+      "task_regcmd_words": 52,
+      "weight_sha256": "4e3f77532434f10413425550076b0901ca3ff4f0886ed1b1f60de9757063ba31"
+    }
+  },
+  "comparison": {
+    "cases": 2,
+    "logical_elements": 1404,
+    "logical_exact_fp16": 1404,
+    "logical_mismatches": 0,
+    "max_abs_diff": 0.0,
+    "output_bytes_read_back": 30208,
+    "padding_tail_nonzero": 0,
+    "submit_ret_all_zero": true
+  },
+  "hash_verification": {
+    "board_vs_local_run_tree": "IDENTICAL (7 files; hashes/board_run_tree.sha256 == hashes/local_run_tree.sha256)",
+    "staged_bundles_on_board": "sha256sum -c OK for 10 files; runner sha256 matched; hashes/board_staging_verification.log"
+  },
+  "invocation": "flock -x -w 900 /home/opencode-agent/rk3588-npu.lock python3 <staged runner> --device /dev/accel/accel0 --out /home/opencode-agent/rk3588-example-captures/runs/20261105T221115Z/conv-gemm-depthwise-rerun <task0> <task1>",
+  "no_fpga_execution_claimed": true,
+  "notes": [
+    "Each case is an isolated one-task Rocket job; both ran sequentially in one lock invocation.",
+    "Both 15104-byte BOs were read back in full. Output bytes are byte-identical between task0 and task1.",
+    "Logical comparison uses conv_legacy.py:_unpack_flat_1x1_output geometry (out_c=3,h=9,w=26,stride=236,c2=8).",
+    "No bundle files were modified. No sudo, no programming/flashing, no retries."
+  ],
+  "race_control": {
+    "flock": "flock -x -w 900",
+    "lock": "/home/opencode-agent/rk3588-npu.lock",
+    "observed": "only /usr/bin/supervisord (PID 2023819, python3); no rocket/capture/rk3588 process",
+    "one_invocation": true,
+    "pgrep_pattern": "rk3588|rocket|capture|python3",
+    "preflight_file": "board-run/preflight-pgrep.txt",
+    "sequential": true
+  },
+  "run_id": "20261105T221115Z",
+  "runner": {
+    "path_on_board": "/home/opencode-agent/rk3588-example-captures/runs/20261105T221115Z/staging/runner/rocket_run.py",
+    "pinned_runner_present": false,
+    "selection_note": "Board runner/ and runner/pinned/ were absent; the validated local runner with the required sha256 was staged.",
+    "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+    "source_path": "build/rk3588-example-captures/runner/rocket_run.py",
+    "version": "1.0.0"
+  },
+  "schema": "conv-gemm-depthwise-rerun-run-v1",
+  "total_output_bytes_read_back": 30208,
+  "utc_window": {
+    "end": "2026-11-05T22:12:57Z",
+    "start": "2026-11-05T22:12:57Z"
+  },
+  "validation": {
+    "family_validator": {
+      "log": "preflight/family_validator.log",
+      "result": "PASS: READY=10 BLOCKED=3 cases=13 max_regcmd_words=112 rocket_max=131072",
+      "sha256": "aed1d84ecdbbb39d0b30feddcea2692c128dc66d21cf8011f664e1272dcbce56"
+    },
+    "runner_validate_only": {
+      "log": "preflight/runner_validate_only.log",
+      "result": "OK both cases"
+    },
+    "shared_validator": {
+      "log": "preflight/shared_validator.log",
+      "result": "OK both cases",
+      "sha256": "2aa8503e338a47bef064fbd47cf24a6d695eacf6171ab966f8c70b6b3cb2b064"
+    }
+  }
+}

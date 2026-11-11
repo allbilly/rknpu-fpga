@@ -1,0 +1,382 @@
+{
+  "profile": "host-jtag-image-b",
+  "stage": "S3-scaffold",
+  "description": "Image B of the adopted two-image split (Lead D1/D4 decision, 2026-11-11): one pin-free host-drivable USER2 image carrying the pooling corpus band, the EW FP16/FDIV control page + 1 MiB sparse memory aperture, and ew-int control/aperture placeholders over a shared 64 KiB host window. SCAFFOLDING only: every page slave is a merged_page_stub placeholder; no build receipt exists. Image A (runtime conv + GEMM) is fpga/ypcb_merged_top.sv + fpga/merged/merged_sources.json.",
+  "decision": {
+    "d1_measured_runtime_engine_luts": 167858,
+    "single_image_ceiling_luts": 150000,
+    "adopted": "two-image split",
+    "image_a_plan_luts": 176000,
+    "image_b_plan_luts": 42500,
+    "source": "docs/MERGED_IMAGE_PLAN.md (D1/D4 update), build/runtime-conv-lab/D1_AREA_PARAMETERISED_RECEIPT.md"
+  },
+  "build_gate": {
+    "gated_on": [
+      "D2 pooling form confirmed by share measured whole-image fit (queued)",
+      "Image-B page refs flipped + REF_NAME presence gate on the real modules (done: ew-int page/aperture)",
+      "S3/S4 replay plan (pooling 19, EW fp16 54/FDIV 8, ew-int 15) executed in a Lead-scheduled cool window with complete-BO compares + negatives",
+      "Lead-scheduled cool window and shared heavy-job wrapper"
+    ],
+    "no_gate_weakening": true,
+    "hardware_authorization": "separate, never implied by this profile"
+  },
+  "top": "ypcb_image_b_top",
+  "part": "xc7k480tffg1156-2",
+  "clock_period_ns": 20.0,
+  "tck_period_ns": 166.666,
+  "jtag_chain": 2,
+  "memory_bytes": 65536,
+  "memory_base": "00000000",
+  "constraints": "fpga/jtag_dual.xdc",
+  "cdc": "fpga/host/mailbox_cdc.tcl",
+  "verilog_define": [
+    "DESIGNWARE_NOEXIST"
+  ],
+  "page_mask": "0111111",
+  "required_page_mask": "0111111",
+  "pages": [
+    {
+      "name": "memory",
+      "instance": "memory",
+      "ref": "rk_bram",
+      "target": "T_MEMORY",
+      "base": "0000_0000",
+      "bytes": 65536,
+      "status": "rk_bram + rk_axil_mem_bridge (S3)"
+    },
+    {
+      "name": "pool_band_page",
+      "instance": "pool_band_page",
+      "ref": "rk_ppu_pool_band_axi",
+      "target": "T_RKPP_BAND",
+      "base": "0001_0000",
+      "bytes": 77824,
+      "id": "524b5050",
+      "status": "S3 REAL pooling band: 19 x 4 KiB corpus pages (0x1_0000..0x2_2fff) behind one AXI slave + one arbitrated memory master"
+    },
+    {
+      "name": "ew_page",
+      "instance": "ew_page",
+      "ref": "rk_ew_axi",
+      "target": "T_RKEW",
+      "base": "0002_3000",
+      "bytes": 4096,
+      "id": "524b4557",
+      "status": "stub; S4 replaces with the EW AXI control/status front end"
+    },
+    {
+      "name": "ew_aperture_page",
+      "instance": "ew_aperture_page",
+      "ref": "rk_ew_aperture",
+      "target": "T_EW_APERTURE",
+      "base": "1000_0000",
+      "bytes": 1048576,
+      "id": "524b4557",
+      "status": "stub; S4 replaces with the six sparse EW banks + line adapter (docs/EW_APERTURE_AUDIT.md)"
+    },
+    {
+      "name": "ew_int_page",
+      "instance": "ew_int_page",
+      "ref": "rk_ew_int_page_axi",
+      "target": "T_EWINT",
+      "base": "0002_4000",
+      "bytes": 4096,
+      "id": "524b4549",
+      "status": "INTEGRATED: real page rk_ew_int_page_axi (ewint task-23) wired at 0x2_4000; frozen rk_job_control ABI, RKEI, START_AMOUNT {18,31,44}; page-level replay receipt pending"
+    },
+    {
+      "name": "ew_int_aperture_page",
+      "instance": "ew_int_aperture_page",
+      "ref": "rk_ew_int_aperture",
+      "target": "T_EWINT_APERTURE",
+      "base": "1100_0000",
+      "bytes": 1048576,
+      "id": "524b4549",
+      "status": "INTEGRATED: real aperture rk_ew_int_aperture wired at 0x1100_0000 (four 4 KiB banks); engine port = page 16-bit master; holes SLVERR/mem_rsp_error"
+    }
+  ],
+  "required_pages": [
+    "memory",
+    "pool_band_page",
+    "ew_page",
+    "ew_aperture_page",
+    "ew_int_page",
+    "ew_int_aperture_page"
+  ],
+  "ew_aperture": {
+    "audit": "docs/EW_APERTURE_AUDIT.md (PASS)",
+    "cases": "54 ew-fp16 (ADD/SUB/MUL/MAX/NEG/FDIV) + 8 fdiv-systematic + simple_add grammar",
+    "banks": "A 0x1000_1000 4 KiB, B 0x1002_0000 4 KiB, D 0x1004_0000 4 KiB, scratch 0x1006_0000 8 KiB, command 0x100e_0000 64 KiB, task 0x100f_0000 16 KiB (100 KiB physical)",
+    "staging": "host patches the three data pointers and stages a/b/out + command BO; see audit doc \u00a74"
+  },
+  "renderer": {
+    "note": "tools/merged/vivado_merged_image.py --profile image-b renders this profile. Same tokens as Image A: ROOT OUT PART TOP CONSTRAINTS CDC INCLUDE_DIRS READ_SOURCES SOURCE_SHA SOURCE_TAG PAGE_LIST PAGE_MASK PAGE_GATES. PAGE_GATES renders a REF_NAME-checked page-presence block.",
+    "source_tag": "first 8 hex of the source manifest sha256, bound to BITSTREAM.CONFIG.USR_ACCESS",
+    "tool": "tools/merged/vivado_merged_image.py"
+  },
+  "sources": [
+    "rtl/vendor/opentpu/otpu_jtag_mailbox.sv",
+    "rtl/host/rk_jtag_axil_bridge.sv",
+    "rtl/rk_startup_reset.sv",
+    "rtl/rk_bram.sv",
+    "rtl/rk_axil_mem_bridge.sv",
+    "rtl/rk_axil_error_slave.sv",
+    "fpga/merged/merged_page_stub.sv",
+    "fpga/ypcb_image_b_top.sv",
+    "rtl/rk_ew_int_page_axi.sv",
+    "rtl/rk_ew_int_aperture.sv",
+    "rtl/rk_job_control.sv",
+    "rtl/rk_ew_int_regs.sv",
+    "rtl/rk_ew_int_engine.sv",
+    "rtl/rk_int_alu.sv",
+    "rtl/ppu/rk_ppu_pool_band_axi.sv",
+    "rtl/ppu/rk_ppu_pool_avg_global3x5_c8_fp16_capture.sv",
+    "rtl/ppu/rk_ppu_pool_avg2x2s1_pad1_c8_h1w1.sv",
+    "rtl/ppu/rk_ppu_pool_avg2x2s1_fp16_capture.sv",
+    "rtl/ppu/rk_ppu_pool_max2x2s1_pad1_neg_c8_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_max2x2s1_c8.sv",
+    "rtl/ppu/rk_ppu_pool_max2x2s2_c3_tail_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_max2x2s2_index_c8_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_max3x3s2_pad1_c8_h4w4.sv",
+    "rtl/ppu/rk_ppu_pool_min2x2s1_fp16_capture.sv",
+    "rtl/ppu/rk_ppu_pool_avg_q16_i16_c8_k2s2.sv",
+    "rtl/ppu/rk_ppu_pool_avg_q16_i16_c8_k3x3.sv",
+    "rtl/ppu/rk_ppu_pool_avg_q16_i8_c16_k2s2.sv",
+    "rtl/ppu/rk_ppu_pool_avg_q16_i8_c16_k3x3.sv",
+    "rtl/ppu/rk_ppu_pool_max_k1s1_i8_c32.sv",
+    "rtl/ppu/rk_ppu_pool_max_k2s2_i8_c16_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_min_k2s2_i8_c16_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_max_k2s2_i16_c8_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_min_k2s2_i16_c8_h2w2.sv",
+    "rtl/ppu/rk_ppu_pool_int_k2s2.sv",
+    "rtl/ppu/rk_ppu_pool_int_avg.sv",
+    "rtl/ppu/rk_ppu_pool_corpus_axi.sv",
+    "rtl/ppu/rk_ppu_pool_corpus_case.sv",
+    "rtl/rk_ew_aperture.sv",
+    "rtl/rk_ew_axi.sv",
+    "rtl/rk_ew_engine.sv",
+    "rtl/rk_ew_core.sv",
+    "rtl/rk_ew_dma.sv",
+    "rtl/rk_ew_regs.sv",
+    "rtl/rk_fp16_alu.sv",
+    "rtl/rk_axi_mem.sv"
+  ],
+  "benches": {},
+  "sibling_image": {
+    "top": "ypcb_merged_top (Image A)",
+    "profile": "fpga/merged/merged_sources.json",
+    "contents": "runtime conv engine + FP32 GEMM + transport"
+  },
+  "scope": "Image B S3/S4 scaffolding: address map, REF_NAME page presence (memory+pool band+ew-int page+aperture now required), pooling/EW stubs, and the INTEGRATED ew-int page+aperture (ewint task-23, both-sim 15/15 PASS). No pooling/EW real pages yet; no synthesis, no bitstream, no hardware. Build gate: D2 + S3/S4 replays in a Lead-scheduled cool window.",
+  "decisions": {
+    "recorded_utc": "2026-11-11",
+    "ew_int_image_b_form": {
+      "decision": "page",
+      "adopted_by": "Lead",
+      "status": "CONFIRMED by ewint PASS address audit and INTEGRATED in Image-B scaffold (2026-11-11); current-file both-sim replay 15/15 PASS receipt build/ew-int-page/20261110T151749Z (sha 4170b058...) after the comment-only header refresh (sha 71d716f1...); page + aperture RTL wired",
+      "control_page": {
+        "name": "RKEW-int control page",
+        "instance": "ew_int_page",
+        "module": "rk_ew_int_page_axi",
+        "base": "0002_4000",
+        "bytes": 4096,
+        "device_id": "524b4549",
+        "device_id_ascii": "RKEI",
+        "abi_version": "00010000",
+        "status_layout_authoritative": "frozen rtl/rk_job_control.sv LSB-anchored: [0] can_submit, [1] active, [2] result_valid, [3] result_error, [4] memory_ready, [5] core_error, [6] core_busy, [10:8] fields_valid, [31:11] zero. The early-coordination [20:18]/[16]/[15]/[14] sketch was WRONG and is not used by the RTL/bench."
+      },
+      "aperture": {
+        "module": "rk_ew_int_aperture",
+        "base": "1100_0000",
+        "bytes": 1048576,
+        "keep_1mib_decode": true,
+        "physical_bytes": 16384,
+        "bram36_tiles": 4,
+        "dense_tiles_avoided": 252,
+        "banks": [
+          {
+            "name": "A",
+            "base": "1100_1000",
+            "bytes": 4096,
+            "role": "operand a (RDMA.SRC_BASE_ADDR)"
+          },
+          {
+            "name": "B",
+            "base": "1100_2000",
+            "bytes": 4096,
+            "role": "operand b (RDMA.EW_BASE_ADDR)"
+          },
+          {
+            "name": "D",
+            "base": "1100_3000",
+            "bytes": 4096,
+            "role": "output out (DPU.DST_BASE_ADDR)"
+          },
+          {
+            "name": "C",
+            "base": "1100_4000",
+            "bytes": 4096,
+            "role": "raw command BO (bank C)"
+          }
+        ],
+        "holes": [
+          "1100_0000..1100_0fff",
+          "1100_5000..110f_ffff"
+        ],
+        "hole_policy": "explicit SLVERR on the host AXI path and mem_rsp_error on the engine path; never aliases",
+        "audit": {
+          "doc": "docs/EW_INT_APERTURE_AUDIT.md",
+          "tool": "tools/merged/ew_int_aperture_audit.py",
+          "tests": [
+            "tests/merged/test_ew_int_aperture_audit.py",
+            "tests/merged/test_image_b_ew_int_contract.py"
+          ],
+          "verdict": "PASS",
+          "cases": "15/15 READY frozen ew-int bundles (3 BLOCKED have no staging requirement)",
+          "max_regions_per_case": 4,
+          "required_union_span": "0x1100_1000..0x1100_4160",
+          "required_bytes": 12640,
+          "address_bearing_registers": [
+            "DPU.DST_BASE_ADDR 0x1001:4020",
+            "RDMA.SRC_BASE_ADDR 0x2001:5018",
+            "RDMA.EW_BASE_ADDR 0x2001:5038"
+          ],
+          "layout_note": "layout-mode DST_SURF_STRIDE/SURFACE_ADD/RDMA_EW_SURF_STRIDE are geometry values, not pointers; terminal PC tail is zero and must not be patched; every address field is in the job.json patch list"
+        },
+        "module_ports": "args: APERTURE_BASE/BYTES, BANK_A/B/D/C_BASE, BANK_BYTES; page_busy; memory_ready; absolute AXI4-Lite staging slave; engine 16-bit serialized port engine_req_*/engine_rsp_*; busy; irq"
+      },
+      "command_bo": {
+        "location": "aperture bank C",
+        "start_address": "1100_4000",
+        "max_bytes": 352,
+        "reason": "alternative adopted: the page needs exactly one 16-bit serialized memory master (capture-then-issue + engine both target the aperture), so Image B needs no new page master arbiter in the shared 64 KiB window and ew-int cannot contend with pooling/EW"
+      },
+      "page_abi": {
+        "register_layout": {
+          "00": "DEVICE_ID (R) 0x524b4549",
+          "04": "ABI_VERSION (R) 0x00010000",
+          "08": "STATUS (R) frozen rk_job_control word; authoritative LSB positions: [0] can_submit, [1] active, [2] result_valid, [3] result_error, [4] memory_ready, [5] core_error, [6] core_busy, [10:8] fields_valid, [31:11] zero (corrected from the early-coordination sketch)",
+          "0c": "COMMAND (W) 1=submit, 2=ack; WSTRB must be 0xf, AWPROT 0",
+          "10": "START_ADDRESS (RW) 8-byte aligned, inside aperture; expected 0x1100_4000",
+          "14": "START_AMOUNT (RW) raw command QWORD count, one of {18,31,44}; anything else fails closed",
+          "18": "JOB_TAG (RW)",
+          "1c": "RESULT_TAG (R)",
+          "20": "RESULT_TASKS (R) 1 on success (single terminal task; captured PC tail zero)",
+          "24": "RESULT_CODE (R) 0 success, 1 unknown reg/target, 2 unsupported value/op/dtype, 3 incomplete/framing, 4 invalid address, 5 memory bus error (incl. aperture hole), 6 invalid page command, 7 PC-chain/framing violation, 8 timeout"
+        },
+        "submit_requires": "all three fields valid + memory_ready (aperture host staging idle) + engine start_ready; status/bresps from unchanged frozen rk_job_control",
+        "error_policy": "sticky until fabric reset (frozen rk_job_control has no error-ack); engine+decoder reset per job so clean jobs are back-to-back without fabric reset",
+        "register_access": "ro-register writes SLVERR; unmapped page offset SLVERR",
+        "raw_stream": "page fetches exactly START_AMOUNT QWORDs little-endian (low halfword first) from the aperture into a 44-entry capture, drives them unchanged into the integer decoder (no field rewrite/CPU fixup), enforces the frozen four-QWORD tail framing, runs the integer engine on the aperture, never writes the command BO",
+        "status_bits": {
+          "can_submit": 0,
+          "active": 1,
+          "result_valid": 2,
+          "result_error": 3,
+          "memory_ready": 4,
+          "core_error": 5,
+          "core_busy": 6,
+          "fields_valid": [
+            8,
+            9,
+            10
+          ]
+        },
+        "page_ports": "clk,rst_n; memory_ready; page_cancel; 16-bit-offset AXI4-Lite slave; 16-bit serialized memory master mem_req_*/mem_rsp_*; page_busy/page_done/page_error/page_error_code/irq"
+      },
+      "wiring": {
+        "page_busy": "page page_busy gates aperture host access (host access while page busy => SLVERR)",
+        "memory_ready": "aperture host staging idle raises memory_ready to the page's job_control",
+        "engine_master": "aperture owns the page's single 16-bit serialized engine master; no shared-window arbiter",
+        "no_impact": "no gating/arbitration changes to EW or pooling",
+        "top": "ypcb_image_b_top: page bus [3] -> rk_ew_int_page_axi (16-bit offsets); page bus [4] -> rk_ew_int_aperture (absolute addresses); page mem_* <-> aperture engine_*; aperture memory_ready -> page; page page_busy -> aperture + any_engine_busy; page_cancel=0."
+      },
+      "deliverables_pending": [
+        "rtl/rk_ew_int_page_axi.sv (NEW)",
+        "rtl/rk_ew_int_aperture.sv (NEW; rk_ew_int_regs/engine/dma reused)",
+        "docs/EW_INT_APERTURE_AUDIT.md",
+        "tools/merged/ew_int_aperture_audit.py",
+        "tests/merged/test_ew_int_aperture_audit.py",
+        "tests/merged/test_image_b_ew_int_contract.py",
+        "page-level RTL replay bench"
+      ],
+      "fallback": "standalone mailbox-direct ew-int image (fpga/ewint/ypcb_jtag_ew_int_top.sv) stays as the fallback; the six-page/EW images remain fallbacks too",
+      "owner": "ewint delivers rk_ew_int_page_axi.sv + rk_ew_int_aperture.sv + address audit + contract tests",
+      "gate": "page-level both-simulator replay receipt + source hashes (ewint) + S4 family replays + Lead-scheduled cool window",
+      "delivered": {
+        "rtl/rk_ew_int_page_axi.sv": "71d716f17ca8079e0bc0c7801c8bb372cbc2509814be725a6b6bd581f6ee5e46",
+        "rtl/rk_ew_int_aperture.sv": "63ab63f8ee51f8b16950c1a17134e1c76cd8252071393fcdaf64f395ceafdd07",
+        "docs/EW_INT_APERTURE_AUDIT.md": "7dc2091d2047d8ad84b46cc9fc16db9bf9ddf220102a1bc46267c7bad926fe40",
+        "tools/merged/ew_int_aperture_audit.py": "55d7aec32f61f2d645530b1d84ce0a49067850c7a8bbbc9b297c6ea265078da3",
+        "tests/merged/test_ew_int_aperture_audit.py": "ce83bc337a79a9c93a7d6cf297ae9542ade4e75ca0cf6924e435a90aeb6f9872",
+        "tests/merged/test_image_b_ew_int_contract.py": "16b9c4a0e525d018489f7f81044d515e265b068fc6756678498576304919d13a",
+        "tests/tb_ew_int_page.sv": "0bc7e06a7af04b471ac9a46bb7a783ae9bea0dade1f7fb4ebd0cea3c47eacd7c",
+        "tools/merged/run_ew_int_page_replay.py": "78662d241f8d139d487e0424b81af8d6c8f4f5de9fda62d13f3ef1c10e581f91",
+        "docs/EW_INT.md": "bbbfde29bdaa7977830e5caddd7589dc1bd4415c11f822680f4d4d7ef8d24bf3"
+      },
+      "page_replay_receipt": {
+        "path": "build/ew-int-page/20261110T151749Z/report.json",
+        "report_sha256": "4170b0584fb0725e0d34057772cf10378b05fc45c499c79a5aba4e9932daddea",
+        "report_txt_sha256": "1e0e687592b9a852da135501fa326603599ba3e8be16f485255f5a7b49cdb9cd",
+        "verdict": "PASS both simulators (Verilator 5.048 + Icarus Verilog 13.0): 15/15 READY page-level BO replays, 8/8 fail-closed negatives, back-to-back reset-per-job PASS, aperture audit PASS, command-BO-untouched and a/b readback byte-exactness recorded per case, 14 evidence sources hash-bound",
+        "binds": {
+          "rtl/rk_ew_int_page_axi.sv": "71d716f17ca8079e0bc0c7801c8bb372cbc2509814be725a6b6bd581f6ee5e46",
+          "docs/EW_INT.md": "bbbfde29bdaa7977830e5caddd7589dc1bd4415c11f822680f4d4d7ef8d24bf3"
+        },
+        "scope": "Offline page-form RTL replay only. Not Vivado, timing closure, bitstream, Image-B build or hardware/silicon validation.",
+        "stale_for_current_file": false,
+        "logic_evidence_remains": true
+      },
+      "comment_only_refresh": {
+        "state": "COMPLETED",
+        "utc": "2026-11-11",
+        "file": "rtl/rk_ew_int_page_axi.sv",
+        "change": "header comment now shows the authoritative LSB-anchored STATUS layout and marks the old [20:18]/[16]/[15]/[14] sketch as WRONG (points at docs/EW_INT_APERTURE_AUDIT.md \u00a76); lint clean; logic/ports/ABI unchanged",
+        "sha256_current": "71d716f17ca8079e0bc0c7801c8bb372cbc2509814be725a6b6bd581f6ee5e46",
+        "sha256_previous": "fcc88d940de59825729f9709c219e21db5ce4603177c7cb6a3049a72405fdf9e",
+        "comment_only_proof": {
+          "notes": "build/ew-int-page/comment-only-refresh-20261110T143500Z.txt",
+          "notes_sha256": "c5ee95731146578dc5750c746772820e7c1602e996d10934f5638d812109d663",
+          "method": "reconstructing the pre-edit file by replacing ONLY the 13 changed comment lines reproduces sha256 fcc88d94... exactly; the unified diff between reconstructed-old and current contains 13 changed lines, all comment lines; Verilator lint of the current page RTL is clean"
+        },
+        "receipt": {
+          "previous": "build/ew-int-page/20261110T142754Z/report.json sha256 0b684d91cf2e96154af2c90c4a166f555114d645a6ad484c71e080aac014cc65",
+          "previous_status": "SUPERSEDED for current-file evidence (whole-file-hash bound). It remains the correct numerical evidence for the identical logic (both-sim 15/15 PASS) and keeps stale_for_current_file=true / logic_evidence_remains=true.",
+          "current": {
+            "path": "build/ew-int-page/20261110T151749Z/report.json",
+            "sha256": "4170b0584fb0725e0d34057772cf10378b05fc45c499c79a5aba4e9932daddea",
+            "report_txt": "build/ew-int-page/20261110T151749Z/report.txt",
+            "report_txt_sha256": "1e0e687592b9a852da135501fa326603599ba3e8be16f485255f5a7b49cdb9cd"
+          },
+          "host_compliance": "ran via BENCH_MIN_BATTERY=30 BENCH_CPUS=0-1 BENCH_CPU_QUOTA=50 build/verif/host_guard/safe_run.sh under the global heavy lock; sustained-cool gate satisfied (5 consecutive samples <72C, start Tctl 57C); no build, no bitstream, no hardware",
+          "policy": "the refreshed receipt is the current-file evidence; the previous receipt is cited only as superseded logic evidence; no build, no bitstream, no hardware"
+        }
+      }
+    },
+    "d2_pooling_form": {
+      "decision": "multi-page band (provisional)",
+      "adopted_by": "Lead",
+      "shape": "19 x 4 KiB pages at 0x0001_0000..0x0002_2fff (as scaffolded)",
+      "confirm_with": "share's measured whole-image synth fit (queued third in the heavy FIFO)",
+      "fallback": "the measured-estimate band stays the intended shape; if share's fit differs, re-record the form and update the profile/contract before the Image-B build",
+      "intended": true
+    }
+  },
+  "sources_pending_ew_int": {
+    "note": "DELIVERED and wired into the Image-B scaffold; see decisions.ew_int_image_b_form.delivered for sha256s.",
+    "files": [
+      "rtl/rk_ew_int_page_axi.sv",
+      "rtl/rk_ew_int_aperture.sv"
+    ],
+    "reused": [
+      "rtl/rk_job_control.sv",
+      "rtl/rk_ew_int_regs.sv",
+      "rtl/rk_ew_int_engine.sv",
+      "rtl/rk_int_alu.sv"
+    ],
+    "ref_flip": {
+      "ew_int_page": "merged_page_stub -> rk_ew_int_page_axi (done)",
+      "ew_int_aperture_page": "merged_page_stub -> rk_ew_int_aperture (done)"
+    }
+  }
+}

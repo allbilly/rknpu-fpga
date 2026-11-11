@@ -199,7 +199,7 @@
     },
     {
       "path": "rtl/ddr/framework/rk_jtag_dual_ddr_async.sv",
-      "sha256": "2d0003c22a08f9628b8d92bf4e8b80a9c9db5cb09b2691deee5dcd11190279ad"
+      "sha256": "32a1f8d34299b7ef47552a788ff3eed396433f6ded5ba150175906da842988bd"
     },
     {
       "path": "rtl/ddr/capacity/rk_job_control_admission.sv",
@@ -259,11 +259,11 @@
     },
     {
       "path": "rtl/ddr/framework/rk_layout_job_control.sv",
-      "sha256": "fea874241ec13ecd7787f9e4fe017593a3ad16b2dae9b5084941e82e821b8169"
+      "sha256": "6bfcadac1ef5ad5435e20c896e6874e181b631c85221f6122dd058f4272470c3"
     },
     {
-      "path": "rtl/ddr/framework/rk_layout_compute_dispatch.sv",
-      "sha256": "8cd704e97acf098e0b9bb4c565167e769592146c6bcbb1344c832377a2d52b55"
+      "path": "rtl/ddr/framework/rk_layout_compute_dispatch_ppu.sv",
+      "sha256": "4f8d89fbf363b6c9dc4ee6722011b5da11b28d8b5d8fcd6d7d90813331add477"
     },
     {
       "path": "rtl/ddr/framework/rk_layout_dma.sv",
@@ -280,6 +280,75 @@
     {
       "path": "rtl/ddr/framework/rk_axil_compute_reset_router.sv",
       "sha256": "dade1c4cb47d2bae4ef4258c0ab40edb75b3243a1335d09d26e07ae99e65e51c"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_c3_raw_profile.sv",
+      "sha256": "e9f27eb966460c870c86568e8973196a53ca820644765d7f818809321f140ce6"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_max2x2s2_c3_tail_h2w2.sv",
+      "sha256": "b0419222f4fca471b3c83705b785582b6ef6b3447d467fdb266c483c3c0a14d5"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_c8_raw_profile.sv",
+      "sha256": "3ef9fe2d78a90ef1c06346dafa783bb3a5f62563df797d8eade9ded5213a851b"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_max2x2s1_c8.sv",
+      "sha256": "f5dbe23bd9667a6474882613c47d9e891ce8ecfa76b7578f6680d913a3346813"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_pad1_raw_profile.sv",
+      "sha256": "a99fa7d2b77daf5567c24bc6b14b833905cb6982e19e94cbd4a68eb6c045346b"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_max2x2s1_pad1_neg_c8_h2w2.sv",
+      "sha256": "347c790f29bafa8fe8c7d793a7862c9f8ac7726318f65a14a29cfd0f7f228ef2"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_min_raw_profile.sv",
+      "sha256": "db795e42a01ec4f2f8a50e79b2cba08771c8db93416834183bdc326ecaf73b16"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_min2x2s1_fp16_capture.sv",
+      "sha256": "048e958407ed63873a7adc5981923b83a24749fc1c95aab8d98ccb731bd96df7"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_avg_raw_profile.sv",
+      "sha256": "9034c324c54c679ae7ef7179d52d56cbceadb3246f4b41f1955a2545f4128118"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_avg2x2s1_fp16_capture.sv",
+      "sha256": "27f7516d28f3eeb6e6ccca8d2cfcfff4929fb8ce97b571bb95a46aa6030bfc9c"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_index_raw_profile.sv",
+      "sha256": "a506f525a661e373286e467502f2b84a9e7902cd0e3ce677c443a65e2a709ac8"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_max2x2s2_index_c8_h2w2.sv",
+      "sha256": "21ac383a43b2d3941a5087ba31dcf3b422d38928301c92df0b8853bd024d677a"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_global_raw_profile.sv",
+      "sha256": "f909eeeedc194bec308261e3804d880f1f1f604fd7eeb81be40100fa639b54c8"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_max16x16s16_c8.sv",
+      "sha256": "0d6564847b3fc68ecaa7e56f294ef1b243d5fc389bff2ea429edaf2ab338490d"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_global_avg_raw_profile.sv",
+      "sha256": "2791bcea207e2b48a2b2e27b82f8923938a5f38698b02acb5d557bd25271c587"
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_avg_global3x5_c8_fp16_capture.sv",
+      "sha256": "d9cc41a239c764e98df117ce30b1776a7323949e22d9ff72ab9588f0bf6a3e5f",
+      "bytes": 9679
+    },
+    {
+      "path": "rtl/ppu/rk_ppu_pool_raw_dma.sv",
+      "sha256": "8c9c68eb1d1177724ad6b394f3b82d341fa5753625c2ee480124e17af8472551"
     }
   ]
 }

@@ -1,0 +1,52 @@
+{
+  "profile": "ypcb_conv_simple",
+  "description": "First board image containing captured convolution RTL: frozen conv-simple C4 8x8 -> OC16 k3x3 capture through the raw 52-QWORD endpoint, parameterised spatial front, donor CMAC/CACC arithmetic and FP16 output writer. AXI-Lite/BRAM transport only; no PCIe, MIG, DDR controller or host driver. Not a qualification image.",
+  "top": "ypcb_conv_simple_top",
+  "part": "xc7k480tffg1156-2",
+  "clock_period_ns": 20,
+  "constraints": "fpga/ypcb_conv_simple.xdc",
+  "sources": [
+    "rtl/vendor/nvdla/compat/nv_assert_never.v",
+    "rtl/vendor/nvdla/compat/nv_assert_no_x.v",
+    "rtl/vendor/nvdla/NV_DW_lsd.v",
+    "rtl/vendor/nvdla/NV_DW02_tree.v",
+    "rtl/vendor/nvdla/NV_NVDLA_CMAC_CORE_MAC_mul.v",
+    "rtl/vendor/nvdla/NV_NVDLA_CACC_CALC_fp_48b.v",
+    "rtl/vendor/nvdla/HLS_fp32_to_fp16.v",
+    "rtl/cmac/rk_cmac_fp16_cell.sv",
+    "rtl/cmac/rk_cmac_fp16_array.sv",
+    "rtl/cmac/rk_nvdla_cacc.sv",
+    "rtl/cmac/rk_cacc_fp16_array.sv",
+    "rtl/cmac/rk_cmac_cacc_fp16_array.sv",
+    "rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
+    "rtl/cmac/rk_cmac_writer.sv",
+    "rtl/cmac/rk_cmac_fp32_writer.sv",
+    "rtl/cmac/rk_cmac_output_nvdla.sv",
+    "rtl/cmac/rk_cmac_output_fp32.sv",
+    "rtl/cmac/rk_cmac_frame_output.sv",
+    "rtl/cmac/rk_cmac_rw_arbiter.sv",
+    "rtl/cmac/rk_conv_output_atom.sv",
+    "rtl/cmac/rk_conv_output_c1c2_fp32.sv",
+    "rtl/cmac/rk_conv_simple_profile.sv",
+    "rtl/cmac/rk_conv_3x3_valid_c4_front.sv",
+    "rtl/cmac/rk_frame_stage.sv",
+    "rtl/cmac/rk_conv_simple_core.sv",
+    "rtl/cmac/rk_conv_simple_demo_rom.sv",
+    "rtl/cmac/rk_conv_simple_self_test.sv",
+    "rtl/rk_bram.sv",
+    "rtl/rk_startup_reset.sv",
+    "fpga/ypcb_conv_simple_top.sv"
+  ],
+  "generated": [
+    {
+      "path": "rtl/cmac/rk_conv_simple_demo_rom.sv",
+      "generator": "tools/conv/gen_conv_demo.py",
+      "fixture": "tests/conv/fixtures/conv_simple_fp16_3x3_c4_h8_w8_oc16"
+    }
+  ],
+  "benches": {
+    "board": "tests/tb_ypcb_conv_simple.sv",
+    "core": "tests/conv/tb_conv_simple.sv",
+    "profile": "tests/conv/tb_conv_3x3_valid_c4.sv"
+  }
+}

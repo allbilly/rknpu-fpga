@@ -1,0 +1,49 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "input.bin",
+      "name": "input",
+      "size": 4096
+    },
+    {
+      "direction": "in",
+      "input": "weight.bin",
+      "name": "weight",
+      "size": 4096
+    },
+    {
+      "direction": "out",
+      "name": "output",
+      "output": "output.bin",
+      "size": 4096
+    }
+  ],
+  "case": "conv_grouped_3x3_c4_oc4_g2_h5w5",
+  "description": "FP16 grouped 3x3 conv, C4/OC4/G2, H5/W5 -> H3/W3, single task",
+  "patches": [
+    {
+      "buffer": "input",
+      "kind": "value32",
+      "regcmd_index": 18
+    },
+    {
+      "buffer": "weight",
+      "kind": "value32",
+      "regcmd_index": 24
+    },
+    {
+      "buffer": "output",
+      "kind": "value32",
+      "regcmd_index": 32
+    }
+  ],
+  "source_example": "/home/fedora/rk3588/examples/conv_gemm.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 52
+    }
+  ],
+  "timeout_ns": 6000000000
+}

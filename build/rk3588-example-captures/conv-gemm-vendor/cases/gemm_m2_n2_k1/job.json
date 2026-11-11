@@ -1,0 +1,49 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "input.bin",
+      "name": "input",
+      "size": 4096
+    },
+    {
+      "direction": "in",
+      "input": "weight.bin",
+      "name": "weight",
+      "size": 4096
+    },
+    {
+      "direction": "out",
+      "name": "output",
+      "output": "output.bin",
+      "size": 4096
+    }
+  ],
+  "case": "gemm_m2_n2_k1",
+  "description": "FP16 GEMM 2x2x1, exact smallest shape in gemm.py main table; FP32 output",
+  "patches": [
+    {
+      "buffer": "input",
+      "kind": "value32",
+      "regcmd_index": 18
+    },
+    {
+      "buffer": "weight",
+      "kind": "value32",
+      "regcmd_index": 24
+    },
+    {
+      "buffer": "output",
+      "kind": "value32",
+      "regcmd_index": 31
+    }
+  ],
+  "source_example": "/home/fedora/rk3588/examples/gemm.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 50
+    }
+  ],
+  "timeout_ns": 6000000000
+}

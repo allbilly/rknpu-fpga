@@ -1,0 +1,4627 @@
+{
+  "family": "fdiv-systematic",
+  "schema": "rk3588-example-captures/v1",
+  "format_doc": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/CAPTURE_FORMAT.md",
+  "generated_utc": "2026-11-05T20:01:19Z",
+  "prepared_device_free": true,
+  "device_access": "none (no ssh/scp/board, no submit, no program/flash)",
+  "board_execution": "PENDING: preparation only; no RK3588, Rocket or FPGA execution was performed",
+  "source_revision": {
+    "rknpu-fpga": "d54d33bc8f910059b6237d54d77e173737282869",
+    "rk3588": "273d015e08af40c81d2cd9ab84198486b03a17f1"
+  },
+  "source_hashes": {
+    "/home/fedora/rknpu-fpga/build/rk3588-example-captures/CAPTURE_FORMAT.md": "c7704fb240d7c760a327ca9d4cd5bb5798659ba732f64434d979dc6860936719",
+    "/home/fedora/rk3588/examples/elementwise.py": "242ad9262254f85b1b426ecc4da76735c0541be9dbe57f812417128e8297e0a0"
+  },
+  "source_example": "/home/fedora/rk3588/examples/elementwise.py",
+  "source_lines": [
+    "/home/fedora/rk3588/examples/elementwise.py:301-352 (FDIV task register body)",
+    "/home/fedora/rk3588/examples/elementwise.py:206-222 (terminal PC tail and PC enable)",
+    "/home/fedora/rk3588/examples/elementwise.py:254-260 (FDIV output scale / fp16 output)",
+    "/home/fedora/rk3588/examples/elementwise.py:295-299 (width and DMA address derivation)",
+    "/home/fedora/rk3588/examples/elementwise.py:320-331 (EW_CFG 0x108303c0 for FDIV)",
+    "/home/fedora/rk3588/examples/elementwise.py:345-351 (RDMA mode 0x00017841 for FDIV)"
+  ],
+  "operand_classes": [
+    {
+      "index": 0,
+      "name": "zero_p",
+      "bits": "0x0000",
+      "meaning": "+0"
+    },
+    {
+      "index": 1,
+      "name": "zero_n",
+      "bits": "0x8000",
+      "meaning": "-0"
+    },
+    {
+      "index": 2,
+      "name": "inf_p",
+      "bits": "0x7c00",
+      "meaning": "+inf"
+    },
+    {
+      "index": 3,
+      "name": "inf_n",
+      "bits": "0xfc00",
+      "meaning": "-inf"
+    },
+    {
+      "index": 4,
+      "name": "qnan",
+      "bits": "0x7e00",
+      "meaning": "quiet NaN, payload 0x200"
+    },
+    {
+      "index": 5,
+      "name": "snan",
+      "bits": "0x7c01",
+      "meaning": "signaling NaN, payload 0x001"
+    },
+    {
+      "index": 6,
+      "name": "sub_min",
+      "bits": "0x0001",
+      "meaning": "minimum positive subnormal"
+    },
+    {
+      "index": 7,
+      "name": "sub_max",
+      "bits": "0x03ff",
+      "meaning": "maximum positive subnormal"
+    },
+    {
+      "index": 8,
+      "name": "norm_min",
+      "bits": "0x0400",
+      "meaning": "minimum positive normal"
+    },
+    {
+      "index": 9,
+      "name": "fin_max",
+      "bits": "0x7bff",
+      "meaning": "maximum positive finite"
+    },
+    {
+      "index": 10,
+      "name": "one_p",
+      "bits": "0x3c00",
+      "meaning": "+1.0"
+    },
+    {
+      "index": 11,
+      "name": "one_n",
+      "bits": "0xbc00",
+      "meaning": "-1.0"
+    },
+    {
+      "index": 12,
+      "name": "half_p",
+      "bits": "0x3800",
+      "meaning": "+0.5"
+    },
+    {
+      "index": 13,
+      "name": "half_n",
+      "bits": "0xb800",
+      "meaning": "-0.5"
+    },
+    {
+      "index": 14,
+      "name": "two_p",
+      "bits": "0x4000",
+      "meaning": "+2.0"
+    },
+    {
+      "index": 15,
+      "name": "two_n",
+      "bits": "0xc000",
+      "meaning": "-2.0"
+    }
+  ],
+  "grid": {
+    "a_classes": 16,
+    "b_classes": 16,
+    "total_pairs": 256,
+    "cases": 8,
+    "lanes_per_case": 32,
+    "order": "row-major, A class outer (row), B class inner (column)",
+    "lane_mapping": "case c covers A rows 2c and 2c+1; lane 0..15 uses A row 2c with B class 0..15, lane 16..31 uses A row 2c+1 with B class 0..15; global pair index = 16*A index + B index"
+  },
+  "regcmd_template": [
+    {
+      "index": 0,
+      "target": "0x1001",
+      "offset": "0x4004",
+      "value": "0x0000000e",
+      "field": "dpu_s_pointer",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 1,
+      "target": "0x1001",
+      "offset": "0x400c",
+      "value": "0x000001e5",
+      "field": "dpu_feature_mode_cfg",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 2,
+      "target": "0x1001",
+      "offset": "0x4010",
+      "value": "0x48000002",
+      "field": "dpu_data_format",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 3,
+      "target": "0x1001",
+      "offset": "0x4030",
+      "value": "0x00000003",
+      "field": "dpu_data_cube_width",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 4,
+      "target": "0x1001",
+      "offset": "0x4034",
+      "value": "0x00000000",
+      "field": "dpu_data_cube_height",
+      "role": "padding",
+      "placeholder": false
+    },
+    {
+      "index": 5,
+      "target": "0x1001",
+      "offset": "0x4038",
+      "value": "0x00000000",
+      "field": "dpu_data_cube_notch",
+      "role": "padding",
+      "placeholder": false
+    },
+    {
+      "index": 6,
+      "target": "0x1001",
+      "offset": "0x403c",
+      "value": "0x00070007",
+      "field": "dpu_data_cube_channel",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 7,
+      "target": "0x1001",
+      "offset": "0x4070",
+      "value": "0x108303c0",
+      "field": "dpu_ew_cfg",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 8,
+      "target": "0x1001",
+      "offset": "0x4084",
+      "value": "0x00000001",
+      "field": "dpu_out_cvt_scale",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 9,
+      "target": "0x2001",
+      "offset": "0x5004",
+      "value": "0x0000000e",
+      "field": "rdma_s_pointer",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 10,
+      "target": "0x2001",
+      "offset": "0x500c",
+      "value": "0x00000003",
+      "field": "rdma_data_cube_width",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 11,
+      "target": "0x2001",
+      "offset": "0x5010",
+      "value": "0x00000000",
+      "field": "rdma_data_cube_height",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 12,
+      "target": "0x2001",
+      "offset": "0x5014",
+      "value": "0x00000007",
+      "field": "rdma_data_cube_channel",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 13,
+      "target": "0x2001",
+      "offset": "0x5034",
+      "value": "0x40000008",
+      "field": "rdma_erdma_cfg",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 14,
+      "target": "0x1001",
+      "offset": "0x4020",
+      "value": "0x00000000",
+      "field": "dst_base_addr",
+      "role": "command",
+      "placeholder": true
+    },
+    {
+      "index": 15,
+      "target": "0x2001",
+      "offset": "0x5018",
+      "value": "0x00000000",
+      "field": "src_a_base_addr",
+      "role": "command",
+      "placeholder": true
+    },
+    {
+      "index": 16,
+      "target": "0x2001",
+      "offset": "0x5038",
+      "value": "0x00000000",
+      "field": "src_b_base_addr",
+      "role": "command",
+      "placeholder": true
+    },
+    {
+      "index": 17,
+      "target": "0x2001",
+      "offset": "0x5044",
+      "value": "0x00017841",
+      "field": "rdma_feature_mode_cfg",
+      "role": "command",
+      "placeholder": false
+    },
+    {
+      "index": 18,
+      "target": "0x0101",
+      "offset": "0x0010",
+      "value": "0x00000000",
+      "field": "pc_base_address",
+      "role": "padding",
+      "placeholder": false
+    },
+    {
+      "index": 19,
+      "target": "0x0101",
+      "offset": "0x0014",
+      "value": "0x00000000",
+      "field": "pc_register_amounts",
+      "role": "padding",
+      "placeholder": false
+    },
+    {
+      "index": 20,
+      "target": "0x0041",
+      "offset": "0x0000",
+      "value": "0x00000000",
+      "field": "version_marker",
+      "role": "padding",
+      "placeholder": false
+    },
+    {
+      "index": 21,
+      "target": "0x0081",
+      "offset": "0x0008",
+      "value": "0x00000018",
+      "field": "pc_operation_enable",
+      "role": "command",
+      "placeholder": false
+    }
+  ],
+  "cases": [
+    {
+      "case": "fdiv_class_rows_00_01",
+      "status": "READY",
+      "op": "FDIV",
+      "kind": "operand-class-truth-table",
+      "rows": [
+        0,
+        1
+      ],
+      "a_classes": [
+        "zero_p",
+        "zero_n"
+      ],
+      "pair_range": [
+        0,
+        31
+      ],
+      "pair_count": 32,
+      "lanes": 32,
+      "width": 3,
+      "ew_cfg": "0x108303c0",
+      "out_convert": "0x00000001",
+      "rdma_mode": "0x00017841",
+      "description": "FP16 FDIV raw operand-class truth table, 32 lanes, width=3; lanes 0-15 A00=0x0000 (+0); lanes 16-31 A01=0x8000 (-0); B classes 0-15 in order in each 16-lane half",
+      "source_example": "/home/fedora/rk3588/examples/elementwise.py",
+      "source_lines": [
+        "/home/fedora/rk3588/examples/elementwise.py:301-352 (FDIV task register body)",
+        "/home/fedora/rk3588/examples/elementwise.py:206-222 (terminal PC tail and PC enable)",
+        "/home/fedora/rk3588/examples/elementwise.py:254-260 (FDIV output scale / fp16 output)",
+        "/home/fedora/rk3588/examples/elementwise.py:295-299 (width and DMA address derivation)",
+        "/home/fedora/rk3588/examples/elementwise.py:320-331 (EW_CFG 0x108303c0 for FDIV)",
+        "/home/fedora/rk3588/examples/elementwise.py:345-351 (RDMA mode 0x00017841 for FDIV)"
+      ],
+      "oracle": "none",
+      "output": {
+        "name": "out",
+        "size": 64,
+        "direction": "out",
+        "output": "output.bin"
+      },
+      "patches": [
+        {
+          "regcmd_index": 14,
+          "buffer": "out",
+          "kind": "value32",
+          "target": "0x1001",
+          "offset": "0x4020",
+          "field": "dst_base_addr"
+        },
+        {
+          "regcmd_index": 15,
+          "buffer": "a",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5018",
+          "field": "src_a_base_addr"
+        },
+        {
+          "regcmd_index": 16,
+          "buffer": "b",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5038",
+          "field": "src_b_base_addr"
+        }
+      ],
+      "bundle": {
+        "job.json": {
+          "bytes": 1009,
+          "sha256": "41449d1d8d999c0b8bf63aaf272d247d065eccc47ef0ec0711398fd11dcf5a63"
+        },
+        "regcmd.bin": {
+          "bytes": 176,
+          "sha256": "a7830bb3476100bcf18e8f50cb148deab6a73e3823172a89ef10a8e3e14b7f73"
+        },
+        "input-a.bin": {
+          "bytes": 64,
+          "sha256": "76422633009dea380bf5cbbdb7eec221880b8e8a6cc9765c9e7a4aa060bf3a20"
+        },
+        "input-b.bin": {
+          "bytes": 64,
+          "sha256": "6f6c63864565f1161ccace6d6818fd04879c002908a75e35060c5e5d1160a652"
+        }
+      },
+      "pairs": [
+        {
+          "lane": 0,
+          "pair_index": 0,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 1,
+          "pair_index": 1,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 2,
+          "pair_index": 2,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 3,
+          "pair_index": 3,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 4,
+          "pair_index": 4,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 5,
+          "pair_index": 5,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 6,
+          "pair_index": 6,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 7,
+          "pair_index": 7,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 8,
+          "pair_index": 8,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 9,
+          "pair_index": 9,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 10,
+          "pair_index": 10,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 11,
+          "pair_index": 11,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 12,
+          "pair_index": 12,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 13,
+          "pair_index": 13,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 14,
+          "pair_index": 14,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 15,
+          "pair_index": 15,
+          "a": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        },
+        {
+          "lane": 16,
+          "pair_index": 16,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 17,
+          "pair_index": 17,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 18,
+          "pair_index": 18,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 19,
+          "pair_index": 19,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 20,
+          "pair_index": 20,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 21,
+          "pair_index": 21,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 22,
+          "pair_index": 22,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 23,
+          "pair_index": 23,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 24,
+          "pair_index": 24,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 25,
+          "pair_index": 25,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 26,
+          "pair_index": 26,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 27,
+          "pair_index": 27,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 28,
+          "pair_index": 28,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 29,
+          "pair_index": 29,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 30,
+          "pair_index": 30,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 31,
+          "pair_index": 31,
+          "a": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        }
+      ]
+    },
+    {
+      "case": "fdiv_class_rows_02_03",
+      "status": "READY",
+      "op": "FDIV",
+      "kind": "operand-class-truth-table",
+      "rows": [
+        2,
+        3
+      ],
+      "a_classes": [
+        "inf_p",
+        "inf_n"
+      ],
+      "pair_range": [
+        32,
+        63
+      ],
+      "pair_count": 32,
+      "lanes": 32,
+      "width": 3,
+      "ew_cfg": "0x108303c0",
+      "out_convert": "0x00000001",
+      "rdma_mode": "0x00017841",
+      "description": "FP16 FDIV raw operand-class truth table, 32 lanes, width=3; lanes 0-15 A02=0x7c00 (+inf); lanes 16-31 A03=0xfc00 (-inf); B classes 0-15 in order in each 16-lane half",
+      "source_example": "/home/fedora/rk3588/examples/elementwise.py",
+      "source_lines": [
+        "/home/fedora/rk3588/examples/elementwise.py:301-352 (FDIV task register body)",
+        "/home/fedora/rk3588/examples/elementwise.py:206-222 (terminal PC tail and PC enable)",
+        "/home/fedora/rk3588/examples/elementwise.py:254-260 (FDIV output scale / fp16 output)",
+        "/home/fedora/rk3588/examples/elementwise.py:295-299 (width and DMA address derivation)",
+        "/home/fedora/rk3588/examples/elementwise.py:320-331 (EW_CFG 0x108303c0 for FDIV)",
+        "/home/fedora/rk3588/examples/elementwise.py:345-351 (RDMA mode 0x00017841 for FDIV)"
+      ],
+      "oracle": "none",
+      "output": {
+        "name": "out",
+        "size": 64,
+        "direction": "out",
+        "output": "output.bin"
+      },
+      "patches": [
+        {
+          "regcmd_index": 14,
+          "buffer": "out",
+          "kind": "value32",
+          "target": "0x1001",
+          "offset": "0x4020",
+          "field": "dst_base_addr"
+        },
+        {
+          "regcmd_index": 15,
+          "buffer": "a",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5018",
+          "field": "src_a_base_addr"
+        },
+        {
+          "regcmd_index": 16,
+          "buffer": "b",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5038",
+          "field": "src_b_base_addr"
+        }
+      ],
+      "bundle": {
+        "job.json": {
+          "bytes": 1013,
+          "sha256": "51b0ea513fb3dd140f11031a9b32534ced50d7fe1afd7f4048ec4726a08061d4"
+        },
+        "regcmd.bin": {
+          "bytes": 176,
+          "sha256": "a7830bb3476100bcf18e8f50cb148deab6a73e3823172a89ef10a8e3e14b7f73"
+        },
+        "input-a.bin": {
+          "bytes": 64,
+          "sha256": "fad770f65c3f7f377bf8f458b80c22421bc2a97b9969a1139683c33810965a43"
+        },
+        "input-b.bin": {
+          "bytes": 64,
+          "sha256": "6f6c63864565f1161ccace6d6818fd04879c002908a75e35060c5e5d1160a652"
+        }
+      },
+      "pairs": [
+        {
+          "lane": 0,
+          "pair_index": 32,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 1,
+          "pair_index": 33,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 2,
+          "pair_index": 34,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 3,
+          "pair_index": 35,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 4,
+          "pair_index": 36,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 5,
+          "pair_index": 37,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 6,
+          "pair_index": 38,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 7,
+          "pair_index": 39,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 8,
+          "pair_index": 40,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 9,
+          "pair_index": 41,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 10,
+          "pair_index": 42,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 11,
+          "pair_index": 43,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 12,
+          "pair_index": 44,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 13,
+          "pair_index": 45,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 14,
+          "pair_index": 46,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 15,
+          "pair_index": 47,
+          "a": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        },
+        {
+          "lane": 16,
+          "pair_index": 48,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 17,
+          "pair_index": 49,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 18,
+          "pair_index": 50,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 19,
+          "pair_index": 51,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 20,
+          "pair_index": 52,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 21,
+          "pair_index": 53,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 22,
+          "pair_index": 54,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 23,
+          "pair_index": 55,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 24,
+          "pair_index": 56,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 25,
+          "pair_index": 57,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 26,
+          "pair_index": 58,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 27,
+          "pair_index": 59,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 28,
+          "pair_index": 60,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 29,
+          "pair_index": 61,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 30,
+          "pair_index": 62,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 31,
+          "pair_index": 63,
+          "a": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        }
+      ]
+    },
+    {
+      "case": "fdiv_class_rows_04_05",
+      "status": "READY",
+      "op": "FDIV",
+      "kind": "operand-class-truth-table",
+      "rows": [
+        4,
+        5
+      ],
+      "a_classes": [
+        "qnan",
+        "snan"
+      ],
+      "pair_range": [
+        64,
+        95
+      ],
+      "pair_count": 32,
+      "lanes": 32,
+      "width": 3,
+      "ew_cfg": "0x108303c0",
+      "out_convert": "0x00000001",
+      "rdma_mode": "0x00017841",
+      "description": "FP16 FDIV raw operand-class truth table, 32 lanes, width=3; lanes 0-15 A04=0x7e00 (quiet NaN, payload 0x200); lanes 16-31 A05=0x7c01 (signaling NaN, payload 0x001); B classes 0-15 in order in each 16-lane half",
+      "source_example": "/home/fedora/rk3588/examples/elementwise.py",
+      "source_lines": [
+        "/home/fedora/rk3588/examples/elementwise.py:301-352 (FDIV task register body)",
+        "/home/fedora/rk3588/examples/elementwise.py:206-222 (terminal PC tail and PC enable)",
+        "/home/fedora/rk3588/examples/elementwise.py:254-260 (FDIV output scale / fp16 output)",
+        "/home/fedora/rk3588/examples/elementwise.py:295-299 (width and DMA address derivation)",
+        "/home/fedora/rk3588/examples/elementwise.py:320-331 (EW_CFG 0x108303c0 for FDIV)",
+        "/home/fedora/rk3588/examples/elementwise.py:345-351 (RDMA mode 0x00017841 for FDIV)"
+      ],
+      "oracle": "none",
+      "output": {
+        "name": "out",
+        "size": 64,
+        "direction": "out",
+        "output": "output.bin"
+      },
+      "patches": [
+        {
+          "regcmd_index": 14,
+          "buffer": "out",
+          "kind": "value32",
+          "target": "0x1001",
+          "offset": "0x4020",
+          "field": "dst_base_addr"
+        },
+        {
+          "regcmd_index": 15,
+          "buffer": "a",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5018",
+          "field": "src_a_base_addr"
+        },
+        {
+          "regcmd_index": 16,
+          "buffer": "b",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5038",
+          "field": "src_b_base_addr"
+        }
+      ],
+      "bundle": {
+        "job.json": {
+          "bytes": 1057,
+          "sha256": "5d209603353ee6c82f9b3130d651d5dec12bf3d1b631f1719e80cd5b7b61abaf"
+        },
+        "regcmd.bin": {
+          "bytes": 176,
+          "sha256": "a7830bb3476100bcf18e8f50cb148deab6a73e3823172a89ef10a8e3e14b7f73"
+        },
+        "input-a.bin": {
+          "bytes": 64,
+          "sha256": "e706d0d97a4029ef2b8b9abaed2de360cee107c41933fa8b2d69d26ed7facf15"
+        },
+        "input-b.bin": {
+          "bytes": 64,
+          "sha256": "6f6c63864565f1161ccace6d6818fd04879c002908a75e35060c5e5d1160a652"
+        }
+      },
+      "pairs": [
+        {
+          "lane": 0,
+          "pair_index": 64,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 1,
+          "pair_index": 65,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 2,
+          "pair_index": 66,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 3,
+          "pair_index": 67,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 4,
+          "pair_index": 68,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 5,
+          "pair_index": 69,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 6,
+          "pair_index": 70,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 7,
+          "pair_index": 71,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 8,
+          "pair_index": 72,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 9,
+          "pair_index": 73,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 10,
+          "pair_index": 74,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 11,
+          "pair_index": 75,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 12,
+          "pair_index": 76,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 13,
+          "pair_index": 77,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 14,
+          "pair_index": 78,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 15,
+          "pair_index": 79,
+          "a": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        },
+        {
+          "lane": 16,
+          "pair_index": 80,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 17,
+          "pair_index": 81,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 18,
+          "pair_index": 82,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 19,
+          "pair_index": 83,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 20,
+          "pair_index": 84,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 21,
+          "pair_index": 85,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 22,
+          "pair_index": 86,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 23,
+          "pair_index": 87,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 24,
+          "pair_index": 88,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 25,
+          "pair_index": 89,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 26,
+          "pair_index": 90,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 27,
+          "pair_index": 91,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 28,
+          "pair_index": 92,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 29,
+          "pair_index": 93,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 30,
+          "pair_index": 94,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 31,
+          "pair_index": 95,
+          "a": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        }
+      ]
+    },
+    {
+      "case": "fdiv_class_rows_06_07",
+      "status": "READY",
+      "op": "FDIV",
+      "kind": "operand-class-truth-table",
+      "rows": [
+        6,
+        7
+      ],
+      "a_classes": [
+        "sub_min",
+        "sub_max"
+      ],
+      "pair_range": [
+        96,
+        127
+      ],
+      "pair_count": 32,
+      "lanes": 32,
+      "width": 3,
+      "ew_cfg": "0x108303c0",
+      "out_convert": "0x00000001",
+      "rdma_mode": "0x00017841",
+      "description": "FP16 FDIV raw operand-class truth table, 32 lanes, width=3; lanes 0-15 A06=0x0001 (minimum positive subnormal); lanes 16-31 A07=0x03ff (maximum positive subnormal); B classes 0-15 in order in each 16-lane half",
+      "source_example": "/home/fedora/rk3588/examples/elementwise.py",
+      "source_lines": [
+        "/home/fedora/rk3588/examples/elementwise.py:301-352 (FDIV task register body)",
+        "/home/fedora/rk3588/examples/elementwise.py:206-222 (terminal PC tail and PC enable)",
+        "/home/fedora/rk3588/examples/elementwise.py:254-260 (FDIV output scale / fp16 output)",
+        "/home/fedora/rk3588/examples/elementwise.py:295-299 (width and DMA address derivation)",
+        "/home/fedora/rk3588/examples/elementwise.py:320-331 (EW_CFG 0x108303c0 for FDIV)",
+        "/home/fedora/rk3588/examples/elementwise.py:345-351 (RDMA mode 0x00017841 for FDIV)"
+      ],
+      "oracle": "none",
+      "output": {
+        "name": "out",
+        "size": 64,
+        "direction": "out",
+        "output": "output.bin"
+      },
+      "patches": [
+        {
+          "regcmd_index": 14,
+          "buffer": "out",
+          "kind": "value32",
+          "target": "0x1001",
+          "offset": "0x4020",
+          "field": "dst_base_addr"
+        },
+        {
+          "regcmd_index": 15,
+          "buffer": "a",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5018",
+          "field": "src_a_base_addr"
+        },
+        {
+          "regcmd_index": 16,
+          "buffer": "b",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5038",
+          "field": "src_b_base_addr"
+        }
+      ],
+      "bundle": {
+        "job.json": {
+          "bytes": 1057,
+          "sha256": "d8ce2a096ac829a128628e84df46f5d3b4918eb910a3463243546c0a58ca7aa8"
+        },
+        "regcmd.bin": {
+          "bytes": 176,
+          "sha256": "a7830bb3476100bcf18e8f50cb148deab6a73e3823172a89ef10a8e3e14b7f73"
+        },
+        "input-a.bin": {
+          "bytes": 64,
+          "sha256": "f056337d155614faaf2cef0e56eaf20299e64202e8d6f42ac2e2c008d9c2d918"
+        },
+        "input-b.bin": {
+          "bytes": 64,
+          "sha256": "6f6c63864565f1161ccace6d6818fd04879c002908a75e35060c5e5d1160a652"
+        }
+      },
+      "pairs": [
+        {
+          "lane": 0,
+          "pair_index": 96,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 1,
+          "pair_index": 97,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 2,
+          "pair_index": 98,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 3,
+          "pair_index": 99,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 4,
+          "pair_index": 100,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 5,
+          "pair_index": 101,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 6,
+          "pair_index": 102,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 7,
+          "pair_index": 103,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 8,
+          "pair_index": 104,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 9,
+          "pair_index": 105,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 10,
+          "pair_index": 106,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 11,
+          "pair_index": 107,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 12,
+          "pair_index": 108,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 13,
+          "pair_index": 109,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 14,
+          "pair_index": 110,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 15,
+          "pair_index": 111,
+          "a": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        },
+        {
+          "lane": 16,
+          "pair_index": 112,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 17,
+          "pair_index": 113,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 18,
+          "pair_index": 114,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 19,
+          "pair_index": 115,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 20,
+          "pair_index": 116,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 21,
+          "pair_index": 117,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 22,
+          "pair_index": 118,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 23,
+          "pair_index": 119,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 24,
+          "pair_index": 120,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 25,
+          "pair_index": 121,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 26,
+          "pair_index": 122,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 27,
+          "pair_index": 123,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 28,
+          "pair_index": 124,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 29,
+          "pair_index": 125,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 30,
+          "pair_index": 126,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 31,
+          "pair_index": 127,
+          "a": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        }
+      ]
+    },
+    {
+      "case": "fdiv_class_rows_08_09",
+      "status": "READY",
+      "op": "FDIV",
+      "kind": "operand-class-truth-table",
+      "rows": [
+        8,
+        9
+      ],
+      "a_classes": [
+        "norm_min",
+        "fin_max"
+      ],
+      "pair_range": [
+        128,
+        159
+      ],
+      "pair_count": 32,
+      "lanes": 32,
+      "width": 3,
+      "ew_cfg": "0x108303c0",
+      "out_convert": "0x00000001",
+      "rdma_mode": "0x00017841",
+      "description": "FP16 FDIV raw operand-class truth table, 32 lanes, width=3; lanes 0-15 A08=0x0400 (minimum positive normal); lanes 16-31 A09=0x7bff (maximum positive finite); B classes 0-15 in order in each 16-lane half",
+      "source_example": "/home/fedora/rk3588/examples/elementwise.py",
+      "source_lines": [
+        "/home/fedora/rk3588/examples/elementwise.py:301-352 (FDIV task register body)",
+        "/home/fedora/rk3588/examples/elementwise.py:206-222 (terminal PC tail and PC enable)",
+        "/home/fedora/rk3588/examples/elementwise.py:254-260 (FDIV output scale / fp16 output)",
+        "/home/fedora/rk3588/examples/elementwise.py:295-299 (width and DMA address derivation)",
+        "/home/fedora/rk3588/examples/elementwise.py:320-331 (EW_CFG 0x108303c0 for FDIV)",
+        "/home/fedora/rk3588/examples/elementwise.py:345-351 (RDMA mode 0x00017841 for FDIV)"
+      ],
+      "oracle": "none",
+      "output": {
+        "name": "out",
+        "size": 64,
+        "direction": "out",
+        "output": "output.bin"
+      },
+      "patches": [
+        {
+          "regcmd_index": 14,
+          "buffer": "out",
+          "kind": "value32",
+          "target": "0x1001",
+          "offset": "0x4020",
+          "field": "dst_base_addr"
+        },
+        {
+          "regcmd_index": 15,
+          "buffer": "a",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5018",
+          "field": "src_a_base_addr"
+        },
+        {
+          "regcmd_index": 16,
+          "buffer": "b",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5038",
+          "field": "src_b_base_addr"
+        }
+      ],
+      "bundle": {
+        "job.json": {
+          "bytes": 1051,
+          "sha256": "9905199942059840bc776cff315459d8e05621da749801007d7c9e8703f598f6"
+        },
+        "regcmd.bin": {
+          "bytes": 176,
+          "sha256": "a7830bb3476100bcf18e8f50cb148deab6a73e3823172a89ef10a8e3e14b7f73"
+        },
+        "input-a.bin": {
+          "bytes": 64,
+          "sha256": "2e9ea91e896508eac8d7a56aa3d7c23e6f5ef06f3bfbce8883f2a97cdb2e32d8"
+        },
+        "input-b.bin": {
+          "bytes": 64,
+          "sha256": "6f6c63864565f1161ccace6d6818fd04879c002908a75e35060c5e5d1160a652"
+        }
+      },
+      "pairs": [
+        {
+          "lane": 0,
+          "pair_index": 128,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 1,
+          "pair_index": 129,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 2,
+          "pair_index": 130,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 3,
+          "pair_index": 131,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 4,
+          "pair_index": 132,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 5,
+          "pair_index": 133,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 6,
+          "pair_index": 134,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 7,
+          "pair_index": 135,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 8,
+          "pair_index": 136,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 9,
+          "pair_index": 137,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 10,
+          "pair_index": 138,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 11,
+          "pair_index": 139,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 12,
+          "pair_index": 140,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 13,
+          "pair_index": 141,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 14,
+          "pair_index": 142,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 15,
+          "pair_index": 143,
+          "a": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        },
+        {
+          "lane": 16,
+          "pair_index": 144,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 17,
+          "pair_index": 145,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 18,
+          "pair_index": 146,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 19,
+          "pair_index": 147,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 20,
+          "pair_index": 148,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 21,
+          "pair_index": 149,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 22,
+          "pair_index": 150,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 23,
+          "pair_index": 151,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 24,
+          "pair_index": 152,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 25,
+          "pair_index": 153,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 26,
+          "pair_index": 154,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 27,
+          "pair_index": 155,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 28,
+          "pair_index": 156,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 29,
+          "pair_index": 157,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 30,
+          "pair_index": 158,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 31,
+          "pair_index": 159,
+          "a": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        }
+      ]
+    },
+    {
+      "case": "fdiv_class_rows_10_11",
+      "status": "READY",
+      "op": "FDIV",
+      "kind": "operand-class-truth-table",
+      "rows": [
+        10,
+        11
+      ],
+      "a_classes": [
+        "one_p",
+        "one_n"
+      ],
+      "pair_range": [
+        160,
+        191
+      ],
+      "pair_count": 32,
+      "lanes": 32,
+      "width": 3,
+      "ew_cfg": "0x108303c0",
+      "out_convert": "0x00000001",
+      "rdma_mode": "0x00017841",
+      "description": "FP16 FDIV raw operand-class truth table, 32 lanes, width=3; lanes 0-15 A10=0x3c00 (+1.0); lanes 16-31 A11=0xbc00 (-1.0); B classes 0-15 in order in each 16-lane half",
+      "source_example": "/home/fedora/rk3588/examples/elementwise.py",
+      "source_lines": [
+        "/home/fedora/rk3588/examples/elementwise.py:301-352 (FDIV task register body)",
+        "/home/fedora/rk3588/examples/elementwise.py:206-222 (terminal PC tail and PC enable)",
+        "/home/fedora/rk3588/examples/elementwise.py:254-260 (FDIV output scale / fp16 output)",
+        "/home/fedora/rk3588/examples/elementwise.py:295-299 (width and DMA address derivation)",
+        "/home/fedora/rk3588/examples/elementwise.py:320-331 (EW_CFG 0x108303c0 for FDIV)",
+        "/home/fedora/rk3588/examples/elementwise.py:345-351 (RDMA mode 0x00017841 for FDIV)"
+      ],
+      "oracle": "none",
+      "output": {
+        "name": "out",
+        "size": 64,
+        "direction": "out",
+        "output": "output.bin"
+      },
+      "patches": [
+        {
+          "regcmd_index": 14,
+          "buffer": "out",
+          "kind": "value32",
+          "target": "0x1001",
+          "offset": "0x4020",
+          "field": "dst_base_addr"
+        },
+        {
+          "regcmd_index": 15,
+          "buffer": "a",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5018",
+          "field": "src_a_base_addr"
+        },
+        {
+          "regcmd_index": 16,
+          "buffer": "b",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5038",
+          "field": "src_b_base_addr"
+        }
+      ],
+      "bundle": {
+        "job.json": {
+          "bytes": 1013,
+          "sha256": "1fcbf85f9e3c03cf1209ec8d5b98afbc5e36cf8a94661d4a1ef87c8f3384d583"
+        },
+        "regcmd.bin": {
+          "bytes": 176,
+          "sha256": "a7830bb3476100bcf18e8f50cb148deab6a73e3823172a89ef10a8e3e14b7f73"
+        },
+        "input-a.bin": {
+          "bytes": 64,
+          "sha256": "982525909341b42ea9c7d9fbd3818a60135ca2186824b1b09d4d1947b594d92f"
+        },
+        "input-b.bin": {
+          "bytes": 64,
+          "sha256": "6f6c63864565f1161ccace6d6818fd04879c002908a75e35060c5e5d1160a652"
+        }
+      },
+      "pairs": [
+        {
+          "lane": 0,
+          "pair_index": 160,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 1,
+          "pair_index": 161,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 2,
+          "pair_index": 162,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 3,
+          "pair_index": 163,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 4,
+          "pair_index": 164,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 5,
+          "pair_index": 165,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 6,
+          "pair_index": 166,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 7,
+          "pair_index": 167,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 8,
+          "pair_index": 168,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 9,
+          "pair_index": 169,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 10,
+          "pair_index": 170,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 11,
+          "pair_index": 171,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 12,
+          "pair_index": 172,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 13,
+          "pair_index": 173,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 14,
+          "pair_index": 174,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 15,
+          "pair_index": 175,
+          "a": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        },
+        {
+          "lane": 16,
+          "pair_index": 176,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 17,
+          "pair_index": 177,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 18,
+          "pair_index": 178,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 19,
+          "pair_index": 179,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 20,
+          "pair_index": 180,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 21,
+          "pair_index": 181,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 22,
+          "pair_index": 182,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 23,
+          "pair_index": 183,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 24,
+          "pair_index": 184,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 25,
+          "pair_index": 185,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 26,
+          "pair_index": 186,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 27,
+          "pair_index": 187,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 28,
+          "pair_index": 188,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 29,
+          "pair_index": 189,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 30,
+          "pair_index": 190,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 31,
+          "pair_index": 191,
+          "a": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        }
+      ]
+    },
+    {
+      "case": "fdiv_class_rows_12_13",
+      "status": "READY",
+      "op": "FDIV",
+      "kind": "operand-class-truth-table",
+      "rows": [
+        12,
+        13
+      ],
+      "a_classes": [
+        "half_p",
+        "half_n"
+      ],
+      "pair_range": [
+        192,
+        223
+      ],
+      "pair_count": 32,
+      "lanes": 32,
+      "width": 3,
+      "ew_cfg": "0x108303c0",
+      "out_convert": "0x00000001",
+      "rdma_mode": "0x00017841",
+      "description": "FP16 FDIV raw operand-class truth table, 32 lanes, width=3; lanes 0-15 A12=0x3800 (+0.5); lanes 16-31 A13=0xb800 (-0.5); B classes 0-15 in order in each 16-lane half",
+      "source_example": "/home/fedora/rk3588/examples/elementwise.py",
+      "source_lines": [
+        "/home/fedora/rk3588/examples/elementwise.py:301-352 (FDIV task register body)",
+        "/home/fedora/rk3588/examples/elementwise.py:206-222 (terminal PC tail and PC enable)",
+        "/home/fedora/rk3588/examples/elementwise.py:254-260 (FDIV output scale / fp16 output)",
+        "/home/fedora/rk3588/examples/elementwise.py:295-299 (width and DMA address derivation)",
+        "/home/fedora/rk3588/examples/elementwise.py:320-331 (EW_CFG 0x108303c0 for FDIV)",
+        "/home/fedora/rk3588/examples/elementwise.py:345-351 (RDMA mode 0x00017841 for FDIV)"
+      ],
+      "oracle": "none",
+      "output": {
+        "name": "out",
+        "size": 64,
+        "direction": "out",
+        "output": "output.bin"
+      },
+      "patches": [
+        {
+          "regcmd_index": 14,
+          "buffer": "out",
+          "kind": "value32",
+          "target": "0x1001",
+          "offset": "0x4020",
+          "field": "dst_base_addr"
+        },
+        {
+          "regcmd_index": 15,
+          "buffer": "a",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5018",
+          "field": "src_a_base_addr"
+        },
+        {
+          "regcmd_index": 16,
+          "buffer": "b",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5038",
+          "field": "src_b_base_addr"
+        }
+      ],
+      "bundle": {
+        "job.json": {
+          "bytes": 1013,
+          "sha256": "d205df08f2775f1ed8485282c706f81e138b2b5090731fc92b4f8bdb9f6ae9de"
+        },
+        "regcmd.bin": {
+          "bytes": 176,
+          "sha256": "a7830bb3476100bcf18e8f50cb148deab6a73e3823172a89ef10a8e3e14b7f73"
+        },
+        "input-a.bin": {
+          "bytes": 64,
+          "sha256": "9c24f7edf3b03a2efd8f2e1a4ad09ce4b96e1177309c373c5f05c401999b15ef"
+        },
+        "input-b.bin": {
+          "bytes": 64,
+          "sha256": "6f6c63864565f1161ccace6d6818fd04879c002908a75e35060c5e5d1160a652"
+        }
+      },
+      "pairs": [
+        {
+          "lane": 0,
+          "pair_index": 192,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 1,
+          "pair_index": 193,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 2,
+          "pair_index": 194,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 3,
+          "pair_index": 195,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 4,
+          "pair_index": 196,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 5,
+          "pair_index": 197,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 6,
+          "pair_index": 198,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 7,
+          "pair_index": 199,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 8,
+          "pair_index": 200,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 9,
+          "pair_index": 201,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 10,
+          "pair_index": 202,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 11,
+          "pair_index": 203,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 12,
+          "pair_index": 204,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 13,
+          "pair_index": 205,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 14,
+          "pair_index": 206,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 15,
+          "pair_index": 207,
+          "a": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        },
+        {
+          "lane": 16,
+          "pair_index": 208,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 17,
+          "pair_index": 209,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 18,
+          "pair_index": 210,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 19,
+          "pair_index": 211,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 20,
+          "pair_index": 212,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 21,
+          "pair_index": 213,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 22,
+          "pair_index": 214,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 23,
+          "pair_index": 215,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 24,
+          "pair_index": 216,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 25,
+          "pair_index": 217,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 26,
+          "pair_index": 218,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 27,
+          "pair_index": 219,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 28,
+          "pair_index": 220,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 29,
+          "pair_index": 221,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 30,
+          "pair_index": 222,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 31,
+          "pair_index": 223,
+          "a": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        }
+      ]
+    },
+    {
+      "case": "fdiv_class_rows_14_15",
+      "status": "READY",
+      "op": "FDIV",
+      "kind": "operand-class-truth-table",
+      "rows": [
+        14,
+        15
+      ],
+      "a_classes": [
+        "two_p",
+        "two_n"
+      ],
+      "pair_range": [
+        224,
+        255
+      ],
+      "pair_count": 32,
+      "lanes": 32,
+      "width": 3,
+      "ew_cfg": "0x108303c0",
+      "out_convert": "0x00000001",
+      "rdma_mode": "0x00017841",
+      "description": "FP16 FDIV raw operand-class truth table, 32 lanes, width=3; lanes 0-15 A14=0x4000 (+2.0); lanes 16-31 A15=0xc000 (-2.0); B classes 0-15 in order in each 16-lane half",
+      "source_example": "/home/fedora/rk3588/examples/elementwise.py",
+      "source_lines": [
+        "/home/fedora/rk3588/examples/elementwise.py:301-352 (FDIV task register body)",
+        "/home/fedora/rk3588/examples/elementwise.py:206-222 (terminal PC tail and PC enable)",
+        "/home/fedora/rk3588/examples/elementwise.py:254-260 (FDIV output scale / fp16 output)",
+        "/home/fedora/rk3588/examples/elementwise.py:295-299 (width and DMA address derivation)",
+        "/home/fedora/rk3588/examples/elementwise.py:320-331 (EW_CFG 0x108303c0 for FDIV)",
+        "/home/fedora/rk3588/examples/elementwise.py:345-351 (RDMA mode 0x00017841 for FDIV)"
+      ],
+      "oracle": "none",
+      "output": {
+        "name": "out",
+        "size": 64,
+        "direction": "out",
+        "output": "output.bin"
+      },
+      "patches": [
+        {
+          "regcmd_index": 14,
+          "buffer": "out",
+          "kind": "value32",
+          "target": "0x1001",
+          "offset": "0x4020",
+          "field": "dst_base_addr"
+        },
+        {
+          "regcmd_index": 15,
+          "buffer": "a",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5018",
+          "field": "src_a_base_addr"
+        },
+        {
+          "regcmd_index": 16,
+          "buffer": "b",
+          "kind": "value32",
+          "target": "0x2001",
+          "offset": "0x5038",
+          "field": "src_b_base_addr"
+        }
+      ],
+      "bundle": {
+        "job.json": {
+          "bytes": 1013,
+          "sha256": "4683aa82d11f3e70a9286f98c9557cfcf4e391af0c4e326f2f761efa81cdc4ca"
+        },
+        "regcmd.bin": {
+          "bytes": 176,
+          "sha256": "a7830bb3476100bcf18e8f50cb148deab6a73e3823172a89ef10a8e3e14b7f73"
+        },
+        "input-a.bin": {
+          "bytes": 64,
+          "sha256": "91b607e76c6d79338fc66c42120083fcbad04a5f1c9ac2b42e2a332bc43e9b60"
+        },
+        "input-b.bin": {
+          "bytes": 64,
+          "sha256": "6f6c63864565f1161ccace6d6818fd04879c002908a75e35060c5e5d1160a652"
+        }
+      },
+      "pairs": [
+        {
+          "lane": 0,
+          "pair_index": 224,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 1,
+          "pair_index": 225,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 2,
+          "pair_index": 226,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 3,
+          "pair_index": 227,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 4,
+          "pair_index": 228,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 5,
+          "pair_index": 229,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 6,
+          "pair_index": 230,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 7,
+          "pair_index": 231,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 8,
+          "pair_index": 232,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 9,
+          "pair_index": 233,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 10,
+          "pair_index": 234,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 11,
+          "pair_index": 235,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 12,
+          "pair_index": 236,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 13,
+          "pair_index": 237,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 14,
+          "pair_index": 238,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 15,
+          "pair_index": 239,
+          "a": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        },
+        {
+          "lane": 16,
+          "pair_index": 240,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 0,
+            "name": "zero_p",
+            "bits": "0x0000"
+          }
+        },
+        {
+          "lane": 17,
+          "pair_index": 241,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 1,
+            "name": "zero_n",
+            "bits": "0x8000"
+          }
+        },
+        {
+          "lane": 18,
+          "pair_index": 242,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 2,
+            "name": "inf_p",
+            "bits": "0x7c00"
+          }
+        },
+        {
+          "lane": 19,
+          "pair_index": 243,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 3,
+            "name": "inf_n",
+            "bits": "0xfc00"
+          }
+        },
+        {
+          "lane": 20,
+          "pair_index": 244,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 4,
+            "name": "qnan",
+            "bits": "0x7e00"
+          }
+        },
+        {
+          "lane": 21,
+          "pair_index": 245,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 5,
+            "name": "snan",
+            "bits": "0x7c01"
+          }
+        },
+        {
+          "lane": 22,
+          "pair_index": 246,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 6,
+            "name": "sub_min",
+            "bits": "0x0001"
+          }
+        },
+        {
+          "lane": 23,
+          "pair_index": 247,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 7,
+            "name": "sub_max",
+            "bits": "0x03ff"
+          }
+        },
+        {
+          "lane": 24,
+          "pair_index": 248,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 8,
+            "name": "norm_min",
+            "bits": "0x0400"
+          }
+        },
+        {
+          "lane": 25,
+          "pair_index": 249,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 9,
+            "name": "fin_max",
+            "bits": "0x7bff"
+          }
+        },
+        {
+          "lane": 26,
+          "pair_index": 250,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 10,
+            "name": "one_p",
+            "bits": "0x3c00"
+          }
+        },
+        {
+          "lane": 27,
+          "pair_index": 251,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 11,
+            "name": "one_n",
+            "bits": "0xbc00"
+          }
+        },
+        {
+          "lane": 28,
+          "pair_index": 252,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 12,
+            "name": "half_p",
+            "bits": "0x3800"
+          }
+        },
+        {
+          "lane": 29,
+          "pair_index": 253,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 13,
+            "name": "half_n",
+            "bits": "0xb800"
+          }
+        },
+        {
+          "lane": 30,
+          "pair_index": 254,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 14,
+            "name": "two_p",
+            "bits": "0x4000"
+          }
+        },
+        {
+          "lane": 31,
+          "pair_index": 255,
+          "a": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          },
+          "b": {
+            "class_index": 15,
+            "name": "two_n",
+            "bits": "0xc000"
+          }
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "method": "tools/validate.py (local JSON/binary shape parser only)",
+    "scope": "device-free structural validation; not SystemVerilog, not FPGA, not RK3588 silicon and not a numerical oracle",
+    "result_file": "validation/local_validation.json"
+  },
+  "notes": [
+    "All cases are READY with oracle none: this is a device characterization truth table.",
+    "No output.bin or expected.bin is included; the later worker writes output.bin from the real device.",
+    "Raw pair order is preserved in each case's pairs list and in the lane order of input-a.bin/input-b.bin.",
+    "The 22-QWORD stream is 17 non-padding commands plus five zero-valued donor padding fields.",
+    "QWORDs 14/15/16 are zero placeholders and require all three value32 patches before submit."
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "case": "conv_1x1_c1_oc6_h4w4",
+  "status": "READY_CAPTURE_BOUNDED_CANDIDATE",
+  "description": "FP16 1x1 conv, C1/H4/W4 -> OC6, NHWC pack, single task",
+  "source_example": "/home/fedora/rk3588/examples/conv_gemm.py",
+  "source_bundle": "build/rk3588-example-captures/conv-gemm-vendor/cases/conv_1x1_c1_oc6_h4w4",
+  "device_capture": {
+    "capture_json_sha256": "a134bd2f909d6960106591e8861b0b6166a8206bf0c86b9c8edf3a88a5e73e63",
+    "device": "/dev/accel/accel0",
+    "kernel": "6.18.24-current-rockchip64",
+    "board_compatible": [
+      "xunlong,orangepi-5",
+      "rockchip,rk3588s"
+    ],
+    "submit_ret": 0,
+    "errors": []
+  },
+  "command_stream": {
+    "qwords": 52,
+    "regcmd_sha256": "af8cc5d2d9e88404a63724297025efe2b20def625fd05b303c0e9b755fe02ecd",
+    "address_qwords": [
+      18,
+      24,
+      32
+    ],
+    "buffers": [
+      "input",
+      "weight",
+      "output"
+    ],
+    "addresses": {
+      "input": 4096,
+      "output": 12288,
+      "weight": 8192
+    }
+  },
+  "shape": "b1_c1_h4_w4_oc6_wic1_k1x1_g1",
+  "dtype": {
+    "output": "float16"
+  },
+  "layout": {
+    "align_c": 8,
+    "align_out_c": 16,
+    "grouped_spatial": false,
+    "hardware_output_bytes": 512,
+    "hardware_output_dtype": "fp16",
+    "hardware_output_elements": 256,
+    "out_width_stride": 16,
+    "unpack_c2": 8,
+    "unpack_function": "_unpack_flat_1x1_output",
+    "use_nhwc": true,
+    "width_stride": 4
+  },
+  "packing": {
+    "align_c": 8,
+    "align_out_c": 16,
+    "grouped_spatial": false,
+    "hardware_output_bytes": 512,
+    "hardware_output_dtype": "fp16",
+    "hardware_output_elements": 256,
+    "out_width_stride": 16,
+    "unpack_c2": 8,
+    "unpack_function": "_unpack_flat_1x1_output",
+    "use_nhwc": true,
+    "width_stride": 4
+  },
+  "oracle_kind": "conv",
+  "oracle_contract": {
+    "kind": "conv",
+    "values": 128,
+    "c2": 8,
+    "stride": 16
+  },
+  "output": {
+    "bytes": 4096,
+    "device_sha256": "1a481a2c0d8bc999e7b7df7b846e012e17765c84bc4866b6cca377db26709f18",
+    "recomputed_sha256": "a96d8226ed22616629581443f3c5fcec9191079bb83e7bc287ae97bfa8f00057"
+  },
+  "comparison": {
+    "exact": true,
+    "mode": "exact",
+    "compared_bytes": 256
+  },
+  "files": {
+    "capture.json": {
+      "bytes": 5562,
+      "sha256": "a134bd2f909d6960106591e8861b0b6166a8206bf0c86b9c8edf3a88a5e73e63"
+    },
+    "device_out.bin": {
+      "bytes": 4096,
+      "sha256": "1a481a2c0d8bc999e7b7df7b846e012e17765c84bc4866b6cca377db26709f18"
+    },
+    "expected.bin": {
+      "bytes": 192,
+      "sha256": "87b3ba4e28b377918654caa83c7f59e77949db05520da17fed2519b59e0af4dc"
+    },
+    "input.bin": {
+      "bytes": 4096,
+      "sha256": "8f7a3a8fc188458c60712179a841a5b1624910d57d58cf45fba9bc85a2798523"
+    },
+    "job.json": {
+      "bytes": 926,
+      "sha256": "bd8cd836079d638e44645e1a88c3f69c6657054e21b2096c88f57f3b843bf200"
+    },
+    "oracle_recomputed.bin": {
+      "bytes": 256,
+      "sha256": "a96d8226ed22616629581443f3c5fcec9191079bb83e7bc287ae97bfa8f00057"
+    },
+    "regcmd.bin": {
+      "bytes": 416,
+      "sha256": "af8cc5d2d9e88404a63724297025efe2b20def625fd05b303c0e9b755fe02ecd"
+    },
+    "weight.bin": {
+      "bytes": 4096,
+      "sha256": "d225696e41ac2e41bc045c9ee341674db50b27d184d17658298fd5b6805a1632"
+    }
+  }
+}

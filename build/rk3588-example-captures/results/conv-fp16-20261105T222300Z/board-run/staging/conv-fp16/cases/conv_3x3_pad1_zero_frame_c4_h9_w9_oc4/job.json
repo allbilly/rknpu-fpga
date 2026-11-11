@@ -1,0 +1,49 @@
+{
+  "case": "conv_3x3_pad1_zero_frame_c4_h9_w9_oc4",
+  "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+  "description": "FP16 3x3 same-padded convolution (pad=1) realized as an explicit zero frame plus a valid 3x3 conv, C4 H9 W9 -> OC4 9x9.",
+  "timeout_ns": 6000000000,
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 54
+    }
+  ],
+  "buffers": [
+    {
+      "name": "a",
+      "size": 3872,
+      "input": "a.bin",
+      "direction": "in"
+    },
+    {
+      "name": "w",
+      "size": 1152,
+      "input": "w.bin",
+      "direction": "in"
+    },
+    {
+      "name": "out",
+      "size": 5376,
+      "direction": "out",
+      "output": "out.bin"
+    }
+  ],
+  "patches": [
+    {
+      "regcmd_index": 21,
+      "buffer": "a",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 27,
+      "buffer": "w",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 35,
+      "buffer": "out",
+      "kind": "value32"
+    }
+  ]
+}

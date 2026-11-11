@@ -1,0 +1,12 @@
+orangepi5
+Linux orangepi5 6.18.24-current-rockchip64 #2 SMP PREEMPT Wed Apr 22 11:22:34 UTC 2026 aarch64 GNU/Linux
+Python 3.14.4
+2026-11-05T22:12:03Z
+uid=1002(opencode-agent) gid=1002(opencode-agent) groups=1002(opencode-agent),100(users),990(render)
+crw-rw---- 1 root render 261, 0 Nov  5 04:39 /dev/accel/accel0
+/sys/devices/platform/rknn
+MODALIAS=platform:rknn
+---PGREP---
+2023819 /usr/bin/python3 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+3713831 bash -c hostname; uname -a; python3 --version; date -u +%FT%TZ; id; ls -l /dev/accel/accel0; readlink -f /sys/class/accel/accel0/device 2>/dev/null; cat /sys/class/accel/accel0/device/uevent 2>/dev/null; echo ---PGREP---; pgrep -af "rk3588|rocket|capture|python3"; echo pgrep_rc=$?
+pgrep_rc=0

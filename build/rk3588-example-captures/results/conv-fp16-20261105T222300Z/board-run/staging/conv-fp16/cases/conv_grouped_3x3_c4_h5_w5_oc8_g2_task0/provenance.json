@@ -1,0 +1,145 @@
+{
+  "case": "conv_grouped_3x3_c4_h5_w5_oc8_g2_task0",
+  "generated_by": "tools/promote_split_cases.py",
+  "generated_utc": "2026-11-05T22:05:40.297033+00:00",
+  "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+  "source_sha256": "f70e9810868bf95dd8e89ed83a3af3be00cc890fad8209756e09735cb9795c51",
+  "source_git_revision": "273d015e08af40c81d2cd9ab84198486b03a17f1",
+  "host": {
+    "python": "3.14.8",
+    "numpy": "2.4.6"
+  },
+  "seed": 42,
+  "shape": {
+    "batch": 1,
+    "in_c": 2,
+    "in_h": 5,
+    "in_w": 5,
+    "out_c": 4,
+    "kh": 3,
+    "kw": 3,
+    "stride": 1,
+    "groups": 1,
+    "padded_zero_frame": false,
+    "effective_input_h": 5,
+    "effective_input_w": 5,
+    "out_h": 3,
+    "out_w": 3,
+    "parent_case": "conv_grouped_3x3_c4_h5_w5_oc8_g2",
+    "parent_task_index": 0,
+    "parent_in_c": 4,
+    "parent_out_c": 8,
+    "parent_groups": 2
+  },
+  "branch": "conv_new_clean.run_conv2d grouped_serial path (lines 826-850): two per-group tasks with 2-channel input and 4-channel output. Promoted to one terminal task at offset 0.",
+  "builder": {
+    "function": "make_conv2d_regs_from_params / make_conv2d_regs",
+    "lines": "445-629, 711-717",
+    "tail_function": "write_regs_to_npu_task (single-task terminal branch)",
+    "tail_lines": "631-676",
+    "packing": "pack_weights (380-386), _pack_cdma_dc_feature_input_fp16 (388-401)"
+  },
+  "parent_case": "conv_grouped_3x3_c4_h5_w5_oc8_g2",
+  "parent_task_index": 0,
+  "promotion": {
+    "reason": "MULTITASK_ROCKET_JOB_UNSUPPORTED",
+    "diagnostic_bundle": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/conv-fp16-task-diagnostic/bundles/diag_grouped_task0",
+    "diagnostic_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-task-diagnostic-20261105T211500Z",
+    "original_results": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/conv-fp16-20261105T205900Z",
+    "diagnostic_out_sha256": "2b9b1524c7cff40fffa54127df398f69a91297b9049a97f54fd06c880c38a9a5",
+    "expected_out_sha256": "68bec39a92255048678a37a33125a1668466128c08eca7cf760aa29fb65ac84a",
+    "task_derivation": {
+      "source_case": "conv_grouped_3x3_c4_h5_w5_oc8_g2",
+      "source_case_dir": "/home/fedora/rknpu-fpga/build/rk3588-example-captures/conv-fp16/cases/conv_grouped_3x3_c4_h5_w5_oc8_g2",
+      "source_task_index": 0,
+      "source_regcmd_sha256": "2f811ac2ad59aefdb18596234e001e4d0d4822bf1a0f5848af508495a0373bf0",
+      "source_regcmd_bytes": [
+        0,
+        432
+      ],
+      "source_job_sha256": "79b0aeaae127fe7eab682766ddc21026c94f7c845323cf15127d7d191c6b3911",
+      "derived_job_sha256": "0075b24e8560fb2dcf331ea5b15ec0c60b4ed47fdf2bafcaf1a11f6c6c57a203",
+      "derived_regcmd_sha256": "29b60f0bc2baa4b802823dacba0770c7d36e46f0c4b7bf1994eba762ee55a08f",
+      "oracle_copy": "expected_out0.bin",
+      "notes": [
+        "regcmd.bin is the 54-QWORD task slice copied to offset 0",
+        "task1 patch indices 75/81/89 are rebound to 21/27/35",
+        "terminal PC tail and declared regcmd_words=54 are preserved"
+      ]
+    },
+    "diagnostic_derivation_unmodified": true,
+    "diagnostic_derivation_note": "derivation.json is the original diagnostic derivation; its derived_job_sha256 covers the diag_* job name, not this promoted case name. promoted_job_sha256 covers the promoted job.json.",
+    "promoted_job_sha256": "089a41004111f00b10138c66d89cb502432f1b9902961d489e8686493b4b8b3f",
+    "evidence_file": "evidence_diagnostic_out0.bin",
+    "evidence_sha256": "2b9b1524c7cff40fffa54127df398f69a91297b9049a97f54fd06c880c38a9a5",
+    "evidence_note": "The diagnostic board output is retained at the case root because audit 1.3.0 rejects nested directories inside READY bundles; it is hash-bound in the manifest files map."
+  },
+  "tasks": [
+    {
+      "index": 0,
+      "regcmd_offset_words": 0,
+      "regcmd_words": 54,
+      "body_qwords": 50,
+      "tail_qwords": 4,
+      "input_buffer": "a0",
+      "weight_buffer": "w0",
+      "output_buffer": "out0",
+      "input_packed_bytes": 800,
+      "weight_packed_bytes": 1152,
+      "output_bytes": 768,
+      "geometry_audit": {
+        "width_stride": 5,
+        "in_h": 5,
+        "aligned_c": 16,
+        "real_c": 2,
+        "weight_total_bytes": 1152,
+        "weight_per_kernel_bytes": 288,
+        "weight_kernels": 4,
+        "cbuf_data_bank": 1,
+        "cbuf_weight_bank": 11,
+        "full_data_bank": false,
+        "packed_input_bytes": 800,
+        "packed_weight_bytes": 1152
+      },
+      "patches": [
+        {
+          "regcmd_index": 21,
+          "buffer": "a0",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 27,
+          "buffer": "w0",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 35,
+          "buffer": "out0",
+          "kind": "value32"
+        }
+      ]
+    }
+  ],
+  "placeholders": {
+    "value32_zero": true,
+    "note": "DMA address registers are zero in regcmd.bin; job.json patches replace command bits [47:16] with each buffer's 32-bit DMA address.",
+    "address_registers": [
+      "CNA_FEATURE_DATA_ADDR=0x1070",
+      "CNA_DCOMP_ADDR0=0x1110",
+      "DPU DST_BASE_ADDR=0x4020"
+    ]
+  },
+  "oracle": {
+    "kind": "host_numpy_naive_conv",
+    "source": "conv_new_clean.compute_expected_nchw (lines 1010-1021)",
+    "independent_check": "tools/gen_bundles.py independent_naive_conv (float64 loop)",
+    "dtype": "float16",
+    "byte_order": "little",
+    "layout": "NCHW",
+    "accumulation": "float64 accumulation of float16 operands, rounded once to float16",
+    "tolerance_atol": 0.2,
+    "expected_files": [
+      "expected_out0.bin"
+    ]
+  }
+}

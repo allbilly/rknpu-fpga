@@ -1,0 +1,230 @@
+{
+  "bundle_root": "build/rk3588-example-captures/conv-gemm-vendor/cases",
+  "cases": {
+    "conv_depthwise_3x3_c3_oc3_h11w28_task0": {
+      "addresses": {
+        "buffers": {
+          "input": 4096,
+          "output": 16384,
+          "weight": 12288
+        },
+        "regcmd": 0,
+        "tasks": [
+          0
+        ]
+      },
+      "beyond_declared_bo_tail_bytes": 0,
+      "capture_checks": {
+        "buffer_size_matches_capture": true,
+        "errors_empty": true,
+        "input_hash_matches_capture": true,
+        "job_hash_matches_capture": true,
+        "job_output_size_15104": true,
+        "one_task_52_words": true,
+        "output_hash_matches_capture": true,
+        "output_size_matches_capture": true,
+        "regcmd_source_hash_matches_capture": true,
+        "status_OK": true,
+        "submit_error_null": true,
+        "submit_ret_0": true,
+        "weight_hash_matches_capture": true
+      },
+      "case": "conv_depthwise_3x3_c3_oc3_h11w28_task0",
+      "device": {
+        "board_compatible": [
+          "xunlong,orangepi-5",
+          "rockchip,rk3588s"
+        ],
+        "kernel": "6.18.24-current-rockchip64",
+        "major": 261,
+        "minor": 0,
+        "path": "/dev/accel/accel0",
+        "sysfs_device": "/sys/devices/platform/rknn"
+      },
+      "durations_ns": {
+        "allocate_ns": 218747,
+        "copy_inputs_ns": 16333,
+        "descriptor_ns": 13708,
+        "fini_all_ns": 14583,
+        "fini_ns": 11958,
+        "open_device_ns": 220497,
+        "output_prep_ns": 235955,
+        "patch_ns": 53958,
+        "prep_all_ns": 26541,
+        "prep_ns": 22167,
+        "prepare_output_dir_ns": 82833,
+        "submit_ns": 25667,
+        "total_ns": 1643518,
+        "wait_read_ns": 254038,
+        "write_outputs_ns": 209705
+      },
+      "errors": [],
+      "expected_sha256": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b",
+      "finished_utc": "2026-11-05T22:12:57Z",
+      "first_mismatch": null,
+      "logical_channel_padding_bytes": 12,
+      "logical_channel_padding_elements": 6,
+      "logical_channel_padding_nonzero": 0,
+      "logical_elements": 702,
+      "logical_exact_fp16": 702,
+      "logical_mismatches": 0,
+      "logical_shape_nchw": [
+        1,
+        3,
+        9,
+        26
+      ],
+      "max_abs_diff": 0.0,
+      "nonlogical_channel_bytes": 6136,
+      "nonlogical_channel_elements": 3068,
+      "nonlogical_channel_nonzero": 0,
+      "nonzero_elements_in_full_bo": 702,
+      "output_bytes": 15104,
+      "output_elements_fp16": 7552,
+      "output_sha256": "431f470ed23f321f115a9af03db2edba170d5ac3e036efb08c10834aba0faacf",
+      "over_tolerance_0_2": 0,
+      "padding_tail_nonzero_total": 0,
+      "read_window_bytes": 7552,
+      "second_surface_bytes": 7552,
+      "second_surface_elements": 3776,
+      "second_surface_nonzero": 0,
+      "started_utc": "2026-11-05T22:12:57Z",
+      "status": "OK",
+      "submit_errno": null,
+      "submit_ret": 0,
+      "timeout_ns": 6000000000,
+      "tool": {
+        "hostname": "orangepi5",
+        "kernel": "6.18.24-current-rockchip64",
+        "name": "rocket_run.py",
+        "python": "3.14.4",
+        "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+        "version": "1.0.0"
+      },
+      "unused_in_read_window_bytes": 6148,
+      "unused_in_read_window_elements": 3074,
+      "unused_in_read_window_nonzero": 0,
+      "used_logical_bytes": 1404
+    },
+    "conv_depthwise_3x3_c3_oc3_h11w28_task1": {
+      "addresses": {
+        "buffers": {
+          "input": 4096,
+          "output": 16384,
+          "weight": 12288
+        },
+        "regcmd": 0,
+        "tasks": [
+          0
+        ]
+      },
+      "beyond_declared_bo_tail_bytes": 0,
+      "capture_checks": {
+        "buffer_size_matches_capture": true,
+        "errors_empty": true,
+        "input_hash_matches_capture": true,
+        "job_hash_matches_capture": true,
+        "job_output_size_15104": true,
+        "one_task_52_words": true,
+        "output_hash_matches_capture": true,
+        "output_size_matches_capture": true,
+        "regcmd_source_hash_matches_capture": true,
+        "status_OK": true,
+        "submit_error_null": true,
+        "submit_ret_0": true,
+        "weight_hash_matches_capture": true
+      },
+      "case": "conv_depthwise_3x3_c3_oc3_h11w28_task1",
+      "device": {
+        "board_compatible": [
+          "xunlong,orangepi-5",
+          "rockchip,rk3588s"
+        ],
+        "kernel": "6.18.24-current-rockchip64",
+        "major": 261,
+        "minor": 0,
+        "path": "/dev/accel/accel0",
+        "sysfs_device": "/sys/devices/platform/rknn"
+      },
+      "durations_ns": {
+        "allocate_ns": 142040,
+        "copy_inputs_ns": 13999,
+        "descriptor_ns": 13125,
+        "fini_all_ns": 11958,
+        "fini_ns": 9626,
+        "open_device_ns": 204455,
+        "output_prep_ns": 97124,
+        "patch_ns": 36166,
+        "prep_all_ns": 18667,
+        "prep_ns": 14874,
+        "prepare_output_dir_ns": 60666,
+        "submit_ns": 17208,
+        "total_ns": 1163734,
+        "wait_read_ns": 111415,
+        "write_outputs_ns": 162748
+      },
+      "errors": [],
+      "expected_sha256": "226ed017f7e120c54613da5f876d102851149eb541b87c4ad3bb30a0a286228b",
+      "finished_utc": "2026-11-05T22:12:57Z",
+      "first_mismatch": null,
+      "logical_channel_padding_bytes": 12,
+      "logical_channel_padding_elements": 6,
+      "logical_channel_padding_nonzero": 0,
+      "logical_elements": 702,
+      "logical_exact_fp16": 702,
+      "logical_mismatches": 0,
+      "logical_shape_nchw": [
+        1,
+        3,
+        9,
+        26
+      ],
+      "max_abs_diff": 0.0,
+      "nonlogical_channel_bytes": 6136,
+      "nonlogical_channel_elements": 3068,
+      "nonlogical_channel_nonzero": 0,
+      "nonzero_elements_in_full_bo": 702,
+      "output_bytes": 15104,
+      "output_elements_fp16": 7552,
+      "output_sha256": "431f470ed23f321f115a9af03db2edba170d5ac3e036efb08c10834aba0faacf",
+      "over_tolerance_0_2": 0,
+      "padding_tail_nonzero_total": 0,
+      "read_window_bytes": 7552,
+      "second_surface_bytes": 7552,
+      "second_surface_elements": 3776,
+      "second_surface_nonzero": 0,
+      "started_utc": "2026-11-05T22:12:57Z",
+      "status": "OK",
+      "submit_errno": null,
+      "submit_ret": 0,
+      "timeout_ns": 6000000000,
+      "tool": {
+        "hostname": "orangepi5",
+        "kernel": "6.18.24-current-rockchip64",
+        "name": "rocket_run.py",
+        "python": "3.14.4",
+        "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+        "version": "1.0.0"
+      },
+      "unused_in_read_window_bytes": 6148,
+      "unused_in_read_window_elements": 3074,
+      "unused_in_read_window_nonzero": 0,
+      "used_logical_bytes": 1404
+    }
+  },
+  "failures": [],
+  "labelled": "host-side analysis of bytes read back through mainline Rocket; not an FPGA execution and not a new hardware numerical policy claim",
+  "result": "PASS",
+  "result_root": "build/rk3588-example-captures/results/conv-gemm-depthwise-rerun-20261105T221115Z",
+  "schema": "conv-gemm-depthwise-rerun-comparison-v1",
+  "totals": {
+    "cases": 2,
+    "logical_elements": 1404,
+    "logical_exact_fp16": 1404,
+    "logical_mismatches": 0,
+    "max_abs_diff": 0.0,
+    "output_bytes_read_back": 30208,
+    "padding_tail_nonzero": 0,
+    "submit_ret_all_zero": true
+  }
+}

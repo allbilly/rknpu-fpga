@@ -2,7 +2,12 @@
 `timescale 1ns/1ps
 // Staged terminal raw-command path, NVDLA numerical working baseline.
 // No host arithmetic/layout fallback. No EW, PC DMA, host or FPGA integration.
-module rk_cmac_nvdla_core #(parameter int unsigned TIMEOUT_CYCLES=65536) (
+module rk_cmac_nvdla_core #(
+    parameter int unsigned TIMEOUT_CYCLES = 65536,
+    // Selects the decoder's output-format register values. The numerical tail
+    // is chosen separately by `rk_cmac_nvdla_dma`/`_axi` call sites.
+    parameter bit OUTPUT_FP16 = 1'b1
+) (
     input logic clk,rst_n,cmd_valid,
     output logic cmd_ready,
     input logic [63:0] cmd_data,
@@ -53,7 +58,8 @@ module rk_cmac_nvdla_core #(parameter int unsigned TIMEOUT_CYCLES=65536) (
         if (op_ic!=expected_ic || op_first!=(expected_ic==0)) legal_operand=0;
         if (expected_ic!=0 && (op_address!=saved_address || op_row!=saved_row || op_oc!=saved_oc || op_last_output!=saved_last_output)) legal_operand=0;
     end
-    rk_cmac_operand_front #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) frontend(
+    rk_cmac_operand_front #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES),
+                            .OUTPUT_FP16(OUTPUT_FP16)) frontend(
         .clk,.rst_n,.cmd_valid(cmd_valid&&!error),.cmd_ready(front_cmd_ready),.cmd_data,
         .downstream_busy(collector_busy||pipe_busy||error),.busy(front_busy),
         .address_done(front_address_done),.stream_done(front_operand_done),.error(front_error),.error_code(front_code),
@@ -62,7 +68,8 @@ module rk_cmac_nvdla_core #(parameter int unsigned TIMEOUT_CYCLES=65536) (
         .operand_valid(op_valid),.operand_ready(op_ready),.operand_input(op_data),.operand_weight(op_weight),
         .operand_output_address(op_address),.operand_row(op_row),.operand_oc(op_oc),.operand_ic(op_ic),
         .operand_first(op_first),.operand_last(op_last),.operand_last_output(op_last_output));
-    rk_nvdla_cmac_pipe #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) pipeline(
+    rk_nvdla_cmac_pipe #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES),
+                         .OUTPUT_FP16(OUTPUT_FP16)) pipeline(
         .clk,.rst_n,.in_valid(frame_valid&&!error),.in_ready(frame_ready),
         .in_data(frame_data),.in_weight(frame_weight),.in_address(frame_address),
         .in_first(frame_first),.in_last(frame_last),.in_last_output(frame_last_output),

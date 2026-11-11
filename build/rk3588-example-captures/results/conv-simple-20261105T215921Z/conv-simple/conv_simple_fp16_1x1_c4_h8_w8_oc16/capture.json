@@ -1,0 +1,205 @@
+{
+  "addresses": {
+    "buffers": {
+      "input": 4096,
+      "out": 12288,
+      "weight": 8192
+    },
+    "regcmd": 0,
+    "tasks": [
+      0
+    ]
+  },
+  "buffers": [
+    {
+      "direction": "in",
+      "dma_address": 4096,
+      "handle": 2,
+      "input": "input.bin",
+      "input_sha256": "413aabe118b1bc39015dd50412b6c2a15761213a47637cbc29b04289b3037bef",
+      "mapping_size": 4096,
+      "mmap_offset": 4294971392,
+      "name": "input",
+      "output": null,
+      "role": "buffer",
+      "size": 512
+    },
+    {
+      "direction": "in",
+      "dma_address": 8192,
+      "handle": 3,
+      "input": "weight.bin",
+      "input_sha256": "7820b2b50691ee685d5b357f420d385f9afe00f540b6a471688944705116c136",
+      "mapping_size": 4096,
+      "mmap_offset": 4294975488,
+      "name": "weight",
+      "output": null,
+      "role": "buffer",
+      "size": 256
+    },
+    {
+      "direction": "out",
+      "dma_address": 12288,
+      "handle": 4,
+      "input": null,
+      "input_sha256": null,
+      "mapping_size": 4096,
+      "mmap_offset": 4294979584,
+      "name": "out",
+      "output": "out.bin",
+      "output_sha256": "c589ac10efaf190daa14dbe11c70db04b94b355d933ab1c035037a689433c6eb",
+      "output_size": 4096,
+      "role": "buffer",
+      "size": 4096
+    }
+  ],
+  "capture_file": "/home/opencode-agent/rk3588-example-captures/runs/20261105T215921Z/conv-simple/conv_simple_fp16_1x1_c4_h8_w8_oc16/capture.json",
+  "case": "conv_simple_fp16_1x1_c4_h8_w8_oc16",
+  "case_dir": "/home/opencode-agent/rk3588-example-captures/queue-20261105T215921Z/conv-simple/cases/conv_simple_fp16_1x1_c4_h8_w8_oc16",
+  "cleanup_errors": [],
+  "description": "FP16 1x1 valid conv, C4/H8/W8 -> OC16; <=4-channel NHWC path (the same packing class as the source's validated RGB probe); pointwise non-spatial policy selects FP32 output.",
+  "device": {
+    "board_compatible": [
+      "xunlong,orangepi-5",
+      "rockchip,rk3588s"
+    ],
+    "kernel": "6.18.24-current-rockchip64",
+    "major": 261,
+    "minor": 0,
+    "path": "/dev/accel/accel0",
+    "sysfs_device": "/sys/devices/platform/rknn"
+  },
+  "device_path": "/dev/accel/accel0",
+  "durations": {
+    "allocate_ns": 172664,
+    "copy_inputs_ns": 13708,
+    "descriptor_ns": 14583,
+    "fini_all_ns": 18083,
+    "fini_ns": 15166,
+    "open_device_ns": 242371,
+    "output_prep_ns": 195122,
+    "patch_ns": 34417,
+    "prep_all_ns": 23916,
+    "prep_ns": 19249,
+    "prepare_output_dir_ns": 72916,
+    "submit_ns": 22458,
+    "total_ns": 1412812,
+    "wait_read_ns": 208538,
+    "write_outputs_ns": 160997
+  },
+  "errors": [],
+  "finished_utc": "2026-11-05T22:00:35Z",
+  "hashes": {
+    "command_stream": {
+      "file": "regcmd.bin",
+      "sha256": "8196a458a1717accf720bd6d8b425d41fdb2a40e272ddf1d951f6af7448178cd",
+      "size": 416
+    },
+    "inputs": {
+      "input": {
+        "file": "input.bin",
+        "sha256": "413aabe118b1bc39015dd50412b6c2a15761213a47637cbc29b04289b3037bef",
+        "size": 512
+      },
+      "weight": {
+        "file": "weight.bin",
+        "sha256": "7820b2b50691ee685d5b357f420d385f9afe00f540b6a471688944705116c136",
+        "size": 256
+      }
+    },
+    "job_json": "0f3cd3fdabb8f89ade94a9994867fcc62311707568703434ab685c967feb5316",
+    "outputs": {
+      "out": {
+        "file": "out.bin",
+        "sha256": "c589ac10efaf190daa14dbe11c70db04b94b355d933ab1c035037a689433c6eb",
+        "size": 4096
+      }
+    },
+    "regcmd_patched": "8196a458a1717accf720bd6d8b425d41fdb2a40e272ddf1d951f6af7448178cd",
+    "regcmd_source": "37c11fd5554d8bb7f7a013c8077638dbb5f879b45e106dafb18c5632661c11d7"
+  },
+  "outputs": [
+    {
+      "buffer": "out",
+      "file": "out.bin",
+      "sha256": "c589ac10efaf190daa14dbe11c70db04b94b355d933ab1c035037a689433c6eb",
+      "size": 4096
+    }
+  ],
+  "patches": [
+    {
+      "after": 144396663321006192,
+      "before": 144396663052570736,
+      "buffer": "input",
+      "dma_address": 4096,
+      "kind": "value32",
+      "mask": 281474976645120,
+      "regcmd_index": 18
+    },
+    {
+      "after": 144396663589441808,
+      "before": 144396663052570896,
+      "buffer": "weight",
+      "dma_address": 8192,
+      "kind": "value32",
+      "mask": 281474976645120,
+      "regcmd_index": 24
+    },
+    {
+      "after": 1153202980388880416,
+      "before": 1153202979583574048,
+      "buffer": "out",
+      "dma_address": 12288,
+      "kind": "value32",
+      "mask": 281474976645120,
+      "regcmd_index": 32
+    }
+  ],
+  "regcmd": {
+    "dma_address": 0,
+    "handle": 1,
+    "mapping_size": 4096,
+    "mmap_offset": 4294967296,
+    "name": "regcmd",
+    "role": "regcmd",
+    "sha256_patched": "8196a458a1717accf720bd6d8b425d41fdb2a40e272ddf1d951f6af7448178cd",
+    "sha256_source": "37c11fd5554d8bb7f7a013c8077638dbb5f879b45e106dafb18c5632661c11d7",
+    "size": 416
+  },
+  "schema": "rk3588-rocket-capture-v1",
+  "sizes": {
+    "buffers": {
+      "input": 512,
+      "out": 4096,
+      "weight": 256
+    },
+    "regcmd": 416
+  },
+  "source_example": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+  "started_utc": "2026-11-05T22:00:35Z",
+  "status": "OK",
+  "submit_errno": null,
+  "submit_error": null,
+  "submit_ret": 0,
+  "tasks": [
+    {
+      "fetched_regcmd_bytes": 416,
+      "fetched_regcmd_words": 52,
+      "index": 0,
+      "regcmd_bytes": 408,
+      "regcmd_dma": 0,
+      "regcmd_offset_words": 0,
+      "regcmd_words": 51
+    }
+  ],
+  "timeout_ns": 6000000000,
+  "tool": {
+    "hostname": "orangepi5",
+    "kernel": "6.18.24-current-rockchip64",
+    "name": "rocket_run.py",
+    "python": "3.14.4",
+    "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+    "version": "1.0.0"
+  },
+  "tool_version": "1.0.0"
+}

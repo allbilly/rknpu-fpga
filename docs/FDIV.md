@@ -143,3 +143,25 @@ simulators. Seeds remain `0x3588` for vectors, `0x12345678` for ALU
 backpressure and `0x35881234` for memory backpressure. No lane mismatch remains
 against the 1,452 captured records. The inferred/unmeasured items in the
 previous section remain unmeasured.
+
+## Live-device closure (2026-11-10)
+
+The FDIV differential is now closed against the real NPU: **1,452 / 1,452
+captured lanes live-verified** on the authorized RK3588 target under the
+exclusive board lock, against both the frozen capture and the three-guard-bit
+model implemented in `rtl/rk_fp16_alu.sv`:
+
+- 256-lane operand-class truth table: 8/8 cases live == capture exactly;
+- 1,132 finite lanes: 9 prepared cases live == capture exactly, with exactly
+  the 20 documented one-ULP-low `A/7` lanes against donor-RNE;
+- 64 residual lanes (24 special + 40 finite/sweep): reconstructed from the
+  original captured probe artifacts (command QWORDs/operands/output BOs
+  verbatim; only captured DMA-address fields re-patched) and live-verified
+  64/64 live == capture == model.
+
+Evidence: `build/rk3588-live-verify/FDIV-RESIDUAL.md`,
+`build/rk3588-live-verify/20261109T201838Z-j07/`, plus the P0 job trees and
+`build/rtl/report.json` (RTL 1,452-vector PASS). No lane was dropped or
+synthesized; one documented evidence caveat: the 8-lane probe's `capture.json`
+predates the `dma` field, so its addresses were verified directly from the
+captured command QWORDs.

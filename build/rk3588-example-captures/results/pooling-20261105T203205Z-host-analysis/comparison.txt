@@ -1,0 +1,199 @@
+PASS/FAIL COMPARISON run_id=20261105T203205Z
+capture_tree=/home/fedora/rknpu-fpga/build/rk3588-example-captures/results/pooling-20261105T203205Z/pooling
+ready_cases=19 compared=19 total_out_bytes_read=77824
+blocked_cases_not_run=fp32_max_k2s2_zero_write_c4_h2w2,int32_max_k2s2_zero_write_c4_h2w2 (absent_on_board)
+
+case                                                 submit st fullBO decl value index tail exact   atol   maxdiff
+fp16_avg_k2s1_valid_c8_h4w4                               0 OK      0    0     0     -    0  True   True         0
+fp16_max_k2s1_valid_c8_h4w4                               0 OK      0    0     0     -    0  True      -         -
+fp16_min_k2s1_valid_c8_h4w4                               0 OK      0    0     0     -    0  True      -         -
+fp16_avg_global_k3x5_valid_c8_h3w5                        0 OK      0    0     0     -    0  True   True         0
+fp16_max_k3s2_pad1_c8_h4w4                                0 OK      0    0     0     -    0  True      -         -
+fp16_max_k2s1_pad1_neg_c8_h2w2                            0 OK      0    0     0     -    0  True      -         -
+fp16_avg_k2s1_pad1_use_cnt0_c8_h1w1                       0 OK      0    0     0     -    0  True   True         0
+fp16_avg_k2s1_pad1_use_cnt7_c8_h1w1                       0 OK      0    0     0     -    0  True   True         0
+fp16_max_k2s2_index_c8_h2w2                               0 OK      0    0     0     0    0  True      -         -
+fp16_max_k2s2_c3_tail_h2w2                                0 OK      0    0     0     -    0  True      -         -
+int8_max_k2s2_valid_c16_h2w2                              0 OK      0    0     0     -    0  True      -         -
+int8_min_k2s2_valid_c16_h2w2                              0 OK      0    0     0     -    0  True      -         -
+int8_avg_q16_k2s2_valid_c16_h2w2                          0 OK      0    0     0     -    0  True      -         -
+int8_avg_q16_k3x3_valid_c16_h3w3                          0 OK      0    0     0     -    0  True      -         -
+int8_max_k1s1_valid_c32_h1w1                              0 OK      0    0     0     -    0  True      -         -
+int16_max_k2s2_valid_c8_h2w2                              0 OK      0    0     0     -    0  True      -         -
+int16_min_k2s2_valid_c8_h2w2                              0 OK      0    0     0     -    0  True      -         -
+int16_avg_q16_k2s2_valid_c8_h2w2                          0 OK      0    0     0     -    0  True      -         -
+int16_avg_q16_k3x3_valid_c8_h3w3                          0 OK      0    0     0     -    0  True      -         -
+
+CASE fp16_avg_k2s1_valid_c8_h4w4
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=bea3f03feb736de6e310172765cdfc560bcbd8bb81e90d6ff9e7f0ba45fb7545
+  expected_sha256=bea3f03feb736de6e310172765cdfc560bcbd8bb81e90d6ff9e7f0ba45fb7545 out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=144 index_offset=None index_bytes=0 logical_output_bytes=144 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  FP16 average tolerance atol=0.0625 elements=72 max_abs_diff=0.0 exceeds=0 pass=True (exact byte mismatches still reported above)
+  padding: no padding
+  durations_ns: total=514234663 output_prep=512938513 submit=20999
+
+CASE fp16_max_k2s1_valid_c8_h4w4
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=39d178de3e4a7dd020c66d23437b18082ec2c00541efbc979b773f8bee45ce60
+  expected_sha256=39d178de3e4a7dd020c66d23437b18082ec2c00541efbc979b773f8bee45ce60 out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=144 index_offset=None index_bytes=0 logical_output_bytes=144 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=511584905 output_prep=510455586 submit=15458
+
+CASE fp16_min_k2s1_valid_c8_h4w4
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=bca82f92970dbcd7ad4a31a89d3f1e0868276c16b25185b8081e8e3234bd4d6a
+  expected_sha256=bca82f92970dbcd7ad4a31a89d3f1e0868276c16b25185b8081e8e3234bd4d6a out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=144 index_offset=None index_bytes=0 logical_output_bytes=144 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=512118731 output_prep=510979204 submit=12542
+
+CASE fp16_avg_global_k3x5_valid_c8_h3w5
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=1df313040ac62a607b10c0a212f431d30057f4242c8d5d57be8788273f06fe0d
+  expected_sha256=1df313040ac62a607b10c0a212f431d30057f4242c8d5d57be8788273f06fe0d out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=16 index_offset=None index_bytes=0 logical_output_bytes=16 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  FP16 average tolerance atol=0.0625 elements=8 max_abs_diff=0.0 exceeds=0 pass=True (exact byte mismatches still reported above)
+  padding: no padding
+  durations_ns: total=512039023 output_prep=510397837 submit=16917
+
+CASE fp16_max_k3s2_pad1_c8_h4w4
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=76cb28cc00e804ef12cfd7dcef3dd9f6c3aabbd9d631a843d499b48a6557f9b8
+  expected_sha256=76cb28cc00e804ef12cfd7dcef3dd9f6c3aabbd9d631a843d499b48a6557f9b8 out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=64 index_offset=None index_bytes=0 logical_output_bytes=64 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: padding config [1, 1, 1, 1] with padding_value [64512, 0] is baked into the declared oracle values; undeclared bytes after logical_output_bytes are reported separately and are not part of the value verdict
+  durations_ns: total=510457127 output_prep=507724537 submit=43749
+
+CASE fp16_max_k2s1_pad1_neg_c8_h2w2
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=a18647840e9e8c3abb2f004ee47e6d629d735755b8dbdd5e5b340e314f03411e
+  expected_sha256=a18647840e9e8c3abb2f004ee47e6d629d735755b8dbdd5e5b340e314f03411e out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=144 index_offset=None index_bytes=0 logical_output_bytes=144 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: padding config [1, 1, 1, 1] with padding_value [64512, 0] is baked into the declared oracle values; undeclared bytes after logical_output_bytes are reported separately and are not part of the value verdict
+  durations_ns: total=512156855 output_prep=510699707 submit=13416
+
+CASE fp16_avg_k2s1_pad1_use_cnt0_c8_h1w1
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=b4316ad7bc2a3370120f5baf2162e25f9ce3bc211fa9ae354cfa865e5335a515
+  expected_sha256=b4316ad7bc2a3370120f5baf2162e25f9ce3bc211fa9ae354cfa865e5335a515 out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=64 index_offset=None index_bytes=0 logical_output_bytes=64 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  FP16 average tolerance atol=0.0625 elements=32 max_abs_diff=0.0 exceeds=0 pass=True (exact byte mismatches still reported above)
+  padding: padding config [1, 1, 1, 1] with padding_value [0, 0] is baked into the declared oracle values; undeclared bytes after logical_output_bytes are reported separately and are not part of the value verdict
+  durations_ns: total=511217116 output_prep=508109740 submit=37333
+
+CASE fp16_avg_k2s1_pad1_use_cnt7_c8_h1w1
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=b4316ad7bc2a3370120f5baf2162e25f9ce3bc211fa9ae354cfa865e5335a515
+  expected_sha256=b4316ad7bc2a3370120f5baf2162e25f9ce3bc211fa9ae354cfa865e5335a515 out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=64 index_offset=None index_bytes=0 logical_output_bytes=64 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  FP16 average tolerance atol=0.0625 elements=32 max_abs_diff=0.0 exceeds=0 pass=True (exact byte mismatches still reported above)
+  padding: padding config [1, 1, 1, 1] with padding_value [0, 0] is baked into the declared oracle values; undeclared bytes after logical_output_bytes are reported separately and are not part of the value verdict
+  durations_ns: total=515424063 output_prep=512054189 submit=36166
+
+CASE fp16_max_k2s2_index_c8_h2w2
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=011231103b526b363a612647ff1825583fee0a52f375366de1fbf16e0bb89f35
+  expected_sha256=011231103b526b363a612647ff1825583fee0a52f375366de1fbf16e0bb89f35 out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=0
+  value_bytes=16 index_offset=32 index_bytes=16 logical_output_bytes=48 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=508831939 output_prep=503317177 submit=34416
+
+CASE fp16_max_k2s2_c3_tail_h2w2
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=e418e3dc9a8d3e678e369b58d817b8aadd073cd46dca3a7d251c90031a54af14
+  expected_sha256=e418e3dc9a8d3e678e369b58d817b8aadd073cd46dca3a7d251c90031a54af14 out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=16 index_offset=None index_bytes=0 logical_output_bytes=16 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=539539167 output_prep=529497797 submit=194830
+
+CASE int8_max_k2s2_valid_c16_h2w2
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=e1519ae13c4ab4d83f9d6ee72da57f1364ea0c2bc006bf44791ca661d4e7ef80
+  expected_sha256=e1519ae13c4ab4d83f9d6ee72da57f1364ea0c2bc006bf44791ca661d4e7ef80 out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=16 index_offset=None index_bytes=0 logical_output_bytes=16 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=510956660 output_prep=508066573 submit=31499
+
+CASE int8_min_k2s2_valid_c16_h2w2
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=2d112f6b4b72d530aa3ac390bc47829e7e1e39b6d0f67c158607a497d0fcdab4
+  expected_sha256=2d112f6b4b72d530aa3ac390bc47829e7e1e39b6d0f67c158607a497d0fcdab4 out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=16 index_offset=None index_bytes=0 logical_output_bytes=16 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=511327364 output_prep=508708231 submit=74083
+
+CASE int8_avg_q16_k2s2_valid_c16_h2w2
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=c5a7bf537a1c5d4a65eb9894586cb709563765e1e74fdfa16be912896162d1b3
+  expected_sha256=c5a7bf537a1c5d4a65eb9894586cb709563765e1e74fdfa16be912896162d1b3 out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=16 index_offset=None index_bytes=0 logical_output_bytes=16 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=511233740 output_prep=508559192 submit=32374
+
+CASE int8_avg_q16_k3x3_valid_c16_h3w3
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=a0fceb5ba7369e61cfbf30174bb12308c6cc49cba595bc92d9a6ac95f99e072a
+  expected_sha256=a0fceb5ba7369e61cfbf30174bb12308c6cc49cba595bc92d9a6ac95f99e072a out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=16 index_offset=None index_bytes=0 logical_output_bytes=16 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=510765330 output_prep=508432318 submit=35583
+
+CASE int8_max_k1s1_valid_c32_h1w1
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=38153783a10c9bf5685120fbc2c01ea3d9f31f46624c7f94cf2735e4ce159edc
+  expected_sha256=38153783a10c9bf5685120fbc2c01ea3d9f31f46624c7f94cf2735e4ce159edc out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=32 index_offset=None index_bytes=0 logical_output_bytes=32 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=511839232 output_prep=510706996 submit=14000
+
+CASE int16_max_k2s2_valid_c8_h2w2
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=122e345f849d60e9da7a9af7c671bb36b78c61969ca3450e275a4a36a7f6cdcb
+  expected_sha256=122e345f849d60e9da7a9af7c671bb36b78c61969ca3450e275a4a36a7f6cdcb out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=16 index_offset=None index_bytes=0 logical_output_bytes=16 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=511627776 output_prep=510522082 submit=13416
+
+CASE int16_min_k2s2_valid_c8_h2w2
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=88be67c8a022ce7e9be0f64432ff74d4388fe0188fa6be53bc95adab3038566c
+  expected_sha256=88be67c8a022ce7e9be0f64432ff74d4388fe0188fa6be53bc95adab3038566c out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=16 index_offset=None index_bytes=0 logical_output_bytes=16 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=512254851 output_prep=510657996 submit=16333
+
+CASE int16_avg_q16_k2s2_valid_c8_h2w2
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=eb4b3c75c807a958b9ede04ebcdbf80abb8470601669e20cbfd7970d50139fc8
+  expected_sha256=eb4b3c75c807a958b9ede04ebcdbf80abb8470601669e20cbfd7970d50139fc8 out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=16 index_offset=None index_bytes=0 logical_output_bytes=16 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=511241031 output_prep=508241277 submit=35874
+
+CASE int16_avg_q16_k3x3_valid_c8_h3w3
+  status=OK submit_ret=0 out_bytes=4096 out_sha256=1abb1f88897e443420b942e56c32f26ef6a69814dc377715eed4a2775a95337f
+  expected_sha256=1abb1f88897e443420b942e56c32f26ef6a69814dc377715eed4a2775a95337f out_bin_equals_expected_full=True out_bin_equals_out_init=False
+  full_bo_mismatch_bytes=0 declared_region_mismatch_bytes=0 value_region_mismatch_bytes=0 index_region_mismatch_bytes=None
+  value_bytes=16 index_offset=None index_bytes=0 logical_output_bytes=16 gap_nonzero_got=0 tail_nonzero_got=0 tail_nonzero_expected=0
+  tolerance: not applicable (exact result required)
+  padding: no padding
+  durations_ns: total=514982482 output_prep=511898730 submit=36166
+
+SUMMARY submit_ret_zero=True status_ok=True full_bo_exact=True declared_exact=True value_exact=True index_exact=True all_tolerance_pass=True
+TOTAL out bytes read=77824 expected bytes compared=77824

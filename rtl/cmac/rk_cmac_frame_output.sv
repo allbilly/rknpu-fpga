@@ -1,11 +1,27 @@
 // SPDX-License-Identifier: MIT
 `timescale 1ns/1ps
-// Internal atomic-K output frame: capture ATOMIC_K FP32 CACC results, convert
-// each once using the donor, and acknowledge ATOMIC_K halfword writes. The
-// enclosing raw-command scheduler supplies the physical atom base (including
-// the OC16 block stride and the 16-halfword gap). K16 is the reference; K8
-// writes one OC8 half within an OC16 block.
-module rk_cmac_frame_output #(parameter int unsigned ATOMIC_K=16,TIMEOUT_CYCLES=65536) (
+// Internal atomic-K output frame: capture ATOMIC_K FP32 CACC results and
+// acknowledge one written value per lane. The enclosing raw-command scheduler
+// supplies the physical atom base (including the OC16 block stride and the
+// 16-halfword gap). K16 is the reference; K8 writes one OC8 half within an
+// OC16 block.
+//
+// OUTPUT_FP16 selects the tail, and therefore the bytes written per lane:
+//
+//   FP16: donor FP32->FP16 conversion, one halfword at `lane * 2`
+//   FP32: no conversion, two halfwords at `lane * 4` (one 32-bit value)
+//
+// The atom itself stays 16 bytes in both formats, because a captured atom
+// holds either 8 padded FP16 lanes or 4 packed FP32 lanes.
+module rk_cmac_frame_output #(
+    parameter int unsigned ATOMIC_K = 16,
+    parameter int unsigned TIMEOUT_CYCLES = 65536,
+    parameter bit OUTPUT_FP16 = 1'b1,
+    // Distance between lanes inside one atom. Contiguous atoms use
+    // LANE_BYTES; a logical NxM FP32 tensor writes each output channel in its
+    // own row, so the lane stride there is the row size instead.
+    parameter int unsigned LANE_STRIDE_BYTES = 0
+) (
     input wire clk,rst_n,in_valid,
     output wire in_ready,
     input wire [ATOMIC_K*32-1:0] in_values,
@@ -59,13 +75,46 @@ module rk_cmac_frame_output #(parameter int unsigned ATOMIC_K=16,TIMEOUT_CYCLES=
     assign done=frame_done&&last_frame;
     assign mem_req_valid=tail_req&&!error;
     assign mem_rsp_ready=tail_rsp&&!error;
-    rk_cmac_output_nvdla #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) tail(
-        .clk,.rst_n,.in_valid(state==EMIT&&!error),.in_ready(tail_ready),
-        .in_value(values[lane*32+:32]),.in_address(address+32'(lane)*32'd2),
-        .in_last(lane==ATOMIC_K-1),.cancel(cancel||fault),.cancel_code(fault ? saved_code : normalized_cancel),
-        .busy(tail_busy),.acknowledged(tail_ack),.done(tail_done),.error(tail_error),.error_code(tail_code),
-        .mem_req_valid(tail_req),.mem_req_ready(mem_req_ready&&!error),.mem_req_write,.mem_req_addr,.mem_req_wdata,
-        .mem_rsp_valid(mem_rsp_valid&&!error),.mem_rsp_ready(tail_rsp),.mem_rsp_error);
+    localparam int unsigned LANE_BYTES = OUTPUT_FP16 ? 2 : 4;
+    localparam int unsigned LANE_STEP = (LANE_STRIDE_BYTES != 0) ?
+                                        LANE_STRIDE_BYTES : LANE_BYTES;
+
+    initial begin
+        if (LANE_STEP == 0 || LANE_STEP % LANE_BYTES != 0)
+            $fatal(1, "frame lane stride must be a positive multiple of the lane width");
+    end
+
+    generate
+        if (OUTPUT_FP16) begin : g_fp16_lane
+            rk_cmac_output_nvdla #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) tail(
+                .clk,.rst_n,.in_valid(state==EMIT&&!error),.in_ready(tail_ready),
+                .in_value(values[lane*32+:32]),
+                .in_address(address+32'(lane)*32'(LANE_STEP)),
+                .in_last(lane==ATOMIC_K-1),
+                .cancel(cancel||fault),
+                .cancel_code(fault ? saved_code : normalized_cancel),
+                .busy(tail_busy),.acknowledged(tail_ack),.done(tail_done),
+                .error(tail_error),.error_code(tail_code),
+                .mem_req_valid(tail_req),.mem_req_ready(mem_req_ready&&!error),
+                .mem_req_write,.mem_req_addr,.mem_req_wdata,
+                .mem_rsp_valid(mem_rsp_valid&&!error),.mem_rsp_ready(tail_rsp),
+                .mem_rsp_error);
+        end else begin : g_fp32_lane
+            rk_cmac_output_fp32 #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) tail(
+                .clk,.rst_n,.in_valid(state==EMIT&&!error),.in_ready(tail_ready),
+                .in_value(values[lane*32+:32]),
+                .in_address(address+32'(lane)*32'(LANE_STEP)),
+                .in_last(lane==ATOMIC_K-1),
+                .cancel(cancel||fault),
+                .cancel_code(fault ? saved_code : normalized_cancel),
+                .busy(tail_busy),.acknowledged(tail_ack),.done(tail_done),
+                .error(tail_error),.error_code(tail_code),
+                .mem_req_valid(tail_req),.mem_req_ready(mem_req_ready&&!error),
+                .mem_req_write,.mem_req_addr,.mem_req_wdata,
+                .mem_rsp_valid(mem_rsp_valid&&!error),.mem_rsp_ready(tail_rsp),
+                .mem_rsp_error);
+        end
+    endgenerate
     always_ff @(posedge clk or negedge rst_n) begin
         if(!rst_n) begin state<=IDLE;values<=0;address<=0;lane<=0;last_frame<=0;fault<=0;saved_code<=0;end
         else begin

@@ -16,8 +16,8 @@ class ProfileError(ValueError):
     pass
 
 
-def source_paths(root=ROOT, *, manifest=None):
-    """Return the 68 checked HDL paths, failing before compiler invocation."""
+def source_paths(root=ROOT, *, manifest=None, expected_count):
+    """Return an explicitly sized, hash-checked framework source selection."""
     root=Path(root).resolve()
     if manifest is None:
         manifest=json.loads((root/MANIFEST).read_text())
@@ -29,8 +29,11 @@ def source_paths(root=ROOT, *, manifest=None):
             manifest['top']=='rk_jtag_dual_ddr_async' and manifest['precision']=='FP16' and
             manifest['atomic_c']==32 and manifest['atomic_k']==16 and
             manifest['defines']==['DESIGNWARE_NOEXIST','ASSERT_ON'],'Unsupported framework compute profile')
+    require(type(expected_count) is int and expected_count in (68,71,73,75,77,79,81,83),
+            'Unsupported framework source count')
     rows=manifest['sources']
-    require(type(rows) is list and len(rows)==68,'Expected 68 ordered framework HDL inputs')
+    require(type(rows) is list and len(rows)==expected_count,
+            f'Expected {expected_count} ordered framework HDL inputs')
     selected=[]
     for row in rows:
         require(type(row) is dict and set(row)=={'path','sha256'},'Unsupported source binding')
@@ -42,7 +45,7 @@ def source_paths(root=ROOT, *, manifest=None):
                 relative.parts[0] in ('rtl','fpga') and relative.suffix in ('.sv','.v'),'Escaping or unsupported HDL path')
         require(type(digest) is str and re.fullmatch('[0-9a-f]{64}',digest) is not None,'Malformed HDL digest')
         selected.append((root/name,digest))
-    require(len({p for p,_ in selected})==68,'Duplicate HDL input')
+    require(len({p for p,_ in selected})==expected_count,'Duplicate HDL input')
     for path,digest in selected:
         require(path.resolve()==path and path.is_file(),'Missing or linked HDL input: '+str(path))
         require(hashlib.sha256(path.read_bytes()).hexdigest()==digest,'Changed HDL input: '+str(path))

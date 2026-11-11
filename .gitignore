@@ -1,9 +1,48 @@
-/build/
+# ---------------------------------------------------------------------------
+# Build output is regenerable: keep it out of git.
+# ---------------------------------------------------------------------------
+/build/*
+/build/merged-image/*
+/build/merged-image/*/implementation/
+
+# EXCEPT the frozen capture corpus. Every replay runner reads it, and 102 tools
+# hardcode `ROOT / 'build/rk3588-example-captures'`, so it cannot be moved out of
+# build/ without editing all of them.
+!/build/rk3588-example-captures/
+
+# EXCEPT the emitted Image-A bitstream. This repo already tracks emitted
+# bitstreams (build/framework-factored-sys-reset-v1/emission/full512-sys-reset.bit,
+# 18 MB), and the deliverable must survive a fresh clone. Scope is deliberately
+# narrow: re-including the whole `build/merged-image/` tree would drag ~1.7 GB of
+# .dcp/.vvp probe output into git. Parent directories must be re-opened for git
+# to descend into them at all.
+!/build/merged-image/
+!/build/merged-image/image-a-emit-20261111T041526Z/
+!/build/merged-image/image-a-emit-20261111T041526Z/host-merged.bit
+!/build/merged-image/image-a-emit-20261111T041526Z/host-merged.bit.sha256
+!/build/merged-image/image-a-emit-20261111T041526Z/EMISSION_RECEIPT.json
+!/build/merged-image/image-a-emit-20261111T041526Z/bitstream_drc.rpt
+!/build/merged-image/image-a-emit-20261111T041526Z/BUILD_CLOSEOUT.md
+
+# ---------------------------------------------------------------------------
+# Toolchain scratch
+# ---------------------------------------------------------------------------
 __pycache__/
 *.pyc
 .Xil/
 *.jou
 *.log
 
-# Preserve historical evidence archives locally; commit their text indexes only.
-/verification/runs/**/*.tar.gz
+# ---------------------------------------------------------------------------
+# Historical evidence archives stay local; only their text indexes are committed.
+# `runs/**/*.tar.gz` does NOT match (a `**/` needs an intervening directory), so
+# the recursive-name form is used instead.
+# ---------------------------------------------------------------------------
+*.tar.gz
+
+# ---------------------------------------------------------------------------
+# Stray artefacts
+# ---------------------------------------------------------------------------
+# 78 MB Icarus vvp dump dropped in the repo root by an earlier run. Never
+# referenced by the build.
+/a.out

@@ -2,7 +2,12 @@
 `timescale 1ns/1ps
 // Internal numerical pipeline. The enclosing engine supplies decoded raw
 // operand groups; this is not an alternate host tensor-operation interface.
-module rk_nvdla_cmac_pipe #(parameter int unsigned TIMEOUT_CYCLES=65536) (
+module rk_nvdla_cmac_pipe #(
+    parameter int unsigned TIMEOUT_CYCLES = 65536,
+    // FP16 tails convert the CACC value; the FP32 tail commits it unchanged.
+    // The two are selected at elaboration, never at run time.
+    parameter bit OUTPUT_FP16 = 1'b1
+) (
     input logic clk,rst_n,in_valid,
     output logic in_ready,
     input logic [1023:0] in_data,in_weight,
@@ -60,13 +65,25 @@ module rk_nvdla_cmac_pipe #(parameter int unsigned TIMEOUT_CYCLES=65536) (
         .out_valid(accum_valid),.out_ready(tail_ready&&!error),.out_value(accum_value),.out_tag(accum_tag),
         .cancel(child_cancel),.cancel_code(fault ? saved_code : normalized_cancel),
         .busy(accum_busy),.error(accum_error),.error_code(accum_code));
-    rk_cmac_output_nvdla #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) output_tail(
+    generate
+        if (OUTPUT_FP16) begin : g_fp16_tail
+            rk_cmac_output_nvdla #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) output_tail(
         .clk,.rst_n,.in_valid(accum_valid&&!error),.in_ready(tail_ready),
         .in_value(accum_value),.in_address(accum_tag[32:1]),.in_last(accum_tag[0]),
         .cancel(child_cancel),.cancel_code(fault ? saved_code : normalized_cancel),
         .busy(tail_busy),.acknowledged(tail_ack),.done(tail_done),.error(tail_error),.error_code(tail_code),
-        .mem_req_valid(tail_req),.mem_req_ready(mem_req_ready&&!error),.mem_req_write,.mem_req_addr,.mem_req_wdata,
-        .mem_rsp_valid(mem_rsp_valid&&!error),.mem_rsp_ready(tail_rsp),.mem_rsp_error);
+            .mem_req_valid(tail_req),.mem_req_ready(mem_req_ready&&!error),.mem_req_write,.mem_req_addr,.mem_req_wdata,
+                .mem_rsp_valid(mem_rsp_valid&&!error),.mem_rsp_ready(tail_rsp),.mem_rsp_error);
+        end else begin : g_fp32_tail
+            rk_cmac_output_fp32 #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) output_tail(
+                .clk,.rst_n,.in_valid(accum_valid&&!error),.in_ready(tail_ready),
+                .in_value(accum_value),.in_address(accum_tag[32:1]),.in_last(accum_tag[0]),
+                .cancel(child_cancel),.cancel_code(fault ? saved_code : normalized_cancel),
+                .busy(tail_busy),.acknowledged(tail_ack),.done(tail_done),.error(tail_error),.error_code(tail_code),
+                .mem_req_valid(tail_req),.mem_req_ready(mem_req_ready&&!error),.mem_req_write,.mem_req_addr,.mem_req_wdata,
+                .mem_rsp_valid(mem_rsp_valid&&!error),.mem_rsp_ready(tail_rsp),.mem_rsp_error);
+        end
+    endgenerate
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin fault<=0;saved_code<=0;active<=0;closing<=0;end
         else begin

@@ -1,0 +1,1253 @@
+{
+  "family": "ew-int",
+  "description": "Device-free RK3588 integer elementwise capture bundles derived from the kernel_6_18 and expt elementwise_int.py examples.",
+  "schema": "build/rk3588-example-captures/CAPTURE_FORMAT.md",
+  "source_revision": "273d015e08af40c81d2cd9ab84198486b03a17f1",
+  "source_examples": {
+    "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py": {
+      "sha256": "825c7c2166eed48fd73fc1d31655238928b0fd5677df539d17f7301dc671d329",
+      "bytes": 26518
+    },
+    "/home/fedora/rk3588/examples/expt/elementwise_int.py": {
+      "sha256": "1c6a43b0d928b744420f4db1762527f5bbb52c7cc92dc2d1ef0aba2ff94b95f8",
+      "bytes": 97643
+    }
+  },
+  "regcmd_encoding": "little-endian uint64: (target << 48) | ((value & 0xffffffff) << 16) | offset",
+  "task_descriptor_contract": {
+    "note": "job.json follows the documented schema and does not encode task fields. The worker must use the source examples' known-safe descriptor: flags=0, op_idx=4, enable_mask=0x18, int_mask=0x300, int_clear=0x1FFFF, int_status=0, regcfg_offset=0, regcfg_amount=regcmd_words, regcmd_addr=regcmd BO address."
+  },
+  "oracle_policy": "expected.bin is a host-side pure-Python formula, not device data. expected.mask.bin marks asserted bytes with 0xFF and unasserted surface/BO padding with 0x00. Compare (actual & mask) == (expected & mask) over the full output BO.",
+  "validation": {
+    "local_bundle_validation": "validation/local_validation.json",
+    "source_crosscheck": "validation/source_crosscheck.json",
+    "note": "Host-side checks only; they do not validate RK3588 silicon."
+  },
+  "counts": {
+    "READY": 15,
+    "BLOCKED": 3
+  },
+  "coverage": {
+    "integer_dtypes_bundled": [
+      "INT8",
+      "INT16",
+      "INT32"
+    ],
+    "fp32": "Neither example defines an FP32 EW dtype or submits FP32 input. The expt FP16 pipelines consume configured FP32 constants, but those are non-integer probes and are not bundled here.",
+    "operations_bundled": [
+      "ADD",
+      "MINUS(SUB)",
+      "MUL",
+      "MAX",
+      "MIN"
+    ],
+    "multi_input_sum": "The only multi-input sum emitted by the sources is the FP16 run_fp16_four_input_pipeline; see the BLOCKED entry. No integer multi-input sum exists in either script.",
+    "relu_relu6_batchnorm": "ReLU-X and PReLU are emitted only for FP16 BS/BN (BLOCKED entry). ReLU6 and batchnorm are not emitted by either example. No integer activation variant exists.",
+    "lane_shapes": [
+      "8-lane simple path: INT8/INT16 width=1 x channels=8; INT32 width=2 x channels=4",
+      "9-lane layout path: width=1 x channels=9 for INT8, INT16 and INT32"
+    ],
+    "not_bundled_streams": [
+      "FP16 compare -> INT16 (expt 802-869)",
+      "FP16 register-constant ALU/MUL pipelines (expt 941-1088, 1746-1817)",
+      "FP16 BS/BN configured MINUS and external MUL (expt 1091-1632)",
+      "FP16 regroup one-in-two (expt 1226-1327)",
+      "FP16 per-channel broadcast and SiLU LUT (expt 2001-2182)",
+      "INT32 ABS/NEG/FLOOR/CEIL and the INT32_MIN edge vectors"
+    ]
+  },
+  "cases": [
+    {
+      "case": "int8_add_c8_w1",
+      "status": "READY",
+      "dtype": "INT8",
+      "operation": "ADD",
+      "layout": "contiguous-WC (example run_operation, native dtype tobytes)",
+      "shape": {
+        "width": 1,
+        "channels": 8,
+        "elements": 8
+      },
+      "output_item_size": 1,
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "314-352",
+          "symbol": "make_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "355-454",
+          "symbol": "run_operation"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "100-111",
+          "symbol": "OPERATIONS"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "659-682",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "685-711",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "714-731",
+          "symbol": "__main__ argument parsing"
+        }
+      ],
+      "description": "INT8 ADD, 8 lanes, one 16-byte channel surface; lane 7 saturates 105 -> 127",
+      "regcmd_qwords": 18,
+      "oracle": {
+        "kind": "host-python-formula",
+        "formula": "saturate_int8(a[i] + b[i])",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; 0xFF mask bytes mark asserted lanes, 0x00 bytes are surface/BO padding",
+        "confidence": "source DTYPES INT8 + run_operation; source asserts exact hardware match",
+        "source_symbol": "integer_expected"
+      },
+      "bundle_dir": "cases/int8_add_c8_w1",
+      "hashes": {
+        "a.bin": "874a07f3523620ee4592823113ae022025bd273e9d6a8de875a6d68a76a0a85d",
+        "b.bin": "ec93be03be1ce6f63f4aedd1532d44ae6ca213e1ff1ffd74e0b2b1c9a4b45554",
+        "expected.bin": "e1f7a9a0694df3f6dfe73d9dc14328d8ae50052f61264aa7691548da43224e78",
+        "expected.mask.bin": "4c42129998c031da8cc6ade20f89eeda4c940a114dbb2cd5dd6236b90e75fea4",
+        "job.json": "715e204534414cb784f95f6e4e387e55c8859615e4a14a5ae36a5676d22fdd1d",
+        "regcmd.bin": "38a457e192db92325ddecdc20915d057185a392e373219ed688bf9c2d00462bd"
+      },
+      "bundle_hash": "2443f3b6a3ce79d6443beb44004ebe649a066a1580be21ac7f7116e435196d5e",
+      "notes": [
+        "18 QWORDs (kernel_6_18 make_regcmds, no S_POINTER re-arm)."
+      ],
+      "special_values": [
+        "lane 7: 100 + 5 = 105 -> 127 (saturating overflow)"
+      ]
+    },
+    {
+      "case": "int8_max_c8_w1",
+      "status": "READY",
+      "dtype": "INT8",
+      "operation": "MAX",
+      "layout": "contiguous-WC (example run_operation, native dtype tobytes)",
+      "shape": {
+        "width": 1,
+        "channels": 8,
+        "elements": 8
+      },
+      "output_item_size": 1,
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "314-352",
+          "symbol": "make_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "355-454",
+          "symbol": "run_operation"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "100-111",
+          "symbol": "OPERATIONS"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "659-682",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "685-711",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "714-731",
+          "symbol": "__main__ argument parsing"
+        }
+      ],
+      "description": "INT8 MAX, 8 lanes; EW_EQUAL_EN set as in RKNN min/max captures",
+      "regcmd_qwords": 18,
+      "oracle": {
+        "kind": "host-python-formula",
+        "formula": "max(a[i], b[i])",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; 0xFF mask bytes mark asserted lanes, 0x00 bytes are surface/BO padding",
+        "confidence": "source DTYPES INT8 + run_operation; source asserts exact hardware match",
+        "source_symbol": "integer_expected"
+      },
+      "bundle_dir": "cases/int8_max_c8_w1",
+      "hashes": {
+        "a.bin": "874a07f3523620ee4592823113ae022025bd273e9d6a8de875a6d68a76a0a85d",
+        "b.bin": "ec93be03be1ce6f63f4aedd1532d44ae6ca213e1ff1ffd74e0b2b1c9a4b45554",
+        "expected.bin": "64f04bff03b3d799207aa9e6fb22f0ccd444f2f0ade0804b464876f06f83d74a",
+        "expected.mask.bin": "4c42129998c031da8cc6ade20f89eeda4c940a114dbb2cd5dd6236b90e75fea4",
+        "job.json": "15524a2669faf2c48eea8a94a92f105a067c844c2d6a90d9b03b631da7e79240",
+        "regcmd.bin": "bf2a3fe342a0d45912051cb7396a5bce379059f5f6b24ce7f24250d3f408b171"
+      },
+      "bundle_hash": "255f930665b56ebd982d6a6c520fe20b13076be2b75d81c15cf5a108a53c405f",
+      "notes": [
+        "18 QWORDs; EW_CFG includes EW_EQUAL_EN (bit 21)."
+      ]
+    },
+    {
+      "case": "int8_min_c8_w1",
+      "status": "READY",
+      "dtype": "INT8",
+      "operation": "MIN",
+      "layout": "contiguous-WC (example run_operation, native dtype tobytes)",
+      "shape": {
+        "width": 1,
+        "channels": 8,
+        "elements": 8
+      },
+      "output_item_size": 1,
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "314-352",
+          "symbol": "make_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "355-454",
+          "symbol": "run_operation"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "100-111",
+          "symbol": "OPERATIONS"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "659-682",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "685-711",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "714-731",
+          "symbol": "__main__ argument parsing"
+        }
+      ],
+      "description": "INT8 MIN, 8 lanes; EW_EQUAL_EN set as in RKNN min/max captures",
+      "regcmd_qwords": 18,
+      "oracle": {
+        "kind": "host-python-formula",
+        "formula": "min(a[i], b[i])",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; 0xFF mask bytes mark asserted lanes, 0x00 bytes are surface/BO padding",
+        "confidence": "source DTYPES INT8 + run_operation; source asserts exact hardware match",
+        "source_symbol": "integer_expected"
+      },
+      "bundle_dir": "cases/int8_min_c8_w1",
+      "hashes": {
+        "a.bin": "874a07f3523620ee4592823113ae022025bd273e9d6a8de875a6d68a76a0a85d",
+        "b.bin": "ec93be03be1ce6f63f4aedd1532d44ae6ca213e1ff1ffd74e0b2b1c9a4b45554",
+        "expected.bin": "f7019a72cb77db57111c03c5d2ae6428758cd4b14906a5a40ec638f3e3426043",
+        "expected.mask.bin": "4c42129998c031da8cc6ade20f89eeda4c940a114dbb2cd5dd6236b90e75fea4",
+        "job.json": "da10c96f6e258da0710d607af3193d345e529945e85933426d12db6fc702269a",
+        "regcmd.bin": "6aa18bd21698f995aeee9de3085bbd06ef53fa61f3ede1d0a28c7e4e27e45660"
+      },
+      "bundle_hash": "82ef8cc8d125c808c7fc28a9d17fff7c8018176c9f1a7e44b1560a1c7faf6fe1",
+      "notes": [
+        "18 QWORDs; EW_CFG includes EW_EQUAL_EN (bit 21)."
+      ]
+    },
+    {
+      "case": "int8_mul_c8_w1",
+      "status": "READY",
+      "dtype": "INT8",
+      "operation": "MUL",
+      "layout": "contiguous-WC (example run_operation, native dtype tobytes)",
+      "shape": {
+        "width": 1,
+        "channels": 8,
+        "elements": 8
+      },
+      "output_item_size": 1,
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "314-352",
+          "symbol": "make_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "355-454",
+          "symbol": "run_operation"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "100-111",
+          "symbol": "OPERATIONS"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "659-682",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "685-711",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "714-731",
+          "symbol": "__main__ argument parsing"
+        }
+      ],
+      "description": "INT8 MUL, 8 lanes, values chosen to stay inside INT8 range",
+      "regcmd_qwords": 18,
+      "oracle": {
+        "kind": "host-python-formula",
+        "formula": "saturate_int8(a[i] * b[i])",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; 0xFF mask bytes mark asserted lanes, 0x00 bytes are surface/BO padding",
+        "confidence": "source DTYPES INT8 + run_operation; source asserts exact hardware match",
+        "source_symbol": "integer_expected"
+      },
+      "bundle_dir": "cases/int8_mul_c8_w1",
+      "hashes": {
+        "a.bin": "8466937264ec6a1d0d67f0dff9010d90401d12f3d6e2ca054475f78a9fba5053",
+        "b.bin": "ea3b6f5787f61fc8218b9f6223f9b2b9a23637812da726dbe32cc981397ea23e",
+        "expected.bin": "bd9bd6efa1775c9b296fb16041a8811dfd0e70a6fe8964a15a05128368ffa83e",
+        "expected.mask.bin": "4c42129998c031da8cc6ade20f89eeda4c940a114dbb2cd5dd6236b90e75fea4",
+        "job.json": "54bb751147efc3750243f0f673980fe6e35252c31e9928cec1fc5050369fb8d8",
+        "regcmd.bin": "7836bc4262654f94781a8a4c54457ae7db3e931bf88064210b88ed702a11fd83"
+      },
+      "bundle_hash": "edca5b835cdb78e0a560efba47cc405080f9b890d4757996a4f4b8c52a998be1",
+      "notes": [
+        "18 QWORDs; EW_OP_TYPE=MUL selects the separate multiplier lane."
+      ]
+    },
+    {
+      "case": "int16_add_c8_w1",
+      "status": "READY",
+      "dtype": "INT16",
+      "operation": "ADD",
+      "layout": "contiguous-WC (example run_operation, native dtype tobytes)",
+      "shape": {
+        "width": 1,
+        "channels": 8,
+        "elements": 8
+      },
+      "output_item_size": 2,
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "314-352",
+          "symbol": "make_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "355-454",
+          "symbol": "run_operation"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "100-111",
+          "symbol": "OPERATIONS"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "659-682",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "685-711",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "714-731",
+          "symbol": "__main__ argument parsing"
+        }
+      ],
+      "description": "INT16 ADD, 8 lanes; lane 7 saturates 31000 -> 32767",
+      "regcmd_qwords": 18,
+      "oracle": {
+        "kind": "host-python-formula",
+        "formula": "saturate_int16(a[i] + b[i])",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; 0xFF mask bytes mark asserted lanes, 0x00 bytes are surface/BO padding",
+        "confidence": "source DTYPES INT16 + run_operation; source asserts exact hardware match",
+        "source_symbol": "integer_expected"
+      },
+      "bundle_dir": "cases/int16_add_c8_w1",
+      "hashes": {
+        "a.bin": "606346291468b50db75da4f4255c733e47a4eca0de51248ae314dcf3d6554d81",
+        "b.bin": "eb01756db8675924b67d193087570516bac298c3fbc4d1731231962e0a541abc",
+        "expected.bin": "2dca854dc49b441191c96393d206998b3d78bde6599793e401af1273ff8e64b6",
+        "expected.mask.bin": "88eac3b0090f6060302a09bc2d06012ae6d5a37f93754dd00e4ca373178d2581",
+        "job.json": "96c07401b3c03bb98fe0239b1d457a6d0946002b7d598554da94096447e7d8b9",
+        "regcmd.bin": "b4e3b2570ce93b27ed9e6912530d9ee897568663d7fbacdeb660093fa97ba448"
+      },
+      "bundle_hash": "a0725fc0fca16c69dee03f16575027fffe4e3a68f15babce8b43561b6f6fd5bb",
+      "notes": [
+        "18 QWORDs; 16-byte input is exactly one INT16 channel surface."
+      ],
+      "special_values": [
+        "lane 7: 30000 + 1000 = 31000 -> 32767 (saturating overflow)"
+      ]
+    },
+    {
+      "case": "int16_minus_c8_w1",
+      "status": "READY",
+      "dtype": "INT16",
+      "operation": "MINUS",
+      "layout": "contiguous-WC (example run_operation, native dtype tobytes)",
+      "shape": {
+        "width": 1,
+        "channels": 8,
+        "elements": 8
+      },
+      "output_item_size": 2,
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "314-352",
+          "symbol": "make_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "355-454",
+          "symbol": "run_operation"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "100-111",
+          "symbol": "OPERATIONS"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "659-682",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "685-711",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "714-731",
+          "symbol": "__main__ argument parsing"
+        }
+      ],
+      "description": "INT16 SUB (MINUS), 8 lanes; lane 0 saturates -31000 -> -32768",
+      "regcmd_qwords": 18,
+      "oracle": {
+        "kind": "host-python-formula",
+        "formula": "saturate_int16(a[i] - b[i])",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; 0xFF mask bytes mark asserted lanes, 0x00 bytes are surface/BO padding",
+        "confidence": "source DTYPES INT16 + run_operation; source asserts exact hardware match",
+        "source_symbol": "integer_expected"
+      },
+      "bundle_dir": "cases/int16_minus_c8_w1",
+      "hashes": {
+        "a.bin": "606346291468b50db75da4f4255c733e47a4eca0de51248ae314dcf3d6554d81",
+        "b.bin": "eb01756db8675924b67d193087570516bac298c3fbc4d1731231962e0a541abc",
+        "expected.bin": "73202ed70ccf3b6b36bbefe76cc97283ea2f849e2137ada41832234f8d19e160",
+        "expected.mask.bin": "88eac3b0090f6060302a09bc2d06012ae6d5a37f93754dd00e4ca373178d2581",
+        "job.json": "ba8ea956d0222856a9723ca158a043c4d775695cfcd6a96ecdf43454697ffbae",
+        "regcmd.bin": "d6280aa9f2ad16aacacfd1fa52c591511f5bdc2fb64b0f1fe865eb3a5c7a0163"
+      },
+      "bundle_hash": "168e9e2d5d607271953e42b946258b6630b88440be3f7559e4c5bafa17165ca8",
+      "notes": [
+        "18 QWORDs; EW ALU algorithm 4 is MINUS in the source TRM mapping."
+      ],
+      "special_values": [
+        "lane 0: -30000 - 1000 = -31000 -> -32768 (saturating overflow)"
+      ]
+    },
+    {
+      "case": "int16_mul_c8_w1",
+      "status": "READY",
+      "dtype": "INT16",
+      "operation": "MUL",
+      "layout": "contiguous-WC (example run_operation, native dtype tobytes)",
+      "shape": {
+        "width": 1,
+        "channels": 8,
+        "elements": 8
+      },
+      "output_item_size": 2,
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "314-352",
+          "symbol": "make_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "355-454",
+          "symbol": "run_operation"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "100-111",
+          "symbol": "OPERATIONS"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "659-682",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "685-711",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "714-731",
+          "symbol": "__main__ argument parsing"
+        }
+      ],
+      "description": "INT16 MUL, 8 lanes, values chosen to stay inside INT16 range",
+      "regcmd_qwords": 18,
+      "oracle": {
+        "kind": "host-python-formula",
+        "formula": "saturate_int16(a[i] * b[i])",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; 0xFF mask bytes mark asserted lanes, 0x00 bytes are surface/BO padding",
+        "confidence": "source DTYPES INT16 + run_operation; source asserts exact hardware match",
+        "source_symbol": "integer_expected"
+      },
+      "bundle_dir": "cases/int16_mul_c8_w1",
+      "hashes": {
+        "a.bin": "84ad9a1525168870147e8cc2d8d918ef5007b91de347f41a0eb5f49ff16c7f9c",
+        "b.bin": "cf0b768fdcab1cd481cc7e347302c5a6f30bfb8a9458e00ca0f11d6b783b7b07",
+        "expected.bin": "1f27e19bd656e75d48348852a7b4c9d864af7ba7b99b19ea806ead914929c7d8",
+        "expected.mask.bin": "88eac3b0090f6060302a09bc2d06012ae6d5a37f93754dd00e4ca373178d2581",
+        "job.json": "e2a01c7d161476e0d36cd1790f35dd0f72d39492f28a6f57357df7663cbb65f8",
+        "regcmd.bin": "6344875a09c601b5f93efb661b01fc087193c221bdba3f25a7c730a83ce33c36"
+      },
+      "bundle_hash": "11d2b629e53d614be4448282fbe36badd6d3ba46b243c64189ae579a38325969",
+      "notes": [
+        "18 QWORDs; EW_OP_TYPE=MUL selects the separate multiplier lane."
+      ]
+    },
+    {
+      "case": "int32_add_c8_w2",
+      "status": "READY",
+      "dtype": "INT32",
+      "operation": "ADD",
+      "layout": "contiguous-WC (example run_operation, native dtype tobytes)",
+      "shape": {
+        "width": 2,
+        "channels": 4,
+        "elements": 8
+      },
+      "output_item_size": 4,
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "314-352",
+          "symbol": "make_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "355-454",
+          "symbol": "run_operation"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "100-111",
+          "symbol": "OPERATIONS"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "659-682",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "685-711",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "714-731",
+          "symbol": "__main__ argument parsing"
+        }
+      ],
+      "description": "INT32 ADD, eight lanes as width=2 x channels=4; INT32 converter bypassed",
+      "regcmd_qwords": 18,
+      "oracle": {
+        "kind": "host-python-formula",
+        "formula": "saturate_int32(a[i] + b[i])",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; 0xFF mask bytes mark asserted lanes, 0x00 bytes are surface/BO padding",
+        "confidence": "source DTYPES INT32 + run_operation; source asserts exact hardware match",
+        "source_symbol": "integer_expected"
+      },
+      "bundle_dir": "cases/int32_add_c8_w2",
+      "hashes": {
+        "a.bin": "e25848b16519a647ab85f8499e2fd1e469f57e46fd3aac32a6c20244594a7b2d",
+        "b.bin": "57659d57f04b9a53cd3cf9e7ac9951dba38134408e00059139720f55f986190f",
+        "expected.bin": "ab9c41e2c8c721021735e5cb8422a96bb09d58c6b81b26d57d2d8857758a0d6f",
+        "expected.mask.bin": "8755d8d638c691b7c946356719da76631cbb38d03acfd56a3496b9e7617b49da",
+        "job.json": "ded475694726005aee5de0969c44a9a438b1c3dfeaeef42945b8ab18acaa393f",
+        "regcmd.bin": "c5b9dfaa8c63ee6ee5c4d76d33552fdbc9ecf0cdbf95dec44c1dac0fad605012"
+      },
+      "bundle_hash": "ad55427dd1add872a28a27f3e51a37791a24231323f801e405c710bb04c700c0",
+      "notes": [
+        "18 QWORDs; EW_CFG bit 8 (converter bypass) set for INT32."
+      ]
+    },
+    {
+      "case": "int32_max_c8_w2",
+      "status": "READY",
+      "dtype": "INT32",
+      "operation": "MAX",
+      "layout": "contiguous-WC (example run_operation, native dtype tobytes)",
+      "shape": {
+        "width": 2,
+        "channels": 4,
+        "elements": 8
+      },
+      "output_item_size": 4,
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "314-352",
+          "symbol": "make_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "355-454",
+          "symbol": "run_operation"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "100-111",
+          "symbol": "OPERATIONS"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "659-682",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "685-711",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "714-731",
+          "symbol": "__main__ argument parsing"
+        }
+      ],
+      "description": "INT32 MAX, eight lanes as width=2 x channels=4; signed INT32 operands",
+      "regcmd_qwords": 18,
+      "oracle": {
+        "kind": "host-python-formula",
+        "formula": "max(a[i], b[i])",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; 0xFF mask bytes mark asserted lanes, 0x00 bytes are surface/BO padding",
+        "confidence": "source DTYPES INT32 + run_operation; source asserts exact hardware match",
+        "source_symbol": "integer_expected"
+      },
+      "bundle_dir": "cases/int32_max_c8_w2",
+      "hashes": {
+        "a.bin": "e25848b16519a647ab85f8499e2fd1e469f57e46fd3aac32a6c20244594a7b2d",
+        "b.bin": "57659d57f04b9a53cd3cf9e7ac9951dba38134408e00059139720f55f986190f",
+        "expected.bin": "b01d623b44544d1ec4b3c6c73b4a33243b472d703633ef49f6698a58a6fdaa64",
+        "expected.mask.bin": "8755d8d638c691b7c946356719da76631cbb38d03acfd56a3496b9e7617b49da",
+        "job.json": "4b57ecd333dafc6bae3f651cc6d38236543b02c9835aba55500751d4739a4d98",
+        "regcmd.bin": "248ac01608a4907ff35a2c7042b9607358a2236f8c67c56d72a345729de048c6"
+      },
+      "bundle_hash": "694a44020f2f6654de10009878924770ec6598035a4ea246bb5012b60f805dca",
+      "notes": [
+        "18 QWORDs; EW_CFG includes EW_EQUAL_EN (bit 21)."
+      ]
+    },
+    {
+      "case": "int32_mul_int16_operand_c8_w2",
+      "status": "READY",
+      "dtype": "INT32",
+      "operation": "MUL",
+      "layout": "contiguous-WC (example run_operation, native dtype tobytes)",
+      "shape": {
+        "width": 2,
+        "channels": 4,
+        "elements": 8
+      },
+      "output_item_size": 4,
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "314-352",
+          "symbol": "make_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "355-454",
+          "symbol": "run_operation"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "100-111",
+          "symbol": "OPERATIONS"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "659-682",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "685-711",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "714-731",
+          "symbol": "__main__ argument parsing"
+        }
+      ],
+      "description": "INT32 MUL, eight lanes; source-captured limitation: EW MUL operand is signed INT16",
+      "regcmd_qwords": 18,
+      "oracle": {
+        "kind": "host-python-formula",
+        "formula": "saturate_int32(a[i] * s16(b[i] & 0xffff)), s16(x) = x-65536 if x>=32768 else x",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; 0xFF mask bytes mark asserted lanes, 0x00 bytes are surface/BO padding",
+        "confidence": "source-captured hardware limitation (kernel_6_18 lines 430-443); candidate behavior",
+        "source_symbol": "integer_expected"
+      },
+      "bundle_dir": "cases/int32_mul_int16_operand_c8_w2",
+      "hashes": {
+        "a.bin": "e25848b16519a647ab85f8499e2fd1e469f57e46fd3aac32a6c20244594a7b2d",
+        "b.bin": "57659d57f04b9a53cd3cf9e7ac9951dba38134408e00059139720f55f986190f",
+        "expected.bin": "5b41c628b9195a1f6bcc921d8812372260b47ebda2abc6541cdfb802cb769e5e",
+        "expected.mask.bin": "8755d8d638c691b7c946356719da76631cbb38d03acfd56a3496b9e7617b49da",
+        "job.json": "b36ef6973105eae11ff9496052610e31a75bcf79d3ec21441e8eca97a068d75a",
+        "regcmd.bin": "221706cec4314e43e1550fbd37258b7d6096040ab927de33dc43499272add230"
+      },
+      "bundle_hash": "e7c0fcc3e62e6d5f96c7882e3a80f28c68a79204a637b7fe3411216c33a2ad0a",
+      "notes": [
+        "The full INT32 main cube is used, but the separate MUL operand decodes as signed INT16: 50000 -> -15536, -50000 -> 15536.",
+        "Do not treat this as full-width INT32 multiply."
+      ],
+      "special_values": [
+        "b lane 0 = 50000 decodes as -15536",
+        "b lane 1 = -50000 decodes as 15536"
+      ]
+    },
+    {
+      "case": "int8_add_c9_w1_layout",
+      "status": "READY",
+      "dtype": "INT8",
+      "operation": "ADD",
+      "layout": "C1WC2 packed 16-byte channel surfaces, width=1, channels=9 (atom_channels=16, surfaces=1)",
+      "shape": {
+        "width": 1,
+        "channels": 9,
+        "elements": 9
+      },
+      "output_item_size": 1,
+      "source_example": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "529-596",
+          "symbol": "make_layout_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "599-696",
+          "symbol": "run_integer_layout"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "733-799",
+          "symbol": "prepare_and_run"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "752-760",
+          "symbol": "S_POINTER/BRDMA/NRDMA re-arm prefix"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "505-526",
+          "symbol": "pack_c1wc2/unpack_c1wc2"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "699-730",
+          "symbol": "validate_integer_layout_streams"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "2185-2213",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "2216-2242",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "2245-2278",
+          "symbol": "--probe-layout argument parsing"
+        }
+      ],
+      "description": "INT8 ADD, width=1 x channels=9 across one full 16-byte surface plus tail",
+      "regcmd_qwords": 44,
+      "oracle": {
+        "kind": "host-python-formula + source C1WC2 packing",
+        "formula": "saturate_int8(a[i] + b[i]) then C1WC2 pack",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; the mask selects the nine valid logical lanes and excludes 16-byte surface padding",
+        "confidence": "source layout probe; source validates stream offline and asserts logical result",
+        "source_symbol": "integer_expected + pack_c1wc2"
+      },
+      "bundle_dir": "cases/int8_add_c9_w1_layout",
+      "hashes": {
+        "a.bin": "2ace15f0f240b4a27e3a0beb652821f62217fc23f89d873a1e2ff987611b5c97",
+        "b.bin": "910b869ec4af1ecdf70fbb0d154fb74cff7b2cd57d8782c8f7833757a28e0232",
+        "expected.bin": "9f923e818b9240dbefef082b807745b226c35e9fdb8c85a21520a89b05b4df25",
+        "expected.mask.bin": "29506d02a8222d6c53fd9591eb466ab35b5254afdbabb97a5c119ce939738fdb",
+        "job.json": "8c104c5bcaa05ffe67497036c7b42a9383c3d87b4bfd69a5ac8e27f8c9ca1304",
+        "regcmd.bin": "da227a8cdebdd2c69f4f634de0171f0d3b680fad55f14ff777d8593c30cf3c73"
+      },
+      "bundle_hash": "9cd9ad2f24d342feb8f92f8f817bb56041c11280a6b5d71c562155224b15b3fa",
+      "notes": [
+        "44 QWORDs: prepare_and_run prefix (4) + make_layout_regcmds (40); the four re-arm writes therefore appear twice.",
+        "Nine valid bytes are asserted; seven surface-padding bytes are not."
+      ]
+    },
+    {
+      "case": "int16_add_c9_w1_layout",
+      "status": "READY",
+      "dtype": "INT16",
+      "operation": "ADD",
+      "layout": "C1WC2 packed 16-byte channel surfaces, width=1, channels=9 (atom_channels=8, surfaces=2)",
+      "shape": {
+        "width": 1,
+        "channels": 9,
+        "elements": 9
+      },
+      "output_item_size": 2,
+      "source_example": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "529-596",
+          "symbol": "make_layout_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "599-696",
+          "symbol": "run_integer_layout"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "733-799",
+          "symbol": "prepare_and_run"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "752-760",
+          "symbol": "S_POINTER/BRDMA/NRDMA re-arm prefix"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "505-526",
+          "symbol": "pack_c1wc2/unpack_c1wc2"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "699-730",
+          "symbol": "validate_integer_layout_streams"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "2185-2213",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "2216-2242",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "2245-2278",
+          "symbol": "--probe-layout argument parsing"
+        }
+      ],
+      "description": "INT16 ADD, width=1 x channels=9 across two 16-byte surfaces (8+1 lanes)",
+      "regcmd_qwords": 44,
+      "oracle": {
+        "kind": "host-python-formula + source C1WC2 packing",
+        "formula": "saturate_int16(a[i] + b[i]) then C1WC2 pack",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; the mask selects the nine valid logical lanes and excludes 16-byte surface padding",
+        "confidence": "source layout probe; source validates stream offline and asserts logical result",
+        "source_symbol": "integer_expected + pack_c1wc2"
+      },
+      "bundle_dir": "cases/int16_add_c9_w1_layout",
+      "hashes": {
+        "a.bin": "8558dd2cf16c420d327bc94284ab66668cb25809ad76460566e9b5445ee139f9",
+        "b.bin": "39c0e27b2d2745d5e139b11cb54cb5740bd2b46a6a8e452b605a262ff884a224",
+        "expected.bin": "b718b672f615d5c2f66e9470c6acb650b810dbacd283c85793af5f2ffd9af525",
+        "expected.mask.bin": "5e29ae68f70e04ba72217171682716a7aa947d0eeba653504ae10615bc7222e0",
+        "job.json": "1f303eac93dbd06a2d659e7ff2fa6c5dcf01d6e3432148691e7e84b2c5158bcd",
+        "regcmd.bin": "c9b8a1bae26a162b66f9dce66a46751599cfb8ced521b2783fa6a115fe108435"
+      },
+      "bundle_hash": "31ad2df554858934a1dafe8f2a66cf27998ebe11da4f13ea93f2d059fbf098a0",
+      "notes": [
+        "44 QWORDs; two surfaces, second surface has one valid lane.",
+        "Valid bytes are 0..15 and 16..17; the rest of surface 1 is padding."
+      ]
+    },
+    {
+      "case": "int16_minus_c9_w1_layout",
+      "status": "READY",
+      "dtype": "INT16",
+      "operation": "MINUS",
+      "layout": "C1WC2 packed 16-byte channel surfaces, width=1, channels=9 (atom_channels=8, surfaces=2)",
+      "shape": {
+        "width": 1,
+        "channels": 9,
+        "elements": 9
+      },
+      "output_item_size": 2,
+      "source_example": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "529-596",
+          "symbol": "make_layout_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "599-696",
+          "symbol": "run_integer_layout"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "733-799",
+          "symbol": "prepare_and_run"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "752-760",
+          "symbol": "S_POINTER/BRDMA/NRDMA re-arm prefix"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "505-526",
+          "symbol": "pack_c1wc2/unpack_c1wc2"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "699-730",
+          "symbol": "validate_integer_layout_streams"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "2185-2213",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "2216-2242",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "2245-2278",
+          "symbol": "--probe-layout argument parsing"
+        }
+      ],
+      "description": "INT16 SUB (MINUS), width=1 x channels=9 across two 16-byte surfaces",
+      "regcmd_qwords": 44,
+      "oracle": {
+        "kind": "host-python-formula + source C1WC2 packing",
+        "formula": "saturate_int16(a[i] - b[i]) then C1WC2 pack",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; the mask selects the nine valid logical lanes and excludes 16-byte surface padding",
+        "confidence": "source layout probe; source validates stream offline and asserts logical result",
+        "source_symbol": "integer_expected + pack_c1wc2"
+      },
+      "bundle_dir": "cases/int16_minus_c9_w1_layout",
+      "hashes": {
+        "a.bin": "8558dd2cf16c420d327bc94284ab66668cb25809ad76460566e9b5445ee139f9",
+        "b.bin": "39c0e27b2d2745d5e139b11cb54cb5740bd2b46a6a8e452b605a262ff884a224",
+        "expected.bin": "3fdc5f8228f85aeefded2e46a3290c6c5a71dc03a3e6d9dfc324d56df7a1160f",
+        "expected.mask.bin": "5e29ae68f70e04ba72217171682716a7aa947d0eeba653504ae10615bc7222e0",
+        "job.json": "01cb402db39574094293310f4a018eb6ec147c30158fcbdbe5f7350ac81ce082",
+        "regcmd.bin": "fdccea7ec40c8ec341888a4a95df8eb32073901c9e5f1c28e939e931419476dc"
+      },
+      "bundle_hash": "e6e1ad1d55380d3b7e41e3f062db9e9fd04da6786e93ddbaaf56caa318a56fa6",
+      "notes": [
+        "44 QWORDs; exercises the tail channel (channel 8) in surface 1.",
+        "Valid bytes are 0..15 and 16..17; the rest of surface 1 is padding."
+      ]
+    },
+    {
+      "case": "int32_add_c9_w1_layout",
+      "status": "READY",
+      "dtype": "INT32",
+      "operation": "ADD",
+      "layout": "C1WC2 packed 16-byte channel surfaces, width=1, channels=9 (atom_channels=4, surfaces=3)",
+      "shape": {
+        "width": 1,
+        "channels": 9,
+        "elements": 9
+      },
+      "output_item_size": 4,
+      "source_example": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "529-596",
+          "symbol": "make_layout_regcmds"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "599-696",
+          "symbol": "run_integer_layout"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "733-799",
+          "symbol": "prepare_and_run"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "752-760",
+          "symbol": "S_POINTER/BRDMA/NRDMA re-arm prefix"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "505-526",
+          "symbol": "pack_c1wc2/unpack_c1wc2"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "699-730",
+          "symbol": "validate_integer_layout_streams"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "2185-2213",
+          "symbol": "integer_expected"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "2216-2242",
+          "symbol": "DTYPES"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "2245-2278",
+          "symbol": "--probe-layout argument parsing"
+        }
+      ],
+      "description": "INT32 ADD, width=1 x channels=9 across three four-lane surfaces (4+4+1)",
+      "regcmd_qwords": 44,
+      "oracle": {
+        "kind": "host-python-formula + source C1WC2 packing",
+        "formula": "saturate_int32(a[i] + b[i]) then C1WC2 pack",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; the mask selects the nine valid logical lanes and excludes 16-byte surface padding",
+        "confidence": "source layout probe; INT32 9ch stream is offline-validated only in the source",
+        "source_symbol": "integer_expected + pack_c1wc2"
+      },
+      "bundle_dir": "cases/int32_add_c9_w1_layout",
+      "hashes": {
+        "a.bin": "68a3a9d9720f5dcd745fad8f633686cf25e526ea38fa625704997ea50e9e5b54",
+        "b.bin": "c1fcb13ac08ea2c3ac885472bc64806808739f6d0cf51fb0da508b79b1f3f9a0",
+        "expected.bin": "17bcc742e5fa9d566b0d2dd339a4926c452e22b02ca7877530cf2cd6ba756ccc",
+        "expected.mask.bin": "49c6eca4e4606ab6c69eb20a29c51b31b6b6998c60164a802e89fa2f61ddac2c",
+        "job.json": "92d332db8d098caeefdf01159e9da1ad7b4e0e6de31292b8ae72158cb6c91977",
+        "regcmd.bin": "bc0949b081188347f8467662932e3ad7d4a6e95f6362bf562a8d43dbb61fe1d9"
+      },
+      "bundle_hash": "0c74ad851671498b2f0c410997753122e02059f095224d73eceba0d60ac91f09",
+      "notes": [
+        "44 QWORDs; three surfaces, third surface has one valid lane.",
+        "Valid bytes are 0..35 (three 16-byte surfaces, 4 valid bytes in the last).",
+        "Device behavior for INT32 9ch is the open question this capture answers."
+      ],
+      "special_values": [
+        "tail lane 8 lands in the third 16-byte surface"
+      ]
+    },
+    {
+      "case": "int16_add_to_int32_c8_w1",
+      "status": "READY",
+      "dtype": "INT16->INT32",
+      "operation": "ADD",
+      "layout": "contiguous INT16 input, two four-lane INT32 output surfaces",
+      "shape": {
+        "width": 1,
+        "channels": 8,
+        "elements": 8
+      },
+      "output_item_size": 4,
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "586-651",
+          "symbol": "run_int16_add_to_int32"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "457-513",
+          "symbol": "prepare_and_run"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "659-682",
+          "symbol": "integer_expected"
+        }
+      ],
+      "description": "INT16 ADD on eight lanes with external INT32 writeback (16-to-32 regroup, DST_SURF_STRIDE=16, SURFACE_ADD=32)",
+      "regcmd_qwords": 31,
+      "oracle": {
+        "kind": "host-python-formula",
+        "formula": "int32(a[i]) + int32(b[i])  (INT16 arithmetic widened to INT32 output)",
+        "expected": "expected.bin",
+        "mask": "expected.mask.bin",
+        "compare": "masked byte equality over the full 4096-byte output BO; first 32 bytes are the eight INT32 results, the rest is BO padding",
+        "confidence": "source asserts exact hardware match in run_int16_add_to_int32",
+        "source_symbol": "run_int16_add_to_int32"
+      },
+      "bundle_dir": "cases/int16_add_to_int32_c8_w1",
+      "hashes": {
+        "a.bin": "606346291468b50db75da4f4255c733e47a4eca0de51248ae314dcf3d6554d81",
+        "b.bin": "eb01756db8675924b67d193087570516bac298c3fbc4d1731231962e0a541abc",
+        "expected.bin": "f1639c2d9da0f48866fba14947464c8684e055ecdcf113a64df7ad7c13da9f5f",
+        "expected.mask.bin": "8755d8d638c691b7c946356719da76631cbb38d03acfd56a3496b9e7617b49da",
+        "job.json": "a3fd775cc22cbc6d7dbd095d307570b2b93e1178ddfa295111eaf3a7f2188dfa",
+        "regcmd.bin": "37ab23c2fd2e71d01a524704c4494b7d520086a4f2006cfade0d4bf12daa7704"
+      },
+      "bundle_hash": "44a8caf2f5f53531b785ff4591cb3c513cdbf428f794108e1b10576145fe3e80",
+      "notes": [
+        "31 QWORDs; kernel_6_18 stream has no S_POINTER re-arm prefix.",
+        "The expt variant (lines 872-938) adds EW_CFG bits (3 << 30); this bundle intentionally captures the kernel_6_18 stream."
+      ],
+      "special_values": [
+        "31000 exceeds INT16 range but must stay 31000 in INT32 output"
+      ]
+    },
+    {
+      "case": "int32_div_c8_w2",
+      "status": "BLOCKED",
+      "dtype": "INT32",
+      "operation": "DIV",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "100-111",
+          "symbol": "OPERATIONS"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "355-454",
+          "symbol": "run_operation"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/kernel_6_18/elementwise_int.py",
+          "lines": "445-450",
+          "symbol": "not-an-integer-op check"
+        }
+      ],
+      "description": "INT32 DIV probe (source submits it) with the other non-integer ALU modes",
+      "oracle": "none",
+      "blocked_reason": "The source proves DIV/FLOOR/CEIL use floating-point semantics and are not integer operations (OPERATIONS[...]['integer_supported'] = False). There is no trustworthy integer oracle; bundling them as integer EW would mislabel the result. FLOOR and CEIL share this blocker."
+    },
+    {
+      "case": "fp16_four_input_sum_c8_w1",
+      "status": "BLOCKED",
+      "dtype": "FP16",
+      "operation": "ADD",
+      "source_example": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "1907-1998",
+          "symbol": "run_fp16_four_input_pipeline"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "1820-1904",
+          "symbol": "run_fp16_bs_bn_activations"
+        }
+      ],
+      "description": "FP16 four-input sum: main + BRDMA(FP32) + NRDMA(FP32) + ERDMA(FP16)",
+      "oracle": "none",
+      "blocked_reason": "The only multi-input sum in either source is FP16, with FP32 BRDMA/NRDMA operands. This family is integer-only (ew-int); an FP16/FP32 mixed case needs its own oracle and belongs in an ew-fp16 family. It is not an INT8/INT16/INT32 case and was deliberately not materialized here."
+    },
+    {
+      "case": "fp16_bs_bn_relu_prelu_c8_w1",
+      "status": "BLOCKED",
+      "dtype": "FP16",
+      "operation": "RELUX/PRELU",
+      "source_example": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+      "source_refs": [
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "1820-1904",
+          "symbol": "run_fp16_bs_bn_activations"
+        },
+        {
+          "path": "/home/fedora/rk3588/examples/expt/elementwise_int.py",
+          "lines": "1846-1885",
+          "symbol": "activation command stream"
+        }
+      ],
+      "description": "FP16 BS/BN ReLU-X and PReLU probes",
+      "oracle": "none",
+      "blocked_reason": "ReLU-X and PReLU are emitted only in the FP16 BS/BN auxiliary stages. No integer ReLU path exists in either source, and ReLU6 and batchnorm are never emitted at all. Not an integer elementwise case."
+    }
+  ]
+}

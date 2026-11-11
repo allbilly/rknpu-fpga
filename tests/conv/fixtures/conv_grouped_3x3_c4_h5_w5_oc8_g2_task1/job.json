@@ -1,0 +1,49 @@
+{
+  "case": "conv_grouped_3x3_c4_h5_w5_oc8_g2_task1",
+  "description": "One-task promotion of the grouped FP16 C2 5x5 -> OC4 3x3 task 1; exact 54-QWORD stream, three address relocations.",
+  "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+  "timeout_ns": 6000000000,
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 54
+    }
+  ],
+  "buffers": [
+    {
+      "name": "a",
+      "size": 800,
+      "input": "a.bin",
+      "direction": "in"
+    },
+    {
+      "name": "w",
+      "size": 1152,
+      "input": "w.bin",
+      "direction": "in"
+    },
+    {
+      "name": "out",
+      "size": 768,
+      "direction": "out",
+      "output": "out.bin"
+    }
+  ],
+  "patches": [
+    {
+      "regcmd_index": 21,
+      "buffer": "a",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 27,
+      "buffer": "w",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 35,
+      "buffer": "out",
+      "kind": "value32"
+    }
+  ]
+}

@@ -245,3 +245,23 @@ under the real final backend encoder remain separate acceptance gates for
 physical use. The [source adapter and offline compiler-to-RTL qualification](BACKEND_RUNTIME.md)
 now implement that backend route for the supported HALF EW subset, with no
 runtime CPU gather or arithmetic fallback.
+
+## Current image rebuild, 2026-11-10 (source tag `ec9ecd41`)
+
+Status: **routed, timing-clean, image emitted; board/image admission review still incomplete. No hardware was accessed.** A fresh host-drivable EW image was rebuilt from the current tree through the documented path (`tools/host/prepare.py prepare` -> rendered checkpoint Tcl -> the reviewed `fpga/host/emit.tcl.in` emission gate set). It carries the current `rk_fp16_alu` including FDIV, so the `elementwise.py`, `simple_add.py` and `fdiv-systematic` captured command streams all execute through this one image (raw final command BOs over the USER2 mailbox transport; no XVC endpoint, driver or tensor interface is involved).
+
+| Field | Value |
+|---|---|
+| Package | `build/host-jtag-preparation/20261109T210015Z` (`PREPARED_HOST_JTAG_EW_ONLY`, source sha256 `ec9ecd4105b8…4d88`, source tag `ec9ecd41`) |
+| Bound host evidence | protocol source sha256 `0be42e32…23c96`; Verilator `build/host-jtag/verilator-1794255585420701915/report.json` (rerun on this tree); Icarus `build/host-jtag/iverilog-1794027776600765618/report.json` (source-identical to the current tree, verified with `tools.host.qualification.verify_report`, reused instead of re-running the 400 s single-core scenario) |
+| Top / part / clock | `ypcb_jtag_ew_top` / `xc7k480tffg1156-2` / SYS_CLK 20 ns on AA28; 1 MiB BRAM at `0x10000000`; USER2 JTAG chain 2 |
+| Routed timing | setup WNS **+0.670 ns**, TNS 0.000, **0/23,204** failing endpoints; hold WHS **+0.053 ns**, THS 0; pulse WPWS **9.600 ns**, 0 failing |
+| Route / constraints | **10,829/10,829** routable nets fully routed, 0 routing errors; 0 `no_clock`, 0 unconstrained internal endpoints |
+| Utilisation | 6,157 LUTs (2.06 %), 5,816 registers, **256 BRAM tiles**, 1 DSP, 1 BSCANE2 |
+| DRC | warnings only, factory DSP-pipelining advice: DPIP-1 ×2, DPOP-1 ×1, DPOP-2 ×1; 0 errors |
+| Emitted image | `build/host-jtag-preparation/20261109T210015Z-emission/bitstream/host-user2-ew.bit`, **18,735,213 bytes**, SHA-256 `b373ee7000cf23b727a06743b0025760610b6eba6a441af14725a1bfcf75f59a`; emission marker `PASS_SOURCE_REVIEWED_USER2_EW_BITSTREAM_EMISSION` (pins/standards, one SYS + one USER2 clock, CDC/skew audit, route, timing, DRC inventory, 65-stage startup audit and all qualified-input hashes before and after `write_bitstream`) |
+| Admission | `tools/host/prepare.py verify` -> `SOURCE_INTACT_REVIEW_PENDING`, blocker `Missing board reviewer` (the electrical/board review remains a human gate). Volatile load only; flash untouched; nothing programmed. |
+
+FDIV is end-to-end in this image. `rtl/rk_ew_regs.sv` maps `ew_config 0x108303c0` to `cfg_op=4` and accepts it only with the captured `{out_convert=0x00000001, rdma_mode=0x00017841}` pair (wrong pair or unknown values latch error 2); `rtl/rk_ew_engine.sv` admits `cfg_op <= 4` (larger values are error 6); `rtl/rk_fp16_alu.sv` op 4 implements the three-guard-bit quotient contract of [FDIV](FDIV.md); `fpga/host/ypcb_jtag_ew_top.sv` instantiates that chain. Current-tree receipts: `tools/run_rtl.py --simulator verilator` and `--simulator iverilog` both PASS with source sha `4347ab81…` (267 tests: 21,605 ALU vectors including op 4, all 1,452 captured FDIV lanes, 15 FDIV-related engine scenarios — `fdiv_1/7/8/9/33/257/1024`, `fdiv_inplace`, `initialized_fdiv_33`, `dma_fdiv`; `fdiv_wrong_out_convert`, `fdiv_wrong_rdma_mode` and `fdiv_bad_op` reject with error 2). Model: `tests.test_fdiv` 6 tests and `tests.test_model` 23 tests pass.
+
+This record asserts an emitted candidate image and source-bound simulation evidence only. Physical execution, LED polarity, pad voltage/margins and actual clock frequency remain unmeasured on this card, and the volatile load still requires a separately authorized action.

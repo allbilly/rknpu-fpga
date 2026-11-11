@@ -16,7 +16,7 @@ FRONTEND_MANIFEST='rtl/ddr/dual_host_factored/frontend-sources.json'
 def source_paths(root=ROOT):
     root=Path(root).resolve()
     manifest=json.loads((root/MANIFEST).read_text())
-    bound=checked_sources(root,manifest=manifest)
+    bound=checked_sources(root,manifest=manifest,expected_count=68)
     # The framework top instantiates the three-bank layout controller. The
     # predecessor dual-bank admission controller is uninstantiated and has the
     # earlier leaf signature; do not compile that unrelated predecessor here.

@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: MIT
 `timescale 1ns/1ps
 // Serialized raw-mailbox control, not a concurrent generic AXI interconnect.
-// EW page0, CMAC page1, layout page4. One owner through readback and ACK.
-module rk_layout_job_control (
+// EW page0, CMAC page1, layout page4, optional C3 PPU page3. One owner through readback and ACK.
+module rk_layout_job_control #(
+    parameter bit ENABLE_PPU = 1'b0
+) (
     input wire clk,rst_n,memory_ready,
     input wire [31:0] s_axil_awaddr,s_axil_wdata,s_axil_araddr,
     input wire [2:0] s_axil_awprot,s_axil_arprot,
@@ -21,26 +23,29 @@ module rk_layout_job_control (
     input wire [7:0] core_error_code,
     input wire [31:0] core_completed_tasks
 );
-    wire [2:0] bank_awready,bank_wready,bank_bvalid,bank_arready,bank_rvalid;
-    wire [1:0] bank_bresp[0:2],bank_rresp[0:2];
-    wire [31:0] bank_rdata[0:2],bank_address[0:2],bank_amount[0:2];
-    wire [2:0] bank_irq,bank_start;
+    wire [3:0] bank_awready,bank_wready,bank_bvalid,bank_arready,bank_rvalid;
+    wire [1:0] bank_bresp[0:3],bank_rresp[0:3];
+    wire [31:0] bank_rdata[0:3],bank_address[0:3],bank_amount[0:3];
+    wire [3:0] bank_irq,bank_start;
     logic owned,result_seen,local_fault;
     logic [1:0] owner_kind;
     function automatic [1:0] bank_for(input logic [23:0] page);
         if(page===24'h000001)bank_for=1;
         else if(page===24'h000004)bank_for=2;
+        else if(page===24'h000003 && ENABLE_PPU)bank_for=3;
         else bank_for=0;
     endfunction
     wire [1:0] write_bank=bank_for(s_axil_awaddr[31:8]),read_bank=bank_for(s_axil_araddr[31:8]);
     wire multiple_starts=(bank_start[0]&&bank_start[1])||(bank_start[0]&&bank_start[2])||
-                         (bank_start[1]&&bank_start[2]);
-    wire foreign_start=owned&&(|(bank_start&~(3'b001<<owner_kind)));
+                         (bank_start[0]&&bank_start[3])||(bank_start[1]&&bank_start[2])||
+                         (bank_start[1]&&bank_start[3])||(bank_start[2]&&bank_start[3]);
+    wire foreign_start=owned&&(|(bank_start&~(4'b0001<<owner_kind)));
     wire bad_launch=multiple_starts||foreign_start;
     assign scheduler_fault=rst_n&&(local_fault||bad_launch);
     assign control_owned=owned;
     assign control_owner_kind=owner_kind;
-    assign core_start_kind=owned ? owner_kind : bank_start[0] ? 2'd0 : bank_start[1] ? 2'd1 : 2'd2;
+    assign core_start_kind=owned ? owner_kind : bank_start[0] ? 2'd0 : bank_start[1] ? 2'd1 :
+        bank_start[2] ? 2'd2 : bank_start[3] ? 2'd3 : 2'd2;
     assign core_start_valid=rst_n&&(owned ? bank_start[owner_kind] : |bank_start);
     assign core_start_address=bank_address[core_start_kind];
     assign core_start_amount=bank_amount[core_start_kind];
@@ -75,7 +80,7 @@ module rk_layout_job_control (
         localparam logic [1:0] KIND=2'(g);
         localparam logic [31:0] ID=g==0 ? 32'h524b4144 : g==1 ? 32'h524b4344 : 32'h524b4c59;
         wire selected=!owned||owner_kind==KIND;
-        wire other_start=|(bank_start&~(3'b001<<g));
+        wire other_start=|(bank_start&~(4'b0001<<g));
         wire selected_ready=g==0 ? core_ew_start_ready : g==1 ? core_cmac_start_ready : core_layout_start_ready;
         wire own_ready=selected&&!other_start&&selected_ready;
         wire own_busy=core_busy||!selected||other_start;
@@ -99,5 +104,45 @@ module rk_layout_job_control (
             .core_error(core_error||scheduler_fault),.core_error_code(scheduler_fault ? 8'd6 : core_error_code),
             .core_completed_tasks(owned&&owner_kind==KIND ? core_completed_tasks : 32'd0)
         );
+    end
+    if(ENABLE_PPU)begin: ppu_bank
+        localparam logic [1:0] KIND=2'd3;
+        localparam logic [31:0] ID=32'h524b5050; // RKPP: captured raw PPU command jobs.
+        wire selected=!owned||owner_kind==KIND;
+        wire other_start=|(bank_start&~(4'b0001<<KIND));
+        wire own_ready=selected&&!other_start&&core_layout_start_ready;
+        wire own_busy=core_busy||!selected||other_start;
+        rk_job_control_admission #(.DEVICE_ID(ID)) control (
+            .clk,.rst_n,.memory_ready(memory_ready&&selected&&!other_start&&!scheduler_fault),
+            .s_axil_awaddr({24'd0,s_axil_awaddr[7:0]}),.s_axil_awprot,
+            .s_axil_awvalid(s_axil_awvalid&&write_bank==KIND),
+            .s_axil_awready(bank_awready[3]),.s_axil_wdata,.s_axil_wstrb,
+            .s_axil_wvalid(s_axil_wvalid&&write_bank==KIND),.s_axil_wready(bank_wready[3]),
+            .s_axil_bresp(bank_bresp[3]),.s_axil_bvalid(bank_bvalid[3]),
+            .s_axil_bready(s_axil_bready&&write_bank==KIND),
+            .s_axil_araddr({24'd0,s_axil_araddr[7:0]}),.s_axil_arprot,
+            .s_axil_arvalid(s_axil_arvalid&&read_bank==KIND),.s_axil_arready(bank_arready[3]),
+            .s_axil_rdata(bank_rdata[3]),.s_axil_rresp(bank_rresp[3]),
+            .s_axil_rvalid(bank_rvalid[3]),.s_axil_rready(s_axil_rready&&read_bank==KIND),
+            .irq(bank_irq[3]),.core_start_valid(bank_start[3]),.core_start_ready(own_ready||scheduler_fault),
+            .core_start_address(bank_address[3]),.core_start_amount(bank_amount[3]),
+            .core_write_block(core_write_block||!selected||other_start||scheduler_fault),
+            .core_busy(own_busy),.core_done(owned&&owner_kind==KIND&&core_done),
+            .core_error(core_error||scheduler_fault),.core_error_code(scheduler_fault ? 8'd6 : core_error_code),
+            .core_completed_tasks(owned&&owner_kind==KIND ? core_completed_tasks : 32'd0)
+        );
+    end else begin: ppu_bank_disabled
+        assign bank_awready[3]=1'b1;
+        assign bank_wready[3]=1'b1;
+        assign bank_bvalid[3]=1'b0;
+        assign bank_arready[3]=1'b1;
+        assign bank_rvalid[3]=1'b0;
+        assign bank_bresp[3]=2'b00;
+        assign bank_rresp[3]=2'b00;
+        assign bank_rdata[3]=32'd0;
+        assign bank_address[3]=32'd0;
+        assign bank_amount[3]=32'd0;
+        assign bank_irq[3]=1'b0;
+        assign bank_start[3]=1'b0;
     end
 endmodule

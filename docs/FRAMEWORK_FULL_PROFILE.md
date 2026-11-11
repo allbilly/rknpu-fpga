@@ -30,12 +30,15 @@ under normal and optimized Python and is included in default `make test`.
 These checks cover raw bytes, reset/retention, result ownership, release,
 deadlines and failure poisoning; they do not qualify PCIe IP, CDC or hardware.
 
-The required image exposes four exact namespaces:
+The base full-DDR framework exposes four exact namespaces. The C3 PPU increment
+adds the opt-in fifth bank shown below; it is not required for the existing EW,
+CMAC, layout or reset profile.
 
 | Bank | Offset | Identity | Purpose |
 |---|---:|---:|---|
 | RKAD | `0x000` | `0x524b4144` | HALF EW raw jobs |
 | RKCD | `0x100` | `0x524b4344` | FP16 C32/K16 raw CMAC jobs |
+| RKPP | `0x300` | `0x524b5050` | Capture-bounded C3 raw PPU jobs; optional (`ENABLE_PPU=0` by default) |
 | RKLY | `0x400` | `0x524b4c59` | Static raw-halfword layouts |
 | RKRS | `0x500` | `0x524b5253` | Quiescent compute reset |
 
@@ -82,15 +85,33 @@ creation of CPU workload programs are blocked. Five pinned CPU queue-control
 helpers initialize explicitly before each workload. These trials use actual
 full512 numerical RTL with independent AXI RAM/minimal ECC-control models.
 The [fresh public-entry replay](../build/framework-public-runtime-coverage-v1/root-result-review.json)
-now passes the same six shapes and whole-BO totals from a newly compiled public
+passes the same six shapes and whole-BO totals from its then-current public
 68-source selection. It also verifies no host tensor/scratch BO reloads after
-launch. Actual-controller, implementation, FPGA and RK compatibility remain
-separate gates; protocol mocks do not establish them.
+launch. That historical replay does not cover the C3 increment. The current
+framework and framework-factored manifests each bind 83 sources. They preserve
+the 68 baseline source slots/order, select a PPU-enabled dispatch replacement
+at the original dispatch slot, and append separate C3, valid-C8, padded-C8,
+minimum-C8, average-C8, indexed-C8 and source-emitted global-MAX profile gates
+and pooling leaves plus their shared raw DMA. The global-MAX command is
+source-emitted, not device-captured.
+Their hash/order checks pass, and focused Icarus/Verilator tests cover the
+factored owned dispatch and RKPP lifecycle. The previously recorded Verilator
+lint/elaboration was for the 81-source snapshot before the global-MAX increment
+and is stale for the current 83-source RTL; it is not evidence for the current
+top. The current 83-source parent has not received full-top synthesis, implementation or
+FPGA/RK qualification. Protocol mocks do not establish those gates.
 
-The byte-identical 68-source parent is published through
-`rtl/ddr/framework/sources.json`. Fifty sources reuse existing paths and eighteen
-variants live in that directory. `tools.ddr.framework_profile.source_paths()`
+The earlier 75-source hierarchy's lint result predates minimum, average and
+indexed pooling and is stale for the current source. Historical lint results
+are lint/elaboration only, not synthesis, placement/routing, timing closure or
+hardware evidence.
+
+The original 68-source parent used fifty reused paths and eighteen variants in
+the framework directory. The current 83-source C3/C8/padded-C8/minimum/average/indexed/global-MAX candidate is published
+through `rtl/ddr/framework/sources.json`; it retains the 68 baseline source
+slots/order, substitutes the PPU-enabled dispatch at its original slot and
+appends the fifteen PPU engine sources. `tools.ddr.framework_profile.source_paths()`
 checks every selected hash and rejects duplicate or escaping paths before a
-compiler runs. Those variants retain their original module names: compile the
+compiler runs. Variants retain their original module names: compile the
 explicit ordered manifest, not a recursive glob containing both variants.
 Five source-selection controls run inside `make test`.

@@ -1,0 +1,244 @@
+{
+  "run_id": "20261105T205900Z",
+  "atol": 0.2,
+  "cases": [
+    {
+      "case": "conv_1x1_valid_c8_h5_w5_oc8",
+      "tasks": [
+        {
+          "task_index": 0,
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "raw_bytes": 1600,
+          "defined_elements": 200,
+          "defined_bytes": 400,
+          "exact_mismatch_elements": 0,
+          "over_atol_elements": 0,
+          "max_abs_diff": 0.0,
+          "atol_pass": true,
+          "padding_tail_elements": 600,
+          "padding_tail_bytes": 1200,
+          "padding_tail_nonzero_elements": 175,
+          "padding_tail_first_nonzero_offsets": [
+            402,
+            404,
+            406,
+            408,
+            410,
+            412,
+            414,
+            418
+          ]
+        }
+      ]
+    },
+    {
+      "case": "conv_3x3_valid_c4_h9_w9_oc4",
+      "tasks": [
+        {
+          "task_index": 0,
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "raw_bytes": 3328,
+          "defined_elements": 196,
+          "defined_bytes": 392,
+          "exact_mismatch_elements": 0,
+          "over_atol_elements": 0,
+          "max_abs_diff": 0.0,
+          "atol_pass": true,
+          "padding_tail_elements": 1468,
+          "padding_tail_bytes": 2936,
+          "padding_tail_nonzero_elements": 539,
+          "padding_tail_first_nonzero_offsets": [
+            8,
+            10,
+            12,
+            14,
+            24,
+            26,
+            28,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "case": "conv_3x3_stride2_c4_h11_w11_oc4",
+      "tasks": [
+        {
+          "task_index": 0,
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "raw_bytes": 1792,
+          "defined_elements": 100,
+          "defined_bytes": 200,
+          "exact_mismatch_elements": 0,
+          "over_atol_elements": 0,
+          "max_abs_diff": 0.0,
+          "atol_pass": true,
+          "padding_tail_elements": 796,
+          "padding_tail_bytes": 1592,
+          "padding_tail_nonzero_elements": 275,
+          "padding_tail_first_nonzero_offsets": [
+            8,
+            10,
+            12,
+            14,
+            24,
+            26,
+            28,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "case": "conv_3x3_pad1_zero_frame_c4_h9_w9_oc4",
+      "tasks": [
+        {
+          "task_index": 0,
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "raw_bytes": 5376,
+          "defined_elements": 324,
+          "defined_bytes": 648,
+          "exact_mismatch_elements": 0,
+          "over_atol_elements": 0,
+          "max_abs_diff": 0.0,
+          "atol_pass": true,
+          "padding_tail_elements": 2364,
+          "padding_tail_bytes": 4728,
+          "padding_tail_nonzero_elements": 891,
+          "padding_tail_first_nonzero_offsets": [
+            8,
+            10,
+            12,
+            14,
+            24,
+            26,
+            28,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "case": "conv_depthwise_3x3_c3_h11_w28_oc3",
+      "tasks": [
+        {
+          "task_index": 0,
+          "buffer": "out",
+          "output": "out.bin",
+          "expected": "expected.bin",
+          "raw_bytes": 15104,
+          "defined_elements": 702,
+          "defined_bytes": 1404,
+          "exact_mismatch_elements": 0,
+          "over_atol_elements": 0,
+          "max_abs_diff": 0.0,
+          "atol_pass": true,
+          "padding_tail_elements": 6850,
+          "padding_tail_bytes": 13700,
+          "padding_tail_nonzero_elements": 0,
+          "padding_tail_first_nonzero_offsets": []
+        }
+      ]
+    },
+    {
+      "case": "conv_grouped_3x3_c4_h5_w5_oc8_g2",
+      "tasks": [
+        {
+          "task_index": 0,
+          "buffer": "out0",
+          "output": "out0.bin",
+          "expected": "expected_out0.bin",
+          "raw_bytes": 768,
+          "defined_elements": 36,
+          "defined_bytes": 72,
+          "exact_mismatch_elements": 0,
+          "over_atol_elements": 0,
+          "max_abs_diff": 0.0,
+          "atol_pass": true,
+          "padding_tail_elements": 348,
+          "padding_tail_bytes": 696,
+          "padding_tail_nonzero_elements": 0,
+          "padding_tail_first_nonzero_offsets": []
+        },
+        {
+          "task_index": 1,
+          "buffer": "out1",
+          "output": "out1.bin",
+          "expected": "expected_out1.bin",
+          "raw_bytes": 768,
+          "defined_elements": 36,
+          "defined_bytes": 72,
+          "exact_mismatch_elements": 36,
+          "over_atol_elements": 34,
+          "max_abs_diff": 11.9375,
+          "atol_pass": false,
+          "padding_tail_elements": 348,
+          "padding_tail_bytes": 696,
+          "padding_tail_nonzero_elements": 0,
+          "padding_tail_first_nonzero_offsets": []
+        }
+      ],
+      "combined": {
+        "order": "task0-then-task1",
+        "elements": 72,
+        "exact_mismatch_elements": 36,
+        "over_atol_elements": 34,
+        "max_abs_diff": 11.9375
+      }
+    },
+    {
+      "case": "conv_splitoc_3x3_c16_h9_w9_oc16",
+      "tasks": [
+        {
+          "task_index": 0,
+          "buffer": "out0",
+          "output": "out0.bin",
+          "expected": "expected_out0.bin",
+          "raw_bytes": 3328,
+          "defined_elements": 392,
+          "defined_bytes": 784,
+          "exact_mismatch_elements": 0,
+          "over_atol_elements": 0,
+          "max_abs_diff": 0.0,
+          "atol_pass": true,
+          "padding_tail_elements": 1272,
+          "padding_tail_bytes": 2544,
+          "padding_tail_nonzero_elements": 0,
+          "padding_tail_first_nonzero_offsets": []
+        },
+        {
+          "task_index": 1,
+          "buffer": "out1",
+          "output": "out1.bin",
+          "expected": "expected_out1.bin",
+          "raw_bytes": 3328,
+          "defined_elements": 392,
+          "defined_bytes": 784,
+          "exact_mismatch_elements": 392,
+          "over_atol_elements": 388,
+          "max_abs_diff": 52.25,
+          "atol_pass": false,
+          "padding_tail_elements": 1272,
+          "padding_tail_bytes": 2544,
+          "padding_tail_nonzero_elements": 0,
+          "padding_tail_first_nonzero_offsets": []
+        }
+      ],
+      "combined": {
+        "order": "task0-then-task1",
+        "elements": 784,
+        "exact_mismatch_elements": 392,
+        "over_atol_elements": 388,
+        "max_abs_diff": 52.25
+      }
+    }
+  ]
+}

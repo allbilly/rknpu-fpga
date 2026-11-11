@@ -3,7 +3,13 @@
 // Candidate INTERNAL address-only leaf. Not an executable NPU/tensor interface.
 // Future raw-command validation must supply physical ai/ao, never logical K/N.
 // No arithmetic, memory requests, CBUF implementation or job completion here.
-module rk_cmac_address (
+module rk_cmac_address #(
+    // Output element width. FP16 writes one halfword per value in 16-lane
+    // atoms (2 bytes, +34 at each 16-channel wrap). FP32 writes one word per
+    // value contiguously (4 bytes) with row stride `ao*4`, which is what
+    // `gemm.py` emits when `out_fp16` is false: `col_idx = arange(n)`.
+    parameter bit OUTPUT_FP32 = 1'b0
+) (
     input logic clk, rst_n,
     input logic config_valid,
     output logic config_ready,
@@ -102,14 +108,22 @@ module rk_cmac_address (
                         output_channel <= output_channel + 1;
                         input_address <= input_row_base;
                         if (output_channel[3:0] == 15) begin
+                            // Crossing into the next 16-lane output group moves to
+                            // the next weight panel in both formats. The output
+                            // address advances one element: 34 bytes for the
+                            // padded FP16 atom, 4 bytes for contiguous FP32.
                             weight_block_base <= weight_block_base + (ai << 5);
                             weight_output_base <= weight_block_base + (ai << 5);
                             weight_address <= weight_block_base + (ai << 5);
-                            output_address <= output_address + 34;
+                            output_address <= output_address +
+                                              (OUTPUT_FP32 ? 32'd4 : 32'd34);
                         end else begin
+                            // Within a 16-lane output group the next oc is one
+                            // 16x32 panel: +64 bytes of weight, and the output
+                            // advances by one element (2 bytes FP16, 4 bytes FP32).
                             weight_output_base <= weight_output_base + 64;
                             weight_address <= weight_output_base + 64;
-                            output_address <= output_address + 2;
+                            output_address <= output_address + (OUTPUT_FP32 ? 32'd4 : 32'd2);
                         end
                     end else begin
                         output_channel <= 0;

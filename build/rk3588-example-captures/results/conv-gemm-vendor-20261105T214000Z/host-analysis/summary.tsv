@@ -1,0 +1,11 @@
+case	submit_ret	exact_pass	tolerance_pass	logical_exact_bytes	logical_bytes	logical_exact_elements	logical_elements	max_abs_diff	over_tolerance	tolerance_abs	output_sha256
+gemm_m2_n2_k1	0	True	True	16	16	4	4	0.0	0	0.1	e42209d157a68cc4d55b7fed4ec475f0c05f68dc3c025ce1f4c93879d2a84576
+gemm_m1_n16_k32	0	True	True	64	64	16	16	0.0	0	0.1	d17a7aaab556c9870463fe4b276c1d23b3213f1815d8b9388c3361f622d3ead8
+gemm_m2_n16_k32	0	True	True	128	128	32	32	0.0	0	0.1	ed9c5a8d38a4b54b3b7063ce65ec1160f788bdc3143fe6205d6734cc020867af
+gemm_m4_n32_k64	0	False	True	465	512	82	128	9.5367431640625e-07	0	0.1	f9a9fca4d40606925ee543e29e3ceda7dc67bbab8eec56ebc43e25ef74bbdb00
+conv_1x1_c1_oc6_h4w4	0	True	True	192	192	96	96	0.0	0	0.2	1a481a2c0d8bc999e7b7df7b846e012e17765c84bc4866b6cca377db26709f18
+conv_grouped_3x3_c4_oc4_g2_h5w5	0	True	True	72	72	36	36	0.0	0	0.2	2a752d2822f12947c3c18a99c331890836a2ecd03910eeddafaa04d069e7ef8b
+conv_legacy_3x3_c4_oc4_h9w9	0	True	True	392	392	196	196	0.0	0	0.2	0ac564f290443bb26eea8ee5ca2720436938ca6a0fda3cd70e115066278878aa
+conv_depthwise_3x3_c3_oc3_h11w28_task0	0	False	False	100	1404	48	702	12.84375	636	0.2	23762b457623a1a1de52bc5b954bd6e4fd70ea9ce395c480c398e3456ff68e7f
+conv_depthwise_3x3_c3_oc3_h11w28_task1	0	False	False	100	1404	48	702	12.84375	636	0.2	23762b457623a1a1de52bc5b954bd6e4fd70ea9ce395c480c398e3456ff68e7f
+conv_py_3x3_c32_oc128_h14w14_fullsetup	0	False	True	36854	36864	18422	18432	0.015625	0	0.12	0a640dd5584f57efc5638d2322d3dfd373b9d0e3799840a541d73c8f835ff141

@@ -3,7 +3,8 @@
 // Single-clock internal endpoint. Joint asynchronous reset assertion;
 // platform must synchronize reset deassertion. No PCIe, CDC, MIG or ECC.
 module rk_cmac_nvdla_axi #(
-    parameter int unsigned TIMEOUT_CYCLES = 65536
+    parameter int unsigned TIMEOUT_CYCLES = 65536,
+    parameter bit OUTPUT_FP16 = 1'b1
 ) (
     input logic clk, rst_n, memory_ready,
     input logic [31:0] s_axil_awaddr,
@@ -64,7 +65,8 @@ module rk_cmac_nvdla_axi #(
     // The controller samples this count only on done/error. One terminal task.
     assign core_completed_tasks = core_done && !core_error ? 32'd1 : 32'd0;
     rk_cmac_job_control control(.*);
-    rk_cmac_nvdla_dma #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES)) engine (
+    rk_cmac_nvdla_dma #(.TIMEOUT_CYCLES(TIMEOUT_CYCLES),
+                        .OUTPUT_FP16(OUTPUT_FP16)) engine (
         .clk(clk), .rst_n(rst_n), .start_valid(core_start_valid), .start_ready(core_start_ready),
         .start_address(core_start_address), .start_amount(core_start_amount), .busy(core_busy),
         .done(core_done), .acknowledged(unused_acknowledged), .error(core_error),

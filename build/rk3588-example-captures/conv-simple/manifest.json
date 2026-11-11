@@ -1,0 +1,1174 @@
+{
+  "family": "conv-simple",
+  "format": "build/rk3588-example-captures/CAPTURE_FORMAT.md",
+  "generated_utc": "2026-11-05T20:50:36Z",
+  "generator": "generate.py",
+  "environment": {
+    "python": "3.14.8",
+    "numpy": "2.4.6",
+    "platform": "Linux-7.2.9-200.fc44.x86_64-x86_64-with-glibc2.43",
+    "executable": "/usr/bin/python3"
+  },
+  "seeds": {
+    "fp16": 42,
+    "int8": 1234,
+    "note": "FP16 seed matches expt/conv_simple.py::run_shape.  INT8 seed is a preparation choice; each case also records its seed."
+  },
+  "source_examples": [
+    {
+      "path": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+      "sha256": "c1dac1d8bded072f50ed0953c9ec457050c1bcacfa285918c6539937bc5f1431",
+      "role": "FP16 generic command builder, Rocket tail, FP16 oracle"
+    },
+    {
+      "path": "/home/fedora/rk3588/examples/conv_simple.py",
+      "sha256": "6134263cb50f77fa050bb900c8243e89ac0e29c3f82254c4a02a6d1adb7b1d9a",
+      "role": "cross-reference only; same generic make_regs"
+    },
+    {
+      "path": "/home/fedora/rk3588/examples/kernel_6_18/simple_conv.py",
+      "sha256": "40e5c935b57c568d67bfcf44dcba327116e7bde6aa9ee5b22bb2c7bf958ebfd6",
+      "role": "INT8 quantized builder, depthwise/5x5 path, donor oracle"
+    },
+    {
+      "path": "/home/fedora/rk3588/examples/kernel_6_18/conv_legacy.py",
+      "sha256": "5d2aa637ffdd4608151347796d495847a10344637468f75e60b186b849904942",
+      "role": "shape-table analogues for 5x5 and depthwise"
+    }
+  ],
+  "preparation_notes": [
+    "Device-free preparation only: no ssh/scp, no board access, no FPGA programming.",
+    "Every READY case is a single terminal PC record: PC_BASE_ADDRESS=0 and PC_REGISTER_AMOUNTS=0 in the tail.",
+    "All address operands are value32 patches bound to named input/weight/bias/out buffers.",
+    "No out.bin is shipped; the worker writes it.  expected.bin is a host NumPy oracle.",
+    "The FP16 module is imported directly.  The INT8 module is executed with only its module-level DRM setup block removed.",
+    "Per-case data seeds and source hashes are recorded here; the case files are deterministic for the recorded NumPy version.",
+    "The FP16 1x1 cases follow the source run_shape output-precision policy (FP32 output).  The separate Rocket probe helper run_shape_rocket hardcodes out_fp16=True; mainline-Rocket execution of this FP32-output stream is not separately evidenced by the source.",
+    "The INT8 cases supply the depthwise path and the explicit 5x5 table analogue that the FP16 builder does not provide.  They are quantized-conv captures, not FP16 EW-slice validation.",
+    "Rocket's PC fetch amount is in QWORD pairs.  Every READY regcmd.bin has one trailing zero QWORD of fetch padding when the declared task count is odd; the declared task regcmd_words (51/69) is unchanged and the padding is not executed as a command."
+  ],
+  "validation_files": [
+    "validation.json",
+    "numeric_check.json"
+  ],
+  "summary": {
+    "ready": 7,
+    "blocked": 5,
+    "total": 12
+  },
+  "coverage": {
+    "1x1": [
+      "conv_simple_fp16_1x1_c4_h8_w8_oc16",
+      "conv_simple_fp16_1x1_c32_h8_w8_oc32"
+    ],
+    "3x3": [
+      "conv_simple_fp16_3x3_c4_h8_w8_oc16",
+      "conv_simple_fp16_3x3_c16_h8_w8_oc32"
+    ],
+    "5x5": [
+      "conv_simple_fp16_5x5_c4_h8_w8_oc16",
+      "simple_conv_int8_5x5_c8_h8_w8_oc32"
+    ],
+    "depthwise": [
+      "simple_conv_int8_depthwise_3x3_c64_h8_w8_oc64_g64"
+    ],
+    "grouped": [],
+    "grouped_blocked": [
+      "conv_simple_fp16_grouped_3x3_c8_h8_w8_oc8_g2"
+    ],
+    "c8_fp16_blocked": [
+      "conv_simple_fp16_3x3_c8_h8_w8_oc16_unpadded_pack"
+    ],
+    "stride_1": [
+      "conv_simple_fp16_1x1_c4_h8_w8_oc16",
+      "conv_simple_fp16_3x3_c4_h8_w8_oc16",
+      "conv_simple_fp16_5x5_c4_h8_w8_oc16",
+      "conv_simple_fp16_1x1_c32_h8_w8_oc32",
+      "conv_simple_fp16_3x3_c16_h8_w8_oc32",
+      "simple_conv_int8_5x5_c8_h8_w8_oc32",
+      "simple_conv_int8_depthwise_3x3_c64_h8_w8_oc64_g64"
+    ],
+    "stride_2_blocked": [
+      "conv_simple_fp16_3x3_c8_h8_w8_oc16_stride2"
+    ],
+    "padding_valid": [
+      "conv_simple_fp16_1x1_c4_h8_w8_oc16",
+      "conv_simple_fp16_3x3_c4_h8_w8_oc16",
+      "conv_simple_fp16_5x5_c4_h8_w8_oc16",
+      "conv_simple_fp16_1x1_c32_h8_w8_oc32",
+      "conv_simple_fp16_3x3_c16_h8_w8_oc32",
+      "simple_conv_int8_5x5_c8_h8_w8_oc32",
+      "simple_conv_int8_depthwise_3x3_c64_h8_w8_oc64_g64"
+    ],
+    "padding_same_blocked": [
+      "conv_simple_fp16_3x3_c8_h8_w8_oc16_samepad"
+    ],
+    "addition_input_blocked": [
+      "simple_conv_int8_addition_c8_h8_w8_oc32"
+    ],
+    "output_dtypes": {
+      "float32": [
+        "conv_simple_fp16_1x1_c4_h8_w8_oc16",
+        "conv_simple_fp16_1x1_c32_h8_w8_oc32"
+      ],
+      "float16": [
+        "conv_simple_fp16_3x3_c4_h8_w8_oc16",
+        "conv_simple_fp16_5x5_c4_h8_w8_oc16",
+        "conv_simple_fp16_3x3_c16_h8_w8_oc32"
+      ],
+      "uint8": [
+        "simple_conv_int8_5x5_c8_h8_w8_oc32",
+        "simple_conv_int8_depthwise_3x3_c64_h8_w8_oc64_g64"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "case": "conv_simple_fp16_1x1_c4_h8_w8_oc16",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+      "source_lines": {
+        "shape_and_params": "expt/conv_simple.py:228-238,297-311",
+        "pack_input": "expt/conv_simple.py:364-374",
+        "pack_weights": "expt/conv_simple.py:351-361",
+        "make_regs": "expt/conv_simple.py:383-440",
+        "output_precision": "expt/conv_simple.py:695,726-729,734",
+        "rocket_tail": "expt/conv_simple.py:742-843 (terminal tail 780-785)",
+        "oracle": "expt/conv_simple.py:588-598",
+        "unpack": "expt/conv_simple.py:377-380",
+        "source_shape_table": "expt/conv_simple.py:207-217",
+        "planner_gate": "conv_expt/conv_tile_planner.py:526-527 (NONE/setup)"
+      },
+      "description": "FP16 1x1 valid conv, C4/H8/W8 -> OC16; <=4-channel NHWC path (the same packing class as the source's validated RGB probe); pointwise non-spatial policy selects FP32 output.",
+      "shape": {
+        "name": "conv_simple_fp16_1x1_c4_h8_w8_oc16",
+        "batch": 1,
+        "in_c": 4,
+        "in_h": 8,
+        "in_w": 8,
+        "out_c": 16,
+        "weight_in_c": 4,
+        "kh": 1,
+        "kw": 1,
+        "groups": 1,
+        "stride": 1
+      },
+      "dtype": {
+        "input": "float16",
+        "weight": "float16",
+        "output": "float32",
+        "accumulator": "float64 (oracle only)"
+      },
+      "layout": {
+        "input_raw": "pack_input() NHWC: [H][width_stride][in_c] float16; width_stride=8, in_c=4",
+        "weight_raw": "kh-major chunks of 16 output channels: [oc_chunk][kh][kw][oc_in_chunk][align_c]",
+        "output_raw": "unpack_output() order: [c1][out_width_stride][c2], c2=4, c1=4",
+        "logical_output": "[1, 16, 8, 8] NCHW",
+        "no_output_padding": true
+      },
+      "tasks": 1,
+      "regcmd_words": 51,
+      "buffers": [
+        {
+          "name": "input",
+          "size": 512,
+          "input": "input.bin",
+          "direction": "in"
+        },
+        {
+          "name": "weight",
+          "size": 256,
+          "input": "weight.bin",
+          "direction": "in"
+        },
+        {
+          "name": "out",
+          "size": 4096,
+          "direction": "out",
+          "output": "out.bin"
+        }
+      ],
+      "patches": [
+        {
+          "regcmd_index": 18,
+          "buffer": "input",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 24,
+          "buffer": "weight",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 32,
+          "buffer": "out",
+          "kind": "value32"
+        }
+      ],
+      "oracle": {
+        "kind": "numpy_naive_valid_conv",
+        "source": "expt/conv_simple.py::compute_expected (verbatim)",
+        "file": "expected.bin",
+        "dtype": "float32",
+        "logical_shape": [
+          1,
+          16,
+          8,
+          8
+        ],
+        "logical_layout": "NCHW",
+        "raw_bo_layout": "unpack_output() order: [c1][out_width_stride][c2], c2=4, c1=4",
+        "formula": "out[oc,y,x] = sum_{ic,ky,kx} input[ic,y+ky,x+kx] * weight[oc,ic,ky,kx]; float64 accumulate, then cast to the device output dtype",
+        "tolerance": {
+          "atol": 0.1,
+          "rtol": 1e-05
+        },
+        "warning": "Host-side oracle only.  Not a device capture and not evidence of silicon numerics."
+      },
+      "hashes": {
+        "job.json": "0f3cd3fdabb8f89ade94a9994867fcc62311707568703434ab685c967feb5316",
+        "regcmd.bin": "37c11fd5554d8bb7f7a013c8077638dbb5f879b45e106dafb18c5632661c11d7",
+        "input.bin": "413aabe118b1bc39015dd50412b6c2a15761213a47637cbc29b04289b3037bef",
+        "weight.bin": "7820b2b50691ee685d5b357f420d385f9afe00f540b6a471688944705116c136",
+        "expected.bin": "c589ac10efaf190daa14dbe11c70db04b94b355d933ab1c035037a689433c6eb"
+      },
+      "blocker": null,
+      "depthwise": false,
+      "seed": 42,
+      "regcmd_file_words": 52,
+      "regcmd_fetch_words": 52,
+      "regcmd_padding_words": 1,
+      "regcmd_size_bytes": 416
+    },
+    {
+      "case": "conv_simple_fp16_3x3_c4_h8_w8_oc16",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+      "source_lines": {
+        "shape_and_params": "expt/conv_simple.py:228-238,297-311",
+        "pack_input": "expt/conv_simple.py:364-374",
+        "pack_weights": "expt/conv_simple.py:351-361",
+        "make_regs": "expt/conv_simple.py:383-440",
+        "output_precision": "expt/conv_simple.py:695,726-729,734",
+        "rocket_tail": "expt/conv_simple.py:742-843 (terminal tail 780-785)",
+        "oracle": "expt/conv_simple.py:588-598",
+        "unpack": "expt/conv_simple.py:377-380",
+        "source_shape_table": "expt/conv_simple.py:207-217",
+        "planner_gate": "conv_expt/conv_tile_planner.py:526-527 (NONE/setup)"
+      },
+      "description": "FP16 3x3 valid conv, C4/H8/W8 -> OC16; <=4-channel NHWC path, spatial policy selects FP16 output.",
+      "shape": {
+        "name": "conv_simple_fp16_3x3_c4_h8_w8_oc16",
+        "batch": 1,
+        "in_c": 4,
+        "in_h": 8,
+        "in_w": 8,
+        "out_c": 16,
+        "weight_in_c": 4,
+        "kh": 3,
+        "kw": 3,
+        "groups": 1,
+        "stride": 1
+      },
+      "dtype": {
+        "input": "float16",
+        "weight": "float16",
+        "output": "float16",
+        "accumulator": "float64 (oracle only)"
+      },
+      "layout": {
+        "input_raw": "pack_input() NHWC: [H][width_stride][in_c] float16; width_stride=8, in_c=4",
+        "weight_raw": "kh-major chunks of 16 output channels: [oc_chunk][kh][kw][oc_in_chunk][align_c]",
+        "output_raw": "unpack_output() order: [c1][out_width_stride][c2], c2=8, c1=2",
+        "logical_output": "[1, 16, 6, 6] NCHW",
+        "no_output_padding": true
+      },
+      "tasks": 1,
+      "regcmd_words": 51,
+      "buffers": [
+        {
+          "name": "input",
+          "size": 512,
+          "input": "input.bin",
+          "direction": "in"
+        },
+        {
+          "name": "weight",
+          "size": 2304,
+          "input": "weight.bin",
+          "direction": "in"
+        },
+        {
+          "name": "out",
+          "size": 1152,
+          "direction": "out",
+          "output": "out.bin"
+        }
+      ],
+      "patches": [
+        {
+          "regcmd_index": 18,
+          "buffer": "input",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 24,
+          "buffer": "weight",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 32,
+          "buffer": "out",
+          "kind": "value32"
+        }
+      ],
+      "oracle": {
+        "kind": "numpy_naive_valid_conv",
+        "source": "expt/conv_simple.py::compute_expected (verbatim)",
+        "file": "expected.bin",
+        "dtype": "float16",
+        "logical_shape": [
+          1,
+          16,
+          6,
+          6
+        ],
+        "logical_layout": "NCHW",
+        "raw_bo_layout": "unpack_output() order: [c1][out_width_stride][c2], c2=8, c1=2",
+        "formula": "out[oc,y,x] = sum_{ic,ky,kx} input[ic,y+ky,x+kx] * weight[oc,ic,ky,kx]; float64 accumulate, then cast to the device output dtype",
+        "tolerance": {
+          "atol": 0.12,
+          "rtol": 1e-05
+        },
+        "warning": "Host-side oracle only.  Not a device capture and not evidence of silicon numerics."
+      },
+      "hashes": {
+        "job.json": "52bcc4185b2d12126f519f6674968afe16ac091e3db1aae3cff5887d3f157b3b",
+        "regcmd.bin": "84263a04caa9e1bcfe477244c9422c2e9e1cbc3d869491322fd65e9a87326413",
+        "input.bin": "413aabe118b1bc39015dd50412b6c2a15761213a47637cbc29b04289b3037bef",
+        "weight.bin": "8790ed718ec9ed26d7f3dfb1575479a45a8d4b1a33670fb1804af81a1e28c659",
+        "expected.bin": "1f002aea6e9431152a316265fe8a36462c0172bea5c54e65f27f3783b2c610b9"
+      },
+      "blocker": null,
+      "depthwise": false,
+      "seed": 42,
+      "regcmd_file_words": 52,
+      "regcmd_fetch_words": 52,
+      "regcmd_padding_words": 1,
+      "regcmd_size_bytes": 416
+    },
+    {
+      "case": "conv_simple_fp16_5x5_c4_h8_w8_oc16",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+      "source_lines": {
+        "shape_and_params": "expt/conv_simple.py:228-238,297-311",
+        "pack_input": "expt/conv_simple.py:364-374",
+        "pack_weights": "expt/conv_simple.py:351-361",
+        "make_regs": "expt/conv_simple.py:383-440",
+        "output_precision": "expt/conv_simple.py:695,726-729,734",
+        "rocket_tail": "expt/conv_simple.py:742-843 (terminal tail 780-785)",
+        "oracle": "expt/conv_simple.py:588-598",
+        "unpack": "expt/conv_simple.py:377-380",
+        "source_shape_table": "expt/conv_simple.py:207-217",
+        "planner_gate": "conv_expt/conv_tile_planner.py:526-527 (NONE/setup)"
+      },
+      "description": "FP16 5x5 valid conv, C4/H8/W8 -> OC16; <=4-channel NHWC path, generic kh/kw builder, planner NONE/setup.  Not in the example's LIST_SHAPES.",
+      "shape": {
+        "name": "conv_simple_fp16_5x5_c4_h8_w8_oc16",
+        "batch": 1,
+        "in_c": 4,
+        "in_h": 8,
+        "in_w": 8,
+        "out_c": 16,
+        "weight_in_c": 4,
+        "kh": 5,
+        "kw": 5,
+        "groups": 1,
+        "stride": 1
+      },
+      "dtype": {
+        "input": "float16",
+        "weight": "float16",
+        "output": "float16",
+        "accumulator": "float64 (oracle only)"
+      },
+      "layout": {
+        "input_raw": "pack_input() NHWC: [H][width_stride][in_c] float16; width_stride=8, in_c=4",
+        "weight_raw": "kh-major chunks of 16 output channels: [oc_chunk][kh][kw][oc_in_chunk][align_c]",
+        "output_raw": "unpack_output() order: [c1][out_width_stride][c2], c2=8, c1=2",
+        "logical_output": "[1, 16, 4, 4] NCHW",
+        "no_output_padding": true
+      },
+      "tasks": 1,
+      "regcmd_words": 51,
+      "buffers": [
+        {
+          "name": "input",
+          "size": 512,
+          "input": "input.bin",
+          "direction": "in"
+        },
+        {
+          "name": "weight",
+          "size": 6400,
+          "input": "weight.bin",
+          "direction": "in"
+        },
+        {
+          "name": "out",
+          "size": 512,
+          "direction": "out",
+          "output": "out.bin"
+        }
+      ],
+      "patches": [
+        {
+          "regcmd_index": 18,
+          "buffer": "input",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 24,
+          "buffer": "weight",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 32,
+          "buffer": "out",
+          "kind": "value32"
+        }
+      ],
+      "oracle": {
+        "kind": "numpy_naive_valid_conv",
+        "source": "expt/conv_simple.py::compute_expected (verbatim)",
+        "file": "expected.bin",
+        "dtype": "float16",
+        "logical_shape": [
+          1,
+          16,
+          4,
+          4
+        ],
+        "logical_layout": "NCHW",
+        "raw_bo_layout": "unpack_output() order: [c1][out_width_stride][c2], c2=8, c1=2",
+        "formula": "out[oc,y,x] = sum_{ic,ky,kx} input[ic,y+ky,x+kx] * weight[oc,ic,ky,kx]; float64 accumulate, then cast to the device output dtype",
+        "tolerance": {
+          "atol": 0.12,
+          "rtol": 1e-05
+        },
+        "warning": "Host-side oracle only.  Not a device capture and not evidence of silicon numerics."
+      },
+      "hashes": {
+        "job.json": "6559066d05c0b0f5cdca3ddbbd4770d4e3bf28a7c4ebae7ec1c7ea00a6147776",
+        "regcmd.bin": "17818427e8966c49ce4feffee20a6df134447324c8b87b45ab6e9c7d83813fa8",
+        "input.bin": "413aabe118b1bc39015dd50412b6c2a15761213a47637cbc29b04289b3037bef",
+        "weight.bin": "69f6f536c1a32b05f11b0d544c17e48b20bc9005be5ed594a8b59004cb6310f2",
+        "expected.bin": "1431b3f51a330880189417a1ec7b352203adcf737eace81819b8d1f00d96b986"
+      },
+      "blocker": null,
+      "depthwise": false,
+      "seed": 42,
+      "regcmd_file_words": 52,
+      "regcmd_fetch_words": 52,
+      "regcmd_padding_words": 1,
+      "regcmd_size_bytes": 416
+    },
+    {
+      "case": "conv_simple_fp16_1x1_c32_h8_w8_oc32",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+      "source_lines": {
+        "shape_and_params": "expt/conv_simple.py:228-238,297-311",
+        "pack_input": "expt/conv_simple.py:364-374",
+        "pack_weights": "expt/conv_simple.py:351-361",
+        "make_regs": "expt/conv_simple.py:383-440",
+        "output_precision": "expt/conv_simple.py:695,726-729,734",
+        "rocket_tail": "expt/conv_simple.py:742-843 (terminal tail 780-785)",
+        "oracle": "expt/conv_simple.py:588-598",
+        "unpack": "expt/conv_simple.py:377-380",
+        "source_shape_table": "expt/conv_simple.py:207-217",
+        "planner_gate": "conv_expt/conv_tile_planner.py:526-527 (NONE/setup)"
+      },
+      "description": "FP16 1x1 valid conv with larger channels, C32/H8/W8 -> OC32; exercises c1=4 channel slicing and FP32 output.",
+      "shape": {
+        "name": "conv_simple_fp16_1x1_c32_h8_w8_oc32",
+        "batch": 1,
+        "in_c": 32,
+        "in_h": 8,
+        "in_w": 8,
+        "out_c": 32,
+        "weight_in_c": 32,
+        "kh": 1,
+        "kw": 1,
+        "groups": 1,
+        "stride": 1
+      },
+      "dtype": {
+        "input": "float16",
+        "weight": "float16",
+        "output": "float32",
+        "accumulator": "float64 (oracle only)"
+      },
+      "layout": {
+        "input_raw": "pack_input(): [c1][H][width_stride][c2] float16, c2=8, width_stride=8",
+        "weight_raw": "kh-major chunks of 16 output channels: [oc_chunk][kh][kw][oc_in_chunk][align_c]",
+        "output_raw": "unpack_output() order: [c1][out_width_stride][c2], c2=4, c1=8",
+        "logical_output": "[1, 32, 8, 8] NCHW",
+        "no_output_padding": true
+      },
+      "tasks": 1,
+      "regcmd_words": 51,
+      "buffers": [
+        {
+          "name": "input",
+          "size": 4096,
+          "input": "input.bin",
+          "direction": "in"
+        },
+        {
+          "name": "weight",
+          "size": 2048,
+          "input": "weight.bin",
+          "direction": "in"
+        },
+        {
+          "name": "out",
+          "size": 8192,
+          "direction": "out",
+          "output": "out.bin"
+        }
+      ],
+      "patches": [
+        {
+          "regcmd_index": 18,
+          "buffer": "input",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 24,
+          "buffer": "weight",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 32,
+          "buffer": "out",
+          "kind": "value32"
+        }
+      ],
+      "oracle": {
+        "kind": "numpy_naive_valid_conv",
+        "source": "expt/conv_simple.py::compute_expected (verbatim)",
+        "file": "expected.bin",
+        "dtype": "float32",
+        "logical_shape": [
+          1,
+          32,
+          8,
+          8
+        ],
+        "logical_layout": "NCHW",
+        "raw_bo_layout": "unpack_output() order: [c1][out_width_stride][c2], c2=4, c1=8",
+        "formula": "out[oc,y,x] = sum_{ic,ky,kx} input[ic,y+ky,x+kx] * weight[oc,ic,ky,kx]; float64 accumulate, then cast to the device output dtype",
+        "tolerance": {
+          "atol": 0.1,
+          "rtol": 1e-05
+        },
+        "warning": "Host-side oracle only.  Not a device capture and not evidence of silicon numerics."
+      },
+      "hashes": {
+        "job.json": "7fe54a433361b87a1c8f772eba278db745faf1382f01f6a1ba1180de2e36a71d",
+        "regcmd.bin": "7728fa11555aa15d178c61a0c5251756238517d3272737448a62afa57c76d2c7",
+        "input.bin": "48c124e86e56c9f76c366ffd7bf3bdac6beccacc8b9e94b9e0c67cd66a14ecb1",
+        "weight.bin": "83a788c633329656e5ba9e5f4e4fa6130d65373ec471e5221f3296be3897329a",
+        "expected.bin": "344fadea489de461d92ea7e949d2cd501058d54f46c72dba4854796b93c0808c"
+      },
+      "blocker": null,
+      "depthwise": false,
+      "seed": 42,
+      "regcmd_file_words": 52,
+      "regcmd_fetch_words": 52,
+      "regcmd_padding_words": 1,
+      "regcmd_size_bytes": 416
+    },
+    {
+      "case": "conv_simple_fp16_3x3_c16_h8_w8_oc32",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+      "source_lines": {
+        "shape_and_params": "expt/conv_simple.py:228-238,297-311",
+        "pack_input": "expt/conv_simple.py:364-374",
+        "pack_weights": "expt/conv_simple.py:351-361",
+        "make_regs": "expt/conv_simple.py:383-440",
+        "output_precision": "expt/conv_simple.py:695,726-729,734",
+        "rocket_tail": "expt/conv_simple.py:742-843 (terminal tail 780-785)",
+        "oracle": "expt/conv_simple.py:588-598",
+        "unpack": "expt/conv_simple.py:377-380",
+        "source_shape_table": "expt/conv_simple.py:207-217",
+        "planner_gate": "conv_expt/conv_tile_planner.py:526-527 (NONE/setup)"
+      },
+      "description": "FP16 3x3 valid conv, C16/H8/W8 -> OC32; larger channel count with spatial FP16 output.",
+      "shape": {
+        "name": "conv_simple_fp16_3x3_c16_h8_w8_oc32",
+        "batch": 1,
+        "in_c": 16,
+        "in_h": 8,
+        "in_w": 8,
+        "out_c": 32,
+        "weight_in_c": 16,
+        "kh": 3,
+        "kw": 3,
+        "groups": 1,
+        "stride": 1
+      },
+      "dtype": {
+        "input": "float16",
+        "weight": "float16",
+        "output": "float16",
+        "accumulator": "float64 (oracle only)"
+      },
+      "layout": {
+        "input_raw": "pack_input(): [c1][H][width_stride][c2] float16, c2=8, width_stride=8",
+        "weight_raw": "kh-major chunks of 16 output channels: [oc_chunk][kh][kw][oc_in_chunk][align_c]",
+        "output_raw": "unpack_output() order: [c1][out_width_stride][c2], c2=8, c1=4",
+        "logical_output": "[1, 32, 6, 6] NCHW",
+        "no_output_padding": true
+      },
+      "tasks": 1,
+      "regcmd_words": 51,
+      "buffers": [
+        {
+          "name": "input",
+          "size": 2048,
+          "input": "input.bin",
+          "direction": "in"
+        },
+        {
+          "name": "weight",
+          "size": 9216,
+          "input": "weight.bin",
+          "direction": "in"
+        },
+        {
+          "name": "out",
+          "size": 2304,
+          "direction": "out",
+          "output": "out.bin"
+        }
+      ],
+      "patches": [
+        {
+          "regcmd_index": 18,
+          "buffer": "input",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 24,
+          "buffer": "weight",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 32,
+          "buffer": "out",
+          "kind": "value32"
+        }
+      ],
+      "oracle": {
+        "kind": "numpy_naive_valid_conv",
+        "source": "expt/conv_simple.py::compute_expected (verbatim)",
+        "file": "expected.bin",
+        "dtype": "float16",
+        "logical_shape": [
+          1,
+          32,
+          6,
+          6
+        ],
+        "logical_layout": "NCHW",
+        "raw_bo_layout": "unpack_output() order: [c1][out_width_stride][c2], c2=8, c1=4",
+        "formula": "out[oc,y,x] = sum_{ic,ky,kx} input[ic,y+ky,x+kx] * weight[oc,ic,ky,kx]; float64 accumulate, then cast to the device output dtype",
+        "tolerance": {
+          "atol": 0.12,
+          "rtol": 1e-05
+        },
+        "warning": "Host-side oracle only.  Not a device capture and not evidence of silicon numerics."
+      },
+      "hashes": {
+        "job.json": "2ddb968b07d32213f6601a62d0a8d6cf681243174acdab4c29a0689964fda20a",
+        "regcmd.bin": "f04564cdf49e79fa3fc6dd7231bd04130bb5b668d67b5138c3e74bb857c4c0e0",
+        "input.bin": "b617754603c6e06e7a0ad6b4b43d7184fc0fe0cf8c467fd324a1d398d1ca3ef1",
+        "weight.bin": "c003501998256b16396a540c7f9b72466f15801d9ac6c4374e80259f1fd4666a",
+        "expected.bin": "8cc5cddb7755ad67fcbc913e50195a10be97fabf2bf40b1b4c4c1b401b036441"
+      },
+      "blocker": null,
+      "depthwise": false,
+      "seed": 42,
+      "regcmd_file_words": 52,
+      "regcmd_fetch_words": 52,
+      "regcmd_padding_words": 1,
+      "regcmd_size_bytes": 416
+    },
+    {
+      "case": "simple_conv_int8_5x5_c8_h8_w8_oc32",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/simple_conv.py",
+      "source_lines": {
+        "shape": "kernel_6_18/simple_conv.py:66-84; kernel_6_18/conv_legacy.py:1190,1237,1248 (shape-table analogues)",
+        "pack_input": "kernel_6_18/simple_conv.py:414-435",
+        "pack_weights": "kernel_6_18/simple_conv.py:437-461",
+        "pack_biases": "kernel_6_18/simple_conv.py:463-475",
+        "build_conv_regs": "kernel_6_18/simple_conv.py:477-622",
+        "split_tasks": "kernel_6_18/simple_conv.py:366-412",
+        "terminal_tail": "kernel_6_18/simple_conv.py:624-673 (628-644)",
+        "oracle": "kernel_6_18/simple_conv.py:705-727",
+        "unpack": "kernel_6_18/simple_conv.py:693-703",
+        "output_size": "kernel_6_18/simple_conv.py:342-344"
+      },
+      "description": "INT8 quantized 5x5 valid conv, C8/H8/W8 -> OC32; source kernel_6_18/simple_conv.py direct path (not im2col).",
+      "shape": {
+        "name": "simple_conv_int8_5x5_c8_h8_w8_oc32",
+        "batch": 1,
+        "in_c": 8,
+        "in_h": 8,
+        "in_w": 8,
+        "out_c": 32,
+        "weight_in_c": 8,
+        "kh": 5,
+        "kw": 5,
+        "groups": 1,
+        "stride": 1
+      },
+      "dtype": {
+        "input": "uint8 (zero point 0x80)",
+        "weight": "uint8 (zero point 0x80)",
+        "bias": "int32",
+        "output": "uint8 (zero point 0x80; raw bytes are value-0x80)",
+        "accumulator": "int64 (oracle only)"
+      },
+      "layout": {
+        "input_raw": "pack_input(): [channel_group][x][y][16] bytes, values (u-0x80)&0xff",
+        "weight_raw": "pack_weights(): [oc_group][ic_group][x][y][oc_lane][ic_lane], (w-0x80)&0xff",
+        "bias_raw": "pack_biases(): int32 little-endian, length out_c",
+        "output_raw": "read_output() order: [channel_group][x][y][16], byte = (logical-0x80)&0xff",
+        "logical_output": "[1, 4, 4, 32] NHWC (y,x,c)",
+        "oracle_prefix_bytes": 512,
+        "output_buffer_bytes": 1024,
+        "no_output_padding": false
+      },
+      "tasks": 1,
+      "regcmd_words": 69,
+      "buffers": [
+        {
+          "name": "input",
+          "size": 2048,
+          "input": "input.bin",
+          "direction": "in"
+        },
+        {
+          "name": "weight",
+          "size": 51200,
+          "input": "weight.bin",
+          "direction": "in"
+        },
+        {
+          "name": "bias",
+          "size": 128,
+          "input": "bias.bin",
+          "direction": "in"
+        },
+        {
+          "name": "out",
+          "size": 1024,
+          "direction": "out",
+          "output": "out.bin"
+        }
+      ],
+      "patches": [
+        {
+          "regcmd_index": 20,
+          "buffer": "input",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 26,
+          "buffer": "weight",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 36,
+          "buffer": "out",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 61,
+          "buffer": "bias",
+          "kind": "value32"
+        }
+      ],
+      "oracle": {
+        "kind": "numpy_naive_quantized_conv",
+        "source": "kernel_6_18/simple_conv.py::expected_output (verbatim)",
+        "file": "expected.bin",
+        "dtype": "uint8",
+        "logical_shape": [
+          1,
+          4,
+          4,
+          32
+        ],
+        "logical_layout": "NHWC (y,x,c)",
+        "raw_bo_layout": "read_output() order: [channel_group][x][y][16], byte = (logical-0x80)&0xff",
+        "formula": "acc = bias[oc] + sum_{ky,kx,ic} input_u8[y+ky,x+kx,ic] * weight_u8[oc,kx,ky,ic]; logical = clip(round(acc * (1/255)), 0, 255); raw = (logical - 0x80) & 0xff",
+        "tolerance": {
+          "max_abs_diff_uint8": 1
+        },
+        "expected_bytes": 512,
+        "output_buffer_bytes": 1024,
+        "compare_region": "first 512 bytes of out.bin (used channel groups); the remaining 512 bytes are the source's calc_raw_output_size over-allocation and are not part of the oracle",
+        "warning": "Host-side donor CPU oracle only.  Data bytes were chosen in a lower range than the example's randint(0,256) so the oracle does not clip; the source formula and register stream are unchanged."
+      },
+      "hashes": {
+        "job.json": "562ee1daafdcd64ddb31f05393e0513d1b4350ea208141f6509463fed455d3a4",
+        "regcmd.bin": "f07042885afd3d72d3858f8a3a37ac5f60bfc710e2d5ac246e1464d9784a4368",
+        "input.bin": "90aa897e9af4315beb7a3c46e017086fb088b16cc64e6947e038ff20a43bebff",
+        "weight.bin": "d68ae2589d899e802955fbbcbebb00bc0c33d8d6f9bf7f99083f71a136c1ad0e",
+        "expected.bin": "6ce59205760f8bfe3275827f65871402bac863bd39f813d78060d2c1a22601c0",
+        "bias.bin": "6970d45290991038addb267c1e99b4a68ced9023ede643da6591293d6bc17228"
+      },
+      "blocker": null,
+      "depthwise": false,
+      "seed": 1234,
+      "regcmd_file_words": 70,
+      "regcmd_fetch_words": 70,
+      "regcmd_padding_words": 1,
+      "regcmd_size_bytes": 560
+    },
+    {
+      "case": "simple_conv_int8_depthwise_3x3_c64_h8_w8_oc64_g64",
+      "status": "READY",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/simple_conv.py",
+      "source_lines": {
+        "shape": "kernel_6_18/simple_conv.py:66-84; kernel_6_18/conv_legacy.py:1190,1237,1248 (shape-table analogues)",
+        "pack_input": "kernel_6_18/simple_conv.py:414-435",
+        "pack_weights": "kernel_6_18/simple_conv.py:437-461",
+        "pack_biases": "kernel_6_18/simple_conv.py:463-475",
+        "build_conv_regs": "kernel_6_18/simple_conv.py:477-622",
+        "split_tasks": "kernel_6_18/simple_conv.py:366-412",
+        "terminal_tail": "kernel_6_18/simple_conv.py:624-673 (628-644)",
+        "oracle": "kernel_6_18/simple_conv.py:705-727",
+        "unpack": "kernel_6_18/simple_conv.py:693-703",
+        "output_size": "kernel_6_18/simple_conv.py:342-344"
+      },
+      "description": "INT8 quantized depthwise 3x3 valid conv, C64/H8/W8 -> OC64, groups=64; exercises CORE DW_EN and the depthwise weight layout.",
+      "shape": {
+        "name": "simple_conv_int8_depthwise_3x3_c64_h8_w8_oc64_g64",
+        "batch": 1,
+        "in_c": 64,
+        "in_h": 8,
+        "in_w": 8,
+        "out_c": 64,
+        "weight_in_c": 1,
+        "kh": 3,
+        "kw": 3,
+        "groups": 64,
+        "stride": 1
+      },
+      "dtype": {
+        "input": "uint8 (zero point 0x80)",
+        "weight": "uint8 (zero point 0x80)",
+        "bias": "int32",
+        "output": "uint8 (zero point 0x80; raw bytes are value-0x80)",
+        "accumulator": "int64 (oracle only)"
+      },
+      "layout": {
+        "input_raw": "pack_input(): [channel_group][x][y][16] bytes, values (u-0x80)&0xff",
+        "weight_raw": "pack_weights(): [oc_group][ic_group][x][y][oc_lane][ic_lane], (w-0x80)&0xff",
+        "bias_raw": "pack_biases(): int32 little-endian, length out_c",
+        "output_raw": "read_output() order: [channel_group][x][y][16], byte = (logical-0x80)&0xff",
+        "logical_output": "[1, 6, 6, 64] NHWC (y,x,c)",
+        "oracle_prefix_bytes": 2304,
+        "output_buffer_bytes": 4608,
+        "no_output_padding": false
+      },
+      "tasks": 1,
+      "regcmd_words": 69,
+      "buffers": [
+        {
+          "name": "input",
+          "size": 8192,
+          "input": "input.bin",
+          "direction": "in"
+        },
+        {
+          "name": "weight",
+          "size": 1152,
+          "input": "weight.bin",
+          "direction": "in"
+        },
+        {
+          "name": "bias",
+          "size": 256,
+          "input": "bias.bin",
+          "direction": "in"
+        },
+        {
+          "name": "out",
+          "size": 4608,
+          "direction": "out",
+          "output": "out.bin"
+        }
+      ],
+      "patches": [
+        {
+          "regcmd_index": 20,
+          "buffer": "input",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 26,
+          "buffer": "weight",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 36,
+          "buffer": "out",
+          "kind": "value32"
+        },
+        {
+          "regcmd_index": 61,
+          "buffer": "bias",
+          "kind": "value32"
+        }
+      ],
+      "oracle": {
+        "kind": "numpy_naive_quantized_conv",
+        "source": "kernel_6_18/simple_conv.py::expected_output (verbatim)",
+        "file": "expected.bin",
+        "dtype": "uint8",
+        "logical_shape": [
+          1,
+          6,
+          6,
+          64
+        ],
+        "logical_layout": "NHWC (y,x,c)",
+        "raw_bo_layout": "read_output() order: [channel_group][x][y][16], byte = (logical-0x80)&0xff",
+        "formula": "acc = bias[oc] + sum_{ky,kx,ic} input_u8[y+ky,x+kx,ic] * weight_u8[oc,kx,ky,ic]; logical = clip(round(acc * (1/255)), 0, 255); raw = (logical - 0x80) & 0xff",
+        "tolerance": {
+          "max_abs_diff_uint8": 1
+        },
+        "expected_bytes": 2304,
+        "output_buffer_bytes": 4608,
+        "compare_region": "first 2304 bytes of out.bin (used channel groups); the remaining 2304 bytes are the source's calc_raw_output_size over-allocation and are not part of the oracle",
+        "warning": "Host-side donor CPU oracle only.  Data bytes were chosen in a lower range than the example's randint(0,256) so the oracle does not clip; the source formula and register stream are unchanged."
+      },
+      "hashes": {
+        "job.json": "8996b0b08f9061eff1c307ebc24ccac7e8e6a6d242d616c2a4f0fd055b4f969e",
+        "regcmd.bin": "3b48ed10528ae4c4dc14fc3f609dda24966b672de3d2dc5c77840b55dd05ef67",
+        "input.bin": "530f72980416d45db3c1bfd8d46077ba033a4671561fc0759a8a8194b8810371",
+        "weight.bin": "04bd81ba76922e7b31a4ff8cf7d1afdcfe42a3e86f9222efda00e2c39344fd9d",
+        "expected.bin": "868f51712e2061ad2e2fd5d9f18c94517375dec0333a92f1a552e4982f6b9681",
+        "bias.bin": "fc29634f05ad27ac222a4d5d988c7a081a681546b84e0bb0c05224c2b916a7e1"
+      },
+      "blocker": null,
+      "depthwise": true,
+      "seed": 1234,
+      "regcmd_file_words": 70,
+      "regcmd_fetch_words": 70,
+      "regcmd_padding_words": 1,
+      "regcmd_size_bytes": 560
+    },
+    {
+      "case": "conv_simple_fp16_3x3_c8_h8_w8_oc16_stride2",
+      "status": "BLOCKED",
+      "source_example": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+      "source_lines": {
+        "stride_param": "expt/conv_simple.py:228-238,297-311",
+        "stride_register": "expt/conv_simple.py:408; kernel_6_18/simple_conv.py:557"
+      },
+      "description": "Intended FP16 3x3 stride-2 case (valid geometry 3x3 output).",
+      "shape": {
+        "name": "conv_simple_fp16_3x3_c8_h8_w8_oc16_stride2",
+        "batch": 1,
+        "in_c": 8,
+        "in_h": 8,
+        "in_w": 8,
+        "out_c": 16,
+        "weight_in_c": 8,
+        "kh": 3,
+        "kw": 3,
+        "groups": 1,
+        "stride": 2
+      },
+      "dtype": {},
+      "layout": {},
+      "tasks": 0,
+      "regcmd_words": 0,
+      "buffers": [],
+      "patches": [],
+      "oracle": null,
+      "hashes": {
+        "BLOCKED.md": "4ca0786e31c574f0338d594f7e6d5636ba13fe9ca2cb708972cf426404872b07"
+      },
+      "blocker": "No source path encodes a convolution stride.  The FP16 shape parser accepts an sN field (expt/conv_simple.py:228-238), but _conv_params ignores it (lines 297-311) and make_regs always writes CNA_CONV_CON3 = (1<<3)|1 = 0x9, i.e. stride 1 (expt/conv_simple.py:408).  kernel_6_18/simple_conv.py hardcodes the same value at line 557.  Emitting a stride-2 case would require a new CNA_CONV_CON3 encoding that these sources do not provide."
+    },
+    {
+      "case": "conv_simple_fp16_3x3_c8_h8_w8_oc16_samepad",
+      "status": "BLOCKED",
+      "source_example": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+      "source_lines": {
+        "valid_geometry": "expt/conv_simple.py:301; kernel_6_18/simple_conv.py:81-82",
+        "fp16_no_pad_regs": "expt/conv_simple.py:383-440",
+        "int8_pad_regs": "kernel_6_18/simple_conv.py:575,584"
+      },
+      "description": "Intended FP16 3x3 SAME-padding case.",
+      "shape": {
+        "name": "conv_simple_fp16_3x3_c8_h8_w8_oc16_samepad",
+        "batch": 1,
+        "in_c": 8,
+        "in_h": 8,
+        "in_w": 8,
+        "out_c": 16,
+        "weight_in_c": 8,
+        "kh": 3,
+        "kw": 3,
+        "groups": 1,
+        "stride": 1,
+        "padding": "same"
+      },
+      "dtype": {},
+      "layout": {},
+      "tasks": 0,
+      "regcmd_words": 0,
+      "buffers": [],
+      "patches": [],
+      "oracle": null,
+      "hashes": {
+        "BLOCKED.md": "209843451bbda0f1df6cfbc1f30c0855b7efa73ca85f04338e8ba6fdff90cc1b"
+      },
+      "blocker": "No SAME-padding path exists in the named sources.  The FP16 make_regs() never writes CNA_PAD_CON0 or CNA_PAD_CON1 (expt/conv_simple.py:383-440) and _conv_params computes out_h/out_w = in_h/in_w - k + 1, i.e. valid-only (expt/conv_simple.py:301).  The INT8 builder writes CNA_PAD_CON0 = 0 (kernel_6_18/simple_conv.py:575), sets CNA_PAD_CON1 only to a zero-point fill value (line 584), and also computes valid-only output geometry (lines 81-82).  A SAME case would require new pad-register evidence and an output-with-halo contract that the sources do not provide."
+    },
+    {
+      "case": "conv_simple_fp16_3x3_c8_h8_w8_oc16_unpadded_pack",
+      "status": "BLOCKED",
+      "source_example": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+      "source_lines": {
+        "align_c": "expt/conv_simple.py:283-286",
+        "input_pack_c2": "expt/conv_simple.py:289-294",
+        "pack_input": "expt/conv_simple.py:364-374",
+        "data_size1": "expt/conv_simple.py:393,410",
+        "known_shapes": "expt/conv_simple.py:207-217"
+      },
+      "description": "Intended small FP16 3x3 C8 case in the example style (C8/H8/W8/OC8-like); blocked by the source's input-pack/align mismatch for 5 <= in_c <= 8.",
+      "shape": {
+        "name": "conv_simple_fp16_3x3_c8_h8_w8_oc16_unpadded_pack",
+        "batch": 1,
+        "in_c": 8,
+        "in_h": 8,
+        "in_w": 8,
+        "out_c": 16,
+        "weight_in_c": 8,
+        "kh": 3,
+        "kw": 3,
+        "groups": 1,
+        "stride": 1
+      },
+      "dtype": {},
+      "layout": {},
+      "tasks": 0,
+      "regcmd_words": 0,
+      "buffers": [],
+      "patches": [],
+      "oracle": null,
+      "hashes": {
+        "BLOCKED.md": "0f9a2e25a0ddeaa2e65af9e96b58f2162de6614571e956d29588b914a70fa59b"
+      },
+      "blocker": "This C8 shape cannot be packed safely with the FP16 builder.  For in_c=8, _conv_align_c returns 16 (expt/conv_simple.py:283-286), but _conv_input_pack_c2 returns 8 (lines 289-294).  pack_input() then writes c1*c2 = 8 channels per pixel (lines 364-374), while make_regs sets CNA_DATA_SIZE1 = ((in_c-1)<<16) | data_in_channel_aligned = 0x00070010, i.e. a 16-channel aligned field (lines 393,410).  The source's own known-supported table has no C8 entry (lines 207-217), and its validated small-channel path is the <=4-channel NHWC case (C3/C4, where use_nhwc is true and the CVT fields carry the real channel count).  There is no source-supported padding contract that fills the missing 8 channels for C8 (the same gap affects 5 <= in_c <= 8).  The READY small cases therefore use C4, and the larger cases use C16/C32 where the packed channel count equals the aligned count."
+    },
+    {
+      "case": "conv_simple_fp16_grouped_3x3_c8_h8_w8_oc8_g2",
+      "status": "BLOCKED",
+      "source_example": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+      "source_lines": {
+        "fp16_no_group_field": "expt/conv_simple.py:207-217,383-440",
+        "int8_group_split": "kernel_6_18/simple_conv.py:729-759",
+        "shared_bo_overwrite": "kernel_6_18/simple_conv.py:675-691",
+        "per_group_submit": "kernel_6_18/simple_conv.py:847-872"
+      },
+      "description": "Intended FP16 grouped 3x3 conv, C8 -> OC8, groups=2.",
+      "shape": {
+        "name": "conv_simple_fp16_grouped_3x3_c8_h8_w8_oc8_g2",
+        "batch": 1,
+        "in_c": 8,
+        "in_h": 8,
+        "in_w": 8,
+        "out_c": 8,
+        "weight_in_c": 4,
+        "kh": 3,
+        "kw": 3,
+        "groups": 2,
+        "stride": 1
+      },
+      "dtype": {},
+      "layout": {},
+      "tasks": 0,
+      "regcmd_words": 0,
+      "buffers": [],
+      "patches": [],
+      "oracle": null,
+      "hashes": {
+        "BLOCKED.md": "a6b1a52b9906feaab806ae926183f8e0477dc95bb9c298146053c99e34aadecc"
+      },
+      "blocker": "The grouped path cannot be expressed safely from these sources.  The FP16 make_regs() has no group-count register and its known-supported table has no grouped entry (expt/conv_simple.py:207-217,383-440).  The only grouped implementation is kernel_6_18/simple_conv.py::run_conv2d_grouped (lines 729-759), which slices input/weight/bias and calls run_conv2d_shape once per group; each call overwrites the shared BOs in write_buffers (lines 675-691) and does its own npu_submit (lines 871-872).  A single bundle would therefore need per-group BOs plus a multi-task PC chain, and the chain's PC_BASE_ADDRESS would have to be regcmd_addr + task_offset.  The bundle patch schema can only bind named buffer addresses, not the regcmd self-address, so the chain cannot be encoded without leaving an unpatched address."
+    },
+    {
+      "case": "simple_conv_int8_addition_c8_h8_w8_oc32",
+      "status": "BLOCKED",
+      "source_example": "/home/fedora/rk3588/examples/kernel_6_18/simple_conv.py",
+      "source_lines": {
+        "shape_knobs": "kernel_6_18/simple_conv.py:83-84",
+        "reg_usage_only": "kernel_6_18/simple_conv.py:523-531",
+        "no_addition_bo": "kernel_6_18/simple_conv.py:675-691,298-305"
+      },
+      "description": "Intended INT8 residual/addition-input 3x3 case.",
+      "shape": {
+        "name": "simple_conv_int8_addition_c8_h8_w8_oc32",
+        "batch": 1,
+        "in_c": 8,
+        "in_h": 8,
+        "in_w": 8,
+        "out_c": 32,
+        "weight_in_c": 8,
+        "kh": 3,
+        "kw": 3,
+        "groups": 1,
+        "stride": 1,
+        "addition_input": true
+      },
+      "dtype": {},
+      "layout": {},
+      "tasks": 0,
+      "regcmd_words": 0,
+      "buffers": [],
+      "patches": [],
+      "oracle": null,
+      "hashes": {
+        "BLOCKED.md": "066a48fd8f0877fb7d6010d0d97c05a690de73a7089cb614ea900a7982387390"
+      },
+      "blocker": "The source's addition-input knobs are not a usable ABI.  use_shape() reads addition_input/add_tensor (kernel_6_18/simple_conv.py:83-84), but build_conv_regs() uses them only to change CNA_PAD_CON1 and the single-channel CVT scale (lines 523-531); add_tensor is never written to an address register.  write_buffers() allocates and packs only input/weight/bias/output (lines 675-691), and npu_submit() submits no addition tensor BO (lines 298-305).  A residual case would require a vendor-only addition-input stream and a second feature buffer, which these sources do not construct."
+    }
+  ],
+  "parity_padding": {
+    "reason": "Rocket PC fetch amount is expressed in QWORD pairs; an odd declared count fetches one extra QWORD.",
+    "applied_to": "all READY cases",
+    "qwords": 1,
+    "value": 0,
+    "executed": false,
+    "declared_words_field": "job.json tasks[].regcmd_words",
+    "file_words_fields": [
+      "manifest.cases[].regcmd_file_words",
+      "manifest.cases[].regcmd_fetch_words",
+      "manifest.cases[].regcmd_size_bytes"
+    ]
+  }
+}

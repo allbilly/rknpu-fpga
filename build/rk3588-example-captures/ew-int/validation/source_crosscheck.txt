@@ -1,0 +1,21 @@
+RK3588 integer EW source cross-check
+python 3.14.8  numpy 2.4.6
+kernel source sha256 825c7c2166eed48fd73fc1d31655238928b0fd5677df539d17f7301dc671d329
+expt   source sha256 1c6a43b0d928b744420f4db1762527f5bbb52c7cc92dc2d1ef0aba2ff94b95f8
+function/constant comparisons: 2312
+cases checked: 15  failed: 0
+  PASS int8_add_c8_w1: source.make_regcmds, source.integer_expected, expected.bin + expected.mask.bin
+  PASS int8_max_c8_w1: source.make_regcmds, source.integer_expected, expected.bin + expected.mask.bin
+  PASS int8_min_c8_w1: source.make_regcmds, source.integer_expected, expected.bin + expected.mask.bin
+  PASS int8_mul_c8_w1: source.make_regcmds, source.integer_expected, expected.bin + expected.mask.bin
+  PASS int16_add_c8_w1: source.make_regcmds, source.integer_expected, expected.bin + expected.mask.bin
+  PASS int16_minus_c8_w1: source.make_regcmds, source.integer_expected, expected.bin + expected.mask.bin
+  PASS int16_mul_c8_w1: source.make_regcmds, source.integer_expected, expected.bin + expected.mask.bin
+  PASS int32_add_c8_w2: source.make_regcmds, source.integer_expected, expected.bin + expected.mask.bin
+  PASS int32_max_c8_w2: source.make_regcmds, source.integer_expected, expected.bin + expected.mask.bin
+  PASS int32_mul_int16_operand_c8_w2: source.make_regcmds, source-captured signed-INT16 MUL operand model, expected.bin + expected.mask.bin
+  PASS int8_add_c9_w1_layout: expt.unpack_c1wc2 inputs, expt.integer_expected oracle, expt.pack_c1wc2 expected+mask, expected.bin + expected.mask.bin
+  PASS int16_add_c9_w1_layout: expt.unpack_c1wc2 inputs, expt.integer_expected oracle, expt.pack_c1wc2 expected+mask, expected.bin + expected.mask.bin
+  PASS int16_minus_c9_w1_layout: expt.unpack_c1wc2 inputs, expt.integer_expected oracle, expt.pack_c1wc2 expected+mask, expected.bin + expected.mask.bin
+  PASS int32_add_c9_w1_layout: expt.unpack_c1wc2 inputs, expt.integer_expected oracle, expt.pack_c1wc2 expected+mask, expected.bin + expected.mask.bin
+  PASS int16_add_to_int32_c8_w1: source.run_int16_add_to_int32 captured commands, source payloads, expected.bin + expected.mask.bin

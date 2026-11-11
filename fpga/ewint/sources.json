@@ -1,0 +1,26 @@
+{
+  "profile": "host-jtag-ew-int-bram",
+  "top": "ypcb_jtag_ew_int_top",
+  "part": "xc7k480tffg1156-2",
+  "clock_period_ns": 20.0,
+  "tck_period_ns": 166.666,
+  "jtag_chain": 2,
+  "memory_bytes": 1048576,
+  "memory_base": "10000000",
+  "constraints": "fpga/host/ypcb_jtag_ew.xdc",
+  "cdc": "fpga/host/mailbox_cdc.tcl",
+  "synthesis": [
+    "rtl/rk_int_alu.sv",
+    "rtl/rk_ew_int_regs.sv",
+    "rtl/rk_ew_int_engine.sv",
+    "rtl/rk_ew_int_dma.sv",
+    "rtl/rk_bram.sv",
+    "rtl/rk_job_control.sv",
+    "rtl/rk_startup_reset.sv",
+    "rtl/host/rk_jtag_backend.sv",
+    "rtl/host/rk_jtag_ew_int_bram.sv",
+    "rtl/vendor/opentpu/otpu_jtag_mailbox.sv",
+    "fpga/ewint/ypcb_jtag_ew_int_top.sv"
+  ],
+  "scope": "Separate host-controlled evidenced INTEGER EW BRAM milestone (INT8/INT16/INT32 ADD/MINUS/MUL/MAX/MIN, captured shapes only). Same audited USB-JTAG/USER2 BRAM shell as the FP16 EW image. Not DDR, PCIe, DRM compatibility, the full C32/K16 target or physical timing qualification."
+}

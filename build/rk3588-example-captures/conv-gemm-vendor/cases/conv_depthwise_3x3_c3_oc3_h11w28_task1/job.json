@@ -1,0 +1,49 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "input.bin",
+      "name": "input",
+      "size": 4928
+    },
+    {
+      "direction": "in",
+      "input": "weight.bin",
+      "name": "weight",
+      "size": 4096
+    },
+    {
+      "direction": "out",
+      "name": "output",
+      "output": "output.bin",
+      "size": 15104
+    }
+  ],
+  "case": "conv_depthwise_3x3_c3_oc3_h11w28_task1",
+  "description": "Task 1 of the source depthwise double submit, isolated as a one-task Rocket job: FP16 depthwise 3x3 conv from conv_legacy.py, C3/OC3/G3, H11/W28 -> H9/W26; seed-42 random inputs/weights keep the FP16 oracle finite",
+  "patches": [
+    {
+      "buffer": "input",
+      "kind": "value32",
+      "regcmd_index": 18
+    },
+    {
+      "buffer": "weight",
+      "kind": "value32",
+      "regcmd_index": 24
+    },
+    {
+      "buffer": "output",
+      "kind": "value32",
+      "regcmd_index": 32
+    }
+  ],
+  "source_example": "/home/fedora/rk3588/examples/conv_legacy.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 52
+    }
+  ],
+  "timeout_ns": 6000000000
+}

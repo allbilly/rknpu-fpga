@@ -1,0 +1,39 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "in.bin",
+      "name": "in",
+      "size": 4096
+    },
+    {
+      "direction": "inout",
+      "input": "out_init.bin",
+      "name": "out",
+      "output": "out.bin",
+      "size": 4096
+    }
+  ],
+  "case": "int8_avg_q16_k3x3_valid_c16_h3w3",
+  "description": "INT8 average pooling, 3x3 kernel and stride, C16 H3 W3 -> H1 W1; Q16 reciprocals round(65536/3)=0x5555; exact integer means. Source isolated probe.",
+  "patches": [
+    {
+      "buffer": "out",
+      "kind": "value32",
+      "regcmd_index": 15
+    },
+    {
+      "buffer": "in",
+      "kind": "value32",
+      "regcmd_index": 22
+    }
+  ],
+  "source_example": "/home/fedora/rk3588/examples/expt/pooling.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 28
+    }
+  ],
+  "timeout_ns": 6000000000
+}

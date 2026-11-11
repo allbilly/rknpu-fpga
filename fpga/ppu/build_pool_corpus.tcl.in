@@ -1,0 +1,134 @@
+# Rendered by tools/ppu/vivado_pool_corpus.py from fpga/ppu/corpus_sources.json.
+# Standalone Vivado build for the pin-free pooling-corpus image.
+# No hardware connection, automatic FPGA programming or flash writing occurs.
+set root @ROOT@
+set out @OUT@
+set emit_bitstream 0
+if {[info exists ::env(RK_EMIT_BITSTREAM)]} { set emit_bitstream $::env(RK_EMIT_BITSTREAM) }
+if {$emit_bitstream ni {0 1}} { error "RK_EMIT_BITSTREAM must be 0 or 1." }
+if {![info exists ::env(RK_CONFIRM_BOARD)] || $::env(RK_CONFIRM_BOARD) ne "YPCB_00338_1P1"} {
+    error "Set RK_CONFIRM_BOARD=YPCB_00338_1P1 only after checking the XDC against your board."
+}
+# LED polarity is a board fact the donor design records as UNVERIFIED. It is
+# supplied explicitly, never defaulted, and only required when emitting.
+set emit_polarity 0
+if {[info exists ::env(RK_LED_ACTIVE_LOW)]} {
+    if {$::env(RK_LED_ACTIVE_LOW) ni {0 1}} { error "RK_LED_ACTIVE_LOW must be 0 or 1." }
+    set emit_polarity $::env(RK_LED_ACTIVE_LOW)
+} elseif {$emit_bitstream} {
+    error "Set RK_LED_ACTIVE_LOW=0|1 after observing the board's LEDs; it is unverified in the donor sources."
+}
+set have_voltage [info exists ::env(RK_CONFIG_VOLTAGE)]
+set have_cfgbvs [info exists ::env(RK_CFGBVS)]
+if {$emit_bitstream || $have_voltage || $have_cfgbvs} {
+    if {!$have_voltage || !$have_cfgbvs} {
+        error "Supply both board-verified RK_CONFIG_VOLTAGE and RK_CFGBVS; see docs/FPGA.md."
+    }
+    if {$::env(RK_CONFIG_VOLTAGE) ni {1.5 1.8 2.5 3.3}} { error "Invalid RK_CONFIG_VOLTAGE." }
+    if {$::env(RK_CFGBVS) ni {GND VCCO}} { error "RK_CFGBVS must be GND or VCCO." }
+    if {($::env(RK_CONFIG_VOLTAGE) in {1.5 1.8} && $::env(RK_CFGBVS) ne "GND") ||
+        ($::env(RK_CONFIG_VOLTAGE) in {2.5 3.3} && $::env(RK_CFGBVS) ne "VCCO")} {
+        error "Incompatible RK_CONFIG_VOLTAGE/RK_CFGBVS pair; verify the actual board supplies and strap."
+    }
+}
+file mkdir $out
+create_project -in_memory -part @PART@
+set_property include_dirs [list @INCLUDE_DIRS@] [current_fileset]
+set_property verilog_define {DESIGNWARE_NOEXIST} [current_fileset]
+@READ_SOURCES@
+read_xdc @CONSTRAINTS@
+# Build-tool thread setting only: it does not change synthesis/implementation
+# results or the unchanged timing/DRC gates below. Kept at 2 on this host.
+set_param general.maxThreads @MAX_THREADS@
+synth_design -top @TOP@ -part @PART@ -generic LED_ACTIVE_LOW=$emit_polarity -generic N_PAGES=@N_PAGES@
+# Apply the reviewed USER2 mailbox CDC constraints and audits, unchanged from
+# the adopted six-page USER2 image.
+source @CDC@
+rk_host_cdc_constrain
+if {$have_voltage} {
+    set_property CONFIG_VOLTAGE $::env(RK_CONFIG_VOLTAGE) [current_design]
+    set_property CFGBVS $::env(RK_CFGBVS) [current_design]
+}
+set clocks [get_clocks -quiet sys_clk]
+if {[llength $clocks] != 1} { error "Expected exactly one sys_clk constraint." }
+set clock_period [get_property PERIOD [lindex $clocks 0]]
+if {![string is double -strict $clock_period] || [catch {expr {double($clock_period) == 20.0}} expected_clock] || !$expected_clock} {
+    error "Expected the unchanged 20.000 ns sys_clk constraint."
+}
+set brams [get_cells -hierarchical -filter {REF_NAME == RAMB18E1 || REF_NAME == RAMB36E1}]
+if {[llength $brams] == 0} { error "No block RAM inferred for the shared memory aperture." }
+# Every corpus page must be present and kept as a named instance. A missing
+# page would shrink the image and still pass timing/DRC, so the count is
+# asserted before implementation.
+# Count the page *instances* by their module type. Filtering on the instance
+# NAME pattern (*g_pages*pool_page*) matches every descendant cell of each page
+# (a few thousand per page), so its length can never equal the expected page
+# count; the type filter is the structurally correct presence check.
+# Vivado uniquifies parameterised instances during synthesis (the 19 pages
+# elaborate as rk_ppu_pool_corpus_axi, rk_ppu_pool_corpus_axi_0, ...), so an
+# exact REF_NAME comparison matches only one cell. Match the module-name prefix
+# and require the page instance path so an unrelated cell cannot satisfy it.
+set page_cells [get_cells -hierarchical -filter "NAME =~ *g_pages*pool_page* && REF_NAME =~ rk_ppu_pool_corpus_axi*"]
+if {[llength $page_cells] != @N_PAGES@} {
+    error "Expected exactly @N_PAGES@ elaborated corpus pages, found [llength $page_cells]"
+}
+set bscan [get_cells -hierarchical -filter {REF_NAME == BSCANE2}]
+if {[llength $bscan] != 1} { error "Expected exactly one USER2 BSCANE2 primitive." }
+if {[get_property JTAG_CHAIN [lindex $bscan 0]] != 2} { error "Expected JTAG_CHAIN=2." }
+write_checkpoint -force [file join $out post_synth.dcp]
+report_utilization -file [file join $out utilization_synth.rpt]
+opt_design
+place_design
+phys_opt_design
+route_design
+write_checkpoint -force [file join $out routed.dcp]
+report_utilization -file [file join $out utilization.rpt]
+report_route_status -file [file join $out route_status.rpt]
+report_timing_summary -delay_type min_max -report_unconstrained -file [file join $out timing.rpt]
+report_pulse_width -file [file join $out pulse_width.rpt]
+check_timing -verbose -file [file join $out check_timing.rpt]
+report_drc -file [file join $out drc.rpt]
+rk_host_cdc_audit $out
+foreach check {no_clock unconstrained_internal_endpoints} {
+    set detail [check_timing -override_defaults $check -no_header -return_string]
+    set channel [open [file join $out check_timing_${check}.rpt] w]
+    puts $channel $detail
+    close $channel
+    set heading [format {(?im)^\s*(?:[0-9]+\.\s*)?checking\s+%s(?:\s*\([0-9]+\))?\.?\s*$} $check]
+    if {![regexp $heading $detail]} {
+        error "Unrecognized $check timing report; no bitstream is emitted."
+    }
+    set summaries 0
+    foreach line [split $detail \n] {
+        if {[regexp {^\s*There are ([0-9]+) .+} $line -> count]} {
+            incr summaries
+            if {$count != 0} { error "Unresolved $check timing findings ($count); no bitstream is emitted." }
+        } elseif {[regexp -nocase {there are} $line]} {
+            error "Unrecognized $check timing count; no bitstream is emitted."
+        }
+    }
+    if {$summaries == 0} { error "Missing $check timing count; no bitstream is emitted." }
+}
+foreach delay_type {max min} {
+    set paths [get_timing_paths -delay_type $delay_type -max_paths 1]
+    if {[llength $paths] == 0} { error "No $delay_type timing paths found; inspect constraints." }
+    foreach path $paths {
+        set slack [get_property SLACK $path]
+        if {![string is double -strict $slack] ||
+            [catch {expr {abs(double($slack)) < Inf}} finite] || !$finite} {
+            error "Invalid $delay_type slack ($slack); no bitstream is emitted."
+        }
+        if {$slack < 0} { error "Negative $delay_type slack ($slack ns): no bitstream is emitted." }
+    }
+}
+foreach violation [get_drc_violations] {
+    set severity [string toupper [get_property SEVERITY $violation]]
+    if {$severity ni {WARNING ADVISORY INFO}} {
+        error "Blocking DRC violation $violation (severity $severity)."
+    }
+}
+puts "Routed pooling-corpus checkpoint/reports produced. Review timing, DRC, BRAM inference and CDC audit."
+if {$emit_bitstream} {
+    write_bitstream -force [file join $out @BITSTREAM@]
+    puts "Pin-free pooling-corpus bitstream written; NOT programmed."
+} else { puts "RK_EMIT_BITSTREAM not set: stopped at routed checkpoint, no .bit generated." }

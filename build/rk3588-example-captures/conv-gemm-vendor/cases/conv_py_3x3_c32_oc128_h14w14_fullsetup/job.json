@@ -1,0 +1,49 @@
+{
+  "buffers": [
+    {
+      "direction": "in",
+      "input": "input.bin",
+      "name": "input",
+      "size": 12544
+    },
+    {
+      "direction": "in",
+      "input": "weight.bin",
+      "name": "weight",
+      "size": 73728
+    },
+    {
+      "direction": "out",
+      "name": "output",
+      "output": "output.bin",
+      "size": 36864
+    }
+  ],
+  "case": "conv_py_3x3_c32_oc128_h14w14_fullsetup",
+  "description": "FP16 3x3 valid conv from conv.py planner (full 108-QWORD setup row), C32/H14/W14 -> OC128/H12/W12, single setup/NONE task",
+  "patches": [
+    {
+      "buffer": "input",
+      "kind": "value32",
+      "regcmd_index": 25
+    },
+    {
+      "buffer": "weight",
+      "kind": "value32",
+      "regcmd_index": 34
+    },
+    {
+      "buffer": "output",
+      "kind": "value32",
+      "regcmd_index": 61
+    }
+  ],
+  "source_example": "/home/fedora/rk3588/examples/conv.py",
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 112
+    }
+  ],
+  "timeout_ns": 6000000000
+}

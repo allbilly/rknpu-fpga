@@ -1,0 +1,49 @@
+{
+  "case": "conv_3x3_stride2_c4_h11_w11_oc4",
+  "source_example": "/home/fedora/rk3588/examples/kernel_6_18/conv_new_clean.py",
+  "description": "FP16 3x3 valid convolution with stride 2, C4 H11 W11 -> OC4 5x5, groups 1.",
+  "timeout_ns": 6000000000,
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 54
+    }
+  ],
+  "buffers": [
+    {
+      "name": "a",
+      "size": 3872,
+      "input": "a.bin",
+      "direction": "in"
+    },
+    {
+      "name": "w",
+      "size": 1152,
+      "input": "w.bin",
+      "direction": "in"
+    },
+    {
+      "name": "out",
+      "size": 1792,
+      "direction": "out",
+      "output": "out.bin"
+    }
+  ],
+  "patches": [
+    {
+      "regcmd_index": 21,
+      "buffer": "a",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 27,
+      "buffer": "w",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 35,
+      "buffer": "out",
+      "kind": "value32"
+    }
+  ]
+}

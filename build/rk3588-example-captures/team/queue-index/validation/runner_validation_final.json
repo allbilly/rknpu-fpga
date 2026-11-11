@@ -1,0 +1,63 @@
+{
+  "exit_status": 1,
+  "count": 119,
+  "ok": 110,
+  "fail": 9,
+  "fails": [
+    [
+      "build/rk3588-example-captures/conv-gemm-vendor/cases/conv_depthwise_3x3_c3_oc3_h11w28",
+      [
+        "job.json tasks[0] and tasks[1] overlap in the QWORD-pair fetch range ([0, 52) from 52 words and [0, 52) from 52 words)"
+      ]
+    ],
+    [
+      "build/rk3588-example-captures/conv-simple/cases/conv_simple_fp16_1x1_c4_h8_w8_oc16",
+      [
+        "job.json tasks[0]: declared words [0, 51) fetch as QWORD pairs [0, 52), which exceed regcmd.bin's 51 QWORDs"
+      ]
+    ],
+    [
+      "build/rk3588-example-captures/conv-simple/cases/conv_simple_fp16_3x3_c4_h8_w8_oc16",
+      [
+        "job.json tasks[0]: declared words [0, 51) fetch as QWORD pairs [0, 52), which exceed regcmd.bin's 51 QWORDs"
+      ]
+    ],
+    [
+      "build/rk3588-example-captures/conv-simple/cases/conv_simple_fp16_5x5_c4_h8_w8_oc16",
+      [
+        "job.json tasks[0]: declared words [0, 51) fetch as QWORD pairs [0, 52), which exceed regcmd.bin's 51 QWORDs"
+      ]
+    ],
+    [
+      "build/rk3588-example-captures/conv-simple/cases/conv_simple_fp16_1x1_c32_h8_w8_oc32",
+      [
+        "job.json tasks[0]: declared words [0, 51) fetch as QWORD pairs [0, 52), which exceed regcmd.bin's 51 QWORDs"
+      ]
+    ],
+    [
+      "build/rk3588-example-captures/conv-simple/cases/conv_simple_fp16_3x3_c16_h8_w8_oc32",
+      [
+        "job.json tasks[0]: declared words [0, 51) fetch as QWORD pairs [0, 52), which exceed regcmd.bin's 51 QWORDs"
+      ]
+    ],
+    [
+      "build/rk3588-example-captures/conv-simple/cases/simple_conv_int8_5x5_c8_h8_w8_oc32",
+      [
+        "job.json tasks[0]: declared words [0, 69) fetch as QWORD pairs [0, 70), which exceed regcmd.bin's 69 QWORDs"
+      ]
+    ],
+    [
+      "build/rk3588-example-captures/conv-simple/cases/simple_conv_int8_depthwise_3x3_c64_h8_w8_oc64_g64",
+      [
+        "job.json tasks[0]: declared words [0, 69) fetch as QWORD pairs [0, 70), which exceed regcmd.bin's 69 QWORDs"
+      ]
+    ],
+    [
+      "build/rk3588-example-captures/ew-int/cases/int16_add_to_int32_c8_w1",
+      [
+        "job.json tasks[0]: declared words [0, 31) fetch as QWORD pairs [0, 32), which exceed regcmd.bin's 31 QWORDs"
+      ]
+    ]
+  ],
+  "runner_sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd"
+}

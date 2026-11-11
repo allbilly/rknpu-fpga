@@ -1,0 +1,14 @@
+conv_1x1_valid_c8_h5_w5_oc8                          out   exact_bytes=YES byte_diff=0 elem_bits_diff=0 max_abs=0 over_atol=0/200 pad_nonzero=175/600 tail_nonzero=0/0
+conv_3x3_valid_c4_h9_w9_oc4                          out   exact_bytes=YES byte_diff=0 elem_bits_diff=0 max_abs=0 over_atol=0/196 pad_nonzero=539/1468 tail_nonzero=0/96
+conv_3x3_stride2_c4_h11_w11_oc4                      out   exact_bytes=YES byte_diff=0 elem_bits_diff=0 max_abs=0 over_atol=0/100 pad_nonzero=275/796 tail_nonzero=0/96
+conv_3x3_pad1_zero_frame_c4_h9_w9_oc4                out   exact_bytes=YES byte_diff=0 elem_bits_diff=0 max_abs=0 over_atol=0/324 pad_nonzero=891/2364 tail_nonzero=0/96
+conv_depthwise_3x3_c3_h11_w28_oc3                    out   exact_bytes=YES byte_diff=0 elem_bits_diff=0 max_abs=0 over_atol=0/702 pad_nonzero=0/6850 tail_nonzero=0/64
+conv_grouped_3x3_c4_h5_w5_oc8_g2_task0               out0  exact_bytes=YES byte_diff=0 elem_bits_diff=0 max_abs=0 over_atol=0/36 pad_nonzero=0/348 tail_nonzero=0/96
+conv_grouped_3x3_c4_h5_w5_oc8_g2_task0               evidence=evidence_diagnostic_out0.bin raw_equal=False raw_diff_bytes=72 first=8
+conv_grouped_3x3_c4_h5_w5_oc8_g2_task1               out1  exact_bytes=YES byte_diff=0 elem_bits_diff=0 max_abs=0 over_atol=0/36 pad_nonzero=0/348 tail_nonzero=0/96
+conv_grouped_3x3_c4_h5_w5_oc8_g2_task1               evidence=evidence_diagnostic_out1.bin raw_equal=False raw_diff_bytes=72 first=8
+conv_splitoc_3x3_c16_h9_w9_oc16_task0                out0  exact_bytes=YES byte_diff=0 elem_bits_diff=0 max_abs=0 over_atol=0/392 pad_nonzero=0/1272 tail_nonzero=0/96
+conv_splitoc_3x3_c16_h9_w9_oc16_task0                evidence=evidence_diagnostic_out0.bin raw_equal=True raw_diff_bytes=0 first=None
+conv_splitoc_3x3_c16_h9_w9_oc16_task1                out1  exact_bytes=YES byte_diff=0 elem_bits_diff=0 max_abs=0 over_atol=0/392 pad_nonzero=0/1272 tail_nonzero=0/96
+conv_splitoc_3x3_c16_h9_w9_oc16_task1                evidence=evidence_diagnostic_out1.bin raw_equal=True raw_diff_bytes=0 first=None
+SUMMARY cases=9 exact_all=9 tolerance_all=9 all_ok=True

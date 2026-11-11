@@ -1,0 +1,87 @@
+# ew-fp16 local validation
+# generated_utc: 2026-11-05T20:02:46Z
+# python: Python 3.14.8
+# numpy: 2.4.6
+# command: cd /home/fedora/rknpu-fpga/build/rk3588-example-captures/ew-fp16 && /usr/bin/python3 tools/validate.py
+
+add_p1_n8: OK  status=READY n=8 padded=8 op=ADD pattern=p1
+add_p2_n8: OK  status=READY n=8 padded=8 op=ADD pattern=p2
+add_p1_n9: OK  status=READY n=9 padded=16 op=ADD pattern=p1
+add_p2_n9: OK  status=READY n=9 padded=16 op=ADD pattern=p2
+add_p1_n33: OK  status=READY n=33 padded=40 op=ADD pattern=p1
+add_p2_n33: OK  status=READY n=33 padded=40 op=ADD pattern=p2
+add_p1_n1: OK  status=READY n=1 padded=8 op=ADD pattern=p1
+add_p1_n7: OK  status=READY n=7 padded=8 op=ADD pattern=p1
+add_p1_n1024: OK  status=READY n=1024 padded=1024 op=ADD pattern=p1
+sub_p1_n8: OK  status=READY n=8 padded=8 op=SUB pattern=p1
+sub_p2_n8: OK  status=READY n=8 padded=8 op=SUB pattern=p2
+sub_p1_n9: OK  status=READY n=9 padded=16 op=SUB pattern=p1
+sub_p2_n9: OK  status=READY n=9 padded=16 op=SUB pattern=p2
+sub_p1_n33: OK  status=READY n=33 padded=40 op=SUB pattern=p1
+sub_p2_n33: OK  status=READY n=33 padded=40 op=SUB pattern=p2
+sub_p1_n1: OK  status=READY n=1 padded=8 op=SUB pattern=p1
+sub_p1_n7: OK  status=READY n=7 padded=8 op=SUB pattern=p1
+sub_p1_n1024: OK  status=READY n=1024 padded=1024 op=SUB pattern=p1
+mul_p1_n8: OK  status=READY n=8 padded=8 op=MUL pattern=p1
+mul_p2_n8: OK  status=READY n=8 padded=8 op=MUL pattern=p2
+mul_p1_n9: OK  status=READY n=9 padded=16 op=MUL pattern=p1
+mul_p2_n9: OK  status=READY n=9 padded=16 op=MUL pattern=p2
+mul_p1_n33: OK  status=READY n=33 padded=40 op=MUL pattern=p1
+mul_p2_n33: OK  status=READY n=33 padded=40 op=MUL pattern=p2
+mul_p1_n1: OK  status=READY n=1 padded=8 op=MUL pattern=p1
+mul_p1_n7: OK  status=READY n=7 padded=8 op=MUL pattern=p1
+mul_p1_n1024: OK  status=READY n=1024 padded=1024 op=MUL pattern=p1
+max_p1_n8: OK  status=READY n=8 padded=8 op=MAX pattern=p1
+max_p2_n8: OK  status=READY n=8 padded=8 op=MAX pattern=p2
+max_p1_n9: OK  status=READY n=9 padded=16 op=MAX pattern=p1
+max_p2_n9: OK  status=READY n=9 padded=16 op=MAX pattern=p2
+max_p1_n33: OK  status=READY n=33 padded=40 op=MAX pattern=p1
+max_p2_n33: OK  status=READY n=33 padded=40 op=MAX pattern=p2
+max_p1_n1: OK  status=READY n=1 padded=8 op=MAX pattern=p1
+max_p1_n7: OK  status=READY n=7 padded=8 op=MAX pattern=p1
+max_p1_n1024: OK  status=READY n=1024 padded=1024 op=MAX pattern=p1
+neg_p1_n8: OK  status=READY n=8 padded=8 op=NEG pattern=p1
+neg_p2_n8: OK  status=READY n=8 padded=8 op=NEG pattern=p2
+neg_p1_n9: OK  status=READY n=9 padded=16 op=NEG pattern=p1
+neg_p2_n9: OK  status=READY n=9 padded=16 op=NEG pattern=p2
+neg_p1_n33: OK  status=READY n=33 padded=40 op=NEG pattern=p1
+neg_p2_n33: OK  status=READY n=33 padded=40 op=NEG pattern=p2
+neg_p1_n1: OK  status=READY n=1 padded=8 op=NEG pattern=p1
+neg_p1_n7: OK  status=READY n=7 padded=8 op=NEG pattern=p1
+neg_p1_n1024: OK  status=READY n=1024 padded=1024 op=NEG pattern=p1
+fdiv_p1_n8: OK  status=READY n=8 padded=8 op=FDIV pattern=p1
+fdiv_p2_n8: OK  status=READY n=8 padded=8 op=FDIV pattern=p2
+fdiv_p1_n9: OK  status=READY n=9 padded=16 op=FDIV pattern=p1
+fdiv_p2_n9: OK  status=READY n=9 padded=16 op=FDIV pattern=p2
+fdiv_p1_n33: OK  status=READY n=33 padded=40 op=FDIV pattern=p1
+fdiv_p2_n33: OK  status=READY n=33 padded=40 op=FDIV pattern=p2
+fdiv_p1_n1: OK  status=READY n=1 padded=8 op=FDIV pattern=p1
+fdiv_p1_n7: OK  status=READY n=7 padded=8 op=FDIV pattern=p1
+fdiv_p1_n1024: OK  status=READY n=1024 padded=1024 op=FDIV pattern=p1
+
+cases: 54 total, 54 READY, 0 BLOCKED
+oracle recompute: numpy 2.4.6, 54 checked, 0 mismatches
+structural errors: 0
+result: PASS
+
+exit_status=0
+
+# secondary structural-only run (default Python without numpy):
+# command: /home/linuxbrew/.linuxbrew/bin/python3 tools/validate.py
+
+cases: 54 total, 54 READY, 0 BLOCKED
+oracle recompute: SKIP (numpy unavailable)
+structural errors: 0
+result: PASS
+
+# SHA256SUMS verification:
+files_ok=274
+sha256sum_exit=0
+
+# negative control (temporary copy, not a bundle):
+#   truncated regcmd.bin 176->168 bytes, patch index 99, buffer size 2048
+#   validator detected: regcmd length, patch range/field, buffer size, manifest hash, bundle hash
+#   negative-control result: FAIL (exit 1)
+
+# repo generated-source check:
+#   make generated-check -> PASS (Demo generated files match)

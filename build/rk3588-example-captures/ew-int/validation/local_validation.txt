@@ -1,0 +1,20 @@
+RK3588 integer EW local bundle validation
+READY 15  BLOCKED 3  FAILED 0
+  PASS READY   int8_add_c8_w1
+  PASS READY   int8_max_c8_w1
+  PASS READY   int8_min_c8_w1
+  PASS READY   int8_mul_c8_w1
+  PASS READY   int16_add_c8_w1
+  PASS READY   int16_minus_c8_w1
+  PASS READY   int16_mul_c8_w1
+  PASS READY   int32_add_c8_w2
+  PASS READY   int32_max_c8_w2
+  PASS READY   int32_mul_int16_operand_c8_w2
+  PASS READY   int8_add_c9_w1_layout
+  PASS READY   int16_add_c9_w1_layout
+  PASS READY   int16_minus_c9_w1_layout
+  PASS READY   int32_add_c9_w1_layout
+  PASS READY   int16_add_to_int32_c8_w1
+  PASS BLOCKED int32_div_c8_w2
+  PASS BLOCKED fp16_four_input_sum_c8_w1
+  PASS BLOCKED fp16_bs_bn_relu_prelu_c8_w1

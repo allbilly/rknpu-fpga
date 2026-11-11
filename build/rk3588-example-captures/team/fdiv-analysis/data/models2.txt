@@ -1,0 +1,26 @@
+final_ulp_quantum: mismatches=0 first=[]
+normalized_14bit: mismatches=2 first=[('real-rocket-fdiv8-finite-sweep', 11, 2), ('real-rocket-fdiv8-finite-sweep', 30, 32770)]
+
+Subnormal-result inexact lanes:
+  real-rocket-fdiv8-special[17] A=0x0001 B=0x4000 obs=0x0000 n=0 r=0.500000 final=0x0000 norm14=0x0000
+  real-rocket-fdiv8-special[22] A=0x0001 B=0x7bff obs=0x0000 n=0 r=0.000015 final=0x0000 norm14=0x0000
+  real-rocket-fdiv8-special[23] A=0x8001 B=0x4000 obs=0x8000 n=0 r=0.500000 final=0x8000 norm14=0x8000
+  real-rocket-fdiv8-finite-sweep[5] A=0x4200 B=0x7bff obs=0x0300 n=768 r=0.375183 final=0x0300 norm14=0x0300
+  real-rocket-fdiv8-finite-sweep[6] A=0x0001 B=0x4000 obs=0x0000 n=0 r=0.500000 final=0x0000 norm14=0x0000
+  real-rocket-fdiv8-finite-sweep[7] A=0x0400 B=0x4200 obs=0x0155 n=341 r=0.333333 final=0x0155 norm14=0x0155
+  real-rocket-fdiv8-finite-sweep[11] A=0x0003 B=0x4000 obs=0x0002 n=1 r=0.500000 final=0x0002 norm14=0x0001
+  real-rocket-fdiv8-finite-sweep[12] A=0x0005 B=0x4000 obs=0x0002 n=2 r=0.500000 final=0x0002 norm14=0x0002
+  real-rocket-fdiv8-finite-sweep[14] A=0x0401 B=0x4000 obs=0x0200 n=512 r=0.500000 final=0x0200 norm14=0x0200
+  real-rocket-fdiv8-finite-sweep[28] A=0x8001 B=0x4000 obs=0x8000 n=0 r=0.500000 final=0x8000 norm14=0x8000
+  real-rocket-fdiv8-finite-sweep[29] A=0x8001 B=0x4200 obs=0x8000 n=0 r=0.333333 final=0x8000 norm14=0x8000
+  real-rocket-fdiv8-finite-sweep[30] A=0x8003 B=0x4000 obs=0x8002 n=1 r=0.500000 final=0x8002 norm14=0x8001
+
+numpy=2.4.6
+special donor-vs-device mismatches: 6
+  [2] donor=0xfe00 device=0x7c01 A=0x0000 B=0x0000
+  [3] donor=0xfe00 device=0xfc00 A=0x8000 B=0x0000
+  [4] donor=0xfe00 device=0x7c00 A=0x7c00 B=0x7c00
+  [5] donor=0xfe00 device=0xfc00 A=0xfc00 B=0x7c00
+  [11] donor=0x7e00 device=0x7c01 A=0x7e00 B=0x3c00
+  [12] donor=0x7e00 device=0x7c01 A=0x3c00 B=0x7e00
+finite_sweep donor-vs-device mismatches: 0

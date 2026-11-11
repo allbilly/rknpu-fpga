@@ -3,7 +3,9 @@
 // STAGED raw-command-to-operand stream. No MAC, output write or job completion.
 // Future enclosing engine must hold downstream_busy through final write ack.
 module rk_cmac_operand_front #(
-    parameter int unsigned TIMEOUT_CYCLES = 65536
+    parameter int unsigned TIMEOUT_CYCLES = 65536,
+    // Forwarded to the decoder: selects the FP16 or FP32 output register values.
+    parameter bit OUTPUT_FP16 = 1'b1
 ) (
     input logic clk, rst_n,
     input logic cmd_valid,
@@ -33,14 +35,14 @@ module rk_cmac_operand_front #(
     logic [31:0] input_address, weight_address, output_address, row_index, output_channel, input_channel;
     logic first_product, last_product, last_output;
 
-    rk_cmac_profile profile (
+    rk_cmac_profile #(.OUTPUT_FP16(OUTPUT_FP16)) profile (
         .clk, .rst_n, .cmd_valid, .cmd_ready, .cmd_data,
         .engine_busy(walk_busy || read_busy || downstream_busy), .engine_error(walk_error || read_error),
         .config_valid, .config_ready, .config_rows, .config_input_channels, .config_output_channels,
         .config_input_base, .config_weight_base, .config_output_base,
         .error(decode_error), .error_code(decode_error_code)
     );
-    rk_cmac_address addresses (
+    rk_cmac_address #(.OUTPUT_FP32(~OUTPUT_FP16)) addresses (
         .clk, .rst_n, .config_valid, .config_ready, .config_rows, .config_input_channels, .config_output_channels,
         .config_input_base, .config_weight_base, .config_output_base,
         .busy(walk_busy), .walk_done(address_done), .error(walk_error),

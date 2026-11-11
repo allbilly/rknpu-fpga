@@ -1,0 +1,49 @@
+{
+  "case": "conv_simple_fp16_1x1_c32_h8_w8_oc32",
+  "source_example": "/home/fedora/rk3588/examples/expt/conv_simple.py",
+  "description": "FP16 1x1 valid conv with larger channels, C32/H8/W8 -> OC32; exercises c1=4 channel slicing and FP32 output.",
+  "timeout_ns": 6000000000,
+  "tasks": [
+    {
+      "regcmd_offset_words": 0,
+      "regcmd_words": 51
+    }
+  ],
+  "buffers": [
+    {
+      "name": "input",
+      "size": 4096,
+      "input": "input.bin",
+      "direction": "in"
+    },
+    {
+      "name": "weight",
+      "size": 2048,
+      "input": "weight.bin",
+      "direction": "in"
+    },
+    {
+      "name": "out",
+      "size": 8192,
+      "direction": "out",
+      "output": "out.bin"
+    }
+  ],
+  "patches": [
+    {
+      "regcmd_index": 18,
+      "buffer": "input",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 24,
+      "buffer": "weight",
+      "kind": "value32"
+    },
+    {
+      "regcmd_index": 32,
+      "buffer": "out",
+      "kind": "value32"
+    }
+  ]
+}

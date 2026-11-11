@@ -1,0 +1,100 @@
+{
+  "addresses": {
+    "a": 4096,
+    "b": 8192,
+    "cmd": 0,
+    "out": 12288
+  },
+  "bo_handles": {
+    "a": 2,
+    "b": 3,
+    "cmd": 1,
+    "out": 4
+  },
+  "bytes_read": 0,
+  "case": "int16_minus_c8_w1",
+  "case_dir": "queue-ew-int-20261105T200154Z/int16_minus_c8_w1",
+  "cleanup_errors": [],
+  "device_path": "/dev/accel/accel0",
+  "device_stat": {
+    "mode": "0o20660",
+    "rdev": [
+      0,
+      5,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "duration_ns": 798280,
+  "errors": [
+    "KeyError: 'durations'"
+  ],
+  "hashes": {
+    "inputs": {
+      "a": "606346291468b50db75da4f4255c733e47a4eca0de51248ae314dcf3d6554d81",
+      "b": "eb01756db8675924b67d193087570516bac298c3fbc4d1731231962e0a541abc"
+    },
+    "job_json": "ba8ea956d0222856a9723ca158a043c4d775695cfcd6a96ecdf43454697ffbae",
+    "regcmd_patched": "10a8324084f2da6d32c7a6af97e094a09f6a02fc16ca044159e6e5fbbe9831f4",
+    "regcmd_source": "d6280aa9f2ad16aacacfd1fa52c591511f5bdc2fb64b0f1fe865eb3a5c7a0163"
+  },
+  "hostname": "orangepi5",
+  "kernel": "6.18.24-current-rockchip64",
+  "outputs": [],
+  "patches": [
+    {
+      "after": 1153202980388880416,
+      "before": 1153238163955662880,
+      "buffer": "out",
+      "dma_address": 12288,
+      "kind": "value32",
+      "regcmd_index": 10
+    },
+    {
+      "after": 2306124484458860568,
+      "before": 2306142076376469528,
+      "buffer": "a",
+      "dma_address": 4096,
+      "kind": "value32",
+      "regcmd_index": 11
+    },
+    {
+      "after": 2306124484727296056,
+      "before": 2306142080671436856,
+      "buffer": "b",
+      "dma_address": 8192,
+      "kind": "value32",
+      "regcmd_index": 12
+    }
+  ],
+  "python_implementation": "CPython",
+  "python_version": "3.14.4",
+  "runner_sha256": "c1fc4547656e1669112ab14553e0123baa25d126096b1fca3ab22c2b5927ff7c",
+  "runner_version": "1.0.0",
+  "schema": "rk3588-ew-int-capture-v1",
+  "sizes": {
+    "a": 4096,
+    "a_bo_request": 4096,
+    "a_mmap": 4096,
+    "b": 4096,
+    "b_bo_request": 4096,
+    "b_mmap": 4096,
+    "cmd_bo_request": 144,
+    "cmd_mmap": 4096,
+    "out": 4096,
+    "out_bo_request": 4096,
+    "out_mmap": 4096,
+    "regcmd_bytes": 144,
+    "regcmd_words": 18
+  },
+  "started_utc": "2026-11-05T20:02:53Z",
+  "status": "FAIL",
+  "submit_errno": null,
+  "submit_error": null,
+  "submit_ret": null,
+  "traceback": "Traceback (most recent call last):\n  File \"/home/opencode-agent/rk3588-example-captures/ew-int-tools/ew_int_run.py\", line 380, in run_case\n    capture[\"durations\"][\"prep_all_ns\"] = time.monotonic_ns() - t\n    ~~~~~~~^^^^^^^^^^^^^\nKeyError: 'durations'\n"
+}

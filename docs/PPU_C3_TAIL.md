@@ -1,9 +1,11 @@
 # Capture-bounded FP16 C3 max-pooling physical tail
 
-Status: **one fixed standalone candidate, simulation-only**. This leaf covers
-only `fp16_max_k2s2_c3_tail_h2w2`. It is separate from the unindexed C8,
-indexed C8, average and minimum leaves. There is no PPU register decoder,
-DMA/RDMA, AXI, full-top integration or FPGA execution.
+Status: **one fixed standalone leaf, simulation-only**. This leaf covers only
+`fp16_max_k2s2_c3_tail_h2w2`. It is separate from the unindexed C8, indexed C8,
+average and minimum leaves. The separate [C3 raw-command path](PPU_C3_RAW_PROFILE.md)
+now composes it with a strict command gate, serialized DMA and owned UI dispatch
+in simulation. This leaf itself still has no register decoder, DMA/RDMA, AXI or
+full-top qualification; FPGA execution is not claimed.
 
 ## Captured contract and provenance
 

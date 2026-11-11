@@ -13,7 +13,9 @@
     "rtl/cmac/rk_nvdla_cacc.sv",
     "rtl/cmac/rk_nvdla_fp32_to_fp16.sv",
     "rtl/cmac/rk_cmac_writer.sv",
+    "rtl/cmac/rk_cmac_fp32_writer.sv",
     "rtl/cmac/rk_cmac_output_nvdla.sv",
+    "rtl/cmac/rk_cmac_output_fp32.sv",
     "rtl/cmac/rk_nvdla_cmac_pipe.sv",
     "rtl/cmac/rk_cmac_nvdla_core.sv",
     "rtl/cmac/rk_cmac_nvdla_dma.sv",
@@ -44,6 +46,9 @@
     "core": "tests/cmac/tb_cmac_nvdla_core.sv",
     "dma": "tests/cmac/tb_cmac_nvdla_dma.sv",
     "axi": "tests/cmac/tb_cmac_nvdla_axi.sv",
-    "memory": "tests/cmac/tb_cmac_demo_memory.sv"
+    "memory": "tests/cmac/tb_cmac_demo_memory.sv",
+    "fp32_writer": "tests/cmac/tb_cmac_fp32_writer.sv",
+    "gemm_fp32": "tests/cmac/tb_cmac_gemm_fp32.sv",
+    "output_fp32": "tests/cmac/tb_cmac_output_fp32.sv"
   }
 }

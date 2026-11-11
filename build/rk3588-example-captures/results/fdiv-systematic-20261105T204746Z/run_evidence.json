@@ -1,0 +1,325 @@
+{
+  "family": "fdiv-systematic",
+  "run_id": "20261105T204746Z",
+  "capture_kind": "truth-table, oracle none",
+  "board": {
+    "hostname": "orangepi5",
+    "kernel": "6.18.24-current-rockchip64",
+    "python": "3.14.4",
+    "device": "/dev/accel/accel0",
+    "device_major_minor": "261,0",
+    "device_compatible": [
+      "xunlong,orangepi-5",
+      "rockchip,rk3588s"
+    ],
+    "device_sysfs": "/sys/devices/platform/rknn"
+  },
+  "runner": {
+    "name": "rocket_run.py",
+    "host_path": "build/rk3588-example-captures/runner/rocket_run.py",
+    "board_path": "/home/opencode-agent/rk3588-example-captures/runs/20261105T204746Z/tools/rocket_run-a51d.py",
+    "sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+    "pinned_dir_present": false,
+    "tool_version": "1.0.0"
+  },
+  "lock": {
+    "path": "/home/opencode-agent/rk3588-npu.lock",
+    "mode": "flock -x -w 900, one invocation for all 8 cases",
+    "lock_free_before": true,
+    "lock_free_after": true,
+    "single_runner_process": true
+  },
+  "race_check": {
+    "command": "pgrep -af 'rk3588|rocket|capture|python3'",
+    "before": "only /usr/bin/supervisord (pid 2023819); no capture worker",
+    "after": "only /usr/bin/supervisord (pid 2023819); no capture worker",
+    "unexpected_processes": []
+  },
+  "validation": {
+    "tools_validate_py": "PASS, 2150 checks, manifest_sha256 a28f6c7bae6dce9b533523fac069ce59a25d455c515a5821ed2b54e7f4e8505b",
+    "runner_validate_bundle_py": "OK for all 8 cases, one case at a time"
+  },
+  "paths": {
+    "board_run_root": "/home/opencode-agent/rk3588-example-captures/runs/20261105T204746Z",
+    "board_output": "/home/opencode-agent/rk3588-example-captures/runs/20261105T204746Z/fdiv-systematic",
+    "host_result": "build/rk3588-example-captures/results/fdiv-systematic-20261105T204746Z"
+  },
+  "hash_verification": {
+    "bundle_files_host_vs_board": "32/32 match before run",
+    "runner_host_vs_board": "match",
+    "capture_and_output_host_vs_board": "16/16 match after copy",
+    "full_run_tree_host_vs_board": "49/49 match after copy"
+  },
+  "invocation": {
+    "command": "flock -x -w 900 /home/opencode-agent/rk3588-npu.lock python3 <tools>/rocket_run-a51d.py --device /dev/accel/accel0 --out <run>/fdiv-systematic <8 case dirs>",
+    "runner_exit": 0,
+    "per_case_ok": 8
+  },
+  "cases": [
+    {
+      "case": "fdiv_class_rows_00_01",
+      "status": "OK",
+      "submit_ret": 0,
+      "started_utc": "2026-11-05T20:48:31Z",
+      "finished_utc": "2026-11-05T20:48:31Z",
+      "total_ns": 1457420,
+      "buffers": {
+        "a": 64,
+        "b": 64,
+        "out": 64
+      },
+      "addresses": {
+        "buffers": {
+          "a": 4096,
+          "b": 8192,
+          "out": 12288
+        },
+        "regcmd": 0,
+        "tasks": [
+          0
+        ]
+      },
+      "output_file": "output.bin",
+      "output_bytes": 64,
+      "output_sha256": "dbeac7ccff32e7dc67fe8156083a20f4a8a9ca39adad3c2a6766c2054555e44e",
+      "capture_sha256": "ee6cc180c32d62f0178ed20d1e632f09af67fea8b8280d5e44074eb4a7dd43da",
+      "errors": [],
+      "cleanup_errors": []
+    },
+    {
+      "case": "fdiv_class_rows_02_03",
+      "status": "OK",
+      "submit_ret": 0,
+      "started_utc": "2026-11-05T20:48:31Z",
+      "finished_utc": "2026-11-05T20:48:31Z",
+      "total_ns": 1033640,
+      "buffers": {
+        "a": 64,
+        "b": 64,
+        "out": 64
+      },
+      "addresses": {
+        "buffers": {
+          "a": 4096,
+          "b": 8192,
+          "out": 12288
+        },
+        "regcmd": 0,
+        "tasks": [
+          0
+        ]
+      },
+      "output_file": "output.bin",
+      "output_bytes": 64,
+      "output_sha256": "3f0bea33163108125ef6c185d3a7180c13eee004262c7c810f6c9fb1c9bbd5a7",
+      "capture_sha256": "6073a44311466e13d384e96a3816d31859782481901de5f30117180761209e35",
+      "errors": [],
+      "cleanup_errors": []
+    },
+    {
+      "case": "fdiv_class_rows_04_05",
+      "status": "OK",
+      "submit_ret": 0,
+      "started_utc": "2026-11-05T20:48:31Z",
+      "finished_utc": "2026-11-05T20:48:31Z",
+      "total_ns": 998350,
+      "buffers": {
+        "a": 64,
+        "b": 64,
+        "out": 64
+      },
+      "addresses": {
+        "buffers": {
+          "a": 4096,
+          "b": 8192,
+          "out": 12288
+        },
+        "regcmd": 0,
+        "tasks": [
+          0
+        ]
+      },
+      "output_file": "output.bin",
+      "output_bytes": 64,
+      "output_sha256": "bb263efbbdd568aadc58352d65cdb15fc9deb096cabafd03145debb7cf7718ab",
+      "capture_sha256": "acb68685a146fd2d54b9ecb3b68881428d29b002f3501ed80081ffe13eea99e1",
+      "errors": [],
+      "cleanup_errors": []
+    },
+    {
+      "case": "fdiv_class_rows_06_07",
+      "status": "OK",
+      "submit_ret": 0,
+      "started_utc": "2026-11-05T20:48:31Z",
+      "finished_utc": "2026-11-05T20:48:31Z",
+      "total_ns": 958683,
+      "buffers": {
+        "a": 64,
+        "b": 64,
+        "out": 64
+      },
+      "addresses": {
+        "buffers": {
+          "a": 4096,
+          "b": 8192,
+          "out": 12288
+        },
+        "regcmd": 0,
+        "tasks": [
+          0
+        ]
+      },
+      "output_file": "output.bin",
+      "output_bytes": 64,
+      "output_sha256": "b19e9a53894edfd8aaad59b7cea6dba51803bfabe0948e842119812d84e0cfa6",
+      "capture_sha256": "3a90678a53e5f468b7bdc7ecb2c7c81614ac7f06514616471b173820c2d557b2",
+      "errors": [],
+      "cleanup_errors": []
+    },
+    {
+      "case": "fdiv_class_rows_08_09",
+      "status": "OK",
+      "submit_ret": 0,
+      "started_utc": "2026-11-05T20:48:31Z",
+      "finished_utc": "2026-11-05T20:48:31Z",
+      "total_ns": 872061,
+      "buffers": {
+        "a": 64,
+        "b": 64,
+        "out": 64
+      },
+      "addresses": {
+        "buffers": {
+          "a": 4096,
+          "b": 8192,
+          "out": 12288
+        },
+        "regcmd": 0,
+        "tasks": [
+          0
+        ]
+      },
+      "output_file": "output.bin",
+      "output_bytes": 64,
+      "output_sha256": "9cd86fb2b02f535c689bb901db79c90fc537c1791eb7d0eeb915fcbef7eca7fa",
+      "capture_sha256": "b379d6c6d250298f2061d73416ffdf8cb5d7d3a85c02cae05fadd57cd1e746a3",
+      "errors": [],
+      "cleanup_errors": []
+    },
+    {
+      "case": "fdiv_class_rows_10_11",
+      "status": "OK",
+      "submit_ret": 0,
+      "started_utc": "2026-11-05T20:48:31Z",
+      "finished_utc": "2026-11-05T20:48:31Z",
+      "total_ns": 1021974,
+      "buffers": {
+        "a": 64,
+        "b": 64,
+        "out": 64
+      },
+      "addresses": {
+        "buffers": {
+          "a": 4096,
+          "b": 8192,
+          "out": 12288
+        },
+        "regcmd": 0,
+        "tasks": [
+          0
+        ]
+      },
+      "output_file": "output.bin",
+      "output_bytes": 64,
+      "output_sha256": "fd45383a38af93b0e018fecd78ada7ae344fbaf47ce1f9d9ad78d506a77ef8e1",
+      "capture_sha256": "4005234a1bf0093b677817b56f1b4e4f52ca591228b98ed08a00f0d523df834c",
+      "errors": [],
+      "cleanup_errors": []
+    },
+    {
+      "case": "fdiv_class_rows_12_13",
+      "status": "OK",
+      "submit_ret": 0,
+      "started_utc": "2026-11-05T20:48:31Z",
+      "finished_utc": "2026-11-05T20:48:31Z",
+      "total_ns": 945559,
+      "buffers": {
+        "a": 64,
+        "b": 64,
+        "out": 64
+      },
+      "addresses": {
+        "buffers": {
+          "a": 4096,
+          "b": 8192,
+          "out": 12288
+        },
+        "regcmd": 0,
+        "tasks": [
+          0
+        ]
+      },
+      "output_file": "output.bin",
+      "output_bytes": 64,
+      "output_sha256": "dd10636d3296317818af8b8334982265998584beae986a17270f9f058c09f334",
+      "capture_sha256": "2b5be19f7a53a77f9d8de3140a66f95bcdafe0ab535bbf7962dad03f000d716f",
+      "errors": [],
+      "cleanup_errors": []
+    },
+    {
+      "case": "fdiv_class_rows_14_15",
+      "status": "OK",
+      "submit_ret": 0,
+      "started_utc": "2026-11-05T20:48:31Z",
+      "finished_utc": "2026-11-05T20:48:31Z",
+      "total_ns": 851354,
+      "buffers": {
+        "a": 64,
+        "b": 64,
+        "out": 64
+      },
+      "addresses": {
+        "buffers": {
+          "a": 4096,
+          "b": 8192,
+          "out": 12288
+        },
+        "regcmd": 0,
+        "tasks": [
+          0
+        ]
+      },
+      "output_file": "output.bin",
+      "output_bytes": 64,
+      "output_sha256": "3a2fb1046ce04aeb5fa8b94659ef7931782ec9310435c5d067026b565f1068d9",
+      "capture_sha256": "2ac1be1db9313e758a0ed490ddda7da72379b28f82d48030c1a2179b6cb46341",
+      "errors": [],
+      "cleanup_errors": []
+    }
+  ],
+  "total_output_bytes_read": 512,
+  "claims": {
+    "fpga_execution": false,
+    "fpga_programmed_or_flashed": false,
+    "sudo_used": false,
+    "other_families_touched": false,
+    "tracked_sources_modified": false,
+    "committed": false
+  },
+  "source_revision": {
+    "host_repo_head": "f9b00d8f9a48ab4dea20cb30148890cd9f1443ee",
+    "manifest_source_revision": {
+      "rknpu-fpga": "d54d33bc8f910059b6237d54d77e173737282869",
+      "rk3588": "273d015e08af40c81d2cd9ab84198486b03a17f1"
+    },
+    "manifest_sha256": "a28f6c7bae6dce9b533523fac069ce59a25d455c515a5821ed2b54e7f4e8505b"
+  },
+  "determinism": {
+    "seed": "not applicable; inputs are fixed bundle bytes",
+    "cases_sequential": true
+  },
+  "tests": {
+    "local_structural_validation_only": true,
+    "numerical_oracle": "none"
+  }
+}

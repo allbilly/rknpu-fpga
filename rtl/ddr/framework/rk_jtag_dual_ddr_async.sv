@@ -414,11 +414,11 @@ module rk_jtag_dual_ddr_async #(
         normal_axil_rdata = control_rdata;
         if (normal_axil_rresp == 2'b00) begin
             case (read_address)
-                32'h08,32'h108,32'h408: if (read_fault) begin
+                32'h08,32'h108,32'h308,32'h408: if (read_fault) begin
                     normal_axil_rdata[0] = 0; normal_axil_rdata[4] = 0; normal_axil_rdata[5] = 1;
                     if (control_rdata[2]) normal_axil_rdata[3] = 1;
                 end
-                32'h24,32'h124,32'h424: if (read_fault) normal_axil_rdata = {24'b0,read_fault_code};
+                32'h24,32'h124,32'h324,32'h424: if (read_fault) normal_axil_rdata = {24'b0,read_fault_code};
                 default: begin end
             endcase
         end
@@ -428,7 +428,7 @@ module rk_jtag_dual_ddr_async #(
         .req_valid(req_valid && backend_enabled),.req_ready(backend_req_ready),
         .fault(backend_fault),.memory_busy(backend_memory_busy),.*
     );
-    rk_layout_job_control control (
+    rk_layout_job_control #(.ENABLE_PPU(1'b1)) control (
         .core_write_block(live_block || dma_busy || job_active || compute_admission_hold),
         .s_axil_rdata(control_rdata),.scheduler_fault(control_scheduler_fault),
         .control_owned,.control_owner_kind,.core_start_kind,.control_quiet(control_quiet),

@@ -1,0 +1,314 @@
+[
+  {
+    "case": "gemm_m4_n32_k64",
+    "kind": "gemm",
+    "first_exact_diffs": [
+      {
+        "byte_offset": 16,
+        "element_index": 4,
+        "expected": -13.499342918395996,
+        "expected_bits": "0xc157fd4f",
+        "got": -13.499343872070312,
+        "got_bits": "0xc157fd50",
+        "raw_output_byte_offset": 16
+      },
+      {
+        "byte_offset": 24,
+        "element_index": 6,
+        "expected": 0.8706604242324829,
+        "expected_bits": "0x3f5ee39a",
+        "got": 0.8706603050231934,
+        "got_bits": "0x3f5ee398",
+        "raw_output_byte_offset": 24
+      },
+      {
+        "byte_offset": 28,
+        "element_index": 7,
+        "expected": -4.064786434173584,
+        "expected_bits": "0xc08212bb",
+        "got": -4.064785957336426,
+        "got_bits": "0xc08212ba",
+        "raw_output_byte_offset": 28
+      },
+      {
+        "byte_offset": 32,
+        "element_index": 8,
+        "expected": 6.8941144943237305,
+        "expected_bits": "0x40dc9c96",
+        "got": 6.894114017486572,
+        "got_bits": "0x40dc9c95",
+        "raw_output_byte_offset": 32
+      },
+      {
+        "byte_offset": 36,
+        "element_index": 9,
+        "expected": 1.1385655403137207,
+        "expected_bits": "0x3f91bc84",
+        "got": 1.1385656595230103,
+        "got_bits": "0x3f91bc85",
+        "raw_output_byte_offset": 36
+      },
+      {
+        "byte_offset": 52,
+        "element_index": 13,
+        "expected": -2.4759719371795654,
+        "expected_bits": "0xc01e7653",
+        "got": -2.4759716987609863,
+        "got_bits": "0xc01e7652",
+        "raw_output_byte_offset": 52
+      },
+      {
+        "byte_offset": 60,
+        "element_index": 15,
+        "expected": -0.8828728795051575,
+        "expected_bits": "0xbf6203f5",
+        "got": -0.8828730583190918,
+        "got_bits": "0xbf6203f8",
+        "raw_output_byte_offset": 60
+      },
+      {
+        "byte_offset": 76,
+        "element_index": 19,
+        "expected": -13.294644355773926,
+        "expected_bits": "0xc154b6dd",
+        "got": -13.294645309448242,
+        "got_bits": "0xc154b6de",
+        "raw_output_byte_offset": 76
+      }
+    ]
+  },
+  {
+    "case": "conv_depthwise_3x3_c3_oc3_h11w28_task0",
+    "kind": "conv",
+    "first_exact_diffs": [
+      {
+        "byte_offset": 32,
+        "element_index": 16,
+        "expected": 7.359375,
+        "expected_bits": "0x475c",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 256
+      },
+      {
+        "byte_offset": 34,
+        "element_index": 17,
+        "expected": 1.955078125,
+        "expected_bits": "0x3fd2",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 272
+      },
+      {
+        "byte_offset": 36,
+        "element_index": 18,
+        "expected": 3.134765625,
+        "expected_bits": "0x4245",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 288
+      },
+      {
+        "byte_offset": 38,
+        "element_index": 19,
+        "expected": -1.10546875,
+        "expected_bits": "0xbc6c",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 304
+      },
+      {
+        "byte_offset": 40,
+        "element_index": 20,
+        "expected": -4.015625,
+        "expected_bits": "0xc404",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 320
+      },
+      {
+        "byte_offset": 42,
+        "element_index": 21,
+        "expected": 0.96484375,
+        "expected_bits": "0x3bb8",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 336
+      },
+      {
+        "byte_offset": 44,
+        "element_index": 22,
+        "expected": 2.203125,
+        "expected_bits": "0x4068",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 352
+      },
+      {
+        "byte_offset": 46,
+        "element_index": 23,
+        "expected": 4.1484375,
+        "expected_bits": "0x4426",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 368
+      }
+    ]
+  },
+  {
+    "case": "conv_depthwise_3x3_c3_oc3_h11w28_task1",
+    "kind": "conv",
+    "first_exact_diffs": [
+      {
+        "byte_offset": 32,
+        "element_index": 16,
+        "expected": 7.359375,
+        "expected_bits": "0x475c",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 256
+      },
+      {
+        "byte_offset": 34,
+        "element_index": 17,
+        "expected": 1.955078125,
+        "expected_bits": "0x3fd2",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 272
+      },
+      {
+        "byte_offset": 36,
+        "element_index": 18,
+        "expected": 3.134765625,
+        "expected_bits": "0x4245",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 288
+      },
+      {
+        "byte_offset": 38,
+        "element_index": 19,
+        "expected": -1.10546875,
+        "expected_bits": "0xbc6c",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 304
+      },
+      {
+        "byte_offset": 40,
+        "element_index": 20,
+        "expected": -4.015625,
+        "expected_bits": "0xc404",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 320
+      },
+      {
+        "byte_offset": 42,
+        "element_index": 21,
+        "expected": 0.96484375,
+        "expected_bits": "0x3bb8",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 336
+      },
+      {
+        "byte_offset": 44,
+        "element_index": 22,
+        "expected": 2.203125,
+        "expected_bits": "0x4068",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 352
+      },
+      {
+        "byte_offset": 46,
+        "element_index": 23,
+        "expected": 4.1484375,
+        "expected_bits": "0x4426",
+        "got": 0.0,
+        "got_bits": "0x0000",
+        "raw_output_byte_offset": 368
+      }
+    ]
+  },
+  {
+    "case": "conv_py_3x3_c32_oc128_h14w14_fullsetup",
+    "kind": "conv",
+    "first_exact_diffs": [
+      {
+        "byte_offset": 3476,
+        "element_index": 1738,
+        "expected": 1.9755859375,
+        "expected_bits": "0x3fe7",
+        "got": 1.9765625,
+        "got_bits": "0x3fe8",
+        "raw_output_byte_offset": 2472
+      },
+      {
+        "byte_offset": 6368,
+        "element_index": 3184,
+        "expected": -0.0008640289306640625,
+        "expected_bits": "0x9314",
+        "got": -0.0008630752563476562,
+        "got_bits": "0x9312",
+        "raw_output_byte_offset": 4876
+      },
+      {
+        "byte_offset": 14386,
+        "element_index": 7193,
+        "expected": -0.005619049072265625,
+        "expected_bits": "0x9dc1",
+        "got": -0.00562286376953125,
+        "got_bits": "0x9dc2",
+        "raw_output_byte_offset": 16018
+      },
+      {
+        "byte_offset": 16920,
+        "element_index": 8460,
+        "expected": 1.0244140625,
+        "expected_bits": "0x3c19",
+        "got": 1.0234375,
+        "got_bits": "0x3c18",
+        "raw_output_byte_offset": 17860
+      },
+      {
+        "byte_offset": 17550,
+        "element_index": 8775,
+        "expected": 0.0183563232421875,
+        "expected_bits": "0x24b3",
+        "got": 0.018341064453125,
+        "got_bits": "0x24b2",
+        "raw_output_byte_offset": 18296
+      },
+      {
+        "byte_offset": 21238,
+        "element_index": 10619,
+        "expected": 0.0035877227783203125,
+        "expected_bits": "0x1b59",
+        "got": 0.003589630126953125,
+        "got_bits": "0x1b5a",
+        "raw_output_byte_offset": 22450
+      },
+      {
+        "byte_offset": 23692,
+        "element_index": 11846,
+        "expected": 21.328125,
+        "expected_bits": "0x4d55",
+        "got": 21.3125,
+        "got_bits": "0x4d54",
+        "raw_output_byte_offset": 23652
+      },
+      {
+        "byte_offset": 27098,
+        "element_index": 13549,
+        "expected": -2.751953125,
+        "expected_bits": "0xc181",
+        "got": -2.75,
+        "got_bits": "0xc180",
+        "raw_output_byte_offset": 25564
+      }
+    ]
+  }
+]

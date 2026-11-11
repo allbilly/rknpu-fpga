@@ -2060,10 +2060,14 @@ may proceed independently; only physical access is serialized by the lease.
 | E. Host transport and CI | JTAG and supported source runtime exist; live framework, broader census and PCIe/system remain steps 4 and 6 |
 
 Three-core scheduling, overlapping ping-pong groups, general convolution,
-LUT/activation/conversion modes beyond supported paths, PPU, quantized/integer
-paths, calibrated RK timing, host-driver emulation and a full SystemC model
-remain deferred. Add modes from concrete backend evidence with contracts and
-tests; neither a narrow workload nor this reorganization closes those items.
+LUT/activation/conversion modes beyond supported paths, broad PPU coverage,
+quantized/integer paths, calibrated RK timing, host-driver emulation and a full
+SystemC model remain deferred. The 2026-11-07 PPU increments are bounded
+capture-backed pooling examples plus one explicitly source-emitted MAX
+simulation candidate; they do not make all donor PPU examples runnable or
+qualify the PPU-enabled FPGA top. Add modes from concrete backend evidence with
+contracts and tests; neither a narrow workload nor this reorganization closes
+those items.
 
 ## Verification and work discipline
 

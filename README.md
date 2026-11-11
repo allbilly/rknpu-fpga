@@ -7,10 +7,16 @@ regression preparation reviews remain workspace-local; the current-image
 TinyStories archive is linked below.
 
 **Standalone PPU pooling increments, 2026-11-07:** two unindexed max-pooling
-leaves, separate [capture-bounded FP16 average](docs/PPU_AVERAGE.md) and
-[minimum](docs/PPU_MIN_POOL.md) leaves, one [max-with-index
-leaf](docs/PPU_MAX_INDEX.md), and one [C3 physical channel-tail
-leaf](docs/PPU_C3_TAIL.md) cover six source-backed RK3588 cases. The standalone
+leaves, two separate [capture-bounded FP16 average](docs/PPU_AVERAGE.md) and
+[global-average](docs/PPU_GLOBAL_AVERAGE.md) candidates, one [minimum](docs/PPU_MIN_POOL.md)
+leaf, one [max-with-index](docs/PPU_MAX_INDEX.md) leaf, and one [C3 physical
+channel-tail leaf](docs/PPU_C3_TAIL.md) cover seven source-backed RK3588 cases.
+The captured global-average case passes its leaf, strict raw profile and owned
+DMA simulations in Icarus and Verilator, including whole-BO checking and
+write-free rejection controls. The standalone
+[16x16 global MAX candidate](docs/PPU_GLOBAL_MAX.md) uses the donor's
+source-emitted 26-QWORD stream and exact source input/reference, not a device
+capture; it does not establish general global pooling. The standalone
 [FP16 2x2/stride-1 max-pooling candidates](docs/PPU_MAX_POOL.md) replay two
 captured RK3588 cases through separate valid/ready leaves: the original valid
 C8 H4 W4 case and the exact C8 H2 W2, pad-1, finite-negative case with captured
@@ -21,16 +27,77 @@ source's FP32-mean/FP16-output tolerance to the captured device bytes. The
 minimum leaf covers only FP16 2x2/stride-1 valid C8 H4W4 -> H3W3 and compares
 exactly against source and device outputs. The index leaf covers only FP16 C8
 H2W2 -> H1W1, 2x2/stride-2, `INDEX_EN=1`; it checks value bytes 0–15 and index
-bytes 32–47 while preserving the intervening gap. All are simulation-only leaves:
-unsupported modes are not connected or admitted, and no other average/min/global
-mode, indexed shape, channel-tail shape, register decode, DMA or full-top
-integration is implemented.
+bytes 32–47 while preserving the intervening gap. These leaves remain
+simulation-only; the separate 16x16 candidate does not extend their contracts.
+Unsupported modes are not connected or admitted, and no other average/min/global
+shape, indexed shape, or channel-tail shape is supported.
+The separate [C3 raw-command path](docs/PPU_C3_RAW_PROFILE.md), [valid C8 path](docs/PPU_C8_RAW_PROFILE.md),
+[padded-negative C8 path](docs/PPU_PAD1_RAW_PROFILE.md),
+[minimum C8 path](docs/PPU_MIN_RAW_PROFILE.md),
+[average C8 path](docs/PPU_AVG_RAW_PROFILE.md), the distinct [captured
+global-average path](docs/PPU_GLOBAL_AVERAGE.md), and
+[MAX-with-index path](docs/PPU_INDEX_RAW_PROFILE.md) check their complete
+captured streams and admit only each job's two address relocations. The five
+26-QWORD capture profiles cover C3, valid/padded C8 MAX, minimum and indexed
+MAX; both average profiles check distinct 28-QWORD streams. The additional
+global MAX profile checks source-emitted QWORDs but has no device capture. One shared DMA
+selects eight distinct strict profiles, validates each bounded FP16 input domain, and runs
+the exact 64/16-byte C3, 256/144-byte valid-C8 MAX/minimum/average,
+64/144-byte padded-C8, or indexed 64-byte-read/48-byte-output-span transfer
+through the owned UI-dispatch slot. The source-derived global-MAX profile reads
+4096 bytes and writes one 16-byte output atom; the captured global-average
+profile reads 240 bytes and writes one 16-byte output atom. The indexed profile actually writes only
+the 16-byte values and 16-byte index surface; it preserves the 16-byte gap.
+Capture-backed profiles compare the complete 4096-byte device BO; the global
+MAX candidate compares the complete source-derived expected BO. All shared-DMA
+profiles run in Icarus and Verilator, including same-epoch repeat jobs.
+An opt-in `RKPP` bank at page `0x300` selects dispatch kind 3;
+existing `RKLY` page `0x400` remains distinct. These remain simulation-only
+candidates: the K8 routed image has not been updated, and no FPGA execution is
+claimed.
 
 **First convolution RTL slice:** the captured FP16 valid 1x1 C8/H5/W5/OC8
 case now runs through a strict raw-command decoder, hardware C/OC padding and
 the convolution-specific 400-byte output-plane schedule in Icarus and Verilator.
 See [the bounded contract and test](docs/CONV_FIRST_CASE.md); no physical or
 full-top qualification is claimed.
+
+**Convolution capture index:** [`docs/CONV_CAPTURE_INDEX.md`](docs/CONV_CAPTURE_INDEX.md)
+lists every captured conv case with an exact RTL profile and the remaining
+blocked cases with their submission-level causes. All eight exact profiles
+with pinned fixtures pass in both Icarus and Verilator; the
+[replay receipt index](docs/CONV_REPLAY_RECEIPTS.md) records each run.
+
+**Capture-bounded convolution candidates:** the FP16 valid 3×3 C4/H9/W9→OC4
+stride-1, C4/H11/W11→OC4 stride-2, and explicit-zero-frame C4/H9/W9→OC4
+profiles pass their strict 54-QWORD raw-stream replays in Icarus and Verilator,
+including spatial windows, defined outputs and rejection controls. The two
+promoted grouped-task C2/H5/W5→OC4/H3/W3 and split-OC C16/H9/W9→OC8/H7/W7
+slices, plus a single-task depthwise C3/H11/W28→OC3/H9/W26 capture, now have
+their own exact profiles and replays; both parent two-task jobs stay blocked. The
+separate 54-QWORD descriptor-fetch wrapper also passes the three C4 profiles in
+both simulators, with six negative controls per profile. The spatial front is
+parameterized by real channels, kernels and packed atom width instead of
+capture literals. See the
+[valid C4 contract](docs/CONV_SPATIAL_3X3_C4.md),
+[grouped C2 contract](docs/CONV_SPATIAL_3X3_GROUPED_C2.md),
+[split-OC C16 contract](docs/CONV_SPATIAL_3X3_SPLITOC_C16.md),
+[depthwise C3 contract](docs/CONV_SPATIAL_3X3_DEPTHWISE_C3.md),
+[stride-2 contract](docs/CONV_SPATIAL_3X3_STRIDE2_C4.md) and
+[explicit-zero-frame contract](docs/CONV_SPATIAL_3X3_PAD1_ZERO_FRAME_C4.md).
+These remain standalone simulation candidates, not full-top integration or
+FPGA qualification.
+
+**Support matrix and NVDLA mapping notes:** the convolution capture corpus and
+its coverage are summarized under [`docs/analysis/`](docs/analysis/README.md),
+including the [support matrix](docs/analysis/conv_support_matrix.md) and an
+[NVDLA parameter mapping](docs/analysis/nvdla_param_notes.md). These are
+working notes, not device evidence.
+
+**Progress snapshot:** [`docs/PROGRESS_TABLE.md`](docs/PROGRESS_TABLE.md)
+tabulates capture/fixture coverage (36 READY cases pinned across `pooling` and
+`conv-fp16`, 0 missing), which RTL profiles actually execute, and the ordered
+remaining gaps up to bitstream and board run. It is simulation-only evidence.
 
 **Current direction, 2026-10-23:** use Vivado for implementation, with the
 OpenTPU Vivado workflow as the reference. OpenXC7 placement/routing work is

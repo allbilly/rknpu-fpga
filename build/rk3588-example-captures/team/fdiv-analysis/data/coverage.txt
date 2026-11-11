@@ -1,0 +1,402 @@
+counts={'finite_nonzero': 1278, 'inexact': 463, 'n_odd': 237}
+exact destination-ulp ties: 12
+  real-rocket-fdiv8-special[17] A=0x0001 B=0x4000 obs=0x0000 n=0
+  real-rocket-fdiv8-special[23] A=0x8001 B=0x4000 obs=0x8000 n=0
+  real-rocket-fdiv8-finite-sweep[6] A=0x0001 B=0x4000 obs=0x0000 n=0
+  real-rocket-fdiv8-finite-sweep[11] A=0x0003 B=0x4000 obs=0x0002 n=1
+  real-rocket-fdiv8-finite-sweep[12] A=0x0005 B=0x4000 obs=0x0002 n=2
+  real-rocket-fdiv8-finite-sweep[14] A=0x0401 B=0x4000 obs=0x0200 n=512
+  real-rocket-fdiv8-finite-sweep[28] A=0x8001 B=0x4000 obs=0x8000 n=0
+  real-rocket-fdiv8-finite-sweep[30] A=0x8003 B=0x4000 obs=0x8002 n=1
+  fdiv-systematic-grid[110] A=0x0001 B=0x4000 obs=0x0000 n=0
+  fdiv-systematic-grid[111] A=0x0001 B=0xc000 obs=0x8000 n=0
+  fdiv-systematic-grid[126] A=0x03ff B=0x4000 obs=0x0200 n=511
+  fdiv-systematic-grid[127] A=0x03ff B=0xc000 obs=0x8200 n=511
+destination ties detail (bits): [('real-rocket-fdiv8-special', 17, '0000', 0), ('real-rocket-fdiv8-special', 23, '8000', 0), ('real-rocket-fdiv8-finite-sweep', 6, '0000', 0), ('real-rocket-fdiv8-finite-sweep', 11, '0002', 1), ('real-rocket-fdiv8-finite-sweep', 12, '0002', 2), ('real-rocket-fdiv8-finite-sweep', 14, '0200', 512), ('real-rocket-fdiv8-finite-sweep', 28, '8000', 0), ('real-rocket-fdiv8-finite-sweep', 30, '8002', 1), ('fdiv-systematic-grid', 110, '0000', 0), ('fdiv-systematic-grid', 111, '8000', 0), ('fdiv-systematic-grid', 126, '0200', 511), ('fdiv-systematic-grid', 127, '8200', 511)]
+
+false-tie-signature lanes (m==4 with nonzero tail): 48
+  real-rocket-fdiv8-finite-sweep[16] A=0x7bff B=0x4900 obs=0x6e66 n=1637 n_even=False
+  fdiv_p1_n33[17] A=0x4c80 B=0x4700 obs=0x4124 n=1316 n_even=True
+  fdiv_p1_n33[27] A=0x4f00 B=0x4500 obs=0x459a n=1433 n_even=False
+  fdiv_p1_n1024[17] A=0x4c80 B=0x4700 obs=0x4124 n=1316 n_even=True
+  fdiv_p1_n1024[27] A=0x4f00 B=0x4500 obs=0x459a n=1433 n_even=False
+  fdiv_p1_n1024[49] A=0x5240 B=0x4700 obs=0x4724 n=1828 n_even=True
+  fdiv_p1_n1024[57] A=0x5340 B=0x4700 obs=0x4824 n=1060 n_even=True
+  fdiv_p1_n1024[75] A=0x54c0 B=0x4500 obs=0x4b9a n=1945 n_even=False
+  fdiv_p1_n1024[91] A=0x55c0 B=0x4500 obs=0x4c9a n=1177 n_even=False
+  fdiv_p1_n1024[129] A=0x5810 B=0x4700 obs=0x4ca4 n=1188 n_even=True
+  fdiv_p1_n1024[131] A=0x5820 B=0x4500 obs=0x4e9a n=1689 n_even=False
+  fdiv_p1_n1024[163] A=0x5920 B=0x4500 obs=0x501a n=1049 n_even=False
+  fdiv_p1_n1024[185] A=0x59d0 B=0x4700 obs=0x4ea4 n=1700 n_even=True
+  fdiv_p1_n1024[203] A=0x5a60 B=0x4500 obs=0x511a n=1305 n_even=False
+  fdiv_p1_n1024[243] A=0x5ba0 B=0x4500 obs=0x521a n=1561 n_even=False
+  fdiv_p1_n1024[273] A=0x5c48 B=0x4700 obs=0x50e4 n=1252 n_even=True
+  fdiv_p1_n1024[283] A=0x5c70 B=0x4500 obs=0x531a n=1817 n_even=False
+  fdiv_p1_n1024[329] A=0x5d28 B=0x4700 obs=0x51e4 n=1508 n_even=True
+  fdiv_p1_n1024[347] A=0x5d70 B=0x4500 obs=0x545a n=1113 n_even=False
+  fdiv_p1_n1024[385] A=0x5e08 B=0x4700 obs=0x52e4 n=1764 n_even=True
+  fdiv_p1_n1024[387] A=0x5e10 B=0x4500 obs=0x54da n=1241 n_even=False
+  fdiv_p1_n1024[427] A=0x5eb0 B=0x4500 obs=0x555a n=1369 n_even=False
+  fdiv_p1_n1024[441] A=0x5ee8 B=0x4700 obs=0x53e4 n=2020 n_even=True
+  fdiv_p1_n1024[449] A=0x5f08 B=0x4700 obs=0x5404 n=1028 n_even=True
+  fdiv_p1_n1024[467] A=0x5f50 B=0x4500 obs=0x55da n=1497 n_even=False
+  fdiv_p1_n1024[505] A=0x5fe8 B=0x4700 obs=0x5484 n=1156 n_even=True
+  fdiv_p1_n1024[507] A=0x5ff0 B=0x4500 obs=0x565a n=1625 n_even=False
+  fdiv_p1_n1024[547] A=0x6048 B=0x4500 obs=0x56da n=1753 n_even=False
+  fdiv_p1_n1024[561] A=0x6064 B=0x4700 obs=0x5504 n=1284 n_even=True
+  fdiv_p1_n1024[587] A=0x6098 B=0x4500 obs=0x575a n=1881 n_even=False
+  fdiv_p1_n1024[617] A=0x60d4 B=0x4700 obs=0x5584 n=1412 n_even=True
+  fdiv_p1_n1024[627] A=0x60e8 B=0x4500 obs=0x57da n=2009 n_even=False
+  fdiv_p1_n1024[673] A=0x6144 B=0x4700 obs=0x5604 n=1540 n_even=True
+  fdiv_p1_n1024[675] A=0x6148 B=0x4500 obs=0x583a n=1081 n_even=False
+  fdiv_p1_n1024[715] A=0x6198 B=0x4500 obs=0x587a n=1145 n_even=False
+  fdiv_p1_n1024[729] A=0x61b4 B=0x4700 obs=0x5684 n=1668 n_even=True
+  fdiv_p1_n1024[755] A=0x61e8 B=0x4500 obs=0x58ba n=1209 n_even=False
+  fdiv_p1_n1024[785] A=0x6224 B=0x4700 obs=0x5704 n=1796 n_even=True
+  fdiv_p1_n1024[795] A=0x6238 B=0x4500 obs=0x58fa n=1273 n_even=False
+  fdiv_p1_n1024[835] A=0x6288 B=0x4500 obs=0x593a n=1337 n_even=False
+  fdiv_p1_n1024[841] A=0x6294 B=0x4700 obs=0x5784 n=1924 n_even=True
+  fdiv_p1_n1024[875] A=0x62d8 B=0x4500 obs=0x597a n=1401 n_even=False
+  fdiv_p1_n1024[913] A=0x6324 B=0x4700 obs=0x5814 n=1044 n_even=True
+  fdiv_p1_n1024[915] A=0x6328 B=0x4500 obs=0x59ba n=1465 n_even=False
+  fdiv_p1_n1024[955] A=0x6378 B=0x4500 obs=0x59fa n=1529 n_even=False
+  fdiv_p1_n1024[969] A=0x6394 B=0x4700 obs=0x5854 n=1108 n_even=True
+  fdiv_p1_n1024[995] A=0x63c8 B=0x4500 obs=0x5a3a n=1593 n_even=False
+  fdiv-systematic-grid[151] A=0x7bff B=0x03ff obs=0x7c00 n=1024 n_even=True
+
+subnormal nonzero results: 28
+  real-rocket-fdiv8-special[18] A=0x0400 B=0x4000 obs=0x0200
+  real-rocket-fdiv8-finite-sweep[5] A=0x4200 B=0x7bff obs=0x0300
+  real-rocket-fdiv8-finite-sweep[7] A=0x0400 B=0x4200 obs=0x0155
+  real-rocket-fdiv8-finite-sweep[11] A=0x0003 B=0x4000 obs=0x0002
+  real-rocket-fdiv8-finite-sweep[12] A=0x0005 B=0x4000 obs=0x0002
+  real-rocket-fdiv8-finite-sweep[13] A=0x0400 B=0x4000 obs=0x0200
+  real-rocket-fdiv8-finite-sweep[14] A=0x0401 B=0x4000 obs=0x0200
+  real-rocket-fdiv8-finite-sweep[30] A=0x8003 B=0x4000 obs=0x8002
+  fdiv-systematic-grid[106] A=0x0001 B=0x3c00 obs=0x0001
+  fdiv-systematic-grid[107] A=0x0001 B=0xbc00 obs=0x8001
+  fdiv-systematic-grid[108] A=0x0001 B=0x3800 obs=0x0002
+  fdiv-systematic-grid[109] A=0x0001 B=0xb800 obs=0x8002
+  fdiv-systematic-grid[122] A=0x03ff B=0x3c00 obs=0x03ff
+  fdiv-systematic-grid[123] A=0x03ff B=0xbc00 obs=0x83ff
+  fdiv-systematic-grid[124] A=0x03ff B=0x3800 obs=0x07fe
+  fdiv-systematic-grid[125] A=0x03ff B=0xb800 obs=0x87fe
+  fdiv-systematic-grid[126] A=0x03ff B=0x4000 obs=0x0200
+  fdiv-systematic-grid[127] A=0x03ff B=0xc000 obs=0x8200
+  fdiv-systematic-grid[138] A=0x0400 B=0x3c00 obs=0x0400
+  fdiv-systematic-grid[139] A=0x0400 B=0xbc00 obs=0x8400
+  fdiv-systematic-grid[142] A=0x0400 B=0x4000 obs=0x0200
+  fdiv-systematic-grid[143] A=0x0400 B=0xc000 obs=0x8200
+  fdiv-systematic-grid[169] A=0x3c00 B=0x7bff obs=0x0100
+  fdiv-systematic-grid[185] A=0xbc00 B=0x7bff obs=0x8100
+  fdiv-systematic-grid[201] A=0x3800 B=0x7bff obs=0x0080
+  fdiv-systematic-grid[217] A=0xb800 B=0x7bff obs=0x8080
+  fdiv-systematic-grid[233] A=0x4000 B=0x7bff obs=0x0200
+  fdiv-systematic-grid[249] A=0xc000 B=0x7bff obs=0x8200
+
+overflow results: 13
+  real-rocket-fdiv8-special[20] A=0x7bff B=0x0400 obs=0x7c00
+  real-rocket-fdiv8-special[21] A=0x3c00 B=0x0001 obs=0x7c00
+  fdiv-systematic-grid[150] A=0x7bff B=0x0001 obs=0x7c00
+  fdiv-systematic-grid[151] A=0x7bff B=0x03ff obs=0x7c00
+  fdiv-systematic-grid[152] A=0x7bff B=0x0400 obs=0x7c00
+  fdiv-systematic-grid[156] A=0x7bff B=0x3800 obs=0x7c00
+  fdiv-systematic-grid[157] A=0x7bff B=0xb800 obs=0xfc00
+  fdiv-systematic-grid[166] A=0x3c00 B=0x0001 obs=0x7c00
+  fdiv-systematic-grid[182] A=0xbc00 B=0x0001 obs=0xfc00
+  fdiv-systematic-grid[198] A=0x3800 B=0x0001 obs=0x7c00
+  fdiv-systematic-grid[214] A=0xb800 B=0x0001 obs=0xfc00
+  fdiv-systematic-grid[230] A=0x4000 B=0x0001 obs=0x7c00
+  fdiv-systematic-grid[246] A=0xc000 B=0x0001 obs=0xfc00
+
+underflow-to-zero (r<1/2): 5
+  real-rocket-fdiv8-special[22] A=0x0001 B=0x7bff obs=0x0000
+  real-rocket-fdiv8-finite-sweep[29] A=0x8001 B=0x4200 obs=0x8000
+  fdiv-systematic-grid[105] A=0x0001 B=0x7bff obs=0x0000
+  fdiv-systematic-grid[121] A=0x03ff B=0x7bff obs=0x0000
+  fdiv-systematic-grid[137] A=0x0400 B=0x7bff obs=0x0000
+
+zero-numerator lanes with finite nonzero divisor:
+  fdiv_p2_n8[5] A=0x0000 B=0x4200 (3) obs=0x0000
+  fdiv_p2_n9[5] A=0x0000 B=0x4200 (3) obs=0x0000
+  fdiv_p2_n33[5] A=0x0000 B=0x4200 (3) obs=0x0000
+  fdiv_p2_n33[16] A=0x0000 B=0x3e00 (1.5) obs=0x0000
+  fdiv_p2_n33[27] A=0x0000 B=0x4300 (3.5) obs=0x0000
+  fdiv-systematic-grid[6] A=0x0000 B=0x0001 (5.96046448e-08) obs=0x0000
+  fdiv-systematic-grid[7] A=0x0000 B=0x03ff (6.09755516e-05) obs=0x0000
+  fdiv-systematic-grid[8] A=0x0000 B=0x0400 (6.10351562e-05) obs=0x0000
+  fdiv-systematic-grid[9] A=0x0000 B=0x7bff (65504) obs=0x0000
+  fdiv-systematic-grid[10] A=0x0000 B=0x3c00 (1) obs=0x0000
+  fdiv-systematic-grid[11] A=0x0000 B=0xbc00 (-1) obs=0x0000
+  fdiv-systematic-grid[12] A=0x0000 B=0x3800 (0.5) obs=0x0000
+  fdiv-systematic-grid[13] A=0x0000 B=0xb800 (-0.5) obs=0x0000
+  fdiv-systematic-grid[14] A=0x0000 B=0x4000 (2) obs=0x0000
+  fdiv-systematic-grid[15] A=0x0000 B=0xc000 (-2) obs=0x0000
+  fdiv-systematic-grid[22] A=0x8000 B=0x0001 (5.96046448e-08) obs=0x8000
+  fdiv-systematic-grid[23] A=0x8000 B=0x03ff (6.09755516e-05) obs=0x8000
+  fdiv-systematic-grid[24] A=0x8000 B=0x0400 (6.10351562e-05) obs=0x8000
+  fdiv-systematic-grid[25] A=0x8000 B=0x7bff (65504) obs=0x8000
+  fdiv-systematic-grid[26] A=0x8000 B=0x3c00 (1) obs=0x8000
+  fdiv-systematic-grid[27] A=0x8000 B=0xbc00 (-1) obs=0x8000
+  fdiv-systematic-grid[28] A=0x8000 B=0x3800 (0.5) obs=0x8000
+  fdiv-systematic-grid[29] A=0x8000 B=0xb800 (-0.5) obs=0x8000
+  fdiv-systematic-grid[30] A=0x8000 B=0x4000 (2) obs=0x8000
+  fdiv-systematic-grid[31] A=0x8000 B=0xc000 (-2) obs=0x8000
+
+class pairs directly observed with exact class bit patterns: 256/256
+  (zero_p,zero_p) -> real-rocket-fdiv8-special[2]=0x7c01, fdiv-systematic-grid[0]=0x7c01
+  (zero_p,zero_n) -> fdiv-systematic-grid[1]=0x7c00
+  (zero_p,inf_p) -> real-rocket-fdiv8-special[10]=0x0000, fdiv-systematic-grid[2]=0x0000
+  (zero_p,inf_n) -> fdiv-systematic-grid[3]=0x0000
+  (zero_p,qnan) -> fdiv-systematic-grid[4]=0x7c01
+  (zero_p,snan) -> fdiv-systematic-grid[5]=0x7c01
+  (zero_p,sub_min) -> fdiv-systematic-grid[6]=0x0000
+  (zero_p,sub_max) -> fdiv-systematic-grid[7]=0x0000
+  (zero_p,norm_min) -> fdiv-systematic-grid[8]=0x0000
+  (zero_p,fin_max) -> fdiv-systematic-grid[9]=0x0000
+  (zero_p,one_p) -> fdiv-systematic-grid[10]=0x0000
+  (zero_p,one_n) -> fdiv-systematic-grid[11]=0x0000
+  (zero_p,half_p) -> fdiv-systematic-grid[12]=0x0000
+  (zero_p,half_n) -> fdiv-systematic-grid[13]=0x0000
+  (zero_p,two_p) -> fdiv-systematic-grid[14]=0x0000
+  (zero_p,two_n) -> fdiv-systematic-grid[15]=0x0000
+  (zero_n,zero_p) -> real-rocket-fdiv8-special[3]=0xfc00, fdiv-systematic-grid[16]=0xfc00
+  (zero_n,zero_n) -> fdiv-systematic-grid[17]=0xfc00
+  (zero_n,inf_p) -> fdiv-systematic-grid[18]=0x8000
+  (zero_n,inf_n) -> fdiv-systematic-grid[19]=0x8000
+  (zero_n,qnan) -> fdiv-systematic-grid[20]=0x7c01
+  (zero_n,snan) -> fdiv-systematic-grid[21]=0x7c01
+  (zero_n,sub_min) -> fdiv-systematic-grid[22]=0x8000
+  (zero_n,sub_max) -> fdiv-systematic-grid[23]=0x8000
+  (zero_n,norm_min) -> fdiv-systematic-grid[24]=0x8000
+  (zero_n,fin_max) -> fdiv-systematic-grid[25]=0x8000
+  (zero_n,one_p) -> fdiv-systematic-grid[26]=0x8000
+  (zero_n,one_n) -> fdiv-systematic-grid[27]=0x8000
+  (zero_n,half_p) -> fdiv-systematic-grid[28]=0x8000
+  (zero_n,half_n) -> fdiv-systematic-grid[29]=0x8000
+  (zero_n,two_p) -> fdiv-systematic-grid[30]=0x8000
+  (zero_n,two_n) -> fdiv-systematic-grid[31]=0x8000
+  (inf_p,zero_p) -> real-rocket-fdiv8-special[9]=0x7c00, fdiv-systematic-grid[32]=0x7c00
+  (inf_p,zero_n) -> fdiv-systematic-grid[33]=0x7c00
+  (inf_p,inf_p) -> real-rocket-fdiv8-special[4]=0x7c00, fdiv-systematic-grid[34]=0x7c00
+  (inf_p,inf_n) -> fdiv-systematic-grid[35]=0x7c00
+  (inf_p,qnan) -> fdiv-systematic-grid[36]=0x7c01
+  (inf_p,snan) -> fdiv-systematic-grid[37]=0x7c01
+  (inf_p,sub_min) -> fdiv-systematic-grid[38]=0x7c00
+  (inf_p,sub_max) -> fdiv-systematic-grid[39]=0x7c00
+  (inf_p,norm_min) -> fdiv-systematic-grid[40]=0x7c00
+  (inf_p,fin_max) -> fdiv-systematic-grid[41]=0x7c00
+  (inf_p,one_p) -> real-rocket-fdiv8-special[6]=0x7c00, fdiv-systematic-grid[42]=0x7c00
+  (inf_p,one_n) -> fdiv-systematic-grid[43]=0x7c00
+  (inf_p,half_p) -> fdiv-systematic-grid[44]=0x7c00
+  (inf_p,half_n) -> fdiv-systematic-grid[45]=0x7c00
+  (inf_p,two_p) -> fdiv-systematic-grid[46]=0x7c00
+  (inf_p,two_n) -> fdiv-systematic-grid[47]=0x7c00
+  (inf_n,zero_p) -> fdiv-systematic-grid[48]=0xfc00
+  (inf_n,zero_n) -> fdiv-systematic-grid[49]=0xfc00
+  (inf_n,inf_p) -> real-rocket-fdiv8-special[5]=0xfc00, fdiv-systematic-grid[50]=0xfc00
+  (inf_n,inf_n) -> fdiv-systematic-grid[51]=0xfc00
+  (inf_n,qnan) -> fdiv-systematic-grid[52]=0x7c01
+  (inf_n,snan) -> fdiv-systematic-grid[53]=0x7c01
+  (inf_n,sub_min) -> fdiv-systematic-grid[54]=0xfc00
+  (inf_n,sub_max) -> fdiv-systematic-grid[55]=0xfc00
+  (inf_n,norm_min) -> fdiv-systematic-grid[56]=0xfc00
+  (inf_n,fin_max) -> fdiv-systematic-grid[57]=0xfc00
+  (inf_n,one_p) -> fdiv-systematic-grid[58]=0xfc00
+  (inf_n,one_n) -> fdiv-systematic-grid[59]=0xfc00
+  (inf_n,half_p) -> fdiv-systematic-grid[60]=0xfc00
+  (inf_n,half_n) -> fdiv-systematic-grid[61]=0xfc00
+  (inf_n,two_p) -> fdiv-systematic-grid[62]=0xfc00
+  (inf_n,two_n) -> fdiv-systematic-grid[63]=0xfc00
+  (qnan,zero_p) -> fdiv-systematic-grid[64]=0x7c01
+  (qnan,zero_n) -> fdiv-systematic-grid[65]=0x7c01
+  (qnan,inf_p) -> fdiv-systematic-grid[66]=0x7c01
+  (qnan,inf_n) -> fdiv-systematic-grid[67]=0x7c01
+  (qnan,qnan) -> fdiv-systematic-grid[68]=0x7c01
+  (qnan,snan) -> fdiv-systematic-grid[69]=0x7c01
+  (qnan,sub_min) -> fdiv-systematic-grid[70]=0x7c01
+  (qnan,sub_max) -> fdiv-systematic-grid[71]=0x7c01
+  (qnan,norm_min) -> fdiv-systematic-grid[72]=0x7c01
+  (qnan,fin_max) -> fdiv-systematic-grid[73]=0x7c01
+  (qnan,one_p) -> real-rocket-fdiv8-special[11]=0x7c01, fdiv-systematic-grid[74]=0x7c01
+  (qnan,one_n) -> fdiv-systematic-grid[75]=0x7c01
+  (qnan,half_p) -> fdiv-systematic-grid[76]=0x7c01
+  (qnan,half_n) -> fdiv-systematic-grid[77]=0x7c01
+  (qnan,two_p) -> fdiv-systematic-grid[78]=0x7c01
+  (qnan,two_n) -> fdiv-systematic-grid[79]=0x7c01
+  (snan,zero_p) -> fdiv-systematic-grid[80]=0x7c01
+  (snan,zero_n) -> fdiv-systematic-grid[81]=0x7c01
+  (snan,inf_p) -> fdiv-systematic-grid[82]=0x7c01
+  (snan,inf_n) -> fdiv-systematic-grid[83]=0x7c01
+  (snan,qnan) -> fdiv-systematic-grid[84]=0x7c01
+  (snan,snan) -> fdiv-systematic-grid[85]=0x7c01
+  (snan,sub_min) -> fdiv-systematic-grid[86]=0x7c01
+  (snan,sub_max) -> fdiv-systematic-grid[87]=0x7c01
+  (snan,norm_min) -> fdiv-systematic-grid[88]=0x7c01
+  (snan,fin_max) -> fdiv-systematic-grid[89]=0x7c01
+  (snan,one_p) -> fdiv-systematic-grid[90]=0x7c01
+  (snan,one_n) -> fdiv-systematic-grid[91]=0x7c01
+  (snan,half_p) -> fdiv-systematic-grid[92]=0x7c01
+  (snan,half_n) -> fdiv-systematic-grid[93]=0x7c01
+  (snan,two_p) -> fdiv-systematic-grid[94]=0x7c01
+  (snan,two_n) -> fdiv-systematic-grid[95]=0x7c01
+  (sub_min,zero_p) -> fdiv-systematic-grid[96]=0x7c00
+  (sub_min,zero_n) -> fdiv-systematic-grid[97]=0x7c00
+  (sub_min,inf_p) -> fdiv-systematic-grid[98]=0x0000
+  (sub_min,inf_n) -> fdiv-systematic-grid[99]=0x0000
+  (sub_min,qnan) -> fdiv-systematic-grid[100]=0x7c01
+  (sub_min,snan) -> fdiv-systematic-grid[101]=0x7c01
+  (sub_min,sub_min) -> real-rocket-fdiv8-finite-sweep[10]=0x3c00, fdiv-systematic-grid[102]=0x3c00
+  (sub_min,sub_max) -> fdiv-systematic-grid[103]=0x1401
+  (sub_min,norm_min) -> fdiv-systematic-grid[104]=0x1400
+  (sub_min,fin_max) -> real-rocket-fdiv8-special[22]=0x0000, fdiv-systematic-grid[105]=0x0000
+  (sub_min,one_p) -> fdiv-systematic-grid[106]=0x0001
+  (sub_min,one_n) -> fdiv-systematic-grid[107]=0x8001
+  (sub_min,half_p) -> fdiv-systematic-grid[108]=0x0002
+  (sub_min,half_n) -> fdiv-systematic-grid[109]=0x8002
+  (sub_min,two_p) -> real-rocket-fdiv8-special[17]=0x0000, real-rocket-fdiv8-finite-sweep[6]=0x0000, fdiv-systematic-grid[110]=0x0000
+  (sub_min,two_n) -> fdiv-systematic-grid[111]=0x8000
+  (sub_max,zero_p) -> fdiv-systematic-grid[112]=0x7c00
+  (sub_max,zero_n) -> fdiv-systematic-grid[113]=0x7c00
+  (sub_max,inf_p) -> fdiv-systematic-grid[114]=0x0000
+  (sub_max,inf_n) -> fdiv-systematic-grid[115]=0x0000
+  (sub_max,qnan) -> fdiv-systematic-grid[116]=0x7c01
+  (sub_max,snan) -> fdiv-systematic-grid[117]=0x7c01
+  (sub_max,sub_min) -> fdiv-systematic-grid[118]=0x63fe
+  (sub_max,sub_max) -> fdiv-systematic-grid[119]=0x3c00
+  (sub_max,norm_min) -> fdiv-systematic-grid[120]=0x3bfe
+  (sub_max,fin_max) -> fdiv-systematic-grid[121]=0x0000
+  (sub_max,one_p) -> fdiv-systematic-grid[122]=0x03ff
+  (sub_max,one_n) -> fdiv-systematic-grid[123]=0x83ff
+  (sub_max,half_p) -> fdiv-systematic-grid[124]=0x07fe
+  (sub_max,half_n) -> fdiv-systematic-grid[125]=0x87fe
+  (sub_max,two_p) -> fdiv-systematic-grid[126]=0x0200
+  (sub_max,two_n) -> fdiv-systematic-grid[127]=0x8200
+  (norm_min,zero_p) -> fdiv-systematic-grid[128]=0x7c00
+  (norm_min,zero_n) -> fdiv-systematic-grid[129]=0x7c00
+  (norm_min,inf_p) -> fdiv-systematic-grid[130]=0x0000
+  (norm_min,inf_n) -> fdiv-systematic-grid[131]=0x0000
+  (norm_min,qnan) -> fdiv-systematic-grid[132]=0x7c01
+  (norm_min,snan) -> fdiv-systematic-grid[133]=0x7c01
+  (norm_min,sub_min) -> fdiv-systematic-grid[134]=0x6400
+  (norm_min,sub_max) -> fdiv-systematic-grid[135]=0x3c01
+  (norm_min,norm_min) -> fdiv-systematic-grid[136]=0x3c00
+  (norm_min,fin_max) -> fdiv-systematic-grid[137]=0x0000
+  (norm_min,one_p) -> fdiv-systematic-grid[138]=0x0400
+  (norm_min,one_n) -> fdiv-systematic-grid[139]=0x8400
+  (norm_min,half_p) -> fdiv-systematic-grid[140]=0x0800
+  (norm_min,half_n) -> fdiv-systematic-grid[141]=0x8800
+  (norm_min,two_p) -> real-rocket-fdiv8-special[18]=0x0200, real-rocket-fdiv8-finite-sweep[13]=0x0200, fdiv-systematic-grid[142]=0x0200
+  (norm_min,two_n) -> fdiv-systematic-grid[143]=0x8200
+  (fin_max,zero_p) -> fdiv-systematic-grid[144]=0x7c00
+  (fin_max,zero_n) -> fdiv-systematic-grid[145]=0x7c00
+  (fin_max,inf_p) -> fdiv-systematic-grid[146]=0x0000
+  (fin_max,inf_n) -> fdiv-systematic-grid[147]=0x0000
+  (fin_max,qnan) -> fdiv-systematic-grid[148]=0x7c01
+  (fin_max,snan) -> fdiv-systematic-grid[149]=0x7c01
+  (fin_max,sub_min) -> fdiv-systematic-grid[150]=0x7c00
+  (fin_max,sub_max) -> fdiv-systematic-grid[151]=0x7c00
+  (fin_max,norm_min) -> real-rocket-fdiv8-special[20]=0x7c00, fdiv-systematic-grid[152]=0x7c00
+  (fin_max,fin_max) -> real-rocket-fdiv8-finite-sweep[9]=0x3c00, fdiv-systematic-grid[153]=0x3c00
+  (fin_max,one_p) -> real-rocket-fdiv8-special[19]=0x7bff, fdiv-systematic-grid[154]=0x7bff
+  (fin_max,one_n) -> fdiv-systematic-grid[155]=0xfbff
+  (fin_max,half_p) -> fdiv-systematic-grid[156]=0x7c00
+  (fin_max,half_n) -> fdiv-systematic-grid[157]=0xfc00
+  (fin_max,two_p) -> real-rocket-fdiv8-finite-sweep[15]=0x77ff, fdiv-systematic-grid[158]=0x77ff
+  (fin_max,two_n) -> fdiv-systematic-grid[159]=0xf7ff
+  (one_p,zero_p) -> real-rocket-fdiv8-special[0]=0x7c00, fdiv-systematic-grid[160]=0x7c00
+  (one_p,zero_n) -> fdiv-systematic-grid[161]=0x7c00
+  (one_p,inf_p) -> real-rocket-fdiv8-special[7]=0x0000, fdiv-systematic-grid[162]=0x0000
+  (one_p,inf_n) -> fdiv-systematic-grid[163]=0x0000
+  (one_p,qnan) -> real-rocket-fdiv8-special[12]=0x7c01, fdiv-systematic-grid[164]=0x7c01
+  (one_p,snan) -> fdiv-systematic-grid[165]=0x7c01
+  (one_p,sub_min) -> real-rocket-fdiv8-special[21]=0x7c00, fdiv-systematic-grid[166]=0x7c00
+  (one_p,sub_max) -> fdiv-systematic-grid[167]=0x7401
+  (one_p,norm_min) -> fdiv-systematic-grid[168]=0x7400
+  (one_p,fin_max) -> fdiv-systematic-grid[169]=0x0100
+  (one_p,one_p) -> fdiv_p2_n33[29]=0x3c00, fdiv-systematic-grid[170]=0x3c00
+  (one_p,one_n) -> fdiv-systematic-grid[171]=0xbc00
+  (one_p,half_p) -> fdiv_p2_n8[7]=0x4000, fdiv_p2_n9[7]=0x4000, fdiv_p2_n33[7]=0x4000
+  (one_p,half_n) -> fdiv-systematic-grid[173]=0xc000
+  (one_p,two_p) -> real-rocket-fdiv8[0]=0x3800, fdiv-systematic-grid[174]=0x3800
+  (one_p,two_n) -> fdiv-systematic-grid[175]=0xb800
+  (one_n,zero_p) -> real-rocket-fdiv8-special[1]=0xfc00, fdiv-systematic-grid[176]=0xfc00
+  (one_n,zero_n) -> fdiv-systematic-grid[177]=0xfc00
+  (one_n,inf_p) -> real-rocket-fdiv8-special[8]=0x8000, fdiv-systematic-grid[178]=0x8000
+  (one_n,inf_n) -> fdiv-systematic-grid[179]=0x8000
+  (one_n,qnan) -> fdiv-systematic-grid[180]=0x7c01
+  (one_n,snan) -> fdiv-systematic-grid[181]=0x7c01
+  (one_n,sub_min) -> fdiv-systematic-grid[182]=0xfc00
+  (one_n,sub_max) -> fdiv-systematic-grid[183]=0xf401
+  (one_n,norm_min) -> fdiv-systematic-grid[184]=0xf400
+  (one_n,fin_max) -> fdiv-systematic-grid[185]=0x8100
+  (one_n,one_p) -> fdiv-systematic-grid[186]=0xbc00
+  (one_n,one_n) -> fdiv-systematic-grid[187]=0x3c00
+  (one_n,half_p) -> fdiv_p2_n33[14]=0xc000, fdiv-systematic-grid[188]=0xc000
+  (one_n,half_n) -> fdiv-systematic-grid[189]=0x4000
+  (one_n,two_p) -> real-rocket-fdiv8-finite-sweep[31]=0xb800, fdiv_p2_n8[3]=0xb800, fdiv_p2_n9[3]=0xb800
+  (one_n,two_n) -> fdiv-systematic-grid[191]=0x3800
+  (half_p,zero_p) -> fdiv-systematic-grid[192]=0x7c00
+  (half_p,zero_n) -> fdiv-systematic-grid[193]=0x7c00
+  (half_p,inf_p) -> fdiv-systematic-grid[194]=0x0000
+  (half_p,inf_n) -> fdiv-systematic-grid[195]=0x0000
+  (half_p,qnan) -> fdiv-systematic-grid[196]=0x7c01
+  (half_p,snan) -> fdiv-systematic-grid[197]=0x7c01
+  (half_p,sub_min) -> fdiv-systematic-grid[198]=0x7c00
+  (half_p,sub_max) -> fdiv-systematic-grid[199]=0x7001
+  (half_p,norm_min) -> fdiv-systematic-grid[200]=0x7000
+  (half_p,fin_max) -> fdiv-systematic-grid[201]=0x0080
+  (half_p,one_p) -> fdiv-systematic-grid[202]=0x3800
+  (half_p,one_n) -> fdiv-systematic-grid[203]=0xb800
+  (half_p,half_p) -> fdiv_p2_n33[28]=0x3c00, fdiv-systematic-grid[204]=0x3c00
+  (half_p,half_n) -> fdiv-systematic-grid[205]=0xbc00
+  (half_p,two_p) -> fdiv_p2_n33[17]=0x3400, fdiv-systematic-grid[206]=0x3400
+  (half_p,two_n) -> fdiv-systematic-grid[207]=0xb400
+  (half_n,zero_p) -> fdiv-systematic-grid[208]=0xfc00
+  (half_n,zero_n) -> fdiv-systematic-grid[209]=0xfc00
+  (half_n,inf_p) -> fdiv-systematic-grid[210]=0x8000
+  (half_n,inf_n) -> fdiv-systematic-grid[211]=0x8000
+  (half_n,qnan) -> fdiv-systematic-grid[212]=0x7c01
+  (half_n,snan) -> fdiv-systematic-grid[213]=0x7c01
+  (half_n,sub_min) -> fdiv-systematic-grid[214]=0xfc00
+  (half_n,sub_max) -> fdiv-systematic-grid[215]=0xf001
+  (half_n,norm_min) -> fdiv-systematic-grid[216]=0xf000
+  (half_n,fin_max) -> fdiv-systematic-grid[217]=0x8080
+  (half_n,one_p) -> fdiv_p2_n33[15]=0xb800, fdiv-systematic-grid[218]=0xb800
+  (half_n,one_n) -> fdiv-systematic-grid[219]=0x3800
+  (half_n,half_p) -> fdiv-systematic-grid[220]=0xbc00
+  (half_n,half_n) -> fdiv-systematic-grid[221]=0x3c00
+  (half_n,two_p) -> fdiv-systematic-grid[222]=0xb400
+  (half_n,two_n) -> fdiv-systematic-grid[223]=0x3400
+  (two_p,zero_p) -> fdiv-systematic-grid[224]=0x7c00
+  (two_p,zero_n) -> fdiv-systematic-grid[225]=0x7c00
+  (two_p,inf_p) -> fdiv-systematic-grid[226]=0x0000
+  (two_p,inf_n) -> fdiv-systematic-grid[227]=0x0000
+  (two_p,qnan) -> fdiv-systematic-grid[228]=0x7c01
+  (two_p,snan) -> fdiv-systematic-grid[229]=0x7c01
+  (two_p,sub_min) -> fdiv-systematic-grid[230]=0x7c00
+  (two_p,sub_max) -> fdiv-systematic-grid[231]=0x7801
+  (two_p,norm_min) -> fdiv-systematic-grid[232]=0x7800
+  (two_p,fin_max) -> fdiv-systematic-grid[233]=0x0200
+  (two_p,one_p) -> fdiv-systematic-grid[234]=0x4000
+  (two_p,one_n) -> fdiv-systematic-grid[235]=0xc000
+  (two_p,half_p) -> fdiv-systematic-grid[236]=0x4400
+  (two_p,half_n) -> fdiv-systematic-grid[237]=0xc400
+  (two_p,two_p) -> real-rocket-fdiv8[1]=0x3c00, fdiv_p2_n33[31]=0x3c00, fdiv-systematic-grid[238]=0x3c00
+  (two_p,two_n) -> fdiv-systematic-grid[239]=0xbc00
+  (two_n,zero_p) -> fdiv-systematic-grid[240]=0xfc00
+  (two_n,zero_n) -> fdiv-systematic-grid[241]=0xfc00
+  (two_n,inf_p) -> fdiv-systematic-grid[242]=0x8000
+  (two_n,inf_n) -> fdiv-systematic-grid[243]=0x8000
+  (two_n,qnan) -> fdiv-systematic-grid[244]=0x7c01
+  (two_n,snan) -> fdiv-systematic-grid[245]=0x7c01
+  (two_n,sub_min) -> fdiv-systematic-grid[246]=0xfc00
+  (two_n,sub_max) -> fdiv-systematic-grid[247]=0xf801
+  (two_n,norm_min) -> fdiv-systematic-grid[248]=0xf800
+  (two_n,fin_max) -> fdiv-systematic-grid[249]=0x8200
+  (two_n,one_p) -> fdiv_p2_n8[1]=0xc000, fdiv_p2_n9[1]=0xc000, fdiv_p2_n33[1]=0xc000
+  (two_n,one_n) -> fdiv-systematic-grid[251]=0x4000
+  (two_n,half_p) -> fdiv-systematic-grid[252]=0xc400
+  (two_n,half_n) -> fdiv-systematic-grid[253]=0x4400
+  (two_n,two_p) -> fdiv-systematic-grid[254]=0xbc00
+  (two_n,two_n) -> fdiv-systematic-grid[255]=0x3c00

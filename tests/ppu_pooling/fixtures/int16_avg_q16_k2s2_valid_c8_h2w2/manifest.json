@@ -1,0 +1,167 @@
+{
+  "case": "int16_avg_q16_k2s2_valid_c8_h2w2",
+  "status": "READY_CAPTURE_BOUNDED_CANDIDATE",
+  "description": "INT16 average pooling, 2x2 kernel, stride 2, no padding, C8 H2 W2 -> H1 W1; Q16 reciprocals 0x8000/0x8000; exact integer means. Source isolated probe.",
+  "source_example": "/home/fedora/rk3588/examples/expt/pooling.py",
+  "source_bundle": "build/rk3588-example-captures/pooling/cases/int16_avg_q16_k2s2_valid_c8_h2w2",
+  "device_capture": {
+    "capture_json_sha256": "7e7b9297d012774f92987689bee518ea77c74d074a3488667fcfe1472275b3c1",
+    "started_utc": "2026-11-05T20:32:51Z",
+    "status": "OK",
+    "submit_ret": 0,
+    "device": "/dev/accel/accel0",
+    "device_path": "/sys/devices/platform/rknn",
+    "kernel": "6.18.24-current-rockchip64",
+    "board_compatible": [
+      "xunlong,orangepi-5",
+      "rockchip,rk3588s"
+    ],
+    "runner": "rocket_run.py 1.0.0"
+  },
+  "command_stream": {
+    "source_regcmd_sha256": "7a76b7e2359e176f9ec9cd1828e0bf4904ffa4e405cd36b30c457094e39d3dca",
+    "device_patched_regcmd_sha256": "847f1ffd3e03a57292065103671a4e330189edb22061b7491674a29134008ca7",
+    "job_json_sha256": "39d5dc87b225a93b5f86a1d92adb735333258a2786aa18eb0a7f95f145b64f72",
+    "qwords": 28,
+    "address_relocations": [
+      15,
+      22
+    ],
+    "addresses": {
+      "out": 8192,
+      "in": 4096
+    }
+  },
+  "ppu": {
+    "dtype": "int16",
+    "method": "average",
+    "method_selector": 0,
+    "channels": 8,
+    "kernel": [
+      2,
+      2
+    ],
+    "stride": [
+      2,
+      2
+    ],
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "padding_value": [
+      0,
+      0
+    ],
+    "index_en": false,
+    "use_cnt": 0,
+    "in_shape": [
+      2,
+      2
+    ],
+    "out_shape": [
+      1,
+      1
+    ],
+    "kernel_cfg": 1114369,
+    "operation_mode_cfg": 16,
+    "precision_name": "INT16",
+    "rdma_width": 2,
+    "output_precision": 1
+  },
+  "layout": {
+    "input": {
+      "atom_bytes": 16,
+      "atom_channels": 8,
+      "buffer_bytes": 4096,
+      "dtype": "int16",
+      "line_stride_bytes": 32,
+      "logical_bytes": 64,
+      "packing": "C1HWC2 (surface, y, x, 16-byte atom), little-endian",
+      "surface_stride_bytes": 64,
+      "surfaces": 1,
+      "tail_value": 0
+    },
+    "output": {
+      "buffer_bytes": 4096,
+      "index_bytes": 0,
+      "index_en": false,
+      "index_offset": null,
+      "index_surfaces": 0,
+      "logical_bytes": 16,
+      "packing": "C1HWC2 (surface, y, x, 16-byte atom), little-endian",
+      "value_bytes": 16
+    }
+  },
+  "files": {
+    "capture.json": {
+      "bytes": 5055,
+      "sha256": "7e7b9297d012774f92987689bee518ea77c74d074a3488667fcfe1472275b3c1"
+    },
+    "device_out.bin": {
+      "bytes": 4096,
+      "sha256": "eb4b3c75c807a958b9ede04ebcdbf80abb8470601669e20cbfd7970d50139fc8"
+    },
+    "expected.bin": {
+      "bytes": 4096,
+      "sha256": "eb4b3c75c807a958b9ede04ebcdbf80abb8470601669e20cbfd7970d50139fc8"
+    },
+    "in.bin": {
+      "bytes": 4096,
+      "sha256": "b6429145d76a42e6f9d580efba675d0b3df1651f21eb36ab7e3af392fe4505ee"
+    },
+    "job.json": {
+      "bytes": 853,
+      "sha256": "39d5dc87b225a93b5f86a1d92adb735333258a2786aa18eb0a7f95f145b64f72"
+    },
+    "out_init.bin": {
+      "bytes": 4096,
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+    },
+    "regcmd.bin": {
+      "bytes": 224,
+      "sha256": "7a76b7e2359e176f9ec9cd1828e0bf4904ffa4e405cd36b30c457094e39d3dca"
+    },
+    "regcmd.txt": {
+      "bytes": 1673,
+      "sha256": "fe2082979d7f7beaec6440882dea401b0765248e80e15b0551484daf111c6dc2"
+    }
+  },
+  "comparison": {
+    "scope": "complete 4096-byte output BO including untouched tail",
+    "logical_value_bytes": 16,
+    "mismatches_expected": 0,
+    "tolerance": 0.0,
+    "note": "The device output SHA256 equals the host expected.bin SHA256; the testbench compares the real device BO.",
+    "device_output_sha256": "eb4b3c75c807a958b9ede04ebcdbf80abb8470601669e20cbfd7970d50139fc8",
+    "source_expected_sha256": "eb4b3c75c807a958b9ede04ebcdbf80abb8470601669e20cbfd7970d50139fc8"
+  },
+  "oracle": {
+    "buffer_bytes": 4096,
+    "compare": "Decode expected.bin with ppu.dtype. Compare the value region and, for INDEX_EN, the uint16 index region at layout.output.index_offset. Use oracle.tolerance for FP16 average; integers, maxima/minima, and index positions are exact. Bytes after logical_output_bytes must remain zero.",
+    "expected_file": "expected.bin",
+    "kind": "numpy-source-pool-reference",
+    "logical_output_bytes": 16,
+    "note": "source exact integer mean with Q16 reciprocals; values are exact.",
+    "source_example": "/home/fedora/rk3588/examples/expt/pooling.py",
+    "source_lines": [
+      731,
+      758,
+      1022,
+      1023
+    ],
+    "tolerance": 0.0
+  },
+  "source": {
+    "example": "/home/fedora/rk3588/examples/expt/pooling.py",
+    "lines": [
+      731,
+      758,
+      1022,
+      1023
+    ],
+    "job_sha256": "39d5dc87b225a93b5f86a1d92adb735333258a2786aa18eb0a7f95f145b64f72"
+  }
+}

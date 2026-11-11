@@ -1,0 +1,111 @@
+{
+  "addresses": {
+    "a": 4096,
+    "b": 8192,
+    "cmd": 0,
+    "out": 12288
+  },
+  "bo_handles": {
+    "a": 2,
+    "b": 3,
+    "cmd": 1,
+    "out": 4
+  },
+  "bytes_read": 4096,
+  "case": "sub_p1_n9",
+  "case_dir": "/home/opencode-agent/rk3588-example-captures/queue-ew-fp16-20261105T201400Z/cases/sub_p1_n9",
+  "cleanup_errors": [],
+  "device_path": "/dev/accel/accel0",
+  "device_stat": {
+    "mode": "0o20660",
+    "rdev": [
+      0,
+      5,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "duration_ns": 2006064,
+  "durations": {
+    "copy_inputs_ns": 16625,
+    "fini_all_ns": 18666,
+    "prep_all_ns": 29459,
+    "submit_ns": 66208,
+    "wait_read_ns": 111124
+  },
+  "errors": [],
+  "hashes": {
+    "inputs": {
+      "a": "3aba62835fcc84c0819776c8f1d7be06f9610466b6bcba10ce32fba63d3745f4",
+      "b": "bf335fa43205eeaee7cfc15f3f4a614ca98c2ade6c4f2dd8fec0ed8eee080146"
+    },
+    "job_json": "d65490ae031bd9b36caa576ec4320ed3f8c8ac26a0c20afad38939074e939778",
+    "out": "b92587b4ed66f9ec984fadfd7ea75be0b08a98605230e414fca0660320c877e1",
+    "regcmd_patched": "7eea97277ffd4603c8b758e9fae9341bfcd2608e0b25351ad1dd725f8b7bd335",
+    "regcmd_source": "c9c552b49d17ac0cda54506ad3f50364163d19449affcf1374c8329b01352f18"
+  },
+  "hostname": "orangepi5",
+  "kernel": "6.18.24-current-rockchip64",
+  "outputs": [
+    {
+      "file": "out.bin",
+      "sha256": "b92587b4ed66f9ec984fadfd7ea75be0b08a98605230e414fca0660320c877e1",
+      "size": 4096
+    }
+  ],
+  "patches": [
+    {
+      "after": 1153202980388880416,
+      "before": 1153202979583574048,
+      "buffer": "out",
+      "dma_address": 12288,
+      "kind": "value32",
+      "regcmd_index": 14
+    },
+    {
+      "after": 2306124484458860568,
+      "before": 2306124484190425112,
+      "buffer": "a",
+      "dma_address": 4096,
+      "kind": "value32",
+      "regcmd_index": 15
+    },
+    {
+      "after": 2306124484727296056,
+      "before": 2306124484190425144,
+      "buffer": "b",
+      "dma_address": 8192,
+      "kind": "value32",
+      "regcmd_index": 16
+    }
+  ],
+  "python_implementation": "CPython",
+  "python_version": "3.14.4",
+  "runner_sha256": "1ed990e7b1617ad606ae688980987e89e241789304d9b0e57a92cfa368b88e9a",
+  "runner_version": "1.0.0",
+  "schema": "rk3588-ew-int-capture-v1",
+  "sizes": {
+    "a": 4096,
+    "a_bo_request": 4096,
+    "a_mmap": 4096,
+    "b": 4096,
+    "b_bo_request": 4096,
+    "b_mmap": 4096,
+    "cmd_bo_request": 176,
+    "cmd_mmap": 4096,
+    "out": 4096,
+    "out_bo_request": 4096,
+    "out_mmap": 4096,
+    "regcmd_bytes": 176,
+    "regcmd_words": 22
+  },
+  "started_utc": "2026-11-05T20:14:59Z",
+  "status": "OK",
+  "submit_errno": null,
+  "submit_error": null,
+  "submit_ret": 0
+}

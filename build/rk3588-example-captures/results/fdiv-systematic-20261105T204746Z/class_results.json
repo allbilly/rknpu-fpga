@@ -1,0 +1,2332 @@
+{
+  "family": "fdiv-systematic",
+  "run_id": "20261105T204746Z",
+  "board": "orangepi5",
+  "device": "/dev/accel/accel0",
+  "runner_sha256": "a51de01f1b8da29e17142ec93f02995ba3a6187e6603a5a64f386d1ab3ab26cd",
+  "source_manifest": "build/rk3588-example-captures/fdiv-systematic/manifest.json",
+  "oracle": "none",
+  "note": "out_bits are raw little-endian FP16 halfwords read back from the captured output BO; no interpretation or oracle applied",
+  "cases": {
+    "fdiv_class_rows_00_01": [
+      {
+        "lane": 0,
+        "pair_index": 0,
+        "A_bits": "0x0000",
+        "B_bits": "0x0000",
+        "out_bits": "0x7c01",
+        "A_class": "zero_p",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 1,
+        "pair_index": 1,
+        "A_bits": "0x0000",
+        "B_bits": "0x8000",
+        "out_bits": "0x7c00",
+        "A_class": "zero_p",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 2,
+        "pair_index": 2,
+        "A_bits": "0x0000",
+        "B_bits": "0x7c00",
+        "out_bits": "0x0000",
+        "A_class": "zero_p",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 3,
+        "pair_index": 3,
+        "A_bits": "0x0000",
+        "B_bits": "0xfc00",
+        "out_bits": "0x0000",
+        "A_class": "zero_p",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 4,
+        "pair_index": 4,
+        "A_bits": "0x0000",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "zero_p",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 5,
+        "pair_index": 5,
+        "A_bits": "0x0000",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "zero_p",
+        "B_class": "snan"
+      },
+      {
+        "lane": 6,
+        "pair_index": 6,
+        "A_bits": "0x0000",
+        "B_bits": "0x0001",
+        "out_bits": "0x0000",
+        "A_class": "zero_p",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 7,
+        "pair_index": 7,
+        "A_bits": "0x0000",
+        "B_bits": "0x03ff",
+        "out_bits": "0x0000",
+        "A_class": "zero_p",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 8,
+        "pair_index": 8,
+        "A_bits": "0x0000",
+        "B_bits": "0x0400",
+        "out_bits": "0x0000",
+        "A_class": "zero_p",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 9,
+        "pair_index": 9,
+        "A_bits": "0x0000",
+        "B_bits": "0x7bff",
+        "out_bits": "0x0000",
+        "A_class": "zero_p",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 10,
+        "pair_index": 10,
+        "A_bits": "0x0000",
+        "B_bits": "0x3c00",
+        "out_bits": "0x0000",
+        "A_class": "zero_p",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 11,
+        "pair_index": 11,
+        "A_bits": "0x0000",
+        "B_bits": "0xbc00",
+        "out_bits": "0x0000",
+        "A_class": "zero_p",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 12,
+        "pair_index": 12,
+        "A_bits": "0x0000",
+        "B_bits": "0x3800",
+        "out_bits": "0x0000",
+        "A_class": "zero_p",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 13,
+        "pair_index": 13,
+        "A_bits": "0x0000",
+        "B_bits": "0xb800",
+        "out_bits": "0x0000",
+        "A_class": "zero_p",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 14,
+        "pair_index": 14,
+        "A_bits": "0x0000",
+        "B_bits": "0x4000",
+        "out_bits": "0x0000",
+        "A_class": "zero_p",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 15,
+        "pair_index": 15,
+        "A_bits": "0x0000",
+        "B_bits": "0xc000",
+        "out_bits": "0x0000",
+        "A_class": "zero_p",
+        "B_class": "two_n"
+      },
+      {
+        "lane": 16,
+        "pair_index": 16,
+        "A_bits": "0x8000",
+        "B_bits": "0x0000",
+        "out_bits": "0xfc00",
+        "A_class": "zero_n",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 17,
+        "pair_index": 17,
+        "A_bits": "0x8000",
+        "B_bits": "0x8000",
+        "out_bits": "0xfc00",
+        "A_class": "zero_n",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 18,
+        "pair_index": 18,
+        "A_bits": "0x8000",
+        "B_bits": "0x7c00",
+        "out_bits": "0x8000",
+        "A_class": "zero_n",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 19,
+        "pair_index": 19,
+        "A_bits": "0x8000",
+        "B_bits": "0xfc00",
+        "out_bits": "0x8000",
+        "A_class": "zero_n",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 20,
+        "pair_index": 20,
+        "A_bits": "0x8000",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "zero_n",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 21,
+        "pair_index": 21,
+        "A_bits": "0x8000",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "zero_n",
+        "B_class": "snan"
+      },
+      {
+        "lane": 22,
+        "pair_index": 22,
+        "A_bits": "0x8000",
+        "B_bits": "0x0001",
+        "out_bits": "0x8000",
+        "A_class": "zero_n",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 23,
+        "pair_index": 23,
+        "A_bits": "0x8000",
+        "B_bits": "0x03ff",
+        "out_bits": "0x8000",
+        "A_class": "zero_n",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 24,
+        "pair_index": 24,
+        "A_bits": "0x8000",
+        "B_bits": "0x0400",
+        "out_bits": "0x8000",
+        "A_class": "zero_n",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 25,
+        "pair_index": 25,
+        "A_bits": "0x8000",
+        "B_bits": "0x7bff",
+        "out_bits": "0x8000",
+        "A_class": "zero_n",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 26,
+        "pair_index": 26,
+        "A_bits": "0x8000",
+        "B_bits": "0x3c00",
+        "out_bits": "0x8000",
+        "A_class": "zero_n",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 27,
+        "pair_index": 27,
+        "A_bits": "0x8000",
+        "B_bits": "0xbc00",
+        "out_bits": "0x8000",
+        "A_class": "zero_n",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 28,
+        "pair_index": 28,
+        "A_bits": "0x8000",
+        "B_bits": "0x3800",
+        "out_bits": "0x8000",
+        "A_class": "zero_n",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 29,
+        "pair_index": 29,
+        "A_bits": "0x8000",
+        "B_bits": "0xb800",
+        "out_bits": "0x8000",
+        "A_class": "zero_n",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 30,
+        "pair_index": 30,
+        "A_bits": "0x8000",
+        "B_bits": "0x4000",
+        "out_bits": "0x8000",
+        "A_class": "zero_n",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 31,
+        "pair_index": 31,
+        "A_bits": "0x8000",
+        "B_bits": "0xc000",
+        "out_bits": "0x8000",
+        "A_class": "zero_n",
+        "B_class": "two_n"
+      }
+    ],
+    "fdiv_class_rows_02_03": [
+      {
+        "lane": 0,
+        "pair_index": 32,
+        "A_bits": "0x7c00",
+        "B_bits": "0x0000",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 1,
+        "pair_index": 33,
+        "A_bits": "0x7c00",
+        "B_bits": "0x8000",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 2,
+        "pair_index": 34,
+        "A_bits": "0x7c00",
+        "B_bits": "0x7c00",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 3,
+        "pair_index": 35,
+        "A_bits": "0x7c00",
+        "B_bits": "0xfc00",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 4,
+        "pair_index": 36,
+        "A_bits": "0x7c00",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "inf_p",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 5,
+        "pair_index": 37,
+        "A_bits": "0x7c00",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "inf_p",
+        "B_class": "snan"
+      },
+      {
+        "lane": 6,
+        "pair_index": 38,
+        "A_bits": "0x7c00",
+        "B_bits": "0x0001",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 7,
+        "pair_index": 39,
+        "A_bits": "0x7c00",
+        "B_bits": "0x03ff",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 8,
+        "pair_index": 40,
+        "A_bits": "0x7c00",
+        "B_bits": "0x0400",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 9,
+        "pair_index": 41,
+        "A_bits": "0x7c00",
+        "B_bits": "0x7bff",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 10,
+        "pair_index": 42,
+        "A_bits": "0x7c00",
+        "B_bits": "0x3c00",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 11,
+        "pair_index": 43,
+        "A_bits": "0x7c00",
+        "B_bits": "0xbc00",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 12,
+        "pair_index": 44,
+        "A_bits": "0x7c00",
+        "B_bits": "0x3800",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 13,
+        "pair_index": 45,
+        "A_bits": "0x7c00",
+        "B_bits": "0xb800",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 14,
+        "pair_index": 46,
+        "A_bits": "0x7c00",
+        "B_bits": "0x4000",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 15,
+        "pair_index": 47,
+        "A_bits": "0x7c00",
+        "B_bits": "0xc000",
+        "out_bits": "0x7c00",
+        "A_class": "inf_p",
+        "B_class": "two_n"
+      },
+      {
+        "lane": 16,
+        "pair_index": 48,
+        "A_bits": "0xfc00",
+        "B_bits": "0x0000",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 17,
+        "pair_index": 49,
+        "A_bits": "0xfc00",
+        "B_bits": "0x8000",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 18,
+        "pair_index": 50,
+        "A_bits": "0xfc00",
+        "B_bits": "0x7c00",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 19,
+        "pair_index": 51,
+        "A_bits": "0xfc00",
+        "B_bits": "0xfc00",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 20,
+        "pair_index": 52,
+        "A_bits": "0xfc00",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "inf_n",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 21,
+        "pair_index": 53,
+        "A_bits": "0xfc00",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "inf_n",
+        "B_class": "snan"
+      },
+      {
+        "lane": 22,
+        "pair_index": 54,
+        "A_bits": "0xfc00",
+        "B_bits": "0x0001",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 23,
+        "pair_index": 55,
+        "A_bits": "0xfc00",
+        "B_bits": "0x03ff",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 24,
+        "pair_index": 56,
+        "A_bits": "0xfc00",
+        "B_bits": "0x0400",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 25,
+        "pair_index": 57,
+        "A_bits": "0xfc00",
+        "B_bits": "0x7bff",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 26,
+        "pair_index": 58,
+        "A_bits": "0xfc00",
+        "B_bits": "0x3c00",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 27,
+        "pair_index": 59,
+        "A_bits": "0xfc00",
+        "B_bits": "0xbc00",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 28,
+        "pair_index": 60,
+        "A_bits": "0xfc00",
+        "B_bits": "0x3800",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 29,
+        "pair_index": 61,
+        "A_bits": "0xfc00",
+        "B_bits": "0xb800",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 30,
+        "pair_index": 62,
+        "A_bits": "0xfc00",
+        "B_bits": "0x4000",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 31,
+        "pair_index": 63,
+        "A_bits": "0xfc00",
+        "B_bits": "0xc000",
+        "out_bits": "0xfc00",
+        "A_class": "inf_n",
+        "B_class": "two_n"
+      }
+    ],
+    "fdiv_class_rows_04_05": [
+      {
+        "lane": 0,
+        "pair_index": 64,
+        "A_bits": "0x7e00",
+        "B_bits": "0x0000",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 1,
+        "pair_index": 65,
+        "A_bits": "0x7e00",
+        "B_bits": "0x8000",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 2,
+        "pair_index": 66,
+        "A_bits": "0x7e00",
+        "B_bits": "0x7c00",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 3,
+        "pair_index": 67,
+        "A_bits": "0x7e00",
+        "B_bits": "0xfc00",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 4,
+        "pair_index": 68,
+        "A_bits": "0x7e00",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 5,
+        "pair_index": 69,
+        "A_bits": "0x7e00",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "snan"
+      },
+      {
+        "lane": 6,
+        "pair_index": 70,
+        "A_bits": "0x7e00",
+        "B_bits": "0x0001",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 7,
+        "pair_index": 71,
+        "A_bits": "0x7e00",
+        "B_bits": "0x03ff",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 8,
+        "pair_index": 72,
+        "A_bits": "0x7e00",
+        "B_bits": "0x0400",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 9,
+        "pair_index": 73,
+        "A_bits": "0x7e00",
+        "B_bits": "0x7bff",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 10,
+        "pair_index": 74,
+        "A_bits": "0x7e00",
+        "B_bits": "0x3c00",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 11,
+        "pair_index": 75,
+        "A_bits": "0x7e00",
+        "B_bits": "0xbc00",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 12,
+        "pair_index": 76,
+        "A_bits": "0x7e00",
+        "B_bits": "0x3800",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 13,
+        "pair_index": 77,
+        "A_bits": "0x7e00",
+        "B_bits": "0xb800",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 14,
+        "pair_index": 78,
+        "A_bits": "0x7e00",
+        "B_bits": "0x4000",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 15,
+        "pair_index": 79,
+        "A_bits": "0x7e00",
+        "B_bits": "0xc000",
+        "out_bits": "0x7c01",
+        "A_class": "qnan",
+        "B_class": "two_n"
+      },
+      {
+        "lane": 16,
+        "pair_index": 80,
+        "A_bits": "0x7c01",
+        "B_bits": "0x0000",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 17,
+        "pair_index": 81,
+        "A_bits": "0x7c01",
+        "B_bits": "0x8000",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 18,
+        "pair_index": 82,
+        "A_bits": "0x7c01",
+        "B_bits": "0x7c00",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 19,
+        "pair_index": 83,
+        "A_bits": "0x7c01",
+        "B_bits": "0xfc00",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 20,
+        "pair_index": 84,
+        "A_bits": "0x7c01",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 21,
+        "pair_index": 85,
+        "A_bits": "0x7c01",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "snan"
+      },
+      {
+        "lane": 22,
+        "pair_index": 86,
+        "A_bits": "0x7c01",
+        "B_bits": "0x0001",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 23,
+        "pair_index": 87,
+        "A_bits": "0x7c01",
+        "B_bits": "0x03ff",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 24,
+        "pair_index": 88,
+        "A_bits": "0x7c01",
+        "B_bits": "0x0400",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 25,
+        "pair_index": 89,
+        "A_bits": "0x7c01",
+        "B_bits": "0x7bff",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 26,
+        "pair_index": 90,
+        "A_bits": "0x7c01",
+        "B_bits": "0x3c00",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 27,
+        "pair_index": 91,
+        "A_bits": "0x7c01",
+        "B_bits": "0xbc00",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 28,
+        "pair_index": 92,
+        "A_bits": "0x7c01",
+        "B_bits": "0x3800",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 29,
+        "pair_index": 93,
+        "A_bits": "0x7c01",
+        "B_bits": "0xb800",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 30,
+        "pair_index": 94,
+        "A_bits": "0x7c01",
+        "B_bits": "0x4000",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 31,
+        "pair_index": 95,
+        "A_bits": "0x7c01",
+        "B_bits": "0xc000",
+        "out_bits": "0x7c01",
+        "A_class": "snan",
+        "B_class": "two_n"
+      }
+    ],
+    "fdiv_class_rows_06_07": [
+      {
+        "lane": 0,
+        "pair_index": 96,
+        "A_bits": "0x0001",
+        "B_bits": "0x0000",
+        "out_bits": "0x7c00",
+        "A_class": "sub_min",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 1,
+        "pair_index": 97,
+        "A_bits": "0x0001",
+        "B_bits": "0x8000",
+        "out_bits": "0x7c00",
+        "A_class": "sub_min",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 2,
+        "pair_index": 98,
+        "A_bits": "0x0001",
+        "B_bits": "0x7c00",
+        "out_bits": "0x0000",
+        "A_class": "sub_min",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 3,
+        "pair_index": 99,
+        "A_bits": "0x0001",
+        "B_bits": "0xfc00",
+        "out_bits": "0x0000",
+        "A_class": "sub_min",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 4,
+        "pair_index": 100,
+        "A_bits": "0x0001",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "sub_min",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 5,
+        "pair_index": 101,
+        "A_bits": "0x0001",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "sub_min",
+        "B_class": "snan"
+      },
+      {
+        "lane": 6,
+        "pair_index": 102,
+        "A_bits": "0x0001",
+        "B_bits": "0x0001",
+        "out_bits": "0x3c00",
+        "A_class": "sub_min",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 7,
+        "pair_index": 103,
+        "A_bits": "0x0001",
+        "B_bits": "0x03ff",
+        "out_bits": "0x1401",
+        "A_class": "sub_min",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 8,
+        "pair_index": 104,
+        "A_bits": "0x0001",
+        "B_bits": "0x0400",
+        "out_bits": "0x1400",
+        "A_class": "sub_min",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 9,
+        "pair_index": 105,
+        "A_bits": "0x0001",
+        "B_bits": "0x7bff",
+        "out_bits": "0x0000",
+        "A_class": "sub_min",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 10,
+        "pair_index": 106,
+        "A_bits": "0x0001",
+        "B_bits": "0x3c00",
+        "out_bits": "0x0001",
+        "A_class": "sub_min",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 11,
+        "pair_index": 107,
+        "A_bits": "0x0001",
+        "B_bits": "0xbc00",
+        "out_bits": "0x8001",
+        "A_class": "sub_min",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 12,
+        "pair_index": 108,
+        "A_bits": "0x0001",
+        "B_bits": "0x3800",
+        "out_bits": "0x0002",
+        "A_class": "sub_min",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 13,
+        "pair_index": 109,
+        "A_bits": "0x0001",
+        "B_bits": "0xb800",
+        "out_bits": "0x8002",
+        "A_class": "sub_min",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 14,
+        "pair_index": 110,
+        "A_bits": "0x0001",
+        "B_bits": "0x4000",
+        "out_bits": "0x0000",
+        "A_class": "sub_min",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 15,
+        "pair_index": 111,
+        "A_bits": "0x0001",
+        "B_bits": "0xc000",
+        "out_bits": "0x8000",
+        "A_class": "sub_min",
+        "B_class": "two_n"
+      },
+      {
+        "lane": 16,
+        "pair_index": 112,
+        "A_bits": "0x03ff",
+        "B_bits": "0x0000",
+        "out_bits": "0x7c00",
+        "A_class": "sub_max",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 17,
+        "pair_index": 113,
+        "A_bits": "0x03ff",
+        "B_bits": "0x8000",
+        "out_bits": "0x7c00",
+        "A_class": "sub_max",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 18,
+        "pair_index": 114,
+        "A_bits": "0x03ff",
+        "B_bits": "0x7c00",
+        "out_bits": "0x0000",
+        "A_class": "sub_max",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 19,
+        "pair_index": 115,
+        "A_bits": "0x03ff",
+        "B_bits": "0xfc00",
+        "out_bits": "0x0000",
+        "A_class": "sub_max",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 20,
+        "pair_index": 116,
+        "A_bits": "0x03ff",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "sub_max",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 21,
+        "pair_index": 117,
+        "A_bits": "0x03ff",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "sub_max",
+        "B_class": "snan"
+      },
+      {
+        "lane": 22,
+        "pair_index": 118,
+        "A_bits": "0x03ff",
+        "B_bits": "0x0001",
+        "out_bits": "0x63fe",
+        "A_class": "sub_max",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 23,
+        "pair_index": 119,
+        "A_bits": "0x03ff",
+        "B_bits": "0x03ff",
+        "out_bits": "0x3c00",
+        "A_class": "sub_max",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 24,
+        "pair_index": 120,
+        "A_bits": "0x03ff",
+        "B_bits": "0x0400",
+        "out_bits": "0x3bfe",
+        "A_class": "sub_max",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 25,
+        "pair_index": 121,
+        "A_bits": "0x03ff",
+        "B_bits": "0x7bff",
+        "out_bits": "0x0000",
+        "A_class": "sub_max",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 26,
+        "pair_index": 122,
+        "A_bits": "0x03ff",
+        "B_bits": "0x3c00",
+        "out_bits": "0x03ff",
+        "A_class": "sub_max",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 27,
+        "pair_index": 123,
+        "A_bits": "0x03ff",
+        "B_bits": "0xbc00",
+        "out_bits": "0x83ff",
+        "A_class": "sub_max",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 28,
+        "pair_index": 124,
+        "A_bits": "0x03ff",
+        "B_bits": "0x3800",
+        "out_bits": "0x07fe",
+        "A_class": "sub_max",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 29,
+        "pair_index": 125,
+        "A_bits": "0x03ff",
+        "B_bits": "0xb800",
+        "out_bits": "0x87fe",
+        "A_class": "sub_max",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 30,
+        "pair_index": 126,
+        "A_bits": "0x03ff",
+        "B_bits": "0x4000",
+        "out_bits": "0x0200",
+        "A_class": "sub_max",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 31,
+        "pair_index": 127,
+        "A_bits": "0x03ff",
+        "B_bits": "0xc000",
+        "out_bits": "0x8200",
+        "A_class": "sub_max",
+        "B_class": "two_n"
+      }
+    ],
+    "fdiv_class_rows_08_09": [
+      {
+        "lane": 0,
+        "pair_index": 128,
+        "A_bits": "0x0400",
+        "B_bits": "0x0000",
+        "out_bits": "0x7c00",
+        "A_class": "norm_min",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 1,
+        "pair_index": 129,
+        "A_bits": "0x0400",
+        "B_bits": "0x8000",
+        "out_bits": "0x7c00",
+        "A_class": "norm_min",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 2,
+        "pair_index": 130,
+        "A_bits": "0x0400",
+        "B_bits": "0x7c00",
+        "out_bits": "0x0000",
+        "A_class": "norm_min",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 3,
+        "pair_index": 131,
+        "A_bits": "0x0400",
+        "B_bits": "0xfc00",
+        "out_bits": "0x0000",
+        "A_class": "norm_min",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 4,
+        "pair_index": 132,
+        "A_bits": "0x0400",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "norm_min",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 5,
+        "pair_index": 133,
+        "A_bits": "0x0400",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "norm_min",
+        "B_class": "snan"
+      },
+      {
+        "lane": 6,
+        "pair_index": 134,
+        "A_bits": "0x0400",
+        "B_bits": "0x0001",
+        "out_bits": "0x6400",
+        "A_class": "norm_min",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 7,
+        "pair_index": 135,
+        "A_bits": "0x0400",
+        "B_bits": "0x03ff",
+        "out_bits": "0x3c01",
+        "A_class": "norm_min",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 8,
+        "pair_index": 136,
+        "A_bits": "0x0400",
+        "B_bits": "0x0400",
+        "out_bits": "0x3c00",
+        "A_class": "norm_min",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 9,
+        "pair_index": 137,
+        "A_bits": "0x0400",
+        "B_bits": "0x7bff",
+        "out_bits": "0x0000",
+        "A_class": "norm_min",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 10,
+        "pair_index": 138,
+        "A_bits": "0x0400",
+        "B_bits": "0x3c00",
+        "out_bits": "0x0400",
+        "A_class": "norm_min",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 11,
+        "pair_index": 139,
+        "A_bits": "0x0400",
+        "B_bits": "0xbc00",
+        "out_bits": "0x8400",
+        "A_class": "norm_min",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 12,
+        "pair_index": 140,
+        "A_bits": "0x0400",
+        "B_bits": "0x3800",
+        "out_bits": "0x0800",
+        "A_class": "norm_min",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 13,
+        "pair_index": 141,
+        "A_bits": "0x0400",
+        "B_bits": "0xb800",
+        "out_bits": "0x8800",
+        "A_class": "norm_min",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 14,
+        "pair_index": 142,
+        "A_bits": "0x0400",
+        "B_bits": "0x4000",
+        "out_bits": "0x0200",
+        "A_class": "norm_min",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 15,
+        "pair_index": 143,
+        "A_bits": "0x0400",
+        "B_bits": "0xc000",
+        "out_bits": "0x8200",
+        "A_class": "norm_min",
+        "B_class": "two_n"
+      },
+      {
+        "lane": 16,
+        "pair_index": 144,
+        "A_bits": "0x7bff",
+        "B_bits": "0x0000",
+        "out_bits": "0x7c00",
+        "A_class": "fin_max",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 17,
+        "pair_index": 145,
+        "A_bits": "0x7bff",
+        "B_bits": "0x8000",
+        "out_bits": "0x7c00",
+        "A_class": "fin_max",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 18,
+        "pair_index": 146,
+        "A_bits": "0x7bff",
+        "B_bits": "0x7c00",
+        "out_bits": "0x0000",
+        "A_class": "fin_max",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 19,
+        "pair_index": 147,
+        "A_bits": "0x7bff",
+        "B_bits": "0xfc00",
+        "out_bits": "0x0000",
+        "A_class": "fin_max",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 20,
+        "pair_index": 148,
+        "A_bits": "0x7bff",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "fin_max",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 21,
+        "pair_index": 149,
+        "A_bits": "0x7bff",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "fin_max",
+        "B_class": "snan"
+      },
+      {
+        "lane": 22,
+        "pair_index": 150,
+        "A_bits": "0x7bff",
+        "B_bits": "0x0001",
+        "out_bits": "0x7c00",
+        "A_class": "fin_max",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 23,
+        "pair_index": 151,
+        "A_bits": "0x7bff",
+        "B_bits": "0x03ff",
+        "out_bits": "0x7c00",
+        "A_class": "fin_max",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 24,
+        "pair_index": 152,
+        "A_bits": "0x7bff",
+        "B_bits": "0x0400",
+        "out_bits": "0x7c00",
+        "A_class": "fin_max",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 25,
+        "pair_index": 153,
+        "A_bits": "0x7bff",
+        "B_bits": "0x7bff",
+        "out_bits": "0x3c00",
+        "A_class": "fin_max",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 26,
+        "pair_index": 154,
+        "A_bits": "0x7bff",
+        "B_bits": "0x3c00",
+        "out_bits": "0x7bff",
+        "A_class": "fin_max",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 27,
+        "pair_index": 155,
+        "A_bits": "0x7bff",
+        "B_bits": "0xbc00",
+        "out_bits": "0xfbff",
+        "A_class": "fin_max",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 28,
+        "pair_index": 156,
+        "A_bits": "0x7bff",
+        "B_bits": "0x3800",
+        "out_bits": "0x7c00",
+        "A_class": "fin_max",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 29,
+        "pair_index": 157,
+        "A_bits": "0x7bff",
+        "B_bits": "0xb800",
+        "out_bits": "0xfc00",
+        "A_class": "fin_max",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 30,
+        "pair_index": 158,
+        "A_bits": "0x7bff",
+        "B_bits": "0x4000",
+        "out_bits": "0x77ff",
+        "A_class": "fin_max",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 31,
+        "pair_index": 159,
+        "A_bits": "0x7bff",
+        "B_bits": "0xc000",
+        "out_bits": "0xf7ff",
+        "A_class": "fin_max",
+        "B_class": "two_n"
+      }
+    ],
+    "fdiv_class_rows_10_11": [
+      {
+        "lane": 0,
+        "pair_index": 160,
+        "A_bits": "0x3c00",
+        "B_bits": "0x0000",
+        "out_bits": "0x7c00",
+        "A_class": "one_p",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 1,
+        "pair_index": 161,
+        "A_bits": "0x3c00",
+        "B_bits": "0x8000",
+        "out_bits": "0x7c00",
+        "A_class": "one_p",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 2,
+        "pair_index": 162,
+        "A_bits": "0x3c00",
+        "B_bits": "0x7c00",
+        "out_bits": "0x0000",
+        "A_class": "one_p",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 3,
+        "pair_index": 163,
+        "A_bits": "0x3c00",
+        "B_bits": "0xfc00",
+        "out_bits": "0x0000",
+        "A_class": "one_p",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 4,
+        "pair_index": 164,
+        "A_bits": "0x3c00",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "one_p",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 5,
+        "pair_index": 165,
+        "A_bits": "0x3c00",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "one_p",
+        "B_class": "snan"
+      },
+      {
+        "lane": 6,
+        "pair_index": 166,
+        "A_bits": "0x3c00",
+        "B_bits": "0x0001",
+        "out_bits": "0x7c00",
+        "A_class": "one_p",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 7,
+        "pair_index": 167,
+        "A_bits": "0x3c00",
+        "B_bits": "0x03ff",
+        "out_bits": "0x7401",
+        "A_class": "one_p",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 8,
+        "pair_index": 168,
+        "A_bits": "0x3c00",
+        "B_bits": "0x0400",
+        "out_bits": "0x7400",
+        "A_class": "one_p",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 9,
+        "pair_index": 169,
+        "A_bits": "0x3c00",
+        "B_bits": "0x7bff",
+        "out_bits": "0x0100",
+        "A_class": "one_p",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 10,
+        "pair_index": 170,
+        "A_bits": "0x3c00",
+        "B_bits": "0x3c00",
+        "out_bits": "0x3c00",
+        "A_class": "one_p",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 11,
+        "pair_index": 171,
+        "A_bits": "0x3c00",
+        "B_bits": "0xbc00",
+        "out_bits": "0xbc00",
+        "A_class": "one_p",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 12,
+        "pair_index": 172,
+        "A_bits": "0x3c00",
+        "B_bits": "0x3800",
+        "out_bits": "0x4000",
+        "A_class": "one_p",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 13,
+        "pair_index": 173,
+        "A_bits": "0x3c00",
+        "B_bits": "0xb800",
+        "out_bits": "0xc000",
+        "A_class": "one_p",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 14,
+        "pair_index": 174,
+        "A_bits": "0x3c00",
+        "B_bits": "0x4000",
+        "out_bits": "0x3800",
+        "A_class": "one_p",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 15,
+        "pair_index": 175,
+        "A_bits": "0x3c00",
+        "B_bits": "0xc000",
+        "out_bits": "0xb800",
+        "A_class": "one_p",
+        "B_class": "two_n"
+      },
+      {
+        "lane": 16,
+        "pair_index": 176,
+        "A_bits": "0xbc00",
+        "B_bits": "0x0000",
+        "out_bits": "0xfc00",
+        "A_class": "one_n",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 17,
+        "pair_index": 177,
+        "A_bits": "0xbc00",
+        "B_bits": "0x8000",
+        "out_bits": "0xfc00",
+        "A_class": "one_n",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 18,
+        "pair_index": 178,
+        "A_bits": "0xbc00",
+        "B_bits": "0x7c00",
+        "out_bits": "0x8000",
+        "A_class": "one_n",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 19,
+        "pair_index": 179,
+        "A_bits": "0xbc00",
+        "B_bits": "0xfc00",
+        "out_bits": "0x8000",
+        "A_class": "one_n",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 20,
+        "pair_index": 180,
+        "A_bits": "0xbc00",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "one_n",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 21,
+        "pair_index": 181,
+        "A_bits": "0xbc00",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "one_n",
+        "B_class": "snan"
+      },
+      {
+        "lane": 22,
+        "pair_index": 182,
+        "A_bits": "0xbc00",
+        "B_bits": "0x0001",
+        "out_bits": "0xfc00",
+        "A_class": "one_n",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 23,
+        "pair_index": 183,
+        "A_bits": "0xbc00",
+        "B_bits": "0x03ff",
+        "out_bits": "0xf401",
+        "A_class": "one_n",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 24,
+        "pair_index": 184,
+        "A_bits": "0xbc00",
+        "B_bits": "0x0400",
+        "out_bits": "0xf400",
+        "A_class": "one_n",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 25,
+        "pair_index": 185,
+        "A_bits": "0xbc00",
+        "B_bits": "0x7bff",
+        "out_bits": "0x8100",
+        "A_class": "one_n",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 26,
+        "pair_index": 186,
+        "A_bits": "0xbc00",
+        "B_bits": "0x3c00",
+        "out_bits": "0xbc00",
+        "A_class": "one_n",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 27,
+        "pair_index": 187,
+        "A_bits": "0xbc00",
+        "B_bits": "0xbc00",
+        "out_bits": "0x3c00",
+        "A_class": "one_n",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 28,
+        "pair_index": 188,
+        "A_bits": "0xbc00",
+        "B_bits": "0x3800",
+        "out_bits": "0xc000",
+        "A_class": "one_n",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 29,
+        "pair_index": 189,
+        "A_bits": "0xbc00",
+        "B_bits": "0xb800",
+        "out_bits": "0x4000",
+        "A_class": "one_n",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 30,
+        "pair_index": 190,
+        "A_bits": "0xbc00",
+        "B_bits": "0x4000",
+        "out_bits": "0xb800",
+        "A_class": "one_n",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 31,
+        "pair_index": 191,
+        "A_bits": "0xbc00",
+        "B_bits": "0xc000",
+        "out_bits": "0x3800",
+        "A_class": "one_n",
+        "B_class": "two_n"
+      }
+    ],
+    "fdiv_class_rows_12_13": [
+      {
+        "lane": 0,
+        "pair_index": 192,
+        "A_bits": "0x3800",
+        "B_bits": "0x0000",
+        "out_bits": "0x7c00",
+        "A_class": "half_p",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 1,
+        "pair_index": 193,
+        "A_bits": "0x3800",
+        "B_bits": "0x8000",
+        "out_bits": "0x7c00",
+        "A_class": "half_p",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 2,
+        "pair_index": 194,
+        "A_bits": "0x3800",
+        "B_bits": "0x7c00",
+        "out_bits": "0x0000",
+        "A_class": "half_p",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 3,
+        "pair_index": 195,
+        "A_bits": "0x3800",
+        "B_bits": "0xfc00",
+        "out_bits": "0x0000",
+        "A_class": "half_p",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 4,
+        "pair_index": 196,
+        "A_bits": "0x3800",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "half_p",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 5,
+        "pair_index": 197,
+        "A_bits": "0x3800",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "half_p",
+        "B_class": "snan"
+      },
+      {
+        "lane": 6,
+        "pair_index": 198,
+        "A_bits": "0x3800",
+        "B_bits": "0x0001",
+        "out_bits": "0x7c00",
+        "A_class": "half_p",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 7,
+        "pair_index": 199,
+        "A_bits": "0x3800",
+        "B_bits": "0x03ff",
+        "out_bits": "0x7001",
+        "A_class": "half_p",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 8,
+        "pair_index": 200,
+        "A_bits": "0x3800",
+        "B_bits": "0x0400",
+        "out_bits": "0x7000",
+        "A_class": "half_p",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 9,
+        "pair_index": 201,
+        "A_bits": "0x3800",
+        "B_bits": "0x7bff",
+        "out_bits": "0x0080",
+        "A_class": "half_p",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 10,
+        "pair_index": 202,
+        "A_bits": "0x3800",
+        "B_bits": "0x3c00",
+        "out_bits": "0x3800",
+        "A_class": "half_p",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 11,
+        "pair_index": 203,
+        "A_bits": "0x3800",
+        "B_bits": "0xbc00",
+        "out_bits": "0xb800",
+        "A_class": "half_p",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 12,
+        "pair_index": 204,
+        "A_bits": "0x3800",
+        "B_bits": "0x3800",
+        "out_bits": "0x3c00",
+        "A_class": "half_p",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 13,
+        "pair_index": 205,
+        "A_bits": "0x3800",
+        "B_bits": "0xb800",
+        "out_bits": "0xbc00",
+        "A_class": "half_p",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 14,
+        "pair_index": 206,
+        "A_bits": "0x3800",
+        "B_bits": "0x4000",
+        "out_bits": "0x3400",
+        "A_class": "half_p",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 15,
+        "pair_index": 207,
+        "A_bits": "0x3800",
+        "B_bits": "0xc000",
+        "out_bits": "0xb400",
+        "A_class": "half_p",
+        "B_class": "two_n"
+      },
+      {
+        "lane": 16,
+        "pair_index": 208,
+        "A_bits": "0xb800",
+        "B_bits": "0x0000",
+        "out_bits": "0xfc00",
+        "A_class": "half_n",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 17,
+        "pair_index": 209,
+        "A_bits": "0xb800",
+        "B_bits": "0x8000",
+        "out_bits": "0xfc00",
+        "A_class": "half_n",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 18,
+        "pair_index": 210,
+        "A_bits": "0xb800",
+        "B_bits": "0x7c00",
+        "out_bits": "0x8000",
+        "A_class": "half_n",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 19,
+        "pair_index": 211,
+        "A_bits": "0xb800",
+        "B_bits": "0xfc00",
+        "out_bits": "0x8000",
+        "A_class": "half_n",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 20,
+        "pair_index": 212,
+        "A_bits": "0xb800",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "half_n",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 21,
+        "pair_index": 213,
+        "A_bits": "0xb800",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "half_n",
+        "B_class": "snan"
+      },
+      {
+        "lane": 22,
+        "pair_index": 214,
+        "A_bits": "0xb800",
+        "B_bits": "0x0001",
+        "out_bits": "0xfc00",
+        "A_class": "half_n",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 23,
+        "pair_index": 215,
+        "A_bits": "0xb800",
+        "B_bits": "0x03ff",
+        "out_bits": "0xf001",
+        "A_class": "half_n",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 24,
+        "pair_index": 216,
+        "A_bits": "0xb800",
+        "B_bits": "0x0400",
+        "out_bits": "0xf000",
+        "A_class": "half_n",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 25,
+        "pair_index": 217,
+        "A_bits": "0xb800",
+        "B_bits": "0x7bff",
+        "out_bits": "0x8080",
+        "A_class": "half_n",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 26,
+        "pair_index": 218,
+        "A_bits": "0xb800",
+        "B_bits": "0x3c00",
+        "out_bits": "0xb800",
+        "A_class": "half_n",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 27,
+        "pair_index": 219,
+        "A_bits": "0xb800",
+        "B_bits": "0xbc00",
+        "out_bits": "0x3800",
+        "A_class": "half_n",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 28,
+        "pair_index": 220,
+        "A_bits": "0xb800",
+        "B_bits": "0x3800",
+        "out_bits": "0xbc00",
+        "A_class": "half_n",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 29,
+        "pair_index": 221,
+        "A_bits": "0xb800",
+        "B_bits": "0xb800",
+        "out_bits": "0x3c00",
+        "A_class": "half_n",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 30,
+        "pair_index": 222,
+        "A_bits": "0xb800",
+        "B_bits": "0x4000",
+        "out_bits": "0xb400",
+        "A_class": "half_n",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 31,
+        "pair_index": 223,
+        "A_bits": "0xb800",
+        "B_bits": "0xc000",
+        "out_bits": "0x3400",
+        "A_class": "half_n",
+        "B_class": "two_n"
+      }
+    ],
+    "fdiv_class_rows_14_15": [
+      {
+        "lane": 0,
+        "pair_index": 224,
+        "A_bits": "0x4000",
+        "B_bits": "0x0000",
+        "out_bits": "0x7c00",
+        "A_class": "two_p",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 1,
+        "pair_index": 225,
+        "A_bits": "0x4000",
+        "B_bits": "0x8000",
+        "out_bits": "0x7c00",
+        "A_class": "two_p",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 2,
+        "pair_index": 226,
+        "A_bits": "0x4000",
+        "B_bits": "0x7c00",
+        "out_bits": "0x0000",
+        "A_class": "two_p",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 3,
+        "pair_index": 227,
+        "A_bits": "0x4000",
+        "B_bits": "0xfc00",
+        "out_bits": "0x0000",
+        "A_class": "two_p",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 4,
+        "pair_index": 228,
+        "A_bits": "0x4000",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "two_p",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 5,
+        "pair_index": 229,
+        "A_bits": "0x4000",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "two_p",
+        "B_class": "snan"
+      },
+      {
+        "lane": 6,
+        "pair_index": 230,
+        "A_bits": "0x4000",
+        "B_bits": "0x0001",
+        "out_bits": "0x7c00",
+        "A_class": "two_p",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 7,
+        "pair_index": 231,
+        "A_bits": "0x4000",
+        "B_bits": "0x03ff",
+        "out_bits": "0x7801",
+        "A_class": "two_p",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 8,
+        "pair_index": 232,
+        "A_bits": "0x4000",
+        "B_bits": "0x0400",
+        "out_bits": "0x7800",
+        "A_class": "two_p",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 9,
+        "pair_index": 233,
+        "A_bits": "0x4000",
+        "B_bits": "0x7bff",
+        "out_bits": "0x0200",
+        "A_class": "two_p",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 10,
+        "pair_index": 234,
+        "A_bits": "0x4000",
+        "B_bits": "0x3c00",
+        "out_bits": "0x4000",
+        "A_class": "two_p",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 11,
+        "pair_index": 235,
+        "A_bits": "0x4000",
+        "B_bits": "0xbc00",
+        "out_bits": "0xc000",
+        "A_class": "two_p",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 12,
+        "pair_index": 236,
+        "A_bits": "0x4000",
+        "B_bits": "0x3800",
+        "out_bits": "0x4400",
+        "A_class": "two_p",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 13,
+        "pair_index": 237,
+        "A_bits": "0x4000",
+        "B_bits": "0xb800",
+        "out_bits": "0xc400",
+        "A_class": "two_p",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 14,
+        "pair_index": 238,
+        "A_bits": "0x4000",
+        "B_bits": "0x4000",
+        "out_bits": "0x3c00",
+        "A_class": "two_p",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 15,
+        "pair_index": 239,
+        "A_bits": "0x4000",
+        "B_bits": "0xc000",
+        "out_bits": "0xbc00",
+        "A_class": "two_p",
+        "B_class": "two_n"
+      },
+      {
+        "lane": 16,
+        "pair_index": 240,
+        "A_bits": "0xc000",
+        "B_bits": "0x0000",
+        "out_bits": "0xfc00",
+        "A_class": "two_n",
+        "B_class": "zero_p"
+      },
+      {
+        "lane": 17,
+        "pair_index": 241,
+        "A_bits": "0xc000",
+        "B_bits": "0x8000",
+        "out_bits": "0xfc00",
+        "A_class": "two_n",
+        "B_class": "zero_n"
+      },
+      {
+        "lane": 18,
+        "pair_index": 242,
+        "A_bits": "0xc000",
+        "B_bits": "0x7c00",
+        "out_bits": "0x8000",
+        "A_class": "two_n",
+        "B_class": "inf_p"
+      },
+      {
+        "lane": 19,
+        "pair_index": 243,
+        "A_bits": "0xc000",
+        "B_bits": "0xfc00",
+        "out_bits": "0x8000",
+        "A_class": "two_n",
+        "B_class": "inf_n"
+      },
+      {
+        "lane": 20,
+        "pair_index": 244,
+        "A_bits": "0xc000",
+        "B_bits": "0x7e00",
+        "out_bits": "0x7c01",
+        "A_class": "two_n",
+        "B_class": "qnan"
+      },
+      {
+        "lane": 21,
+        "pair_index": 245,
+        "A_bits": "0xc000",
+        "B_bits": "0x7c01",
+        "out_bits": "0x7c01",
+        "A_class": "two_n",
+        "B_class": "snan"
+      },
+      {
+        "lane": 22,
+        "pair_index": 246,
+        "A_bits": "0xc000",
+        "B_bits": "0x0001",
+        "out_bits": "0xfc00",
+        "A_class": "two_n",
+        "B_class": "sub_min"
+      },
+      {
+        "lane": 23,
+        "pair_index": 247,
+        "A_bits": "0xc000",
+        "B_bits": "0x03ff",
+        "out_bits": "0xf801",
+        "A_class": "two_n",
+        "B_class": "sub_max"
+      },
+      {
+        "lane": 24,
+        "pair_index": 248,
+        "A_bits": "0xc000",
+        "B_bits": "0x0400",
+        "out_bits": "0xf800",
+        "A_class": "two_n",
+        "B_class": "norm_min"
+      },
+      {
+        "lane": 25,
+        "pair_index": 249,
+        "A_bits": "0xc000",
+        "B_bits": "0x7bff",
+        "out_bits": "0x8200",
+        "A_class": "two_n",
+        "B_class": "fin_max"
+      },
+      {
+        "lane": 26,
+        "pair_index": 250,
+        "A_bits": "0xc000",
+        "B_bits": "0x3c00",
+        "out_bits": "0xc000",
+        "A_class": "two_n",
+        "B_class": "one_p"
+      },
+      {
+        "lane": 27,
+        "pair_index": 251,
+        "A_bits": "0xc000",
+        "B_bits": "0xbc00",
+        "out_bits": "0x4000",
+        "A_class": "two_n",
+        "B_class": "one_n"
+      },
+      {
+        "lane": 28,
+        "pair_index": 252,
+        "A_bits": "0xc000",
+        "B_bits": "0x3800",
+        "out_bits": "0xc400",
+        "A_class": "two_n",
+        "B_class": "half_p"
+      },
+      {
+        "lane": 29,
+        "pair_index": 253,
+        "A_bits": "0xc000",
+        "B_bits": "0xb800",
+        "out_bits": "0x4400",
+        "A_class": "two_n",
+        "B_class": "half_n"
+      },
+      {
+        "lane": 30,
+        "pair_index": 254,
+        "A_bits": "0xc000",
+        "B_bits": "0x4000",
+        "out_bits": "0xbc00",
+        "A_class": "two_n",
+        "B_class": "two_p"
+      },
+      {
+        "lane": 31,
+        "pair_index": 255,
+        "A_bits": "0xc000",
+        "B_bits": "0xc000",
+        "out_bits": "0x3c00",
+        "A_class": "two_n",
+        "B_class": "two_n"
+      }
+    ]
+  }
+}
