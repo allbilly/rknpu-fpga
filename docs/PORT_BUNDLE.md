@@ -1,7 +1,12 @@
 # rknpu-fpga port bundle
 
-Everything needed to keep working on a better-cooled machine. **17 MB compressed,
-5791 files.** Built 2026-11-11 from `/home/fedora/rknpu-fpga`.
+Everything needed to keep working on a better-cooled machine.
+
+**Updated 2026-11-12: the port now travels as a git commit, not an archive.**
+Commit `cdef9f9` on `main` (30 commits ahead of `origin/main`, **not yet pushed**)
+carries the whole source tree, the frozen capture corpus and the emitted Image-A
+bitstream - 2,152 files, 32.6 MB. The old 17 MB zip/tar.gz were deleted because
+they were a redundant copy and were already stale the moment the tree moved on.
 
 ## What is in here — and why the original folder is 205 GB
 
@@ -88,3 +93,38 @@ RK_CONFIRM_BOARD=YPCB_00338_1P1 RK_CONFIG_VOLTAGE=1.8 RK_CFGBVS=GND \
 A single Image-A build is ~2 h and peaks near 100 °C Tctl on the old
 heat-throttled laptop — which is precisely why porting to better cooling is
 worth doing.
+
+## How to move it
+
+```sh
+# on the old machine
+cd ~/rknpu-fpga && git push origin main        # or scp the repo, see below
+
+# on the new machine
+git clone https://github.com/allbilly/rknpu-fpga
+# the corpus and the Image-A bitstream come with the clone (they are tracked)
+```
+
+If you would rather not push to GitHub yet, copy the repository directly - a
+clone of this repo is ~360 MB including the 30 local commits, and the tracked
+tree is only 60 MB:
+
+```sh
+cd ~/rknpu-fpga && git bundle create ~/rknpu.bundle main
+# on the new machine: git clone ~/rknpu.bundle rknpu-fpga
+```
+
+## What is NOT in git (and why)
+
+`build/` is 197 GB of regenerable output - Vivado `.dcp` checkpoints (40 GB),
+Icarus `.vvp` binaries (15 GB), object files (4 GB), and multi-GB
+`packed.json`/`yosys_flat.json` dumps. None of it is needed on the new machine;
+it all reappears when you rebuild. `.Xil/` (2.6 GB Vivado scratch) and
+`verification/` (4.7 GB of historical evidence tarballs) are excluded too.
+
+The only `build/` content that IS tracked:
+
+* `build/rk3588-example-captures/` - 803 frozen capture fixtures. Every replay
+  runner reads this path and **102 tools hardcode it**, so it cannot move.
+* `build/merged-image/image-a-emit-*/host-merged.bit` - the deliverable (18 MB).
+  The repo already tracks emitted bitstreams, so this follows existing convention.
