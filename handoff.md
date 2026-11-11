@@ -1,29 +1,27 @@
 # Handoff — running the RK3588 examples on the K8 FPGA
 
-Last updated: **2026-11-10**
-Audience: the next coding agent picking up the work.
+Last updated: **2026-11-12 00:25 HKT**
+Audience: the next coding agent picking up the work, on a better-cooled machine.
+
+> **Read §16 first if you only read one section.** It is the current state, the
+> exact next action, and the five mistakes already made (so you don't repeat them).
+> §4-§13 remain the standing design map, commands, traps and evidence index.
 
 ## 0. State in one paragraph
 
-The design has a six-page AXI image (`ypcb_dual_endpoint_top`) and a pin-free
-USER2 mailbox wrapper (`ypcb_jtag_dual_top`). All four frozen conv-simple
-profiles, pooling, and all four GEMM shapes have RTL pages. **The six-page
-image now closes the 20 ns gate and emits a bitstream:**
-`build/jtag-dual-image/20261109T160627Z`, Vivado 2026.1, status PASS, WNS
-**+3.952 ns**, TNS 0, WHS +0.054 ns, 0 failing endpoints, 231,316 LUTs
-(77.47%), 19.5 BRAM tiles, 331,098 routed nets with 0 errors, DRC warnings
-only, bitstream SHA-256
-`81eef4cdcf97c3c86f34b4cce64ba3f436c4da22982950ea11e4b31fff674d39`. That
-closes the timing blocker by pipelining `rk_cmac_fp16_cell` into three
-registered legs and giving the array a matching elastic valid/tag pipe; the
-CACC chain and every page/transport contract are unchanged. The vendor-core
-Icarus compile regression is fixed, and `tools/conv/run_conv_simple_axi.py` now
-records source hashes. The replay matrix on the frozen tree is being refreshed
-(see §7 for what is already PASS). **Nothing has ever been programmed or
-observed on a board**; every receipt says `hardware_accessed=false`, and the
-DLC10 JTAG cable is currently not attached to this machine. A read-only hardware
-harness plus the audited programming procedure are prepared in
-`docs/BOARD_RUN_PREP.md` and `tools/host/run_jtag_dual_hardware.py`.
+The project has split into two images. **Image A** (runtime conv engine + real
+GEMM page + USER2 transport) is **built, timing-clean, and its bitstream is
+emitted and committed** — the first gate-clean candidate for a volatile load.
+**Image B** (pooling corpus + EW FP16/FDIV + ew-int) has **all six pages real and
+DRC clean**, and a real timing defect was found and fixed in a frozen pooling
+leaf under a documented freeze exception, but **Image B has not yet completed a
+clean build**: its last attempt was killed by the thermal guard because it was
+launched without `BENCH_HOLD_FOREIGN=1` while ungoverned foreign work saturated
+the host. **Nothing has ever been programmed or observed on a board**; every
+receipt says `hardware_accessed=false`, and the hardware session is blocked only
+on the DLC10 cable being attached plus explicit authorisation. The host that
+produced all of this is thermal-throttled and is being replaced, which is why
+this file now leads with a §16 that a fresh session can act on directly.
 
 ## 1. Read first
 
@@ -460,33 +458,35 @@ clock-change options are moot because all six pages closed at 50 MHz.
 
 ## 12. Suggested work order
 
-1. Finish the frozen-tree replay matrix (§7): dual modes 0-8, mailbox modes 0-6,
-   four conv-simple profiles (both sims), eight vendor profiles (both sims), and
-   the contract suites. Cite only source-matched PASS receipts.
-2. After the matrix: mark the image ready in `docs/BOARD_RUN_PREP.md`, re-run
-   the harness's offline `--check` against
-   `81eef4cdcf97c3c86f34b4cce64ba3f436c4da22982950ea11e4b31fff674d39` for
-   modes 0-6, and re-run `tools/host/jtag_preflight.py`.
-3. Ask the user for the hardware session (cable attached + explicit
-   authorization for a volatile JTAG load + audited target).
-4. With authorization, and only then: preflight -> DLC10 cable init -> read-only
-   target audit -> volatile load of the exact image -> `python3
-   tools/host/run_jtag_dual_hardware.py --authorized ...` modes 1-6 (mode 0
-   last, it deliberately quarantines the mailbox) -> capture the receipts.
-   Never flash.
-5. Compare the read-back on hardware against the frozen fixtures. A hardware
-   PASS binds the exact image hash and that session's target identity only.
-6. Future increments (not required for the current objective): the conv
-   corpus direction is now a **runtime-decoded conv engine** (user choice,
-   2026-11-10; task-13, `docs/CONV_RUNTIME_ENGINE.md`) that decodes geometry
-   from the per-task command stream and can replace the four per-profile conv
-   pages; staged prototype/equivalence/area work runs under
-   `rtl/cmac/experimental/runtime/`. The archived option-B shared-array work
-   (`build/timing-lab-share/`) stays as a fallback. The BY_K/multitask capture
-   work stays blocked on UAPI/bundle evidence (§10).
-7. When a six-page bitstream has been emitted and (later) hardware-tested,
-   keep `progress.md` and this handoff in sync; superseded receipts stay as
+**Current order (2026-11-12) — start with §16.4.**
+
+1. **Rebuild Image B** with `BENCH_HOLD_FOREIGN=1` and verify the *Design Timing
+   Summary* (not the first `Setup :` line). If it closes, emit; if not, pipeline
+   the remaining pooling leaves and record which ones failed.
+2. **Run the Image-B replay suite** (`--mode full`, needs a heavy window) and the
+   merged offline suite, and cite only source-matched PASS receipts.
+3. **Ask the user for the hardware session** (DLC10 cable attached + explicit
+   authorisation for one volatile load + audited target). Image A
+   `5b03e738...` is a valid candidate now.
+4. **With authorisation, and only then:** preflight -> DLC10 init -> read-only
+   target audit -> volatile load of the exact image ->
+   `tools/host/run_jtag_dual_hardware.py --authorized`, capturing receipts.
+   **Never flash.**
+5. **Compare read-back against the frozen fixtures.** A hardware PASS binds the
+   exact image hash and that session's target identity only.
+6. **Future increments** (not required for the objective): the conv corpus
+   direction is a runtime-decoded conv engine (user choice 2026-11-10; task-13,
+   `docs/CONV_RUNTIME_ENGINE.md`) that decodes geometry from the per-task command
+   stream; staged work is under `rtl/cmac/experimental/runtime/`. The archived
+   option-B shared-array work (`build/timing-lab-share/`) stays as a fallback.
+   BY_K/multitask capture work stays blocked on UAPI/bundle evidence (§10).
+7. Keep `progress.md` and this handoff in sync; superseded receipts stay as
    history, never as evidence for changed RTL.
+
+Historical note: the older version of this section led with "finish the frozen-tree
+replay matrix" against the six-page image and `81eef4cd...`. That image is now one
+of several candidates; the replay matrix work is largely done and is recorded in
+§7 and §13.
 
 ## 13. Evidence index
 
@@ -526,88 +526,291 @@ clock-change options are moot because all six pages closed at 50 MHz.
 | `docs/PPU_Q16_AVERAGE.md` | Q16 average candidate semantics |
 | `docs/PROGRESS_TABLE.md` | long-form status, per-family notes, remaining-work table |
 
-## 14. 2026-11-11 status snapshot (for a fresh session)
+## 14. Phase log (chronological; superseded by §16 for current state)
 
-- Two-image split adopted (D1): Image A = runtime conv engine + GEMM
-  (~176k LUTs), Image B = pooling band + EW/ew-int (~120k LUTs). Merged
-  single image rejected (engine alone 17.8k over the 150k ceiling).
-- Runtime engine: **LEG A GREEN 3/3 on the parameterised C16xK16 construction**
-  (2026-11-11; receipts iverilog-20261110T171049Z / T171818Z / T172423Z, written
-  BOs identical to the frozen captures, complete memory image equal, source
-  hashes before==after). The earlier "verified on the pre-parameterisation
-  construction" note is superseded by this hash-bound rerun.
-- Old note kept for history: verified on the pre-parameterisation construction
-  (leg A 3/3, leg B 51/51); D1 area 167,858 LUTs; parameterised re-run
-  blocked by harness width/layout fixes (instructions issued), no logic
-  finding.
-- Image B: pooling fit measured 110,107 LUTs; ew-int page/aperture integrated
-  and current-file evidenced; S3/S4 plan PLAN_READY. Image A: scaffold + ABI
-  bench + replay plan ready; real page wrapper pending conveng green.
-- Verification: FINAL-freeze 518/518; vendor 16/16; dual 0-8 (9/9); mailbox
-  mode 0; 270 contracts green; mailbox 1-2 blocked-by-host-hardware.
-- Hardware session: DLC10 cable absent; harnesses + runbook pinned offline.
-  Two emitted images remain the load candidates: six-page `81eef4cd...`
-  and EW `b373ee70...`.
-- Cooling is the binding constraint: keep one heavy job at a time through
-  `build/verif/host_guard/safe_run.sh`, stage long builds (synth then impl),
-  and never retry into heat.
+These are the dated snapshots that produced §16. Keep them for history and for
+the receipt names they cite; **do not treat any of them as current state.**
 
+- 2026-11-10: two-image split adopted (D1). Image A = runtime conv engine +
+  GEMM (~176k LUTs), Image B = pooling band + EW/ew-int (~120k LUTs). Merged
+  single image rejected (engine alone 17,858 LUTs over the 150k ceiling).
+- 2026-11-11: runtime engine **LEG A GREEN 3/3** on the parameterised C16xK16
+  construction (receipts `iverilog-20261110T171049Z`, `T171818Z`, `T172423Z`;
+  written BOs identical to the frozen captures, complete memory image equal,
+  source hashes before==after). Leg B 51/51.
+- 2026-11-11: **Image A S1 attach complete** — real `rk_conv_runtime_page_axi`
+  replaces the ABI stub, two-master memory arbiter, page contract PASS (54/54
+  captured QWORDs), scaffold bench PASS on 4/4 SLVERR holes, six RTL defects
+  fixed. Receipt `build/verif/S1_ATTACH_SUMMARY.md`.
+- 2026-11-11: **Image A S2 attach complete** — real `rk_cmac_gemm_axi`.
+  Receipt `build/verif/S2_ATTACH_SUMMARY.md`.
+- 2026-11-11: **Image A BUILD + EMIT** — 172,923 LUTs, sys_clk WNS +1.525 ns,
+  bitstream `5b03e738...`. Receipt
+  `build/merged-image/image-a-20261111T022739Z/BUILD_CLOSEOUT.md`.
+- 2026-11-11: **Image B S3 attach complete** — real 19 x 4 KiB pooling band
+  behind `rtl/ppu/rk_ppu_pool_band_axi.sv`. Receipt
+  `build/verif/S3_POOL_BAND_SUMMARY.md`.
+- 2026-11-11: **Image B S4 attach complete** — real `rk_ew_axi` page plus the
+  new six-bank `rtl/rk_ew_aperture.sv`; all six pages real. Receipt
+  `build/verif/S4_EW_PAGES_SUMMARY.md`.
+- 2026-11-11: **Image B build: timing FAIL** at sys_clk -92.008 ns; pooling leaf
+  isolated; freeze exception #1 filed. Receipt
+  `build/merged-image/IMAGE_B_TIMING_FAILURE_20261111.md`.
+- 2026-11-12: **Image B leaf fix landed** (400,012-value equivalence, 19/19
+  dual-sim) and the rebuild was **aborted by the thermal guard** because it was
+  launched without `BENCH_HOLD_FOREIGN=1`. Receipt
+  `build/merged-image/IMAGE_B_ABORT_FOREIGN_HOLD_20261112.md`.
+- Historical note: the pre-parameterisation construction was also leg-A 3/3 and
+  leg-B 51/51, D1 area 167,858 LUTs. Superseded by the hash-bound reruns above.
+- Verification standing totals: vendor 16/16; dual modes 0-8 9/9; 270 contracts
+  green; mailbox mode 0; mailbox modes 1-2 blocked-by-host-hardware.
 
-- **Image A S1 attach COMPLETE** (2026-11-11): real `rk_conv_runtime_page_axi`
-  in place of the ABI stub + two-master memory arbiter; page contract PASS
-  (54/54 captured QWORDs), scaffold bench PASS on 4/4 SLVERR holes, merged suite
-  79/79, render `VERIFIED_RENDER_ONLY`, replay `full` = `WRAPPER_ATTACHED`.
-  Six RTL defects fixed. Receipt `build/verif/S1_ATTACH_SUMMARY.md`.
+## 15. The three documents that explain Image B precisely
 
+Read these before touching Image B; they contain the measured paths, the
+decision record and the abort reason:
 
-## 15. State as of 2026-11-11 23:05 HKT (two-image era, post-build)
+- `build/merged-image/IMAGE_B_TIMING_FAILURE_20261111.md` — the 816-level
+  combinational path, per-domain timing tables, and the remediation scope.
+- `build/verif/freeze-exceptions/FREEZE_EXCEPTION_001_global_avg_leaf.md` —
+  what was authorised to change, why, and the full evidence chain.
+- `build/merged-image/IMAGE_B_ABORT_FOREIGN_HOLD_20261112.md` — why the last
+  build died, and the exact reproducer for the fix.
 
-**Image A — BUILT, TIMING-CLEAN, BITSTREAM EMITTED.**
-- Both real engines attached: `rk_conv_runtime_page_axi` (0x1_0000, S1) and
-  `rk_cmac_gemm_axi` (0x1_1000, S2), behind a **three-master** shared-memory
-  arbiter (host > conv > gemm).
-- Build: **172,923 implemented LUTs (57.91 %)**, 44,446 regs, 28 BRAM.
-- Timing (`timing.rpt`, per-clock tables — read them per domain):
-  **sys_clk WNS +1.525 ns / WHS +0.062 ns, 0 failing endpoints**;
-  jtag_tck WNS +158.030 ns / WHS +0.084 ns. 0 no-clock pins,
-  0 unconstrained endpoints. 0 timing violations. DRC warnings only.
-- Bitstream `build/merged-image/image-a-emit-20261111T041526Z/host-merged.bit`
-  **18,735,212 B, SHA-256 `5b03e7388ea0d0a95462dcd7d9279277c6264085d8a801f484ea928a12ac2bfb`**,
-  USR_ACCESS `396e6429`. Emitted from the routed checkpoint via
-  `fpga/merged/emit_routed.tcl` (same reviewed emission gates). **NOT programmed.**
+---
 
-**Image B — pages attached, BUILD FAILS ON TIMING (real RTL limit).**
-- All six pages are real: pool band (19 x 4 KiB, S3), ew page (`rk_ew_axi`, S4),
-  ew aperture (`rtl/rk_ew_aperture.sv`, new six-bank 100 KiB, S4), ew-int page +
-  aperture. Merged suite 79/79.
-- Build: 115,172 synth / 114,609 implemented LUTs (38.4 %), 45 BRAM,
-  **DRC clean (0 violations)**, routed (108 MB checkpoint), 0 no-clock /
-  unconstrained.
-- **Timing FAILS: sys_clk WNS −92.008 ns, TNS −48,615 ns, 10,682 failing
-  endpoints.** Worst path is inside one frozen pooling leaf: 816 logic levels
-  (745 CARRY4) with 111.7 ns delay in a 20 ns cycle — the FP16-average adder
-  trees were never pipelined, and the pooling RTL had only ever been
-  synthesised/OOC-fit, never routed+timed.
-- Fix path needs RTL work on **frozen** leaf files (pipeline/serialise the adder
-  tree) with a freeze exception, or a slower clock domain for the band. Not a
-  gate to relax.
+## 16. CURRENT STATE AND THE EXACT NEXT ACTION (2026-11-12)
 
-**Two template defects fixed this round** (both in `fpga/merged/` and
-`fpga/image_b/`): the worst-slack gate read `get_property SLACK` off
-`get_timing_paths -max_paths 1` (generic pin slack, reported −90 ns on a clean
-design) and could pick the wrong clock domain. It now anchors on the
-**Design Timing Summary** section and reads the correct column per delay type.
+### 16.1 Where the repository stands
 
-**Host**: fan is healthy (0 rpm at idle ~52 °C, spins to 1800-3600 rpm on load);
-8 cores at `performance` governor boosting to ~4.2 GHz. No reboot needed. The
-guard kills CPU-active processes at median 97 °C and kills foreign unguarded
-jobs too; that is what aborted two builds.
+```
+branch: main
+HEAD:   39c6957  "docs: port bundle now travels as a git commit, not a zip"
+ahead:  31 commits of origin/main   (origin/main = 6aa8e7a, 2026-11-06)
+tree:   clean (0 dirty entries)
+```
 
-**Hardware session**: still blocked only on the **DLC10 cable + explicit
-authorization**. Image A `5b03e738…` is the first timing-clean, gate-clean
-candidate for a volatile load.
+**Nothing has been pushed.** Everything needed is in the local commits. To
+continue on the new machine:
 
-**Verification totals**: frozen manifest 518/518, merged offline suite 79/79,
-vendor 16/16, dual 0-8 9/9, P1 38/38, P2 ew-fp16 54/54 + determinism 5/5,
-FDIV 1,452/1,452, pooling 19/19 dual-sim, ew-int 15/15 dual-sim, runtime leg A
-3/3 + leg B 51/51, page contract 54/54 captured QWORDs.
+```sh
+# on the OLD machine (if still available):
+cd ~/rknpu-fpga && git push origin main
+# or without GitHub:
+git bundle create ~/rknpu.bundle main
+
+# on the NEW machine:
+git clone https://github.com/allbilly/rknpu-fpga
+# or: git clone ~/rknpu.bundle rknpu-fpga
+```
+
+`.gitignore` tracks exactly two things under `build/`:
+
+- `build/rk3588-example-captures/` — 803 frozen capture fixtures. Every replay
+  runner reads this path and **102 tools hardcode it**, so it cannot be moved
+  without editing all of them.
+- `build/merged-image/image-a-emit-20261111T041526Z/host-merged.bit` — the
+  deliverable. The repo already tracks emitted bitstreams
+  (`build/framework-factored-sys-reset-v1/emission/full512-sys-reset.bit`), so this
+  follows existing convention rather than inventing a new one.
+
+Everything else under `build/` is 197 GB of regenerable output (`.dcp` 40 GB,
+`.vvp` 15 GB, object files, multi-GB `packed.json` dumps). It is **not** in git and
+you do **not** need it — it reappears when you rebuild. `.Xil/` (Vivado scratch,
+2.6 GB) and `verification/` (4.7 GB of historical evidence tarballs) are excluded
+too.
+
+### 16.2 Image A — DONE, ready to load
+
+| | |
+|---|---|
+| Bitstream | `build/merged-image/image-a-emit-20261111T041526Z/host-merged.bit` |
+| Size | 18,735,212 B |
+| SHA-256 | `5b03e7388ea0d0a95462dcd7d9279277c6264085d8a801f484ea928a12ac2bfb` |
+| USR_ACCESS | `396e6429` |
+| Programmed? | **No** (`programmed=false`, `hardware_accessed=false`) |
+| Pages | `rk_conv_runtime_page_axi` @ `0x1_0000`, `rk_cmac_gemm_axi` @ `0x1_1000`, shared 64 KiB window @ `0x0` |
+| Memory arbitration | 3-master (host > conv > gemm), one outstanding response, owner latched |
+| LUTs | 172,923 implemented (57.91 % of 298,600) |
+| Registers / BRAM | 44,446 (7.44 %) / 28 (2.93 %) |
+| **sys_clk timing** | **WNS +1.525 ns, WHS +0.062 ns, 0 failing endpoints** |
+| jtag_tck timing | WNS +158.030 ns, WHS +0.084 ns |
+| Constraints | 0 no-clock pins, 0 unconstrained internal endpoints, "All user specified timing constraints are met" |
+| DRC | warnings only (20× `REQP-1839` RAMB36 async-control, `DPREG-4`); no errors |
+
+**Read `timing.rpt` per clock domain.** The file holds one table per clock. The
++158.030 ns figure is the `jtag_tck` domain; the number that matters for datapath
+closure is `sys_clk` **+1.525 ns**. Taking the first `Setup :` line in the file
+gives the wrong domain — that mistake was made once here and had to be corrected
+in the docs.
+
+Re-emitting from an existing routed checkpoint costs ~15 min, not ~2 h, because
+`fpga/merged/emit_routed.tcl` is an emission-only pass over `routed.dcp`.
+
+### 16.3 Image B — pages attached and DRC clean, but NOT yet built clean
+
+All six pages are real modules:
+
+| slot | window | module |
+|---|---|---|
+| `memory` | `0x0000_0000` | `rk_bram` + halfword AXI bridge |
+| `pool_band_page` | `0x0001_0000..0x0002_2fff` | `rk_ppu_pool_band_axi` (19 x 4 KiB corpus pages) |
+| `ew_page` | `0x0002_3000` | `rk_ew_axi` |
+| `ew_aperture_page` | `0x1000_0000` (1 MiB decoded) | `rk_ew_aperture` (six banks, 100 KiB) |
+| `ew_int_page` | `0x0002_4000` | `rk_ew_int_page_axi` |
+| `ew_int_aperture_page` | `0x1100_0000` (1 MiB decoded) | `rk_ew_int_aperture` |
+
+New RTL added in this phase: `rtl/ppu/rk_ppu_pool_band_axi.sv` (band wrapper:
+per-page selection + 19-to-1 memory arbitration) and `rtl/rk_ew_aperture.sv`
+(six physical banks A/B/D/scratch/command/task = 100 KiB, every other decoded
+address an explicit hole; host staging refused with SLVERR while the page is busy).
+
+Profile state: `--profile image-b check` gives `VERIFIED_RENDER_ONLY`.
+Merged offline suite: **79/79**.
+Image-B replay `--mode full` now reports **`HEAVY_WINDOW_REQUIRED`** — the
+missing-page refusal is gone; only the heavy-window gate remains.
+
+#### The timing defect that was found and fixed
+
+Image B routed with **DRC clean (0 violations)** but **failed sys_clk timing**:
+
+```
+WNS -92.008 ns, TNS -48,615 ns, 10,682 failing endpoints of 113,012
+worst path: pool_band_page/g_page_inst[0].pool_page/engine/
+            input_atom_q_reg[27]_replica -> corpus/g_case_0.leaf/out_atom_q_reg[20]
+Data Path Delay 111.685 ns (logic 59.062, route 52.623), Requirement 20.000 ns
+Logic Levels 816 (CARRY4 = 745)
+```
+
+Root cause: `fp16_mean15()` in the **frozen** leaf
+`rtl/ppu/rk_ppu_pool_avg_global3x5_c8_fp16_capture.sv` evaluated, combinationally
+between two registers, three 64-bit `/ 15` and `% 15` operations **and a
+variable-divisor 64-bit divide** `numerator / (15 << shift_amount)`. That is a
+~5.6x overrun of the period. The pooling RTL had only ever been synthesised and
+OOC-fit, never routed and timed, so it had never been visible.
+
+**Freeze exception #1 (Lead-approved) was granted and applied.** The
+variable-divisor divide was removed *by algebra*: with `total = 15*F + R`,
+`shift = highest - 10`, `den = 15 << shift`, the quotient/remainder of
+`total/den` are exactly `Q = F >> shift` and `rem = 15*M + R` with
+`M = F & (2^shift - 1)`. Only a divide by the **constant 15** remains (it
+synthesises to a multiply-high), evaluated in separate clock cycles. The
+`highest < 10` branch is the same formula with `shift = 0`. **No arithmetic,
+rounding, special-case or output value changed.**
+
+Evidence, all re-run after the change:
+
+| check | result |
+|---|---|
+| Formula equivalence, old vs new, 400,012 values (boundaries + random) | **0 mismatches** |
+| `tools/ppu/run_pool_avg_global3x5.py` Icarus / Verilator | **PASS / PASS**, complete 4096-byte BO exact |
+| `tools/ppu/run_pool_corpus.py --simulator both`, 19 cases | **PASS / PASS**, 19/19 each, 0 mismatches per case |
+| `tests/ppu_pooling` | **129/129 OK** |
+| Frozen manifest | **517/518** — only the authorised leaf changed |
+| New leaf SHA-256 | `d9cc41a239c764e98df117ce30b1776a7323949e22d9ff72ab9588f0bf6a3e5f` |
+
+### 16.4 THE EXACT NEXT ACTION
+
+**Rebuild Image B with the foreign-hold enabled, then verify the gate properly.**
+Everything needed is committed and verified; this is build-and-verify, not design.
+
+```sh
+cd ~/rknpu-fpga
+
+# 1. render to obtain the source-hash the build gate requires
+python3 tools/merged/vivado_merged_image.py render --profile image-b \
+  --out build/merged-image/image-b-render
+SHA=$(python3 -c "import json;print(json.load(open('build/merged-image/image-b-render/inputs.json'))['source_manifest_sha256'])")
+
+# 2. build. BENCH_HOLD_FOREIGN=1 is THE lesson from the last abort (see §16.6).
+STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+BENCH_HOLD_FOREIGN=1 BENCH_CPU_QUOTA=200 BENCH_CPUS=4-7 \
+RK_CONFIRM_BOARD=YPCB_00338_1P1 RK_CONFIG_VOLTAGE=1.8 RK_CFGBVS=GND \
+RK_LED_ACTIVE_LOW=0 RK_MERGED_SOURCE_SHA=$SHA \
+  build/verif/host_guard/safe_run.sh python3 tools/merged/vivado_merged_image.py \
+  synth --execute --profile image-b --out build/merged-image/image-b-$STAMP
+```
+
+The quota/cpuset above suits a real workstation. The old laptop was pinned to
+`BENCH_CPU_QUOTA=50 BENCH_CPUS=0-1` purely because of its degraded cooling — that
+limit is **not** a design requirement.
+
+Then verify with the authoritative section, never the first `Setup :` line:
+
+```sh
+D=build/merged-image/image-b-<stamp>/implementation
+grep -A6 "Design Timing Summary" $D/timing.rpt    # sys_clk WNS must be >= 0
+grep -c "Slack (VIOLATED)" $D/timing.rpt          # must be 0
+grep -c "Combinatorial Loop Alert" $D/drc.rpt     # must be 0   (LUTLP-1)
+grep -c "All user specified timing constraints are met" $D/timing.rpt   # must be 1
+```
+
+If it closes, emit the bitstream (§8 has the emission command) and Image B joins
+Image A as a loadable candidate. If it does **not** close, the remaining leverage
+is pipelining the other pooling leaves' adders — identify which leaves the failing
+paths land in and record it honestly. Do **not** relax the 20 ns clock or waive DRC.
+
+### 16.5 Secondary work
+
+- **Image B replays.** `--mode full` needs a heavy window (the ewint page replay is
+  ~2 min Verilator, ~10 min Icarus single-core). Run it while the build is going.
+- **Hardware session.** Image A `5b03e738...` is a valid candidate now. It needs
+  the DLC10 cable attached (`lsusb -d 03fd:` is the check) plus explicit
+  authorisation for one volatile load. Procedure: `docs/BOARD_RUN_PREP.md`; harness:
+  `tools/host/run_jtag_dual_hardware.py`. **Never flash.**
+- **Other candidate bitstreams present on disk** (under `build/`, therefore NOT in
+  git; copy them separately if wanted):
+  - six-page image `81eef4cdcf97c3c86f34b4bce64ba3f436c4da22982950ea11e4b31fff674d39`
+    at `build/jtag-dual-image/20261109T160627Z/implementation/rk_jtag_dual.bit`
+  - EW image `b373ee7000cf23b727a06743b0025760610b6eba6a441af14725a1bfcf75f59a`
+    at `build/host-jtag-preparation/20261109T210015Z-emission/bitstream/host-user2-ew.bit`
+
+### 16.6 Five mistakes already made — do not repeat them
+
+1. **Launching a build without `BENCH_HOLD_FOREIGN=1`.** Ungoverned foreign
+   Verilator/pytest work then shares the host, combined heat exceeds the cooling,
+   and the guard kills the build (and the foreign job) at a median ~97 degC. The
+   matcher in `build/verif/host_guard/foreign_hold.sh` already covers
+   `*vortex/tinygpu*`, `*hw/unittest/*`, `*ladder*`, `*rv32*` and friends —
+   **enable it rather than extending it.** `safe_run.sh:26` reads that variable.
+2. **Reading the wrong `Setup :` table in `timing.rpt`.** One table per clock
+   domain. Use the `Design Timing Summary` section. The build templates were fixed
+   to do exactly this; if you write your own gate, do the same.
+3. **`get_timing_paths -max_paths 1` + `get_property SLACK`** returns the
+   *generic pin slack*, not the path slack, and returns a single object rather than
+   a list (so a naive `foreach` walks fields). It once reported -90 ns on a design
+   that was +152 ns in the jtag_tck domain. Use `report_timing_summary`.
+4. **Re-including a whole `build/` subtree in `.gitignore`.** `!/build/merged-image/`
+   dragged 1.7 GB of `.dcp`/`.vvp` probe output into the commit. Scope the rules to
+   exact paths, and remember git will not descend into an excluded parent — every
+   level must be re-opened.
+5. **A `**/*.tar.gz` pattern silently matches nothing.** `/verification/runs/**/*.tar.gz`
+   matched zero files (a `**/` needs an intervening directory), so 1.45 GB of
+   historical evidence archives were queued for commit. The rule is now `*.tar.gz`.
+
+### 16.7 Tooling notes from the old machine
+
+The old laptop was **cooling-bound, not compute-bound**: idle-degraded cooling sat
+at 84-99 degC with 98 % idle CPU, ~1 core sustained killed it within 20-30 min,
+sensor swings of +/-15 degC were normal, and the fan was healthy (0 rpm at idle
+~52 degC, 1800-3600 rpm under load). The new machine should not need any of this,
+but the guard is still useful for long builds: `host_guard.py` (sustained kill at
+median 97 degC, instant 104 degC, streak 2x >= 101 degC) and `safe_run.sh`
+(battery gate, cool gate, CPU quota/cpuset, shared lock, optional foreign hold).
+`/tmp/rknpu-heavy.lock` is a cooperative single-heavy-job lock shared with another
+project on that host — keep using it if the new machine is shared.
+
+Toolchain: **Vivado 2026.1**, part `xc7k480tffg1156-2`, 50 MHz / 20 ns. Icarus
+13.0 and Verilator are the simulators; Icarus is usable but slow (~17 cycles/s on
+the full merged top, hence the page-level replays).
+
+### 16.8 Verification totals (all source-matched)
+
+Frozen manifest **517/518** (only the authorised leaf changed); merged offline
+suite **79/79**; vendor 16/16; dual modes 0-8 9/9; P1 38/38; P2 ew-fp16 54/54 +
+determinism 5/5; FDIV 1,452/1,452; pooling 19/19 dual-sim; ew-int 15/15 dual-sim;
+runtime leg A 3/3 + leg B 51/51; page contract 54/54 captured QWORDs; Image A
+0 timing violations with constraints met.
+
+Superseded figure: **518/518** appears throughout older documents. It is now
+**517/518** because freeze exception #1 authorised exactly one file to change.

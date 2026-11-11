@@ -3,9 +3,9 @@
 Everything needed to keep working on a better-cooled machine.
 
 **Updated 2026-11-12: the port now travels as a git commit, not an archive.**
-Commit `cdef9f9` on `main` (30 commits ahead of `origin/main`, **not yet pushed**)
+Commit `39c6957` on `main` (31 commits ahead of `origin/main`, **not yet pushed**)
 carries the whole source tree, the frozen capture corpus and the emitted Image-A
-bitstream - 2,152 files, 32.6 MB. The old 17 MB zip/tar.gz were deleted because
+bitstream - 2,152+ files, 32.6 MB. See `handoff.md` §16 for current state. The old 17 MB zip/tar.gz were deleted because
 they were a redundant copy and were already stale the moment the tree moved on.
 
 ## What is in here — and why the original folder is 205 GB
